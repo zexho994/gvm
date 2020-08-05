@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="init project">
+      <change beforePath="$PROJECT_DIR$/ch1/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Cmd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,12 +40,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1fgj1nRn7gPxFJ3xf0fiwPoTpc4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -59,14 +84,50 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init project" />
+    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596646444699">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596646444699" />
+    <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596646518649">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518649" />
+    <state width="1878" height="344" key="GridCell.Tab.0.center" timestamp="1596646518647">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518647" />
+    <state width="1878" height="344" key="GridCell.Tab.0.left" timestamp="1596646518647">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518647" />
+    <state width="1878" height="344" key="GridCell.Tab.0.right" timestamp="1596646518648">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518648" />
     <state x="461" y="239" key="SettingsEditor" timestamp="1596646473035">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596646473035" />
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596646613163">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596646613163" />
   </component>
 </project>

@@ -6,6 +6,9 @@ import (
 	"os"
 )
 
+/*
+命令行结构体
+*/
 type Cmd struct {
 	helpFlag    bool     // 帮助命令
 	versionFlag bool     // 版本命令
@@ -34,6 +37,9 @@ func parseCmd() *Cmd {
 	return cmd
 }
 
+/*
+用法说明
+*/
 func printUsage() {
 	fmt.Printf("Usage: %s [option] class [args...]\n", os.Args[0])
 }

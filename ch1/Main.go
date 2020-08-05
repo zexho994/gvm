@@ -15,6 +15,9 @@ func main() {
 	}
 }
 
+/*
+Jvm启动方法
+*/
 func startJvm(cmd *Cmd) {
 	fmt.Printf("classpath  %s \nclass : %s \nargs : %v", cmd.cpOption, cmd.class, cmd.args)
 }
