@@ -17,6 +17,10 @@ type Cmd struct {
 	args        []string // 命令行的全部参数
 }
 
+/*
+命令行处理方法
+对于不同的属性,设置了不同的处理方法
+*/
 func parseCmd() *Cmd {
 	cmd := &Cmd{}
 	flag.Usage = printUsage
@@ -38,7 +42,7 @@ func parseCmd() *Cmd {
 }
 
 /*
-用法说明
+输出用法说明
 */
 func printUsage() {
 	fmt.Printf("Usage: %s [option] class [args...]\n", os.Args[0])
