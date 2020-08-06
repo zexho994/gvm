@@ -15,6 +15,7 @@ type Cmd struct {
 	cpOption    string   // 指定路径
 	class       string   // 文件名
 	args        []string // 命令行的全部参数
+	XjreOption  string   // 指定jre目录的位置
 }
 
 /*
@@ -30,6 +31,7 @@ func parseCmd() *Cmd {
 	flag.BoolVar(&cmd.versionFlag, "v", false, "[zexho] pring version and exit")
 	flag.StringVar(&cmd.cpOption, "classpath", "", "[zexho] classpath")
 	flag.StringVar(&cmd.cpOption, "cp", "", "[zexho] class")
+	flag.StringVar(&cmd.XjreOption,"Xjre","","[zexho]path to jre")
 	flag.Parse()
 
 	args := flag.Args()

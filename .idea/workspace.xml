@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="init project">
-      <change beforePath="$PROJECT_DIR$/ch1/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Cmd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Main.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加一些注释">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
@@ -98,7 +103,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+    <MESSAGE value="[update] add some annotation" />
+    <MESSAGE value="[update] 添加一些注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加一些注释" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596646444699">
@@ -125,9 +132,13 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596646473035" />
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596646613163">
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596646840375">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596646613163" />
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596646840375" />
+    <state x="618" y="451" key="git4idea.ui.GitTagDialog" timestamp="1596730918304">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="618" y="451" key="git4idea.ui.GitTagDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596730918304" />
   </component>
 </project>
