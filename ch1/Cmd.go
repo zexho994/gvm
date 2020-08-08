@@ -25,13 +25,13 @@ type Cmd struct {
 func parseCmd() *Cmd {
 	cmd := &Cmd{}
 	flag.Usage = printUsage
-	flag.BoolVar(&cmd.helpFlag, "help", false, "[zexho] print help message")
-	flag.BoolVar(&cmd.helpFlag, "?", false, "[zexho] print help message")
-	flag.BoolVar(&cmd.versionFlag, "version", false, "[zexho] pring version and exit")
-	flag.BoolVar(&cmd.versionFlag, "v", false, "[zexho] pring version and exit")
-	flag.StringVar(&cmd.cpOption, "classpath", "", "[zexho] classpath")
-	flag.StringVar(&cmd.cpOption, "cp", "", "[zexho] class")
-	flag.StringVar(&cmd.XjreOption,"Xjre","","[zexho]path to jre")
+	flag.BoolVar(&cmd.helpFlag, "help", false, "[gvm] print help message")
+	flag.BoolVar(&cmd.helpFlag, "?", false, "[gvm] print help message")
+	flag.BoolVar(&cmd.versionFlag, "version", false, "[gvm] pring version and exit")
+	flag.BoolVar(&cmd.versionFlag, "v", false, "[gvm] pring version and exit")
+	flag.StringVar(&cmd.cpOption, "classpath", "", "[gvm] classpath")
+	flag.StringVar(&cmd.cpOption, "cp", "", "[gvm] class")
+	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm]path to jre")
 	flag.Parse()
 
 	args := flag.Args()
@@ -47,5 +47,5 @@ func parseCmd() *Cmd {
 输出用法说明
 */
 func printUsage() {
-	fmt.Printf("Usage: %s [option] class [args...]\n", os.Args[0])
+	fmt.Printf("[gvm][Usage] : %s [option] class [args...]\n", os.Args[0])
 }

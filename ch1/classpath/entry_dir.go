@@ -1,6 +1,7 @@
 package classpath
 
 import (
+	"fmt"
 	"io/ioutil"
 	filepath "path/filepath"
 )
@@ -20,12 +21,15 @@ go中没有构造函数的概念
 func newDirEntry(path string) *DirEntry {
 	// 将路径path转化成绝对路径
 	absDir, err := filepath.Abs(path)
-	// 如果出现错误,打印
+
+	// 如果出现错误
 	if err != nil {
-		print("[gvm] ")
+		fmt.Printf("[gvm][newDirEntry] create direntry fail , <path> : %v\n", path)
 		println(err)
 	}
 
+	// 转化成功
+	fmt.Printf("[gvm][newDirEntry] create direntry, <adsDir> : %v\n", absDir)
 	return &DirEntry{absDir}
 }
 
@@ -35,8 +39,12 @@ func newDirEntry(path string) *DirEntry {
 func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
 	// 拼接目录和类名
 	filename := filepath.Join(self.absDir, className)
+	fmt.Printf("[gvm][readClass] dirEntry readClass , <fileName> : %v\n", filename)
+
 	// 读取目标位置下对应的class文件数据
 	data, err := ioutil.ReadFile(filename)
+	fmt.Printf("[gvm][readClass] dirEntry readFile , <data> : %v\n", data)
+
 	// 输出
 	return data, self, err
 }

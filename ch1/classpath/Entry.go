@@ -28,7 +28,7 @@ type Entry interface {
 根据参数创建不同的Entry实例
 */
 func newEntry(path string) Entry {
-	// 列表类型 ":"
+	// 列表类型 "/"
 	if strings.Contains(path, pathListSeparator) {
 		return newCompositeEntry(path)
 	}
@@ -36,11 +36,13 @@ func newEntry(path string) Entry {
 	if strings.HasSuffix(path, "*") {
 		return newWildcardEntry(path)
 	}
+
 	// 压缩包类型
 	if strings.HasSuffix(path, ".jar") || strings.HasSuffix(path, ".JAR") ||
 		strings.HasSuffix(path, ".zip") || strings.HasSuffix(path, ".ZIP") {
 		return newZipEntry(path)
 	}
+
 	// 返回目录形式的类路径
 	return newDirEntry(path)
 

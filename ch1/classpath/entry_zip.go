@@ -2,6 +2,7 @@ package classpath
 
 import (
 	"archive/zip"
+	"fmt"
 	"path/filepath"
 )
 import "errors"
@@ -16,37 +17,50 @@ type ZipEntry struct {
 参考{@see entry_dir.go}的newDirEntry()方法
 */
 func newZipEntry(path string) *ZipEntry {
+	// 根据path, 转化成绝对路径
 	absDir, err := filepath.Abs(path)
+	fmt.Printf("[gvm][newZipEntry] create ZipEntry <adsPath> : %v\n", absDir)
+
 	if err != nil {
-		print("[gvm] ")
-		println(err)
+		fmt.Printf("[gvm][newZipEntry] create ZipEntru fail \n")
+		panic(err)
 	}
+
+	fmt.Printf("[gvm][newZipEntry] create ZipEntru success \n")
 	return &ZipEntry{absDir}
 }
 
 func (self *ZipEntry) readClass(className string) ([]byte, Entry, error) {
+
 	// 获取目录下压缩文件的内容
+	fmt.Printf("[gvm][readClass] open zip.<adbPath> : %v \n", self.absPath)
 	r, err := zip.OpenReader(self.absPath)
+
 	if err != nil {
-		print("[gvm] ")
-		println(err)
+		return nil, nil, err
 	}
+
 	// 关闭该文件描述符
 	defer r.Close()
+
 	// 遍历压缩包里面的内容
 	for _, f := range r.File {
 		// 如果找到了对应类
 		if f.Name == className {
+			fmt.Printf("[gvm][readClass] find class in zip. <className> : %v \n", f.Name)
+
 			rc, err := f.Open()
+
 			if err != nil {
-				print("[gvm] ")
-				println(err)
+				return nil, nil, err
 			}
+
 			defer rc.Close()
+
 			data, err := ioutil.ReadAll(rc)
+
 			if err != err {
-				print("[gvm] ")
-				println(err)
+				return nil, nil, err
 			}
 			// 输出所有的数据
 			return data, self, err

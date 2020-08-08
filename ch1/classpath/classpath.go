@@ -1,6 +1,9 @@
 package classpath
 
-import filepath "path/filepath"
+import (
+	"fmt"
+	filepath "path/filepath"
+)
 import "os"
 
 type Classpath struct {
@@ -9,16 +12,24 @@ type Classpath struct {
 	userClasspath Entry
 }
 
+/*
+将-Xjre 和 class 两个字段进行解析
+xJre : 启动类和扩展类路径
+cp/classpath : 用户类路径
+*/
 func Parse(jreOption, cpOption string) *Classpath {
+	// 创建一个新的Classpath类返回琪地址
 	cp := &Classpath{}
 	/*
 		解析启动类和扩展类
 	*/
+	fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
 	cp.parseBootAndExtClasspath(jreOption)
 
 	/*
-		解析用户类t
+		解析用户类
 	*/
+	fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
 	cp.parseUserClasspath(cpOption)
 	return cp
 }
@@ -29,11 +40,18 @@ func Parse(jreOption, cpOption string) *Classpath {
 扩张类 jre/lib/ext/*
 */
 func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
+	// 查找jre目录路径
 	jreDir := getJreDir(jreOption)
+	fmt.Printf("[gvm][parseBootAndExtClasspath] jreDir : %v\n", jreDir)
+
+	// 拼接/lib/*目录 , 然后创建wildcardEntry 对象
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
+	fmt.Printf("[gvm][parseBootAndExtClasspath] jreLibDir : %v\n", jreLibPath)
 	self.bootClasspath = newWildcardEntry(jreLibPath)
 
+	// 拼接lib/ext/* 目录 , 然后创建wildcardEntry 对象
 	jreExtPath := filepath.Join(jreDir, "lib", "ext", "*")
+	fmt.Printf("[gvm][parseBootAndExtClasspath] jreExtDir : %v\n", jreExtPath)
 	self.extClasspath = newWildcardEntry(jreExtPath)
 }
 
@@ -41,28 +59,38 @@ func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
 查找jre目录的路径
 */
 func getJreDir(jreOption string) string {
-	// 如果jreOption目录存在
+	// 如果用户输入了-Xjre 参数
 	if jreOption != "" && exists(jreOption) {
+		fmt.Printf("[gvm][getJreDir] finnd jreOption dir : %v\n", jreOption)
 		return jreOption
 	}
-	// 如果 './jre' 目录存在
+	/*
+		如果用户没有输入 -Xjre 参数
+		在 './jre' 下找
+	*/
 	if exists("./jre") {
+		fmt.Printf("[gvm][getJreDir] finnd ./jre dir\n")
 		return "./jre"
 	}
 
+	/**
+	没有输入 -Xjre参数,而且当前目录下也没有找到
+	在 JAVA_HOME中找
+	*/
 	if jh := os.Getenv("JAVA_HOME"); jh != "" {
+		fmt.Printf("[gvm][getJreDir] finnd JAVA_HOME dir")
 		return filepath.Join(jh, "jre")
 	}
 
 	// 3种情况都不存在jre目录,输出错误
-	panic("Can't find jre folder")
+	panic("[gvm][getJreDir]Can't find jre folder")
 }
 
 /*
 判断path目录是否存在
 */
 func exists(path string) bool {
-	// stat获取项目中名称为name的文件信息
+	// stat获取项目中path的文件信息
 	if _, err := os.Stat(path); err != nil {
 		if os.IsNotExist(err) {
 			return false
@@ -72,19 +100,39 @@ func exists(path string) bool {
 }
 
 /*
+查找用户类目录
+*/
+func (self *Classpath) parseUserClasspath(cption string) {
+	// 如果没有用户没有输入 -cp ,默认当前目录为用户目录
+	if cption == "" {
+		cption = "."
+	}
+	self.userClasspath = newEntry(cption)
+}
+
+/*
 在classpath 中查找 Class文件
 */
 func (self Classpath) ReadClass(classpath string) ([]byte, Entry, error) {
+	// 拼接类名
 	className := classpath + ".class"
-	/*
 
-	 */
-	if data, entry, err := self.bootClasspath.readClass(className); err != nil {
+	// 从className中读取 bootClasspath
+	fmt.Printf("[gvm][ReadClss] to find bootClasspath <className> : %v\n", className)
+	if data, entry, err := self.bootClasspath.readClass(className); err == nil {
+		fmt.Printf("[gvm][ReadClss] return bootClasspath <data> : %v\n", data)
 		return data, entry, err
 	}
-	if data, entry, err := self.extClasspath.readClass(className); err != nil {
+
+	// 从className中读取 extClasspath
+	fmt.Printf("[gvm][ReadClss] to read %v from extClasspath\n", className)
+	if data, entry, err := self.extClasspath.readClass(className); err == nil {
+		fmt.Printf("[gvm][ReadClss] return extClasspath <data> : %v\n", data)
 		return data, entry, err
 	}
+
+	// 从className中读取 userClasspath
+	fmt.Printf("[gvm][ReadClss] to read %v from userClasspath \n", className)
 	return self.userClasspath.readClass(className)
 
 }
@@ -95,15 +143,4 @@ toString()
 */
 func (self Classpath) String() string {
 	return self.userClasspath.String()
-}
-
-/*
-解析用户类
-*/
-func (self *Classpath) parseUserClasspath(cption string) {
-	if cption == "" {
-		cption = "."
-	}
-	self.userClasspath = newEntry(cption)
-
 }

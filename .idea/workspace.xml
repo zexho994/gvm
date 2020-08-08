@@ -19,13 +19,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加一些注释">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Cmd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/ch1" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/ch1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/Entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/Entry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/WildcardEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/WildcardEntry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/classpath.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/compositeEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/compositeEntry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/entry_dir.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classpath/entry_zip.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/entry_zip.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -48,8 +65,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
@@ -63,7 +83,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -99,46 +119,63 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init project" />
     <MESSAGE value="[update] add some annotation" />
     <MESSAGE value="[update] 添加一些注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加一些注释" />
+    <MESSAGE value="[update] 添加entry_dir 和entry_zip" />
+    <MESSAGE value="[update] 添加compositeEntry,负责处理多个class加载" />
+    <MESSAGE value="[update] 添加WildcarEntry,负责处理通配符目录下的class加载" />
+    <MESSAGE value="[update] 添加classpath.go,负责整合各种类型类的加载" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加classpath.go,负责整合各种类型类的加载" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596646444699">
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596646444699" />
-    <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596646518649">
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
+    <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518649" />
-    <state width="1878" height="344" key="GridCell.Tab.0.center" timestamp="1596646518647">
+    <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058304" />
+    <state width="1878" height="344" key="GridCell.Tab.0.center" timestamp="1596816058303">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518647" />
-    <state width="1878" height="344" key="GridCell.Tab.0.left" timestamp="1596646518647">
+    <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
+    <state width="1878" height="344" key="GridCell.Tab.0.left" timestamp="1596816058302">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518647" />
-    <state width="1878" height="344" key="GridCell.Tab.0.right" timestamp="1596646518648">
+    <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058302" />
+    <state width="1878" height="344" key="GridCell.Tab.0.right" timestamp="1596816058303">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596646518648" />
-    <state x="461" y="239" key="SettingsEditor" timestamp="1596646473035">
+    <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
+    <state x="461" y="239" key="SettingsEditor" timestamp="1596810010555">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596646473035" />
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596646840375">
+    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596810010555" />
+    <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596646840375" />
+    <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596817093402" />
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596807711536">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
+    <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="463" height="350" key="documentation.popup.size/0.0.1920.1200@0.0.1920.1200" timestamp="1596812522679" />
     <state x="618" y="451" key="git4idea.ui.GitTagDialog" timestamp="1596730918304">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="618" y="451" key="git4idea.ui.GitTagDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596730918304" />
+    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup" timestamp="1596874589817">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596874589817" />
   </component>
 </project>
