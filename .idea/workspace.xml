@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,17 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ch1/classfile/constant_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Cmd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/Main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/ch1" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/ch1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/Entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/Entry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/WildcardEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/WildcardEntry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/classpath.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/compositeEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/compositeEntry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/entry_dir.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classpath/entry_zip.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classpath/entry_zip.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classfile/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classfile/class_reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch1/classfile/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classfile/constant_pool.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Go File" />
       </list>
     </option>
@@ -69,11 +68,13 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -83,14 +84,27 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ch1/class" />
       <recent name="$PROJECT_DIR$/ch1" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build Main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -99,15 +113,33 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build Main.go" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载" />
+      <created>1596934171413</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596934171413</updated>
+      <workItem from="1596934176780" duration="204000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -130,13 +162,20 @@
     <MESSAGE value="[update] 添加compositeEntry,负责处理多个class加载" />
     <MESSAGE value="[update] 添加WildcarEntry,负责处理通配符目录下的class加载" />
     <MESSAGE value="[update] 添加classpath.go,负责整合各种类型类的加载" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加classpath.go,负责整合各种类型类的加载" />
+    <MESSAGE value="[update] find class path and read .class file" />
+    <MESSAGE value="[update] add class_reader.go" />
+    <MESSAGE value="[update] 添加class_file文件,映射class文件信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加class_file文件,映射class文件信息" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
+    <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596902520063">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -153,10 +192,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="461" y="239" key="SettingsEditor" timestamp="1596810010555">
+    <state x="461" y="239" key="SettingsEditor" timestamp="1596934290528">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596810010555" />
+    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -173,9 +212,13 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="618" y="451" key="git4idea.ui.GitTagDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596730918304" />
-    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup" timestamp="1596874589817">
+    <state x="328" y="285" key="new project wizard" timestamp="1596934319955">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596874589817" />
+    <state x="328" y="285" key="new project wizard/0.0.1920.1200@0.0.1920.1200" timestamp="1596934319955" />
+    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup" timestamp="1596901708679">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
   </component>
 </project>

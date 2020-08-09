@@ -4,6 +4,7 @@ import binary "encoding/binary"
 
 /*
 类加载器,其实只是[]byte的包装而已
+存储class文件里面的二进制文件
 */
 type ClassReader struct {
 	data []byte
