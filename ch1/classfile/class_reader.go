@@ -3,16 +3,14 @@ package classfile
 import binary "encoding/binary"
 
 /*
-类加载器,其实只是[]byte的包装而已
-存储class文件里面的二进制文件
+类加载器,读取class文件的二进制数据到ClassReader中
 */
 type ClassReader struct {
 	data []byte
 }
 
 /*
-读取1字节长度
-对应jvm中的u1
+从ClassReader中读取1字节数据,对应jvm中的u1
 */
 func (self *ClassReader) readUint8() uint8 {
 	// 获取第1个字节的数据
@@ -23,8 +21,7 @@ func (self *ClassReader) readUint8() uint8 {
 }
 
 /*
-读取2字节长度
-对应jvm中的u2
+读取2字节长度,对应jvm中的u2
 */
 func (self *ClassReader) readUint16() uint16 {
 	// 从self.data中读取16位的数据
@@ -35,8 +32,7 @@ func (self *ClassReader) readUint16() uint16 {
 }
 
 /**
-读取4字节长度
-对应jvm中的u4
+读取4字节长度,对应jvm中的u4
 */
 func (self *ClassReader) readUint32() uint32 {
 	val := binary.BigEndian.Uint32(self.data)
@@ -69,7 +65,7 @@ func (self *ClassReader) readUint16s() []uint16 {
 }
 
 /*
-读取 length字节长度的数据
+读取length字节长度的数据
 */
 func (self *ClassReader) readBytes(length uint32) []byte {
 	val := self.data[:length]
