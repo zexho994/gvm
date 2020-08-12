@@ -14,7 +14,7 @@ type MemberInfo struct {
 }
 
 /*
-读取字段表和方法表
+读取字段表或方法表
 */
 func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 	// 读取2字节
@@ -30,7 +30,7 @@ func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 }
 
 /*
-读取字段和方法
+读取字段或方法数据
 */
 func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	return &MemberInfo{
