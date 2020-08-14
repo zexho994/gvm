@@ -3,7 +3,9 @@ package classfile
 import "math"
 
 // 常量池中的整数类型
-type ConstantIntegerInfo struct{ val int32 }
+type ConstantIntegerInfo struct {
+	val int32
+}
 
 // 常量池中的浮点数类型
 type ConstantFloatInfo struct {
@@ -18,9 +20,7 @@ type ConstantLongInfo struct {
 type ConstantDoubleInfo struct{ val float64 }
 
 func (self *ConstantDoubleInfo) readInfo(reader *ClassReader) {
-
 	bytes := reader.readUint64()
-
 	self.val = math.Float64frombits(bytes)
 }
 

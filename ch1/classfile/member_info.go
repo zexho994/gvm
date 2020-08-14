@@ -42,7 +42,9 @@ func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	}
 }
 
-func (self *MemberInfo) AccessFlags() uint16 {}
+//func (self *MemberInfo) AccessFlags() uint16 {
+//
+//}
 
 /*
 获取方法或属性名称
