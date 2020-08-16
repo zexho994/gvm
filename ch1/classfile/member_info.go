@@ -23,14 +23,10 @@ type MemberInfo struct {
 */
 func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 	cpCount := reader.readUint16()
-	fmt.Printf("cpCount is %v \n", cpCount)
-
-	// 字段表数组[]
 	members := make([]*MemberInfo, cpCount)
 
 	// 遍历数组
 	for i := range members {
-		fmt.Println("reverse members")
 		// 解析每一个字段和方法
 		members[i] = readMember(reader, cp)
 	}

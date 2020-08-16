@@ -46,7 +46,6 @@ func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
 	// 根据tag创建一个常量对象
 	c := newConstantInfo(tag, cp)
-	fmt.Printf("[gvm][readConstanInfo] create constantInfo : %v\n", c)
 	// 调用常量的read()方法
 	c.readInfo(reader)
 	return c

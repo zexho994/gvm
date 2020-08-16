@@ -1,9 +1,9 @@
 package classfile
 
 type LocalVariableTableAttribute struct{ localvariabletable []*LineNumberTableEntry }
-type LocalVariableTableAttributeEntry struct {
-	startPc uint16
 
+type LocalVariableTableAttributeEntry struct {
+	startPc    uint16
 	lineNumber uint16
 }
 

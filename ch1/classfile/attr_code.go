@@ -1,5 +1,8 @@
 package classfile
 
+/*
+方法属性表
+*/
 type CodeAttribute struct {
 	// 常量池指针
 	cp ConstantPool

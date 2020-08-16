@@ -110,12 +110,10 @@ func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
 */
 func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
 	fmt.Println("[gvm][readAndCheckVersion] read version ...")
-
 	self.minorVersion = reader.readUint16()
 	self.majorVersion = reader.readUint16()
 	switch self.majorVersion {
 	case 45:
-		fmt.Printf("[gvm][readAndCheckVersion] version is JDK 1.0.2 or JDK 1.1 \n")
 		return
 	case 46, 47, 48, 49, 50, 51, 52:
 		if self.minorVersion == 0 {
