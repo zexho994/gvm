@@ -21,11 +21,11 @@ type ClassFile struct {
 	superClass uint16
 	// 接口
 	interfaces []uint16
-	//
+	// 字段表,用于表示接口或者类中声明的变量
 	fields []*MemberInfo
-	// 方法
+	// 方法表
 	methods []*MemberInfo
-	// 属性
+	// 属性表
 	attributes []AttributeInfo
 }
 
@@ -33,7 +33,7 @@ type ClassFile struct {
 将[]byte解析成ClassFile结构体
 */
 func Parse(classData []byte) (cf *ClassFile, err error) {
-
+	// 该部分代码永远都会执行
 	defer func() {
 		if r := recover(); r != nil {
 			var ok bool
@@ -46,33 +46,50 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 
 	cr := &ClassReader{classData}
 	cf = &ClassFile{}
+	// start to parse class
 	cf.read(cr)
 	return
 }
 
 /*
-read 方法依次调用其他读取方法
+read 方法依次调用其他方法解析Class
 */
 func (self *ClassFile) read(reader *ClassReader) {
 	// 解析魔数
 	self.readAndCheckMagic(reader)
+
 	// 解析版本
 	self.readAndCheckVersion(reader)
+
 	// 解析常量池
 	self.constantPool = readConstantPool(reader)
+
 	// 解析类访问标志
+	fmt.Println("[gvm][read] read accessflags ...")
 	self.accessFlags = reader.readUint16()
+
 	// 解析本类信息
+	fmt.Println("[gvm][read] read class ...")
 	self.thisClass = reader.readUint16()
+
 	// 解析父类信息
+	fmt.Println("[gvm][read] read superClass ...")
 	self.superClass = reader.readUint16()
+
 	// 解析接口
+	fmt.Println("[gvm][read] read interfaces ...")
 	self.interfaces = reader.readUint16s()
-	//
+
+	// 解析字段表
+	fmt.Println("[gvm][read] read fields ...")
 	self.fields = readMembers(reader, self.constantPool)
-	// 解析方法
+
+	// 解析方法表
+	fmt.Println("[gvm][read] read method ...")
 	self.methods = readMembers(reader, self.constantPool)
+
 	// 解析属性表
+	fmt.Println("[gvm][read] read attribute ...")
 	self.attributes = readAttributes(reader, self.constantPool)
 }
 
@@ -80,8 +97,8 @@ func (self *ClassFile) read(reader *ClassReader) {
 解析魔术
 */
 func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
+	fmt.Println("[gvm][readAdnCheckMagic] read magic ...")
 	magic := reader.readUint32()
-
 	// class文件开头是CAFEBABE
 	if magic != 0xCAFEBABE {
 		panic("java.lang.ClassFormatError: magic!")
@@ -92,8 +109,10 @@ func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
 解析版本,主版本号和次版本号都是u2类型
 */
 func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
-	self.majorVersion = reader.readUint16()
+	fmt.Println("[gvm][readAndCheckVersion] read version ...")
+
 	self.minorVersion = reader.readUint16()
+	self.majorVersion = reader.readUint16()
 	switch self.majorVersion {
 	case 45:
 		fmt.Printf("[gvm][readAndCheckVersion] version is JDK 1.0.2 or JDK 1.1 \n")
@@ -102,6 +121,8 @@ func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
 		if self.minorVersion == 0 {
 			fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", self.majorVersion-44)
 			return
+		} else {
+			panic("[gvm][readAndCheckVersion] class file version error")
 		}
 	}
 	panic("java.lang.UnsupportedClassVersionError!")
@@ -155,6 +176,7 @@ func (self *ClassFile) ClassName() string {
 在二进制文件中,超类信息存储的是索引,指向了常量池中的位置
 */
 func (self *ClassFile) SuperClassName() string {
+	// if the superClass count more than 1
 	if self.superClass > 0 {
 		return self.constantPool.getClassName(self.superClass)
 	}

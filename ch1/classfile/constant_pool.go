@@ -1,5 +1,7 @@
 package classfile
 
+import "fmt"
+
 /*
 常量池
 数组类型
@@ -17,10 +19,14 @@ type ConstantInfo interface {
 读取常量池数据
 */
 func readConstantPool(reader *ClassReader) ConstantPool {
-	// 常量池
+	fmt.Println("[gvm][readConstantPool] read constanpool ...")
+	// get constantpool count
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
+
+	// traverse cp
 	for i := 1; i < cpCount; i++ {
+		// read class file
 		cp[i] = readConstantInfo(reader, cp)
 		switch cp[i].(type) {
 		case *ConstantLongInfo, *ConstantDoubleInfo:
@@ -40,7 +46,8 @@ func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
 	// 根据tag创建一个常量对象
 	c := newConstantInfo(tag, cp)
-	// 读取常量信息
+	fmt.Printf("[gvm][readConstanInfo] create constantInfo : %v\n", c)
+	// 调用常量的read()方法
 	c.readInfo(reader)
 	return c
 }
@@ -81,8 +88,8 @@ func (self ConstantPool) getUtf8(index uint16) string {
 */
 func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 	switch tag {
-	case CONSTANT_Integer: // TODO 待修改
-		return &ConstantFloatInfo{}
+	case CONSTANT_Integer:
+		return &ConstantIntegerInfo{}
 	case CONSTANT_Float:
 		return &ConstantFloatInfo{}
 	case CONSTANT_Long:

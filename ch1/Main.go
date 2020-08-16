@@ -36,29 +36,30 @@ func startJvm(cmd *Cmd) {
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	fmt.Printf("[gvm][startJvm] <className> : %v\n", className)
 
-	// 读取class 文件
-	classData, _, err := cp.ReadClass(className)
-	if err != nil {
-		fmt.Printf("Could not find or load main class %v\n", cmd.class)
-		return
-	}
-	fmt.Printf("class data:%v\n", classData)
-
 	// 加载class 文件
 	cf := loadClass(className, cp)
 	fmt.Print(cmd.class)
 	printClassInfo(cf)
 }
 
+/*
+加载解析class文件
+*/
 func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
+
+	// 查找className的文件
 	classData, _, err := cp.ReadClass(className)
 	if err != nil {
 		panic(err)
 	}
+
+	// 解析class文件
+	fmt.Println("[gvm][loadClass] load class file ....")
 	cf, err := classfile.Parse(classData)
 	if err != nil {
 		panic(err)
 	}
+
 	return cf
 }
 

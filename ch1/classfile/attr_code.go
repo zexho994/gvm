@@ -7,7 +7,10 @@ type CodeAttribute struct {
 	maxStack uint16
 	// 局部变量表大小
 	maxLocals uint16
-	// Class文件中唯一描述代码code(方法里的代码)的字段
+	/*
+		方法的内容编译后存放在code表中
+		method body after compile
+	*/
 	code []byte
 	// 受检查异常,对应了方法后面throw的部分
 	exceptionTable []*ExceptionTableEntry

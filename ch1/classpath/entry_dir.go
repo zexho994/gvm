@@ -39,11 +39,9 @@ func newDirEntry(path string) *DirEntry {
 func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
 	// 拼接目录和类名
 	filename := filepath.Join(self.absDir, className)
-	fmt.Printf("[gvm][readClass] dirEntry readClass , <fileName> : %v\n", filename)
-
 	// 读取目标位置下对应的class文件数据
 	data, err := ioutil.ReadFile(filename)
-	fmt.Printf("[gvm][readClass] dirEntry readFile , <data> : %v\n", data)
+	fmt.Printf("[gvm][readClass] dirEntry readFile\n")
 
 	// 输出
 	return data, self, err
