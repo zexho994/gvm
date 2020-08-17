@@ -22,7 +22,7 @@ func (self *Stack) push(frame *Frame) {
 	if self._top != nil {
 		frame.lower = self._top
 	}
-	self.top = frame
+	self._top = frame
 	self.size++
 }
 

@@ -14,7 +14,7 @@ can see the classfile.method_info's Code Attribute
 */
 func newFrame(maxLocals, maxStack uint) *Frame {
 	return &Frame{
-		localVars:  newLocalVars(maxLocals),
-		operandSta: newOperandStack(maxStack),
+		localVars:    newLocalVars(maxLocals),
+		operandStack: newOperandStack(maxStack),
 	}
 }

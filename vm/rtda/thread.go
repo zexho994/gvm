@@ -13,7 +13,7 @@ func (self *Thread) PushFrame(frame *Frame) {
 	self.stack.push(frame)
 }
 
-func (self *Thread) PopFrame(frame *Frame) {
+func (self *Thread) PopFrame(frame *Frame) *Frame {
 	return self.stack.pop()
 }
 
