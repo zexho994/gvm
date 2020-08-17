@@ -1,8 +1,8 @@
 package main
 
 import (
-	"../ch1/classfile"
-	"../ch1/classpath"
+	"./classfile"
+	"./classpath"
 	"fmt"
 	"strings"
 )

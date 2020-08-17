@@ -49,5 +49,5 @@ func parseCmd() *Cmd {
 func printUsage() {
 	fmt.Printf("[gvm][usage] : %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
 	fmt.Printf("[gvm][help] -Xjre : jrePath is the jre folder local \n" +
-		"[gvm][help] -classPath : path of the class file local,is relative path based /ch1\n")
+		"[gvm][help] -classPath : path of the class file local,is relative path based /vm\n")
 }
