@@ -32,6 +32,7 @@ func startJvm(cmd *Cmd) {
 	// 对XjreOption和cp两个字段进行解析
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
+
 	// class/java/lang/Object
 	fmt.Printf("[gvm][startJvm] <class> : %v\n", cmd.class)
 	className := strings.Replace(cmd.class, ".", "/", -1)

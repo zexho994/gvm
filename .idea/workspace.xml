@@ -23,12 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
-      <change afterPath="$PROJECT_DIR$/ch1/classfile/constant_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classfile/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classfile/class_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ch1/classfile/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/ch1/classfile/constant_pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +39,12 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="$USER_HOME$/sdk/go1.15" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1c83a2f3-fc0f-45b8-9091-a5acf6edda88" />
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -77,6 +76,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -87,24 +87,16 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ch1/class" />
       <recent name="$PROJECT_DIR$/ch1" />
+      <recent name="$PROJECT_DIR$/ch1/class" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build Main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -113,17 +105,8 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -139,7 +122,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -165,16 +148,32 @@
     <MESSAGE value="[update] find class path and read .class file" />
     <MESSAGE value="[update] add class_reader.go" />
     <MESSAGE value="[update] 添加class_file文件,映射class文件信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update] 添加class_file文件,映射class文件信息" />
+    <MESSAGE value="[refactor] Update some folder name" />
+    <MESSAGE value="[refactor] add thread.go" />
+    <MESSAGE value="[refactor] add object.go" />
+    <MESSAGE value="[refactor] add jvm_stack.go" />
+    <MESSAGE value="[refactor] add frame.go" />
+    <MESSAGE value="[refactor] add local_vars.go and slot.go" />
+    <MESSAGE value="[update] Add operand_stack.go.The function of the operand stack is to record the numbers during the operation" />
+    <MESSAGE value="[update] add vm" />
+    <MESSAGE value="[update] output .Class file info" />
+    <MESSAGE value="[update] Complete gvm's rtda part" />
+    <MESSAGE value="[update] none" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] none" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="760" y="451" width="578" height="381" key="#GOROOT/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670054768" />
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
-    <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596902520063">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597670566037">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670566037" />
     <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
       <screen x="0" y="0" width="1920" height="1200" />
@@ -192,17 +191,20 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="461" y="239" key="SettingsEditor" timestamp="1596934290528">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="192" y="58" key="SettingsEditor" timestamp="1597760381056">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="192" y="58" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1597760381056" />
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596817093402" />
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2" timestamp="1596807711536">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="420" y="255" key="Vcs.Push.Dialog.v2" timestamp="1597759344114">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597759344114" />
+    <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
     <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
     <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
       <screen x="0" y="0" width="1920" height="1200" />
