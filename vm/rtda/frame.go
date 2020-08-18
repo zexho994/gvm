@@ -12,9 +12,17 @@ type Frame struct {
 The value of maxLocals and maxStack can be calculated at compile time
 can see the classfile.method_info's Code Attribute
 */
-func newFrame(maxLocals, maxStack uint) *Frame {
+func NewFrame(maxLocals, maxStack uint) *Frame {
 	return &Frame{
 		localVars:    newLocalVars(maxLocals),
 		operandStack: newOperandStack(maxStack),
 	}
+}
+
+func (self Frame) LocalVars() LocalVars {
+	return self.localVars
+}
+
+func (self Frame) OperandStack() *OperandStack {
+	return self.operandStack
 }
