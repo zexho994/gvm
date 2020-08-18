@@ -54,6 +54,9 @@ func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
 		panic(err)
 	}
 
+	// output .Class info
+	fmt.Printf("[gvm][loadClass] Class file data : %v", className)
+
 	// 解析class文件
 	fmt.Println("[gvm][loadClass] load class file ....")
 	cf, err := classfile.Parse(classData)
