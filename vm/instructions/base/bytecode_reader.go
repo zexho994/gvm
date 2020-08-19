@@ -1,5 +1,8 @@
 package base
 
+/*
+字节码阅读器
+*/
 type BytecodeReader struct {
 	// 存放字节码
 	code []byte
@@ -7,6 +10,9 @@ type BytecodeReader struct {
 	pc int
 }
 
+/*
+重新赋值
+*/
 func (self *BytecodeReader) Reset(code []byte, pc int) {
 	self.code = code
 	self.pc = pc
