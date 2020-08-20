@@ -1,6 +1,6 @@
-package constants
+package stores
 
-import "../../instructions/base"
+import "../base"
 import "../../rtda"
 
 /*
