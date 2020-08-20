@@ -6,7 +6,7 @@ type Instruction interface {
 	// 从字节码中提取操作数
 	FetchOperands(reader *BytecodeReader)
 
-	// 操作
+	// 操作指令
 	Execute(frame *rtda.Frame)
 }
 
