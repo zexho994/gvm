@@ -6,7 +6,11 @@ package base
 type BytecodeReader struct {
 	// 存放字节码
 	code []byte
-	// 记录读取到哪一个字节
+
+	/*
+		数组下标，记录读取到拿一个位置
+		所以pc所处的位置就是指令对应的位置
+	*/
 	pc int
 }
 

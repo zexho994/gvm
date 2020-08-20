@@ -2,10 +2,14 @@ package base
 
 import "../../rtda"
 
+/*
+指令接口，指令主要两个功能：
+1 从字节码中获取操作数
+2 执行操作指令
+*/
 type Instruction interface {
 	// 从字节码中提取操作数
 	FetchOperands(reader *BytecodeReader)
-
 	// 操作指令
 	Execute(frame *rtda.Frame)
 }
