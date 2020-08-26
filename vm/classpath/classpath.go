@@ -2,7 +2,7 @@ package classpath
 
 import (
 	"fmt"
-	filepath "path/filepath"
+	"path/filepath"
 )
 import "os"
 
