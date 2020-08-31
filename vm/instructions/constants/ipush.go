@@ -3,7 +3,8 @@ package constants
 import "../base"
 import "../../rtda"
 
-type BIPUSH struct{ val int8 }  // Push byte
+type BIPUSH struct{ val int8 } // Push byte
+
 type SIPUSH struct{ val int16 } // Push short
 
 /*

@@ -65,3 +65,7 @@ func (self *BytecodeReader) ReadInt32() int32 {
 	byte4 := int32(self.ReadUint8())
 	return (byte1 << 24) | (byte2 << 16) | (byte3 << 8) | byte4
 }
+
+func (self *BytecodeReader) PC() int {
+	return self.pc
+}

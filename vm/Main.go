@@ -32,7 +32,6 @@ func startJvm(cmd *Cmd) {
 	// 对XjreOption和cp两个字段进行解析
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
-
 	// class/java/lang/Object
 	fmt.Printf("[gvm][startJvm] <class> : %v\n", cmd.class)
 	className := strings.Replace(cmd.class, ".", "/", -1)
@@ -40,15 +39,30 @@ func startJvm(cmd *Cmd) {
 
 	// 加载class 文件
 	cf := loadClass(className, cp)
-
 	// output file information
 	printClassInfo(cmd.class, cf)
 
-	frame := rtda.NewFrame(100, 100)
-	testLocalVars(frame.LocalVars())
-	testOperandStack(frame.OperandStack())
+	mainMethod := getMainMethod(cf)
+	if mainMethod != nil {
+		interpret(mainMethod)
+	} else {
+		fmt.Printf("Main method not found in class %s \n", cmd.class)
+	}
 }
 
+/*
+遍历搜寻main方法
+*/
+func getMainMethod(cf *classfile.ClassFile) *classfile.MemberInfo {
+	for _, m := range cf.Methods() {
+		if m.Name() == "main" && m.Descriptor() == "([Ljava/lang/String;)V" {
+			return m
+		}
+	}
+	return nil
+}
+
+// 测试局部局部表
 func testLocalVars(vars rtda.LocalVars) {
 	vars.SetInt(0, 100)
 	vars.SetInt(1, -100)
@@ -66,6 +80,7 @@ func testLocalVars(vars rtda.LocalVars) {
 	println(vars.GetRef(9))
 }
 
+// 测试操作数栈
 func testOperandStack(ops *rtda.OperandStack) {
 	ops.PushInt(100)
 	ops.PushInt(-100)
@@ -97,8 +112,6 @@ func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
 	// output .Class info
 	fmt.Printf("[gvm][loadClass] Class file data : %v", className)
 
-	// 解析class文件
-	fmt.Println("[gvm][loadClass] load class file ....")
 	cf, err := classfile.Parse(classData)
 	if err != nil {
 		panic(err)
@@ -107,6 +120,7 @@ func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
 	return cf
 }
 
+// 打印字节码信息
 func printClassInfo(className string, cf *classfile.ClassFile) {
 	fmt.Printf("========%v file information========\n", className)
 	fmt.Printf("[gvm] version: %v.%v\n", cf.MajorVersion(), cf.MinorVersion())

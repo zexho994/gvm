@@ -6,15 +6,19 @@ type Frame struct {
 	// Save the pointer of the local variable table corresponding to the stack frame
 	localVars    LocalVars
 	operandStack *OperandStack
+
+	thread *Thread
+	nextPc int
 }
 
 /*
 The value of maxLocals and maxStack can be calculated at compile time
 can see the classfile.method_info's Code Attribute
 */
-func NewFrame(maxLocals, maxStack uint) *Frame {
+func NewFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
 	return &Frame{
-		localVars:    newLocalVars(maxLocals),
+		thread:       thread,
+		localVars:    newLocalVars(uint16(maxLocals)),
 		operandStack: newOperandStack(maxStack),
 	}
 }
@@ -25,4 +29,16 @@ func (self Frame) LocalVars() LocalVars {
 
 func (self Frame) OperandStack() *OperandStack {
 	return self.operandStack
+}
+
+func (self Frame) Thread() *Thread {
+	return self.thread
+}
+
+func (self Frame) SetNextPC(next int) {
+	self.nextPc = next
+}
+
+func (self Frame) NextPC() int {
+	return self.nextPc
 }

@@ -19,6 +19,21 @@ type MemberInfo struct {
 }
 
 /*
+获取方法的Code属性
+*/
+func (self *MemberInfo) CodeAttribute() *CodeAttribute {
+	// 遍历属性表
+	for _, attrInfo := range self.attributes {
+		switch attrInfo.(type) {
+		case *CodeAttribute:
+			return attrInfo.(*CodeAttribute)
+		}
+	}
+
+	return nil
+}
+
+/*
 读取字段表
 */
 func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {

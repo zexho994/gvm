@@ -14,13 +14,20 @@ type Instruction interface {
 	Execute(frame *rtda.Frame)
 }
 
-type NoOperandsInstruction struct {
-}
+/*
+无操作指令 结构体
+提供给其他相同没有操作的指令结构体调用
+*/
+type NoOperandsInstruction struct{}
 
 func (self *NoOperandsInstruction) FetchOperands(reader *BytecodeReader) {
 
 }
 
+/*
+分支指令结构体
+一般用于if else，for等条件语句中
+*/
 type BranchInstruction struct {
 	Offset int
 }

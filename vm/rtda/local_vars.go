@@ -4,7 +4,7 @@ import "math"
 
 type LocalVars []Slot
 
-func newLocalVars(maxLocals uint) LocalVars {
+func newLocalVars(maxLocals uint16) LocalVars {
 	if maxLocals > 0 {
 		return make([]Slot, maxLocals)
 	}

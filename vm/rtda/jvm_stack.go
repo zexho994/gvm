@@ -9,6 +9,10 @@ type Stack struct {
 	_top *Frame
 }
 
+/*
+新的操作数栈
+构造方法中只会设置最大栈字段
+*/
 func newStack(maxSize uint) *Stack {
 	return &Stack{
 		maxSize: maxSize,

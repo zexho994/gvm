@@ -10,5 +10,6 @@ func (self *GOTO_W) FetchOperands(reader *base.BytecodeReader) {
 }
 
 func (self *GOTO_W) Execute(frame *rtda.Frame) {
+	// 跳到对应的索引地址
 	base.Branch(frame, self.offset)
 }

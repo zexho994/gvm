@@ -70,6 +70,7 @@ func (self *OperandStack) PushRef(ref *Object) {
 	self.slots[self.size].ref = ref
 	self.size++
 }
+
 func (self *OperandStack) PopRef() *Object {
 	self.size--
 	ref := self.slots[self.size].ref
