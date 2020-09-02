@@ -33,9 +33,9 @@ func startJvm(cmd *Cmd) {
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	// class/java/lang/Object
-	fmt.Printf("[gvm][startJvm] <class> : %v\n", cmd.class)
+	fmt.Printf("[gvm][startJvm] 获取类文件路径 : %v\n", cmd.class)
 	className := strings.Replace(cmd.class, ".", "/", -1)
-	fmt.Printf("[gvm][startJvm] <className> : %v\n", className)
+	fmt.Printf("[gvm][startJvm] 解析类文件名称 : %v\n", className)
 
 	// 加载class 文件
 	cf := loadClass(className, cp)
@@ -47,7 +47,7 @@ func startJvm(cmd *Cmd) {
 	if mainMethod != nil {
 		interpret(mainMethod)
 	} else {
-		fmt.Printf("Main method not found in class %s \n", cmd.class)
+		fmt.Printf("没有找到该类： %s \n", cmd.class)
 	}
 }
 
@@ -127,18 +127,18 @@ func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
 
 // 打印字节码信息
 func printClassInfo(className string, cf *classfile.ClassFile) {
-	fmt.Printf("========%v file information========\n", className)
-	fmt.Printf("[gvm] version: %v.%v\n", cf.MajorVersion(), cf.MinorVersion())
-	fmt.Printf("[gvm] constants count: %v\n", len(cf.ConstantPool()))
-	fmt.Printf("[gvm] access flags: 0x%x\n", cf.AccessFlags())
-	fmt.Printf("[gvm] this class: %v\n", cf.ClassName())
-	fmt.Printf("[gvm] super class: %v\n", cf.SuperClassName())
-	fmt.Printf("[gvm] interfaces: %v\n", cf.InterfaceNames())
-	fmt.Printf("[gvm] fields count: %v\n", len(cf.Fields()))
+	fmt.Printf("========%v 字节码信息 ========\n", className)
+	fmt.Printf("[gvm] JDK版本: %v.%v\n", cf.MajorVersion(), cf.MinorVersion())
+	fmt.Printf("[gvm] 常量池大小: %v\n", len(cf.ConstantPool()))
+	fmt.Printf("[gvm] 描述符: 0x%x\n", cf.AccessFlags())
+	fmt.Printf("[gvm] 本类名称: %v\n", cf.ClassName())
+	fmt.Printf("[gvm] 父类名称: %v\n", cf.SuperClassName())
+	fmt.Printf("[gvm] 接口信息: %v\n", cf.InterfaceNames())
+	fmt.Printf("[gvm] 字段&方法信息: %v\n", len(cf.Fields()))
 	for _, f := range cf.Fields() {
 		fmt.Printf("[gvm] %s\n", f.Name())
 	}
-	fmt.Printf("[gvm] methods count: %v\n", len(cf.Methods()))
+	fmt.Printf("[gvm] 类中方法数量: %v\n", len(cf.Methods()))
 	for _, m := range cf.Methods() {
 		fmt.Printf("[gvm] %s\n", m.Name())
 	}

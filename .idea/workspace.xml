@@ -23,8 +23,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+      <change afterPath="$PROJECT_DIR$/java/src/GaussTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/GaussTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/classFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/classFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/Main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/vm/vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +77,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="1c83a2f3-fc0f-45b8-9091-a5acf6edda88" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/zouzhihao-994/gvm" />
+        <option value="https://github.com/zxh0/jvm.go" />
+      </set>
+    </option>
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -71,7 +116,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
-    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="true" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="go.import.settings.migrated" value="true" />
@@ -87,11 +132,12 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vm/instructions/stores" />
       <recent name="$PROJECT_DIR$/ch1" />
       <recent name="$PROJECT_DIR$/ch1/class" />
     </key>
@@ -105,6 +151,11 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build Main.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -138,43 +189,65 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init project" />
-    <MESSAGE value="[update] add some annotation" />
-    <MESSAGE value="[update] 添加一些注释" />
-    <MESSAGE value="[update] 添加entry_dir 和entry_zip" />
-    <MESSAGE value="[update] 添加compositeEntry,负责处理多个class加载" />
-    <MESSAGE value="[update] 添加WildcarEntry,负责处理通配符目录下的class加载" />
-    <MESSAGE value="[update] 添加classpath.go,负责整合各种类型类的加载" />
-    <MESSAGE value="[update] find class path and read .class file" />
-    <MESSAGE value="[update] add class_reader.go" />
-    <MESSAGE value="[update] 添加class_file文件,映射class文件信息" />
-    <MESSAGE value="[refactor] Update some folder name" />
-    <MESSAGE value="[refactor] add thread.go" />
-    <MESSAGE value="[refactor] add object.go" />
-    <MESSAGE value="[refactor] add jvm_stack.go" />
-    <MESSAGE value="[refactor] add frame.go" />
-    <MESSAGE value="[refactor] add local_vars.go and slot.go" />
-    <MESSAGE value="[update] Add operand_stack.go.The function of the operand stack is to record the numbers during the operation" />
-    <MESSAGE value="[update] add vm" />
-    <MESSAGE value="[update] output .Class file info" />
-    <MESSAGE value="[update] Complete gvm's rtda part" />
-    <MESSAGE value="[update] none" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update] none" />
+    <MESSAGE value="[update] Add new instruction dup" />
+    <MESSAGE value="[update] add swap.go" />
+    <MESSAGE value="[update] add new rem instruction" />
+    <MESSAGE value="[update] add new add instruction" />
+    <MESSAGE value="[update] add new sub instruction" />
+    <MESSAGE value="[update] add new div instruction" />
+    <MESSAGE value="[update] add new mul instruction" />
+    <MESSAGE value="[update] add new neg instruction" />
+    <MESSAGE value="[update] add sh.go" />
+    <MESSAGE value="[update] add and.go" />
+    <MESSAGE value="[update] add IINC.go" />
+    <MESSAGE value="[update] add d2x.go" />
+    <MESSAGE value="[update] add f2x.go" />
+    <MESSAGE value="[update] add i2x.go" />
+    <MESSAGE value="[update] add condition logic instructions" />
+    <MESSAGE value="[update] add extend instructions" />
+    <MESSAGE value="[update] update classpath" />
+    <MESSAGE value="add gitignore" />
+    <MESSAGE value="update gitignore" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="update frame.go" />
+    <MESSAGE value="update interpreter.go" />
+    <MESSAGE value="update jvm_stack.go" />
+    <MESSAGE value="update thread.go" />
+    <MESSAGE value="update Main.go" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Main.go" />
   </component>
   <component name="WindowStateProjectService">
     <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="760" y="451" width="578" height="381" key="#GOROOT/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670054768" />
+    <state x="594" y="225" key="#Inspections" timestamp="1597900265556">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="594" y="225" key="#Inspections/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597900265556" />
+    <state x="438" y="280" key="#Notifications" timestamp="1598197131866">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="438" y="280" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1598197131866" />
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
-    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597670566037">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598874406286">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874406286" />
+    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1598590623932" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670566037" />
     <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
+    <state x="-1299" y="211" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1598359979759">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1299" y="211" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598359979759" />
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597847144210">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1597847144210" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -191,21 +264,40 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="192" y="58" key="SettingsEditor" timestamp="1597760381056">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1052" y="243" width="1119" height="722" key="SettingsEditor" timestamp="1598872595975">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="192" y="58" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1597760381056" />
+    <state x="-1127" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598333647468" />
+    <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1598590270987" />
+    <state x="-1052" y="243" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598872595975" />
+    <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
+    <state x="400" y="259" width="1119" height="722" key="SettingsEditor/-722.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597987180099" />
+    <state x="269" y="178" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598178015784" />
+    <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
+    <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596817093402" />
-    <state x="420" y="255" key="Vcs.Push.Dialog.v2" timestamp="1597759344114">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1597814942988">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1599024308692">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599024308692" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
+    <state x="560" y="306" key="Vcs.Push.Dialog.v2/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597815058184" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597759344114" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
     <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599024298658">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599024298658" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598334334853" />
     <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -218,9 +310,15 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="328" y="285" key="new project wizard/0.0.1920.1200@0.0.1920.1200" timestamp="1596934319955" />
-    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup" timestamp="1596901708679">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="562" y="222" key="refactoring.ChangeSignatureDialog" timestamp="1598176564994">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="562" y="222" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1598176564994" />
+    <state x="-1295" y="244" width="896" height="609" key="search.everywhere.popup" timestamp="1598616651823">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1295" y="244" width="896" height="609" key="search.everywhere.popup/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598616651823" />
+    <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1598176308797" />
     <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
   </component>
 </project>
