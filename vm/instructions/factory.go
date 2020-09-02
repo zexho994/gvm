@@ -44,6 +44,7 @@ var (
 	aload_1     = &loads.ALOAD_1{}
 	aload_2     = &loads.ALOAD_2{}
 	aload_3     = &loads.ALOAD_3{}
+	istore_1    = &loads.ILOAD_1{}
 	//iaload        =
 	//laload        =
 	//faload        =
@@ -252,6 +253,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return aload_2
 	case 0x2d:
 		return aload_3
+	case 0x3c:
+		return istore_1
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
