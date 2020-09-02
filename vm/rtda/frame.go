@@ -7,7 +7,9 @@ type Frame struct {
 	localVars    LocalVars
 	operandStack *OperandStack
 
+	// 栈桢结构里
 	thread *Thread
+	// 下一个指令
 	nextPc int
 }
 
