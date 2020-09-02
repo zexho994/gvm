@@ -1,5 +1,9 @@
 package rtda
 
+/*
+虚拟机栈是JVM运行时数据区的一部分，线程私有
+主要存储方法的栈桢 Frame
+*/
 type Stack struct {
 	// 当前栈的容量,最多可以容纳多少桢
 	maxSize uint
@@ -10,7 +14,7 @@ type Stack struct {
 }
 
 /*
-新的操作数栈
+新的虚拟机栈
 构造方法中只会设置最大栈字段
 */
 func newStack(maxSize uint) *Stack {
@@ -30,6 +34,10 @@ func (self *Stack) push(frame *Frame) {
 	self.size++
 }
 
+/**
+弹出栈桢
+
+*/
 func (self *Stack) pop() *Frame {
 	if self._top == nil {
 		panic("[gvm][Stack.pop] stack is empty")
