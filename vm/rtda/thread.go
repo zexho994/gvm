@@ -1,7 +1,19 @@
 package rtda
 
+/*
+线程
+*/
 type Thread struct {
-	pc    int
+	/*
+		pc指针
+		表示指令执行的位置
+	*/
+	pc int
+
+	/*
+		虚拟机栈属于线程的一个私有字段
+		说明虚拟机栈是线程私有的
+	*/
 	stack *Stack
 }
 
@@ -13,14 +25,23 @@ func NewThread() *Thread {
 	return &Thread{stack: newStack(1024)}
 }
 
+/*
+线程的虚拟机栈压入栈桢
+*/
 func (self *Thread) PushFrame(frame *Frame) {
 	self.stack.push(frame)
 }
 
+/*
+虚拟机栈弹出栈桢
+*/
 func (self *Thread) PopFrame() *Frame {
 	return self.stack.pop()
 }
 
+/*
+获取当前虚拟机栈栈顶的栈桢
+*/
 func (self *Thread) CurrentFrame() *Frame {
 	return self.stack.top()
 }
