@@ -41,8 +41,9 @@ func startJvm(cmd *Cmd) {
 	cf := loadClass(className, cp)
 	// output file information
 	printClassInfo(cmd.class, cf)
-
+	// 获取main方法
 	mainMethod := getMainMethod(cf)
+	// 解释main方法
 	if mainMethod != nil {
 		interpret(mainMethod)
 	} else {
@@ -62,7 +63,9 @@ func getMainMethod(cf *classfile.ClassFile) *classfile.MemberInfo {
 	return nil
 }
 
-// 测试局部局部表
+/*
+测试局部局部表
+*/
 func testLocalVars(vars rtda.LocalVars) {
 	vars.SetInt(0, 100)
 	vars.SetInt(1, -100)
@@ -80,7 +83,9 @@ func testLocalVars(vars rtda.LocalVars) {
 	println(vars.GetRef(9))
 }
 
-// 测试操作数栈
+/*
+测试操作数栈
+*/
 func testOperandStack(ops *rtda.OperandStack) {
 	ops.PushInt(100)
 	ops.PushInt(-100)
