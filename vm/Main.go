@@ -57,6 +57,7 @@ func startJvm(cmd *Cmd) {
 func getMainMethod(cf *classfile.ClassFile) *classfile.MemberInfo {
 	for _, m := range cf.Methods() {
 		if m.Name() == "main" && m.Descriptor() == "([Ljava/lang/String;)V" {
+			fmt.Printf("[gvm][getMainMethod] 找到main方法 %v\n", m.Name())
 			return m
 		}
 	}
