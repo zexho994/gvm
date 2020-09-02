@@ -130,13 +130,13 @@ func printClassInfo(className string, cf *classfile.ClassFile) {
 	fmt.Printf("========%v 字节码信息 ========\n", className)
 	fmt.Printf("[gvm] JDK版本: %v.%v\n", cf.MajorVersion(), cf.MinorVersion())
 	fmt.Printf("[gvm] 常量池大小: %v\n", len(cf.ConstantPool()))
-	fmt.Printf("[gvm] 描述符: 0x%x\n", cf.AccessFlags())
+	fmt.Printf("[gvm] 类访问标志: 0x%x\n", cf.AccessFlags())
 	fmt.Printf("[gvm] 本类名称: %v\n", cf.ClassName())
 	fmt.Printf("[gvm] 父类名称: %v\n", cf.SuperClassName())
 	fmt.Printf("[gvm] 接口信息: %v\n", cf.InterfaceNames())
-	fmt.Printf("[gvm] 字段&方法信息: %v\n", len(cf.Fields()))
+	fmt.Printf("[gvm] 字段数量: %v\n", len(cf.Fields()))
 	for _, f := range cf.Fields() {
-		fmt.Printf("[gvm] %s\n", f.Name())
+		fmt.Printf("[gvm] 方法或者字段名称：%s\n", f.Name())
 	}
 	fmt.Printf("[gvm] 类中方法数量: %v\n", len(cf.Methods()))
 	for _, m := range cf.Methods() {

@@ -70,7 +70,7 @@ func (self *MemberInfo) AccessFlags() uint16 {
 }
 
 /*
-获取方法或属性名称
+获取方法或字段名称
 */
 func (self *MemberInfo) Name() string {
 	return self.cp.getUtf8(self.nameIndex)
