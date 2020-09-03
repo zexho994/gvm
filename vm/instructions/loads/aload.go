@@ -38,7 +38,7 @@ execute ALOAD
 the index is stored inside the instrution
 */
 func (self *ALOAD) Execute(frame *rtda.Frame) {
-	_aload(frame, uint(self.Index))
+	_aload(frame, self.Index)
 }
 
 /*

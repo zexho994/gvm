@@ -2,8 +2,10 @@ package instructions
 
 import (
 	"../instructions/base"
+	"../instructions/comparisons"
 	"../instructions/constants"
 	"../instructions/loads"
+	"../instructions/stores"
 	"fmt"
 )
 
@@ -44,7 +46,8 @@ var (
 	aload_1     = &loads.ALOAD_1{}
 	aload_2     = &loads.ALOAD_2{}
 	aload_3     = &loads.ALOAD_3{}
-	istore_1    = &loads.ILOAD_1{}
+	istore_1    = &stores.ISTORE_1{}
+	istore_2    = &stores.ISTORE_2{}
 	//iaload        =
 	//laload        =
 	//faload        =
@@ -193,8 +196,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return dconst_0
 	case 0x0f:
 		return dconst_1
-	//case 0x10:
-	//	return &BIPush{}
+	case 0x10:
+		return &constants.BIPUSH{}
 	//case 0x11:
 	//	return &SIPush{}
 	//case 0x12:
@@ -255,6 +258,10 @@ func NewInstruction(opcode byte) base.Instruction {
 		return aload_3
 	case 0x3c:
 		return istore_1
+	case 0x3d:
+		return istore_2
+	case 0xa3:
+		return &comparisons.IF_ICMPGT{}
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))

@@ -13,6 +13,7 @@ type CodeAttribute struct {
 	/*
 		方法的内容编译后存放在code表中
 		method body after compile
+		内容就是iconst_0,istore_1等
 	*/
 	code []byte
 	// 受检查异常,对应了方法后面throw的部分

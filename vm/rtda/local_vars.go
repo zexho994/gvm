@@ -4,7 +4,7 @@ import "math"
 
 type LocalVars []Slot
 
-func newLocalVars(maxLocals uint16) LocalVars {
+func newLocalVars(maxLocals uint) LocalVars {
 	if maxLocals > 0 {
 		return make([]Slot, maxLocals)
 	}
@@ -13,6 +13,7 @@ func newLocalVars(maxLocals uint16) LocalVars {
 
 func (self LocalVars) SetInt(index uint, val int32) {
 	self[index].num = val
+
 }
 
 func (self LocalVars) GetInt(index uint) int32 {

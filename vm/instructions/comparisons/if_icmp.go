@@ -3,6 +3,7 @@ package comparisons
 import (
 	"../../instructions/base"
 	"../../rtda"
+	"fmt"
 )
 
 type IF_ICMPEQ struct{ base.BranchInstruction }
@@ -51,6 +52,7 @@ func (self *IF_ICMPGT) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
+	fmt.Printf("[gvm][IF_ICMPGT] %2d > %2d ?\n", val1, val2)
 	if val1 > val2 {
 		base.Branch(frame, self.Offset)
 	}

@@ -20,7 +20,7 @@ can see the classfile.method_info's Code Attribute
 func NewFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
 	return &Frame{
 		thread:       thread,
-		localVars:    newLocalVars(uint16(maxLocals)),
+		localVars:    newLocalVars(maxLocals),
 		operandStack: newOperandStack(maxStack),
 	}
 }

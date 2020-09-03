@@ -29,8 +29,8 @@ type ISTORE_3 struct {
 }
 
 func _istore(frame *rtda.Frame, index uint) {
-	val := frame.OperandStack().PopLong()
-	frame.LocalVars().SetLong(index, val)
+	val := frame.OperandStack().PopInt()
+	frame.LocalVars().SetInt(index, val)
 }
 
 func (self *ISTORE) Execute(frame *rtda.Frame) {

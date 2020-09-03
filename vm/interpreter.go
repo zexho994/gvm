@@ -25,6 +25,7 @@ func interpret(methodInfo *classfile.MemberInfo) {
 	fmt.Printf("[gvm][interpret] 方法操作数栈大小 maxStack : %v \n", maxStack)
 
 	// 获取方法表的code
+	// code的内容是指令码与指令
 	bytecode := codeAttr.Code() // 其他代码
 	fmt.Printf("[gvm][interpret] 方法Code属性 bytecode : %v \n", bytecode)
 
@@ -34,10 +35,11 @@ func interpret(methodInfo *classfile.MemberInfo) {
 
 	// 初始化线程的局部变量表和最大操作数栈
 	frame := thread.NewFrame(uint(maxLocals), uint(maxStack))
-	fmt.Println("[gvm][interpret] 方法的栈桢压入到新线程中")
+	fmt.Println("[gvm][interpret] 创建栈桢，设置局部变量表和操作数栈")
 
 	// 添加栈桢
 	thread.PushFrame(frame)
+	fmt.Println("[gvm][interpret] 方法的栈桢压入到新线程中")
 
 	// 暂时没有return方法，所以用异常代替
 	defer catchErr(frame)
@@ -83,17 +85,16 @@ func loop(thread *rtda.Thread, bytecode []byte) {
 		fmt.Printf("[gvm][loop] 获取操作码 ：%v \n", opcode)
 		// 解析出指令的类型
 		inst := instructions.NewInstruction(opcode)
-		fmt.Printf("[gvm][loop] 解析指令 %v \n", inst)
+		fmt.Printf("[gvm][loop] 解析指令: %T %v \n", inst, inst)
 		// 执行指令的拉取操作
 		inst.FetchOperands(reader)
-		fmt.Println("[gvm][loop] 执行fetchOperands")
+		fmt.Println("[gvm][loop] 执行 FetchOperands")
 		// 设置新的PC指针
 		frame.SetNextPC(reader.PC())
-		fmt.Printf("[gvm][loop] frame设置新的PC指令：%v\n", reader.PC())
 		fmt.Printf("[gvm][loop] frame新的PC指针:%v\n", frame.NextPC())
-		// execute
-		fmt.Printf("pc:%2d inst:%T %v\n", pc, inst, inst)
 		// 执行指令
+		fmt.Println("[gvm][loop] 执行指令")
 		inst.Execute(frame)
+		fmt.Printf("[gvm][loop] PC : %2d instruction : %T %v\n\n", pc, inst, inst)
 	}
 }
