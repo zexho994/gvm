@@ -4,7 +4,9 @@ import (
 	"../instructions/base"
 	"../instructions/comparisons"
 	"../instructions/constants"
+	"../instructions/control"
 	"../instructions/loads"
+	"../instructions/math"
 	"../instructions/stores"
 	"fmt"
 )
@@ -48,118 +50,11 @@ var (
 	aload_3     = &loads.ALOAD_3{}
 	istore_1    = &stores.ISTORE_1{}
 	istore_2    = &stores.ISTORE_2{}
-	//iaload        =
-	//laload        =
-	//faload        =
-	//daload        =
-	//aaload        =
-	//baload        =
-	//caload        =
-	//saload        =
-	//istore_0      =
-	//istore_1      =
-	//istore_2      =
-	//istore_3      =
-	//lstore_0      =
-	//lstore_1      =
-	//lstore_2      =
-	//lstore_3      =
-	//fstore_0      =
-	//fstore_1      =
-	//fstore_2      =
-	//fstore_3      =
-	//dstore_0      =
-	//dstore_1      =
-	//dstore_2      =
-	//dstore_3      =
-	//astore_0      =
-	//astore_1      =
-	//astore_2      =
-	//astore_3      =
-	//iastore       =
-	//lastore       =
-	//fastore       =
-	//dastore       =
-	//aastore       =
-	//bastore       =
-	//castore       =
-	//sastore       =
-	//pop           =
-	//pop2          =
-	//dup           =
-	//dup_x1        =
-	//dup_x2        =
-	//dup2          =
-	//dup2_x1       =
-	//dup2_x2       =
-	//swap          =
-	//iadd          =
-	//ladd          =
-	//fadd          =
-	//dadd          =
-	//isub          =
-	//lsub          =
-	//fsub          =
-	//dsub          =
-	//imul          =
-	//lmul          =
-	//fmul          =
-	//dmul          =
-	//idiv          =
-	//ldiv          =
-	//fdiv          =
-	//ddiv          =
-	//irem          =
-	//lrem          =
-	//frem          =
-	//drem          =
-	//ineg          =
-	//lneg          =
-	//fneg          =
-	//dneg          =
-	//ishl          =
-	//lshl          =
-	//ishr          =
-	//lshr          =
-	//iushr         =
-	//lushr         =
-	//iand          =
-	//land          =
-	//ior           =
-	//lor           =
-	//ixor          =
-	//lxor          =
-	//i2l           =
-	//i2f           =
-	//i2d           =
-	//l2i           =
-	//l2f           =
-	//l2d           =
-	//f2i           =
-	//f2l           =
-	//f2d           =
-	//d2i           =
-	//d2l           =
-	//d2f           =
-	//i2b           =
-	//i2c           =
-	//i2s           =
-	//lcmp          =
-	//fcmpl         =
-	//fcmpg         =
-	//dcmpl         =
-	//dcmpg         =
-	//ireturn       =
-	//lreturn       =
-	//freturn       =
-	//dreturn       =
-	//areturn       =
-	//_return       =
-	//arraylength   =
-	//athrow        =
-	//monitorenter  =
-	//monitorexit   =
-	//invoke_native =
+	iadd        = &math.IADD{}
+	iinc        = &math.IINC{}
+	goto_       = &control.GOTO{}
+	if_icmpgt   = &comparisons.IF_ICMPGT{}
+	bipush      = &constants.BIPUSH{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -197,25 +92,7 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x0f:
 		return dconst_1
 	case 0x10:
-		return &constants.BIPUSH{}
-	//case 0x11:
-	//	return &SIPush{}
-	//case 0x12:
-	//	return &LDC{}
-	//case 0x13:
-	//	return &LDC_W{}
-	//case 0x14:
-	//	return &LDC2_W{}
-	//case 0x15:
-	//	return NewLoad(false)
-	//case 0x16:
-	//	return NewLoad(true)
-	//case 0x17:
-	//	return NewLoad(false)
-	//case 0x18:
-	//	return NewLoad(true)
-	//case 0x19:
-	//	return NewLoad(false)
+		return bipush
 	case 0x1a:
 		return iload_0
 	case 0x1b:
@@ -260,8 +137,14 @@ func NewInstruction(opcode byte) base.Instruction {
 		return istore_1
 	case 0x3d:
 		return istore_2
+	case 0x60:
+		return iadd
+	case 0x84:
+		return iinc
 	case 0xa3:
-		return &comparisons.IF_ICMPGT{}
+		return if_icmpgt
+	case 0xa7:
+		return goto_
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))

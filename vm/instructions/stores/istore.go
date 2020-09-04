@@ -3,6 +3,7 @@ package stores
 import (
 	"../../instructions/base"
 	"../../rtda"
+	"fmt"
 )
 
 /*
@@ -30,6 +31,7 @@ type ISTORE_3 struct {
 
 func _istore(frame *rtda.Frame, index uint) {
 	val := frame.OperandStack().PopInt()
+	fmt.Printf("[gvm][PushInt] %v 存储到局部变量表[%v]中\n", val, index)
 	frame.LocalVars().SetInt(index, val)
 }
 
@@ -42,6 +44,7 @@ func (self *ISTORE_0) Execute(frame *rtda.Frame) {
 }
 
 func (self *ISTORE_1) Execute(frame *rtda.Frame) {
+	fmt.Println("[gvm][istore_1] 操作数栈存储数到局部变量表[1]中")
 	_istore(frame, 1)
 }
 

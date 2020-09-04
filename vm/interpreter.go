@@ -79,7 +79,6 @@ func loop(thread *rtda.Thread, bytecode []byte) {
 		thread.SetPC(pc)
 		// 重新开始读取指令
 		reader.Reset(bytecode, pc)
-		fmt.Println("[gvm][loop 准备读取指令")
 		// 获取操作码
 		opcode := reader.ReadUint8()
 		fmt.Printf("[gvm][loop] 获取操作码 ：%v \n", opcode)

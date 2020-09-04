@@ -4,7 +4,7 @@ type Frame struct {
 	// like the LinkedList's next point
 	lower *Frame
 	// Save the pointer of the local variable table corresponding to the stack frame
-	localVars    LocalVars
+	localVars    *LocalVars
 	operandStack *OperandStack
 
 	// 栈桢结构里
@@ -20,12 +20,12 @@ can see the classfile.method_info's Code Attribute
 func NewFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
 	return &Frame{
 		thread:       thread,
-		localVars:    newLocalVars(maxLocals),
-		operandStack: newOperandStack(maxStack),
+		localVars:    NewLocalVars(maxLocals),
+		operandStack: NewOperandStack(maxStack),
 	}
 }
 
-func (self Frame) LocalVars() LocalVars {
+func (self Frame) LocalVars() *LocalVars {
 	return self.localVars
 }
 

@@ -1,6 +1,9 @@
 package rtda
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type OperandStack struct {
 	// record the top position of the stack
@@ -8,7 +11,7 @@ type OperandStack struct {
 	slots []Slot
 }
 
-func newOperandStack(maxStack uint) *OperandStack {
+func NewOperandStack(maxStack uint) *OperandStack {
 	if maxStack > 0 {
 		return &OperandStack{
 			slots: make([]Slot, maxStack),
@@ -19,13 +22,16 @@ func newOperandStack(maxStack uint) *OperandStack {
 }
 
 func (self *OperandStack) PushInt(val int32) {
+	fmt.Printf("[gvm][PushInt] 操作数栈push新值: val : %v \n", val)
 	self.slots[self.size].num = val
+	fmt.Printf("[gvm][PushInt] 操作数栈push新值后的结果: val : %v \n", self.slots[self.size].num)
 	self.size++
 }
 
 func (self *OperandStack) PopInt() int32 {
+	fmt.Printf("[gvm][PushInt] 操作数栈pop,当前长度size: %v\n", self.size)
 	self.size--
-
+	fmt.Printf("[gvm][PushInt] 操作数栈pop值：%v\n", self.slots[self.size].num)
 	return self.slots[self.size].num
 }
 

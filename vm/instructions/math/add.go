@@ -9,7 +9,7 @@ type IADD struct {
 	base.NoOperandsInstruction
 }
 
-func (self IADD) Execute(frame rtda.Frame) {
+func (self IADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -21,7 +21,7 @@ type LADD struct {
 	base.NoOperandsInstruction
 }
 
-func (self LADD) Execute(frame rtda.Frame) {
+func (self LADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()
@@ -33,7 +33,7 @@ type FADD struct {
 	base.NoOperandsInstruction
 }
 
-func (self FADD) Execute(frame rtda.Frame) {
+func (self FADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	v2 := stack.PopFloat()
@@ -45,7 +45,7 @@ type DADD struct {
 	base.NoOperandsInstruction
 }
 
-func (self DADD) Execute(frame rtda.Frame) {
+func (self DADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	v2 := stack.PopDouble()

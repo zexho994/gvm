@@ -10,14 +10,14 @@ type SIPUSH struct{ val int16 } // Push short
 /*
 获取一个byte指令
 */
-func (self BIPUSH) FetchOperands(reader *base.BytecodeReader) {
+func (self *BIPUSH) FetchOperands(reader *base.BytecodeReader) {
 	self.val = reader.ReadInt8()
 }
 
 /*
 获取一个short指令
 */
-func (self SIPUSH) FetchOperands(reader *base.BytecodeReader) {
+func (self *SIPUSH) FetchOperands(reader *base.BytecodeReader) {
 	self.val = reader.ReadInt16()
 }
 
