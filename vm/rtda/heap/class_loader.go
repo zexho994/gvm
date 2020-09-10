@@ -109,5 +109,18 @@ func resolveInterfaces(class *Class) {
 			class.interfaces[i] = class.loader.LoadClass(interfaceName)
 		}
 	}
+}
 
+func link(class *Class) {
+	verify(class)
+	prepare(class)
+}
+
+func verify(class *Class) {
+	fmt.Printf("[gvm][verify] 类加载-验证阶段")
+}
+
+func prepare(class *Class) {
+	//to do
+	fmt.Printf("[gvm][verify] 类加载-准备阶段")
 }

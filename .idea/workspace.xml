@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/Entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/Entry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +184,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
     </ignored-roots>
-    <MESSAGE value="[update] add new neg instruction" />
     <MESSAGE value="[update] add sh.go" />
     <MESSAGE value="[update] add and.go" />
     <MESSAGE value="[update] add IINC.go" />
@@ -211,7 +208,8 @@
     <MESSAGE value="[version] 支持解析简单的算数运算" />
     <MESSAGE value="add access_flags const" />
     <MESSAGE value="[update]运行时常量池中符号引用" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]运行时常量池中符号引用" />
+    <MESSAGE value="类的加载阶段。解析类以及类的父类和接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="类的加载阶段。解析类以及类的父类和接口" />
   </component>
   <component name="WindowStateProjectService">
     <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">

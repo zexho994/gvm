@@ -12,7 +12,7 @@ type Class struct {
 	// 接口完全限定名
 	interfaceNames []string
 	// 常量池指针
-	constantPool *classfile.ConstantPool
+	constantPool *ConstantPool
 	// 字段表
 	fields []*Field
 	// 方法表
