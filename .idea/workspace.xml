@@ -23,24 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_classref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_interface_methodref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/field.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/method.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_numeric.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classfile/cp_numeric.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/local_vars.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/operand_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/slot.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/slot.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/classpath/Entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/Entry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +125,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -200,7 +186,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
     </ignored-roots>
-    <MESSAGE value="[update] add new mul instruction" />
     <MESSAGE value="[update] add new neg instruction" />
     <MESSAGE value="[update] add sh.go" />
     <MESSAGE value="[update] add and.go" />
@@ -225,7 +210,8 @@
     <MESSAGE value="新增支持 iload 指令" />
     <MESSAGE value="[version] 支持解析简单的算数运算" />
     <MESSAGE value="add access_flags const" />
-    <option name="LAST_COMMIT_MESSAGE" value="add access_flags const" />
+    <MESSAGE value="[update]运行时常量池中符号引用" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]运行时常量池中符号引用" />
   </component>
   <component name="WindowStateProjectService">
     <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">
@@ -280,10 +266,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="-1127" y="247" width="1119" height="722" key="SettingsEditor" timestamp="1599108334117">
+    <state x="-1127" y="247" width="1119" height="722" key="SettingsEditor" timestamp="1599714927411">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1127" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599108334117" />
+    <state x="-1127" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599714927411" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1598590270987" />
     <state x="-1052" y="243" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598872595975" />
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
@@ -301,10 +287,11 @@
     </state>
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
-    <state x="420" y="255" key="Vcs.Push.Dialog.v2" timestamp="1599385785320">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="560" y="306" key="Vcs.Push.Dialog.v2" timestamp="1599627277921">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599220704475" />
+    <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599627277921" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597815058184" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />

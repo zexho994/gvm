@@ -10,7 +10,7 @@ type Class struct {
 	// 父类完全限定名
 	superClassName string
 	// 接口完全限定名
-	interfaceName []string
+	interfaceNames []string
 	// 常量池指针
 	constantPool *classfile.ConstantPool
 	// 字段表
@@ -37,7 +37,7 @@ func newClass(cf *classfile.ClassFile) *Class {
 	class.accessFlags = cf.AccessFlags()
 	class.name = cf.ClassName()
 	class.superClassName = cf.SuperClassName()
-	class.interfaceName = cf.InterfaceNames()
+	class.interfaceNames = cf.InterfaceNames()
 	class.constantPool = newConstantPool(class, cf.ConstantPool())
 	class.fields = newFields(class, cf.Fields())
 	class.methods = newMethods(class, cf.Methods())
