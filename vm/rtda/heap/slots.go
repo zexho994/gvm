@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-type Slot struct {
+type Slots struct {
 	num int32
 	ref *Object
 }
