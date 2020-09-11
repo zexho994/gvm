@@ -142,7 +142,7 @@ func calcInstanceFieldSlotIds(class *Class) {
 		if !field.IsStatic() {
 			field.slotId = slotId
 			slotId++
-			if field.isLongOrDouble() {
+			if field.IsLongOrDouble() {
 				slotId++
 			}
 		}
@@ -156,7 +156,7 @@ func calcStaticFieldSlotIds(class *Class) {
 		if field.IsStatic() {
 			field.slotId = slotId
 			slotId++
-			if field.isLongOrDouble() {
+			if field.IsLongOrDouble() {
 				slotId++
 			}
 		}

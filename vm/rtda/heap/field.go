@@ -17,6 +17,14 @@ func (self Field) ConstValueIndex() uint {
 	return self.constValueIndex
 }
 
+func (self Field) IsStatic() bool {
+	return self.access == ACC_STATIC
+}
+
+func (self Field) Descriptor() string {
+	return self.descriptor
+}
+
 /*
 
  */
