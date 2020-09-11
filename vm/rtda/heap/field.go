@@ -7,8 +7,14 @@ import "../../classfile"
 */
 type Field struct {
 	ClassMember
+	// 常量索引
+	constValueIndex uint
 	// 字段编号
 	slotId uint
+}
+
+func (self Field) ConstValueIndex() uint {
+	return self.constValueIndex
 }
 
 /*
@@ -20,6 +26,7 @@ func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
 		fields[i] = &Field{}
 		fields[i].class = class
 		fields[i].copyMemberInfo(cfFields)
+		fields[i].copyAttributes(cfFields)
 	}
 	return fields
 }
@@ -30,4 +37,10 @@ func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
 */
 func (self Field) IsLongOrDouble() bool {
 	return self.descriptor == "J" || self.descriptor == "D"
+}
+
+func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
+	if valAttr := cfField.ConstantValueAttribute(); valAttr != nil {
+		self.constValueIndex = uint(valAttr.ConstantValueIndex())
+	}
 }
