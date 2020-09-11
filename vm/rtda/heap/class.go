@@ -23,10 +23,11 @@ type Class struct {
 	superClass *Class
 	// 接口
 	interfaces []*Class
-	//
+	// 实例字段数量
 	instanceSlotCount uint
-	staticSlotCount   uint
-	staticVars        *Slots
+	// 静态字段数量
+	staticSlotCount uint
+	staticVars      *Slots
 }
 
 /*

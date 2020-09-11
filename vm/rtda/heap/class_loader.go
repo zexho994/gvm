@@ -120,7 +120,58 @@ func verify(class *Class) {
 	fmt.Printf("[gvm][verify] 类加载-验证阶段")
 }
 
+// 准备阶段
 func prepare(class *Class) {
-	//to do
 	fmt.Printf("[gvm][verify] 类加载-准备阶段")
+	calcInstanceFieldSlotIds(class)
+	calcStaticFieldSlotIds(class)
+	allocAndInitStaticVars(class)
+}
+
+/**
+计算实例字段数量
+1. 父类的字段都属于字段。子类的字段表需要加上父类的字段
+2.
+*/
+func calcInstanceFieldSlotIds(class *Class) {
+	slotId := uint(0)
+	if class.superClass != nil {
+		slotId = class.superClass.instanceSlotCount
+	}
+	for _, field := range class.fields {
+		if !field.IsStatic() {
+			field.slotId = slotId
+			slotId++
+			if field.isLongOrDouble() {
+				slotId++
+			}
+		}
+	}
+	class.instanceSlotCount = slotId
+}
+
+func calcStaticFieldSlotIds(class *Class) {
+	slotId := uint(0)
+	for _, field := range class.fields {
+		if field.IsStatic() {
+			field.slotId = slotId
+			slotId++
+			if field.isLongOrDouble() {
+				slotId++
+			}
+		}
+	}
+	class.staticSlotCount = slotId
+}
+
+/**
+给类变量分配空间，然后赋予初始值
+*/
+func allocAndInitStaticVars(class *Class) {
+	class.staticVars = newSlots(class.staticSlotCount)
+	for _, field := range class.fields {
+		if field.IsStatic() && field.IsFinal() {
+			initStaticFinalvar(class, field)
+		}
+	}
 }

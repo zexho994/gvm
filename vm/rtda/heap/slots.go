@@ -11,14 +11,14 @@ type Slot struct {
 }
 
 type LocalVars struct {
-	slots []Slot
+	slots []Slots
 }
 
 func NewLocalVars(maxLocals uint) *LocalVars {
 	if maxLocals > 0 {
 		fmt.Printf("[gvm][NewLocalVars] maxLocals : %v \n", maxLocals)
 		return &LocalVars{
-			slots: make([]Slot, maxLocals),
+			slots: make([]Slots, maxLocals),
 		}
 	}
 	return nil
