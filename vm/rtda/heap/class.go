@@ -1,6 +1,9 @@
 package heap
 
-import "../../classfile"
+import (
+	"../../classfile"
+	"strings"
+)
 
 type Class struct {
 	// 类访问标志，public,protect,private
@@ -55,4 +58,26 @@ func (self *Class) IsPrivate() bool {
 
 func (self *Class) IsProtected() bool {
 	return 0 != self.accessFlags&ACC_PROTECTED
+}
+
+/**
+一个类想要访问另一个类，必须含有
+1. 两个类在同一个包下
+2. 要访问的类public
+*/
+func (self *Class) isAccessibleTo(other *Class) bool {
+	return self.IsPublic() || self.getPackageName() == other.getPackageName()
+
+}
+
+/**
+获取包名
+lastIndex : "/" 在 name中出现的最后所以下标
+如果name = "java/lang/Object","/"出现的最后位置就是9
+*/
+func (self *Class) getPackageName() string {
+	if i := strings.LastIndex(self.name, "/"); i >= 0 {
+		return self.name[:i]
+	}
+	return ""
 }

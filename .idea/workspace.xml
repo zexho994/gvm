@@ -23,8 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+      <change beforePath="$PROJECT_DIR$/.idea/gvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gvm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,10 +125,11 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -161,7 +167,33 @@
       <option name="presentableId" value="Default" />
       <updated>1596934171413</updated>
       <workItem from="1596934176780" duration="204000" />
+      <workItem from="1599783947866" duration="318000" />
+      <workItem from="1599784284943" duration="2214000" />
+      <workItem from="1599820157401" duration="90000" />
+      <workItem from="1599820260395" duration="5486000" />
     </task>
+    <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
+      <created>1599786555590</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599786555590</updated>
+    </task>
+    <task id="LOCAL-00002" summary="添加initStaticFinalvar()方法，给类变量赋值">
+      <created>1599821078061</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599821078061</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update field.go and member_info.go">
+      <created>1599821818551</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599821818551</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,13 +215,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
+      <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="[update] add sh.go" />
-    <MESSAGE value="[update] add and.go" />
-    <MESSAGE value="[update] add IINC.go" />
-    <MESSAGE value="[update] add d2x.go" />
-    <MESSAGE value="[update] add f2x.go" />
-    <MESSAGE value="[update] add i2x.go" />
     <MESSAGE value="[update] add condition logic instructions" />
     <MESSAGE value="[update] add extend instructions" />
     <MESSAGE value="[update] update classpath" />
@@ -209,9 +236,19 @@
     <MESSAGE value="add access_flags const" />
     <MESSAGE value="[update]运行时常量池中符号引用" />
     <MESSAGE value="类的加载阶段。解析类以及类的父类和接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="类的加载阶段。解析类以及类的父类和接口" />
+    <MESSAGE value="添加类的链接阶段验证和准备方法link(),prepare()" />
+    <MESSAGE value="添加slots.go,用来存储类变量和实例变量" />
+    <MESSAGE value="update gitignore,add /.idea/workspace.xml" />
+    <MESSAGE value="类加载过程准备阶段，计算实例字段与类字段数量。" />
+    <MESSAGE value="添加initStaticFinalvar()方法，给类变量赋值" />
+    <MESSAGE value="update field.go and member_info.go" />
+    <option name="LAST_COMMIT_MESSAGE" value="update field.go and member_info.go" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="760" y="205" key="#GOPATH" timestamp="1599783983186">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="760" y="205" key="#GOPATH/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783983186" />
     <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -228,11 +265,11 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
-    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599134096457">
+    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599822514418">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599111464482" />
-    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1598590623932" />
+    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599822514418" />
+    <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783991317" />
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599134096457" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670566037" />
     <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
@@ -264,12 +301,12 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="-1127" y="247" width="1119" height="722" key="SettingsEditor" timestamp="1599714927411">
+    <state x="-1095" y="236" width="1119" height="722" key="SettingsEditor" timestamp="1599824569004">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1127" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599714927411" />
-    <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1598590270987" />
-    <state x="-1052" y="243" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598872595975" />
+    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599824569004" />
+    <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
+    <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
     <state x="400" y="259" width="1119" height="722" key="SettingsEditor/-722.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597987180099" />
     <state x="269" y="178" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598178015784" />

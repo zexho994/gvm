@@ -13,3 +13,15 @@ type SymRef struct {
 	// 解析后的类结构体指针
 	class *Class
 }
+
+/**
+解析符号引用
+*/
+func (self *SymRef) ResolvedClass() *Class {
+	if self.class == nil {
+		// 解析类符号引用
+		self.resolveClassRef()
+	}
+	// 如果类已经被解析类，直接返回类指针
+	return self.class
+}
