@@ -47,6 +47,9 @@ func (self *Index8Instruction) FetchOperands(reader *BytecodeReader) {
 	self.Index = uint(reader.ReadUint8())
 }
 
+/*
+16位长度的指令
+*/
 type Index16Instruction struct {
 	Index uint
 }

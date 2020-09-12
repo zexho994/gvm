@@ -2,7 +2,7 @@
  * @Author: 994
  * @Date: 2020/8/9 08:52
  */
-public class ClassFileTest {
+public class ClassFile {
 
     public static final boolean FLAG = true;
     public static final byte BYTE = 123;
