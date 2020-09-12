@@ -14,8 +14,12 @@ type ConstantPool struct {
 	consts []Constant
 }
 
+func (self *ConstantPool) Name() string {
+	return self.class.name
+}
+
 /*
-将class文件中的常量池转换好处呢个运行时常量池
+将class文件中的常量池转换成运行时常量池
 */
 func newConstantPool(class *Class, cfCp classfile.ConstantPool) *ConstantPool {
 	// 获取常量池的长度
@@ -46,15 +50,19 @@ func newConstantPool(class *Class, cfCp classfile.ConstantPool) *ConstantPool {
 		case *classfile.ConstantStringInfo:
 			stringInfo := cpInfo.(*classfile.ConstantStringInfo)
 			consts[i] = stringInfo.String()
+
 		case *classfile.ConstantClassInfo:
 			classInfo := cpInfo.(*classfile.ConstantClassInfo)
 			consts[i] = newClssRef(rtCp, classInfo)
+
 		case *classfile.ConstantFieldrefInfo:
 			fieldrefInfo := cpInfo.(*classfile.ConstantFieldrefInfo)
 			consts[i] = newFieldRef(rtCp, fieldrefInfo)
-		case *classfile.ConstantMethodHandleInfo:
-			methodrefInfo := cpInfo.(*classfile.ConstantMethodHandleInfo)
-			consts[i] = newMethodsRefr(rtCp, methodrefInfo)
+
+		case *classfile.ConstantMethodrefInfo:
+			methodrefInfo := cpInfo.(*classfile.ConstantMethodrefInfo)
+			consts[i] = newMethodRef(rtCp, methodrefInfo)
+
 		case *classfile.ConstantInterfaceMethodrefInfo:
 			methodrefInfo := cpInfo.(*classfile.ConstantInterfaceMethodrefInfo)
 			consts[i] = newInterfaceMethodRef(rtCp, methodrefInfo)

@@ -4,32 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+      <change afterPath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/object.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/slots.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/slots.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/vm/vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +36,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="$USER_HOME$/sdk/go1.15" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
@@ -75,9 +67,6 @@
         </option>
       </RecentBranches>
     </option>
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="1c83a2f3-fc0f-45b8-9091-a5acf6edda88" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -129,7 +118,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -155,7 +144,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -192,12 +181,23 @@
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1599821818551</updated>
+      <workItem from="1599878797353" duration="180000" />
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -249,10 +249,17 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="760" y="205" key="#GOPATH/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783983186" />
-    <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768" />
+    <screen x="0" y="0" width="1920" height="1080" />
+    <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="640" y="190" key="#GOPATH/0.0.1680.1050@0.0.1680.1050" timestamp="1599878844513" />
+    <state x="665" y="452" width="578" height="381" key="#GOROOT" timestamp="1599746713465">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="760" y="451" width="578" height="381" key="#GOROOT/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670054768" />
+    <state x="665" y="452" key="#GOROOT/0.23.1680.1027@0.23.1680.1027" timestamp="1599746713465" />
     <state x="594" y="225" key="#Inspections" timestamp="1597900265556">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -301,8 +308,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="-1095" y="236" width="1119" height="722" key="SettingsEditor" timestamp="1599824569004">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="-1095" y="236" width="1119" height="722" key="SettingsEditor" timestamp="1599824569004" />
+    <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="382" y="183" width="980" height="722" key="SettingsEditor" timestamp="1599878976691">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599824569004" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
@@ -310,9 +319,11 @@
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
     <state x="400" y="259" width="1119" height="722" key="SettingsEditor/-722.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597987180099" />
     <state x="269" y="178" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598178015784" />
+    <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1599878976691" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
+    <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>

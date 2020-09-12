@@ -30,7 +30,11 @@ type Class struct {
 	instanceSlotCount uint
 	// 静态字段数量
 	staticSlotCount uint
-	staticVars      *Slots
+	staticVars      Slots
+}
+
+func (self *Class) ConstantPool() *ConstantPool {
+	return self.constantPool
 }
 
 /*
@@ -60,6 +64,10 @@ func (self *Class) IsProtected() bool {
 	return 0 != self.accessFlags&ACC_PROTECTED
 }
 
+func (self *Class) IsInterface() bool {
+	return 0 != self.accessFlags&ACC_INTERFACE
+}
+
 /**
 一个类想要访问另一个类，必须含有
 1. 两个类在同一个包下
@@ -84,4 +92,17 @@ func (self *Class) getPackageName() string {
 
 func (self *Class) NewObject() *Object {
 	return newObject(self)
+}
+
+func (self *Class) GetMainMethod() *Method {
+	return self.getStaticMethod("main", "([Ljava/lang/String;)V")
+}
+
+func (self *Class) getStaticMethod(name, descriptor string) *Method {
+	for _, method := range self.methods {
+		if method.IsStatic() && method.name == name && method.descriptor == descriptor {
+			return method
+		}
+	}
+	return nil
 }

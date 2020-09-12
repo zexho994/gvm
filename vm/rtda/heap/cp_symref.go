@@ -25,3 +25,12 @@ func (self *SymRef) ResolvedClass() *Class {
 	// 如果类已经被解析类，直接返回类指针
 	return self.class
 }
+
+func (self *SymRef) resolveClassRef() {
+	d := self.cp.class
+	c := d.loader.LoadClass(self.className)
+	if !c.isAccessibleTo(d) {
+		panic("java.lang.IllegalAccessError")
+	}
+	self.class = c
+}
