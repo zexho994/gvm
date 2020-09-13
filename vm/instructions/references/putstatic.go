@@ -2,7 +2,6 @@ package references
 
 import (
 	"../../instructions/base"
-	"runtime"
 )
 import "../../rtda"
 import "../../rtda/heap" // Set static field in class

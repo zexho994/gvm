@@ -2,6 +2,7 @@ package heap
 
 import (
 	"../../classfile"
+	"fmt"
 	"strings"
 )
 
@@ -35,6 +36,14 @@ type Class struct {
 
 func (self *Class) ConstantPool() *ConstantPool {
 	return self.constantPool
+}
+
+func (self Class) StaticVars() Slots {
+	return self.staticVars
+}
+
+func (self Class) IsAbstract() bool {
+	return 0 != self.accessFlags&ACC_ABSTRACT
 }
 
 /*
@@ -85,6 +94,7 @@ lastIndex : "/" 在 name中出现的最后所以下标
 */
 func (self *Class) getPackageName() string {
 	if i := strings.LastIndex(self.name, "/"); i >= 0 {
+		fmt.Printf("[gvm][getPackgeName] 包名 %v \n", self.name[:i])
 		return self.name[:i]
 	}
 	return ""

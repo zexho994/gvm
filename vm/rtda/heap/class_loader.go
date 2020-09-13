@@ -11,6 +11,7 @@ import (
 类加载器依赖ClassPath来搜寻和读取class文件
 */
 type ClassLoader struct {
+	// 保存cp指针
 	cp *classpath.Classpath
 
 	// 已经加载的类，key是类的全限定名
@@ -21,6 +22,7 @@ type ClassLoader struct {
 创建一个加载器实例
 */
 func NewClassLoader(cp *classpath.Classpath) *ClassLoader {
+	fmt.Printf("[gvm][NewClassLoader] 创建一个类加载器")
 	return &ClassLoader{
 		cp:       cp,
 		classMap: make(map[string]*Class),
@@ -32,7 +34,9 @@ func NewClassLoader(cp *classpath.Classpath) *ClassLoader {
 然后将将类数据加载到方法区中
 */
 func (self *ClassLoader) LoadClass(name string) *Class {
+	fmt.Printf("[gvm][LoadClass] 加载类 %v \n", name)
 	if class, ok := self.classMap[name]; ok {
+		fmt.Printf("[gvm][LoadClass] 类 %v 已被加载过\n", name)
 		return class
 	}
 	return self.loadNonArrayClass(name)
@@ -42,6 +46,7 @@ func (self *ClassLoader) LoadClass(name string) *Class {
 非数组类的加载
 */
 func (self *ClassLoader) loadNonArrayClass(name string) *Class {
+	fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
 	data, entry := self.readClass(name)
 	class := self.defineClass(data)
 	// 类的链接
@@ -117,12 +122,12 @@ func link(class *Class) {
 }
 
 func verify(class *Class) {
-	fmt.Printf("[gvm][verify] 类加载-验证阶段")
+	fmt.Printf("[gvm][verify] 类加载-验证阶段\n")
 }
 
 // 准备阶段
 func prepare(class *Class) {
-	fmt.Printf("[gvm][verify] 类加载-准备阶段")
+	fmt.Printf("[gvm][verify] 类加载-准备阶段\n")
 	calcInstanceFieldSlotIds(class)
 	calcStaticFieldSlotIds(class)
 	allocAndInitStaticVars(class)
@@ -139,14 +144,18 @@ func calcInstanceFieldSlotIds(class *Class) {
 		slotId = class.superClass.instanceSlotCount
 	}
 	for _, field := range class.fields {
+		fmt.Printf("[gvm][calcInstanceFieldSlotIds]%v,%v ", field.name, slotId)
 		if !field.IsStatic() {
+			fmt.Println("不是常量")
 			field.slotId = slotId
 			slotId++
 			if field.IsLongOrDouble() {
 				slotId++
 			}
 		}
+		fmt.Println("是常量")
 	}
+	fmt.Printf("[gvm][calcInstanceFieldSlotIds] 实例字段数量: %v\n", slotId)
 	class.instanceSlotCount = slotId
 }
 
@@ -161,6 +170,8 @@ func calcStaticFieldSlotIds(class *Class) {
 			}
 		}
 	}
+	fmt.Printf("[gvm][calcStaticFieldSlotIds] 静态字段数量 %v\n", slotId)
+
 	class.staticSlotCount = slotId
 }
 
@@ -168,8 +179,11 @@ func calcStaticFieldSlotIds(class *Class) {
 给类变量分配空间，然后赋予初始值
 */
 func allocAndInitStaticVars(class *Class) {
+	fmt.Printf("[gvm][allocAndInitStaticVars] 分配空间\n")
 	class.staticVars = newSlots(class.staticSlotCount)
 	for _, field := range class.fields {
+		// 对于常量类型，值在编译时期已经存在class常量池中
+		// 所以在初始化的时候直接给常量赋值
 		if field.IsStatic() && field.IsFinal() {
 			initStaticFinalvar(class, field)
 		}
@@ -177,10 +191,10 @@ func allocAndInitStaticVars(class *Class) {
 }
 
 /**
-给类变量赋值
 类变量的值在编译时候就已知，所以可以直接从class文件常量池中获取
 */
 func initStaticFinalvar(class *Class, field *Field) {
+	fmt.Printf("[gvm][initStaticFinalVar] 分配空间\n")
 	vars := class.staticVars
 	cp := class.constantPool
 	cpIndex := field.ConstValueIndex()

@@ -13,16 +13,24 @@ type Field struct {
 	slotId uint
 }
 
+func (self Field) Class() *Class {
+	return self.class
+}
+
 func (self Field) ConstValueIndex() uint {
 	return self.constValueIndex
 }
 
 func (self Field) IsStatic() bool {
-	return self.access == ACC_STATIC
+	return 0 != self.access&ACC_STATIC
 }
 
 func (self Field) Descriptor() string {
 	return self.descriptor
+}
+
+func (self Field) SlotId() uint {
+	return self.slotId
 }
 
 /*
@@ -47,8 +55,12 @@ func (self Field) IsLongOrDouble() bool {
 	return self.descriptor == "J" || self.descriptor == "D"
 }
 
-func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
+func (self Field) copyAttributes(cfField *classfile.MemberInfo) {
 	if valAttr := cfField.ConstantValueAttribute(); valAttr != nil {
 		self.constValueIndex = uint(valAttr.ConstantValueIndex())
 	}
+}
+
+func (self Field) IsFinal() bool {
+	return 0 != self.access&ACC_FINAL
 }

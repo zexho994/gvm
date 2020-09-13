@@ -1,7 +1,7 @@
 package main
 
+import "./rtda/heap"
 import (
-	"./classfile"
 	"./instructions"
 	"./instructions/base"
 	"./rtda"
@@ -11,41 +11,48 @@ import (
 /*
 获取执行方法所需的局部变量表和操作数栈空间以及方法的字节码
 */
-func interpret(methodInfo *classfile.MemberInfo) {
+func interpret(methodInfo *heap.Method) {
+
+	thread := rtda.NewThread()
+	frame := thread.NewFrame(methodInfo)
+	thread.PushFrame(frame)
+	defer catchErr(frame)
+	loop(thread, methodInfo.Code())
+
 	// 获取方法属性表
-	codeAttr := methodInfo.CodeAttribute()
-	fmt.Printf("[gvm][interpret] 方法属性表 codeAttr: %v \n", codeAttr)
+	//codeAttr := methodInfo.CodeAttribute()
+	//fmt.Printf("[gvm][interpret] 方法属性表 codeAttr: %v \n", codeAttr)
 
 	// 获取最大局部变量表
-	maxLocals := codeAttr.MaxLocals()
-	fmt.Printf("[gvm][interpret] 方法局部变量表大小 maxLocals : %v \n", maxLocals)
+	//maxLocals := codeAttr.MaxLocals()
+	//fmt.Printf("[gvm][interpret] 方法局部变量表大小 maxLocals : %v \n", maxLocals)
 
 	// 获取最大栈
-	maxStack := codeAttr.MaxStack()
-	fmt.Printf("[gvm][interpret] 方法操作数栈大小 maxStack : %v \n", maxStack)
+	//maxStack := codeAttr.MaxStack()
+	//fmt.Printf("[gvm][interpret] 方法操作数栈大小 maxStack : %v \n", maxStack)
 
 	// 获取方法表的code
 	// code的内容是指令码与指令
-	bytecode := codeAttr.Code() // 其他代码
-	fmt.Printf("[gvm][interpret] 方法Code属性 bytecode : %v \n", bytecode)
+	//bytecode := codeAttr.Code() // 其他代码
+	//fmt.Printf("[gvm][interpret] 方法Code属性 bytecode : %v \n", bytecode)
 
 	// 创建新的线程
-	thread := rtda.NewThread()
-	fmt.Println("[gvm][interpret] 创建新线程")
+	//thread := rtda.NewThread()
+	//fmt.Println("[gvm][interpret] 创建新线程")
 
 	// 初始化线程的局部变量表和最大操作数栈
-	frame := thread.NewFrame(uint(maxLocals), uint(maxStack))
-	fmt.Println("[gvm][interpret] 创建栈桢，设置局部变量表和操作数栈")
+	//frame := thread.NewFrame(uint(maxLocals), uint(maxStack))
+	//fmt.Println("[gvm][interpret] 创建栈桢，设置局部变量表和操作数栈")
 
 	// 添加栈桢
-	thread.PushFrame(frame)
-	fmt.Println("[gvm][interpret] 方法的栈桢压入到新线程中")
+	//thread.PushFrame(frame)
+	//fmt.Println("[gvm][interpret] 方法的栈桢压入到新线程中")
 
 	// 暂时没有return方法，所以用异常代替
-	defer catchErr(frame)
+	//defer catchErr(frame)
 
 	// 执行命令
-	loop(thread, bytecode)
+	//loop(thread, bytecode)
 }
 
 /*

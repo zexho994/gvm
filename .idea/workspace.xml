@@ -9,18 +9,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
-      <change afterPath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gvm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/checkcast.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/getfield.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/getstatic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/instanceof.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/invokespecial.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/invokevirtual.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/references/putfield.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/instructions/stores/astore.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/class_hierarchy.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/Main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/classpath/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/classpath.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/classpath/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/entry_dir.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/factory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/instructions/references/putstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/references/putstatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/frame.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/method.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/object.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/rtda/heap/slots.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/slots.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/local_vars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/operand_stack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/thread.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/vm/vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,6 +148,11 @@
       <recent name="$PROJECT_DIR$/ch1/class" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="ass" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="go build Main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
@@ -183,7 +207,28 @@
       <updated>1599821818551</updated>
       <workItem from="1599878797353" duration="180000" />
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="缺失的方法补充，测试">
+      <created>1599906476537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599906476537</updated>
+    </task>
+    <task id="LOCAL-00005" summary="添加类的访问标志判断方法 checkClassAccess">
+      <created>1599996114124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599996114124</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[bugfix] 修改classMember下 public,protected,private的判断逻辑">
+      <created>1599996193051</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1599996193051</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,9 +262,6 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="[update] add condition logic instructions" />
-    <MESSAGE value="[update] add extend instructions" />
-    <MESSAGE value="[update] update classpath" />
     <MESSAGE value="add gitignore" />
     <MESSAGE value="update gitignore" />
     <MESSAGE value="refactor" />
@@ -242,18 +284,16 @@
     <MESSAGE value="类加载过程准备阶段，计算实例字段与类字段数量。" />
     <MESSAGE value="添加initStaticFinalvar()方法，给类变量赋值" />
     <MESSAGE value="update field.go and member_info.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="update field.go and member_info.go" />
+    <MESSAGE value="缺失的方法补充，测试" />
+    <MESSAGE value="添加类的访问标志判断方法 checkClassAccess" />
+    <MESSAGE value="[bugfix] 修改classMember下 public,protected,private的判断逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="[bugfix] 修改classMember下 public,protected,private的判断逻辑" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="760" y="205" key="#GOPATH" timestamp="1599783983186">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="760" y="205" key="#GOPATH/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783983186" />
-    <state x="760" y="451" width="578" height="381" key="#GOROOT" timestamp="1597670054768" />
-    <screen x="0" y="0" width="1920" height="1080" />
     <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="760" y="205" key="#GOPATH/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783983186" />
     <state x="640" y="190" key="#GOPATH/0.0.1680.1050@0.0.1680.1050" timestamp="1599878844513" />
     <state x="665" y="452" width="578" height="381" key="#GOROOT" timestamp="1599746713465">
       <screen x="0" y="23" width="1680" height="1027" />
@@ -272,11 +312,12 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
-    <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599822514418">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599974149594">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599822514418" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599783991317" />
+    <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1599974149594" />
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599134096457" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670566037" />
     <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
@@ -292,6 +333,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1597847144210" />
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599974102377">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1599974102377" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -308,8 +353,6 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="-1095" y="236" width="1119" height="722" key="SettingsEditor" timestamp="1599824569004" />
-    <screen x="-1920" y="0" width="1920" height="1080" />
     <state x="382" y="183" width="980" height="722" key="SettingsEditor" timestamp="1599878976691">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -328,10 +371,11 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596817093402" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1599196845632">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state width="500" height="433" key="SwitcherDM" timestamp="1599988279085">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
+    <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2" timestamp="1599627277921">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -364,11 +408,16 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="562" y="222" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1598176564994" />
-    <state x="469" y="203" width="672" height="507" key="search.everywhere.popup" timestamp="1599387299391">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup" timestamp="1599987603974">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1599987603974" />
+    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup" timestamp="1599993508943">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599218953320" />
     <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599387299391" />
+    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1599993508943" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599135052043" />
     <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
   </component>

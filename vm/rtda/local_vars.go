@@ -10,7 +10,7 @@ type LocalVars struct {
 	slots []Slot
 }
 
-func NewLocalVars(maxLocals uint) *LocalVars {
+func NewLocalVars(maxLocals uint16) *LocalVars {
 	if maxLocals > 0 {
 		fmt.Printf("[gvm][NewLocalVars] maxLocals : %v \n", maxLocals)
 		return &LocalVars{

@@ -4,6 +4,7 @@ import (
 	"./classfile"
 	"./classpath"
 	"./rtda"
+	"./rtda/heap"
 	"fmt"
 	"strings"
 )
@@ -32,23 +33,28 @@ func startJvm(cmd *Cmd) {
 	// 对XjreOption和cp两个字段进行解析
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
-	// class/java/lang/Object
-	fmt.Printf("[gvm][startJvm] 获取类文件路径 : %v\n", cmd.class)
+	// 类加载器加载类
+	classLoader := heap.NewClassLoader(cp)
+
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	fmt.Printf("[gvm][startJvm] 解析类文件名称 : %v\n", className)
 
 	// 加载class 文件
-	cf := loadClass(className, cp)
+	//cf := loadClass(className, cp)
 	// output file information
-	printClassInfo(cmd.class, cf)
+	//printClassInfo(cmd.class, cf)
+
 	// 获取main方法
-	mainMethod := getMainMethod(cf)
+	mainClass := classLoader.LoadClass(className)
+	mainMethod := mainClass.GetMainMethod()
+
 	// 解释main方法
 	if mainMethod != nil {
 		interpret(mainMethod)
 	} else {
 		fmt.Printf("没有找到该类： %s \n", cmd.class)
 	}
+
 }
 
 /*

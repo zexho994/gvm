@@ -1,12 +1,14 @@
 package rtda
 
+import "./heap"
+
 type Frame struct {
 	// like the LinkedList's next point
 	lower *Frame
 	// Save the pointer of the local variable table corresponding to the stack frame
 	localVars    *LocalVars
 	operandStack *OperandStack
-
+	method       *heap.Method
 	// 栈桢结构里
 	thread *Thread
 	// 下一个指令
@@ -17,12 +19,17 @@ type Frame struct {
 The value of maxLocals and maxStack can be calculated at compile time
 can see the classfile.method_info's Code Attribute
 */
-func NewFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
+func newFrame(thread *Thread, method *heap.Method) *Frame {
 	return &Frame{
 		thread:       thread,
-		localVars:    NewLocalVars(maxLocals),
-		operandStack: NewOperandStack(maxStack),
+		method:       method,
+		localVars:    NewLocalVars(method.MaxLocals()),
+		operandStack: NewOperandStack(method.MaxStack()),
 	}
+}
+
+func (self Frame) Method() *heap.Method {
+	return self.method
 }
 
 func (self Frame) LocalVars() *LocalVars {

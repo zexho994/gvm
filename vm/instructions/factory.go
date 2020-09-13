@@ -7,54 +7,72 @@ import (
 	"../instructions/control"
 	"../instructions/loads"
 	"../instructions/math"
+	"../instructions/references"
+	"../instructions/stack"
 	"../instructions/stores"
 	"fmt"
 )
 
 var (
-	nop         = &constants.NOP{}
-	aconst_null = &constants.ACONST_NULL{}
-	iconst_m1   = &constants.ICONST_M1{}
-	iconst_0    = &constants.ICONST_0{}
-	iconst_1    = &constants.ICONST_1{}
-	iconst_2    = &constants.ICONST_2{}
-	iconst_3    = &constants.ICONST_3{}
-	iconst_4    = &constants.ICONST_4{}
-	iconst_5    = &constants.ICONST_5{}
-	lconst_0    = &constants.LCONST_0{}
-	lconst_1    = &constants.LCONST_1{}
-	fconst_0    = &constants.FCONST_0{}
-	fconst_1    = &constants.FCONST_1{}
-	fconst_2    = &constants.FCONST_2{}
-	dconst_0    = &constants.DCONST_0{}
-	dconst_1    = &constants.DCONST_1{}
-	iload_0     = &loads.ILOAD_0{}
-	iload_1     = &loads.ILOAD_1{}
-	iload_2     = &loads.ILOAD_2{}
-	iload_3     = &loads.ILOAD_3{}
-	lload_0     = &loads.LLOAD_0{}
-	lload_1     = &loads.LLOAD_1{}
-	lload_2     = &loads.LLOAD_2{}
-	lload_3     = &loads.LLOAD_3{}
-	fload_0     = &loads.FLOAD_0{}
-	fload_1     = &loads.FLOAD_1{}
-	fload_2     = &loads.FLOAD_2{}
-	fload_3     = &loads.FLOAD_3{}
-	dload_0     = &loads.DLOAD_0{}
-	dload_1     = &loads.DLOAD_1{}
-	dload_2     = &loads.DLOAD_2{}
-	dload_3     = &loads.DLOAD_3{}
-	aload_0     = &loads.ALOAD_0{}
-	aload_1     = &loads.ALOAD_1{}
-	aload_2     = &loads.ALOAD_2{}
-	aload_3     = &loads.ALOAD_3{}
-	istore_1    = &stores.ISTORE_1{}
-	istore_2    = &stores.ISTORE_2{}
-	iadd        = &math.IADD{}
-	iinc        = &math.IINC{}
-	goto_       = &control.GOTO{}
-	if_icmpgt   = &comparisons.IF_ICMPGT{}
-	bipush      = &constants.BIPUSH{}
+	nop            = &constants.NOP{}
+	aconst_null    = &constants.ACONST_NULL{}
+	iconst_m1      = &constants.ICONST_M1{}
+	iconst_0       = &constants.ICONST_0{}
+	iconst_1       = &constants.ICONST_1{}
+	iconst_2       = &constants.ICONST_2{}
+	iconst_3       = &constants.ICONST_3{}
+	iconst_4       = &constants.ICONST_4{}
+	iconst_5       = &constants.ICONST_5{}
+	lconst_0       = &constants.LCONST_0{}
+	lconst_1       = &constants.LCONST_1{}
+	fconst_0       = &constants.FCONST_0{}
+	fconst_1       = &constants.FCONST_1{}
+	fconst_2       = &constants.FCONST_2{}
+	dconst_0       = &constants.DCONST_0{}
+	dconst_1       = &constants.DCONST_1{}
+	iload_0        = &loads.ILOAD_0{}
+	iload_1        = &loads.ILOAD_1{}
+	iload_2        = &loads.ILOAD_2{}
+	iload_3        = &loads.ILOAD_3{}
+	lload_0        = &loads.LLOAD_0{}
+	lload_1        = &loads.LLOAD_1{}
+	lload_2        = &loads.LLOAD_2{}
+	lload_3        = &loads.LLOAD_3{}
+	fload_0        = &loads.FLOAD_0{}
+	fload_1        = &loads.FLOAD_1{}
+	fload_2        = &loads.FLOAD_2{}
+	fload_3        = &loads.FLOAD_3{}
+	dload_0        = &loads.DLOAD_0{}
+	dload_1        = &loads.DLOAD_1{}
+	dload_2        = &loads.DLOAD_2{}
+	dload_3        = &loads.DLOAD_3{}
+	aload_0        = &loads.ALOAD_0{}
+	aload_1        = &loads.ALOAD_1{}
+	aload_2        = &loads.ALOAD_2{}
+	aload_3        = &loads.ALOAD_3{}
+	istore_1       = &stores.ISTORE_1{}
+	istore_2       = &stores.ISTORE_2{}
+	iadd           = &math.IADD{}
+	iinc           = &math.IINC{}
+	goto_          = &control.GOTO{}
+	if_icmpgt      = &comparisons.IF_ICMPGT{}
+	bipush         = &constants.BIPUSH{}
+	ldc            = &constants.LDC{}
+	new            = &references.NEW{}
+	invokespecial  = &references.INVOKE_SPECIAL{}
+	invokesvirtual = &references.INVOKE_VIRTUAL{}
+	putstatic      = &references.PUT_STATIC{}
+	getstatic      = &references.GET_STATIC{}
+	putfield       = &references.PUT_FIELD{}
+	getfield       = &references.GET_FIELD{}
+	checkcast      = &references.CHECK_CAST{}
+	instanceof     = &references.INSTANCE_OF{}
+	dup            = &stack.Dup{}
+	astore         = &stores.ASTORE{}
+	astore_1       = &stores.ASTORE_1{}
+	astore_2       = &stores.ASTORE_2{}
+	astore_3       = &stores.ASTORE_3{}
+	ifeq           = &comparisons.IFEQ{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -93,6 +111,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return dconst_1
 	case 0x10:
 		return bipush
+	case 0x12:
+		return ldc
 	case 0x1a:
 		return iload_0
 	case 0x1b:
@@ -145,6 +165,32 @@ func NewInstruction(opcode byte) base.Instruction {
 		return if_icmpgt
 	case 0xa7:
 		return goto_
+	case 0xbb:
+		return new
+	case 0x59:
+		return dup
+	case 0xb7:
+		return invokespecial
+	case 0xb6:
+		return invokesvirtual
+	case 0xb3:
+		return putstatic
+	case 0xb2:
+		return getstatic
+	case 0xb5:
+		return putfield
+	case 0xb4:
+		return getfield
+	case 0xc1:
+		return instanceof
+	case 0xc0:
+		return checkcast
+	case 0x4d:
+		return astore_2
+	case 0x4e:
+		return astore_3
+	case 0x99:
+		return ifeq
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))

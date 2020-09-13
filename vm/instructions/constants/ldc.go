@@ -3,8 +3,16 @@ package constants
 import "../../instructions/base"
 import "../../rtda"
 
+/*
+ldc instruction is loading a varible from constants_pool and pushed to openstack
+*/
 type LDC struct{ base.Index8Instruction }
+
+/**
+
+ */
 type LDC_W struct{ base.Index16Instruction }
+
 type LDC2_W struct{ base.Index16Instruction }
 
 func (self *LDC) Execute(frame *rtda.Frame) {
@@ -16,7 +24,6 @@ func (self *LDC_W) Execute(frame *rtda.Frame) {
 }
 
 func _ldc(frame *rtda.Frame, index uint) {
-
 	stack := frame.OperandStack()
 	cp := frame.Method().Class().ConstantPool()
 	c := cp.GetConstant(index)

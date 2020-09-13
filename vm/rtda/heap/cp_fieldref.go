@@ -1,6 +1,9 @@
 package heap
 
-import "../../classfile"
+import (
+	"../../classfile"
+	"fmt"
+)
 
 type FieldRef struct {
 	MemberRef
@@ -14,10 +17,14 @@ func newFieldRef(cp *ConstantPool, refInfo *classfile.ConstantFieldrefInfo) *Fie
 	return ref
 }
 
+func (self FieldRef) IsStatic() bool {
+	return 0 != self.field.access&ACC_STATIC
+}
+
 /**
 字段符号引用解析
 */
-func (self *FieldRef) ResolveField() *Field {
+func (self *FieldRef) ResolvedField() *Field {
 	if self.field == nil {
 		self.resolveFieldRef()
 	}
@@ -35,6 +42,7 @@ func (self *FieldRef) resolveFieldRef() {
 		panic("java.lang.NoSuchFieldError")
 	}
 	if !field.isAccessibleTo(d) {
+		fmt.Printf("[gvm][resolveFieldRef]%v 和 %v 之间不能访问 \n", field, d)
 		panic("java.lang.IllegalAccessError")
 	}
 	self.field = field
@@ -73,6 +81,9 @@ protected同一子类或者同一包都可以
 private需要同一个包下
 */
 func (self *ClassMember) isAccessibleTo(d *Class) bool {
+	checkClassAccess(self.class)
+	checkClassAccess(d)
+	fmt.Printf("[gvm][isAccessibleTo] 验证两者的访问权限：self: %v, d : %v \n", self.access, d.accessFlags)
 	if self.IsPublic() {
 		return true
 	}
@@ -82,6 +93,7 @@ func (self *ClassMember) isAccessibleTo(d *Class) bool {
 			c.getPackageName() == d.getPackageName()
 	}
 	if !self.IsPrivate() {
+
 		return c.getPackageName() == d.getPackageName()
 	}
 	return d == c
