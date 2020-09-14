@@ -8,6 +8,8 @@ type Method struct {
 	maxLocals uint16
 	// 存放方法表的Code字段
 	code []byte
+	// 参数数量
+	argSlotCount uint
 }
 
 func (self *Method) Class() *Class {
@@ -34,6 +36,10 @@ func (self Method) Name() string {
 	return self.name
 }
 
+func (self Method) MethodDescriptor() string {
+	return self.descriptor
+}
+
 func newMethods(class *Class, cfMethods []*classfile.MemberInfo) []*Method {
 	methods := make([]*Method, len(cfMethods))
 	for i, cfMethod := range cfMethods {
@@ -41,6 +47,7 @@ func newMethods(class *Class, cfMethods []*classfile.MemberInfo) []*Method {
 		methods[i].class = class
 		methods[i].copyMemberInfo(cfMethod)
 		methods[i].copyAttributes(cfMethod)
+		methods[i].calcArgSlotCount()
 	}
 	return methods
 }
@@ -51,4 +58,27 @@ func (self *Method) copyAttributes(cfMethod *classfile.MemberInfo) {
 		self.maxStack = codeAttr.MaxStack()
 		self.code = codeAttr.Code()
 	}
+}
+
+func (self *Method) ArgSlotCount() uint { return self.argSlotCount }
+
+/*
+计算参数数量
+*/
+func (self *Method) calcArgSlotCount() {
+	// 解析方法的签名
+	parsedDescriptor := parseMethodDescriptor(self.descriptor)
+
+	for _, paramType := range parsedDescriptor.parameterTypes {
+		self.argSlotCount++
+		// long和double类型要额外1个空间
+		if paramType == "J" || paramType == "D" {
+			self.argSlotCount++
+		}
+	}
+
+	if !self.IsStatic() {
+		self.argSlotCount++
+	}
+
 }
