@@ -14,8 +14,10 @@ type SymRef struct {
 	class *Class
 }
 
-/**
+/*
 解析符号引用
+如果类还没有被解析过，先解析类的符号引用
+如果类已经被解析过，直接返回类的指针
 */
 func (self *SymRef) ResolvedClass() *Class {
 	if self.class == nil {
