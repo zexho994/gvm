@@ -27,5 +27,4 @@ func (self *INVOKE_STATIC) Execute(frame *rtda.Frame) {
 	}
 	// 调用方法
 	base.InvokeMethod(frame, resolvedMethod)
-
 }

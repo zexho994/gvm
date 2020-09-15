@@ -22,3 +22,7 @@ func (self *Object) IsInstanceOf(class *Class) bool {
 func (self *Object) Fields() Slots {
 	return self.fields
 }
+
+func (self Object) Class() *Class {
+	return self.class
+}

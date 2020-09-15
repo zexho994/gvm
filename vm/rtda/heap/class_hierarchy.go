@@ -21,12 +21,23 @@ func (self *Class) isSubClassOf(other *Class) bool {
 	for c := self.superClass; c != nil; c = c.superClass {
 		if c == other {
 			return true
-
 		}
 
 	}
 	return false
+}
 
+/*
+判断本类是否是参数class的父类
+*/
+func (self *Class) isSuperClassOf(class *Class) bool {
+	for c := class.superClass; c != nil; c = c.superClass {
+		if c == class {
+			return true
+		}
+
+	}
+	return false
 }
 
 func (self *Class) isImplements(iface *Class) bool {
