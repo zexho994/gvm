@@ -13,7 +13,9 @@ func parseMethodDescriptor(descriptor string) MethodDescriptor {
 }
 
 /*
-解析
+解析，需要解析两部分
+1 方法参数 paramTypes
+2 返回类型 returnType
 */
 func (parser *MethodDescriptorParser) parse() MethodDescriptor {
 	if paramTypes, ok := parser.parseParamTypes(); ok {
@@ -44,6 +46,7 @@ func (parser *MethodDescriptorParser) parseParamTypes() ([]TypeDescriptor, bool)
 	if len(parser.d) == 0 && parser.d[0] != '(' {
 		return nil, false
 	}
+	// (II) -> II)
 	parser.d = parser.d[1:]
 
 	var ts []TypeDescriptor = nil
