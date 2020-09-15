@@ -66,10 +66,10 @@ func (self *Method) ArgSlotCount() uint { return self.argSlotCount }
 计算参数数量
 */
 func (self *Method) calcArgSlotCount() {
-	// 解析方法的签名
+	// 解析方法的描述符
 	parsedDescriptor := parseMethodDescriptor(self.descriptor)
 
-	for _, paramType := range parsedDescriptor.parameterTypes {
+	for _, paramType := range parsedDescriptor.ParameterTypes {
 		self.argSlotCount++
 		// long和double类型要额外1个空间
 		if paramType == "J" || paramType == "D" {
@@ -80,5 +80,4 @@ func (self *Method) calcArgSlotCount() {
 	if !self.IsStatic() {
 		self.argSlotCount++
 	}
-
 }
