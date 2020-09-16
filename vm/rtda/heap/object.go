@@ -16,7 +16,7 @@ func newObject(class *Class) *Object {
 }
 
 func (self *Object) IsInstanceOf(class *Class) bool {
-	return class.isAssignableFrom(self.class)
+	return self.class.isAssignableFrom(self.class)
 }
 
 func (self *Object) Fields() Slots {

@@ -139,9 +139,17 @@ func (self *Class) SuperClass() *Class {
 	return self.superClass
 }
 
+func (self *Class) IsImplements(class *Class) bool {
+	return self.isImplements(class)
+}
+
 /*
 判断方法的ACC_SUPER是否有被标记
 */
 func (self *Class) IsSuper() bool {
 	return 0 != self.accessFlags&ACC_SUPER
+}
+
+func (self *Class) Name() string {
+	return self.name
 }

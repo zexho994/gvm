@@ -11,13 +11,13 @@ import (
 /*
 获取执行方法所需的局部变量表和操作数栈空间以及方法的字节码
 */
-func interpret(methodInfo *heap.Method) {
+func interpret(methodInfo *heap.Method, logInst bool) {
 
 	thread := rtda.NewThread()
 	frame := thread.NewFrame(methodInfo)
 	thread.PushFrame(frame)
-	defer catchErr(frame)
-	loop(thread, methodInfo.Code())
+	defer catchErr(thread)
+	loop(thread, logInst)
 
 	// 获取方法属性表
 	//codeAttr := methodInfo.CodeAttribute()
@@ -58,12 +58,22 @@ func interpret(methodInfo *heap.Method) {
 /*
 捕捉异常
 */
-func catchErr(frame *rtda.Frame) {
+func catchErr(thread *rtda.Thread) {
 	if r := recover(); r != nil {
-		fmt.Printf("LocalVars:%v\n", frame.LocalVars())
-		fmt.Printf("OperandStack:%v\n", frame.OperandStack())
+		logFrames(thread)
 		panic(r)
 	}
+}
+
+func logFrames(thread *rtda.Thread) {
+
+	for !thread.IsStackEmpty() {
+		frame := thread.PopFrame()
+		method := frame.Method()
+		className := method.Class().Name()
+		fmt.Printf(">> pc:%4d %v.%v%v \n", frame.NextPC(), className, method.Name(), method.Descriptor())
+	}
+
 }
 
 /*
@@ -72,35 +82,32 @@ func catchErr(frame *rtda.Frame) {
 	---> 计算pc - 解码指令 - 执行指令
 三个步骤
 */
-func loop(thread *rtda.Thread, bytecode []byte) {
-
-	// 线程弹出栈桢
-	frame := thread.PopFrame()
+func loop(thread *rtda.Thread, logInst bool) {
 	// 字节读取器
 	reader := &base.BytecodeReader{}
 	for {
-		// 获取栈桢的pc指针
+		frame := thread.CurrentFrame()
 		pc := frame.NextPC()
-		fmt.Printf("[gvm][loop] 获取pc指针%v\n", pc)
-		// 设置线程的pc指针
-		thread.SetPC(pc)
-		// 重新开始读取指令
-		reader.Reset(bytecode, pc)
-		// 获取操作码
+		thread.SetPC(pc) // decode
+		reader.Reset(frame.Method().Code(), pc)
 		opcode := reader.ReadUint8()
-		fmt.Printf("[gvm][loop] 获取操作码 ：%v \n", opcode)
-		// 解析出指令的类型
 		inst := instructions.NewInstruction(opcode)
-		fmt.Printf("[gvm][loop] 解析指令: %T %v \n", inst, inst)
-		// 执行指令的拉取操作
 		inst.FetchOperands(reader)
-		fmt.Println("[gvm][loop] 执行 FetchOperands")
-		// 设置新的PC指针
 		frame.SetNextPC(reader.PC())
-		fmt.Printf("[gvm][loop] frame新的PC指针:%v\n", frame.NextPC())
-		// 执行指令
-		fmt.Println("[gvm][loop] 执行指令")
+		if logInst {
+			logInstruction(frame, inst)
+		}
 		inst.Execute(frame)
-		fmt.Printf("[gvm][loop] PC : %2d instruction : %T %v\n\n", pc, inst, inst)
+		if thread.IsStackEmpty() {
+			break
+		}
 	}
+}
+
+func logInstruction(frame *rtda.Frame, inst base.Instruction) {
+	method := frame.Method()
+	className := method.Class().Name()
+	methodName := method.Name()
+	pc := frame.Thread().PC()
+	fmt.Printf("%v.%v() #%2d %T %v\n", className, methodName, pc, inst, inst)
 }

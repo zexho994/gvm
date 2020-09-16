@@ -1,9 +1,12 @@
 public class GaussTest {
-    public static void main(String[] args){
+
+    public int gauss(int initNum, int loopSize) {
+        int start = initNum;
         int sum = 0;
-        for (int i = 1; i <= 100; i++) {
-            sum += i;
+        for (int i = 1; i <= loopSize; i++) {
+            start += i;
         }
-//         System.out.println(sum);
+        System.out.println(sum);
+        return sum;
     }
 }

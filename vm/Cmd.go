@@ -10,12 +10,14 @@ import (
 命令行结构体
 */
 type Cmd struct {
-	helpFlag    bool     // 帮助命令
-	versionFlag bool     // 版本命令
-	cpOption    string   // 指定路径
-	class       string   // 文件名
-	args        []string // 命令行的全部参数
-	XjreOption  string   // 指定jre目录的位置
+	helpFlag         bool     // 帮助命令
+	versionFlag      bool     // 版本命令
+	cpOption         string   // 指定路径
+	class            string   // 文件名
+	args             []string // 命令行的全部参数
+	XjreOption       string   // 指定jre目录的位置
+	verboseClassFlag bool
+	verboseInstFlag  bool
 }
 
 /*
@@ -32,6 +34,7 @@ func parseCmd() *Cmd {
 	flag.StringVar(&cmd.cpOption, "classpath", "", "[gvm] classpath")
 	flag.StringVar(&cmd.cpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm]path to jre")
+	flag.BoolVar(&cmd.verboseClassFlag, "verbose", true, "启用详细输出")
 	flag.Parse()
 
 	args := flag.Args()
