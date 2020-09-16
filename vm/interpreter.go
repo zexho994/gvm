@@ -66,7 +66,6 @@ func catchErr(thread *rtda.Thread) {
 }
 
 func logFrames(thread *rtda.Thread) {
-
 	for !thread.IsStackEmpty() {
 		frame := thread.PopFrame()
 		method := frame.Method()

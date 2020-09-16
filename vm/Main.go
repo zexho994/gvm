@@ -34,7 +34,7 @@ func startJvm(cmd *Cmd) {
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	// 类加载器加载类
-	classLoader := heap.NewClassLoader(cp)
+	classLoader := heap.NewClassLoader(cp, true)
 
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	fmt.Printf("[gvm][startJvm] 解析类文件名称 : %v\n", className)
@@ -50,7 +50,7 @@ func startJvm(cmd *Cmd) {
 
 	// 解释main方法
 	if mainMethod != nil {
-		interpret(mainMethod)
+		interpret(mainMethod, true)
 	} else {
 		fmt.Printf("没有找到该类： %s \n", cmd.class)
 	}

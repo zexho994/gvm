@@ -14,65 +14,67 @@ import (
 )
 
 var (
-	nop            = &constants.NOP{}
-	aconst_null    = &constants.ACONST_NULL{}
-	iconst_m1      = &constants.ICONST_M1{}
-	iconst_0       = &constants.ICONST_0{}
-	iconst_1       = &constants.ICONST_1{}
-	iconst_2       = &constants.ICONST_2{}
-	iconst_3       = &constants.ICONST_3{}
-	iconst_4       = &constants.ICONST_4{}
-	iconst_5       = &constants.ICONST_5{}
-	lconst_0       = &constants.LCONST_0{}
-	lconst_1       = &constants.LCONST_1{}
-	fconst_0       = &constants.FCONST_0{}
-	fconst_1       = &constants.FCONST_1{}
-	fconst_2       = &constants.FCONST_2{}
-	dconst_0       = &constants.DCONST_0{}
-	dconst_1       = &constants.DCONST_1{}
-	iload_0        = &loads.ILOAD_0{}
-	iload_1        = &loads.ILOAD_1{}
-	iload_2        = &loads.ILOAD_2{}
-	iload_3        = &loads.ILOAD_3{}
-	lload_0        = &loads.LLOAD_0{}
-	lload_1        = &loads.LLOAD_1{}
-	lload_2        = &loads.LLOAD_2{}
-	lload_3        = &loads.LLOAD_3{}
-	fload_0        = &loads.FLOAD_0{}
-	fload_1        = &loads.FLOAD_1{}
-	fload_2        = &loads.FLOAD_2{}
-	fload_3        = &loads.FLOAD_3{}
-	dload_0        = &loads.DLOAD_0{}
-	dload_1        = &loads.DLOAD_1{}
-	dload_2        = &loads.DLOAD_2{}
-	dload_3        = &loads.DLOAD_3{}
-	aload_0        = &loads.ALOAD_0{}
-	aload_1        = &loads.ALOAD_1{}
-	aload_2        = &loads.ALOAD_2{}
-	aload_3        = &loads.ALOAD_3{}
-	istore_1       = &stores.ISTORE_1{}
-	istore_2       = &stores.ISTORE_2{}
-	iadd           = &math.IADD{}
-	iinc           = &math.IINC{}
-	goto_          = &control.GOTO{}
-	if_icmpgt      = &comparisons.IF_ICMPGT{}
-	bipush         = &constants.BIPUSH{}
-	ldc            = &constants.LDC{}
-	new            = &references.NEW{}
-	invokespecial  = &references.INVOKE_SPECIAL{}
-	invokesvirtual = &references.INVOKE_VIRTUAL{}
-	putstatic      = &references.PUT_STATIC{}
-	getstatic      = &references.GET_STATIC{}
-	putfield       = &references.PUT_FIELD{}
-	getfield       = &references.GET_FIELD{}
-	checkcast      = &references.CHECK_CAST{}
-	instanceof     = &references.INSTANCE_OF{}
-	dup            = &stack.Dup{}
-	astore         = &stores.ASTORE{}
-	astore_1       = &stores.ASTORE_1{}
-	astore_2       = &stores.ASTORE_2{}
-	astore_3       = &stores.ASTORE_3{}
-	ifeq           = &comparisons.IFEQ{}
+	nop             = &constants.NOP{}
+	aconst_null     = &constants.ACONST_NULL{}
+	iconst_m1       = &constants.ICONST_M1{}
+	iconst_0        = &constants.ICONST_0{}
+	iconst_1        = &constants.ICONST_1{}
+	iconst_2        = &constants.ICONST_2{}
+	iconst_3        = &constants.ICONST_3{}
+	iconst_4        = &constants.ICONST_4{}
+	iconst_5        = &constants.ICONST_5{}
+	lconst_0        = &constants.LCONST_0{}
+	lconst_1        = &constants.LCONST_1{}
+	fconst_0        = &constants.FCONST_0{}
+	fconst_1        = &constants.FCONST_1{}
+	fconst_2        = &constants.FCONST_2{}
+	dconst_0        = &constants.DCONST_0{}
+	dconst_1        = &constants.DCONST_1{}
+	iload_0         = &loads.ILOAD_0{}
+	iload_1         = &loads.ILOAD_1{}
+	iload_2         = &loads.ILOAD_2{}
+	iload_3         = &loads.ILOAD_3{}
+	lload_0         = &loads.LLOAD_0{}
+	lload_1         = &loads.LLOAD_1{}
+	lload_2         = &loads.LLOAD_2{}
+	lload_3         = &loads.LLOAD_3{}
+	fload_0         = &loads.FLOAD_0{}
+	fload_1         = &loads.FLOAD_1{}
+	fload_2         = &loads.FLOAD_2{}
+	fload_3         = &loads.FLOAD_3{}
+	dload_0         = &loads.DLOAD_0{}
+	dload_1         = &loads.DLOAD_1{}
+	dload_2         = &loads.DLOAD_2{}
+	dload_3         = &loads.DLOAD_3{}
+	aload_0         = &loads.ALOAD_0{}
+	aload_1         = &loads.ALOAD_1{}
+	aload_2         = &loads.ALOAD_2{}
+	aload_3         = &loads.ALOAD_3{}
+	istore_1        = &stores.ISTORE_1{}
+	istore_2        = &stores.ISTORE_2{}
+	iadd            = &math.IADD{}
+	iinc            = &math.IINC{}
+	goto_           = &control.GOTO{}
+	if_icmpgt       = &comparisons.IF_ICMPGT{}
+	bipush          = &constants.BIPUSH{}
+	ldc             = &constants.LDC{}
+	new             = &references.NEW{}
+	invokespecial   = &references.INVOKE_SPECIAL{}
+	invokevirtual   = &references.INVOKE_VIRTUAL{}
+	invokeinterface = &references.INVOKE_INTERFACE{}
+	invokestatic    = &references.INVOKE_STATIC{}
+	putstatic       = &references.PUT_STATIC{}
+	getstatic       = &references.GET_STATIC{}
+	putfield        = &references.PUT_FIELD{}
+	getfield        = &references.GET_FIELD{}
+	checkcast       = &references.CHECK_CAST{}
+	instanceof      = &references.INSTANCE_OF{}
+	dup             = &stack.Dup{}
+	astore          = &stores.ASTORE{}
+	astore_1        = &stores.ASTORE_1{}
+	astore_2        = &stores.ASTORE_2{}
+	astore_3        = &stores.ASTORE_3{}
+	ifeq            = &comparisons.IFEQ{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -169,10 +171,14 @@ func NewInstruction(opcode byte) base.Instruction {
 		return new
 	case 0x59:
 		return dup
+	case 0xb6:
+		return invokespecial
 	case 0xb7:
 		return invokespecial
-	case 0xb6:
-		return invokesvirtual
+	case 0xb8:
+		return invokestatic
+	case 0xb9:
+		return invokeinterface
 	case 0xb3:
 		return putstatic
 	case 0xb2:
