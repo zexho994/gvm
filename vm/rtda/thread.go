@@ -66,3 +66,7 @@ func (self *Thread) PC() int {
 func (self *Thread) SetPC(pc int) {
 	self.pc = pc
 }
+
+func (self *Thread) IsStackEmpty() bool {
+	return self.stack.isEmpty()
+}

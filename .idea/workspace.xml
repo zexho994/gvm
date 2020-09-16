@@ -4,43 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/checkcast.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/getfield.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/getstatic.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/instanceof.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/invokespecial.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/invokevirtual.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/references/putfield.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/instructions/stores/astore.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/class_hierarchy.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/Main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/classpath.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classpath/entry_dir.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/factory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/putstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/references/putstatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/slots.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/slots.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/local_vars.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/operand_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/thread.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/vm/vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,10 +123,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -168,7 +157,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -184,6 +173,13 @@
       <workItem from="1599784284943" duration="2214000" />
       <workItem from="1599820157401" duration="90000" />
       <workItem from="1599820260395" duration="5486000" />
+      <workItem from="1600058197743" duration="2970000" />
+      <workItem from="1600129473929" duration="1993000" />
+      <workItem from="1600143975806" duration="3322000" />
+      <workItem from="1600163127669" duration="3000" />
+      <workItem from="1600230906494" duration="793000" />
+      <workItem from="1600236514061" duration="2000" />
+      <workItem from="1600247290749" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
       <created>1599786555590</created>
@@ -228,11 +224,25 @@
       <option name="project" value="LOCAL" />
       <updated>1599996193051</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="方法调用与参数传递">
+      <created>1600131183673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600131183673</updated>
+    </task>
+    <task id="LOCAL-00008" summary="方法调用与参数传递">
+      <created>1600147208935</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600147208935</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -249,7 +259,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -262,7 +284,6 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="add gitignore" />
     <MESSAGE value="update gitignore" />
     <MESSAGE value="refactor" />
     <MESSAGE value="update frame.go" />
@@ -287,7 +308,8 @@
     <MESSAGE value="缺失的方法补充，测试" />
     <MESSAGE value="添加类的访问标志判断方法 checkClassAccess" />
     <MESSAGE value="[bugfix] 修改classMember下 public,protected,private的判断逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="[bugfix] 修改classMember下 public,protected,private的判断逻辑" />
+    <MESSAGE value="方法调用与参数传递" />
+    <option name="LAST_COMMIT_MESSAGE" value="方法调用与参数传递" />
   </component>
   <component name="WindowStateProjectService">
     <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
@@ -353,12 +375,12 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="382" y="183" width="980" height="722" key="SettingsEditor" timestamp="1599878976691">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="-1095" y="236" width="980" height="722" key="SettingsEditor" timestamp="1600058388934">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599824569004" />
+    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1600058388934" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
-    <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
+    <state x="-1181" y="243" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1600058165652" />
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
     <state x="400" y="259" width="1119" height="722" key="SettingsEditor/-722.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597987180099" />
     <state x="269" y="178" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598178015784" />
@@ -377,20 +399,20 @@
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
-    <state x="560" y="306" key="Vcs.Push.Dialog.v2" timestamp="1599627277921">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1600247308758">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599220704475" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1600247308758" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599627277921" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597815058184" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
     <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
-    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599024298658">
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600231008740">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599024298658" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1600231008740" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598334334853" />
     <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
       <screen x="0" y="0" width="1920" height="1200" />

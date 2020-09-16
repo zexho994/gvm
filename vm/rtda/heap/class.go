@@ -149,3 +149,7 @@ func (self *Class) IsImplements(class *Class) bool {
 func (self *Class) IsSuper() bool {
 	return 0 != self.accessFlags&ACC_SUPER
 }
+
+func (self *Class) Name() string {
+	return self.name
+}
