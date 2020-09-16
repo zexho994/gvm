@@ -10,6 +10,14 @@ type InterfaceMethodRef struct {
 	method *Method
 }
 
+func (self InterfaceMethodRef) Name() string {
+	return self.name
+}
+
+func (self InterfaceMethodRef) Descriptor() string {
+	return self.descriptor
+}
+
 func newInterfaceMethodRef(cp *ConstantPool, refInfo *classfile.ConstantInterfaceMethodrefInfo) *InterfaceMethodRef {
 	ref := &InterfaceMethodRef{}
 	ref.cp = cp
