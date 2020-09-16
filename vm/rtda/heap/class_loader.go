@@ -15,17 +15,21 @@ type ClassLoader struct {
 	cp *classpath.Classpath
 
 	// 已经加载的类，key是类的全限定名
-	classMap map[string]*Class //loaded classed
+	classMap map[string]*Class
+
+	// 是否控制台打印🔎
+	verboseFlag bool
 }
 
 /*
 创建一个加载器实例
 */
-func NewClassLoader(cp *classpath.Classpath) *ClassLoader {
+func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
 	fmt.Printf("[gvm][NewClassLoader] 创建一个类加载器")
 	return &ClassLoader{
-		cp:       cp,
-		classMap: make(map[string]*Class),
+		cp:          cp,
+		classMap:    make(map[string]*Class),
+		verboseFlag: verboseFlag,
 	}
 }
 
@@ -51,7 +55,9 @@ func (self *ClassLoader) loadNonArrayClass(name string) *Class {
 	class := self.defineClass(data)
 	// 类的链接
 	link(class)
-	fmt.Printf("[LOADED %s from %s]\n", name, entry)
+	if self.verboseFlag {
+		fmt.Printf("[LOADED %s from %s]\n", name, entry)
+	}
 	return class
 }
 
