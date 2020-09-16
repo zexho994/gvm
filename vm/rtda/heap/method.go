@@ -81,3 +81,7 @@ func (self *Method) calcArgSlotCount() {
 		self.argSlotCount++
 	}
 }
+
+func (self Method) IsAbstract() bool {
+	return 0 != self.access&ACC_ABSTRACT
+}

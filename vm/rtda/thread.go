@@ -42,6 +42,13 @@ func (self *Thread) PopFrame() *Frame {
 }
 
 /*
+虚拟机顶的栈帧
+*/
+func (self *Thread) TopFrame() *Frame {
+	return self.stack.top()
+}
+
+/*
 获取当前虚拟机栈栈顶的栈桢
 */
 func (self *Thread) CurrentFrame() *Frame {

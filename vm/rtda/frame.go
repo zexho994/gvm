@@ -51,3 +51,8 @@ func (self *Frame) SetNextPC(next int) {
 func (self Frame) NextPC() int {
 	return self.nextPc
 }
+
+/*
+获取距离top n个距离的引用
+*/
+func (self *OperandStack) GetRefFromTop(n uint) *heap.Object { return self.slots[self.size-1-n].ref }

@@ -100,6 +100,10 @@ func (self *Class) getPackageName() string {
 	return ""
 }
 
+func (self *Class) GetPackageName() string {
+	return self.GetPackageName()
+}
+
 func (self *Class) NewObject() *Object {
 	return newObject(self)
 }
@@ -115,4 +119,29 @@ func (self *Class) getStaticMethod(name, descriptor string) *Method {
 		}
 	}
 	return nil
+}
+
+/*
+判断本类是否是参数class的父类
+*/
+func (self *Class) IsSuperClassOf(class *Class) bool {
+	return self.isSuperClassOf(class)
+}
+
+/*
+判断本类是否是参数class的子类
+*/
+func (self *Class) IsSubClassOf(class *Class) bool {
+	return self.isSubClassOf(class)
+}
+
+func (self *Class) SuperClass() *Class {
+	return self.superClass
+}
+
+/*
+判断方法的ACC_SUPER是否有被标记
+*/
+func (self *Class) IsSuper() bool {
+	return 0 != self.accessFlags&ACC_SUPER
 }
