@@ -65,31 +65,31 @@ func (self *ClassFile) read(reader *ClassReader) {
 	self.constantPool = readConstantPool(reader)
 
 	// 解析类访问标志
-	fmt.Println("[gvm][read] read accessflags ...")
+	//fmt.Println("[gvm][read] read accessflags ...")
 	self.accessFlags = reader.readUint16()
 
 	// 解析本类信息
-	fmt.Println("[gvm][read] read class ...")
+	//fmt.Println("[gvm][read] read class ...")
 	self.thisClass = reader.readUint16()
 
 	// 解析父类信息
-	fmt.Println("[gvm][read] read superClass ...")
+	//fmt.Println("[gvm][read] read superClass ...")
 	self.superClass = reader.readUint16()
 
 	// 解析接口
-	fmt.Println("[gvm][read] read interfaces ...")
+	//fmt.Println("[gvm][read] read interfaces ...")
 	self.interfaces = reader.readUint16s()
 
 	// 解析字段表
-	fmt.Println("[gvm][read] read fields ...")
+	//fmt.Println("[gvm][read] read fields ...")
 	self.fields = readMembers(reader, self.constantPool)
 
 	// 解析方法表
-	fmt.Println("[gvm][read] read method ...")
+	//fmt.Println("[gvm][read] read method ...")
 	self.methods = readMembers(reader, self.constantPool)
 
 	// 解析属性表
-	fmt.Println("[gvm][read] read attribute ...")
+	//fmt.Println("[gvm][read] read attribute ...")
 	self.attributes = readAttributes(reader, self.constantPool)
 }
 

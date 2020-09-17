@@ -27,7 +27,7 @@ func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo {
 	// 名称索引
 	attrNameIndex := reader.readUint16()
 
-	// 属性索引
+	// 名称
 	attrName := cp.getUtf8(attrNameIndex)
 
 	// 属性表长度

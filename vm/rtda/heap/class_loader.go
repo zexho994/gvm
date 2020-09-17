@@ -25,7 +25,7 @@ type ClassLoader struct {
 创建一个加载器实例
 */
 func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
-	fmt.Printf("[gvm][NewClassLoader] 创建一个类加载器")
+	//fmt.Printf("[gvm][NewClassLoader] 创建一个类加载器")
 	return &ClassLoader{
 		cp:          cp,
 		classMap:    make(map[string]*Class),
@@ -38,9 +38,9 @@ func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
 然后将将类数据加载到方法区中
 */
 func (self *ClassLoader) LoadClass(name string) *Class {
-	fmt.Printf("[gvm][LoadClass] 加载类 %v \n", name)
+	//fmt.Printf("[gvm][LoadClass] 加载类 %v \n", name)
 	if class, ok := self.classMap[name]; ok {
-		fmt.Printf("[gvm][LoadClass] 类 %v 已被加载过\n", name)
+		//fmt.Printf("[gvm][LoadClass] 类 %v 已被加载过\n", name)
 		return class
 	}
 	return self.loadNonArrayClass(name)
@@ -50,8 +50,12 @@ func (self *ClassLoader) LoadClass(name string) *Class {
 非数组类的加载
 */
 func (self *ClassLoader) loadNonArrayClass(name string) *Class {
-	fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
+	//fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
+	// 调用classpath的readClass方法，
+	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
+	// data是class的二进制数据
 	data, entry := self.readClass(name)
+	// 将二进制数据解析成Class结构体
 	class := self.defineClass(data)
 	// 类的链接
 	link(class)
@@ -73,16 +77,19 @@ func (self *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
 }
 
 /*
-根据类数据获得类结构体
+将二进制数据解析成Class结构体
 */
 func (self *ClassLoader) defineClass(data []byte) *Class {
 	// 将类的数据转换成类结构体
 	class := parseClass(data)
 	// 设置类的加载器
+	// 所以判断一个类是否相等还需要判断类加载器是否相等
 	class.loader = self
 	// 解析父类以及接口
 	resolveSuperClass(class)
 	resolveInterfaces(class)
+	// classMap相当于方法区
+	// key为class的全限制定名，value为class结构体
 	self.classMap[class.name] = class
 	return class
 }
@@ -128,14 +135,17 @@ func link(class *Class) {
 }
 
 func verify(class *Class) {
-	fmt.Printf("[gvm][verify] 类加载-验证阶段\n")
+	//fmt.Printf("[gvm][verify] 类加载-验证阶段\n")
 }
 
 // 准备阶段
 func prepare(class *Class) {
-	fmt.Printf("[gvm][verify] 类加载-准备阶段\n")
+	//fmt.Printf("[gvm][verify] 类加载-准备阶段\n")
+	// 计算实例字段数量
 	calcInstanceFieldSlotIds(class)
+	// 计算静态字段数量
 	calcStaticFieldSlotIds(class)
+	// 分配空间
 	allocAndInitStaticVars(class)
 }
 

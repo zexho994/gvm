@@ -1,7 +1,5 @@
 package classfile
 
-import "fmt"
-
 /*
 字段表
 */
@@ -37,8 +35,9 @@ func (self *MemberInfo) CodeAttribute() *CodeAttribute {
 读取字段表
 */
 func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
-	cpCount := reader.readUint16()
-	members := make([]*MemberInfo, cpCount)
+	// 字段的数量
+	fieldsCount := reader.readUint16()
+	members := make([]*MemberInfo, fieldsCount)
 
 	// 遍历数组
 	for i := range members {
@@ -50,19 +49,16 @@ func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 }
 
 /*
-解析字段数据
+解析字段表数据
 */
 func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
-	member := &MemberInfo{
+	return &MemberInfo{
 		cp:              cp,
 		accessFlags:     reader.readUint16(),
 		nameIndex:       reader.readUint16(),
 		descriptorIndex: reader.readUint16(),
 		attributes:      readAttributes(reader, cp),
 	}
-	fmt.Printf("[gvm][readMember] parse a member_info,"+
-		"name: %v ,describe:%v\n", member.Name(), member.Descriptor())
-	return member
 }
 
 func (self *MemberInfo) AccessFlags() uint16 {

@@ -35,16 +35,17 @@ func startJvm(cmd *Cmd) {
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	// 类加载器加载类
+	// 此时cp里的3个类加载器都已经创建好了
 	classLoader := heap.NewClassLoader(cp, true)
 
 	// 解析类名
 	className := strings.Replace(cmd.class, ".", "/", -1)
 
-	// 加载类
-	mainClass := classLoader.LoadClass(className)
+	// 加载类,通过类的全限定名去加载类
+	loadClass := classLoader.LoadClass(className)
 
 	// 获取main方法
-	mainMethod := mainClass.GetMainMethod()
+	mainMethod := loadClass.GetMainMethod()
 
 	// 解释main方法
 	if mainMethod != nil {

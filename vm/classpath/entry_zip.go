@@ -19,14 +19,11 @@ type ZipEntry struct {
 func newZipEntry(path string) *ZipEntry {
 	// 根据path, 转化成绝对路径
 	absDir, err := filepath.Abs(path)
-	fmt.Printf("[gvm][newZipEntry] create ZipEntry <adsPath> : %v\n", absDir)
 
 	if err != nil {
-		fmt.Printf("[gvm][newZipEntry] create ZipEntru fail \n")
 		panic(err)
 	}
 
-	fmt.Printf("[gvm][newZipEntry] create ZipEntru success \n")
 	return &ZipEntry{absDir}
 }
 

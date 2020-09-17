@@ -7,8 +7,11 @@ import (
 import "os"
 
 type Classpath struct {
+	// 启动类加载器
 	bootClasspath Entry
-	extClasspath  Entry
+	// 扩张类加载器
+	extClasspath Entry
+	// 应用类加载器
 	userClasspath Entry
 }
 
@@ -42,17 +45,17 @@ func Parse(jreOption, cpOption string) *Classpath {
 func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
 	// 查找jre目录路径
 	jreDir := getJreDir(jreOption)
-	fmt.Printf("[gvm][parseBootAndExtClasspath] jreDir : %v\n", jreDir)
+	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreDir : %v\n", jreDir)
 
 	// 拼接/lib/*目录 , 然后创建wildcardEntry 对象
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
-	fmt.Printf("[gvm][parseBootAndExtClasspath] jreLibDir : %v\n", jreLibPath)
+	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreLibDir : %v\n", jreLibPath)
 	// 设置应用类加载器
 	self.bootClasspath = newWildcardEntry(jreLibPath)
 
 	// 拼接lib/ext/* 目录 , 然后创建wildcardEntry 对象
 	jreExtPath := filepath.Join(jreDir, "lib", "ext", "*")
-	fmt.Printf("[gvm][parseBootAndExtClasspath] jreExtDir : %v\n", jreExtPath)
+	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreExtDir : %v\n", jreExtPath)
 	// 设置扩展类加载器
 	self.extClasspath = newWildcardEntry(jreExtPath)
 }
