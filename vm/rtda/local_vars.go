@@ -12,10 +12,12 @@ type LocalVars struct {
 
 func NewLocalVars(maxLocals uint16) *LocalVars {
 	if maxLocals > 0 {
-		fmt.Printf("[gvm][NewLocalVars] maxLocals : %v \n", maxLocals)
-		return &LocalVars{
+		fmt.Printf("[gvm][LocalVars.NewLocalVars] maxLocals : %v \n", maxLocals)
+		localvars := &LocalVars{
 			slots: make([]Slot, maxLocals),
 		}
+		fmt.Println("[gvm][NewLocalVars] done")
+		return localvars
 	}
 	return nil
 }

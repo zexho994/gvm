@@ -39,11 +39,6 @@ func startJvm(cmd *Cmd) {
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	fmt.Printf("[gvm][startJvm] 解析类文件名称 : %v\n", className)
 
-	// 加载class 文件
-	//cf := loadClass(className, cp)
-	// output file information
-	//printClassInfo(cmd.class, cf)
-
 	// 获取main方法
 	mainClass := classLoader.LoadClass(className)
 	mainMethod := mainClass.GetMainMethod()

@@ -18,6 +18,7 @@ type INVOKE_VIRTUAL struct{ base.Index16Instruction }
 
  */
 func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
+	fmt.Println("[gvm][invokevirtual.Execute] 执行invokevirtual命令")
 	// 获取类
 	currentClass := frame.Method().Class()
 	// 获取常量池

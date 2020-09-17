@@ -14,11 +14,13 @@ import (
 func interpret(methodInfo *heap.Method, logInst bool) {
 
 	thread := rtda.NewThread()
+	fmt.Println("[gvm][interpreter.interpret] 创建新的栈桢")
 	frame := thread.NewFrame(methodInfo)
+	fmt.Println("[gvm][interpreter.interpret] 新栈桢 push 到 thread")
 	thread.PushFrame(frame)
-	defer catchErr(thread)
+	fmt.Println("[gvm][interpreter.interpret] loop")
 	loop(thread, logInst)
-
+	defer catchErr(thread)
 	// 获取方法属性表
 	//codeAttr := methodInfo.CodeAttribute()
 	//fmt.Printf("[gvm][interpret] 方法属性表 codeAttr: %v \n", codeAttr)
@@ -83,19 +85,24 @@ func logFrames(thread *rtda.Thread) {
 */
 func loop(thread *rtda.Thread, logInst bool) {
 	// 字节读取器
+	fmt.Printf("[gvm][interpreter.loop] ")
 	reader := &base.BytecodeReader{}
 	for {
+		fmt.Printf("[gvm][interpreter.loop] 获取当前线程的桢桢")
 		frame := thread.CurrentFrame()
 		pc := frame.NextPC()
 		thread.SetPC(pc) // decode
 		reader.Reset(frame.Method().Code(), pc)
 		opcode := reader.ReadUint8()
+		fmt.Printf("[gvm][interpreter.loop] 获取指令")
 		inst := instructions.NewInstruction(opcode)
+		fmt.Printf("[gvm][interpreter.loop] 指令fetchOperands")
 		inst.FetchOperands(reader)
 		frame.SetNextPC(reader.PC())
 		if logInst {
 			logInstruction(frame, inst)
 		}
+		fmt.Printf("[gvm][interpreter.loop] 指令Execute")
 		inst.Execute(frame)
 		if thread.IsStackEmpty() {
 			break

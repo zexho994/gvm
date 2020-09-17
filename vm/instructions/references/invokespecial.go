@@ -1,6 +1,9 @@
 package references
 
-import "../../instructions/base"
+import (
+	"../../instructions/base"
+	"fmt"
+)
 import "../../rtda"
 import "../../rtda/heap"
 
@@ -10,6 +13,7 @@ import "../../rtda/heap"
 type INVOKE_SPECIAL struct{ base.Index16Instruction }
 
 func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
+	fmt.Println("[gvm][invokespecial.Execute] invokespecial")
 	// 拿到当前类的类，常量池，方法符号引用
 	currentClass := frame.Method().Class()
 	cp := currentClass.ConstantPool()

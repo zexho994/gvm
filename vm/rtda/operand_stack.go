@@ -13,10 +13,13 @@ type OperandStack struct {
 }
 
 func NewOperandStack(maxStack uint16) *OperandStack {
+	fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
 	if maxStack > 0 {
-		return &OperandStack{
+		operandStack := &OperandStack{
 			slots: make([]Slot, maxStack),
 		}
+		fmt.Printf("[gvm][OperandStack.NewOperandStack] done \n")
+		return operandStack
 	}
 
 	return nil

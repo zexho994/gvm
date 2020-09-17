@@ -1,5 +1,7 @@
 package rtda
 
+import "fmt"
+
 /*
 虚拟机栈是JVM运行时数据区的一部分，线程私有
 主要存储方法的栈桢 Frame
@@ -24,6 +26,7 @@ func newStack(maxSize uint) *Stack {
 }
 
 func (self *Stack) push(frame *Frame) {
+	fmt.Printf("[gvm][jvm_stack.push] start push. self.size = %v , self.maxSize = %v \n", self.size, self.maxSize)
 	if self.size >= self.maxSize {
 		panic("[gvm][Stack.push] StackOverflowError!")
 	}
@@ -32,6 +35,7 @@ func (self *Stack) push(frame *Frame) {
 	}
 	self._top = frame
 	self.size++
+	fmt.Printf("[gvm][jvm_stack.push] push done. self.size = %v , self.maxSize = %v \n", self.size, self.maxSize)
 }
 
 /**
@@ -53,7 +57,7 @@ func (self *Stack) top() *Frame {
 	if self._top == nil {
 		panic("[gvm][Stack.top] stack is empty")
 	}
-	return self.top()
+	return self._top
 }
 
 func (self *Stack) isEmpty() bool {

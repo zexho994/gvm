@@ -17,7 +17,7 @@ type ClassLoader struct {
 	// 已经加载的类，key是类的全限定名
 	classMap map[string]*Class
 
-	// 是否控制台打印🔎
+	// 是否控制台打印
 	verboseFlag bool
 }
 
@@ -56,7 +56,7 @@ func (self *ClassLoader) loadNonArrayClass(name string) *Class {
 	// 类的链接
 	link(class)
 	if self.verboseFlag {
-		fmt.Printf("[LOADED %s from %s]\n", name, entry)
+		fmt.Printf("[gvm][class_loader][loadNonArrayClass]LOADED %s from %s \n", name, entry)
 	}
 	return class
 }
@@ -185,7 +185,7 @@ func calcStaticFieldSlotIds(class *Class) {
 给类变量分配空间，然后赋予初始值
 */
 func allocAndInitStaticVars(class *Class) {
-	fmt.Printf("[gvm][allocAndInitStaticVars] 分配空间\n")
+	fmt.Printf("[gvm][allocAndInitStaticVars] class: %v, staticCount %v 分配空间 \n", class, class.staticSlotCount)
 	class.staticVars = newSlots(class.staticSlotCount)
 	for _, field := range class.fields {
 		// 对于常量类型，值在编译时期已经存在class常量池中
