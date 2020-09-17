@@ -10,6 +10,10 @@ import (
 */
 const pathListSeparator = string(os.PathListSeparator)
 
+/**
+加载器的接口
+加载器主要功能：根据类名查找class文件
+*/
 type Entry interface {
 	/*
 		负责寻找和加载Class文件

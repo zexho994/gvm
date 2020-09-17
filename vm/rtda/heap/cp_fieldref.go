@@ -54,6 +54,7 @@ func (self *FieldRef) resolveFieldRef() {
 查询逻辑 => 查询本类 -> 查询接口类 -> 查询父类
 */
 func lookupField(c *Class, name, descriptor string) *Field {
+	fmt.Printf("[gvm][cp_fieldref.lookupField] 查找字段field name : %v , descriptor : %v \n", name, descriptor)
 	// 遍历字段表
 	for _, field := range c.fields {
 		// 名称相同而且描述符一样

@@ -85,24 +85,24 @@ func logFrames(thread *rtda.Thread) {
 */
 func loop(thread *rtda.Thread, logInst bool) {
 	// 字节读取器
-	fmt.Printf("[gvm][interpreter.loop] ")
+	fmt.Println("[gvm][interpreter.loop]")
 	reader := &base.BytecodeReader{}
 	for {
-		fmt.Printf("[gvm][interpreter.loop] 获取当前线程的桢桢")
+		fmt.Println("[gvm][interpreter.loop] 获取当前线程的桢桢")
 		frame := thread.CurrentFrame()
 		pc := frame.NextPC()
 		thread.SetPC(pc) // decode
 		reader.Reset(frame.Method().Code(), pc)
 		opcode := reader.ReadUint8()
-		fmt.Printf("[gvm][interpreter.loop] 获取指令")
+		fmt.Printf("[gvm][interpreter.loop] 获取指令 \n")
 		inst := instructions.NewInstruction(opcode)
-		fmt.Printf("[gvm][interpreter.loop] 指令fetchOperands")
+		fmt.Println("[gvm][interpreter.loop] 指令fetchOperands")
 		inst.FetchOperands(reader)
 		frame.SetNextPC(reader.PC())
 		if logInst {
 			logInstruction(frame, inst)
 		}
-		fmt.Printf("[gvm][interpreter.loop] 指令Execute")
+		fmt.Println("[gvm][interpreter.loop] 指令Execute ")
 		inst.Execute(frame)
 		if thread.IsStackEmpty() {
 			break

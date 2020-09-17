@@ -18,7 +18,7 @@ xJre : 启动类和扩展类路径
 cp/classpath : 用户类路径
 */
 func Parse(jreOption, cpOption string) *Classpath {
-	// 创建一个新的Classpath类返回琪地址
+	// 创建一个新的Classpath类返回其地址
 	cp := &Classpath{}
 	/*
 		解析启动类和扩展类
@@ -47,11 +47,13 @@ func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
 	// 拼接/lib/*目录 , 然后创建wildcardEntry 对象
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
 	fmt.Printf("[gvm][parseBootAndExtClasspath] jreLibDir : %v\n", jreLibPath)
+	// 设置应用类加载器
 	self.bootClasspath = newWildcardEntry(jreLibPath)
 
 	// 拼接lib/ext/* 目录 , 然后创建wildcardEntry 对象
 	jreExtPath := filepath.Join(jreDir, "lib", "ext", "*")
 	fmt.Printf("[gvm][parseBootAndExtClasspath] jreExtDir : %v\n", jreExtPath)
+	// 设置扩展类加载器
 	self.extClasspath = newWildcardEntry(jreExtPath)
 }
 
@@ -61,7 +63,7 @@ func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
 func getJreDir(jreOption string) string {
 	// 如果用户输入了-Xjre 参数
 	if jreOption != "" && exists(jreOption) {
-		fmt.Printf("[gvm][getJreDir] find jreOption dir : %v\n", jreOption)
+		fmt.Printf("[gvm][getJreDir] 获取到/jre的路径 : %v\n", jreOption)
 		return jreOption
 	}
 	/*
@@ -69,7 +71,7 @@ func getJreDir(jreOption string) string {
 		在 './jre' 下找
 	*/
 	if exists("./jre") {
-		fmt.Printf("[gvm][getJreDir] find ./jre dir\n")
+		fmt.Printf("[gvm][getJreDir] 获取到/jre的路径\n")
 		return "./jre"
 	}
 
@@ -107,6 +109,7 @@ func (self *Classpath) parseUserClasspath(cption string) {
 	if cption == "" {
 		cption = "."
 	}
+	// 设置应用类加载器
 	self.userClasspath = newEntry(cption)
 }
 

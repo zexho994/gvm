@@ -105,3 +105,17 @@ func (self *OperandStack) PopSlot() Slot {
 	self.size--
 	return self.slots[self.size]
 }
+
+/*
+获取距离top n个距离的引用
+比如GetRefFromTop(0)获取栈顶的引用
+比如GetRefFromTop(1)获取距离栈顶1个单位长度的引用
+*/
+func (self *OperandStack) GetRefFromTop(n uint) *heap.Object {
+	targetIndex := self.size - 1 - n
+	if self.size-n == 0 {
+		panic("[operand_stack][GetRefFromTop] index out of operandStack size")
+	}
+	fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", self.size, targetIndex)
+	return self.slots[targetIndex].ref
+}

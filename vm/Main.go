@@ -31,16 +31,19 @@ Jvm启动方法
 func startJvm(cmd *Cmd) {
 	fmt.Printf("[gvm][startJvm] <XjreOption> : %v , <cpOption> : %v\n", cmd.XjreOption, cmd.cpOption)
 	// 对XjreOption和cp两个字段进行解析
+	// 获取classapth对象
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	// 类加载器加载类
 	classLoader := heap.NewClassLoader(cp, true)
 
+	// 解析类名
 	className := strings.Replace(cmd.class, ".", "/", -1)
-	fmt.Printf("[gvm][startJvm] 解析类文件名称 : %v\n", className)
+
+	// 加载类
+	mainClass := classLoader.LoadClass(className)
 
 	// 获取main方法
-	mainClass := classLoader.LoadClass(className)
 	mainMethod := mainClass.GetMainMethod()
 
 	// 解释main方法
