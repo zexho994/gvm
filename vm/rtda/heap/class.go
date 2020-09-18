@@ -47,7 +47,7 @@ func (self *Class) InitStarted() bool {
 /*
 初始化类
 */
-func (self *Class) startInit() {
+func (self *Class) StartInit() {
 	self.initStarted = true
 }
 
@@ -173,3 +173,8 @@ func (self *Class) IsSuper() bool {
 func (self *Class) Name() string {
 	return self.name
 }
+
+/*
+
+ */
+func (self *Class) GetClinitMethod() *Method { return self.getStaticMethod("<clinit>", "()V") }

@@ -15,6 +15,13 @@ func (self *GET_STATIC) Execute(frame *rtda.Frame) {
 	field := fieldRef.ResolvedField()
 	// 获取类
 	class := field.Class()
+
+	if !class.InitStarted() {
+		frame.RevertNextPC()
+		base.InitClass(frame.Thread(), class)
+		return
+	}
+
 	if !field.IsStatic() {
 		panic("java.lang.IncompatibleClassChangeError")
 	}

@@ -24,19 +24,26 @@ func (self PUT_STATIC) Execute(frame *rtda.Frame) {
 	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
 	// 解析字段的符号引用
 	field := fieldRef.ResolvedField()
-	//
+	class := field.Class()
+
+	if !class.InitStarted() {
+		frame.RevertNextPC()
+		base.InitClass(frame.Thread(), class)
+		return
+	}
+
 	// 如果不是静态变量，抛异常
 	if !field.IsStatic() {
 		panic("java.lang.IncompatibleClassChangeError")
 	}
-	class := field.Class()
-	// 如果只是final修饰的，那么只能在类初始化的时候赋值
+
+	// 如果是final修饰的，那么只能在类初始化的时候赋值
 	if field.IsFinal() {
 		if currentClass != class || currentMethod.Name() != "<clinit>" {
 			panic("java.lang.IllegalAccessError")
-
 		}
 	}
+
 	// 获取字段的描述符
 	descriptor := field.Descriptor()
 	// 获取字段索引位置

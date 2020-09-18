@@ -32,4 +32,8 @@ func InvokeMethod(invokerFrame *rtda.Frame, method *heap.Method) {
 		}
 	}
 
+	if method.Name() == "registerNatives" {
+		thread.PopFrame()
+	}
+
 }

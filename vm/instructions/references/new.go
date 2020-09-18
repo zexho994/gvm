@@ -20,11 +20,14 @@ func (self *NEW) Execute(frame *rtda.Frame) {
 	classRef := cp.GetConstant(self.Index).(*heap.ClassRef)
 	// 解析类符号引用
 	class := classRef.ResolvedClass()
-	//if !class.InitStarted(){
-	//	frame.RevertNextPC()
-	//	base.InitClass(frame.Thread(),class)
-	//	return
-	//}
+
+	// 如果类还没有初始化
+	if !class.InitStarted() {
+		frame.RevertNextPC()
+		base.InitClass(frame.Thread(), class)
+		return
+	}
+
 	// 如果时接口类或者抽象类，不能事例化
 	if class.IsInterface() || class.IsAbstract() {
 		panic("java.lang.InstantiationError")
