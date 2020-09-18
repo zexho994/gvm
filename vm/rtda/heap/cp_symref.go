@@ -1,7 +1,5 @@
 package heap
 
-import "fmt"
-
 /*
 符号引用
 cp,className,class是所有符号引用通用的字段
@@ -33,7 +31,7 @@ func (self *SymRef) ResolvedClass() *Class {
 func (self *SymRef) resolveClassRef() {
 	d := self.cp.class
 	c := d.loader.LoadClass(self.className)
-	fmt.Printf("[gvm][cp_symref.resolveClassRef] 检测访问权限")
+	//fmt.Printf("[gvm][cp_symref.resolveClassRef] 检测访问权限")
 	if !c.isAccessibleTo(d) {
 		panic("java.lang.IllegalAccessError")
 	}

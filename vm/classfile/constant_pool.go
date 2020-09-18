@@ -1,7 +1,5 @@
 package classfile
 
-import "fmt"
-
 /*
 常量池
 数组类型
@@ -19,7 +17,7 @@ type ConstantInfo interface {
 读取常量池数据
 */
 func readConstantPool(reader *ClassReader) ConstantPool {
-	fmt.Println("[gvm][readConstantPool] read constanpool ...")
+	//fmt.Println("[gvm][readConstantPool] read constanpool ...")
 	// get constantpool count
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)

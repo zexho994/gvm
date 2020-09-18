@@ -3,7 +3,6 @@ package heap
 import (
 	"../../classfile"
 	"../../classpath"
-	"fmt"
 )
 
 /*
@@ -55,12 +54,15 @@ func (self *ClassLoader) loadNonArrayClass(name string) *Class {
 	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
 	// data是class的二进制数据
 	data, entry := self.readClass(name)
+	if entry == nil {
+		panic("entry is nil")
+	}
 	// 将二进制数据解析成Class结构体
 	class := self.defineClass(data)
 	// 类的链接
 	link(class)
 	if self.verboseFlag {
-		fmt.Printf("[gvm][class_loader][loadNonArrayClass]LOADED %s from %s \n", name, entry)
+		//fmt.Printf("[gvm][class_loader][loadNonArrayClass]LOADED %s from %s \n", name, entry)
 	}
 	return class
 }

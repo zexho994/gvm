@@ -54,7 +54,7 @@ func (self *FieldRef) resolveFieldRef() {
 查询逻辑 => 查询本类 -> 查询接口类 -> 查询父类
 */
 func lookupField(c *Class, name, descriptor string) *Field {
-	fmt.Printf("[gvm][cp_fieldref.lookupField] 查找字段field name : %v , descriptor : %v \n", name, descriptor)
+	//fmt.Printf("[gvm][cp_fieldref.lookupField] 查找字段field name : %v , descriptor : %v \n", name, descriptor)
 	// 遍历字段表
 	for _, field := range c.fields {
 		// 名称相同而且描述符一样
@@ -84,7 +84,7 @@ private需要同一个包下
 func (self *ClassMember) isAccessibleTo(d *Class) bool {
 	checkClassAccess(self.class)
 	checkClassAccess(d)
-	fmt.Printf("[gvm][isAccessibleTo] 验证两者的访问权限：self: %v, d : %v \n", self.access, d.accessFlags)
+	//fmt.Printf("[gvm][isAccessibleTo] 验证两者的访问权限：self: %v, d : %v \n", self.access, d.accessFlags)
 	if self.IsPublic() {
 		return true
 	}

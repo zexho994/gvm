@@ -97,7 +97,7 @@ func (self *ClassFile) read(reader *ClassReader) {
 解析魔术
 */
 func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
-	fmt.Println("[gvm][readAdnCheckMagic] read magic ...")
+	//fmt.Println("[gvm][readAdnCheckMagic] read magic ...")
 	magic := reader.readUint32()
 	// class文件开头是CAFEBABE
 	if magic != 0xCAFEBABE {
@@ -109,7 +109,7 @@ func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
 解析版本,主版本号和次版本号都是u2类型
 */
 func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
-	fmt.Println("[gvm][readAndCheckVersion] read version ...")
+	//fmt.Println("[gvm][readAndCheckVersion] read version ...")
 	self.minorVersion = reader.readUint16()
 	self.majorVersion = reader.readUint16()
 	switch self.majorVersion {
@@ -117,7 +117,7 @@ func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
 		return
 	case 46, 47, 48, 49, 50, 51, 52:
 		if self.minorVersion == 0 {
-			fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", self.majorVersion-44)
+			//fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", self.majorVersion-44)
 			return
 		} else {
 			panic("[gvm][readAndCheckVersion] class file version error")
