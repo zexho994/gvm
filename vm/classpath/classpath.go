@@ -1,7 +1,6 @@
 package classpath
 
 import (
-	"fmt"
 	"path/filepath"
 )
 import "os"
@@ -26,13 +25,13 @@ func Parse(jreOption, cpOption string) *Classpath {
 	/*
 		解析启动类和扩展类
 	*/
-	fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
+	//fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
 	cp.parseBootAndExtClasspath(jreOption)
 
 	/*
 		解析用户类
 	*/
-	fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
+	//fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
 	cp.parseUserClasspath(cpOption)
 	return cp
 }
@@ -66,7 +65,7 @@ func (self *Classpath) parseBootAndExtClasspath(jreOption string) {
 func getJreDir(jreOption string) string {
 	// 如果用户输入了-Xjre 参数
 	if jreOption != "" && exists(jreOption) {
-		fmt.Printf("[gvm][getJreDir] 获取到/jre的路径 : %v\n", jreOption)
+		//fmt.Printf("[gvm][getJreDir] 获取到/jre的路径 : %v\n", jreOption)
 		return jreOption
 	}
 	/*
@@ -74,7 +73,7 @@ func getJreDir(jreOption string) string {
 		在 './jre' 下找
 	*/
 	if exists("./jre") {
-		fmt.Printf("[gvm][getJreDir] 获取到/jre的路径\n")
+		//fmt.Printf("[gvm][getJreDir] 获取到/jre的路径\n")
 		return "./jre"
 	}
 
@@ -83,7 +82,7 @@ func getJreDir(jreOption string) string {
 	在 JAVA_HOME中找
 	*/
 	if jh := os.Getenv("JAVA_HOME"); jh != "" {
-		fmt.Printf("[gvm][getJreDir] find JAVA_HOME dir")
+		//fmt.Printf("[gvm][getJreDir] find JAVA_HOME dir")
 		return filepath.Join(jh, "jre")
 	}
 
@@ -124,21 +123,21 @@ func (self Classpath) ReadClass(classpath string) ([]byte, Entry, error) {
 	className := classpath + ".class"
 
 	// 从className中读取 bootClasspath
-	fmt.Printf("[gvm][ReadClss] to read %v from bootClasspath\n", className)
+	//fmt.Printf("[gvm][ReadClss] to read %v from bootClasspath\n", className)
 	if data, entry, err := self.bootClasspath.readClass(className); err == nil {
-		fmt.Printf("[gvm][ReadClss] return bootClasspath <data> : %v\n", data)
+		//fmt.Printf("[gvm][ReadClss] return bootClasspath <data> : %v\n", data)
 		return data, entry, err
 	}
 
 	// 从className中读取 extClasspath
-	fmt.Printf("[gvm][ReadClss] to read %v from extClasspath\n", className)
+	//fmt.Printf("[gvm][ReadClss] to read %v from extClasspath\n", className)
 	if data, entry, err := self.extClasspath.readClass(className); err == nil {
-		fmt.Printf("[gvm][ReadClss] return extClasspath <data> : %v\n", data)
+		//fmt.Printf("[gvm][ReadClss] return extClasspath <data> : %v\n", data)
 		return data, entry, err
 	}
 
 	// 从className中读取 userClasspath
-	fmt.Printf("[gvm][ReadClss] to read %v from userClasspath \n", className)
+	//fmt.Printf("[gvm][ReadClss] to read %v from userClasspath \n", className)
 	return self.userClasspath.readClass(className)
 
 }

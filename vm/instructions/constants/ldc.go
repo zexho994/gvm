@@ -30,10 +30,14 @@ func _ldc(frame *rtda.Frame, index uint) {
 	switch c.(type) {
 	case int32:
 		stack.PushInt(c.(int32))
+	case int64:
+		stack.PushLong(c.(int64))
 	case float32:
 		stack.PushFloat(c.(float32))
-	// case string:
-	// case *heap.ClassRef:
+	case float64:
+		stack.PushDouble(c.(float64))
+		// case string:
+		// case *heap.ClassRef:
 	default:
 		panic("todo: ldc!")
 	}

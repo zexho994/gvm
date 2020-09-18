@@ -13,13 +13,21 @@ import (
 */
 func interpret(methodInfo *heap.Method, logInst bool) {
 
+	// 创建一个新的线程
 	thread := rtda.NewThread()
-	fmt.Println("[gvm][interpreter.interpret] 创建新的栈桢")
+
+	// 创建一个栈桢
+	//fmt.Println("[gvm][interpreter.interpret] 创建新的栈桢")
 	frame := thread.NewFrame(methodInfo)
-	fmt.Println("[gvm][interpreter.interpret] 新栈桢 push 到 thread")
+
+	// 栈桢压入虚拟机栈
+	//fmt.Println("[gvm][interpreter.interpret] 新栈桢 push 到 thread")
 	thread.PushFrame(frame)
-	fmt.Println("[gvm][interpreter.interpret] loop")
+
+	// 执行code命令
+	//fmt.Println("[gvm][interpreter.interpret] loop")
 	loop(thread, logInst)
+
 	defer catchErr(thread)
 	// 获取方法属性表
 	//codeAttr := methodInfo.CodeAttribute()
@@ -78,42 +86,62 @@ func logFrames(thread *rtda.Thread) {
 }
 
 /*
-打印局部变量表和操作数栈内容
-循环执行
-	---> 计算pc - 解码指令 - 执行指令
-三个步骤
+执行Code命令
+循环执行：计算pc -> 解码指令 -> 执行指令 三个步骤
+为什么说线程栈是线程私有的？
 */
 func loop(thread *rtda.Thread, logInst bool) {
 	// 字节读取器
-	fmt.Println("[gvm][interpreter.loop]")
+	//fmt.Println("[gvm][interpreter.loop]")
 	reader := &base.BytecodeReader{}
 	for {
-		fmt.Println("[gvm][interpreter.loop] 获取当前线程的桢桢")
+		//fmt.Println("[gvm][interpreter.loop] 获取当前线程的桢桢")
 		frame := thread.CurrentFrame()
+
+		// 获取栈桢的pc指针
 		pc := frame.NextPC()
-		thread.SetPC(pc) // decode
+
+		// 线程设置pc指针
+		thread.SetPC(pc)
+
+		// 设置code和pc
 		reader.Reset(frame.Method().Code(), pc)
+
+		// 获取操作码，同时pc++
 		opcode := reader.ReadUint8()
-		fmt.Printf("[gvm][interpreter.loop] 获取指令 \n")
+
+		//  根据操作码获取对应的命令
+		//fmt.Printf("[gvm][interpreter.loop] 获取指令 \n")
 		inst := instructions.NewInstruction(opcode)
-		fmt.Println("[gvm][interpreter.loop] 指令fetchOperands")
+
+		// 拉取操作数
+		//fmt.Println("[gvm][interpreter.loop] 指令fetchOperands")
 		inst.FetchOperands(reader)
+
+		// 更新栈桢
 		frame.SetNextPC(reader.PC())
 		if logInst {
 			logInstruction(frame, inst)
 		}
-		fmt.Println("[gvm][interpreter.loop] 指令Execute ")
+
+		// 执行指针
+		//fmt.Println("[gvm][interpreter.loop] 指令Execute ")
 		inst.Execute(frame)
+
+		// 如果线程栈空了，就推出
 		if thread.IsStackEmpty() {
 			break
 		}
 	}
 }
 
+/*
+打印指令信息
+*/
 func logInstruction(frame *rtda.Frame, inst base.Instruction) {
 	method := frame.Method()
 	className := method.Class().Name()
 	methodName := method.Name()
 	pc := frame.Thread().PC()
-	fmt.Printf("%v.%v() #%2d %T %v\n", className, methodName, pc, inst, inst)
+	fmt.Printf("[gvm][logInstruction] %v.%v() #%2d %T %v\n", className, methodName, pc, inst, inst)
 }

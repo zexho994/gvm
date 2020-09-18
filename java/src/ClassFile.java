@@ -12,14 +12,6 @@ public class ClassFile {
 
     public static void main(String[] args) throws RuntimeException {
         System.out.println("Hello, World!");
-        ClassFile classFile = new ClassFile();
-        classFile.getGauss(0,INT);
-    }
-
-    public void getGauss(int init,int loopSize){
-        GaussTest gaussTest = new GaussTest();
-        int gauss = gaussTest.gauss(init, loopSize);
-        System.out.printf("sum is = %d", gauss);
     }
 
 }

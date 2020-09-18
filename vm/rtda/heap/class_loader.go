@@ -50,7 +50,7 @@ func (self *ClassLoader) LoadClass(name string) *Class {
 非数组类的加载
 */
 func (self *ClassLoader) loadNonArrayClass(name string) *Class {
-	//fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
+	// fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
 	// 调用classpath的readClass方法，
 	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
 	// data是class的二进制数据
@@ -129,16 +129,30 @@ func resolveInterfaces(class *Class) {
 	}
 }
 
+/*
+链接阶段可以分为3个步骤
+1 验证：检查class文件
+2 准备：
+3 解析：
+*/
 func link(class *Class) {
 	verify(class)
 	prepare(class)
+	//resolution()
 }
 
+/*
+验证阶段
+*/
 func verify(class *Class) {
 	//fmt.Printf("[gvm][verify] 类加载-验证阶段\n")
 }
 
-// 准备阶段
+/*
+准备阶段做两件事
+设置初始值和分配内存
+设置初始值是给静态变量设置初始值，非final修饰的
+*/
 func prepare(class *Class) {
 	//fmt.Printf("[gvm][verify] 类加载-准备阶段\n")
 	// 计算实例字段数量
@@ -151,7 +165,7 @@ func prepare(class *Class) {
 
 /**
 计算实例字段数量
-1. 父类的字段都属于字段。子类的字段表需要加上父类的字段
+1. 父类的字段都属于子类。子类的字段表需要加上父类的字段
 2.
 */
 func calcInstanceFieldSlotIds(class *Class) {
@@ -160,18 +174,16 @@ func calcInstanceFieldSlotIds(class *Class) {
 		slotId = class.superClass.instanceSlotCount
 	}
 	for _, field := range class.fields {
-		fmt.Printf("[gvm][calcInstanceFieldSlotIds]%v,%v ", field.name, slotId)
+		//fmt.Printf("[gvm][calcInstanceFieldSlotIds]%v,%v ", field.name, slotId)
 		if !field.IsStatic() {
-			fmt.Println("不是常量")
 			field.slotId = slotId
 			slotId++
 			if field.IsLongOrDouble() {
 				slotId++
 			}
 		}
-		fmt.Println("是常量")
 	}
-	fmt.Printf("[gvm][calcInstanceFieldSlotIds] 实例字段数量: %v\n", slotId)
+	//fmt.Printf("[gvm][calcInstanceFieldSlotIds] 实例字段数量: %v\n", slotId)
 	class.instanceSlotCount = slotId
 }
 
@@ -186,7 +198,7 @@ func calcStaticFieldSlotIds(class *Class) {
 			}
 		}
 	}
-	fmt.Printf("[gvm][calcStaticFieldSlotIds] 静态字段数量 %v\n", slotId)
+	//fmt.Printf("[gvm][calcStaticFieldSlotIds] 静态字段数量 %v\n", slotId)
 
 	class.staticSlotCount = slotId
 }
@@ -195,10 +207,10 @@ func calcStaticFieldSlotIds(class *Class) {
 给类变量分配空间，然后赋予初始值
 */
 func allocAndInitStaticVars(class *Class) {
-	fmt.Printf("[gvm][allocAndInitStaticVars] class: %v, staticCount %v 分配空间 \n", class, class.staticSlotCount)
+	//fmt.Printf("[gvm][allocAndInitStaticVars] class: %v, staticCount %v 分配空间 \n", class, class.staticSlotCount)
 	class.staticVars = newSlots(class.staticSlotCount)
 	for _, field := range class.fields {
-		// 对于常量类型，值在编译时期已经存在class常量池中
+		// 对于常量类型，值在编译时期已经存在了字段的attribute表里面
 		// 所以在初始化的时候直接给常量赋值
 		if field.IsStatic() && field.IsFinal() {
 			initStaticFinalvar(class, field)
@@ -210,7 +222,7 @@ func allocAndInitStaticVars(class *Class) {
 类变量的值在编译时候就已知，所以可以直接从class文件常量池中获取
 */
 func initStaticFinalvar(class *Class, field *Field) {
-	fmt.Printf("[gvm][initStaticFinalVar] 分配空间\n")
+	//fmt.Printf("[gvm][initStaticFinalVar] 分配空间\n")
 	vars := class.staticVars
 	cp := class.constantPool
 	cpIndex := field.ConstValueIndex()

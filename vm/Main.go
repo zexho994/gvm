@@ -51,7 +51,7 @@ func startJvm(cmd *Cmd) {
 	if mainMethod != nil {
 		interpret(mainMethod, true)
 	} else {
-		fmt.Printf("没有找到该类： %s \n", cmd.class)
+		fmt.Printf("[gvm][startJvm] 没有找到该类： %s \n", cmd.class)
 	}
 
 }

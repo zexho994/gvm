@@ -40,7 +40,7 @@ func (self CompositeEntry) readClass(ClassName string) ([]byte, Entry, error) {
 
 		// 如果找到了
 		if err == nil {
-			fmt.Printf("[gvm][compositeEntry.readClass] read %v success\n", ClassName)
+			//fmt.Printf("[gvm][compositeEntry.readClass] read %v success\n", ClassName)
 			return data, from, nil
 		}
 	}

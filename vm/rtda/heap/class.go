@@ -31,7 +31,8 @@ type Class struct {
 	instanceSlotCount uint
 	// 静态字段数量
 	staticSlotCount uint
-	staticVars      Slots
+	// 静态变量数组
+	staticVars Slots
 }
 
 func (self *Class) ConstantPool() *ConstantPool {
@@ -112,6 +113,9 @@ func (self *Class) GetMainMethod() *Method {
 	return self.getStaticMethod("main", "([Ljava/lang/String;)V")
 }
 
+/*
+获取静态方法
+*/
 func (self *Class) getStaticMethod(name, descriptor string) *Method {
 	for _, method := range self.methods {
 		if method.IsStatic() && method.name == name && method.descriptor == descriptor {
