@@ -29,8 +29,8 @@ type FLOAD_3 struct {
 according index to load a var from frame.localVars
 */
 func _fload(frame *rtda.Frame, index uint) {
-	val := frame.LocalVars().GetInt(index)
-	frame.OperandStack().PushInt(val)
+	val := frame.LocalVars().GetFloat(index)
+	frame.OperandStack().PushFloat(val)
 }
 
 /*
