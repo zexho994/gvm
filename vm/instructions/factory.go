@@ -14,56 +14,59 @@ import (
 )
 
 var (
-	nop             = &constants.NOP{}
-	aconst_null     = &constants.ACONST_NULL{}
-	iconst_m1       = &constants.ICONST_M1{}
-	iconst_0        = &constants.ICONST_0{}
-	iconst_1        = &constants.ICONST_1{}
-	iconst_2        = &constants.ICONST_2{}
-	iconst_3        = &constants.ICONST_3{}
-	iconst_4        = &constants.ICONST_4{}
-	iconst_5        = &constants.ICONST_5{}
-	lconst_0        = &constants.LCONST_0{}
-	lconst_1        = &constants.LCONST_1{}
-	fconst_0        = &constants.FCONST_0{}
-	fconst_1        = &constants.FCONST_1{}
-	fconst_2        = &constants.FCONST_2{}
-	dconst_0        = &constants.DCONST_0{}
-	dconst_1        = &constants.DCONST_1{}
-	iload_0         = &loads.ILOAD_0{}
-	iload_1         = &loads.ILOAD_1{}
-	iload_2         = &loads.ILOAD_2{}
-	iload_3         = &loads.ILOAD_3{}
-	lload_0         = &loads.LLOAD_0{}
-	lload_1         = &loads.LLOAD_1{}
-	lload_2         = &loads.LLOAD_2{}
-	lload_3         = &loads.LLOAD_3{}
-	fload_0         = &loads.FLOAD_0{}
-	fload_1         = &loads.FLOAD_1{}
-	fload_2         = &loads.FLOAD_2{}
-	fload_3         = &loads.FLOAD_3{}
-	dload_0         = &loads.DLOAD_0{}
-	dload_1         = &loads.DLOAD_1{}
-	dload_2         = &loads.DLOAD_2{}
-	dload_3         = &loads.DLOAD_3{}
-	aload_0         = &loads.ALOAD_0{}
-	aload_1         = &loads.ALOAD_1{}
-	aload_2         = &loads.ALOAD_2{}
-	aload_3         = &loads.ALOAD_3{}
-	istore_1        = &stores.ISTORE_1{}
-	istore_2        = &stores.ISTORE_2{}
-	iadd            = &math.IADD{}
-	iinc            = &math.IINC{}
-	goto_           = &control.GOTO{}
-	if_icmpgt       = &comparisons.IF_ICMPGT{}
-	bipush          = &constants.BIPUSH{}
-	ldc             = &constants.LDC{}
-	new             = &references.NEW{}
+	nop         = &constants.NOP{}
+	aconst_null = &constants.ACONST_NULL{}
+	iconst_m1   = &constants.ICONST_M1{}
+	iconst_0    = &constants.ICONST_0{}
+	iconst_1    = &constants.ICONST_1{}
+	iconst_2    = &constants.ICONST_2{}
+	iconst_3    = &constants.ICONST_3{}
+	iconst_4    = &constants.ICONST_4{}
+	iconst_5    = &constants.ICONST_5{}
+	lconst_0    = &constants.LCONST_0{}
+	lconst_1    = &constants.LCONST_1{}
+	fconst_0    = &constants.FCONST_0{}
+	fconst_1    = &constants.FCONST_1{}
+	fconst_2    = &constants.FCONST_2{}
+	dconst_0    = &constants.DCONST_0{}
+	dconst_1    = &constants.DCONST_1{}
+	iload_0     = &loads.ILOAD_0{}
+	iload_1     = &loads.ILOAD_1{}
+	iload_2     = &loads.ILOAD_2{}
+	iload_3     = &loads.ILOAD_3{}
+	lload_0     = &loads.LLOAD_0{}
+	lload_1     = &loads.LLOAD_1{}
+	lload_2     = &loads.LLOAD_2{}
+	lload_3     = &loads.LLOAD_3{}
+	fload_0     = &loads.FLOAD_0{}
+	fload_1     = &loads.FLOAD_1{}
+	fload_2     = &loads.FLOAD_2{}
+	fload_3     = &loads.FLOAD_3{}
+	dload_0     = &loads.DLOAD_0{}
+	dload_1     = &loads.DLOAD_1{}
+	dload_2     = &loads.DLOAD_2{}
+	dload_3     = &loads.DLOAD_3{}
+	aload_0     = &loads.ALOAD_0{}
+	aload_1     = &loads.ALOAD_1{}
+	aload_2     = &loads.ALOAD_2{}
+	aload_3     = &loads.ALOAD_3{}
+	istore_1    = &stores.ISTORE_1{}
+	istore_2    = &stores.ISTORE_2{}
+	iadd        = &math.IADD{}
+	iinc        = &math.IINC{}
+	goto_       = &control.GOTO{}
+	if_icmpgt   = &comparisons.IF_ICMPGT{}
+	bipush      = &constants.BIPUSH{}
+	ldc         = &constants.LDC{}
+	ldc2w       = &constants.LDC2_W{}
+	new         = &references.NEW{}
+
 	invokespecial   = &references.INVOKE_SPECIAL{}
 	invokevirtual   = &references.INVOKE_VIRTUAL{}
 	invokeinterface = &references.INVOKE_INTERFACE{}
 	invokestatic    = &references.INVOKE_STATIC{}
-	putstatic       = &references.PUT_STATIC{}
+
+	putstatic = &references.PUT_STATIC{}
 
 	ireturn = &control.IRETURN{}
 	lreturn = &control.LRETURN{}
@@ -82,7 +85,11 @@ var (
 	astore_1   = &stores.ASTORE_1{}
 	astore_2   = &stores.ASTORE_2{}
 	astore_3   = &stores.ASTORE_3{}
-	ifeq       = &comparisons.IFEQ{}
+
+	lcmp = &comparisons.LCMP{}
+	ifeq = &comparisons.IFEQ{}
+	ifgt = &comparisons.IFGT{}
+	ifge = &comparisons.IFGE{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -119,10 +126,13 @@ func NewInstruction(opcode byte) base.Instruction {
 		return dconst_0
 	case 0x0f:
 		return dconst_1
+
 	case 0x10:
 		return bipush
 	case 0x12:
 		return ldc
+	case 0x14:
+		return ldc2w
 	case 0x1a:
 		return iload_0
 	case 0x1b:
@@ -135,6 +145,7 @@ func NewInstruction(opcode byte) base.Instruction {
 		return lload_0
 	case 0x1f:
 		return lload_1
+
 	case 0x20:
 		return lload_2
 	case 0x21:
@@ -167,19 +178,29 @@ func NewInstruction(opcode byte) base.Instruction {
 		return istore_1
 	case 0x3d:
 		return istore_2
+
+	case 0x59:
+		return dup
+
 	case 0x60:
 		return iadd
+
 	case 0x84:
 		return iinc
+
+	case 0x94:
+		return lcmp
+	case 0x99:
+		return ifeq
+	case 0x9c:
+		return ifge
+	case 0x9d:
+		return ifgt
+
 	case 0xa3:
 		return if_icmpgt
 	case 0xa7:
 		return goto_
-	case 0xbb:
-		return new
-	case 0x59:
-		return dup
-
 	case 0xac:
 		return ireturn
 	case 0xad:
@@ -188,6 +209,7 @@ func NewInstruction(opcode byte) base.Instruction {
 		return freturn
 	case 0xaf:
 		return dreturn
+
 	case 0xb0:
 		return areturn
 	case 0xb1:
@@ -200,7 +222,6 @@ func NewInstruction(opcode byte) base.Instruction {
 		return getfield
 	case 0xb5:
 		return putfield
-
 	case 0xb6:
 		return invokevirtual
 	case 0xb7:
@@ -209,6 +230,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return invokestatic
 	case 0xb9:
 		return invokeinterface
+	case 0xbb:
+		return new
 
 	case 0xc1:
 		return instanceof
@@ -216,10 +239,9 @@ func NewInstruction(opcode byte) base.Instruction {
 		return checkcast
 	case 0x4d:
 		return astore_2
+
 	case 0x4e:
 		return astore_3
-	case 0x99:
-		return ifeq
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
