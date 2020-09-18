@@ -33,6 +33,22 @@ type Class struct {
 	staticSlotCount uint
 	// 静态变量数组
 	staticVars Slots
+	// 判断类是否被加载过
+	initStarted bool
+}
+
+/*
+判断class有没有初始化过
+*/
+func (self *Class) InitStarted() bool {
+	return self.initStarted
+}
+
+/*
+初始化类
+*/
+func (self *Class) startInit() {
+	self.initStarted = true
 }
 
 func (self *Class) ConstantPool() *ConstantPool {
