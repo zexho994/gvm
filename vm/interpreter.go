@@ -84,7 +84,7 @@ func loop(thread *rtda.Thread, logInst bool) {
 		frame.SetNextPC(reader.PC())
 
 		if logInst {
-			logInstruction(frame, inst)
+			//logInstruction(frame, inst)
 		}
 
 		// 执行指针

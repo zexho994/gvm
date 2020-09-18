@@ -2,7 +2,6 @@ package classpath
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -16,7 +15,7 @@ type CompositeEntry []Entry
 将参数根据'/'转化成若干Entry,然后组成CompositeEntry
 */
 func newCompositeEntry(pathList string) CompositeEntry {
-	fmt.Printf("[gvm][newCompositeEntry] create compositeEntry <pathList> : %v \n", pathList)
+	//fmt.Printf("[gvm][newCompositeEntry] create compositeEntry <pathList> : %v \n", pathList)
 	// 创建CompositeEntry对象
 	var compositeEntry []Entry
 	// 将pathList根据"/"切片后,遍历

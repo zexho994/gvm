@@ -2,7 +2,6 @@ package classpath
 
 import (
 	"archive/zip"
-	"fmt"
 	"path/filepath"
 )
 import "errors"
@@ -30,7 +29,7 @@ func newZipEntry(path string) *ZipEntry {
 func (self *ZipEntry) readClass(className string) ([]byte, Entry, error) {
 
 	// 获取目录下压缩文件的内容
-	fmt.Printf("[gvm][readClass] open zip.<adbPath> : %v \n", self.absPath)
+	//fmt.Printf("[gvm][readClass] open zip.<adbPath> : %v \n", self.absPath)
 	r, err := zip.OpenReader(self.absPath)
 
 	if err != nil {
@@ -44,7 +43,7 @@ func (self *ZipEntry) readClass(className string) ([]byte, Entry, error) {
 	for _, f := range r.File {
 		// 如果找到了对应类
 		if f.Name == className {
-			fmt.Printf("[gvm][readClass] find class in zip. <className> : %v \n", f.Name)
+			//fmt.Printf("[gvm][readClass] find class in zip. <className> : %v \n", f.Name)
 
 			rc, err := f.Open()
 

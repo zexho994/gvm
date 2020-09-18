@@ -1,7 +1,6 @@
 package classpath
 
 import (
-	"fmt"
 	"io/ioutil"
 	filepath "path/filepath"
 )
@@ -24,12 +23,12 @@ func newDirEntry(path string) *DirEntry {
 
 	// 如果出现错误
 	if err != nil {
-		fmt.Printf("[gvm][newDirEntry] create direntry fail , <path> : %v\n", path)
+		//fmt.Printf("[gvm][newDirEntry] create direntry fail , <path> : %v\n", path)
 		println(err)
 	}
 
 	// 转化成功
-	fmt.Printf("[gvm][newDirEntry] create direntry, <adsDir> : %v\n", absDir)
+	//fmt.Printf("[gvm][newDirEntry] create direntry, <adsDir> : %v\n", absDir)
 	return &DirEntry{absDir}
 }
 
@@ -42,7 +41,7 @@ func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
 
 	// 读取目标位置下对应的class文件数据
 	data, err := ioutil.ReadFile(filename)
-	fmt.Printf("[gvm][readClass] 在目录%v下读取类%v\n", filename, className)
+	//fmt.Printf("[gvm][readClass] 在目录%v下读取类%v\n", filename, className)
 
 	// 输出
 	return data, self, err

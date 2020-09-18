@@ -3,7 +3,6 @@ package base
 import (
 	"../../rtda"
 	"../../rtda/heap"
-	"fmt"
 )
 
 /*
@@ -16,10 +15,10 @@ func InvokeMethod(invokerFrame *rtda.Frame, method *heap.Method) {
 	thread := invokerFrame.Thread()
 	// 创建栈帧
 	newFrame := thread.NewFrame(method)
-	fmt.Println("[gvm][method_invoke_logic.InvokeMethod] 新的栈桢push到线程中")
+	//fmt.Println("[gvm][method_invoke_logic.InvokeMethod] 新的栈桢push到线程中")
 	// 栈帧推入到线程中
 	thread.PushFrame(newFrame)
-	fmt.Println("[gvm][OperandStack.NewOperandStack] 获取参数数量")
+	//fmt.Println("[gvm][OperandStack.NewOperandStack] 获取参数数量")
 	// 获取参数数量
 	argSlotSlot := int(method.ArgSlotCount())
 

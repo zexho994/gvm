@@ -90,6 +90,12 @@ var (
 	ifeq = &comparisons.IFEQ{}
 	ifgt = &comparisons.IFGT{}
 	ifge = &comparisons.IFGE{}
+
+	ladd = &math.LADD{}
+	fadd = &math.FADD{}
+	dadd = &math.DADD{}
+	isub = &math.ISUB{}
+	lsub = &math.LSUB{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -184,6 +190,76 @@ func NewInstruction(opcode byte) base.Instruction {
 
 	case 0x60:
 		return iadd
+	case 0x61:
+		return ladd
+	case 0x62:
+		return fadd
+	case 0x63:
+		return dadd
+	case 0x64:
+		return isub
+	case 0x65:
+		return lsub
+	//case 0x66:
+	//	return fsub
+	//case 0x67:
+	//	return dsub
+	//case 0x68:
+	//	return imul
+	//case 0x69:
+	//	return lmul
+	//case 0x6a:
+	//	return fmul
+	//case 0x6b:
+	//	return dmul
+	//case 0x6c:
+	//	return idiv
+	//case 0x6d:
+	//	return ldiv
+	//case 0x6e:
+	//	return fdiv
+	//case 0x6f:
+	//	return ddiv
+	//case 0x70:
+	//	return irem
+	//case 0x71:
+	//	return lrem
+	//case 0x72:
+	//	return frem
+	//case 0x73:
+	//	return drem
+	//case 0x74:
+	//	return ineg
+	//case 0x75:
+	//	return lneg
+	//case 0x76:
+	//	return fneg
+	//case 0x77:
+	//	return dneg
+	//case 0x78:
+	//	return ishl
+	//case 0x79:
+	//	return lshl
+	//case 0x7a:
+	//	return ishr
+	//case 0x7b:
+	//	return lshr
+	//case 0x7c:
+	//	return iushr
+	//case 0x7d:
+	//	return lushr
+	//case 0x7e:
+	//	return iand
+	//case 0x7f:
+	//	return land
+	//case 0x80:
+	//	return ior
+	//case 0x81:
+	//	return lor
+	//case 0x82:
+	//	return ixor
+	//case 0x83:
+	//	return lxor
 
 	case 0x84:
 		return iinc
