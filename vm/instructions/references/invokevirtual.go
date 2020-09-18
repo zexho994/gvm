@@ -33,8 +33,11 @@ func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
 	// this
 	ref := frame.OperandStack().GetRefFromTop(resolvedMethod.ArgSlotCount() - 1)
 	if ref == nil {
-
 		// hack System.out.println()
+		if methodRef.Name() == "println" {
+			_println(frame.OperandStack(), methodRef.Descriptor())
+			return
+		}
 
 		panic("java.lang.NullPointerException")
 	}
@@ -54,15 +57,6 @@ func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
 	}
 	// 执行方法
 	base.InvokeMethod(frame, methodToBeInvoked)
-	//
-	ref = frame.OperandStack().GetRefFromTop(resolvedMethod.ArgSlotCount() - 1)
-	if ref == nil { // hack!
-		if methodRef.Name() == "println" {
-			_println(frame.OperandStack(), methodRef.Descriptor())
-			return
-		}
-		panic("java.lang.NullPointerException")
-	}
 }
 
 func _println(stack *rtda.OperandStack, descriptor string) {
