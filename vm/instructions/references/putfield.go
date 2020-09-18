@@ -12,7 +12,9 @@ func (self *PUT_FIELD) Execute(frame *rtda.Frame) {
 	currentClass := currentMethod.Class()
 	cp := currentClass.ConstantPool()
 	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
+
 	field := fieldRef.ResolvedField()
+
 	// 必须是实例变量，不能是类变量
 	if field.IsStatic() {
 		panic("java.lang.IncompatibleClassChangeError")
@@ -23,7 +25,6 @@ func (self *PUT_FIELD) Execute(frame *rtda.Frame) {
 		if currentClass != field.Class() || currentMethod.Name() != "<init>" {
 			panic("java.lang.IllegalAccessError")
 		}
-
 	}
 	descriptor := field.Descriptor()
 	slotId := field.SlotId()

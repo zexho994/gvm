@@ -200,8 +200,9 @@ func NewInstruction(opcode byte) base.Instruction {
 		return getfield
 	case 0xb5:
 		return putfield
+
 	case 0xb6:
-		return invokespecial
+		return invokevirtual
 	case 0xb7:
 		return invokespecial
 	case 0xb8:

@@ -13,16 +13,14 @@ import "../../rtda/heap"
 type INVOKE_SPECIAL struct{ base.Index16Instruction }
 
 func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
-	fmt.Println("[gvm][invokespecial.Execute] invokespecial")
-
 	// 拿到当前类的类，常量池，方法符号引用
-	fmt.Println("[gvm][invokespecial.Execute] 获取类，常量池，方法引用")
+	//fmt.Println("[gvm][invokespecial.Execute] 获取类，常量池，方法引用")
 	currentClass := frame.Method().Class()
 	cp := currentClass.ConstantPool()
 	methodRef := cp.GetConstant(self.Index).(*heap.MethodRef)
 
 	// 解析类和方法
-	fmt.Println("[gvm][invokespecial.Execute] 解析类和方法")
+	//fmt.Println("[gvm][invokespecial.Execute] 解析类和方法")
 	resolvedClass := methodRef.ResolvedClass()
 	resolvedMethod := methodRef.ResolvedMethod()
 
@@ -35,9 +33,9 @@ func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
 		panic("java.lang.IncompatibleClassChangeError")
 	}
 
-	fmt.Printf("[gvm][invokespecial.Execute] 方法参数数量 :  %v \n", resolvedMethod.ArgSlotCount())
+	// fmt.Printf("[gvm][invokespecial.Execute] 方法参数数量 :  %v \n", resolvedMethod.ArgSlotCount())
 	// 获取this引用
-	ref := frame.OperandStack().GetRefFromTop(resolvedMethod.ArgSlotCount())
+	ref := frame.OperandStack().GetRefFromTop(resolvedMethod.ArgSlotCount() - 1)
 	if ref == nil {
 		panic("java.lang.NullPointerException")
 	}

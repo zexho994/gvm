@@ -29,7 +29,7 @@ func (self *INVOKE_INTERFACE) FetchOperands(reader *base.BytecodeReader) {
 
 func (self *INVOKE_INTERFACE) Execute(frame *rtda.Frame) {
 	fmt.Println("[gvm][invokeinterface.Execute] 执行invokeinterface命令")
-	// 常量池
+	// 获取类的运行常量池
 	cp := frame.Method().Class().ConstantPool()
 	// 根据索引获取常量池中的接口方法符号引用
 	methodRef := cp.GetConstant(self.index).(*heap.InterfaceMethodRef)
@@ -50,11 +50,9 @@ func (self *INVOKE_INTERFACE) Execute(frame *rtda.Frame) {
 
 	methodToBeInvoked := heap.LookupMethodInClass(ref.Class(), methodRef.Name(), methodRef.Descriptor())
 	if methodToBeInvoked == nil || methodToBeInvoked.IsAbstract() {
-
 		panic("java.lang.AbstractMethodError")
 	}
 	if !methodToBeInvoked.IsPublic() {
-
 		panic("java.lang.IllegalAccessError")
 	}
 	base.InvokeMethod(frame, methodToBeInvoked)

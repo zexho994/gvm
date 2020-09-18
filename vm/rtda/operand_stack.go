@@ -2,7 +2,6 @@ package rtda
 
 import (
 	"./heap"
-	"fmt"
 	"math"
 )
 
@@ -13,12 +12,12 @@ type OperandStack struct {
 }
 
 func NewOperandStack(maxStack uint16) *OperandStack {
-	fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
+	//fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
 	if maxStack > 0 {
 		operandStack := &OperandStack{
 			slots: make([]Slot, maxStack),
 		}
-		fmt.Printf("[gvm][OperandStack.NewOperandStack] done \n")
+		//fmt.Printf("[gvm][OperandStack.NewOperandStack] done \n")
 		return operandStack
 	}
 
@@ -26,16 +25,16 @@ func NewOperandStack(maxStack uint16) *OperandStack {
 }
 
 func (self *OperandStack) PushInt(val int32) {
-	fmt.Printf("[gvm][PushInt] 操作数栈push新值: val : %v \n", val)
+	//fmt.Printf("[gvm][PushInt] 操作数栈push新值: val : %v \n", val)
 	self.slots[self.size].num = val
-	fmt.Printf("[gvm][PushInt] 操作数栈push新值后的结果: val : %v \n", self.slots[self.size].num)
+	//fmt.Printf("[gvm][PushInt] 操作数栈push新值后的结果: val : %v \n", self.slots[self.size].num)
 	self.size++
 }
 
 func (self *OperandStack) PopInt() int32 {
-	fmt.Printf("[gvm][PushInt] 操作数栈pop,当前长度size: %v\n", self.size)
+	//fmt.Printf("[gvm][PushInt] 操作数栈pop,当前长度size: %v\n", self.size)
 	self.size--
-	fmt.Printf("[gvm][PushInt] 操作数栈pop值：%v\n", self.slots[self.size].num)
+	//fmt.Printf("[gvm][PushInt] 操作数栈pop值：%v\n", self.slots[self.size].num)
 	return self.slots[self.size].num
 }
 
@@ -113,9 +112,6 @@ func (self *OperandStack) PopSlot() Slot {
 */
 func (self *OperandStack) GetRefFromTop(n uint) *heap.Object {
 	targetIndex := self.size - 1 - n
-	if self.size-n == 0 {
-		panic("[operand_stack][GetRefFromTop] index out of operandStack size")
-	}
-	fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", self.size, targetIndex)
+	//fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", self.size, targetIndex)
 	return self.slots[targetIndex].ref
 }
