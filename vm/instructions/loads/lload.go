@@ -29,8 +29,8 @@ type LLOAD_3 struct {
 according index to load a var from frame.localVars
 */
 func _lload(frame *rtda.Frame, index uint) {
-	val := frame.LocalVars().GetInt(index)
-	frame.OperandStack().PushInt(val)
+	val := frame.LocalVars().GetLong(index)
+	frame.OperandStack().PushLong(val)
 }
 
 /*
@@ -38,7 +38,7 @@ execute LLOAD
 the index is stored inside the instrution
 */
 func (self *LLOAD) Execute(frame *rtda.Frame) {
-	_lload(frame, uint(self.Index))
+	_lload(frame, self.Index)
 }
 
 /*
