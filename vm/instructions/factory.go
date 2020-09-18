@@ -64,17 +64,25 @@ var (
 	invokeinterface = &references.INVOKE_INTERFACE{}
 	invokestatic    = &references.INVOKE_STATIC{}
 	putstatic       = &references.PUT_STATIC{}
-	getstatic       = &references.GET_STATIC{}
-	putfield        = &references.PUT_FIELD{}
-	getfield        = &references.GET_FIELD{}
-	checkcast       = &references.CHECK_CAST{}
-	instanceof      = &references.INSTANCE_OF{}
-	dup             = &stack.Dup{}
-	astore          = &stores.ASTORE{}
-	astore_1        = &stores.ASTORE_1{}
-	astore_2        = &stores.ASTORE_2{}
-	astore_3        = &stores.ASTORE_3{}
-	ifeq            = &comparisons.IFEQ{}
+
+	ireturn = &control.IRETURN{}
+	lreturn = &control.LRETURN{}
+	freturn = &control.FRETURN{}
+	dreturn = &control.DRETURN{}
+	areturn = &control.ARETURN{}
+	_return = &control.RETURN{}
+
+	getstatic  = &references.GET_STATIC{}
+	putfield   = &references.PUT_FIELD{}
+	getfield   = &references.GET_FIELD{}
+	checkcast  = &references.CHECK_CAST{}
+	instanceof = &references.INSTANCE_OF{}
+	dup        = &stack.Dup{}
+	astore     = &stores.ASTORE{}
+	astore_1   = &stores.ASTORE_1{}
+	astore_2   = &stores.ASTORE_2{}
+	astore_3   = &stores.ASTORE_3{}
+	ifeq       = &comparisons.IFEQ{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -171,6 +179,27 @@ func NewInstruction(opcode byte) base.Instruction {
 		return new
 	case 0x59:
 		return dup
+
+	case 0xac:
+		return ireturn
+	case 0xad:
+		return lreturn
+	case 0xae:
+		return freturn
+	case 0xaf:
+		return dreturn
+	case 0xb0:
+		return areturn
+	case 0xb1:
+		return _return
+	case 0xb2:
+		return getstatic
+	case 0xb3:
+		return putstatic
+	case 0xb4:
+		return getfield
+	case 0xb5:
+		return putfield
 	case 0xb6:
 		return invokespecial
 	case 0xb7:
@@ -179,14 +208,7 @@ func NewInstruction(opcode byte) base.Instruction {
 		return invokestatic
 	case 0xb9:
 		return invokeinterface
-	case 0xb3:
-		return putstatic
-	case 0xb2:
-		return getstatic
-	case 0xb5:
-		return putfield
-	case 0xb4:
-		return getfield
+
 	case 0xc1:
 		return instanceof
 	case 0xc0:
