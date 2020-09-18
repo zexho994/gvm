@@ -1,7 +1,5 @@
 package heap
 
-import "fmt"
-
 const (
 	// public
 	ACC_PUBLIC = 0x0001
@@ -43,27 +41,27 @@ const (
 
 func checkClassAccess(class *Class) {
 	if 0 != class.accessFlags&ACC_FINAL {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 final 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 final 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_ABSTRACT {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 abstract 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 abstract 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_INTERFACE {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 Interface 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 Interface 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_ENUM {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 enum 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 enum 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_PUBLIC {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 public 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 public 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_PRIVATE {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 private 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 private 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_PROTECTED {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 protected 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 protected 的\n", class.name)
 	}
 	if 0 != class.accessFlags&ACC_ANNOTATION {
-		fmt.Printf("[gvm][checkClassAccess] 类%v 是 annotation 的\n", class.name)
+		//fmt.Printf("[gvm][checkClassAccess] 类%v 是 annotation 的\n", class.name)
 	}
 }
