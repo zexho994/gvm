@@ -96,6 +96,8 @@ var (
 	dadd = &math.DADD{}
 	isub = &math.ISUB{}
 	lsub = &math.LSUB{}
+
+	lstore_1 = &stores.LSTORE_1{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -184,6 +186,37 @@ func NewInstruction(opcode byte) base.Instruction {
 		return istore_1
 	case 0x3d:
 		return istore_2
+
+	case 0x40:
+		return lstore_1
+	//case 0x41:
+	//	return lstore_2
+	//case 0x42:
+	//	return lstore_3
+	//case 0x43:
+	//	return fstore_0
+	//case 0x44:
+	//	return fstore_1
+	//case 0x45:
+	//	return fstore_2
+	//case 0x46:
+	//	return fstore_3
+	//case 0x47:
+	//	return dstore_0
+	//case 0x48:
+	//	return dstore_1
+	//case 0x49:
+	//	return dstore_2
+	//case 0x4a:
+	//	return dstore_3
+	//case 0x4b:
+	//	return astore_0
+	case 0x4c:
+		return astore_1
+	case 0x4d:
+		return astore_2
+	case 0x4e:
+		return astore_3
 
 	case 0x59:
 		return dup
@@ -313,11 +346,6 @@ func NewInstruction(opcode byte) base.Instruction {
 		return instanceof
 	case 0xc0:
 		return checkcast
-	case 0x4d:
-		return astore_2
-
-	case 0x4e:
-		return astore_3
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
