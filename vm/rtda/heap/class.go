@@ -182,3 +182,11 @@ func (self *Class) Name() string {
 
  */
 func (self *Class) GetClinitMethod() *Method { return self.getStaticMethod("<clinit>", "()V") }
+
+/*
+返回与类对应的数组类
+*/
+func (self *Class) ArrayClass() *Class {
+	arrayClassName := getArrayClassName(self.name)
+	return self.loader.LoadClass(arrayClassName)
+}
