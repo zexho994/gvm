@@ -11,7 +11,7 @@ import (
 /*
 获取执行方法所需的局部变量表和操作数栈空间以及方法的字节码
 */
-func interpret(methodInfo *heap.Method, logInst bool) {
+func interpret(methodInfo *heap.Method, logInst bool, args []string) {
 
 	// 创建一个新的线程
 	thread := rtda.NewThread()
@@ -22,11 +22,24 @@ func interpret(methodInfo *heap.Method, logInst bool) {
 	// 栈桢压入虚拟机栈
 	thread.PushFrame(frame)
 
+	jArgs := createArgsArray(methodInfo.Class().Loader(), args)
+	frame.LocalVars().SetRef(0, jArgs)
+
 	defer catchErr(thread)
 
 	// 执行code命令
 	loop(thread, logInst)
 
+}
+
+func createArgsArray(loader *heap.ClassLoader, args []string) *heap.Object {
+	stringClass := loader.LoadClass("java/lang/String")
+	argsArr := stringClass.ArrayClass().NewArray(uint(len(args)))
+	jArgs := argsArr.Refs()
+	for i, arg := range args {
+		jArgs[i] = heap.JString(loader, arg)
+	}
+	return argsArr
 }
 
 /*

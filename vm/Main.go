@@ -46,10 +46,11 @@ func startJvm(cmd *Cmd) {
 	mainMethod := loadClass.GetMainMethod()
 
 	// 解释main方法
+
 	if mainMethod != nil {
-		interpret(mainMethod, true)
+		interpret(mainMethod, cmd.verboseInstFlag, cmd.args)
 	} else {
-		fmt.Printf("[gvm][startJvm] 没有找到该类： %s \n", cmd.class)
+		fmt.Printf("Main method not found in class %s\n", cmd.class)
 	}
 
 }

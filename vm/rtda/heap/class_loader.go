@@ -247,7 +247,7 @@ func allocAndInitStaticVars(class *Class) {
 		// 对于常量类型，值在编译时期已经存在了字段的attribute表里面
 		// 所以在初始化的时候直接给常量赋值
 		if field.IsStatic() && field.IsFinal() {
-			initStaticFinalvar(class, field)
+			initStaticFinalVar(class, field)
 		}
 	}
 }
@@ -255,12 +255,12 @@ func allocAndInitStaticVars(class *Class) {
 /**
 类变量的值在编译时候就已知，所以可以直接从class文件常量池中获取
 */
-func initStaticFinalvar(class *Class, field *Field) {
-	//fmt.Printf("[gvm][initStaticFinalVar] 分配空间\n")
+func initStaticFinalVar(class *Class, field *Field) {
 	vars := class.staticVars
 	cp := class.constantPool
 	cpIndex := field.ConstValueIndex()
-	slotId := field.slotId
+	slotId := field.SlotId()
+
 	if cpIndex > 0 {
 		switch field.Descriptor() {
 		case "Z", "B", "C", "S", "I":
@@ -276,7 +276,9 @@ func initStaticFinalvar(class *Class, field *Field) {
 			val := cp.GetConstant(cpIndex).(float64)
 			vars.SetDouble(slotId, val)
 		case "Ljava/lang/String;":
-			panic("todo")
+			goStr := cp.GetConstant(cpIndex).(string)
+			jStr := JString(class.Loader(), goStr)
+			vars.SetRef(slotId, jStr)
 		}
 	}
 }

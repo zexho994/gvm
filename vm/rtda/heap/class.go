@@ -55,6 +55,10 @@ func (self *Class) Loader() *ClassLoader {
 	return self.loader
 }
 
+func (self *Class) Fields() []*Field {
+	return self.fields
+}
+
 func (self *Class) ConstantPool() *ConstantPool {
 	return self.constantPool
 }
@@ -119,6 +123,20 @@ func (self *Class) getPackageName() string {
 		return self.name[:i]
 	}
 	return ""
+}
+
+func (self *Class) getField(name, descriptor string, isStatic bool) *Field {
+	for c := self; c != nil; c = c.superClass {
+		for _, field := range c.fields {
+			if field.IsStatic() == isStatic &&
+				field.name == name &&
+				field.descriptor == descriptor {
+
+				return field
+			}
+		}
+	}
+	return nil
 }
 
 func (self *Class) GetPackageName() string {

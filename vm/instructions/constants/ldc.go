@@ -2,6 +2,7 @@ package constants
 
 import "../../instructions/base"
 import "../../rtda"
+import "../../rtda/heap"
 
 /*
 ldc instruction is loading a varible from constants_pool and pushed to openstack
@@ -25,19 +26,19 @@ func (self *LDC_W) Execute(frame *rtda.Frame) {
 
 func _ldc(frame *rtda.Frame, index uint) {
 	stack := frame.OperandStack()
-	cp := frame.Method().Class().ConstantPool()
-	c := cp.GetConstant(index)
+	class := frame.Method().Class()
+	c := class.ConstantPool().GetConstant(index)
+
 	switch c.(type) {
 	case int32:
 		stack.PushInt(c.(int32))
-	case int64:
-		stack.PushLong(c.(int64))
 	case float32:
 		stack.PushFloat(c.(float32))
-	case float64:
-		stack.PushDouble(c.(float64))
-		// case string:
-		// case *heap.ClassRef:
+	case string:
+		internedStr := heap.JString(class.Loader(), c.(string))
+		stack.PushRef(internedStr)
+	// case *heap.ClassRef:
+	// case MethodType, MethodHandle
 	default:
 		panic("todo: ldc!")
 	}
