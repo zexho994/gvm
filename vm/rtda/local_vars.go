@@ -2,7 +2,6 @@ package rtda
 
 import (
 	"./heap"
-	"fmt"
 	"math"
 )
 
@@ -23,9 +22,9 @@ func NewLocalVars(maxLocals uint16) *LocalVars {
 }
 
 func (self *LocalVars) SetInt(index uint, val int32) {
-	fmt.Printf("[gvm][SetInt] index : %v, val : %v \n", index, val)
+	//fmt.Printf("[gvm][SetInt] index : %v, val : %v \n", index, val)
 	self.slots[index].num = val
-	fmt.Printf("[gvm][SetInt] 设置后的结果 val : %v \n", self.GetInt(index))
+	//fmt.Printf("[gvm][SetInt] 设置后的结果 val : %v \n", self.GetInt(index))
 }
 
 func (self *LocalVars) GetInt(index uint) int32 {

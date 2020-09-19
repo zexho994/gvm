@@ -2,7 +2,6 @@ package extended
 
 import (
 	"../../instructions/base"
-	"fmt"
 )
 import "../../rtda" // Branch always (wide index)
 
@@ -13,7 +12,7 @@ func (self *GOTO_W) FetchOperands(reader *base.BytecodeReader) {
 }
 
 func (self *GOTO_W) Execute(frame *rtda.Frame) {
-	fmt.Printf("[gvm][goto] goto nextPC offset : %v \n", self.offset)
+	//fmt.Printf("[gvm][goto] goto nextPC offset : %v \n", self.offset)
 	// 跳到对应的索引地址
 	base.Branch(frame, self.offset)
 }

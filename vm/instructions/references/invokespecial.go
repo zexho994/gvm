@@ -2,7 +2,6 @@ package references
 
 import (
 	"../../instructions/base"
-	"fmt"
 )
 import "../../rtda"
 import "../../rtda/heap"
@@ -41,7 +40,7 @@ func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
 	}
 
 	// protected方法只能被本类或者子类调用
-	fmt.Println("[gvm][invokespecial.Execute] 判断")
+	//fmt.Println("[gvm][invokespecial.Execute] 判断")
 	if resolvedMethod.IsProtected() &&
 		resolvedMethod.Class().IsSuperClassOf(currentClass) &&
 		resolvedMethod.Class().GetPackageName() != currentClass.GetPackageName() &&
@@ -56,7 +55,7 @@ func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
 	if currentClass.IsSuper() &&
 		resolvedClass.IsSuperClassOf(currentClass) &&
 		resolvedMethod.Name() != "<init>" {
-		fmt.Println("[gvm][invokespecial.Execute] 执行LookupMethodInClass")
+		//fmt.Println("[gvm][invokespecial.Execute] 执行LookupMethodInClass")
 		methodToBeInvoked = heap.LookupMethodInClass(
 			currentClass.SuperClass(),
 			methodRef.Name(),
