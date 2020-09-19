@@ -50,8 +50,22 @@ var (
 	aload_1     = &loads.ALOAD_1{}
 	aload_2     = &loads.ALOAD_2{}
 	aload_3     = &loads.ALOAD_3{}
+	iaload      = &loads.IALOAD{}
+	laload      = &loads.LALOAD{}
+	faload      = &loads.FALOAD{}
+	daload      = &loads.DALOAD{}
+	aaload      = &loads.AALOAD{}
+	baload      = &loads.BALOAD{}
+	caload      = &loads.CALOAD{}
+	saload      = &loads.SALOAD{}
+	istore_0    = &stores.ISTORE_0{}
 	istore_1    = &stores.ISTORE_1{}
 	istore_2    = &stores.ISTORE_2{}
+	istore_3    = &stores.ISTORE_3{}
+	lstore_0    = &stores.LSTORE_0{}
+	lstore_1    = &stores.LSTORE_1{}
+	lstore_2    = &stores.LSTORE_2{}
+	lstore_3    = &stores.LSTORE_3{}
 	iadd        = &math.IADD{}
 	iinc        = &math.IINC{}
 	goto_       = &control.GOTO{}
@@ -86,6 +100,15 @@ var (
 	astore_2   = &stores.ASTORE_2{}
 	astore_3   = &stores.ASTORE_3{}
 
+	iastore = &stores.IASTORE{}
+	lastore = &stores.LASTORE{}
+	fastore = &stores.FASTORE{}
+	dastore = &stores.DASTORE{}
+	aastore = &stores.AASTORE{}
+	bastore = &stores.BASTORE{}
+	castore = &stores.CASTORE{}
+	sastore = &stores.SASTORE{}
+
 	lcmp = &comparisons.LCMP{}
 	ifeq = &comparisons.IFEQ{}
 	ifgt = &comparisons.IFGT{}
@@ -96,8 +119,6 @@ var (
 	dadd = &math.DADD{}
 	isub = &math.ISUB{}
 	lsub = &math.LSUB{}
-
-	lstore_1 = &stores.LSTORE_1{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -141,6 +162,16 @@ func NewInstruction(opcode byte) base.Instruction {
 		return ldc
 	case 0x14:
 		return ldc2w
+	case 0x15:
+		return &loads.ILOAD{}
+	case 0x16:
+		return &loads.LLOAD{}
+	case 0x17:
+		return &loads.FLOAD{}
+	case 0x18:
+		return &loads.DLOAD{}
+	case 0x19:
+		return &loads.ALOAD{}
 	case 0x1a:
 		return iload_0
 	case 0x1b:
@@ -182,13 +213,46 @@ func NewInstruction(opcode byte) base.Instruction {
 		return aload_2
 	case 0x2d:
 		return aload_3
+	case 0x2e:
+		return iaload
+	case 0x2f:
+		return laload
+	case 0x30:
+		return faload
+	case 0x31:
+		return daload
+	case 0x32:
+		return aaload
+	case 0x33:
+		return baload
+	case 0x34:
+		return caload
+	case 0x35:
+		return saload
+	case 0x36:
+		return &stores.ISTORE{}
+	case 0x37:
+		return &stores.LSTORE{}
+	case 0x38:
+		return &stores.FSTORE{}
+	case 0x39:
+		return &stores.DSTORE{}
+	case 0x3a:
+		return &stores.ASTORE{}
 	case 0x3c:
 		return istore_1
 	case 0x3d:
 		return istore_2
-
+	case 0x3e:
+		return istore_3
+	case 0x3f:
+		return lstore_0
 	case 0x40:
 		return lstore_1
+	case 0x41:
+		return lstore_2
+	case 0x42:
+		return lstore_3
 	//case 0x41:
 	//	return lstore_2
 	//case 0x42:
@@ -217,6 +281,23 @@ func NewInstruction(opcode byte) base.Instruction {
 		return astore_2
 	case 0x4e:
 		return astore_3
+
+	case 0x4f:
+		return iastore
+	case 0x50:
+		return lastore
+	case 0x51:
+		return fastore
+	case 0x52:
+		return dastore
+	case 0x53:
+		return aastore
+	case 0x54:
+		return bastore
+	case 0x55:
+		return castore
+	case 0x56:
+		return sastore
 
 	case 0x59:
 		return dup
@@ -305,9 +386,20 @@ func NewInstruction(opcode byte) base.Instruction {
 		return ifge
 	case 0x9d:
 		return ifgt
-
+	case 0xa0:
+		return &comparisons.IF_ICMPNE{}
+	case 0xa1:
+		return &comparisons.IF_ICMPLT{}
+	case 0xa2:
+		return &comparisons.IF_ICMPGE{}
 	case 0xa3:
 		return if_icmpgt
+	case 0xa4:
+		return &comparisons.IF_ICMPLE{}
+	case 0xa5:
+		return &comparisons.IF_ACMPEQ{}
+	case 0xa6:
+		return &comparisons.IF_ACMPNE{}
 	case 0xa7:
 		return goto_
 	case 0xac:
@@ -341,6 +433,12 @@ func NewInstruction(opcode byte) base.Instruction {
 		return invokeinterface
 	case 0xbb:
 		return new
+	case 0xbc:
+		return &references.NEW_ARRAY{}
+	case 0xbd:
+		return &references.ANEW_ARRAY{}
+	case 0xbe:
+		return &references.ARRAY_LENGTH{}
 
 	case 0xc1:
 		return instanceof
