@@ -145,26 +145,8 @@ func (self *Class) getStaticMethod(name, descriptor string) *Method {
 	return nil
 }
 
-/*
-判断本类是否是参数class的父类
-*/
-func (self *Class) IsSuperClassOf(class *Class) bool {
-	return self.isSuperClassOf(class)
-}
-
-/*
-判断本类是否是参数class的子类
-*/
-func (self *Class) IsSubClassOf(class *Class) bool {
-	return self.isSubClassOf(class)
-}
-
 func (self *Class) SuperClass() *Class {
 	return self.superClass
-}
-
-func (self *Class) IsImplements(class *Class) bool {
-	return self.isImplements(class)
 }
 
 /*
@@ -189,4 +171,14 @@ func (self *Class) GetClinitMethod() *Method { return self.getStaticMethod("<cli
 func (self *Class) ArrayClass() *Class {
 	arrayClassName := getArrayClassName(self.name)
 	return self.loader.LoadClass(arrayClassName)
+}
+
+func (self *Class) isJlObject() bool {
+	return self.name == "java/lang/Object"
+}
+func (self *Class) isJlCloneable() bool {
+	return self.name == "java/lang/Cloneable"
+}
+func (self *Class) isJioSerializable() bool {
+	return self.name == "java/io/Serializable"
 }
