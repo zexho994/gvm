@@ -37,12 +37,44 @@ func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
 然后将将类数据加载到方法区中
 */
 func (self *ClassLoader) LoadClass(name string) *Class {
-	//fmt.Printf("[gvm][LoadClass] 加载类 %v \n", name)
 	if class, ok := self.classMap[name]; ok {
-		//fmt.Printf("[gvm][LoadClass] 类 %v 已被加载过\n", name)
+		// already loaded
 		return class
 	}
+
+	/*
+		数组类调用数组的加载方法
+	*/
+	if name[0] == '[' {
+		// array class
+		return self.loadArrayClass(name)
+	}
+
+	/*
+		非数组类调用非数组的加载方法
+	*/
 	return self.loadNonArrayClass(name)
+}
+
+/*
+数组类型的加载方法
+超类是Object类
+父接口是Cloneable和Serializable
+*/
+func (self *ClassLoader) loadArrayClass(name string) *Class {
+	class := &Class{
+		accessFlags: ACC_PUBLIC, // todo
+		name:        name,
+		loader:      self,
+		initStarted: true,
+		superClass:  self.LoadClass("java/lang/Object"),
+		interfaces: []*Class{
+			self.LoadClass("java/lang/Cloneable"),
+			self.LoadClass("java/io/Serializable"),
+		},
+	}
+	self.classMap[name] = class
+	return class
 }
 
 /*
