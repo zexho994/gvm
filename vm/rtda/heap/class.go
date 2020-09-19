@@ -51,6 +51,10 @@ func (self *Class) StartInit() {
 	self.initStarted = true
 }
 
+func (self *Class) Loader() *ClassLoader {
+	return self.loader
+}
+
 func (self *Class) ConstantPool() *ConstantPool {
 	return self.constantPool
 }
