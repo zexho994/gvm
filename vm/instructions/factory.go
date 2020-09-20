@@ -5,9 +5,11 @@ import (
 	"../instructions/comparisons"
 	"../instructions/constants"
 	"../instructions/control"
+	"../instructions/extended"
 	"../instructions/loads"
 	"../instructions/math"
 	"../instructions/references"
+	"../instructions/reserved"
 	"../instructions/stack"
 	"../instructions/stores"
 	"fmt"
@@ -119,6 +121,8 @@ var (
 	dadd = &math.DADD{}
 	isub = &math.ISUB{}
 	lsub = &math.LSUB{}
+
+	invoke_native = &reserved.INVOKE_NATIVE{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -158,6 +162,8 @@ func NewInstruction(opcode byte) base.Instruction {
 
 	case 0x10:
 		return bipush
+	case 0x11:
+		return &constants.SIPUSH{}
 	case 0x12:
 		return ldc
 	case 0x14:
@@ -377,6 +383,10 @@ func NewInstruction(opcode byte) base.Instruction {
 
 	case 0x84:
 		return iinc
+	case 0x9a:
+		return &comparisons.IFNE{}
+	case 0x9b:
+		return &comparisons.IFLT{}
 
 	case 0x94:
 		return lcmp
@@ -440,10 +450,14 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0xbe:
 		return &references.ARRAY_LENGTH{}
 
-	case 0xc1:
-		return instanceof
 	case 0xc0:
 		return checkcast
+	case 0xc1:
+		return instanceof
+	case 0xc7:
+		return &extended.IFNONNULL{}
+	case 0xfe:
+		return invoke_native
 
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
