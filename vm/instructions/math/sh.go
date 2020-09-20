@@ -75,7 +75,7 @@ type FSHUR struct {
 int字符的算数左移,
 i << x,i左移x位
 */
-func (self ISHL) Execute(frame rtda.Frame) {
+func (self ISHL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -87,7 +87,7 @@ func (self ISHL) Execute(frame rtda.Frame) {
 int字符的算数右移
 i >> x , i右移动x位
 */
-func (self ISHR) Execute(frame rtda.Frame) {
+func (self ISHR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -100,7 +100,7 @@ int字符的逻辑右移
 i >>> x , i右移动x位
 go中没有 >>> 运算符，所以先转换成无符号整数，再转换成有符号整数
 */
-func (self ISHUR) Execute(frame rtda.Frame) {
+func (self ISHUR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -112,7 +112,7 @@ func (self ISHUR) Execute(frame rtda.Frame) {
 /*
 long 算数左移
 */
-func (self LSHL) Execute(frame rtda.Frame) {
+func (self LSHL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopLong()
@@ -128,7 +128,7 @@ func (self LSHL) Execute(frame rtda.Frame) {
 long 算数右移
 算数移动不带符号的，对于整数而言就是补0，对于负数就是补1
 */
-func (self LSHR) Execute(frame rtda.Frame) {
+func (self LSHR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopLong()
@@ -142,7 +142,7 @@ func (self LSHR) Execute(frame rtda.Frame) {
 /*
 long 逻辑右移
 */
-func (self LSHUR) Execute(frame rtda.Frame) {
+func (self LSHUR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopLong()

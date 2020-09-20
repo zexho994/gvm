@@ -110,6 +110,7 @@ var (
 	bastore = &stores.BASTORE{}
 	castore = &stores.CASTORE{}
 	sastore = &stores.SASTORE{}
+	pop     = &stack.POP{}
 
 	lcmp = &comparisons.LCMP{}
 	ifeq = &comparisons.IFEQ{}
@@ -121,6 +122,10 @@ var (
 	dadd = &math.DADD{}
 	isub = &math.ISUB{}
 	lsub = &math.LSUB{}
+	imul = &math.IMUL{}
+
+	ishl  = &math.ISHL{}
+	iushr = &math.ISHUR{}
 
 	invoke_native = &reserved.INVOKE_NATIVE{}
 )
@@ -245,6 +250,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return &stores.DSTORE{}
 	case 0x3a:
 		return &stores.ASTORE{}
+	case 0x3b:
+		return istore_0
 	case 0x3c:
 		return istore_1
 	case 0x3d:
@@ -304,7 +311,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return castore
 	case 0x56:
 		return sastore
-
+	case 0x57:
+		return pop
 	case 0x59:
 		return dup
 
@@ -324,8 +332,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return fsub
 	//case 0x67:
 	//	return dsub
-	//case 0x68:
-	//	return imul
+	case 0x68:
+		return imul
 	//case 0x69:
 	//	return lmul
 	//case 0x6a:
@@ -356,16 +364,16 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return fneg
 	//case 0x77:
 	//	return dneg
-	//case 0x78:
-	//	return ishl
+	case 0x78:
+		return ishl
 	//case 0x79:
 	//	return lshl
 	//case 0x7a:
 	//	return ishr
 	//case 0x7b:
 	//	return lshr
-	//case 0x7c:
-	//	return iushr
+	case 0x7c:
+		return iushr
 	//case 0x7d:
 	//	return lushr
 	//case 0x7e:
@@ -396,6 +404,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return ifge
 	case 0x9d:
 		return ifgt
+	case 0x9e:
+		return &comparisons.IFLE{}
 	case 0xa0:
 		return &comparisons.IF_ICMPNE{}
 	case 0xa1:

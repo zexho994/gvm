@@ -21,7 +21,7 @@ type LMUL struct {
 	base.NoOperandsInstruction
 }
 
-func (self IMUL) Execute(frame rtda.Frame) {
+func (self IMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -29,7 +29,7 @@ func (self IMUL) Execute(frame rtda.Frame) {
 	stack.PushInt(result)
 }
 
-func (self LMUL) Execute(frame rtda.Frame) {
+func (self LMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()
@@ -37,7 +37,7 @@ func (self LMUL) Execute(frame rtda.Frame) {
 	stack.PushLong(result)
 }
 
-func (self DMUL) Execute(frame rtda.Frame) {
+func (self DMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	v2 := stack.PopDouble()
@@ -45,7 +45,7 @@ func (self DMUL) Execute(frame rtda.Frame) {
 	stack.PushDouble(result)
 }
 
-func (self FMUL) Execute(frame rtda.Frame) {
+func (self FMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	v2 := stack.PopFloat()
