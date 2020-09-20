@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,9 +17,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/Class.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/Double.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/Float.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/Object.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/String.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/java/lang/System.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/native/sun/misc/VM.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/method_descriptor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm/rtda/heap/method_descriptor_parser.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/class_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classfile/class_file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classfile/constant_pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/classfile/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/instructions/base/method_invoke_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/base/method_invoke_logic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/instructions/factory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/array_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/array_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/descriptor.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/descriptor_parse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/object.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/string_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/heap/string_pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/local_vars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/vm/rtda/operand_stack.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/vm/vm" afterDir="false" />
     </list>
     <list id="e057a331-6c46-4441-b861-ebecc0d6fd51" name="update field.go and member_info.go" comment="update field.go and member_info.go&#10;&#10;(cherry picked from commit df980e41eddb1eb762f7248e5f9b4a8c35cf6e6e)">
@@ -45,8 +61,8 @@
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -112,7 +128,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vm/instructions" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -127,6 +143,13 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vm/instructions" />
+      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
+      <recent name="$PROJECT_DIR$/vm" />
+      <recent name="$PROJECT_DIR$/vm/instructions/references" />
+      <recent name="$PROJECT_DIR$/vm/instructions/stores" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vm/rtda/heap" />
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
@@ -173,7 +196,7 @@
       <workItem from="1600349273765" duration="184000" />
       <workItem from="1600349615034" duration="4082000" />
       <workItem from="1600355342665" duration="150000" />
-      <workItem from="1600434417421" duration="691000" />
+      <workItem from="1600434417421" duration="17112000" />
     </task>
     <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
       <created>1599786555590</created>
@@ -232,7 +255,203 @@
       <option name="project" value="LOCAL" />
       <updated>1600353402186</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="可执行包">
+      <created>1600435661348</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600435661348</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Class添加初始化标志">
+      <created>1600439591420</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600439591420</updated>
+    </task>
+    <task id="LOCAL-00011" summary="类的初始化">
+      <created>1600441280214</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600441280214</updated>
+    </task>
+    <task id="LOCAL-00012" summary="修改Object，支持数组类型">
+      <created>1600491286409</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600491286409</updated>
+    </task>
+    <task id="LOCAL-00013" summary="添加数组对象array_object">
+      <created>1600491531359</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1600491531359</updated>
+    </task>
+    <task id="LOCAL-00014" summary="添加数组类，在Class中添加与数组相关的方法">
+      <created>1600491708153</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1600491708153</updated>
+    </task>
+    <task id="LOCAL-00015" summary="改造类加载器，支持加载数组">
+      <created>1600492087220</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1600492087220</updated>
+    </task>
+    <task id="LOCAL-00016" summary="添加指令 newarray，用于创建数组">
+      <created>1600493060618</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1600493060619</updated>
+    </task>
+    <task id="LOCAL-00017" summary="添加指令 newarray，用于创建数组">
+      <created>1600493110799</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1600493110799</updated>
+    </task>
+    <task id="LOCAL-00018" summary="添加指令 anewarray，用于创建引用类型数组">
+      <created>1600493582609</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600493582609</updated>
+    </task>
+    <task id="LOCAL-00019" summary="添加指令-arraylength，获取数组的长度">
+      <created>1600502018564</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502018564</updated>
+    </task>
+    <task id="LOCAL-00020" summary="添加指令-xaload，从数组中按索引获取元素到操作数栈中">
+      <created>1600502059432</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502059432</updated>
+    </task>
+    <task id="LOCAL-00021" summary="添加指令 dstore,从操作数栈中获取数据到本地变量表中">
+      <created>1600502187926</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502187926</updated>
+    </task>
+    <task id="LOCAL-00022" summary="添加指令 fstore,从操作数栈中获取float值本地变量表中">
+      <created>1600502204835</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502204835</updated>
+    </task>
+    <task id="LOCAL-00023" summary="添加指令 xastore，存储值到数组中">
+      <created>1600502373191</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502373191</updated>
+    </task>
+    <task id="LOCAL-00024" summary="添加指令 multianewarray">
+      <created>1600502605440</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502605440</updated>
+    </task>
+    <task id="LOCAL-00025" summary="完成invoke和checkcast指令">
+      <created>1600502815493</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1600502815493</updated>
+    </task>
+    <task id="LOCAL-00026" summary="添加if_acmpne指令">
+      <created>1600503790885</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1600503790885</updated>
+    </task>
+    <task id="LOCAL-00027" summary="补充一些指令">
+      <created>1600503953420</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1600503953420</updated>
+    </task>
+    <task id="LOCAL-00028" summary="代码重构">
+      <created>1600503974233</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1600503974233</updated>
+    </task>
+    <task id="LOCAL-00029" summary="取消一些注释">
+      <created>1600504568288</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1600504568288</updated>
+    </task>
+    <task id="LOCAL-00030" summary="支持数组的解析">
+      <created>1600504578140</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1600504578140</updated>
+    </task>
+    <task id="LOCAL-00031" summary="添加字符串解析类">
+      <created>1600521385191</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1600521385191</updated>
+    </task>
+    <task id="LOCAL-00032" summary="支持打印字符串">
+      <created>1600521400688</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1600521400688</updated>
+    </task>
+    <task id="LOCAL-00033" summary="本地方法注册表">
+      <created>1600587237331</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1600587237331</updated>
+    </task>
+    <task id="LOCAL-00034" summary="add new instruction of invokenative">
+      <created>1600588116390</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1600588116390</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update class_loader">
+      <created>1600589543214</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1600589543214</updated>
+    </task>
+    <task id="LOCAL-00036" summary="update the ldc instruction">
+      <created>1600589969336</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1600589969336</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,32 +497,32 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="refactor" />
-    <MESSAGE value="update frame.go" />
-    <MESSAGE value="update interpreter.go" />
-    <MESSAGE value="update jvm_stack.go" />
-    <MESSAGE value="update thread.go" />
-    <MESSAGE value="update Main.go" />
-    <MESSAGE value="add some file" />
-    <MESSAGE value="refactor func printClassInfo" />
-    <MESSAGE value="修改栈桢的setNextPC方法，改为指针方法" />
-    <MESSAGE value="新增支持 iload 指令" />
-    <MESSAGE value="[version] 支持解析简单的算数运算" />
-    <MESSAGE value="add access_flags const" />
-    <MESSAGE value="[update]运行时常量池中符号引用" />
-    <MESSAGE value="类的加载阶段。解析类以及类的父类和接口" />
-    <MESSAGE value="添加类的链接阶段验证和准备方法link(),prepare()" />
-    <MESSAGE value="添加slots.go,用来存储类变量和实例变量" />
-    <MESSAGE value="update gitignore,add /.idea/workspace.xml" />
-    <MESSAGE value="类加载过程准备阶段，计算实例字段与类字段数量。" />
-    <MESSAGE value="添加initStaticFinalvar()方法，给类变量赋值" />
-    <MESSAGE value="update field.go and member_info.go" />
-    <MESSAGE value="缺失的方法补充，测试" />
-    <MESSAGE value="添加类的访问标志判断方法 checkClassAccess" />
-    <MESSAGE value="[bugfix] 修改classMember下 public,protected,private的判断逻辑" />
-    <MESSAGE value="测试" />
-    <MESSAGE value="添加部分注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加部分注释" />
+    <MESSAGE value="类的初始化" />
+    <MESSAGE value="修改Object，支持数组类型" />
+    <MESSAGE value="添加数组对象array_object" />
+    <MESSAGE value="添加数组类，在Class中添加与数组相关的方法" />
+    <MESSAGE value="改造类加载器，支持加载数组" />
+    <MESSAGE value="添加指令 newarray，用于创建数组" />
+    <MESSAGE value="添加指令 anewarray，用于创建引用类型数组" />
+    <MESSAGE value="添加指令-arraylength，获取数组的长度" />
+    <MESSAGE value="添加指令-xaload，从数组中按索引获取元素到操作数栈中" />
+    <MESSAGE value="添加指令 dstore,从操作数栈中获取数据到本地变量表中" />
+    <MESSAGE value="添加指令 fstore,从操作数栈中获取float值本地变量表中" />
+    <MESSAGE value="添加指令 xastore，存储值到数组中" />
+    <MESSAGE value="添加指令 multianewarray" />
+    <MESSAGE value="完成invoke和checkcast指令" />
+    <MESSAGE value="添加if_acmpne指令" />
+    <MESSAGE value="补充一些指令" />
+    <MESSAGE value="代码重构" />
+    <MESSAGE value="取消一些注释" />
+    <MESSAGE value="支持数组的解析" />
+    <MESSAGE value="添加字符串解析类" />
+    <MESSAGE value="支持打印字符串" />
+    <MESSAGE value="本地方法注册表" />
+    <MESSAGE value="add new instruction of invokenative" />
+    <MESSAGE value="update class_loader" />
+    <MESSAGE value="update the ldc instruction" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the ldc instruction" />
   </component>
   <component name="WindowStateProjectService">
     <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
@@ -401,7 +620,7 @@
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
-    <state x="490" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600355410893">
+    <state x="490" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600521418391">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599220704475" />
@@ -409,7 +628,7 @@
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597815058184" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />
-    <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600355410893" />
+    <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600521418391" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
     <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
     <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600435088879">
@@ -438,12 +657,12 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600349998555" />
-    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup" timestamp="1600435296164">
+    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup" timestamp="1600504249136">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599218953320" />
     <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599387299391" />
-    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600435296164" />
+    <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600504249136" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599135052043" />
     <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
   </component>

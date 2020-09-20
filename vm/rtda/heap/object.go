@@ -1,5 +1,8 @@
 package heap
 
+/*
+java类对象，是所有Clas的父类
+*/
 type Object struct {
 	// 存放类指针
 	class *Class
@@ -8,6 +11,16 @@ type Object struct {
 	// 对于普通类来说data依然是Slots[]数组
 	// 对于数组来说可以是任何类的元素
 	data interface{}
+
+	//
+	extra interface{}
+}
+
+func (self *Object) Extra() interface{} {
+	return self.extra
+}
+func (self *Object) SetExtra(extra interface{}) {
+	self.extra = extra
 }
 
 func newObject(class *Class) *Object {

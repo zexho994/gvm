@@ -35,6 +35,17 @@ type Class struct {
 	staticVars Slots
 	// 判断类是否被加载过
 	initStarted bool
+
+	// 在Class中可以获取到类对象，为了完成反射
+	jClass *Object // java.lang.Class
+}
+
+func (self *Class) JClass() *Object {
+	return self.jClass
+}
+
+func (self *Class) JavaName() string {
+	return strings.Replace(self.name, "/", ".", -1)
 }
 
 /*
@@ -140,7 +151,10 @@ func (self *Class) getField(name, descriptor string, isStatic bool) *Field {
 }
 
 func (self *Class) GetPackageName() string {
-	return self.GetPackageName()
+	if i := strings.LastIndex(self.name, "/"); i >= 0 {
+		return self.name[:i]
+	}
+	return ""
 }
 
 func (self *Class) NewObject() *Object {
@@ -194,9 +208,16 @@ func (self *Class) ArrayClass() *Class {
 func (self *Class) isJlObject() bool {
 	return self.name == "java/lang/Object"
 }
+
 func (self *Class) isJlCloneable() bool {
 	return self.name == "java/lang/Cloneable"
 }
+
 func (self *Class) isJioSerializable() bool {
 	return self.name == "java/io/Serializable"
+}
+
+func (self *Class) IsPrimitive() bool {
+	_, ok := primitiveTypes[self.name]
+	return ok
 }

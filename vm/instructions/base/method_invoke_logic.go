@@ -31,9 +31,4 @@ func InvokeMethod(invokerFrame *rtda.Frame, method *heap.Method) {
 			newFrame.LocalVars().SetSlot(uint(i), slot)
 		}
 	}
-
-	if method.Name() == "registerNatives" {
-		thread.PopFrame()
-	}
-
 }
