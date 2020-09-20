@@ -55,15 +55,15 @@ func readExceptionTable(reader *ClassReader) []*ExceptionTableEntry {
 /*
 操作数栈最大大小
 */
-func (self CodeAttribute) MaxStack() uint16 {
-	return self.maxStack
+func (self CodeAttribute) MaxStack() uint {
+	return uint(self.maxStack)
 }
 
 /*
 局部变量表最大值
 */
-func (self CodeAttribute) MaxLocals() uint16 {
-	return self.maxLocals
+func (self CodeAttribute) MaxLocals() uint {
+	return uint(self.maxLocals)
 }
 
 func (self CodeAttribute) Code() []byte {

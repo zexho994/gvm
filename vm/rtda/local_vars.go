@@ -9,7 +9,7 @@ type LocalVars struct {
 	slots []Slot
 }
 
-func NewLocalVars(maxLocals uint16) *LocalVars {
+func NewLocalVars(maxLocals uint) *LocalVars {
 	if maxLocals > 0 {
 		//fmt.Printf("[gvm][LocalVars.NewLocalVars] maxLocals : %v \n", maxLocals)
 		localvars := &LocalVars{
@@ -75,4 +75,8 @@ func (self LocalVars) GetRef(index uint) *heap.Object {
 
 func (self LocalVars) SetSlot(index uint, slot Slot) {
 	self.slots[index] = slot
+}
+
+func (self LocalVars) GetThis() *heap.Object {
+	return self.GetRef(0)
 }

@@ -11,7 +11,7 @@ type OperandStack struct {
 	slots []Slot
 }
 
-func NewOperandStack(maxStack uint16) *OperandStack {
+func NewOperandStack(maxStack uint) *OperandStack {
 	//fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
 	if maxStack > 0 {
 		operandStack := &OperandStack{
@@ -114,4 +114,16 @@ func (self *OperandStack) GetRefFromTop(n uint) *heap.Object {
 	targetIndex := self.size - 1 - n
 	//fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", self.size, targetIndex)
 	return self.slots[targetIndex].ref
+}
+
+func (self *OperandStack) PushBoolean(val bool) {
+	if val {
+		self.PushInt(1)
+	} else {
+		self.PushInt(0)
+	}
+}
+
+func (self *OperandStack) PopBoolean() bool {
+	return self.PopInt() == 1
 }
