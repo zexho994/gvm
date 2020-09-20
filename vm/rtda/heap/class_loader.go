@@ -45,12 +45,20 @@ func (self *ClassLoader) loadBasicClasses() {
 	}
 }
 
+/*
+加载void和基本类型的类
+在基本类型的包装类中，例如Integer，都有一个Type字段。
+Type字段存放的就是基本类型的类
+*/
 func (self *ClassLoader) loadPrimitiveClasses() {
 	for primitiveType, _ := range primitiveTypes {
 		self.loadPrimitiveClass(primitiveType)
 	}
 }
 
+/*
+生成void和基本类型类
+*/
 func (self *ClassLoader) loadPrimitiveClass(className string) {
 	class := &Class{
 		accessFlags: ACC_PUBLIC, // todo
