@@ -1,6 +1,7 @@
 package main
 
 import (
+	"../info"
 	"./classfile"
 	"./classpath"
 	"./rtda/heap"
@@ -15,8 +16,8 @@ import (
 func main() {
 	// 创建一个Cmd对象赋给cmd
 	cmd := parseCmd()
-	if cmd.versionFlag { // 查询版本
-		fmt.Printf("[gvm] gvm version is 0.0.1 ")
+	if cmd.versionFlag {
+		fmt.Printf("[gvm] gvm version is %v \n", info.GvmInfo().Version())
 	} else if cmd.helpFlag || cmd.class == "" {
 		printUsage()
 	} else { // 启动jvm
