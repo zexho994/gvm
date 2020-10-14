@@ -1,12 +1,12 @@
 package main
 
 import (
-	"../info"
-	"./classfile"
-	"./classpath"
-	"./rtda/heap"
 	"fmt"
+	"info"
 	"strings"
+	"vm/classfile"
+	"vm/classpath"
+	"vm/rtda/heap"
 )
 
 /*
