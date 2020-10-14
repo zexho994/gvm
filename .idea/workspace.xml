@@ -6,6 +6,15 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select>
       <path>
@@ -16,145 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加classpath.go,负责整合各种类型类的加载">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加注释">
+      <change beforePath="$PROJECT_DIR$/.idea/gvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Cmd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_constant_value.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_constant_value.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_exception.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_invoke_dynamic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_line_number_table.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_line_number_table.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_local_variable_table.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_local_variable_table.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_markers.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_markers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_source_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_source_file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attr_unparsed.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attr_unparsed.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/attribute_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attribute_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/class_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/class_file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/class_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/constant_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/constant_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/constant_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_member_ref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_member_ref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_name_and_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_name_and_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_numeric.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_numeric.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_string.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/cp_utf8.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/cp_utf8.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classfile/member_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/member_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/Entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/Entry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/WildcardEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/WildcardEntry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/classpath.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/compositeEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/compositeEntry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/entry_dir.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/classpath/entry_zip.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classpath/entry_zip.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/base/branch_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/branch_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/base/bytecode_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/bytecode_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/base/class_init_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/class_init_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/base/instruction.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/instruction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/base/method_invoke_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/method_invoke_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/fcmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/fcmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/icmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/icmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/if_acmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_acmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/if_icmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_icmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/ifcond.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/ifcond.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/comparisons/lcmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/lcmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/bipush.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/bipush.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/const.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/ipush.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/ipush.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/constants/nop.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/nop.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/control/goto.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/goto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/control/lookupswitch.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/lookupswitch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/control/return.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/return.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/control/tableswitch.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/tableswitch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/conversions/d2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/d2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/conversions/f2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/f2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/conversions/i2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/i2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/extended/goto_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/goto_w.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/extended/ifnull.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/ifnull.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/extended/wide.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/wide.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/factory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/aload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/aload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/dload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/fload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/fload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/iload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/iload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/lload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/lload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/loads/xaload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/xaload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/add.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/add.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/and.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/and.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/div.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/div.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/iinc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/iinc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/mul.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/mul.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/neg.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/neg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/rem.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/rem.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/sh.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/sh.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/math/sub.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/sub.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/anewarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/anewarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/arraylength.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/arraylength.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/checkcast.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/checkcast.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/getfield.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/getfield.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/getstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/getstatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/instanceof.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/instanceof.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/invokeinterface.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokeinterface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/invokespecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokespecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/invokestatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokestatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/invokevirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokevirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/multianewarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/multianewarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/newarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/newarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/putfield.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/putfield.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/references/putstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/putstatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/reserved/invokenative.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/reserved/invokenative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stack/dup.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/dup.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stack/pop.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/pop.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stack/swap.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/swap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/astore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/astore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/dstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/dstore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/fstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/fstore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/istore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/istore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/ltores.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/ltores.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/instructions/stores/xastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/xastore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/Class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/Double.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/Float.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Float.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/Object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/String.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/String.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/registry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/native/sun/misc/VM.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/sun/misc/VM.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/access_flags.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/access_flags.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/array_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/array_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/array_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/array_object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_hierarchy.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class_hierarchy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/class_name_helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class_name_helper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_classref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_interface_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/cp_symref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_symref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/method_descriptor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/method_descriptor_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/method_descriptor_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/slots.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/slots.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/heap/string_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/string_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/jvm_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/jvm_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/local_vars.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/operand_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/slot.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/slot.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/rtda/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/thread.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm" afterDir="false" />
-    </list>
-    <list id="e057a331-6c46-4441-b861-ebecc0d6fd51" name="update field.go and member_info.go" comment="update field.go and member_info.go&#10;&#10;(cherry picked from commit df980e41eddb1eb762f7248e5f9b4a8c35cf6e6e)">
-      <changelist_data name="zexho" email="zouzhihao994@gmail.com" date="1599821818000" />
+      <change beforePath="$PROJECT_DIR$/info/gvm_base_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/info/gvm_base_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,19 +130,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
-      <recent name="$PROJECT_DIR$/vm/instructions/stores" />
-      <recent name="$PROJECT_DIR$/ch1" />
-      <recent name="$PROJECT_DIR$/ch1/class" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vm/instructions" />
       <recent name="$PROJECT_DIR$/vm/rtda/heap" />
       <recent name="$PROJECT_DIR$/vm" />
       <recent name="$PROJECT_DIR$/vm/instructions/references" />
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
+      <recent name="$PROJECT_DIR$/vm/instructions/stores" />
+      <recent name="$PROJECT_DIR$/ch1" />
+      <recent name="$PROJECT_DIR$/ch1/class" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -760,11 +635,11 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
-    <state x="382" y="183" width="980" height="722" key="SettingsEditor" timestamp="1602425785013">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="-1095" y="236" width="980" height="722" key="SettingsEditor" timestamp="1602652524615">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
-    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599824569004" />
+    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602652524615" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
     <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
