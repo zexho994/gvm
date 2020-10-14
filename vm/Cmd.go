@@ -34,7 +34,7 @@ func parseCmd() *Cmd {
 	flag.StringVar(&cmd.cpOption, "classpath", "", "[gvm] classpath")
 	flag.StringVar(&cmd.cpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm]path to jre")
-	flag.BoolVar(&cmd.verboseClassFlag, "verbose", true, "[gvm]启用详细输出")
+	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm]启用详细输出")
 	flag.Parse()
 
 	args := flag.Args()
