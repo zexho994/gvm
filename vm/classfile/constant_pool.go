@@ -15,11 +15,13 @@ type ConstantInfo interface {
 
 /*
 读取常量池数据
+解析常量池分为两步：分配内存 -> 解析
 */
 func readConstantPool(reader *ClassReader) ConstantPool {
 	//fmt.Println("[gvm][readConstantPool] read constanpool ...")
 	// get constantpool count
 	cpCount := int(reader.readUint16())
+	// 分配内存
 	cp := make([]ConstantInfo, cpCount)
 
 	// traverse cp

@@ -5,17 +5,12 @@ import (
 	"fmt"
 )
 
-type Constant interface {
-}
+type Constant interface{}
 
 // 运行时常量池
 type ConstantPool struct {
 	class  *Class
 	consts []Constant
-}
-
-func (self *ConstantPool) Name() string {
-	return self.class.name
 }
 
 /*
