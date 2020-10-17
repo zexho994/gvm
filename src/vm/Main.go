@@ -31,14 +31,21 @@ Jvm启动方法
 func startJvm(cmd *Cmd) {
 	// 对XjreOption和cp两个字段进行解析
 	// 获取classapth对象
+
+	if cmd.XjreOption == "" {
+		cmd.XjreOption = "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"
+	}
+
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	// 类加载器加载类
 	// 此时cp里的3个类加载器都已经创建好了
 	classLoader := heap.NewClassLoader(cp, true)
 
+	name := "java/src/" + cmd.class
+
 	// 解析类名
-	className := strings.Replace(cmd.class, ".", "/", -1)
+	className := strings.Replace(name, ".", "/", -1)
 
 	// 加载类,通过类的全限定名去加载类
 	loadClass := classLoader.LoadClass(className)
