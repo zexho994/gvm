@@ -1,6 +1,6 @@
 package heap
 
-import "../../classfile"
+import "github.com/zouzhihao-994/gvm/src/vm/classfile"
 
 /*
 实例字段

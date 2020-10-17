@@ -1,10 +1,10 @@
 package reserved
 
-import "../base"
-import "../../rtda"
-import "../../native"
-import _ "../../native/java/lang"
-import _ "../../native/sun/misc"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/native"
+import _ "github.com/zouzhihao-994/gvm/src/vm/native/java/lang"
+import _ "github.com/zouzhihao-994/gvm/src/vm/native/sun/misc"
 
 // Invoke native method
 type INVOKE_NATIVE struct{ base.NoOperandsInstruction }

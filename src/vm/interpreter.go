@@ -1,11 +1,11 @@
 package main
 
-import "./rtda/heap"
 import (
-	"./instructions"
-	"./instructions/base"
-	"./rtda"
 	"fmt"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 )
 
 /*

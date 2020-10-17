@@ -1,9 +1,9 @@
 package extended
 
 import (
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 )
-import "../../rtda" // Branch always (wide index)
+import "github.com/zouzhihao-994/gvm/src/vm/rtda" // Branch always (wide index)
 
 type GOTO_W struct{ offset int }
 

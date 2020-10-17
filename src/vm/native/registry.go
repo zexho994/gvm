@@ -1,6 +1,6 @@
 package native
 
-import "../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 /*
 本地方法

@@ -1,18 +1,18 @@
 package instructions
 
 import (
-	"../instructions/comparisons"
-	"../instructions/constants"
-	"../instructions/control"
-	"../instructions/extended"
-	"../instructions/loads"
-	"../instructions/math"
-	"../instructions/references"
-	"../instructions/reserved"
-	"../instructions/stack"
-	"../instructions/stores"
-	"./base"
 	"fmt"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/comparisons"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/constants"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/control"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/extended"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/loads"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/math"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/references"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/reserved"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/stack"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/stores"
 )
 
 var (

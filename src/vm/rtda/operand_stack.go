@@ -1,7 +1,7 @@
 package rtda
 
 import (
-	"./heap"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 	"math"
 )
 

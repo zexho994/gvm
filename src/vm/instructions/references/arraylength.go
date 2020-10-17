@@ -1,7 +1,7 @@
 package references
 
-import "../base"
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 // Get length of array
 type ARRAY_LENGTH struct{ base.NoOperandsInstruction }

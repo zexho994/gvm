@@ -1,8 +1,8 @@
 package math
 
 import (
-	"../../rtda"
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
 )
 
 type IDIV struct {

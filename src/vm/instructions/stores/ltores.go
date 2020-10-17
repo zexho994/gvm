@@ -1,7 +1,7 @@
 package stores
 
-import "../base"
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 /*
 加载指令，将操作数栈的指保存到局部变了表中

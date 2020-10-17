@@ -1,8 +1,8 @@
 package base
 
 import (
-	"../../rtda"
-	"../../rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 )
 
 /*

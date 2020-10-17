@@ -1,7 +1,7 @@
 package extended
 
-import "../base"
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 type IFNULL struct{ base.BranchInstruction } // Branch if reference is null
 

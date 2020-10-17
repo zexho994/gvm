@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"info"
+	"github.com/zouzhihao-994/gvm/src/info"
+	"github.com/zouzhihao-994/gvm/src/vm/classfile"
+	"github.com/zouzhihao-994/gvm/src/vm/classpath"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 	"strings"
-	"vm/classfile"
-	"vm/classpath"
-	"vm/rtda/heap"
 )
 
 /*

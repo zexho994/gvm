@@ -1,6 +1,6 @@
 package base
 
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 /*
 指令接口，指令主要两个功能：

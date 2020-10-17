@@ -1,6 +1,6 @@
 package heap
 
-import "../../classfile"
+import "github.com/zouzhihao-994/gvm/src/vm/classfile"
 
 type ClassRef struct {
 	SymRef

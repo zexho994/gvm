@@ -1,10 +1,10 @@
 package references
 
 import (
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 )
-import "../../rtda"
-import "../../rtda/heap" // Set static field in class
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Set static field in class
 
 /**
 putstatic要给静态变量赋值

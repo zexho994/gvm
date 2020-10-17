@@ -1,6 +1,6 @@
 package heap
 
-import "../../classfile"
+import "github.com/zouzhihao-994/gvm/src/vm/classfile"
 
 /*
 接口方法的符号引用

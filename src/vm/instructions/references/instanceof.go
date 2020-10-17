@@ -1,8 +1,8 @@
 package references
 
-import "../base"
-import "../../rtda"
-import "../../rtda/heap" // Determine if object is of given type
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Determine if object is of given type
 
 type INSTANCE_OF struct{ base.Index16Instruction }
 

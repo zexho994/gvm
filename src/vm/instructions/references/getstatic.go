@@ -1,8 +1,8 @@
 package references
 
-import "../base"
-import "../../rtda"
-import "../../rtda/heap" // Get static field from class
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Get static field from class
 
 type GET_STATIC struct{ base.Index16Instruction }
 

@@ -1,8 +1,8 @@
 package heap
 
 import (
-	"../../classfile"
-	"../../classpath"
+	"github.com/zouzhihao-994/gvm/src/vm/classfile"
+	"github.com/zouzhihao-994/gvm/src/vm/classpath"
 )
 
 /*

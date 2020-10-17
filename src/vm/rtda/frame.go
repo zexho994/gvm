@@ -1,6 +1,6 @@
 package rtda
 
-import "./heap"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 
 type Frame struct {
 	// like the LinkedList's next point

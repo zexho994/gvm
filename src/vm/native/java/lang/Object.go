@@ -1,8 +1,10 @@
 package lang
 
-import "unsafe"
-import "../.."
-import "../../../rtda"
+import (
+	"github.com/zouzhihao-994/gvm/src/vm/native"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"unsafe"
+)
 
 const jlObject = "java/lang/Object"
 

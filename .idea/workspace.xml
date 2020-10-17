@@ -26,10 +26,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加注释">
-      <change beforePath="$PROJECT_DIR$/.idea/gvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gvm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/gvm_base_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/info/gvm_base_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.mod" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/factory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/java/ClassFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/java/ClassFileNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/java/GaussTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/java/MyObject.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,13 +129,6 @@
       </set>
     </option>
   </component>
-  <component name="GoLibraries">
-    <option name="urls">
-      <list>
-        <option value="file://$PROJECT_DIR$" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectId" id="1fgj1nRn7gPxFJ3xf0fiwPoTpc4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -115,7 +153,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vm/instructions" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -126,7 +164,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -151,17 +189,18 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="go build Main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build vm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/ch1/Main.go" />
+      <filePath value="$PROJECT_DIR$/src/vm/Main.go" />
+      <package value="vm" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build Main.go" />
+        <item itemvalue="Go Build.go build vm" />
       </list>
     </recent_temporary>
   </component>
@@ -562,6 +601,9 @@
     <MESSAGE value="支持调用部分本地方法" />
     <option name="LAST_COMMIT_MESSAGE" value="支持调用部分本地方法" />
   </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
   <component name="WindowStateProjectService">
     <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -585,9 +627,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="438" y="280" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1598197131866" />
-    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="424" y="236" width="1071" height="749" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602929615559">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="424" y="236" width="1071" height="749" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602929615559" />
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
     <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599974149594">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -615,28 +658,32 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1599974102377" />
-    <state width="1878" height="344" key="GridCell.Tab.0.bottom" timestamp="1596816058304">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state width="1878" height="266" key="GridCell.Tab.0.bottom" timestamp="1602951949084">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1878" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949084" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058304" />
-    <state width="1878" height="344" key="GridCell.Tab.0.center" timestamp="1596816058303">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state width="1878" height="266" key="GridCell.Tab.0.center" timestamp="1602951949083">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1878" height="266" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949083" />
     <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state width="1878" height="344" key="GridCell.Tab.0.left" timestamp="1596816058302">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state width="1878" height="266" key="GridCell.Tab.0.left" timestamp="1602951949082">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1878" height="266" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949082" />
     <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058302" />
-    <state width="1878" height="344" key="GridCell.Tab.0.right" timestamp="1596816058303">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state width="1878" height="266" key="GridCell.Tab.0.right" timestamp="1602951949083">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1878" height="266" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949083" />
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
     <state x="168" y="94" key="MergeDialog" timestamp="1600435096137">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
-    <state x="-1095" y="236" width="980" height="722" key="SettingsEditor" timestamp="1602652524615">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="825" y="236" width="980" height="722" key="SettingsEditor" timestamp="1602951789222">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
     <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602652524615" />
@@ -648,6 +695,7 @@
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
+    <state x="825" y="236" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1602951789222" />
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">

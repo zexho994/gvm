@@ -1,8 +1,10 @@
 package lang
 
-import "../.."
-import "../../../rtda"
-import "../../../rtda/heap"
+import (
+	"github.com/zouzhihao-994/gvm/src/vm/native"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+)
 
 const jlSystem = "java/lang/System"
 

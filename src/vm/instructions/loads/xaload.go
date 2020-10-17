@@ -1,8 +1,8 @@
 package loads
 
-import "../base"
-import "../../rtda"
-import "../../rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 
 // Load reference from array
 // 按索引从数组中获取元素，存储到操作数栈中

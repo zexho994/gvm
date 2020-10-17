@@ -1,10 +1,10 @@
 package references
 
 import (
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 )
-import "../../rtda"
-import "../../rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 
 /*
 用于调用构造函数

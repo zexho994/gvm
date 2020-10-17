@@ -1,10 +1,10 @@
 package math
 
 import (
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 	"math"
 )
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 /*
 REM为求余指令

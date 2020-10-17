@@ -1,9 +1,9 @@
 package extended
 
 import (
-	"../../instructions/loads"
-	"../../rtda"
-	"../base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+	"github.com/zouzhihao-994/gvm/src/vm/instructions/loads"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
 )
 
 /*

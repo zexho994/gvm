@@ -1,8 +1,10 @@
 package lang
 
-import "math"
-import "../.."
-import "../../../rtda"
+import (
+	"github.com/zouzhihao-994/gvm/src/vm/native"
+	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"math"
+)
 
 const jlFloat = "java/lang/Float"
 

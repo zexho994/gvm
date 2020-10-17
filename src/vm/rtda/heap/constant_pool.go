@@ -1,8 +1,8 @@
 package heap
 
 import (
-	"../../classfile"
 	"fmt"
+	"github.com/zouzhihao-994/gvm/src/vm/classfile"
 )
 
 type Constant interface{}

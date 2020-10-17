@@ -1,7 +1,7 @@
 package stores
 
-import "../base"
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 // Store double into local variable
 type DSTORE struct{ base.Index8Instruction }

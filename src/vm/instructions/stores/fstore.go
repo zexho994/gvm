@@ -1,7 +1,7 @@
 package stores
 
-import "../base"
-import "../../rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
+import "github.com/zouzhihao-994/gvm/src/vm/rtda"
 
 // Store float into local variable
 type FSTORE struct{ base.Index8Instruction }
