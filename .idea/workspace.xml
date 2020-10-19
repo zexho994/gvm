@@ -26,55 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加注释">
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/module/klass/layoutHelper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/docopt/docopt-go/@v/v0.0.0-20180111231733-ee0de3bc6815.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/objx/@v/v0.1.0.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/stretchr/testify/@v/v1.4.0.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/list.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mod/cache/download/gopkg.in/yaml.v2/@v/v2.2.2.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/Main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/factory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/java/ClassFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/java/ClassFileNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/java/GaussTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/java/MyObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Class" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -144,6 +104,7 @@
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -164,7 +125,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -176,11 +137,11 @@
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/src" />
+      <recent name="$PROJECT_DIR$/java" />
+      <recent name="$PROJECT_DIR$/src/package" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/vm/rtda/heap" />
-      <recent name="$PROJECT_DIR$/vm/instructions/stores" />
-      <recent name="$PROJECT_DIR$/ch1" />
-      <recent name="$PROJECT_DIR$/ch1/class" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -188,19 +149,28 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="go build vm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build github.com/zouzhihao-994/gvm/src/vm">
+    <configuration name="go build Main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/ch1/Main.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/zouzhihao-994/gvm/src/vm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/src/vm/Main.go" />
-      <package value="vm" />
+      <package value="github.com/zouzhihao-994/gvm/src/vm" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build vm" />
+        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/src/vm" />
+        <item itemvalue="Go Build.go build Main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -559,9 +529,31 @@
                       </list>
                     </value>
                   </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -574,18 +566,6 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="添加指令-arraylength，获取数组的长度" />
-    <MESSAGE value="添加指令-xaload，从数组中按索引获取元素到操作数栈中" />
-    <MESSAGE value="添加指令 dstore,从操作数栈中获取数据到本地变量表中" />
-    <MESSAGE value="添加指令 fstore,从操作数栈中获取float值本地变量表中" />
-    <MESSAGE value="添加指令 xastore，存储值到数组中" />
-    <MESSAGE value="添加指令 multianewarray" />
-    <MESSAGE value="完成invoke和checkcast指令" />
-    <MESSAGE value="添加if_acmpne指令" />
-    <MESSAGE value="补充一些指令" />
-    <MESSAGE value="代码重构" />
-    <MESSAGE value="取消一些注释" />
-    <MESSAGE value="支持数组的解析" />
     <MESSAGE value="添加字符串解析类" />
     <MESSAGE value="支持打印字符串" />
     <MESSAGE value="本地方法注册表" />
@@ -599,12 +579,28 @@
     <MESSAGE value="factory 添加新指令" />
     <MESSAGE value="新增字符串操作" />
     <MESSAGE value="支持调用部分本地方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持调用部分本地方法" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="update the configuration file" />
+    <MESSAGE value="add ThreadService.go" />
+    <MESSAGE value="添加oop，OOPS的共同基类" />
+    <MESSAGE value="add constantPoolOop.go" />
+    <MESSAGE value="add markOop.go" />
+    <MESSAGE value="add arrayOop.go" />
+    <MESSAGE value="add cpCacheOop.go" />
+    <MESSAGE value="add instanceOop.go" />
+    <MESSAGE value="add typeArrayOop.go" />
+    <MESSAGE value="add klass.go" />
+    <MESSAGE value="添加GVM启动方式，通过手动输入参数启动。" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加GVM启动方式，通过手动输入参数启动。" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1179" y="255" width="438" height="576" key="#Build_Tags_&amp;_Vendoring" timestamp="1602655313347">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1179" y="255" width="438" height="576" key="#Build_Tags_&amp;_Vendoring/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602655313347" />
     <state x="640" y="190" key="#GOPATH" timestamp="1599878844513">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -627,10 +623,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="438" y="280" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1598197131866" />
-    <state x="424" y="236" width="1071" height="749" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602929615559">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="424" y="236" width="1071" height="749" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602929615559" />
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
     <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599974149594">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -658,35 +653,63 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1599974102377" />
-    <state width="1878" height="266" key="GridCell.Tab.0.bottom" timestamp="1602951949084">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="142" y="81" width="1720" height="900" key="DiffContextDialog" timestamp="1603108590113">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949084" />
+    <state x="-1820" y="79" width="1720" height="900" key="DiffContextDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603107011480" />
+    <state x="142" y="81" width="1720" height="900" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108590113" />
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602825117682" />
+    <state width="1878" height="138" key="GridCell.Tab.0.bottom" timestamp="1603108817884">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1398" height="358" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015804" />
+    <state width="1878" height="138" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817884" />
     <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058304" />
-    <state width="1878" height="266" key="GridCell.Tab.0.center" timestamp="1602951949083">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="138" key="GridCell.Tab.0.center" timestamp="1603108817883">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="266" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949083" />
+    <state width="1398" height="358" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015802" />
+    <state width="1878" height="138" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
     <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state width="1878" height="266" key="GridCell.Tab.0.left" timestamp="1602951949082">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="138" key="GridCell.Tab.0.left" timestamp="1603108817882">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="266" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949082" />
+    <state width="1398" height="358" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015801" />
+    <state width="1878" height="138" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817882" />
     <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058302" />
-    <state width="1878" height="266" key="GridCell.Tab.0.right" timestamp="1602951949083">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="138" key="GridCell.Tab.0.right" timestamp="1603108817884">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="266" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602951949083" />
+    <state width="1398" height="358" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015803" />
+    <state width="1878" height="138" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
     <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
-    <state x="168" y="94" key="MergeDialog" timestamp="1600435096137">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1878" height="138" key="GridCell.Tab.1.bottom" timestamp="1603108817887">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state width="1878" height="138" key="GridCell.Tab.1.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817887" />
+    <state width="1878" height="138" key="GridCell.Tab.1.center" timestamp="1603108817886">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="138" key="GridCell.Tab.1.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
+    <state width="1878" height="138" key="GridCell.Tab.1.left" timestamp="1603108817885">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="138" key="GridCell.Tab.1.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817885" />
+    <state width="1878" height="138" key="GridCell.Tab.1.right" timestamp="1603108817886">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="138" key="GridCell.Tab.1.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
+    <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog" timestamp="1603067788379">
+      <screen x="-1582" y="1080" width="1440" height="900" />
+    </state>
+    <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067788379" />
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
-    <state x="825" y="236" width="980" height="722" key="SettingsEditor" timestamp="1602951789222">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-1095" y="236" width="900" height="722" key="SettingsEditor" timestamp="1603108816371">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
-    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602652524615" />
+    <state x="-1204" y="1172" width="900" height="722" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067983703" />
+    <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108816371" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
     <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
     <state x="256" y="70" key="SettingsEditor/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814031009" />
@@ -695,7 +718,6 @@
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
-    <state x="825" y="236" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1602951789222" />
     <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
@@ -708,21 +730,32 @@
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
-    <state x="490" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600592806926">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1603108737260">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599220704475" />
-    <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599627277921" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108737260" />
+    <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602764571229" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
+    <state x="560" y="322" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602828609350" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597815058184" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />
     <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600592806926" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
     <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
-    <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600435088879">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="1134" y="398" key="VcsDiffUtil.ChangesDialog" timestamp="1603108648777">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="1134" y="398" key="VcsDiffUtil.ChangesDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108648777" />
+    <state x="-810" y="535" key="com.goide.codeInsight.imports.GoImportConfigurable$AddImportExclusionDialog" timestamp="1602655760539">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-810" y="535" key="com.goide.codeInsight.imports.GoImportConfigurable$AddImportExclusionDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602655760539" />
+    <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603067780240">
+      <screen x="-1582" y="1080" width="1440" height="900" />
+    </state>
+    <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067780240" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599024298658" />
+    <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602822250442" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598334334853" />
     <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600435088879" />
     <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
@@ -753,5 +786,12 @@
     <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600592453007" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599135052043" />
     <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="DlvErrorBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

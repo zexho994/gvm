@@ -2,5 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/panjf2000/ants" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/panjf2000/gnet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/valyala/bytebufferpool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/go.uber.org/atomic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/go.uber.org/multierr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/go.uber.org/zap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/sys" vcs="Git" />
   </component>
 </project>

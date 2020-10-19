@@ -9,6 +9,7 @@
         <function importPath="fmt" name="Println" />
         <function importPath="fmt" name="Print" />
         <function importPath="path/filepath" name="Walk" />
+        <function importPath="fmt" name="Scanln" />
       </functions>
       <methods>
         <method importPath="hash" receiver="Hash" name="Write" />
