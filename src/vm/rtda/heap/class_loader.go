@@ -30,13 +30,17 @@ func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
 		classMap:    make(map[string]*Class),
 	}
 
+	//  加载基础类
 	loader.loadBasicClasses()
+	//
 	loader.loadPrimitiveClasses()
 	return loader
 }
 
+// 加载基础类
 func (self *ClassLoader) loadBasicClasses() {
 	jlClassClass := self.LoadClass("java/lang/Class")
+	// 类加载到map中
 	for _, class := range self.classMap {
 		if class.jClass == nil {
 			class.jClass = jlClassClass.NewObject()
