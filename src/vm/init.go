@@ -47,13 +47,16 @@ func receiveParam() {
 
 // 创建GVM
 func createGVM(param initParam) {
-	// 对XjreOption和cp两个字段进行解析
-	// 获取classapth对象
 
 	if param.jre == "" {
-		param.jre = "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"
+		param.jre = info.DEFAULT_JRE_PATH
+	}
+	if param.cp == "" {
+		param.cp = info.DEFAULT_CP_PATH
 	}
 
+	// 对XjreOption和cp两个字段进行解析
+	// 获取classapth对象
 	cp := classpath.Parse(param.jre, param.cp)
 
 	// 类加载器加载类
@@ -62,7 +65,7 @@ func createGVM(param initParam) {
 
 	name := ""
 	if param.cp == "" {
-		name = "java/src/" + param.cn
+		name = info.DEFAULT_CP_PATH + param.cn
 	} else {
 		name = param.cp + param.cn
 	}
@@ -82,58 +85,6 @@ func createGVM(param initParam) {
 	} else {
 		fmt.Printf("Main method not found in class %s\n", param.cp)
 	}
-}
-
-// 通过可执行文件启动
-// 使用build编译后生成可执行文件
-func startByCmd() {
-	// 创建一个Cmd对象赋给cmd
-	cmd := parseCmd()
-	if cmd.versionFlag {
-		fmt.Printf("[gvm] gvm version is %v \n", info.GvmInfo().Version())
-	} else if cmd.helpFlag || cmd.class == "" {
-		printUsage()
-	} else { // 启动jvm
-		startJvm(cmd)
-	}
-}
-
-/*
-Jvm启动方法
-*/
-func startJvm(cmd *Cmd) {
-	// 对XjreOption和cp两个字段进行解析
-	// 获取classapth对象
-
-	if cmd.XjreOption == "" {
-		cmd.XjreOption = "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"
-	}
-
-	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
-
-	// 类加载器加载类
-	// 此时cp里的3个类加载器都已经创建好了
-	classLoader := heap.NewClassLoader(cp, true)
-
-	name := "java/src/" + cmd.class
-
-	// 解析类名
-	className := strings.Replace(name, ".", "/", -1)
-
-	// 加载类,通过类的全限定名去加载类
-	loadClass := classLoader.LoadClass(className)
-
-	// 获取main方法
-	mainMethod := loadClass.GetMainMethod()
-
-	// 解释main方法
-
-	if mainMethod != nil {
-		interpret(mainMethod, cmd.verboseInstFlag, cmd.args)
-	} else {
-		fmt.Printf("Main method not found in class %s\n", cmd.class)
-	}
-
 }
 
 /*

@@ -25,16 +25,22 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="[update] 添加注释">
-      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module/klass/layoutHelper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/info/startupEnvironment.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vm/cmd/java/java.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/klass/klass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/klass/klass.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/klass/layoutHelper.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/memory/ThreadService/ThreadService.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/arrayOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/constantPoolOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/cpCacheOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/instanceOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/markOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/oop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/oops/typeArrayOop.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/cmd/Cmd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/init.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +120,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -125,7 +131,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -137,11 +143,11 @@
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/gvm" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/vm/cmd" />
       <recent name="$PROJECT_DIR$/java/src" />
       <recent name="$PROJECT_DIR$/java" />
-      <recent name="$PROJECT_DIR$/src/package" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -195,6 +201,9 @@
       <workItem from="1600355342665" duration="150000" />
       <workItem from="1600434417421" duration="18717000" />
       <workItem from="1601471184962" duration="439000" />
+      <workItem from="1605676607220" duration="79000" />
+      <workItem from="1605918730421" duration="737000" />
+      <workItem from="1605972396019" duration="530000" />
     </task>
     <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
       <created>1599786555590</created>
@@ -566,8 +575,6 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="添加字符串解析类" />
-    <MESSAGE value="支持打印字符串" />
     <MESSAGE value="本地方法注册表" />
     <MESSAGE value="add new instruction of invokenative" />
     <MESSAGE value="update class_loader" />
@@ -591,7 +598,9 @@
     <MESSAGE value="add typeArrayOop.go" />
     <MESSAGE value="add klass.go" />
     <MESSAGE value="添加GVM启动方式，通过手动输入参数启动。" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加GVM启动方式，通过手动输入参数启动。" />
+    <MESSAGE value="update gitignore" />
+    <MESSAGE value="add some properties file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some properties file" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -623,10 +632,6 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="438" y="280" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1598197131866" />
-    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596815879864">
-      <screen x="0" y="0" width="1920" height="1200" />
-    </state>
-    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596815879864" />
     <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599974149594">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -635,7 +640,6 @@
     <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1599974149594" />
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599134096457" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597670566037" />
-    <state x="671" y="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1596902520063" />
     <state x="896" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1599286588445">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -664,25 +668,21 @@
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015804" />
     <state width="1878" height="138" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817884" />
-    <state width="1878" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058304" />
     <state width="1878" height="138" key="GridCell.Tab.0.center" timestamp="1603108817883">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015802" />
     <state width="1878" height="138" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
-    <state width="1878" height="344" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
     <state width="1878" height="138" key="GridCell.Tab.0.left" timestamp="1603108817882">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015801" />
     <state width="1878" height="138" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817882" />
-    <state width="1878" height="344" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058302" />
     <state width="1878" height="138" key="GridCell.Tab.0.right" timestamp="1603108817884">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015803" />
     <state width="1878" height="138" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
-    <state width="1878" height="344" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1596816058303" />
     <state width="1878" height="138" key="GridCell.Tab.1.bottom" timestamp="1603108817887">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
@@ -704,7 +704,7 @@
     </state>
     <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067788379" />
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
-    <state x="-1095" y="236" width="900" height="722" key="SettingsEditor" timestamp="1603108816371">
+    <state x="-1095" y="236" width="900" height="722" key="SettingsEditor" timestamp="1605918745455">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
@@ -716,14 +716,10 @@
     <state x="400" y="259" width="1119" height="722" key="SettingsEditor/-722.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597987180099" />
     <state x="269" y="178" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598178015784" />
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />
+    <state x="-1095" y="236" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1605918745455" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
-    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1596934290528" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
-    <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1596817093402">
-      <screen x="0" y="0" width="1920" height="1200" />
-    </state>
-    <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596817093402" />
     <state width="500" height="433" key="SwitcherDM" timestamp="1599988279085">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -741,7 +737,6 @@
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />
     <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600592806926" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597753406364" />
-    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1596807711536" />
     <state x="1134" y="398" key="VcsDiffUtil.ChangesDialog" timestamp="1603108648777">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -750,26 +745,19 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-810" y="535" key="com.goide.codeInsight.imports.GoImportConfigurable$AddImportExclusionDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602655760539" />
-    <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603067780240">
-      <screen x="-1582" y="1080" width="1440" height="900" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606104989438">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067780240" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599024298658" />
     <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602822250442" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598334334853" />
     <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600435088879" />
-    <state width="463" height="350" key="documentation.popup.size" timestamp="1596812522679">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606104989438" />
+    <state x="-1192" y="319" width="584" height="486" key="find.popup" timestamp="1605676641618">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="463" height="350" key="documentation.popup.size/0.0.1920.1200@0.0.1920.1200" timestamp="1596812522679" />
-    <state x="618" y="451" key="git4idea.ui.GitTagDialog" timestamp="1596730918304">
-      <screen x="0" y="0" width="1920" height="1200" />
-    </state>
-    <state x="618" y="451" key="git4idea.ui.GitTagDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1596730918304" />
-    <state x="328" y="285" key="new project wizard" timestamp="1596934319955">
-      <screen x="0" y="0" width="1920" height="1200" />
-    </state>
-    <state x="328" y="285" key="new project wizard/0.0.1920.1200@0.0.1920.1200" timestamp="1596934319955" />
+    <state x="-1192" y="319" width="584" height="486" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1605676641618" />
     <state x="562" y="222" key="refactoring.ChangeSignatureDialog" timestamp="1598176564994">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -785,7 +773,6 @@
     <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599387299391" />
     <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600592453007" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599135052043" />
-    <state x="625" y="271" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1596901708679" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
