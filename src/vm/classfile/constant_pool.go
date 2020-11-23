@@ -47,30 +47,30 @@ func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 /*
 按照索引(index)查找常量
 */
-func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo {
-	if cpInfo := self[index]; cpInfo != nil {
+func (constantPool ConstantPool) getConstantInfo(index uint16) ConstantInfo {
+	if cpInfo := constantPool[index]; cpInfo != nil {
 		return cpInfo
 	}
 	panic("Invalid constant pool index!")
 }
 
-func (self ConstantPool) getNameAndType(index uint16) (string, string) {
-	ntInfo := self.getConstantInfo(index).(*ConstantNameAndTypeInfo)
-	name := self.getUtf8(ntInfo.nameIndex)
-	_type := self.getUtf8(ntInfo.descriptorIndex)
+func (constantPool ConstantPool) getNameAndType(index uint16) (string, string) {
+	ntInfo := constantPool.getConstantInfo(index).(*ConstantNameAndTypeInfo)
+	name := constantPool.getUtf8(ntInfo.nameIndex)
+	_type := constantPool.getUtf8(ntInfo.descriptorIndex)
 	return name, _type
 }
 
-func (self ConstantPool) getClassName(index uint16) string {
-	classInfo := self.getConstantInfo(index).(*ConstantClassInfo)
-	return self.getUtf8(classInfo.nameIndex)
+func (constantPool ConstantPool) getClassName(index uint16) string {
+	classInfo := constantPool.getConstantInfo(index).(*ConstantClassInfo)
+	return constantPool.getUtf8(classInfo.nameIndex)
 }
 
 /*
 从常量池中查找UTF-8字符串
 */
-func (self ConstantPool) getUtf8(index uint16) string {
-	utf8Info := self.getConstantInfo(index).(*ConstantUtf8Info)
+func (constantPool ConstantPool) getUtf8(index uint16) string {
+	utf8Info := constantPool.getConstantInfo(index).(*ConstantUtf8Info)
 	return utf8Info.str
 }
 

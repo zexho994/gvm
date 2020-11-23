@@ -127,6 +127,9 @@ var (
 	ishl  = &math.ISHL{}
 	iushr = &math.ISHUR{}
 
+	monitor_entry = &references.MONITOR_ENTRY{}
+	monitor_exit  = &references.MONITOR_EXIT{}
+
 	invoke_native = &reserved.INVOKE_NATIVE{}
 )
 
@@ -464,6 +467,10 @@ func NewInstruction(opcode byte) base.Instruction {
 		return checkcast
 	case 0xc1:
 		return instanceof
+	case 0xc2:
+		return monitor_entry
+	case 0xc3:
+		return monitor_exit
 	case 0xc7:
 		return &extended.IFNONNULL{}
 	case 0xfe:

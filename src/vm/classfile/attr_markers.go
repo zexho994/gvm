@@ -14,6 +14,6 @@ type MarkerAttribute struct{}
 /*
 由于deprecater和synthetic两者只起到标记的作用,不包含数据.
 */
-func (self *MarkerAttribute) readInfo(reader *ClassReader) {
+func (markerAttribute *MarkerAttribute) readInfo(reader *ClassReader) {
 	// read nothing
 }

@@ -18,46 +18,46 @@ func newSlots(slotCount uint) Slots {
 	return nil
 }
 
-func (self Slots) SetInt(index uint, val int32) {
-	self[index].num = val
+func (slots Slots) SetInt(index uint, val int32) {
+	slots[index].num = val
 }
-func (self Slots) GetInt(index uint) int32 {
-	return self[index].num
+func (slots Slots) GetInt(index uint) int32 {
+	return slots[index].num
 }
 
-func (self Slots) SetFloat(index uint, val float32) {
+func (slots Slots) SetFloat(index uint, val float32) {
 	bits := math.Float32bits(val)
-	self[index].num = int32(bits)
+	slots[index].num = int32(bits)
 }
-func (self Slots) GetFloat(index uint) float32 {
-	bits := uint32(self[index].num)
+func (slots Slots) GetFloat(index uint) float32 {
+	bits := uint32(slots[index].num)
 	return math.Float32frombits(bits)
 }
 
 // long consumes two slots
-func (self Slots) SetLong(index uint, val int64) {
-	self[index].num = int32(val)
-	self[index+1].num = int32(val >> 32)
+func (slots Slots) SetLong(index uint, val int64) {
+	slots[index].num = int32(val)
+	slots[index+1].num = int32(val >> 32)
 }
-func (self Slots) GetLong(index uint) int64 {
-	low := uint32(self[index].num)
-	high := uint32(self[index+1].num)
+func (slots Slots) GetLong(index uint) int64 {
+	low := uint32(slots[index].num)
+	high := uint32(slots[index+1].num)
 	return int64(high)<<32 | int64(low)
 }
 
 // double consumes two slots
-func (self Slots) SetDouble(index uint, val float64) {
+func (slots Slots) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
-	self.SetLong(index, int64(bits))
+	slots.SetLong(index, int64(bits))
 }
-func (self Slots) GetDouble(index uint) float64 {
-	bits := uint64(self.GetLong(index))
+func (slots Slots) GetDouble(index uint) float64 {
+	bits := uint64(slots.GetLong(index))
 	return math.Float64frombits(bits)
 }
 
-func (self Slots) SetRef(index uint, ref *Object) {
-	self[index].ref = ref
+func (slots Slots) SetRef(index uint, ref *Object) {
+	slots[index].ref = ref
 }
-func (self Slots) GetRef(index uint) *Object {
-	return self[index].ref
+func (slots Slots) GetRef(index uint) *Object {
+	return slots[index].ref
 }

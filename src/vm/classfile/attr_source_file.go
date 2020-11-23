@@ -8,10 +8,10 @@ type SourceFileAttribute struct {
 	sourceFileIndex uint16
 }
 
-func (self *SourceFileAttribute) readInfo(reader *ClassReader) {
-	self.sourceFileIndex = reader.readUint16()
+func (sourceFileAttribute *SourceFileAttribute) readInfo(reader *ClassReader) {
+	sourceFileAttribute.sourceFileIndex = reader.readUint16()
 }
 
-func (self *SourceFileAttribute) FileName() string {
-	return self.cp.getUtf8(self.sourceFileIndex)
+func (sourceFileAttribute *SourceFileAttribute) FileName() string {
+	return sourceFileAttribute.cp.getUtf8(sourceFileAttribute.sourceFileIndex)
 }
