@@ -52,6 +52,10 @@ func createGVM(param initParam) {
 		param.jre = info.DefaultJrePath
 	}
 
+	if param.cn == "" {
+		param.cn = "FibonacciTest"
+	}
+
 	// 对XjreOption和cp两个字段进行解析
 	// 获取classapth对象
 	cp := loader.Parse(param.jre, param.cp)

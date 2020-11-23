@@ -10,11 +10,11 @@ type ConstantClassInfo struct {
 	nameIndex uint16
 }
 
-func (self *ConstantClassInfo) readInfo(reader *ClassReader) {
+func (ConstantClassInfo *ConstantClassInfo) readInfo(reader *ClassReader) {
 
-	self.nameIndex = reader.readUint16()
+	ConstantClassInfo.nameIndex = reader.readUint16()
 }
-func (self *ConstantClassInfo) Name() string {
+func (ConstantClassInfo *ConstantClassInfo) Name() string {
 
-	return self.cp.getUtf8(self.nameIndex)
+	return ConstantClassInfo.cp.getUtf8(ConstantClassInfo.nameIndex)
 }

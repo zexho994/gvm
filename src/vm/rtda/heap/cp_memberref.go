@@ -11,7 +11,7 @@ type MemberRef struct {
 /*
 将class文件常量池中方法与字段的信息拷贝到成员结构体中
 */
-func (self *MemberRef) copyMemberRefInfo(refInfo *classfile.ConstantMemberrefInfo) {
+func (self *MemberRef) copyMemberRefInfo(refInfo *classfile.ConstantMemberRefInfo) {
 	self.className = refInfo.ClassName()
 	self.name, self.descriptor = refInfo.NameAndDescriptor()
 }

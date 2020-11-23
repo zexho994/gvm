@@ -19,39 +19,39 @@ type ConstantLongInfo struct {
 
 type ConstantDoubleInfo struct{ val float64 }
 
-func (self *ConstantDoubleInfo) readInfo(reader *ClassReader) {
+func (constantDoubleInfo *ConstantDoubleInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint64()
-	self.val = math.Float64frombits(bytes)
+	constantDoubleInfo.val = math.Float64frombits(bytes)
 }
 
-func (self *ConstantIntegerInfo) readInfo(reader *ClassReader) {
+func (constantIntegerInfo *ConstantIntegerInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint32()
-	self.val = int32(bytes)
+	constantIntegerInfo.val = int32(bytes)
 }
 
-func (self *ConstantFloatInfo) readInfo(reader *ClassReader) {
+func (constantFloatInfo *ConstantFloatInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint32()
 	// 转化成float32
-	self.val = math.Float32frombits(bytes)
+	constantFloatInfo.val = math.Float32frombits(bytes)
 }
 
-func (self *ConstantLongInfo) readInfo(reader *ClassReader) {
+func (constantLongInfo *ConstantLongInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint64()
-	self.val = int64(bytes)
+	constantLongInfo.val = int64(bytes)
 }
 
-func (self *ConstantDoubleInfo) Value() float64 {
-	return self.val
+func (constantDoubleInfo *ConstantDoubleInfo) Value() float64 {
+	return constantDoubleInfo.val
 }
 
-func (self *ConstantLongInfo) Value() int64 {
-	return self.val
+func (constantLongInfo *ConstantLongInfo) Value() int64 {
+	return constantLongInfo.val
 }
 
-func (self *ConstantFloatInfo) Value() float32 {
-	return self.val
+func (constantFloatInfo *ConstantFloatInfo) Value() float32 {
+	return constantFloatInfo.val
 }
 
-func (self *ConstantIntegerInfo) Value() int32 {
-	return self.val
+func (constantIntegerInfo *ConstantIntegerInfo) Value() int32 {
+	return constantIntegerInfo.val
 }

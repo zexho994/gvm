@@ -18,10 +18,10 @@ func (self InterfaceMethodRef) Descriptor() string {
 	return self.descriptor
 }
 
-func newInterfaceMethodRef(cp *ConstantPool, refInfo *classfile.ConstantInterfaceMethodrefInfo) *InterfaceMethodRef {
+func newInterfaceMethodRef(cp *ConstantPool, refInfo *classfile.ConstantInterfaceMethodRefInfo) *InterfaceMethodRef {
 	ref := &InterfaceMethodRef{}
 	ref.cp = cp
-	ref.copyMemberRefInfo(&refInfo.ConstantMemberrefInfo)
+	ref.copyMemberRefInfo(&refInfo.ConstantMemberRefInfo)
 	return ref
 }
 

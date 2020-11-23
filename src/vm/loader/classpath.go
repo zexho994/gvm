@@ -115,21 +115,18 @@ func (c Loader) ReadClass(classpath string) ([]byte, Entry, error) {
 	className := classpath + ".class"
 
 	// 从className中读取 bootLoader
-	//fmt.Printf("[gvm][ReadClss] to read %v from bootLoader\n", className)
 	if data, entry, err := c.bootLoader.readClass(className); err == nil {
 		//fmt.Printf("[gvm][ReadClss] return bootLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 
 	// 从className中读取 extLoader
-	//fmt.Printf("[gvm][ReadClss] to read %v from extLoader\n", className)
 	if data, entry, err := c.extLoader.readClass(className); err == nil {
 		//fmt.Printf("[gvm][ReadClss] return extLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 
 	// 从className中读取 userLoader
-	//fmt.Printf("[gvm][ReadClss] to read %v from userLoader \n", className)
 	return c.userLoader.readClass(className)
 
 }

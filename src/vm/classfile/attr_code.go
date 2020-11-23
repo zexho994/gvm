@@ -1,30 +1,29 @@
 package classfile
 
-/*
-方法属性表
-*/
+// 方法属性表
 type CodeAttribute struct {
 	// 常量池指针
 	cp ConstantPool
+
 	// 最大栈
 	maxStack uint16
+
 	// 局部变量表大小
 	maxLocals uint16
-	/*
-		方法的内容编译后存放在code表中
-		method body after compile
-		内容就是iconst_0,istore_1等
-	*/
+
+	//	方法的内容编译后存放在code表中
+	//	method body after compile
+	//	内容就是iconst_0,istore_1等
 	code []byte
+
 	// 受检查异常,对应了方法后面throw的部分
 	exceptionTable []*ExceptionTableEntry
+
 	// 属性表
 	attributes []AttributeInfo
 }
 
-/*
-受检查异常结构
-*/
+// 受检查异常结构
 type ExceptionTableEntry struct {
 	startPc   uint16
 	endPc     uint16
@@ -32,13 +31,13 @@ type ExceptionTableEntry struct {
 	catchType uint16
 }
 
-func (self *CodeAttribute) readInfo(reader *ClassReader) {
-	self.maxStack = reader.readUint16()
-	self.maxLocals = reader.readUint16()
+func (codeAttribute *CodeAttribute) readInfo(reader *ClassReader) {
+	codeAttribute.maxStack = reader.readUint16()
+	codeAttribute.maxLocals = reader.readUint16()
 	codeLength := reader.readUint32()
-	self.code = reader.readBytes(codeLength)
-	self.exceptionTable = readExceptionTable(reader)
-	self.attributes = readAttributes(reader, self.cp)
+	codeAttribute.code = reader.readBytes(codeLength)
+	codeAttribute.exceptionTable = readExceptionTable(reader)
+	codeAttribute.attributes = readAttributes(reader, codeAttribute.cp)
 }
 
 func readExceptionTable(reader *ClassReader) []*ExceptionTableEntry {
@@ -55,17 +54,17 @@ func readExceptionTable(reader *ClassReader) []*ExceptionTableEntry {
 /*
 操作数栈最大大小
 */
-func (self CodeAttribute) MaxStack() uint {
-	return uint(self.maxStack)
+func (codeAttribute CodeAttribute) MaxStack() uint {
+	return uint(codeAttribute.maxStack)
 }
 
 /*
 局部变量表最大值
 */
-func (self CodeAttribute) MaxLocals() uint {
-	return uint(self.maxLocals)
+func (codeAttribute CodeAttribute) MaxLocals() uint {
+	return uint(codeAttribute.maxLocals)
 }
 
-func (self CodeAttribute) Code() []byte {
-	return self.code
+func (codeAttribute CodeAttribute) Code() []byte {
+	return codeAttribute.code
 }
