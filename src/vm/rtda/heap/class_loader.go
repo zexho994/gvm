@@ -38,10 +38,10 @@ func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
 }
 
 // 加载基础类
-func (self *ClassLoader) loadBasicClasses() {
-	jlClassClass := self.LoadClass("java/lang/Class")
+func (cl *ClassLoader) loadBasicClasses() {
+	jlClassClass := cl.LoadClass("java/lang/Class")
 	// 类加载到map中
-	for _, class := range self.classMap {
+	for _, class := range cl.classMap {
 		if class.jClass == nil {
 			class.jClass = jlClassClass.NewObject()
 			class.jClass.extra = class
@@ -54,45 +54,45 @@ func (self *ClassLoader) loadBasicClasses() {
 在基本类型的包装类中，例如Integer，都有一个Type字段。
 Type字段存放的就是基本类型的类
 */
-func (self *ClassLoader) loadPrimitiveClasses() {
+func (cl *ClassLoader) loadPrimitiveClasses() {
 	for primitiveType, _ := range primitiveTypes {
-		self.loadPrimitiveClass(primitiveType)
+		cl.loadPrimitiveClass(primitiveType)
 	}
 }
 
 /*
 生成void和基本类型类
 */
-func (self *ClassLoader) loadPrimitiveClass(className string) {
+func (cl *ClassLoader) loadPrimitiveClass(className string) {
 	class := &Class{
 		accessFlags: ACC_PUBLIC, // todo
 		name:        className,
-		loader:      self,
+		loader:      cl,
 		initStarted: true,
 	}
-	class.jClass = self.classMap["java/lang/Class"].NewObject()
+	class.jClass = cl.classMap["java/lang/Class"].NewObject()
 	class.jClass.extra = class
-	self.classMap[className] = class
+	cl.classMap[className] = class
 }
 
 /*
 在classMap中根据name查询类
 然后将将类数据加载到方法区中
 */
-func (self *ClassLoader) LoadClass(name string) *Class {
-	if class, ok := self.classMap[name]; ok {
+func (cl *ClassLoader) LoadClass(name string) *Class {
+	if class, ok := cl.classMap[name]; ok {
 		// already loaded
 		return class
 	}
 
 	var class *Class
 	if name[0] == '[' { // array class
-		class = self.loadArrayClass(name)
+		class = cl.loadArrayClass(name)
 	} else {
-		class = self.loadNonArrayClass(name)
+		class = cl.loadNonArrayClass(name)
 	}
 
-	if jlClassClass, ok := self.classMap["java/lang/Class"]; ok {
+	if jlClassClass, ok := cl.classMap["java/lang/Class"]; ok {
 		class.jClass = jlClassClass.NewObject()
 		class.jClass.extra = class
 	}
@@ -105,39 +105,39 @@ func (self *ClassLoader) LoadClass(name string) *Class {
 超类是Object类
 父接口是Cloneable和Serializable
 */
-func (self *ClassLoader) loadArrayClass(name string) *Class {
+func (cl *ClassLoader) loadArrayClass(name string) *Class {
 	class := &Class{
 		accessFlags: ACC_PUBLIC, // todo
 		name:        name,
-		loader:      self,
+		loader:      cl,
 		initStarted: true,
-		superClass:  self.LoadClass("java/lang/Object"),
+		superClass:  cl.LoadClass("java/lang/Object"),
 		interfaces: []*Class{
-			self.LoadClass("java/lang/Cloneable"),
-			self.LoadClass("java/io/Serializable"),
+			cl.LoadClass("java/lang/Cloneable"),
+			cl.LoadClass("java/io/Serializable"),
 		},
 	}
-	self.classMap[name] = class
+	cl.classMap[name] = class
 	return class
 }
 
 /*
 非数组类的加载
 */
-func (self *ClassLoader) loadNonArrayClass(name string) *Class {
+func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
 	// fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
 	// 调用classpath的readClass方法，
 	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
 	// data是class的二进制数据
-	data, entry := self.readClass(name)
+	data, entry := cl.readClass(name)
 	if entry == nil {
 		panic("entry is nil")
 	}
 	// 将二进制数据解析成Class结构体
-	class := self.defineClass(data)
+	class := cl.defineClass(data)
 	// 类的链接
 	link(class)
-	if self.verboseFlag {
+	if cl.verboseFlag {
 		//fmt.Printf("[gvm][class_loader][loadNonArrayClass]LOADED %s from %s \n", name, entry)
 	}
 	return class
@@ -146,8 +146,8 @@ func (self *ClassLoader) loadNonArrayClass(name string) *Class {
 /*
 在classpath中搜索名称为name的类
 */
-func (self *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
-	data, entry, err := self.cp.ReadClass(name)
+func (cl *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
+	data, entry, err := cl.cp.ReadClass(name)
 	if err != nil {
 		panic("java.lang.ClassNotFoundException:" + name)
 	}
@@ -157,18 +157,18 @@ func (self *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
 /*
 将二进制数据解析成Class结构体
 */
-func (self *ClassLoader) defineClass(data []byte) *Class {
+func (cl *ClassLoader) defineClass(data []byte) *Class {
 	// 将类的数据转换成类结构体
 	class := parseClass(data)
 	// 设置类的加载器
 	// 所以判断一个类是否相等还需要判断类加载器是否相等
-	class.loader = self
+	class.loader = cl
 	// 解析父类以及接口
 	resolveSuperClass(class)
 	resolveInterfaces(class)
 	// classMap相当于方法区
 	// key为class的全限制定名，value为class结构体
-	self.classMap[class.name] = class
+	cl.classMap[class.name] = class
 	return class
 }
 

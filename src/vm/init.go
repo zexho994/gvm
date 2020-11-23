@@ -51,9 +51,6 @@ func createGVM(param initParam) {
 	if param.jre == "" {
 		param.jre = info.DEFAULT_JRE_PATH
 	}
-	if param.cp == "" {
-		param.cp = info.DEFAULT_CP_PATH
-	}
 
 	// 对XjreOption和cp两个字段进行解析
 	// 获取classapth对象
@@ -65,9 +62,9 @@ func createGVM(param initParam) {
 
 	name := ""
 	if param.cp == "" {
-		name = info.DEFAULT_CP_PATH + param.cn
+		name = info.DEFAULT_CP_PATH + "/" + param.cn
 	} else {
-		name = param.cp + param.cn
+		name = param.cp + "/" + param.cn
 	}
 
 	// 解析类名

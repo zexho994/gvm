@@ -26,20 +26,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/info/startupEnvironment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vm/cmd/java/java.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/klass/klass.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/klass/layoutHelper.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/memory/ThreadService/ThreadService.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/arrayOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/constantPoolOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/cpCacheOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/instanceOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/markOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/oop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/oops/typeArrayOop.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/cmd/Cmd.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/init.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -586,7 +572,6 @@
     <MESSAGE value="factory 添加新指令" />
     <MESSAGE value="新增字符串操作" />
     <MESSAGE value="支持调用部分本地方法" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="update the configuration file" />
     <MESSAGE value="add ThreadService.go" />
     <MESSAGE value="添加oop，OOPS的共同基类" />
@@ -600,7 +585,8 @@
     <MESSAGE value="添加GVM启动方式，通过手动输入参数启动。" />
     <MESSAGE value="update gitignore" />
     <MESSAGE value="add some properties file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some properties file" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -663,42 +649,50 @@
     <state x="-1820" y="79" width="1720" height="900" key="DiffContextDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603107011480" />
     <state x="142" y="81" width="1720" height="900" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108590113" />
     <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602825117682" />
-    <state width="1878" height="138" key="GridCell.Tab.0.bottom" timestamp="1603108817884">
+    <state width="1878" height="396" key="GridCell.Tab.0.bottom" timestamp="1606131305910">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015804" />
     <state width="1878" height="138" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817884" />
-    <state width="1878" height="138" key="GridCell.Tab.0.center" timestamp="1603108817883">
+    <state width="1878" height="396" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131305910" />
+    <state width="1878" height="396" key="GridCell.Tab.0.center" timestamp="1606131305908">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015802" />
     <state width="1878" height="138" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
-    <state width="1878" height="138" key="GridCell.Tab.0.left" timestamp="1603108817882">
+    <state width="1878" height="396" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131305908" />
+    <state width="1878" height="396" key="GridCell.Tab.0.left" timestamp="1606131305907">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015801" />
     <state width="1878" height="138" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817882" />
-    <state width="1878" height="138" key="GridCell.Tab.0.right" timestamp="1603108817884">
+    <state width="1878" height="396" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131305907" />
+    <state width="1878" height="396" key="GridCell.Tab.0.right" timestamp="1606131305909">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1398" height="358" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015803" />
     <state width="1878" height="138" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
-    <state width="1878" height="138" key="GridCell.Tab.1.bottom" timestamp="1603108817887">
+    <state width="1878" height="396" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131305909" />
+    <state width="1878" height="359" key="GridCell.Tab.1.bottom" timestamp="1606131312784">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="138" key="GridCell.Tab.1.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817887" />
-    <state width="1878" height="138" key="GridCell.Tab.1.center" timestamp="1603108817886">
+    <state width="1878" height="359" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131312784" />
+    <state width="1878" height="359" key="GridCell.Tab.1.center" timestamp="1606131312782">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="138" key="GridCell.Tab.1.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
-    <state width="1878" height="138" key="GridCell.Tab.1.left" timestamp="1603108817885">
+    <state width="1878" height="359" key="GridCell.Tab.1.center/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131312782" />
+    <state width="1878" height="359" key="GridCell.Tab.1.left" timestamp="1606131312781">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="138" key="GridCell.Tab.1.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817885" />
-    <state width="1878" height="138" key="GridCell.Tab.1.right" timestamp="1603108817886">
+    <state width="1878" height="359" key="GridCell.Tab.1.left/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131312781" />
+    <state width="1878" height="359" key="GridCell.Tab.1.right" timestamp="1606131312783">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="138" key="GridCell.Tab.1.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
+    <state width="1878" height="359" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606131312783" />
     <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog" timestamp="1603067788379">
       <screen x="-1582" y="1080" width="1440" height="900" />
     </state>
@@ -745,7 +739,7 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-810" y="535" key="com.goide.codeInsight.imports.GoImportConfigurable$AddImportExclusionDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602655760539" />
-    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606104989438">
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606130686163">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067780240" />
@@ -753,10 +747,11 @@
     <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602822250442" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598334334853" />
     <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600435088879" />
-    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606104989438" />
-    <state x="-1192" y="319" width="584" height="486" key="find.popup" timestamp="1605676641618">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606130686163" />
+    <state x="-1192" y="302" width="584" height="580" key="find.popup" timestamp="1606130846929">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="-1192" y="302" width="584" height="580" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606130846929" />
     <state x="-1192" y="319" width="584" height="486" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1605676641618" />
     <state x="562" y="222" key="refactoring.ChangeSignatureDialog" timestamp="1598176564994">
       <screen x="0" y="0" width="1440" height="900" />
@@ -776,6 +771,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go</url>
+          <line>88</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/vm/classpath/classpath.go</url>
+          <line>126</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
