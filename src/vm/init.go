@@ -59,7 +59,6 @@ func createGVM(param initParam) {
 	// 类加载器加载类
 	// 此时cp里的3个类加载器都已经创建好了
 	classLoader := heap.NewClassLoader(cp, true)
-
 	name := ""
 	if param.cp == "" {
 		name = info.DEFAULT_CP_PATH + "/" + param.cn

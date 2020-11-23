@@ -5,58 +5,52 @@ import (
 )
 import "os"
 
-type Classpath struct {
+// 加载器
+type Loader struct {
 	// 启动类加载器
-	bootClasspath Entry
+	bootLoader Entry
 	// 扩张类加载器
-	extClasspath Entry
+	extLoader Entry
 	// 应用类加载器
-	userClasspath Entry
+	userLoader Entry
 }
 
-/*
-将-Xjre 和 class 两个字段进行解析
-xJre : 启动类和扩展类路径
-cp/classpath : 用户类路径
-*/
-func Parse(jreOption, cpOption string) *Classpath {
+// 将-Xjre 和 class 两个字段进行解析
+// xJre : 启动类和扩展类路径
+// cp/classpath : 用户类路径
+func Parse(jreOption, cpOption string) *Loader {
 	// 创建一个新的Classpath类返回其地址
-	cp := &Classpath{}
-	/*
-		解析启动类和扩展类
-	*/
-	//fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
-	cp.parseBootAndExtClasspath(jreOption)
+	cp := &Loader{}
 
-	/*
-		解析用户类
-	*/
-	//fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
-	cp.parseUserClasspath(cpOption)
+	// 解析启动类和扩展类
+	// fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
+	cp.parseBootAndExtLoader(jreOption)
+
+	// 解析用户类
+	// fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
+	cp.parseUserLoader(cpOption)
 	return cp
 }
 
-/*
-解析启动类和用户类
-启动类 {jre}/lib/*
-扩张类 {jre}/lib/ext/*
-*/
-func (c *Classpath) parseBootAndExtClasspath(jreOption string) {
+// 解析启动类和用户类
+// 启动类 {jre}/lib/*
+// 扩张类 {jre}/lib/ext/*
+func (c *Loader) parseBootAndExtLoader(jreOption string) {
 	// 查找jre目录路径
 	jreDir := getJreDir(jreOption)
-	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreDir : %v\n", jreDir)
+	//fmt.Printf("[gvm][parseBootAndExtLoader] jreDir : %v\n", jreDir)
 
 	// 拼接/lib/*目录 , 然后创建wildcardEntry 对象
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
-	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreLibDir : %v\n", jreLibPath)
+	//fmt.Printf("[gvm][parseBootAndExtLoader] jreLibDir : %v\n", jreLibPath)
 	// 设置应用类加载器
-	c.bootClasspath = newWildcardEntry(jreLibPath)
+	c.bootLoader = newWildcardEntry(jreLibPath)
 
 	// 拼接lib/ext/* 目录 , 然后创建wildcardEntry 对象
 	jreExtPath := filepath.Join(jreDir, "lib", "ext", "*")
-	//fmt.Printf("[gvm][parseBootAndExtClasspath] jreExtDir : %v\n", jreExtPath)
+	//fmt.Printf("[gvm][parseBootAndExtLoader] jreExtDir : %v\n", jreExtPath)
 	// 设置扩展类加载器
-	c.extClasspath = newWildcardEntry(jreExtPath)
+	c.extLoader = newWildcardEntry(jreExtPath)
 }
 
 /*
@@ -103,42 +97,40 @@ func exists(path string) bool {
 	return true
 }
 
-/*
-查找用户类目录
-*/
-func (c *Classpath) parseUserClasspath(cption string) {
+// 查找用户类目录
+func (c *Loader) parseUserLoader(cption string) {
 	// 如果没有用户没有输入 -cp ,默认当前目录为用户目录
 	if cption == "" {
 		cption = "."
 	}
 	// 设置应用类加载器
-	c.userClasspath = newEntry(cption)
+	c.userLoader = newEntry(cption)
 }
 
 /*
 在classpath 中查找 Class文件
 */
-func (c Classpath) ReadClass(classpath string) ([]byte, Entry, error) {
+func (c Loader) ReadClass(classpath string) ([]byte, Entry, error) {
 	// 拼接类名
 	className := classpath + ".class"
 
-	// 从className中读取 bootClasspath
-	//fmt.Printf("[gvm][ReadClss] to read %v from bootClasspath\n", className)
-	if data, entry, err := c.bootClasspath.readClass(className); err == nil {
-		//fmt.Printf("[gvm][ReadClss] return bootClasspath <data> : %v\n", data)
+	// 从className中读取 bootLoader
+	//fmt.Printf("[gvm][ReadClss] to read %v from bootLoader\n", className)
+	if data, entry, err := c.bootLoader.readClass(className); err == nil {
+		//fmt.Printf("[gvm][ReadClss] return bootLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 
-	// 从className中读取 extClasspath
-	//fmt.Printf("[gvm][ReadClss] to read %v from extClasspath\n", className)
-	if data, entry, err := c.extClasspath.readClass(className); err == nil {
-		//fmt.Printf("[gvm][ReadClss] return extClasspath <data> : %v\n", data)
+	// 从className中读取 extLoader
+	//fmt.Printf("[gvm][ReadClss] to read %v from extLoader\n", className)
+	if data, entry, err := c.extLoader.readClass(className); err == nil {
+		//fmt.Printf("[gvm][ReadClss] return extLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 
-	// 从className中读取 userClasspath
-	//fmt.Printf("[gvm][ReadClss] to read %v from userClasspath \n", className)
-	return c.userClasspath.readClass(className)
+	// 从className中读取 userLoader
+	//fmt.Printf("[gvm][ReadClss] to read %v from userLoader \n", className)
+	return c.userLoader.readClass(className)
 
 }
 
@@ -146,6 +138,6 @@ func (c Classpath) ReadClass(classpath string) ([]byte, Entry, error) {
 toString()
 打印用户类得路径
 */
-func (c Classpath) String() string {
-	return c.userClasspath.String()
+func (c Loader) String() string {
+	return c.userLoader.String()
 }

@@ -30,43 +30,43 @@ func NewThread() *Thread {
 /*
 线程的虚拟机栈压入栈桢
 */
-func (self *Thread) PushFrame(frame *Frame) {
-	self.stack.push(frame)
+func (thread *Thread) PushFrame(frame *Frame) {
+	thread.stack.push(frame)
 }
 
 /*
 虚拟机栈弹出栈桢
 */
-func (self *Thread) PopFrame() *Frame {
-	return self.stack.pop()
+func (thread *Thread) PopFrame() *Frame {
+	return thread.stack.pop()
 }
 
 /*
 虚拟机顶的栈帧
 */
-func (self *Thread) TopFrame() *Frame {
-	return self.stack.top()
+func (thread *Thread) TopFrame() *Frame {
+	return thread.stack.top()
 }
 
 /*
 获取当前虚拟机栈栈顶的栈桢
 */
-func (self *Thread) CurrentFrame() *Frame {
-	return self.stack.top()
+func (thread *Thread) CurrentFrame() *Frame {
+	return thread.stack.top()
 }
 
-func (self *Thread) NewFrame(method *heap.Method) *Frame {
-	return newFrame(self, method)
+func (thread *Thread) NewFrame(method *heap.Method) *Frame {
+	return newFrame(thread, method)
 }
 
-func (self *Thread) PC() int {
-	return self.pc
+func (thread *Thread) PC() int {
+	return thread.pc
 }
 
-func (self *Thread) SetPC(pc int) {
-	self.pc = pc
+func (thread *Thread) SetPC(pc int) {
+	thread.pc = pc
 }
 
-func (self *Thread) IsStackEmpty() bool {
-	return self.stack.isEmpty()
+func (thread *Thread) IsStackEmpty() bool {
+	return thread.stack.isEmpty()
 }

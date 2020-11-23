@@ -11,7 +11,7 @@ import (
 */
 type ClassLoader struct {
 	// 保存cp指针
-	cp *classpath.Classpath
+	cp *classpath.Loader
 
 	// 已经加载的类，key是类的全限定名
 	classMap map[string]*Class
@@ -23,7 +23,7 @@ type ClassLoader struct {
 /*
 创建一个加载器实例
 */
-func NewClassLoader(cp *classpath.Classpath, verboseFlag bool) *ClassLoader {
+func NewClassLoader(cp *classpath.Loader, verboseFlag bool) *ClassLoader {
 	loader := &ClassLoader{
 		cp:          cp,
 		verboseFlag: verboseFlag,
@@ -125,7 +125,6 @@ func (cl *ClassLoader) loadArrayClass(name string) *Class {
 非数组类的加载
 */
 func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
-	// fmt.Printf("[gvm][loadNonArrayClass] 加载类：%v\n", name)
 	// 调用classpath的readClass方法，
 	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
 	// data是class的二进制数据
@@ -138,7 +137,6 @@ func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
 	// 类的链接
 	link(class)
 	if cl.verboseFlag {
-		//fmt.Printf("[gvm][class_loader][loadNonArrayClass]LOADED %s from %s \n", name, entry)
 	}
 	return class
 }

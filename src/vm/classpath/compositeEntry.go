@@ -33,8 +33,8 @@ func newCompositeEntry(pathList string) CompositeEntry {
 读取类的方法
 依次调用子entry的readClass方法,读取到就返回
 */
-func (self CompositeEntry) readClass(ClassName string) ([]byte, Entry, error) {
-	for _, entry := range self {
+func (compositeEntry CompositeEntry) readClass(ClassName string) ([]byte, Entry, error) {
+	for _, entry := range compositeEntry {
 		data, from, err := entry.readClass(ClassName)
 
 		// 如果找到了
@@ -50,10 +50,10 @@ func (self CompositeEntry) readClass(ClassName string) ([]byte, Entry, error) {
 toString() 方法
 调用每一个子类entry的String()即可
 */
-func (self CompositeEntry) String() string {
-	strs := make([]string, len(self))
+func (compositeEntry CompositeEntry) String() string {
+	strs := make([]string, len(compositeEntry))
 	// i自增
-	for i, entry := range self {
+	for i, entry := range compositeEntry {
 		strs[i] = entry.String()
 	}
 	// strs拼接起来,中间放置pathListSeparator

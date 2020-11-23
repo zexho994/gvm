@@ -12,7 +12,6 @@ import (
 获取执行方法所需的局部变量表和操作数栈空间以及方法的字节码
 */
 func interpret(methodInfo *heap.Method, logInst bool, args []string) {
-
 	// 创建一个新的线程
 	thread := rtda.NewThread()
 
