@@ -13,22 +13,15 @@ type ConstantInfo interface {
 	readInfo(reader *ClassReader)
 }
 
-/*
-读取常量池数据
-解析常量池分为两步：分配内存 -> 解析
-*/
+// 读取常量池数据
+// 解析常量池分为两步：分配内存 -> 解析
 func readConstantPool(reader *ClassReader) ConstantPool {
-	//fmt.Println("[gvm][readConstantPool] read constanpool ...")
-	// get constantpool count
 	cpCount := int(reader.readUint16())
-	// 分配内存
 	cp := make([]ConstantInfo, cpCount)
-
-	// traverse cp
 	for i := 1; i < cpCount; i++ {
-		// read class file
 		cp[i] = readConstantInfo(reader, cp)
 		switch cp[i].(type) {
+		// long or double need two bytes
 		case *ConstantLongInfo, *ConstantDoubleInfo:
 			i++
 		}
@@ -87,33 +80,33 @@ func (self ConstantPool) getUtf8(index uint16) string {
 */
 func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 	switch tag {
-	case CONSTANT_Integer:
+	case ConstantInteger:
 		return &ConstantIntegerInfo{}
-	case CONSTANT_Float:
+	case ConstantFloat:
 		return &ConstantFloatInfo{}
-	case CONSTANT_Long:
+	case ConstantLong:
 		return &ConstantLongInfo{}
-	case CONSTANT_Double:
+	case ConstantDouble:
 		return &ConstantDoubleInfo{}
-	case CONSTANT_Utf8:
+	case ConstantUtf8:
 		return &ConstantUtf8Info{}
-	case CONSTANT_String:
+	case ConstantString:
 		return &ConstantStringInfo{cp: cp}
-	case CONSTANT_Class:
+	case ConstantClass:
 		return &ConstantClassInfo{cp: cp}
-	case CONSTANT_Fieldref:
+	case ConstantFieldRef:
 		return &ConstantFieldRefInfo{ConstantMemberRefInfo{cp: cp}}
-	case CONSTANT_Methodref:
+	case ConstantMethodRef:
 		return &ConstantMethodRefInfo{ConstantMemberRefInfo{cp: cp}}
-	case CONSTANT_InterfaceMethodref:
+	case ConstantInterfaceMethodRef:
 		return &ConstantInterfaceMethodRefInfo{ConstantMemberRefInfo{cp: cp}}
-	case CONSTANT_NameAndType:
+	case ConstantNameAndType:
 		return &ConstantNameAndTypeInfo{}
-	case CONSTANT_MethodType:
+	case ConstantMethodType:
 		return &ConstantMethodTypeInfo{}
-	case CONSTANT_MethodHandle:
+	case ConstantMethodHandle:
 		return &ConstantMethodHandleInfo{}
-	case CONSTANT_InvokeDynamic:
+	case ConstantInvokeDynamic:
 		return &ConstantInvokeDynamicInfo{}
 	default:
 		panic("java.lang.ClassFormatError: constant pool tag!")

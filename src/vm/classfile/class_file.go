@@ -62,31 +62,24 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.constantPool = readConstantPool(reader)
 
 	// 解析类访问标志
-	//fmt.Println("[gvm][read] read accessflags ...")
 	classFile.accessFlags = reader.readUint16()
 
 	// 解析本类信息
-	//fmt.Println("[gvm][read] read class ...")
 	classFile.thisClass = reader.readUint16()
 
 	// 解析父类信息
-	//fmt.Println("[gvm][read] read superClass ...")
 	classFile.superClass = reader.readUint16()
 
 	// 解析接口
-	//fmt.Println("[gvm][read] read interfaces ...")
 	classFile.interfaces = reader.readUint16s()
 
 	// 解析字段表
-	//fmt.Println("[gvm][read] read fields ...")
 	classFile.fields = readMembers(reader, classFile.constantPool)
 
 	// 解析方法表
-	//fmt.Println("[gvm][read] read method ...")
 	classFile.methods = readMembers(reader, classFile.constantPool)
 
 	// 解析属性表
-	//fmt.Println("[gvm][read] read attribute ...")
 	classFile.attributes = readAttributes(reader, classFile.constantPool)
 
 }
@@ -107,7 +100,6 @@ func (classFile *ClassFile) readAndCheckMagic(reader *ClassReader) {
 解析版本,主版本号和次版本号都是u2类型
 */
 func (classFile *ClassFile) readAndCheckVersion(reader *ClassReader) {
-	//fmt.Println("[gvm][readAndCheckVersion] read version ...")
 	classFile.minorVersion = reader.readUint16()
 	classFile.majorVersion = reader.readUint16()
 	switch classFile.majorVersion {
