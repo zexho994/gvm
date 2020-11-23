@@ -1,4 +1,4 @@
-package classpath
+package loader
 
 import (
 	"os"

@@ -31,7 +31,7 @@ func ParseCmd() *Cmd {
 	flag.BoolVar(&cmd.HelpFlag, "?", false, "[gvm] print help message")
 	flag.BoolVar(&cmd.VersionFlag, "version", false, "[gvm] pring version and exit")
 	flag.BoolVar(&cmd.VersionFlag, "v", false, "[gvm] pring version and exit")
-	flag.StringVar(&cmd.CpOption, "classpath", "", "[gvm] classpath")
+	flag.StringVar(&cmd.CpOption, "loader", "", "[gvm] loader")
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm] path to jre")
 	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] 启用详细输出")

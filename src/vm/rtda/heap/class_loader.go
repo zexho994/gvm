@@ -2,7 +2,7 @@ package heap
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/classfile"
-	"github.com/zouzhihao-994/gvm/src/vm/classpath"
+	"github.com/zouzhihao-994/gvm/src/vm/loader"
 )
 
 /*
@@ -11,7 +11,7 @@ import (
 */
 type ClassLoader struct {
 	// 保存cp指针
-	cp *classpath.Loader
+	cp *loader.Loader
 
 	// 已经加载的类，key是类的全限定名
 	classMap map[string]*Class
@@ -23,7 +23,7 @@ type ClassLoader struct {
 /*
 创建一个加载器实例
 */
-func NewClassLoader(cp *classpath.Loader, verboseFlag bool) *ClassLoader {
+func NewClassLoader(cp *loader.Loader, verboseFlag bool) *ClassLoader {
 	loader := &ClassLoader{
 		cp:          cp,
 		verboseFlag: verboseFlag,
@@ -144,7 +144,7 @@ func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
 /*
 在classpath中搜索名称为name的类
 */
-func (cl *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
+func (cl *ClassLoader) readClass(name string) ([]byte, loader.Entry) {
 	data, entry, err := cl.cp.ReadClass(name)
 	if err != nil {
 		panic("java.lang.ClassNotFoundException:" + name)

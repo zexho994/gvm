@@ -6,7 +6,6 @@ import "fmt"
 class文件的映射类
 */
 type ClassFile struct {
-	// magic uint32
 	// 次版本
 	minorVersion uint16
 	// 主版本
@@ -29,11 +28,8 @@ type ClassFile struct {
 	attributes []AttributeInfo
 }
 
-/*
-将[]byte解析成ClassFile结构体
-*/
+// 将字节码的二进制数据[]byte解析成ClassFile结构体
 func Parse(classData []byte) (cf *ClassFile, err error) {
-	// 该部分代码永远都会执行
 	defer func() {
 		if r := recover(); r != nil {
 			var ok bool
@@ -46,6 +42,7 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 
 	cr := &ClassReader{classData}
 	cf = &ClassFile{}
+
 	// start to parse class
 	cf.read(cr)
 	return
@@ -54,49 +51,50 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 /*
 read 方法依次调用其他方法解析Class
 */
-func (self *ClassFile) read(reader *ClassReader) {
+func (classFile *ClassFile) read(reader *ClassReader) {
 	// 解析魔数
-	self.readAndCheckMagic(reader)
+	classFile.readAndCheckMagic(reader)
 
 	// 解析版本
-	self.readAndCheckVersion(reader)
+	classFile.readAndCheckVersion(reader)
 
 	// 解析常量池
-	self.constantPool = readConstantPool(reader)
+	classFile.constantPool = readConstantPool(reader)
 
 	// 解析类访问标志
 	//fmt.Println("[gvm][read] read accessflags ...")
-	self.accessFlags = reader.readUint16()
+	classFile.accessFlags = reader.readUint16()
 
 	// 解析本类信息
 	//fmt.Println("[gvm][read] read class ...")
-	self.thisClass = reader.readUint16()
+	classFile.thisClass = reader.readUint16()
 
 	// 解析父类信息
 	//fmt.Println("[gvm][read] read superClass ...")
-	self.superClass = reader.readUint16()
+	classFile.superClass = reader.readUint16()
 
 	// 解析接口
 	//fmt.Println("[gvm][read] read interfaces ...")
-	self.interfaces = reader.readUint16s()
+	classFile.interfaces = reader.readUint16s()
 
 	// 解析字段表
 	//fmt.Println("[gvm][read] read fields ...")
-	self.fields = readMembers(reader, self.constantPool)
+	classFile.fields = readMembers(reader, classFile.constantPool)
 
 	// 解析方法表
 	//fmt.Println("[gvm][read] read method ...")
-	self.methods = readMembers(reader, self.constantPool)
+	classFile.methods = readMembers(reader, classFile.constantPool)
 
 	// 解析属性表
 	//fmt.Println("[gvm][read] read attribute ...")
-	self.attributes = readAttributes(reader, self.constantPool)
+	classFile.attributes = readAttributes(reader, classFile.constantPool)
+
 }
 
 /*
 解析魔术
 */
-func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
+func (classFile *ClassFile) readAndCheckMagic(reader *ClassReader) {
 	//fmt.Println("[gvm][readAdnCheckMagic] read magic ...")
 	magic := reader.readUint32()
 	// class文件开头是CAFEBABE
@@ -108,16 +106,16 @@ func (self *ClassFile) readAndCheckMagic(reader *ClassReader) {
 /*
 解析版本,主版本号和次版本号都是u2类型
 */
-func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
+func (classFile *ClassFile) readAndCheckVersion(reader *ClassReader) {
 	//fmt.Println("[gvm][readAndCheckVersion] read version ...")
-	self.minorVersion = reader.readUint16()
-	self.majorVersion = reader.readUint16()
-	switch self.majorVersion {
+	classFile.minorVersion = reader.readUint16()
+	classFile.majorVersion = reader.readUint16()
+	switch classFile.majorVersion {
 	case 45:
 		return
 	case 46, 47, 48, 49, 50, 51, 52:
-		if self.minorVersion == 0 {
-			//fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", self.majorVersion-44)
+		if classFile.minorVersion == 0 {
+			//fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", classFile.majorVersion-44)
 			return
 		} else {
 			panic("[gvm][readAndCheckVersion] class file version error")
@@ -129,54 +127,54 @@ func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
 /*
 解析次版本
 */
-func (self *ClassFile) MinorVersion() uint16 {
-	return self.minorVersion
+func (classFile *ClassFile) MinorVersion() uint16 {
+	return classFile.minorVersion
 }
 
 /*
 解析主版本
 */
-func (self *ClassFile) MajorVersion() uint16 {
-	return self.majorVersion
+func (classFile *ClassFile) MajorVersion() uint16 {
+	return classFile.majorVersion
 }
 
 /*
 解析常量池
 */
-func (self *ClassFile) ConstantPool() ConstantPool {
-	return self.constantPool
+func (classFile *ClassFile) ConstantPool() ConstantPool {
+	return classFile.constantPool
 }
 
 /*
 解析类访问标志
 */
-func (self *ClassFile) AccessFlags() uint16 {
-	return self.accessFlags
+func (classFile *ClassFile) AccessFlags() uint16 {
+	return classFile.accessFlags
 }
 
-func (self *ClassFile) Fields() []*MemberInfo {
-	return self.fields
+func (classFile *ClassFile) Fields() []*MemberInfo {
+	return classFile.fields
 }
 
-func (self *ClassFile) Methods() []*MemberInfo {
-	return self.methods
+func (classFile *ClassFile) Methods() []*MemberInfo {
+	return classFile.methods
 }
 
 /*
 在二进制文件中,类名信息存储的是索引,指向了常量池中的位置
 */
-func (self *ClassFile) ClassName() string {
-	return self.constantPool.getClassName(self.thisClass)
+func (classFile *ClassFile) ClassName() string {
+	return classFile.constantPool.getClassName(classFile.thisClass)
 
 }
 
 /*
 在二进制文件中,超类信息存储的是索引,指向了常量池中的位置
 */
-func (self *ClassFile) SuperClassName() string {
+func (classFile *ClassFile) SuperClassName() string {
 	// if the superClass count more than 1
-	if self.superClass > 0 {
-		return self.constantPool.getClassName(self.superClass)
+	if classFile.superClass > 0 {
+		return classFile.constantPool.getClassName(classFile.superClass)
 	}
 	return ""
 }
@@ -184,13 +182,13 @@ func (self *ClassFile) SuperClassName() string {
 /*
 在二进制文件中,接口存储的是索引,指向了常量池中的位置
 */
-func (self *ClassFile) InterfaceNames() []string {
+func (classFile *ClassFile) InterfaceNames() []string {
 	// 切片一个长度位interfaces的string[]数组
-	interfaceNames := make([]string, len(self.interfaces))
+	interfaceNames := make([]string, len(classFile.interfaces))
 	// 遍历interfaces,在常量池中查找接口名
-	for i, cpIndex := range self.interfaces {
+	for i, cpIndex := range classFile.interfaces {
 		// 将interfaceName存到interfaceNames中
-		interfaceNames[i] = self.constantPool.getClassName(cpIndex)
+		interfaceNames[i] = classFile.constantPool.getClassName(cpIndex)
 	}
 	// 返回接口列表
 	return interfaceNames

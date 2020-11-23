@@ -3,8 +3,8 @@ package java
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/info"
-	"github.com/zouzhihao-994/gvm/src/vm/classpath"
 	"github.com/zouzhihao-994/gvm/src/vm/cmd"
+	"github.com/zouzhihao-994/gvm/src/vm/loader"
 	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 	"strings"
 )
@@ -34,7 +34,7 @@ func startJvm(c *cmd.Cmd) {
 		c.XjreOption = "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"
 	}
 
-	cp := classpath.Parse(c.XjreOption, c.CpOption)
+	cp := loader.Parse(c.XjreOption, c.CpOption)
 
 	// 类加载器加载类
 	// 此时cp里的3个类加载器都已经创建好了
