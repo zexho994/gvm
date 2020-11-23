@@ -49,7 +49,7 @@ func receiveParam() {
 func createGVM(param initParam) {
 
 	if param.jre == "" {
-		param.jre = info.DEFAULT_JRE_PATH
+		param.jre = info.DefaultJrePath
 	}
 
 	// 对XjreOption和cp两个字段进行解析
@@ -61,7 +61,7 @@ func createGVM(param initParam) {
 	classLoader := heap.NewClassLoader(cp, true)
 	name := ""
 	if param.cp == "" {
-		name = info.DEFAULT_CP_PATH + "/" + param.cn
+		name = info.DefaultCpPath + "/" + param.cn
 	} else {
 		name = param.cp + "/" + param.cn
 	}
