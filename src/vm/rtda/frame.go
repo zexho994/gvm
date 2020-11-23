@@ -29,31 +29,31 @@ func newFrame(thread *Thread, method *heap.Method) *Frame {
 
 }
 
-func (self Frame) Method() *heap.Method {
-	return self.method
+func (frame Frame) Method() *heap.Method {
+	return frame.method
 }
 
-func (self Frame) LocalVars() *LocalVars {
-	return self.localVars
+func (frame Frame) LocalVars() *LocalVars {
+	return frame.localVars
 }
 
-func (self Frame) OperandStack() *OperandStack {
-	return self.operandStack
+func (frame Frame) OperandStack() *OperandStack {
+	return frame.operandStack
 }
 
-func (self Frame) Thread() *Thread {
-	return self.thread
+func (frame Frame) Thread() *Thread {
+	return frame.thread
 }
 
-func (self *Frame) SetNextPC(next int) {
-	self.nextPc = next
+func (frame *Frame) SetNextPC(next int) {
+	frame.nextPc = next
 }
 
-func (self Frame) NextPC() int {
-	return self.nextPc
+func (frame Frame) NextPC() int {
+	return frame.nextPc
 }
 
 /*
 重置pc指针
 */
-func (self *Frame) RevertNextPC() { self.nextPc = self.thread.pc }
+func (frame *Frame) RevertNextPC() { frame.nextPc = frame.thread.pc }

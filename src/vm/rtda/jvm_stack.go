@@ -23,41 +23,41 @@ func newStack(maxSize uint) *Stack {
 	}
 }
 
-func (self *Stack) push(frame *Frame) {
-	//fmt.Printf("[gvm][jvm_stack.push] start push. self.size = %v , self.maxSize = %v \n", self.size, self.maxSize)
-	if self.size >= self.maxSize {
+func (stack *Stack) push(frame *Frame) {
+	//fmt.Printf("[gvm][jvm_stack.push] start push. stack.size = %v , stack.maxSize = %v \n", stack.size, stack.maxSize)
+	if stack.size >= stack.maxSize {
 		panic("[gvm][Stack.push] StackOverflowError!")
 	}
-	if self._top != nil {
-		frame.lower = self._top
+	if stack._top != nil {
+		frame.lower = stack._top
 	}
-	self._top = frame
-	self.size++
-	//fmt.Printf("[gvm][jvm_stack.push] push done. self.size = %v , self.maxSize = %v \n", self.size, self.maxSize)
+	stack._top = frame
+	stack.size++
+	//fmt.Printf("[gvm][jvm_stack.push] push done. stack.size = %v , stack.maxSize = %v \n", stack.size, stack.maxSize)
 }
 
 /**
 弹出栈桢
 
 */
-func (self *Stack) pop() *Frame {
-	if self._top == nil {
+func (stack *Stack) pop() *Frame {
+	if stack._top == nil {
 		panic("[gvm][Stack.pop] stack is empty")
 	}
-	top := self._top
-	self._top = top.lower
+	top := stack._top
+	stack._top = top.lower
 	top.lower = nil
-	self.size--
+	stack.size--
 	return top
 }
 
-func (self *Stack) top() *Frame {
-	if self._top == nil {
+func (stack *Stack) top() *Frame {
+	if stack._top == nil {
 		panic("[gvm][Stack.top] stack is empty")
 	}
-	return self._top
+	return stack._top
 }
 
-func (self *Stack) isEmpty() bool {
-	return self._top == nil
+func (stack *Stack) isEmpty() bool {
+	return stack._top == nil
 }
