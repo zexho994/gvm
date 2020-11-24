@@ -12,32 +12,32 @@ type Method struct {
 	argSlotCount uint
 }
 
-func (self *Method) Class() *Class {
-	return self.class
+func (method *Method) Class() *Class {
+	return method.class
 }
 
-func (self *Method) Code() []byte {
-	return self.code
+func (method *Method) Code() []byte {
+	return method.code
 }
 
-func (self Method) MaxStack() uint {
-	return self.maxStack
+func (method Method) MaxStack() uint {
+	return method.maxStack
 }
 
-func (self Method) MaxLocals() uint {
-	return self.maxLocals
+func (method Method) MaxLocals() uint {
+	return method.maxLocals
 }
 
-func (self Method) IsStatic() bool {
-	return 0 != self.access&ACC_STATIC
+func (method Method) IsStatic() bool {
+	return 0 != method.access&ACC_STATIC
 }
 
-func (self Method) Name() string {
-	return self.name
+func (method Method) Name() string {
+	return method.name
 }
 
-func (self Method) MethodDescriptor() string {
-	return self.descriptor
+func (method Method) MethodDescriptor() string {
+	return method.descriptor
 }
 
 /*
@@ -67,61 +67,61 @@ func newMethod(class *Class, cfMethod *classfile.MemberInfo) *Method {
 	return method
 }
 
-func (self *Method) injectCodeAttribute(returnType string) {
-	self.maxStack = 4 // todo
-	self.maxLocals = self.argSlotCount
+func (method *Method) injectCodeAttribute(returnType string) {
+	method.maxStack = 4 // todo
+	method.maxLocals = method.argSlotCount
 	switch returnType[0] {
 	case 'V':
-		self.code = []byte{0xfe, 0xb1} // return
+		method.code = []byte{0xfe, 0xb1} // return
 	case 'L', '[':
-		self.code = []byte{0xfe, 0xb0} // areturn
+		method.code = []byte{0xfe, 0xb0} // areturn
 	case 'D':
-		self.code = []byte{0xfe, 0xaf} // dreturn
+		method.code = []byte{0xfe, 0xaf} // dreturn
 	case 'F':
-		self.code = []byte{0xfe, 0xae} // freturn
+		method.code = []byte{0xfe, 0xae} // freturn
 	case 'J':
-		self.code = []byte{0xfe, 0xad} // lreturn
+		method.code = []byte{0xfe, 0xad} // lreturn
 	default:
-		self.code = []byte{0xfe, 0xac} // ireturn
+		method.code = []byte{0xfe, 0xac} // ireturn
 	}
 }
 
-func (self *Method) copyAttributes(cfMethod *classfile.MemberInfo) {
+func (method *Method) copyAttributes(cfMethod *classfile.MemberInfo) {
 	if codeAttr := cfMethod.CodeAttribute(); codeAttr != nil {
-		self.maxLocals = codeAttr.MaxLocals()
-		self.maxStack = codeAttr.MaxStack()
-		self.code = codeAttr.Code()
+		method.maxLocals = codeAttr.MaxLocals()
+		method.maxStack = codeAttr.MaxStack()
+		method.code = codeAttr.Code()
 	}
 }
 
-func (self *Method) IsNative() bool {
-	return 0 != self.access&ACC_NATIVE
+func (method *Method) IsNative() bool {
+	return 0 != method.access&ACC_NATIVE
 }
 
-func (self *Method) ArgSlotCount() uint { return self.argSlotCount }
+func (method *Method) ArgSlotCount() uint { return method.argSlotCount }
 
 /*
 计算参数数量
 */
-func (self *Method) calcArgSlotCount(paramTypes []string) {
+func (method *Method) calcArgSlotCount(paramTypes []string) {
 	// 解析方法的描述符
 	for _, paramType := range paramTypes {
-		self.argSlotCount++
+		method.argSlotCount++
 		// long和double类型要额外1个空间
 		if paramType == "J" || paramType == "D" {
-			self.argSlotCount++
+			method.argSlotCount++
 		}
 	}
 
-	if !self.IsStatic() {
-		self.argSlotCount++
+	if !method.IsStatic() {
+		method.argSlotCount++
 	}
 }
 
-func (self Method) IsAbstract() bool {
-	return 0 != self.access&ACC_ABSTRACT
+func (method Method) IsAbstract() bool {
+	return 0 != method.access&ACC_ABSTRACT
 }
 
-func (self Method) Descriptor() string {
-	return self.descriptor
+func (method Method) Descriptor() string {
+	return method.descriptor
 }

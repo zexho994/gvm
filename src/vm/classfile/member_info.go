@@ -19,9 +19,9 @@ type MemberInfo struct {
 /*
 获取方法的Code属性
 */
-func (self *MemberInfo) CodeAttribute() *CodeAttribute {
+func (memberInfo *MemberInfo) CodeAttribute() *CodeAttribute {
 	// 遍历属性表
-	for _, attrInfo := range self.attributes {
+	for _, attrInfo := range memberInfo.attributes {
 		switch attrInfo.(type) {
 		case *CodeAttribute:
 			return attrInfo.(*CodeAttribute)
@@ -61,27 +61,27 @@ func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	}
 }
 
-func (self *MemberInfo) AccessFlags() uint16 {
-	return self.accessFlags
+func (memberInfo *MemberInfo) AccessFlags() uint16 {
+	return memberInfo.accessFlags
 }
 
 /*
 获取方法或字段名称
 */
-func (self *MemberInfo) Name() string {
-	return self.cp.getUtf8(self.nameIndex)
+func (memberInfo *MemberInfo) Name() string {
+	return memberInfo.cp.getUtf8(memberInfo.nameIndex)
 
 }
 
 /*
 获取字段或方法的描述符
 */
-func (self *MemberInfo) Descriptor() string {
-	return self.cp.getUtf8(self.descriptorIndex)
+func (memberInfo *MemberInfo) Descriptor() string {
+	return memberInfo.cp.getUtf8(memberInfo.descriptorIndex)
 }
 
-func (self *MemberInfo) ConstantValueAttribute() *ConstantValueAttribute {
-	for _, attrInfo := range self.attributes {
+func (memberInfo *MemberInfo) ConstantValueAttribute() *ConstantValueAttribute {
+	for _, attrInfo := range memberInfo.attributes {
 		switch attrInfo.(type) {
 		case *ConstantValueAttribute:
 			return attrInfo.(*ConstantValueAttribute)
