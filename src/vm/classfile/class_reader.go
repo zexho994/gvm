@@ -62,6 +62,15 @@ func (classReader *ClassReader) readUint16s() []uint16 {
 	return s
 }
 
+// 获取 count 长度的数据
+func (classReader *ClassReader) readUint16Array(count uint16) []uint16 {
+	data := make([]uint16, count)
+	for i := range data {
+		data[i] = classReader.readUint16()
+	}
+	return data
+}
+
 /*
 读取length字节长度的数据
 */

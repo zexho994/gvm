@@ -80,7 +80,8 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.superClass = reader.readUint16()
 
 	// 解析接口
-	classFile.interfaces = reader.readUint16s()
+	classFile.interfacesCount = reader.readUint16()
+	classFile.interfaces = reader.readUint16Array(classFile.interfacesCount)
 
 	// 解析字段表
 	classFile.fields = readFieldInfo(reader, classFile.constantPool)
