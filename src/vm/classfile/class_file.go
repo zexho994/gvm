@@ -84,7 +84,8 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.interfaces = reader.readUint16Array(classFile.interfacesCount)
 
 	// 解析字段表
-	classFile.fields = readFieldInfo(reader, classFile.constantPool)
+	classFile.fieldsCount = reader.readUint16()
+	classFile.fields = readFieldInfo(classFile.fieldsCount, reader, classFile.constantPool)
 
 	// 解析方法表
 	classFile.methods = readMethodInfo(reader, classFile.constantPool)

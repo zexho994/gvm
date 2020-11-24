@@ -8,10 +8,9 @@ func (field FieldInfo) BaseInfo() []*MemberInfo {
 	return field.baseInfo
 }
 
-func readFieldInfo(reader *ClassReader, cp ConstantPool) FieldInfo {
+func readFieldInfo(fieldsCount uint16, reader *ClassReader, cp ConstantPool) FieldInfo {
 	// 字段的数量
-	fieldCount := reader.readUint16()
-	members := make([]*MemberInfo, fieldCount)
+	members := make([]*MemberInfo, fieldsCount)
 
 	// 遍历数组
 	for i := range members {
