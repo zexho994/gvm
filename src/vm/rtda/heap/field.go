@@ -13,24 +13,24 @@ type Field struct {
 	slotId uint
 }
 
-func (self Field) Class() *Class {
-	return self.class
+func (field Field) Class() *Class {
+	return field.class
 }
 
-func (self Field) ConstValueIndex() uint {
-	return self.constValueIndex
+func (field Field) ConstValueIndex() uint {
+	return field.constValueIndex
 }
 
-func (self Field) IsStatic() bool {
-	return 0 != self.access&ACC_STATIC
+func (field Field) IsStatic() bool {
+	return 0 != field.access&ACC_STATIC
 }
 
-func (self Field) Descriptor() string {
-	return self.descriptor
+func (field Field) Descriptor() string {
+	return field.descriptor
 }
 
-func (self Field) SlotId() uint {
-	return self.slotId
+func (field Field) SlotId() uint {
+	return field.slotId
 }
 
 /*
@@ -51,16 +51,16 @@ func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
 判断描述符是否属于J或者D，J -> long,D -> double
 基本类型中，除了long的定义奇特外，其他都是基于首字母
 */
-func (self Field) IsLongOrDouble() bool {
-	return self.descriptor == "J" || self.descriptor == "D"
+func (field Field) IsLongOrDouble() bool {
+	return field.descriptor == "J" || field.descriptor == "D"
 }
 
-func (self Field) copyAttributes(cfField *classfile.MemberInfo) {
+func (field Field) copyAttributes(cfField *classfile.MemberInfo) {
 	if valAttr := cfField.ConstantValueAttribute(); valAttr != nil {
-		self.constValueIndex = uint(valAttr.ConstantValueIndex())
+		field.constValueIndex = uint(valAttr.ConstantValueIndex())
 	}
 }
 
-func (self Field) IsFinal() bool {
-	return 0 != self.access&ACC_FINAL
+func (field Field) IsFinal() bool {
+	return 0 != field.access&ACC_FINAL
 }

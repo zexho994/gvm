@@ -3,40 +3,40 @@ package heap
 /*
 判断是否是数组类型
 */
-func (self *Class) IsArray() bool {
-	return self.name[0] == '['
+func (class *Class) IsArray() bool {
+	return class.name[0] == '['
 }
 
 /*
 根据count创建数组对象
 */
-func (self *Class) NewArray(count uint) *Object {
-	if !self.IsArray() {
-		panic("Not array class: " + self.name)
+func (class *Class) NewArray(count uint) *Object {
+	if !class.IsArray() {
+		panic("Not array class: " + class.name)
 	}
-	switch self.Name() {
+	switch class.Name() {
 	case "[Z":
-		return &Object{self, make([]int8, count), nil}
+		return &Object{class, make([]int8, count), nil}
 	case "[B":
-		return &Object{self, make([]int8, count), nil}
+		return &Object{class, make([]int8, count), nil}
 	case "[C":
-		return &Object{self, make([]uint16, count), nil}
+		return &Object{class, make([]uint16, count), nil}
 	case "[S":
-		return &Object{self, make([]int16, count), nil}
+		return &Object{class, make([]int16, count), nil}
 	case "[I":
-		return &Object{self, make([]int32, count), nil}
+		return &Object{class, make([]int32, count), nil}
 	case "[J":
-		return &Object{self, make([]int64, count), nil}
+		return &Object{class, make([]int64, count), nil}
 	case "[F":
-		return &Object{self, make([]float32, count), nil}
+		return &Object{class, make([]float32, count), nil}
 	case "[D":
-		return &Object{self, make([]float64, count), nil}
+		return &Object{class, make([]float64, count), nil}
 	default:
-		return &Object{self, make([]*Object, count), nil}
+		return &Object{class, make([]*Object, count), nil}
 	}
 }
 
-func (self *Class) ComponentClass() *Class {
-	componentClassName := getComponentClassName(self.name)
-	return self.loader.LoadClass(componentClassName)
+func (class *Class) ComponentClass() *Class {
+	componentClassName := getComponentClassName(class.name)
+	return class.loader.LoadClass(componentClassName)
 }

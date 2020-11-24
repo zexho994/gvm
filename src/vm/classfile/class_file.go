@@ -22,13 +22,17 @@ type ClassFile struct {
 	// 父类
 	superClass uint16
 	// 接口
-	interfaces []uint16
+	interfacesCount uint16
+	interfaces      []uint16
 	// 字段表,用于表示接口或者类中声明的变量
-	fields FieldInfo
+	fieldsCount uint16
+	fields      FieldInfo
 	// 方法表
-	methods MethodInfo
+	methodsCount uint16
+	methods      MethodInfo
 	// 属性表
-	attributes []AttributeInfo
+	attributesCount uint16
+	attributes      []AttributeInfo
 }
 
 // 将字节码的二进制数据[]byte解析成ClassFile结构体
@@ -63,7 +67,8 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.readAndCheckVersion(reader)
 
 	// 解析常量池
-	classFile.constantPool = readConstantPool(reader)
+	classFile.constantPoolCount = readConstantCount(reader)
+	classFile.constantPool = readConstantPool(classFile.constantPoolCount, reader)
 
 	// 解析类访问标志
 	classFile.accessFlags = reader.readUint16()

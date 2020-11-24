@@ -35,51 +35,50 @@ type Class struct {
 	staticVars Slots
 	// 判断类是否被加载过
 	initStarted bool
-
 	// 在Class中可以获取到类对象，为了完成反射
 	jClass *Object // java.lang.Class
 }
 
-func (self *Class) JClass() *Object {
-	return self.jClass
+func (class *Class) JClass() *Object {
+	return class.jClass
 }
 
-func (self *Class) JavaName() string {
-	return strings.Replace(self.name, "/", ".", -1)
+func (class *Class) JavaName() string {
+	return strings.Replace(class.name, "/", ".", -1)
 }
 
 /*
 判断class有没有初始化过
 */
-func (self *Class) InitStarted() bool {
-	return self.initStarted
+func (class *Class) InitStarted() bool {
+	return class.initStarted
 }
 
 /*
 初始化类
 */
-func (self *Class) StartInit() {
-	self.initStarted = true
+func (class *Class) StartInit() {
+	class.initStarted = true
 }
 
-func (self *Class) Loader() *ClassLoader {
-	return self.loader
+func (class *Class) Loader() *ClassLoader {
+	return class.loader
 }
 
-func (self *Class) Fields() []*Field {
-	return self.fields
+func (class *Class) Fields() []*Field {
+	return class.fields
 }
 
-func (self *Class) ConstantPool() *ConstantPool {
-	return self.constantPool
+func (class *Class) ConstantPool() *ConstantPool {
+	return class.constantPool
 }
 
-func (self Class) StaticVars() Slots {
-	return self.staticVars
+func (class Class) StaticVars() Slots {
+	return class.staticVars
 }
 
-func (self Class) IsAbstract() bool {
-	return 0 != self.accessFlags&ACC_ABSTRACT
+func (class Class) IsAbstract() bool {
+	return 0 != class.accessFlags&ACC_ABSTRACT
 }
 
 /*
@@ -97,20 +96,20 @@ func newClass(cf *classfile.ClassFile) *Class {
 	return class
 }
 
-func (self *Class) IsPublic() bool {
-	return 0 != self.accessFlags&ACC_PUBLIC
+func (class *Class) IsPublic() bool {
+	return 0 != class.accessFlags&ACC_PUBLIC
 }
 
-func (self *Class) IsPrivate() bool {
-	return 0 != self.accessFlags&ACC_PRIVATE
+func (class *Class) IsPrivate() bool {
+	return 0 != class.accessFlags&ACC_PRIVATE
 }
 
-func (self *Class) IsProtected() bool {
-	return 0 != self.accessFlags&ACC_PROTECTED
+func (class *Class) IsProtected() bool {
+	return 0 != class.accessFlags&ACC_PROTECTED
 }
 
-func (self *Class) IsInterface() bool {
-	return 0 != self.accessFlags&ACC_INTERFACE
+func (class *Class) IsInterface() bool {
+	return 0 != class.accessFlags&ACC_INTERFACE
 }
 
 /**
@@ -118,8 +117,8 @@ func (self *Class) IsInterface() bool {
 1. 两个类在同一个包下
 2. 要访问的类public
 */
-func (self *Class) isAccessibleTo(other *Class) bool {
-	return self.IsPublic() || self.getPackageName() == other.getPackageName()
+func (class *Class) isAccessibleTo(other *Class) bool {
+	return class.IsPublic() || class.getPackageName() == other.getPackageName()
 
 }
 
@@ -128,16 +127,16 @@ func (self *Class) isAccessibleTo(other *Class) bool {
 lastIndex : "/" 在 name中出现的最后所以下标
 如果name = "java/lang/Object","/"出现的最后位置就是9
 */
-func (self *Class) getPackageName() string {
-	if i := strings.LastIndex(self.name, "/"); i >= 0 {
-		fmt.Printf("[gvm][getPackgeName] 包名 %v \n", self.name[:i])
-		return self.name[:i]
+func (class *Class) getPackageName() string {
+	if i := strings.LastIndex(class.name, "/"); i >= 0 {
+		fmt.Printf("[gvm][getPackgeName] 包名 %v \n", class.name[:i])
+		return class.name[:i]
 	}
 	return ""
 }
 
-func (self *Class) getField(name, descriptor string, isStatic bool) *Field {
-	for c := self; c != nil; c = c.superClass {
+func (class *Class) getField(name, descriptor string, isStatic bool) *Field {
+	for c := class; c != nil; c = c.superClass {
 		for _, field := range c.fields {
 			if field.IsStatic() == isStatic &&
 				field.name == name &&
@@ -150,26 +149,26 @@ func (self *Class) getField(name, descriptor string, isStatic bool) *Field {
 	return nil
 }
 
-func (self *Class) GetPackageName() string {
-	if i := strings.LastIndex(self.name, "/"); i >= 0 {
-		return self.name[:i]
+func (class *Class) GetPackageName() string {
+	if i := strings.LastIndex(class.name, "/"); i >= 0 {
+		return class.name[:i]
 	}
 	return ""
 }
 
-func (self *Class) NewObject() *Object {
-	return newObject(self)
+func (class *Class) NewObject() *Object {
+	return newObject(class)
 }
 
-func (self *Class) GetMainMethod() *Method {
-	return self.getStaticMethod("main", "([Ljava/lang/String;)V")
+func (class *Class) GetMainMethod() *Method {
+	return class.getStaticMethod("main", "([Ljava/lang/String;)V")
 }
 
 /*
 获取静态方法
 */
-func (self *Class) getStaticMethod(name, descriptor string) *Method {
-	for _, method := range self.methods {
+func (class *Class) getStaticMethod(name, descriptor string) *Method {
+	for _, method := range class.methods {
 		if method.IsStatic() && method.name == name && method.descriptor == descriptor {
 			return method
 		}
@@ -177,47 +176,47 @@ func (self *Class) getStaticMethod(name, descriptor string) *Method {
 	return nil
 }
 
-func (self *Class) SuperClass() *Class {
-	return self.superClass
+func (class *Class) SuperClass() *Class {
+	return class.superClass
 }
 
 /*
 判断方法的ACC_SUPER是否有被标记
 */
-func (self *Class) IsSuper() bool {
-	return 0 != self.accessFlags&ACC_SUPER
+func (class *Class) IsSuper() bool {
+	return 0 != class.accessFlags&ACC_SUPER
 }
 
-func (self *Class) Name() string {
-	return self.name
+func (class *Class) Name() string {
+	return class.name
 }
 
 /*
 
  */
-func (self *Class) GetClinitMethod() *Method { return self.getStaticMethod("<clinit>", "()V") }
+func (class *Class) GetClinitMethod() *Method { return class.getStaticMethod("<clinit>", "()V") }
 
 /*
 返回与类对应的数组类
 */
-func (self *Class) ArrayClass() *Class {
-	arrayClassName := getArrayClassName(self.name)
-	return self.loader.LoadClass(arrayClassName)
+func (class *Class) ArrayClass() *Class {
+	arrayClassName := getArrayClassName(class.name)
+	return class.loader.LoadClass(arrayClassName)
 }
 
-func (self *Class) isJlObject() bool {
-	return self.name == "java/lang/Object"
+func (class *Class) isJlObject() bool {
+	return class.name == "java/lang/Object"
 }
 
-func (self *Class) isJlCloneable() bool {
-	return self.name == "java/lang/Cloneable"
+func (class *Class) isJlCloneable() bool {
+	return class.name == "java/lang/Cloneable"
 }
 
-func (self *Class) isJioSerializable() bool {
-	return self.name == "java/io/Serializable"
+func (class *Class) isJioSerializable() bool {
+	return class.name == "java/io/Serializable"
 }
 
-func (self *Class) IsPrimitive() bool {
-	_, ok := primitiveTypes[self.name]
+func (class *Class) IsPrimitive() bool {
+	_, ok := primitiveTypes[class.name]
 	return ok
 }
