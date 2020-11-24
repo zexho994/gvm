@@ -67,7 +67,7 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.readAndCheckVersion(reader)
 
 	// 解析常量池
-	classFile.constantPoolCount = readConstantCount(reader)
+	classFile.constantPoolCount = reader.readUint16()
 	classFile.constantPool = readConstantPool(classFile.constantPoolCount, reader)
 
 	// 解析类访问标志
@@ -88,10 +88,12 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.fields = readFieldInfo(classFile.fieldsCount, reader, classFile.constantPool)
 
 	// 解析方法表
-	classFile.methods = readMethodInfo(reader, classFile.constantPool)
+	classFile.methodsCount = reader.readUint16()
+	classFile.methods = readMethodInfo(classFile.methodsCount, reader, classFile.constantPool)
 
 	// 解析属性表
-	classFile.attributes = readAttributes(reader, classFile.constantPool)
+	classFile.attributesCount = reader.readUint16()
+	classFile.attributes = readAttributes(classFile.attributesCount, reader, classFile.constantPool)
 
 }
 

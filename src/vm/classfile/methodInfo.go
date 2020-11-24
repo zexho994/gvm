@@ -8,10 +8,9 @@ func (methodInfo MethodInfo) BaseInfo() []*MemberInfo {
 	return methodInfo.baseInfo
 }
 
-func readMethodInfo(reader *ClassReader, cp ConstantPool) MethodInfo {
+func readMethodInfo(methodsCount uint16, reader *ClassReader, cp ConstantPool) MethodInfo {
 	// 字段的数量
-	methodCount := reader.readUint16()
-	members := make([]*MemberInfo, methodCount)
+	members := make([]*MemberInfo, methodsCount)
 
 	// 遍历数组
 	for i := range members {

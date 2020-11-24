@@ -13,7 +13,8 @@ type MemberInfo struct {
 	// 描述符索引 -> 常量池
 	descriptorIndex uint16
 	// 属性表
-	attributes []AttributeInfo
+	attributesCount uint16
+	attributes      []AttributeInfo
 }
 
 /*
@@ -52,12 +53,18 @@ func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 解析字段表数据
 */
 func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
+	accessFlags := reader.readUint16()
+	nameIndex := reader.readUint16()
+	descriptorIndex := reader.readUint16()
+	attributesCount := reader.readUint16()
+	attributes := readAttributes(attributesCount, reader, cp)
 	return &MemberInfo{
 		cp:              cp,
-		accessFlags:     reader.readUint16(),
-		nameIndex:       reader.readUint16(),
-		descriptorIndex: reader.readUint16(),
-		attributes:      readAttributes(reader, cp),
+		accessFlags:     accessFlags,
+		nameIndex:       nameIndex,
+		descriptorIndex: descriptorIndex,
+		attributesCount: attributesCount,
+		attributes:      attributes,
 	}
 }
 

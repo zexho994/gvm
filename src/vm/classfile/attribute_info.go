@@ -7,10 +7,7 @@ type AttributeInfo interface {
 /*
 读取属性表
 */
-func readAttributes(reader *ClassReader, cp ConstantPool) []AttributeInfo {
-	// 读取属性表长度
-	attributesCount := reader.readUint16()
-
+func readAttributes(attributesCount uint16, reader *ClassReader, cp ConstantPool) []AttributeInfo {
 	// 2字节大小的AttributeInfo数组
 	attributes := make([]AttributeInfo, attributesCount)
 

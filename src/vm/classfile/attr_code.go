@@ -20,7 +20,8 @@ type CodeAttribute struct {
 	exceptionTable []*ExceptionTableEntry
 
 	// 属性表
-	attributes []AttributeInfo
+	attributesCount uint16
+	attributes      []AttributeInfo
 }
 
 // 受检查异常结构
@@ -37,7 +38,8 @@ func (codeAttribute *CodeAttribute) readInfo(reader *ClassReader) {
 	codeLength := reader.readUint32()
 	codeAttribute.code = reader.readBytes(codeLength)
 	codeAttribute.exceptionTable = readExceptionTable(reader)
-	codeAttribute.attributes = readAttributes(reader, codeAttribute.cp)
+	codeAttribute.attributesCount = reader.readUint16()
+	codeAttribute.attributes = readAttributes(codeAttribute.attributesCount, reader, codeAttribute.cp)
 }
 
 func readExceptionTable(reader *ClassReader) []*ExceptionTableEntry {

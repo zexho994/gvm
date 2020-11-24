@@ -13,11 +13,6 @@ type ConstantInfo interface {
 	readInfo(reader *ClassReader)
 }
 
-// 读取常量池的长度
-func readConstantCount(reader *ClassReader) uint16 {
-	return reader.readUint16()
-}
-
 // 读取常量池数据
 // 解析常量池分为两步：分配内存 -> 解析
 func readConstantPool(cpCount uint16, reader *ClassReader) ConstantPool {
