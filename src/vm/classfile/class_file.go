@@ -6,6 +6,8 @@ import "fmt"
 class文件的映射类
 */
 type ClassFile struct {
+	// 魔术
+	magic uint32
 	// 次版本
 	minorVersion uint16
 	// 主版本
@@ -45,6 +47,7 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 
 	// start to parse class
 	cf.read(cr)
+
 	return
 }
 
@@ -94,6 +97,8 @@ func (classFile *ClassFile) readAndCheckMagic(reader *ClassReader) {
 	if magic != 0xCAFEBABE {
 		panic("java.lang.ClassFormatError: magic!")
 	}
+
+	classFile.magic = magic
 }
 
 /*
@@ -184,4 +189,8 @@ func (classFile *ClassFile) InterfaceNames() []string {
 	}
 	// 返回接口列表
 	return interfaceNames
+}
+
+func (classFile ClassFile) toString() {
+	fmt.Printf("> class magic :%v", classFile.magic)
 }

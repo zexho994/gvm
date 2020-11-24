@@ -20,16 +20,16 @@ type Loader struct {
 // cp/loader : 用户类路径
 func Parse(jreOption, cpOption string) *Loader {
 	// 创建一个新的Classpath类返回其地址
-	cp := &Loader{}
+	loader := &Loader{}
 
 	// 解析启动类和扩展类
 	// fmt.Printf("[gvm][Parse] jreOption : %v\n", jreOption)
-	cp.parseBootAndExtLoader(jreOption)
+	loader.parseBootAndExtLoader(jreOption)
 
 	// 解析用户类
 	// fmt.Printf("[gvm][Parse] cpOtion : %v\n", cpOption)
-	cp.parseUserLoader(cpOption)
-	return cp
+	loader.parseUserLoader(cpOption)
+	return loader
 }
 
 // 解析启动类和用户类

@@ -57,12 +57,11 @@ func createGVM(param initParam) {
 	}
 
 	// 对XjreOption和cp两个字段进行解析
-	// 获取classapth对象
-	cp := loader.Parse(param.jre, param.cp)
+	// 获取loader对象
+	loaders := loader.Parse(param.jre, param.cp)
 
 	// 类加载器加载类
-	// 此时cp里的3个类加载器都已经创建好了
-	classLoader := heap.NewClassLoader(cp, true)
+	classLoader := heap.NewClassLoader(loaders, true)
 	name := ""
 	if param.cp == "" {
 		name = info.DefaultCpPath + "/" + param.cn

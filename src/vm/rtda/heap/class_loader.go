@@ -23,18 +23,18 @@ type ClassLoader struct {
 /*
 创建一个加载器实例
 */
-func NewClassLoader(cp *loader.Loader, verboseFlag bool) *ClassLoader {
-	loader := &ClassLoader{
-		cp:          cp,
+func NewClassLoader(loader *loader.Loader, verboseFlag bool) *ClassLoader {
+	classLoader := &ClassLoader{
+		cp:          loader,
 		verboseFlag: verboseFlag,
 		classMap:    make(map[string]*Class),
 	}
 
 	//  加载基础类
-	loader.loadBasicClasses()
+	classLoader.loadBasicClasses()
 	//
-	loader.loadPrimitiveClasses()
-	return loader
+	classLoader.loadPrimitiveClasses()
+	return classLoader
 }
 
 // 加载基础类
