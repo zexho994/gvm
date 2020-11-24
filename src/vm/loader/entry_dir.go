@@ -41,7 +41,6 @@ func (dirEntry *DirEntry) readClass(className string) ([]byte, Entry, error) {
 
 	// 读取目标位置下对应的class文件数据
 	data, err := ioutil.ReadFile(filename)
-	//fmt.Printf("[gvm][readClass] 在目录%v下读取类%v\n", filename, className)
 
 	// 输出
 	return data, dirEntry, err

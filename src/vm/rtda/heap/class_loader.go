@@ -32,7 +32,6 @@ func NewClassLoader(loader *loader.Loader, verboseFlag bool) *ClassLoader {
 
 	//  加载基础类
 	classLoader.loadBasicClasses()
-	//
 	classLoader.loadPrimitiveClasses()
 	return classLoader
 }
@@ -79,17 +78,18 @@ func (cl *ClassLoader) loadPrimitiveClass(className string) {
 在classMap中根据name查询类
 然后将将类数据加载到方法区中
 */
-func (cl *ClassLoader) LoadClass(name string) *Class {
-	if class, ok := cl.classMap[name]; ok {
+func (cl *ClassLoader) LoadClass(classPath string) *Class {
+	if class, ok := cl.classMap[classPath]; ok {
 		// already loaded
 		return class
 	}
 
 	var class *Class
-	if name[0] == '[' { // array class
-		class = cl.loadArrayClass(name)
+	// '['的为数组类型，否则为非数组（普通）类型
+	if classPath[0] == '[' {
+		class = cl.loadArrayClass(classPath)
 	} else {
-		class = cl.loadNonArrayClass(name)
+		class = cl.loadNonArrayClass(classPath)
 	}
 
 	if jlClassClass, ok := cl.classMap["java/lang/Class"]; ok {
@@ -121,14 +121,12 @@ func (cl *ClassLoader) loadArrayClass(name string) *Class {
 	return class
 }
 
-/*
-非数组类的加载
-*/
-func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
-	// 调用classpath的readClass方法，
-	// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
-	// data是class的二进制数据
-	data, entry := cl.readClass(name)
+// 非数组类的加载
+// 调用classpath的readClass方法，
+// 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
+// data是class的二进制数据
+func (cl *ClassLoader) loadNonArrayClass(classPath string) *Class {
+	data, entry := cl.readClass(classPath)
 	if entry == nil {
 		panic("entry is nil")
 	}
@@ -144,10 +142,10 @@ func (cl *ClassLoader) loadNonArrayClass(name string) *Class {
 /*
 在classpath中搜索名称为name的类
 */
-func (cl *ClassLoader) readClass(name string) ([]byte, loader.Entry) {
-	data, entry, err := cl.cp.ReadClass(name)
+func (cl *ClassLoader) readClass(classPath string) ([]byte, loader.Entry) {
+	data, entry, err := cl.cp.ReadClass(classPath)
 	if err != nil {
-		panic("java.lang.ClassNotFoundException:" + name)
+		panic("java.lang.ClassNotFoundException:" + classPath)
 	}
 	return data, entry
 }

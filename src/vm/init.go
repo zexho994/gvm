@@ -62,18 +62,17 @@ func createGVM(param initParam) {
 
 	// 类加载器加载类
 	classLoader := heap.NewClassLoader(loaders, true)
-	name := ""
 	if param.cp == "" {
-		name = info.DefaultCpPath + "/" + param.cn
+		param.cp = info.DefaultCpPath + "." + param.cn
 	} else {
-		name = param.cp + "/" + param.cn
+		param.cp = param.cp + "." + param.cn
 	}
 
 	// 解析类名
-	className := strings.Replace(name, ".", "/", -1)
+	param.cp = strings.Replace(param.cp, ".", "/", -1)
 
 	// 加载类,通过类的全限定名去加载类
-	loadClass := classLoader.LoadClass(className)
+	loadClass := classLoader.LoadClass(param.cp)
 
 	// 获取main方法
 	mainMethod := loadClass.GetMainMethod()

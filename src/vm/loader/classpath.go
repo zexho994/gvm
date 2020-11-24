@@ -38,17 +38,16 @@ func Parse(jreOption, cpOption string) *Loader {
 func (c *Loader) parseBootAndExtLoader(jreOption string) {
 	// 查找jre目录路径
 	jreDir := getJreDir(jreOption)
-	//fmt.Printf("[gvm][parseBootAndExtLoader] jreDir : %v\n", jreDir)
 
 	// 拼接/lib/*目录 , 然后创建wildcardEntry 对象
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
-	//fmt.Printf("[gvm][parseBootAndExtLoader] jreLibDir : %v\n", jreLibPath)
+
 	// 设置应用类加载器
 	c.bootLoader = newWildcardEntry(jreLibPath)
 
 	// 拼接lib/ext/* 目录 , 然后创建wildcardEntry 对象
 	jreExtPath := filepath.Join(jreDir, "lib", "ext", "*")
-	//fmt.Printf("[gvm][parseBootAndExtLoader] jreExtDir : %v\n", jreExtPath)
+
 	// 设置扩展类加载器
 	c.extLoader = newWildcardEntry(jreExtPath)
 }
@@ -116,7 +115,6 @@ func (c Loader) ReadClass(classpath string) ([]byte, Entry, error) {
 
 	// 从className中读取 bootLoader
 	if data, entry, err := c.bootLoader.readClass(className); err == nil {
-		//fmt.Printf("[gvm][ReadClss] return bootLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 
