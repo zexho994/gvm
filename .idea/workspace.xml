@@ -26,7 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/vm/classfile/fieldInfo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vm/classfile/methodInfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/classfile/class_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/class_file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -562,7 +567,6 @@
       <path value="$PROJECT_DIR$/src/github.com/zxh0/jvm.go" />
       <path value="$PROJECT_DIR$/src/github.com/zouzhihao-994/gvm" />
     </ignored-roots>
-    <MESSAGE value="新增字符串操作" />
     <MESSAGE value="支持调用部分本地方法" />
     <MESSAGE value="update the configuration file" />
     <MESSAGE value="add ThreadService.go" />
@@ -587,7 +591,8 @@
     <MESSAGE value="rename for constant_info" />
     <MESSAGE value="[unfinished] add monitor entry &amp; exit instructions" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="classFile add the magic field" />
+    <option name="LAST_COMMIT_MESSAGE" value="classFile add the magic field" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -756,12 +761,16 @@
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1606193013243">
+    <state width="572" height="446" key="SwitcherDM" timestamp="1606194900919">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state width="881" height="540" key="SwitcherDM.inPresentationMode" timestamp="1606193341085">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="881" height="540" key="SwitcherDM.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193341085" />
     <state width="500" height="445" key="SwitcherDM/-3360.0.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597814942988" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
-    <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193013243" />
+    <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606194900919" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
     <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606140982502" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1603108737260">

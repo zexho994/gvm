@@ -13,7 +13,8 @@ type ClassFile struct {
 	// 主版本
 	majorVersion uint16
 	// 常量池
-	constantPool ConstantPool
+	constantPoolCount uint16
+	constantPool      ConstantPool
 	// 类访问标志,表示是类还是接口,public还是private等
 	accessFlags uint16
 	// 本类
@@ -23,9 +24,9 @@ type ClassFile struct {
 	// 接口
 	interfaces []uint16
 	// 字段表,用于表示接口或者类中声明的变量
-	fields []*MemberInfo
+	fields FieldInfo
 	// 方法表
-	methods []*MemberInfo
+	methods MethodInfo
 	// 属性表
 	attributes []AttributeInfo
 }
@@ -77,10 +78,10 @@ func (classFile *ClassFile) read(reader *ClassReader) {
 	classFile.interfaces = reader.readUint16s()
 
 	// 解析字段表
-	classFile.fields = readMembers(reader, classFile.constantPool)
+	classFile.fields = readFieldInfo(reader, classFile.constantPool)
 
 	// 解析方法表
-	classFile.methods = readMembers(reader, classFile.constantPool)
+	classFile.methods = readMethodInfo(reader, classFile.constantPool)
 
 	// 解析属性表
 	classFile.attributes = readAttributes(reader, classFile.constantPool)
@@ -149,11 +150,11 @@ func (classFile *ClassFile) AccessFlags() uint16 {
 	return classFile.accessFlags
 }
 
-func (classFile *ClassFile) Fields() []*MemberInfo {
+func (classFile *ClassFile) Fields() FieldInfo {
 	return classFile.fields
 }
 
-func (classFile *ClassFile) Methods() []*MemberInfo {
+func (classFile *ClassFile) Methods() MethodInfo {
 	return classFile.methods
 }
 
