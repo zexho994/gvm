@@ -37,10 +37,10 @@ func NewClassLoader(loader *loader.Loader, verboseFlag bool) *ClassLoader {
 }
 
 // 加载基础类
-func (cl *ClassLoader) loadBasicClasses() {
-	jlClassClass := cl.LoadClass("java/lang/Class")
+func (classLoader *ClassLoader) loadBasicClasses() {
+	jlClassClass := classLoader.LoadClass("java/lang/Class")
 	// 类加载到map中
-	for _, class := range cl.classMap {
+	for _, class := range classLoader.classMap {
 		if class.jClass == nil {
 			class.jClass = jlClassClass.NewObject()
 			class.jClass.extra = class
@@ -53,33 +53,32 @@ func (cl *ClassLoader) loadBasicClasses() {
 在基本类型的包装类中，例如Integer，都有一个Type字段。
 Type字段存放的就是基本类型的类
 */
-func (cl *ClassLoader) loadPrimitiveClasses() {
+func (classLoader *ClassLoader) loadPrimitiveClasses() {
 	for primitiveType, _ := range primitiveTypes {
-		cl.loadPrimitiveClass(primitiveType)
+		classLoader.loadPrimitiveClass(primitiveType)
 	}
 }
 
 /*
 生成void和基本类型类
 */
-func (cl *ClassLoader) loadPrimitiveClass(className string) {
+func (classLoader *ClassLoader) loadPrimitiveClass(className string) {
 	class := &Class{
-		accessFlags: ACC_PUBLIC, // todo
 		name:        className,
-		loader:      cl,
+		loader:      classLoader,
 		initStarted: true,
 	}
-	class.jClass = cl.classMap["java/lang/Class"].NewObject()
+	class.jClass = classLoader.classMap["java/lang/Class"].NewObject()
 	class.jClass.extra = class
-	cl.classMap[className] = class
+	classLoader.classMap[className] = class
 }
 
 /*
 在classMap中根据name查询类
 然后将将类数据加载到方法区中
 */
-func (cl *ClassLoader) LoadClass(classPath string) *Class {
-	if class, ok := cl.classMap[classPath]; ok {
+func (classLoader *ClassLoader) LoadClass(classPath string) *Class {
+	if class, ok := classLoader.classMap[classPath]; ok {
 		// already loaded
 		return class
 	}
@@ -87,12 +86,12 @@ func (cl *ClassLoader) LoadClass(classPath string) *Class {
 	var class *Class
 	// '['的为数组类型，否则为非数组（普通）类型
 	if classPath[0] == '[' {
-		class = cl.loadArrayClass(classPath)
+		class = classLoader.loadArrayClass(classPath)
 	} else {
-		class = cl.loadNonArrayClass(classPath)
+		class = classLoader.loadNonArrayClass(classPath)
 	}
 
-	if jlClassClass, ok := cl.classMap["java/lang/Class"]; ok {
+	if jlClassClass, ok := classLoader.classMap["java/lang/Class"]; ok {
 		class.jClass = jlClassClass.NewObject()
 		class.jClass.extra = class
 	}
@@ -105,19 +104,18 @@ func (cl *ClassLoader) LoadClass(classPath string) *Class {
 超类是Object类
 父接口是Cloneable和Serializable
 */
-func (cl *ClassLoader) loadArrayClass(name string) *Class {
+func (classLoader *ClassLoader) loadArrayClass(name string) *Class {
 	class := &Class{
-		accessFlags: ACC_PUBLIC, // todo
 		name:        name,
-		loader:      cl,
+		loader:      classLoader,
 		initStarted: true,
-		superClass:  cl.LoadClass("java/lang/Object"),
+		superClass:  classLoader.LoadClass("java/lang/Object"),
 		interfaces: []*Class{
-			cl.LoadClass("java/lang/Cloneable"),
-			cl.LoadClass("java/io/Serializable"),
+			classLoader.LoadClass("java/lang/Cloneable"),
+			classLoader.LoadClass("java/io/Serializable"),
 		},
 	}
-	cl.classMap[name] = class
+	classLoader.classMap[name] = class
 	return class
 }
 
@@ -125,25 +123,23 @@ func (cl *ClassLoader) loadArrayClass(name string) *Class {
 // 调用classpath的readClass方法，
 // 该方法会按顺序从bootClasspath,extClassapath，userClasspath中根据name查找class文件
 // data是class的二进制数据
-func (cl *ClassLoader) loadNonArrayClass(classPath string) *Class {
-	data, entry := cl.readClass(classPath)
+func (classLoader *ClassLoader) loadNonArrayClass(classPath string) *Class {
+	data, entry := classLoader.readClass(classPath)
 	if entry == nil {
 		panic("entry is nil")
 	}
 	// 将二进制数据解析成Class结构体
-	class := cl.defineClass(data)
+	class := classLoader.defineClass(data)
 	// 类的链接
 	link(class)
-	if cl.verboseFlag {
-	}
 	return class
 }
 
 /*
 在classpath中搜索名称为name的类
 */
-func (cl *ClassLoader) readClass(classPath string) ([]byte, loader.Entry) {
-	data, entry, err := cl.cp.ReadClass(classPath)
+func (classLoader *ClassLoader) readClass(classPath string) ([]byte, loader.Entry) {
+	data, entry, err := classLoader.cp.ReadClass(classPath)
 	if err != nil {
 		panic("java.lang.ClassNotFoundException:" + classPath)
 	}
@@ -153,18 +149,18 @@ func (cl *ClassLoader) readClass(classPath string) ([]byte, loader.Entry) {
 /*
 将二进制数据解析成Class结构体
 */
-func (cl *ClassLoader) defineClass(data []byte) *Class {
+func (classLoader *ClassLoader) defineClass(data []byte) *Class {
 	// 将类的数据转换成类结构体
 	class := parseClass(data)
 	// 设置类的加载器
 	// 所以判断一个类是否相等还需要判断类加载器是否相等
-	class.loader = cl
+	class.loader = classLoader
 	// 解析父类以及接口
 	resolveSuperClass(class)
 	resolveInterfaces(class)
 	// classMap相当于方法区
 	// key为class的全限制定名，value为class结构体
-	cl.classMap[class.name] = class
+	classLoader.classMap[class.name] = class
 	return class
 }
 
@@ -219,7 +215,6 @@ func link(class *Class) {
 验证阶段
 */
 func verify(class *Class) {
-	//fmt.Printf("[gvm][verify] 类加载-验证阶段\n")
 }
 
 /*
@@ -228,7 +223,6 @@ func verify(class *Class) {
 设置初始值是给静态变量设置初始值，非final修饰的
 */
 func prepare(class *Class) {
-	//fmt.Printf("[gvm][verify] 类加载-准备阶段\n")
 	// 计算实例字段数量
 	calcInstanceFieldSlotIds(class)
 	// 计算静态字段数量

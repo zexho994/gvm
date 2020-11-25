@@ -72,10 +72,10 @@ func createGVM(param initParam) {
 	param.cp = strings.Replace(param.cp, ".", "/", -1)
 
 	// 加载类,通过类的全限定名去加载类
-	loadClass := classLoader.LoadClass(param.cp)
+	class := classLoader.LoadClass(param.cp)
 
 	// 获取main方法
-	mainMethod := loadClass.GetMainMethod()
+	mainMethod := class.GetMainMethod()
 
 	if mainMethod != nil {
 		// 解释main方法

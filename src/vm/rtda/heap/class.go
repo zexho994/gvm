@@ -8,7 +8,7 @@ import (
 
 type Class struct {
 	// 类访问标志，public,protect,private
-	accessFlags uint16
+	classFile *classfile.ClassFile
 	// 类完全限定名
 	name string
 	// 父类完全限定名
@@ -78,7 +78,7 @@ func (class Class) StaticVars() Slots {
 }
 
 func (class Class) IsAbstract() bool {
-	return 0 != class.accessFlags&ACC_ABSTRACT
+	return 0 != class.classFile.AccessFlags()&ACC_ABSTRACT
 }
 
 /*
@@ -86,7 +86,7 @@ func (class Class) IsAbstract() bool {
 */
 func newClass(cf *classfile.ClassFile) *Class {
 	class := &Class{}
-	class.accessFlags = cf.AccessFlags()
+	class.classFile = cf
 	class.name = cf.ClassName()
 	class.superClassName = cf.SuperClassName()
 	class.interfaceNames = cf.InterfaceNames()
@@ -97,19 +97,19 @@ func newClass(cf *classfile.ClassFile) *Class {
 }
 
 func (class *Class) IsPublic() bool {
-	return 0 != class.accessFlags&ACC_PUBLIC
+	return 0 != class.classFile.AccessFlags()&ACC_PUBLIC
 }
 
 func (class *Class) IsPrivate() bool {
-	return 0 != class.accessFlags&ACC_PRIVATE
+	return 0 != class.classFile.AccessFlags()&ACC_PRIVATE
 }
 
 func (class *Class) IsProtected() bool {
-	return 0 != class.accessFlags&ACC_PROTECTED
+	return 0 != class.classFile.AccessFlags()&ACC_PROTECTED
 }
 
 func (class *Class) IsInterface() bool {
-	return 0 != class.accessFlags&ACC_INTERFACE
+	return 0 != class.classFile.AccessFlags()&ACC_INTERFACE
 }
 
 /**
@@ -184,7 +184,7 @@ func (class *Class) SuperClass() *Class {
 判断方法的ACC_SUPER是否有被标记
 */
 func (class *Class) IsSuper() bool {
-	return 0 != class.accessFlags&ACC_SUPER
+	return 0 != class.classFile.AccessFlags()&ACC_SUPER
 }
 
 func (class *Class) Name() string {
