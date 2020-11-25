@@ -5,7 +5,7 @@ package classfile
 */
 type MemberInfo struct {
 	// 常量池指针
-	cp ConstantPool
+	constantPool ConstantPool
 	// 访问类型
 	accessFlags uint16
 	// 字段名索引 -> 常量池
@@ -59,7 +59,7 @@ func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	attributesCount := reader.readUint16()
 	attributes := readAttributes(attributesCount, reader, cp)
 	return &MemberInfo{
-		cp:              cp,
+		constantPool:    cp,
 		accessFlags:     accessFlags,
 		nameIndex:       nameIndex,
 		descriptorIndex: descriptorIndex,
@@ -76,7 +76,7 @@ func (memberInfo *MemberInfo) AccessFlags() uint16 {
 获取方法或字段名称
 */
 func (memberInfo *MemberInfo) Name() string {
-	return memberInfo.cp.getUtf8(memberInfo.nameIndex)
+	return memberInfo.constantPool.getUtf8(memberInfo.nameIndex)
 
 }
 
@@ -84,7 +84,7 @@ func (memberInfo *MemberInfo) Name() string {
 获取字段或方法的描述符
 */
 func (memberInfo *MemberInfo) Descriptor() string {
-	return memberInfo.cp.getUtf8(memberInfo.descriptorIndex)
+	return memberInfo.constantPool.getUtf8(memberInfo.descriptorIndex)
 }
 
 func (memberInfo *MemberInfo) ConstantValueAttribute() *ConstantValueAttribute {

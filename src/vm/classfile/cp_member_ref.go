@@ -1,12 +1,15 @@
 package classfile
 
 type ConstantMemberRefInfo struct {
+	tag              uint8
 	cp               ConstantPool
 	classIndex       uint16
 	nameAndTypeIndex uint16
 }
 
-type ConstantFieldRefInfo struct{ ConstantMemberRefInfo }
+type ConstantFieldRefInfo struct {
+	ConstantMemberRefInfo
+}
 
 type ConstantMethodRefInfo struct{ ConstantMemberRefInfo }
 

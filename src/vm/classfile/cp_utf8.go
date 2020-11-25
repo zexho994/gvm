@@ -5,6 +5,7 @@ package classfile
 索引对应的数据用本utf8结构显示
 */
 type ConstantUtf8Info struct {
+	tag uint8
 	str string
 }
 

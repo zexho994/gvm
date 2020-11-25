@@ -4,20 +4,26 @@ import "math"
 
 // 常量池中的整数类型
 type ConstantIntegerInfo struct {
+	tag uint8
 	val int32
 }
 
 // 常量池中的浮点数类型
 type ConstantFloatInfo struct {
+	tag uint8
 	val float32
 }
 
 // 常量池中的长整形类型
 type ConstantLongInfo struct {
+	tag uint8
 	val int64
 }
 
-type ConstantDoubleInfo struct{ val float64 }
+type ConstantDoubleInfo struct {
+	tag uint8
+	val float64
+}
 
 func (constantDoubleInfo *ConstantDoubleInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint64()

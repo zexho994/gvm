@@ -1,6 +1,7 @@
 package classfile
 
 type ConstantNameAndTypeInfo struct {
+	tag             uint8
 	nameIndex       uint16
 	descriptorIndex uint16
 }

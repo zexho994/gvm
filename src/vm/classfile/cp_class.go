@@ -4,6 +4,7 @@ package classfile
 常量池中类信息结构
 */
 type ConstantClassInfo struct {
+	tag uint8
 	// 指向常量池的指针
 	cp ConstantPool
 	// 下标

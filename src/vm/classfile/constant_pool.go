@@ -74,39 +74,38 @@ func (constantPool ConstantPool) getUtf8(index uint16) string {
 }
 
 /*
-构造函数
-根据tag创建常量信息
+根据tag类型创建匹配的结构
 */
 func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 	switch tag {
 	case ConstantInteger:
-		return &ConstantIntegerInfo{}
+		return &ConstantIntegerInfo{tag: tag}
 	case ConstantFloat:
-		return &ConstantFloatInfo{}
+		return &ConstantFloatInfo{tag: tag}
 	case ConstantLong:
-		return &ConstantLongInfo{}
+		return &ConstantLongInfo{tag: tag}
 	case ConstantDouble:
-		return &ConstantDoubleInfo{}
+		return &ConstantDoubleInfo{tag: tag}
 	case ConstantUtf8:
-		return &ConstantUtf8Info{}
+		return &ConstantUtf8Info{tag: tag}
 	case ConstantString:
-		return &ConstantStringInfo{cp: cp}
+		return &ConstantStringInfo{tag: tag, cp: cp}
 	case ConstantClass:
-		return &ConstantClassInfo{cp: cp}
+		return &ConstantClassInfo{tag: tag, cp: cp}
 	case ConstantFieldRef:
-		return &ConstantFieldRefInfo{ConstantMemberRefInfo{cp: cp}}
+		return &ConstantFieldRefInfo{ConstantMemberRefInfo{tag: tag, cp: cp}}
 	case ConstantMethodRef:
-		return &ConstantMethodRefInfo{ConstantMemberRefInfo{cp: cp}}
+		return &ConstantMethodRefInfo{ConstantMemberRefInfo{tag: tag, cp: cp}}
 	case ConstantInterfaceMethodRef:
-		return &ConstantInterfaceMethodRefInfo{ConstantMemberRefInfo{cp: cp}}
+		return &ConstantInterfaceMethodRefInfo{ConstantMemberRefInfo{tag: tag, cp: cp}}
 	case ConstantNameAndType:
-		return &ConstantNameAndTypeInfo{}
+		return &ConstantNameAndTypeInfo{tag: tag}
 	case ConstantMethodType:
-		return &ConstantMethodTypeInfo{}
+		return &ConstantMethodTypeInfo{tag: tag}
 	case ConstantMethodHandle:
-		return &ConstantMethodHandleInfo{}
+		return &ConstantMethodHandleInfo{tag: tag}
 	case ConstantInvokeDynamic:
-		return &ConstantInvokeDynamicInfo{}
+		return &ConstantInvokeDynamicInfo{tag: tag}
 	default:
 		panic("java.lang.ClassFormatError: constant pool tag!")
 	}

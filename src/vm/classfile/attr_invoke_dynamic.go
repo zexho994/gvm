@@ -8,6 +8,7 @@ CONSTANT_InvokeDynamic_info {
 }
 */
 type ConstantInvokeDynamicInfo struct {
+	tag                      uint8
 	BootstrapMethodAttrIndex uint16
 	NameAndTypeIndex         uint16
 }
@@ -32,6 +33,7 @@ CONSTANT_MethodHandle_info {
 }
 */
 type ConstantMethodHandleInfo struct {
+	tag            uint8
 	ReferenceKind  uint8
 	ReferenceIndex uint16
 }
@@ -55,6 +57,7 @@ CONSTANT_MethodType_info {
 }
 */
 type ConstantMethodTypeInfo struct {
+	tag             uint8
 	DescriptorIndex uint16
 }
 
