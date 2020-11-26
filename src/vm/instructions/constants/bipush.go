@@ -4,7 +4,7 @@ package constants
 //
 //import (
 //	"../../instructions/base"
-//	"../../rtda"
+//	"../../runtime"
 //)
 //
 //// Push byte
@@ -15,7 +15,7 @@ package constants
 //func (instr *BIPush) FetchOperands(reader *base.CodeReader) {
 //	instr.Val = int32(reader.ReadInt8())
 //}
-//func (instr *BIPush) Execute(frame *rtda.Frame) {
+//func (instr *BIPush) Execute(frame *runtime.Frame) {
 //	frame.PushInt(instr.Val)
 //}
 //
@@ -27,7 +27,7 @@ package constants
 //func (instr *SIPush) FetchOperands(reader *base.CodeReader) {
 //	instr.Val = int32(reader.ReadInt16())
 //}
-//func (instr *SIPush) Execute(frame *rtda.Frame) {
+//func (instr *SIPush) Execute(frame *runtime.Frame) {
 //	frame.PushInt(instr.Val)
 //}
 //

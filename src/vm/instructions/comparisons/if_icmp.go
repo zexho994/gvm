@@ -3,7 +3,7 @@ package comparisons
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type IF_ICMPEQ struct{ base.BranchInstruction }
@@ -21,7 +21,7 @@ type IF_ICMPGE struct{ base.BranchInstruction }
 /*
 去除两个数，如果两者不想等就跳转
 */
-func (self *IF_ICMPNE) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPNE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
@@ -30,7 +30,7 @@ func (self *IF_ICMPNE) Execute(frame *rtda.Frame) {
 	}
 }
 
-func (self *IF_ICMPEQ) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPEQ) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
@@ -39,7 +39,7 @@ func (self *IF_ICMPEQ) Execute(frame *rtda.Frame) {
 	}
 }
 
-func (self *IF_ICMPGE) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPGE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
@@ -48,7 +48,7 @@ func (self *IF_ICMPGE) Execute(frame *rtda.Frame) {
 	}
 }
 
-func (self *IF_ICMPGT) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPGT) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
@@ -58,7 +58,7 @@ func (self *IF_ICMPGT) Execute(frame *rtda.Frame) {
 	}
 }
 
-func (self *IF_ICMPLT) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPLT) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()
@@ -67,7 +67,7 @@ func (self *IF_ICMPLT) Execute(frame *rtda.Frame) {
 	}
 }
 
-func (self *IF_ICMPLE) Execute(frame *rtda.Frame) {
+func (self *IF_ICMPLE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val2 := stack.PopInt()
 	val1 := stack.PopInt()

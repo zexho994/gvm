@@ -1,4 +1,4 @@
-package heap
+package oops
 
 func (self *Object) Bytes() []int8 {
 	return self.data.([]int8)

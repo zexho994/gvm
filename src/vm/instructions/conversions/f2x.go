@@ -1,7 +1,7 @@
 package conversions
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 /*
 double to float
@@ -18,21 +18,21 @@ double to long
 */
 type F2L struct{ base.NoOperandsInstruction }
 
-func (self *F2I) Execute(frame *rtda.Frame) {
+func (self *F2I) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopFloat()
 	i := int32(d)
 	stack.PushInt(i)
 }
 
-func (self *F2L) Execute(frame *rtda.Frame) {
+func (self *F2L) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopFloat()
 	i := int64(d)
 	stack.PushLong(i)
 }
 
-func (self *F2D) Execute(frame *rtda.Frame) {
+func (self *F2D) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopFloat()
 	i := float32(d)

@@ -1,4 +1,4 @@
-package heap
+package oops
 
 import "github.com/zouzhihao-994/gvm/src/vm/classfile"
 

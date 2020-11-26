@@ -2,8 +2,8 @@ package lang
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/native"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 const jlString = "java/lang/String"
@@ -14,8 +14,8 @@ func init() {
 
 // public native String intern();
 // ()Ljava/lang/String;
-func intern(frame *rtda.Frame) {
+func intern(frame *runtime.Frame) {
 	this := frame.LocalVars().GetThis()
-	interned := heap.InternString(this)
+	interned := oops.InternString(this)
 	frame.OperandStack().PushRef(interned)
 }

@@ -1,8 +1,8 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 // Create new array of reference
 // 引用类型数组需要两个操作数
@@ -10,10 +10,10 @@ import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
 // 第二个操作数是数组长度
 type ANEW_ARRAY struct{ base.Index16Instruction }
 
-func (self *ANEW_ARRAY) Execute(frame *rtda.Frame) {
+func (self *ANEW_ARRAY) Execute(frame *runtime.Frame) {
 	cp := frame.Method().Class().ConstantPool()
 	// 根据第一个操作数在常量池中获取类的符号引用
-	classRef := cp.GetConstant(self.Index).(*heap.ClassRef)
+	classRef := cp.GetConstant(self.Index).(*oops.ClassRef)
 	componentClass := classRef.ResolvedClass()
 
 	stack := frame.OperandStack()

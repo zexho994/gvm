@@ -1,7 +1,7 @@
 package stack
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 /*
 弹出一个操作数栈位大小
@@ -19,7 +19,7 @@ type POP2 struct {
 	base.NoOperandsInstruction
 }
 
-func (self *POP) Execute(frame *rtda.Frame) {
+func (self *POP) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	stack.PopSlot()
 }

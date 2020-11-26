@@ -2,7 +2,7 @@ package math
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type IINC struct {
@@ -18,7 +18,7 @@ func (self *IINC) FetchOperands(reader *base.BytecodeReader) {
 	self.Const = int32(reader.ReadInt8())
 }
 
-func (self *IINC) Execute(frame *rtda.Frame) {
+func (self *IINC) Execute(frame *runtime.Frame) {
 	localVars := frame.LocalVars()
 	val := localVars.GetInt(self.Index)
 	val += self.Const

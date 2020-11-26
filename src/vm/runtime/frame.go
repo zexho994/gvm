@@ -1,6 +1,6 @@
-package rtda
+package runtime
 
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 type Frame struct {
 	// like the LinkedList's next point
@@ -8,7 +8,7 @@ type Frame struct {
 	// Save the pointer of the local variable table corresponding to the stack frame
 	localVars    *LocalVars
 	operandStack *OperandStack
-	method       *heap.Method
+	method       *oops.Method
 	// 栈桢结构里
 	thread *Thread
 	// 下一个指令
@@ -19,7 +19,7 @@ type Frame struct {
 The value of maxLocals and maxStack can be calculated at compile time
 can see the classfile.method_info's Code Attribute
 */
-func newFrame(thread *Thread, method *heap.Method) *Frame {
+func newFrame(thread *Thread, method *oops.Method) *Frame {
 	return &Frame{
 		thread:       thread,
 		method:       method,
@@ -29,7 +29,7 @@ func newFrame(thread *Thread, method *heap.Method) *Frame {
 
 }
 
-func (frame Frame) Method() *heap.Method {
+func (frame Frame) Method() *oops.Method {
 	return frame.method
 }
 

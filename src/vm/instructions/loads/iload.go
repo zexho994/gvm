@@ -1,7 +1,7 @@
 package loads
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 type ILOAD struct {
 	base.Index8Instruction
@@ -26,7 +26,7 @@ type ILOAD_3 struct {
 /*
 according index to load a var from frame.localVars
 */
-func _iload(frame *rtda.Frame, index uint) {
+func _iload(frame *runtime.Frame, index uint) {
 	val := frame.LocalVars().GetInt(index)
 	frame.OperandStack().PushInt(val)
 }
@@ -35,7 +35,7 @@ func _iload(frame *rtda.Frame, index uint) {
 execute ILOAD
 the index is stored inside the instrution
 */
-func (self *ILOAD) Execute(frame *rtda.Frame) {
+func (self *ILOAD) Execute(frame *runtime.Frame) {
 	_iload(frame, self.Index)
 }
 
@@ -43,21 +43,21 @@ func (self *ILOAD) Execute(frame *rtda.Frame) {
 execute ILOAD_0
 the index is zero
 */
-func (self *ILOAD_0) Execute(frame *rtda.Frame) {
+func (self *ILOAD_0) Execute(frame *runtime.Frame) {
 	_iload(frame, 0)
 }
 
 /*
 see ILOAD_0's Execute
 */
-func (self *ILOAD_1) Execute(frame *rtda.Frame) {
+func (self *ILOAD_1) Execute(frame *runtime.Frame) {
 	_iload(frame, 1)
 }
 
-func (self *ILOAD_2) Execute(frame *rtda.Frame) {
+func (self *ILOAD_2) Execute(frame *runtime.Frame) {
 	_iload(frame, 2)
 }
 
-func (self *ILOAD_3) Execute(frame *rtda.Frame) {
+func (self *ILOAD_3) Execute(frame *runtime.Frame) {
 	_iload(frame, 3)
 }

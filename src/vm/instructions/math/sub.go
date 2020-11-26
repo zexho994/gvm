@@ -2,7 +2,7 @@ package math
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type ISUB struct {
@@ -21,7 +21,7 @@ type FSUB struct {
 	base.NoOperandsInstruction
 }
 
-func (self *ISUB) Execute(frame *rtda.Frame) {
+func (self *ISUB) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -29,7 +29,7 @@ func (self *ISUB) Execute(frame *rtda.Frame) {
 	stack.PushInt(subResult)
 }
 
-func (self *LSUB) Execute(frame *rtda.Frame) {
+func (self *LSUB) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()
@@ -37,7 +37,7 @@ func (self *LSUB) Execute(frame *rtda.Frame) {
 	stack.PushLong(subResule)
 }
 
-func (self *DSUB) Execute(frame *rtda.Frame) {
+func (self *DSUB) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	v2 := stack.PopDouble()
@@ -45,7 +45,7 @@ func (self *DSUB) Execute(frame *rtda.Frame) {
 	stack.PushDouble(subResult)
 }
 
-func (self *FSUB) Execute(frame *rtda.Frame) {
+func (self *FSUB) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	v2 := stack.PopFloat()

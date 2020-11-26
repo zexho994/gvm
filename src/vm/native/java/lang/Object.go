@@ -2,7 +2,7 @@ package lang
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/native"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 	"unsafe"
 )
 
@@ -16,7 +16,7 @@ func init() {
 
 // public final native Class<?> getClass();
 // ()Ljava/lang/Class;
-func getClass(frame *rtda.Frame) {
+func getClass(frame *runtime.Frame) {
 	this := frame.LocalVars().GetThis()
 	class := this.Class().JClass()
 	frame.OperandStack().PushRef(class)
@@ -24,7 +24,7 @@ func getClass(frame *rtda.Frame) {
 
 // public native int hashCode();
 // ()I
-func hashCode(frame *rtda.Frame) {
+func hashCode(frame *runtime.Frame) {
 	this := frame.LocalVars().GetThis()
 	hash := int32(uintptr(unsafe.Pointer(this)))
 	frame.OperandStack().PushInt(hash)
@@ -32,7 +32,7 @@ func hashCode(frame *rtda.Frame) {
 
 // protected native Object clone() throws CloneNotSupportedException;
 // ()Ljava/lang/Object;
-//func clone(frame *rtda.Frame) {
+//func clone(frame *runtime.Frame) {
 //	this := frame.LocalVars().GetThis()
 //
 //	cloneable := this.Class().Loader().LoadClass("java/lang/Cloneable")

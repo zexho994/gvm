@@ -2,7 +2,7 @@ package control
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type LOOKUP_SWITCH struct {
@@ -20,7 +20,7 @@ func (self *LOOKUP_SWITCH) FetchOperands(reader *base.BytecodeReader) {
 	self.matchOffsets = reader.ReadInt32s(self.npairs * 2)
 }
 
-func (self *LOOKUP_SWITCH) Execute(frame *rtda.Frame) {
+func (self *LOOKUP_SWITCH) Execute(frame *runtime.Frame) {
 	key := frame.OperandStack().PopInt()
 	for i := int32(0); i < self.npairs*2; i += 2 {
 		if self.matchOffsets[i] == key {

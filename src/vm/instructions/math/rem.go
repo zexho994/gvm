@@ -4,7 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 	"math"
 )
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 /*
 REM为求余指令
@@ -31,7 +31,7 @@ type LREM struct {
 所以先出栈的数（val_2）在数学层面不能为零
 最后结果result压入栈中
 */
-func (self *IREM) Execute(frame *rtda.Frame) {
+func (self *IREM) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -42,7 +42,7 @@ func (self *IREM) Execute(frame *rtda.Frame) {
 	stack.PushInt(result)
 }
 
-func (self *DREM) Execute(frame *rtda.Frame) {
+func (self *DREM) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	v2 := stack.PopDouble()
@@ -54,7 +54,7 @@ func (self *DREM) Execute(frame *rtda.Frame) {
 	stack.PushDouble(result)
 }
 
-func (self *FREM) Execute(frame *rtda.Frame) {
+func (self *FREM) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	v2 := stack.PopFloat()
@@ -65,7 +65,7 @@ func (self *FREM) Execute(frame *rtda.Frame) {
 	stack.PushFloat(float32(result))
 }
 
-func (self *LREM) Execute(frame *rtda.Frame) {
+func (self *LREM) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()

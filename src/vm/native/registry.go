@@ -1,15 +1,15 @@
 package native
 
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 /*
 本地方法
 */
-type NativeMethod func(frame *rtda.Frame)
+type NativeMethod func(frame *runtime.Frame)
 
 var registry = map[string]NativeMethod{}
 
-func emptyNativeMethod(frame *rtda.Frame) {
+func emptyNativeMethod(frame *runtime.Frame) {
 	// do nothing
 }
 

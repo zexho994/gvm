@@ -1,7 +1,7 @@
-package rtda
+package runtime
 
 import (
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
 	"math"
 )
 
@@ -65,11 +65,11 @@ func (localVars LocalVars) GetDouble(index uint) float64 {
 	return math.Float64frombits(bits)
 }
 
-func (localVars LocalVars) SetRef(index uint, ref *heap.Object) {
+func (localVars LocalVars) SetRef(index uint, ref *oops.Object) {
 	localVars.slots[index].ref = ref
 }
 
-func (localVars LocalVars) GetRef(index uint) *heap.Object {
+func (localVars LocalVars) GetRef(index uint) *oops.Object {
 	return localVars.slots[index].ref
 }
 
@@ -77,6 +77,6 @@ func (localVars LocalVars) SetSlot(index uint, slot Slot) {
 	localVars.slots[index] = slot
 }
 
-func (localVars LocalVars) GetThis() *heap.Object {
+func (localVars LocalVars) GetThis() *oops.Object {
 	return localVars.GetRef(0)
 }

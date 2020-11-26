@@ -1,12 +1,12 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Check whether object is of given type
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops" // Check whether object is of given type
 
 type CHECK_CAST struct{ base.Index16Instruction }
 
-func (self *CHECK_CAST) Execute(frame *rtda.Frame) {
+func (self *CHECK_CAST) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	ref := stack.PopRef()
 	stack.PushRef(ref)
@@ -16,7 +16,7 @@ func (self *CHECK_CAST) Execute(frame *rtda.Frame) {
 
 	cp := frame.Method().Class().ConstantPool()
 
-	classRef := cp.GetConstant(self.Index).(*heap.ClassRef)
+	classRef := cp.GetConstant(self.Index).(*oops.ClassRef)
 
 	class := classRef.ResolvedClass()
 

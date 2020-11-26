@@ -1,14 +1,14 @@
 package loads
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 // Load reference from array
 // 按索引从数组中获取元素，存储到操作数栈中
 type AALOAD struct{ base.NoOperandsInstruction }
 
-func (self *AALOAD) Execute(frame *rtda.Frame) {
+func (self *AALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	// 数组的index
 	index := stack.PopInt()
@@ -26,7 +26,7 @@ func (self *AALOAD) Execute(frame *rtda.Frame) {
 // Load byte or boolean from array
 type BALOAD struct{ base.NoOperandsInstruction }
 
-func (self *BALOAD) Execute(frame *rtda.Frame) {
+func (self *BALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -40,7 +40,7 @@ func (self *BALOAD) Execute(frame *rtda.Frame) {
 // Load char from array
 type CALOAD struct{ base.NoOperandsInstruction }
 
-func (self *CALOAD) Execute(frame *rtda.Frame) {
+func (self *CALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -54,7 +54,7 @@ func (self *CALOAD) Execute(frame *rtda.Frame) {
 // Load double from array
 type DALOAD struct{ base.NoOperandsInstruction }
 
-func (self *DALOAD) Execute(frame *rtda.Frame) {
+func (self *DALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -68,7 +68,7 @@ func (self *DALOAD) Execute(frame *rtda.Frame) {
 // Load float from array
 type FALOAD struct{ base.NoOperandsInstruction }
 
-func (self *FALOAD) Execute(frame *rtda.Frame) {
+func (self *FALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -82,7 +82,7 @@ func (self *FALOAD) Execute(frame *rtda.Frame) {
 // Load int from array
 type IALOAD struct{ base.NoOperandsInstruction }
 
-func (self *IALOAD) Execute(frame *rtda.Frame) {
+func (self *IALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -96,7 +96,7 @@ func (self *IALOAD) Execute(frame *rtda.Frame) {
 // Load long from array
 type LALOAD struct{ base.NoOperandsInstruction }
 
-func (self *LALOAD) Execute(frame *rtda.Frame) {
+func (self *LALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -110,7 +110,7 @@ func (self *LALOAD) Execute(frame *rtda.Frame) {
 // Load short from array
 type SALOAD struct{ base.NoOperandsInstruction }
 
-func (self *SALOAD) Execute(frame *rtda.Frame) {
+func (self *SALOAD) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	index := stack.PopInt()
 	arrRef := stack.PopRef()
@@ -121,7 +121,7 @@ func (self *SALOAD) Execute(frame *rtda.Frame) {
 	stack.PushInt(int32(shorts[index]))
 }
 
-func checkNotNil(ref *heap.Object) {
+func checkNotNil(ref *oops.Object) {
 	if ref == nil {
 		panic("java.lang.NullPointerException")
 	}

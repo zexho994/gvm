@@ -1,6 +1,6 @@
-package rtda
+package runtime
 
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 /*
 线程
@@ -55,7 +55,7 @@ func (thread *Thread) CurrentFrame() *Frame {
 	return thread.stack.top()
 }
 
-func (thread *Thread) NewFrame(method *heap.Method) *Frame {
+func (thread *Thread) NewFrame(method *oops.Method) *Frame {
 	return newFrame(thread, method)
 }
 

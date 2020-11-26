@@ -1,8 +1,8 @@
 package base
 
 import (
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -10,7 +10,7 @@ import (
 对于静态方法，方法参数就是声明的几个参数
 对于事例方法，处理声明的参数，还有一个编译器添加的参数this
 */
-func InvokeMethod(invokerFrame *rtda.Frame, method *heap.Method) {
+func InvokeMethod(invokerFrame *runtime.Frame, method *oops.Method) {
 	// 获取调用栈帧的线程
 	thread := invokerFrame.Thread()
 	// 创建栈帧

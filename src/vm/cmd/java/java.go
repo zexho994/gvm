@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/info"
 	"github.com/zouzhihao-994/gvm/src/vm/cmd"
 	"github.com/zouzhihao-994/gvm/src/vm/loader"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
 	"strings"
 )
 
@@ -38,7 +38,7 @@ func startJvm(c *cmd.Cmd) {
 
 	// 类加载器加载类
 	// 此时cp里的3个类加载器都已经创建好了
-	classLoader := heap.NewClassLoader(cp, true)
+	classLoader := oops.NewClassLoader(cp, true)
 
 	name := "java/src/" + c.Class
 

@@ -1,7 +1,7 @@
 package control
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 type RETURN struct{ base.NoOperandsInstruction } // Return void from method
 
@@ -18,12 +18,12 @@ type LRETURN struct{ base.NoOperandsInstruction } // Return long from method
 /*
 void返回类型的，直接返回顶部栈帧
 */
-func (self *RETURN) Execute(frame *rtda.Frame) { frame.Thread().PopFrame() }
+func (self *RETURN) Execute(frame *runtime.Frame) { frame.Thread().PopFrame() }
 
 /*
 int返回类型的，弹出当前栈帧的栈顶元素，push到最新的栈顶栈帧中（即调用方）
 */
-func (self *IRETURN) Execute(frame *rtda.Frame) {
+func (self *IRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.PopFrame()
 	invokerFrame := thread.TopFrame()
@@ -31,7 +31,7 @@ func (self *IRETURN) Execute(frame *rtda.Frame) {
 	invokerFrame.OperandStack().PushInt(retVal)
 }
 
-func (self *DRETURN) Execute(frame *rtda.Frame) {
+func (self *DRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.PopFrame()
 	invokerFrame := thread.TopFrame()
@@ -39,7 +39,7 @@ func (self *DRETURN) Execute(frame *rtda.Frame) {
 	invokerFrame.OperandStack().PushDouble(retVal)
 }
 
-func (self *ARETURN) Execute(frame *rtda.Frame) {
+func (self *ARETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.PopFrame()
 	invokerFrame := thread.TopFrame()
@@ -47,7 +47,7 @@ func (self *ARETURN) Execute(frame *rtda.Frame) {
 	invokerFrame.OperandStack().PushRef(retVal)
 }
 
-func (self *LRETURN) Execute(frame *rtda.Frame) {
+func (self *LRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.PopFrame()
 	invokerFrame := thread.TopFrame()
@@ -55,7 +55,7 @@ func (self *LRETURN) Execute(frame *rtda.Frame) {
 	invokerFrame.OperandStack().PushLong(retVal)
 }
 
-func (self *FRETURN) Execute(frame *rtda.Frame) {
+func (self *FRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.PopFrame()
 	invokerFrame := thread.TopFrame()

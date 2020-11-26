@@ -3,20 +3,20 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 )
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 /*
 用于调用构造函数
 */
 type INVOKE_SPECIAL struct{ base.Index16Instruction }
 
-func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
+func (self *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	// 拿到当前类的类，常量池，方法符号引用
 	//fmt.Println("[gvm][invokespecial.Execute] 获取类，常量池，方法引用")
 	currentClass := frame.Method().Class()
 	cp := currentClass.ConstantPool()
-	methodRef := cp.GetConstant(self.Index).(*heap.MethodRef)
+	methodRef := cp.GetConstant(self.Index).(*oops.MethodRef)
 
 	// 解析类和方法
 	//fmt.Println("[gvm][invokespecial.Execute] 解析类和方法")
@@ -56,7 +56,7 @@ func (self *INVOKE_SPECIAL) Execute(frame *rtda.Frame) {
 		resolvedClass.IsSuperClassOf(currentClass) &&
 		resolvedMethod.Name() != "<init>" {
 		//fmt.Println("[gvm][invokespecial.Execute] 执行LookupMethodInClass")
-		methodToBeInvoked = heap.LookupMethodInClass(
+		methodToBeInvoked = oops.LookupMethodInClass(
 			currentClass.SuperClass(),
 			methodRef.Name(),
 			methodRef.Descriptor(),

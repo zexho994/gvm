@@ -2,7 +2,7 @@ package lang
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/native"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 	"math"
 )
 
@@ -15,7 +15,7 @@ func init() {
 
 // public static native long doubleToRawLongBits(double value);
 // (D)J
-func doubleToRawLongBits(frame *rtda.Frame) {
+func doubleToRawLongBits(frame *runtime.Frame) {
 	value := frame.LocalVars().GetDouble(0)
 	bits := math.Float64bits(value) // todo
 	frame.OperandStack().PushLong(int64(bits))
@@ -23,7 +23,7 @@ func doubleToRawLongBits(frame *rtda.Frame) {
 
 // public static native double longBitsToDouble(long bits);
 // (J)D
-func longBitsToDouble(frame *rtda.Frame) {
+func longBitsToDouble(frame *runtime.Frame) {
 	bits := frame.LocalVars().GetLong(0)
 	value := math.Float64frombits(uint64(bits)) // todo
 	frame.OperandStack().PushDouble(value)

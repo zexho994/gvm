@@ -2,8 +2,8 @@ package lang
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/native"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 const jlSystem = "java/lang/System"
@@ -14,7 +14,7 @@ func init() {
 
 // public static native void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
 // (Ljava/lang/Object;ILjava/lang/Object;II)V
-func arraycopy(frame *rtda.Frame) {
+func arraycopy(frame *runtime.Frame) {
 	vars := frame.LocalVars()
 	src := vars.GetRef(0)
 	srcPos := vars.GetInt(1)
@@ -34,10 +34,10 @@ func arraycopy(frame *rtda.Frame) {
 		panic("java.lang.IndexOutOfBoundsException")
 	}
 
-	heap.ArrayCopy(src, dest, srcPos, destPos, length)
+	oops.ArrayCopy(src, dest, srcPos, destPos, length)
 }
 
-func checkArrayCopy(src, dest *heap.Object) bool {
+func checkArrayCopy(src, dest *oops.Object) bool {
 	srcClass := src.Class()
 	destClass := dest.Class()
 

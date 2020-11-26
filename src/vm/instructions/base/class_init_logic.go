@@ -1,14 +1,14 @@
 package base
 
 import (
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
 初始化类
 */
-func InitClass(thread *rtda.Thread, class *heap.Class) {
+func InitClass(thread *runtime.Thread, class *oops.Class) {
 	// 标志已初始化
 	class.StartInit()
 	// 准备开始初始化
@@ -21,7 +21,7 @@ func InitClass(thread *rtda.Thread, class *heap.Class) {
 /*
 准备初始化
 */
-func scheduleClinit(thread *rtda.Thread, class *heap.Class) {
+func scheduleClinit(thread *runtime.Thread, class *oops.Class) {
 	// 获取<client>方法
 	clinit := class.GetClinitMethod()
 	if clinit != nil {
@@ -34,7 +34,7 @@ func scheduleClinit(thread *rtda.Thread, class *heap.Class) {
 /*
 如果存在父类，而且父类还未初始化过，先执行父类的初始化
 */
-func initSuperClass(thread *rtda.Thread, class *heap.Class) {
+func initSuperClass(thread *runtime.Thread, class *oops.Class) {
 	if !class.IsInterface() {
 		superClass := class.SuperClass()
 		if superClass != nil && !superClass.InitStarted() {

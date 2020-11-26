@@ -1,14 +1,14 @@
 package stores
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 // Store into reference array
 // 从操作数栈中获取元素存储到数组中
 type AASTORE struct{ base.NoOperandsInstruction }
 
-func (self *AASTORE) Execute(frame *rtda.Frame) {
+func (self *AASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	// 获取元素引用
 	ref := stack.PopRef()
@@ -27,7 +27,7 @@ func (self *AASTORE) Execute(frame *rtda.Frame) {
 // Store into byte or boolean array
 type BASTORE struct{ base.NoOperandsInstruction }
 
-func (self *BASTORE) Execute(frame *rtda.Frame) {
+func (self *BASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopInt()
 	index := stack.PopInt()
@@ -42,7 +42,7 @@ func (self *BASTORE) Execute(frame *rtda.Frame) {
 // Store into char array
 type CASTORE struct{ base.NoOperandsInstruction }
 
-func (self *CASTORE) Execute(frame *rtda.Frame) {
+func (self *CASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopInt()
 	index := stack.PopInt()
@@ -57,7 +57,7 @@ func (self *CASTORE) Execute(frame *rtda.Frame) {
 // Store into double array
 type DASTORE struct{ base.NoOperandsInstruction }
 
-func (self *DASTORE) Execute(frame *rtda.Frame) {
+func (self *DASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopDouble()
 	index := stack.PopInt()
@@ -72,7 +72,7 @@ func (self *DASTORE) Execute(frame *rtda.Frame) {
 // Store into float array
 type FASTORE struct{ base.NoOperandsInstruction }
 
-func (self *FASTORE) Execute(frame *rtda.Frame) {
+func (self *FASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopFloat()
 	index := stack.PopInt()
@@ -87,7 +87,7 @@ func (self *FASTORE) Execute(frame *rtda.Frame) {
 // Store into int array
 type IASTORE struct{ base.NoOperandsInstruction }
 
-func (self *IASTORE) Execute(frame *rtda.Frame) {
+func (self *IASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopInt()
 	index := stack.PopInt()
@@ -102,7 +102,7 @@ func (self *IASTORE) Execute(frame *rtda.Frame) {
 // Store into long array
 type LASTORE struct{ base.NoOperandsInstruction }
 
-func (self *LASTORE) Execute(frame *rtda.Frame) {
+func (self *LASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopLong()
 	index := stack.PopInt()
@@ -117,7 +117,7 @@ func (self *LASTORE) Execute(frame *rtda.Frame) {
 // Store into short array
 type SASTORE struct{ base.NoOperandsInstruction }
 
-func (self *SASTORE) Execute(frame *rtda.Frame) {
+func (self *SASTORE) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	val := stack.PopInt()
 	index := stack.PopInt()
@@ -129,7 +129,7 @@ func (self *SASTORE) Execute(frame *rtda.Frame) {
 	shorts[index] = int16(val)
 }
 
-func checkNotNil(ref *heap.Object) {
+func checkNotNil(ref *oops.Object) {
 	if ref == nil {
 		panic("java.lang.NullPointerException")
 	}

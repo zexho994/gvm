@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -14,12 +14,12 @@ type INVOKE_STATIC struct{ base.Index16Instruction }
 /*
 
  */
-func (self *INVOKE_STATIC) Execute(frame *rtda.Frame) {
+func (self *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	//fmt.Println("[gvm][invokestatic.Execute] 执行invokestatic命令")
 	// 运行时常量池
 	cp := frame.Method().Class().ConstantPool()
 	// 获取方法符号引用
-	methodRef := cp.GetConstant(self.Index).(*heap.MethodRef)
+	methodRef := cp.GetConstant(self.Index).(*oops.MethodRef)
 	// 解析符号引用 -> 获取方法结构体
 	resolvedMethod := methodRef.ResolvedMethod()
 	// 不是静态方法则发生异常

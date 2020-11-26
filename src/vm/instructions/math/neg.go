@@ -2,7 +2,7 @@ package math
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type INEG struct {
@@ -21,28 +21,28 @@ type DNEG struct {
 	base.NoOperandsInstruction
 }
 
-func (self FNEG) Execute(frame rtda.Frame) {
+func (self FNEG) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	n := -v1
 	stack.PushFloat(n)
 }
 
-func (self INEG) Execute(frame rtda.Frame) {
+func (self INEG) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	n := -v1
 	stack.PushInt(n)
 }
 
-func (self DNEG) Execute(frame rtda.Frame) {
+func (self DNEG) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	n := -v1
 	stack.PushDouble(n)
 }
 
-func (self LNEG) Execute(frame rtda.Frame) {
+func (self LNEG) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	n := -v1

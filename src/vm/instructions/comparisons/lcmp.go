@@ -2,7 +2,7 @@ package comparisons
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -12,7 +12,7 @@ type LCMP struct {
 	base.NoOperandsInstruction
 }
 
-func (self *LCMP) Execute(frame *rtda.Frame) {
+func (self *LCMP) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v2 := stack.PopLong()
 	v1 := stack.PopLong()

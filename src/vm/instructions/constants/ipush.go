@@ -1,7 +1,7 @@
 package constants
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 type BIPUSH struct{ val int8 } // Push byte
 
@@ -24,7 +24,7 @@ func (self *SIPUSH) FetchOperands(reader *base.BytecodeReader) {
 /*
 将读取到的byte转化成int后推入到栈顶
 */
-func (self BIPUSH) Execute(frame *rtda.Frame) {
+func (self BIPUSH) Execute(frame *runtime.Frame) {
 	i := int32(self.val)
 	frame.OperandStack().PushInt(i)
 }
@@ -32,7 +32,7 @@ func (self BIPUSH) Execute(frame *rtda.Frame) {
 /*
 将读取到的short转化成int后推入到栈顶
 */
-func (self SIPUSH) Execute(frame *rtda.Frame) {
+func (self SIPUSH) Execute(frame *runtime.Frame) {
 	i := int32(self.val)
 	frame.OperandStack().PushInt(i)
 }

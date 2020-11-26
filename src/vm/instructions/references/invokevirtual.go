@@ -3,8 +3,8 @@ package references
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 // Invoke instance method; dispatch based on class
@@ -17,14 +17,14 @@ type INVOKE_VIRTUAL struct{ base.Index16Instruction }
 /*
 
  */
-func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
+func (self *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	//fmt.Println("[gvm][invokevirtual.Execute] 执行invokevirtual命令")
 	// 获取类
 	currentClass := frame.Method().Class()
 	// 获取常量池
 	cp := currentClass.ConstantPool()
 	// 获取方法符号引用
-	methodRef := cp.GetConstant(self.Index).(*heap.MethodRef)
+	methodRef := cp.GetConstant(self.Index).(*oops.MethodRef)
 	// 解析出方法
 	resolvedMethod := methodRef.ResolvedMethod()
 	if resolvedMethod.IsStatic() {
@@ -50,7 +50,7 @@ func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
 		panic("java.lang.IllegalAccessError")
 	}
 	// 找到最终调用的方法
-	methodToBeInvoked := heap.LookupMethodInClass(ref.Class(), methodRef.Name(), methodRef.Descriptor())
+	methodToBeInvoked := oops.LookupMethodInClass(ref.Class(), methodRef.Name(), methodRef.Descriptor())
 	if methodToBeInvoked == nil || methodToBeInvoked.IsAbstract() {
 		panic("java.lang.AbstractMethodError")
 
@@ -59,7 +59,7 @@ func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
 	base.InvokeMethod(frame, methodToBeInvoked)
 }
 
-func _println(stack *rtda.OperandStack, descriptor string) {
+func _println(stack *runtime.OperandStack, descriptor string) {
 	switch descriptor {
 	case "(Z)V":
 		fmt.Printf("%v\n", stack.PopInt() != 0)
@@ -79,7 +79,7 @@ func _println(stack *rtda.OperandStack, descriptor string) {
 		fmt.Printf("%v\n", stack.PopDouble())
 	case "(Ljava/lang/String;)V":
 		jStr := stack.PopRef()
-		goStr := heap.GoString(jStr)
+		goStr := oops.GoString(jStr)
 		fmt.Println(goStr)
 	default:
 		panic("println: " + descriptor)

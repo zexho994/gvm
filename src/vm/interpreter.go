@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/vm/instructions"
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
 获取执行方法所需的局部变量表和操作数栈空间以及方法的字节码
 */
-func interpret(methodInfo *heap.Method, logInst bool, args []string) {
+func interpret(methodInfo *oops.Method, logInst bool, args []string) {
 	// 创建一个新的线程
-	thread := rtda.NewThread()
+	thread := runtime.NewThread()
 
 	// 创建一个栈桢
 	frame := thread.NewFrame(methodInfo)
@@ -31,12 +31,12 @@ func interpret(methodInfo *heap.Method, logInst bool, args []string) {
 
 }
 
-func createArgsArray(loader *heap.ClassLoader, args []string) *heap.Object {
+func createArgsArray(loader *oops.ClassLoader, args []string) *oops.Object {
 	stringClass := loader.LoadClass("java/lang/String")
 	argsArr := stringClass.ArrayClass().NewArray(uint(len(args)))
 	jArgs := argsArr.Refs()
 	for i, arg := range args {
-		jArgs[i] = heap.JString(loader, arg)
+		jArgs[i] = oops.JString(loader, arg)
 	}
 	return argsArr
 }
@@ -44,14 +44,14 @@ func createArgsArray(loader *heap.ClassLoader, args []string) *heap.Object {
 /*
 捕捉异常
 */
-func catchErr(thread *rtda.Thread) {
+func catchErr(thread *runtime.Thread) {
 	if r := recover(); r != nil {
 		logFrames(thread)
 		panic(r)
 	}
 }
 
-func logFrames(thread *rtda.Thread) {
+func logFrames(thread *runtime.Thread) {
 	for !thread.IsStackEmpty() {
 		frame := thread.PopFrame()
 		method := frame.Method()
@@ -66,7 +66,7 @@ func logFrames(thread *rtda.Thread) {
 循环执行：计算pc -> 解码指令 -> 执行指令 三个步骤
 为什么说线程栈是线程私有的？
 */
-func loop(thread *rtda.Thread, logInst bool) {
+func loop(thread *runtime.Thread, logInst bool) {
 	// 字节读取器
 	reader := &base.BytecodeReader{}
 	for {
@@ -112,7 +112,7 @@ func loop(thread *rtda.Thread, logInst bool) {
 /*
 打印指令信息
 */
-func logInstruction(frame *rtda.Frame, inst base.Instruction) {
+func logInstruction(frame *runtime.Frame, inst base.Instruction) {
 	method := frame.Method()
 	className := method.Class().Name()
 	methodName := method.Name()

@@ -1,16 +1,16 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Get static field from class
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops" // Get static field from class
 
 type GET_STATIC struct{ base.Index16Instruction }
 
-func (self *GET_STATIC) Execute(frame *rtda.Frame) {
+func (self *GET_STATIC) Execute(frame *runtime.Frame) {
 	// 获取运行时常量池
 	cp := frame.Method().Class().ConstantPool()
 	// 获取字段符号引用
-	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
+	fieldRef := cp.GetConstant(self.Index).(*oops.FieldRef)
 	// 解析字段符号引用
 	field := fieldRef.ResolvedField()
 	// 获取类

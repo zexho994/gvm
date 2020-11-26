@@ -2,7 +2,7 @@ package math
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type LAND struct {
@@ -12,7 +12,7 @@ type IAND struct {
 	base.NoOperandsInstruction
 }
 
-func (self LAND) Execute(frame *rtda.Frame) {
+func (self LAND) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()
@@ -20,7 +20,7 @@ func (self LAND) Execute(frame *rtda.Frame) {
 	stack.PushLong(result)
 }
 
-func (self IAND) Execute(frame *rtda.Frame) {
+func (self IAND) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()

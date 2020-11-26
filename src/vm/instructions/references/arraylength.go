@@ -1,12 +1,12 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 // Get length of array
 type ARRAY_LENGTH struct{ base.NoOperandsInstruction }
 
-func (self *ARRAY_LENGTH) Execute(frame *rtda.Frame) {
+func (self *ARRAY_LENGTH) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	arrRef := stack.PopRef()
 	if arrRef == nil {

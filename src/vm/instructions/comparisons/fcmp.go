@@ -2,7 +2,7 @@ package comparisons
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -19,7 +19,7 @@ type FCMPL struct {
 	base.NoOperandsInstruction
 }
 
-func _fcmp(frame *rtda.Frame, gFlag bool) {
+func _fcmp(frame *runtime.Frame, gFlag bool) {
 	stack := frame.OperandStack()
 	v2 := stack.PopFloat()
 	v1 := stack.PopFloat()
@@ -36,10 +36,10 @@ func _fcmp(frame *rtda.Frame, gFlag bool) {
 	}
 }
 
-func (self *FCMPG) Execute(frame *rtda.Frame) {
+func (self *FCMPG) Execute(frame *runtime.Frame) {
 	_fcmp(frame, true)
 }
 
-func (self *FCMPL) Execute(frame *rtda.Frame) {
+func (self *FCMPL) Execute(frame *runtime.Frame) {
 	_fcmp(frame, false)
 }

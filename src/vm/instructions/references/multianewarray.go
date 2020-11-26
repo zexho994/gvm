@@ -1,8 +1,8 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 // Create new multidimensional array
 type MULTI_ANEW_ARRAY struct {
@@ -14,9 +14,9 @@ func (self *MULTI_ANEW_ARRAY) FetchOperands(reader *base.BytecodeReader) {
 	self.index = reader.ReadUint16()
 	self.dimensions = reader.ReadUint8()
 }
-func (self *MULTI_ANEW_ARRAY) Execute(frame *rtda.Frame) {
+func (self *MULTI_ANEW_ARRAY) Execute(frame *runtime.Frame) {
 	cp := frame.Method().Class().ConstantPool()
-	classRef := cp.GetConstant(uint(self.index)).(*heap.ClassRef)
+	classRef := cp.GetConstant(uint(self.index)).(*oops.ClassRef)
 	arrClass := classRef.ResolvedClass()
 
 	stack := frame.OperandStack()
@@ -25,7 +25,7 @@ func (self *MULTI_ANEW_ARRAY) Execute(frame *rtda.Frame) {
 	stack.PushRef(arr)
 }
 
-func popAndCheckCounts(stack *rtda.OperandStack, dimensions int) []int32 {
+func popAndCheckCounts(stack *runtime.OperandStack, dimensions int) []int32 {
 	counts := make([]int32, dimensions)
 	for i := dimensions - 1; i >= 0; i-- {
 		counts[i] = stack.PopInt()
@@ -37,7 +37,7 @@ func popAndCheckCounts(stack *rtda.OperandStack, dimensions int) []int32 {
 	return counts
 }
 
-func newMultiDimensionalArray(counts []int32, arrClass *heap.Class) *heap.Object {
+func newMultiDimensionalArray(counts []int32, arrClass *oops.Class) *oops.Object {
 	count := uint(counts[0])
 	arr := arrClass.NewArray(count)
 

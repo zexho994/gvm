@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -26,12 +26,12 @@ func (self *INVOKE_INTERFACE) FetchOperands(reader *base.BytecodeReader) {
 	reader.ReadUint8() // must be 0
 }
 
-func (self *INVOKE_INTERFACE) Execute(frame *rtda.Frame) {
+func (self *INVOKE_INTERFACE) Execute(frame *runtime.Frame) {
 	//fmt.Println("[gvm][invokeinterface.Execute] 执行invokeinterface命令")
 	// 获取类的运行常量池
 	cp := frame.Method().Class().ConstantPool()
 	// 根据索引获取常量池中的接口方法符号引用
-	methodRef := cp.GetConstant(self.index).(*heap.InterfaceMethodRef)
+	methodRef := cp.GetConstant(self.index).(*oops.InterfaceMethodRef)
 	// 解析接口方法符号引用
 	resolvedMethod := methodRef.ResolvedInterfaceMethod()
 	if resolvedMethod.IsStatic() || resolvedMethod.IsPrivate() {
@@ -47,7 +47,7 @@ func (self *INVOKE_INTERFACE) Execute(frame *rtda.Frame) {
 		panic("java.lang.IncompatibleClassChangeError")
 	}
 
-	methodToBeInvoked := heap.LookupMethodInClass(ref.Class(), methodRef.Name(), methodRef.Descriptor())
+	methodToBeInvoked := oops.LookupMethodInClass(ref.Class(), methodRef.Name(), methodRef.Descriptor())
 	if methodToBeInvoked == nil || methodToBeInvoked.IsAbstract() {
 		panic("java.lang.AbstractMethodError")
 	}

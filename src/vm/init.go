@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/info"
 	"github.com/zouzhihao-994/gvm/src/vm/classfile"
 	"github.com/zouzhihao-994/gvm/src/vm/loader"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
 	"strings"
 )
 
@@ -61,7 +61,7 @@ func createGVM(param initParam) {
 	loaders := loader.Parse(param.jre, param.cp)
 
 	// 类加载器加载类
-	classLoader := heap.NewClassLoader(loaders, true)
+	classLoader := oops.NewClassLoader(loaders, true)
 	if param.cp == "" {
 		param.cp = info.DefaultCpPath + "." + param.cn
 	} else {

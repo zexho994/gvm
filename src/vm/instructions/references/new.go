@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type NEW struct {
@@ -13,11 +13,11 @@ type NEW struct {
 /*
 NEW指令执行
 */
-func (self *NEW) Execute(frame *rtda.Frame) {
+func (self *NEW) Execute(frame *runtime.Frame) {
 	// 获取运行时常量值
 	cp := frame.Method().Class().ConstantPool()
 	// 在常量池中根据index获取到类符号引用
-	classRef := cp.GetConstant(self.Index).(*heap.ClassRef)
+	classRef := cp.GetConstant(self.Index).(*oops.ClassRef)
 	// 解析类符号引用
 	class := classRef.ResolvedClass()
 

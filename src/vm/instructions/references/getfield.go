@@ -1,15 +1,15 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Fetch field from object
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops" // Fetch field from object
 
 type GET_FIELD struct{ base.Index16Instruction }
 
-func (self *GET_FIELD) Execute(frame *rtda.Frame) {
+func (self *GET_FIELD) Execute(frame *runtime.Frame) {
 
 	cp := frame.Method().Class().ConstantPool()
-	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
+	fieldRef := cp.GetConstant(self.Index).(*oops.FieldRef)
 	field := fieldRef.ResolvedField()
 	if field.IsStatic() {
 		panic("java.lang.IncompatibleClassChangeError")

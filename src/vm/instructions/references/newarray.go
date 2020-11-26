@@ -1,8 +1,8 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 /*
 
@@ -34,7 +34,7 @@ func (self *NEW_ARRAY) FetchOperands(reader *base.BytecodeReader) {
 	self.atype = reader.ReadUint8()
 }
 
-func (self *NEW_ARRAY) Execute(frame *rtda.Frame) {
+func (self *NEW_ARRAY) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	count := stack.PopInt()
 	if count < 0 {
@@ -50,7 +50,7 @@ func (self *NEW_ARRAY) Execute(frame *rtda.Frame) {
 /*
 根据类型判断创建什么类型的数组
 */
-func getPrimitiveArrayClass(loader *heap.ClassLoader, atype uint8) *heap.Class {
+func getPrimitiveArrayClass(loader *oops.ClassLoader, atype uint8) *oops.Class {
 	switch atype {
 	case AT_BOOLEAN:
 		return loader.LoadClass("[Z")

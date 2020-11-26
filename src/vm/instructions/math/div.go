@@ -2,7 +2,7 @@ package math
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type IDIV struct {
@@ -21,7 +21,7 @@ type FDIV struct {
 	base.NoOperandsInstruction
 }
 
-func (self IDIV) Execute(frame rtda.Frame) {
+func (self IDIV) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopInt()
 	v2 := stack.PopInt()
@@ -32,7 +32,7 @@ func (self IDIV) Execute(frame rtda.Frame) {
 	stack.PushInt(result)
 }
 
-func (self DDIV) Execute(frame rtda.Frame) {
+func (self DDIV) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopDouble()
 	v2 := stack.PopDouble()
@@ -43,7 +43,7 @@ func (self DDIV) Execute(frame rtda.Frame) {
 	stack.PushDouble(result)
 }
 
-func (self LDIV) Execute(frame rtda.Frame) {
+func (self LDIV) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopLong()
 	v2 := stack.PopLong()
@@ -54,7 +54,7 @@ func (self LDIV) Execute(frame rtda.Frame) {
 	stack.PushLong(result)
 }
 
-func (self FDIV) Execute(frame rtda.Frame) {
+func (self FDIV) Execute(frame runtime.Frame) {
 	stack := frame.OperandStack()
 	v1 := stack.PopFloat()
 	v2 := stack.PopFloat()

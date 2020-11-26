@@ -2,7 +2,7 @@ package loads
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type FLOAD struct {
@@ -28,7 +28,7 @@ type FLOAD_3 struct {
 /*
 according index to load a var from frame.localVars
 */
-func _fload(frame *rtda.Frame, index uint) {
+func _fload(frame *runtime.Frame, index uint) {
 	val := frame.LocalVars().GetFloat(index)
 	frame.OperandStack().PushFloat(val)
 }
@@ -37,7 +37,7 @@ func _fload(frame *rtda.Frame, index uint) {
 execute FLOAD
 the index is stored inside the instrution
 */
-func (self *FLOAD) Execute(frame *rtda.Frame) {
+func (self *FLOAD) Execute(frame *runtime.Frame) {
 	_fload(frame, self.Index)
 }
 
@@ -45,21 +45,21 @@ func (self *FLOAD) Execute(frame *rtda.Frame) {
 execute FLOAD_0
 the index is zero
 */
-func (self *FLOAD_0) Execute(frame *rtda.Frame) {
+func (self *FLOAD_0) Execute(frame *runtime.Frame) {
 	_fload(frame, 0)
 }
 
 /*
 see FLOAD_0's Execute
 */
-func (self *FLOAD_1) Execute(frame *rtda.Frame) {
+func (self *FLOAD_1) Execute(frame *runtime.Frame) {
 	_fload(frame, 1)
 }
 
-func (self *FLOAD_2) Execute(frame *rtda.Frame) {
+func (self *FLOAD_2) Execute(frame *runtime.Frame) {
 	_fload(frame, 2)
 }
 
-func (self *FLOAD_3) Execute(frame *rtda.Frame) {
+func (self *FLOAD_3) Execute(frame *runtime.Frame) {
 	_fload(frame, 3)
 }

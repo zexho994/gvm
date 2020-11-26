@@ -2,7 +2,7 @@ package control
 
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 type TABLE_SWITCH struct {
@@ -24,7 +24,7 @@ func (self *TABLE_SWITCH) FetchOperands(reader *base.BytecodeReader) {
 	self.jumpOffsets = reader.ReadInt32s(jumpOffsetsCount)
 }
 
-func (self *TABLE_SWITCH) Execute(frame *rtda.Frame) {
+func (self *TABLE_SWITCH) Execute(frame *runtime.Frame) {
 	index := frame.OperandStack().PopInt()
 	var offset int
 	if index >= self.low && index <= self.high {

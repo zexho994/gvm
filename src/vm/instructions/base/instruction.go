@@ -1,6 +1,6 @@
 package base
 
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 
 /*
 指令接口，指令主要两个功能：
@@ -11,7 +11,7 @@ type Instruction interface {
 	// 从字节码中提取操作数
 	FetchOperands(reader *BytecodeReader)
 	// 操作指令
-	Execute(frame *rtda.Frame)
+	Execute(frame *runtime.Frame)
 }
 
 /*

@@ -1,8 +1,8 @@
 package constants
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops"
 
 /*
 ldc instruction is loading a varible from constants_pool and pushed to openstack
@@ -16,15 +16,15 @@ type LDC_W struct{ base.Index16Instruction }
 
 type LDC2_W struct{ base.Index16Instruction }
 
-func (self *LDC) Execute(frame *rtda.Frame) {
+func (self *LDC) Execute(frame *runtime.Frame) {
 	_ldc(frame, self.Index)
 }
 
-func (self *LDC_W) Execute(frame *rtda.Frame) {
+func (self *LDC_W) Execute(frame *runtime.Frame) {
 	_ldc(frame, self.Index)
 }
 
-func _ldc(frame *rtda.Frame, index uint) {
+func _ldc(frame *runtime.Frame, index uint) {
 	stack := frame.OperandStack()
 	class := frame.Method().Class()
 	c := class.ConstantPool().GetConstant(index)
@@ -35,10 +35,10 @@ func _ldc(frame *rtda.Frame, index uint) {
 	case float32:
 		stack.PushFloat(c.(float32))
 	case string:
-		internedStr := heap.JString(class.Loader(), c.(string))
+		internedStr := oops.JString(class.Loader(), c.(string))
 		stack.PushRef(internedStr)
-	case *heap.ClassRef:
-		classRef := c.(*heap.ClassRef)
+	case *oops.ClassRef:
+		classRef := c.(*oops.ClassRef)
 		classObj := classRef.ResolvedClass().JClass()
 		stack.PushRef(classObj)
 	// case MethodType, MethodHandle
@@ -47,7 +47,7 @@ func _ldc(frame *rtda.Frame, index uint) {
 	}
 }
 
-func (self *LDC2_W) Execute(frame *rtda.Frame) {
+func (self *LDC2_W) Execute(frame *runtime.Frame) {
 	stack := frame.OperandStack()
 	cp := frame.Method().Class().ConstantPool()
 	c := cp.GetConstant(self.Index)

@@ -1,17 +1,17 @@
 package references
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Set field in object
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops" // Set field in object
 
 type PUT_FIELD struct{ base.Index16Instruction }
 
-func (self *PUT_FIELD) Execute(frame *rtda.Frame) {
+func (self *PUT_FIELD) Execute(frame *runtime.Frame) {
 
 	currentMethod := frame.Method()
 	currentClass := currentMethod.Class()
 	cp := currentClass.ConstantPool()
-	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
+	fieldRef := cp.GetConstant(self.Index).(*oops.FieldRef)
 
 	field := fieldRef.ResolvedField()
 

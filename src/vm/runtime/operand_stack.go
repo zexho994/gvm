@@ -1,7 +1,7 @@
-package rtda
+package runtime
 
 import (
-	"github.com/zouzhihao-994/gvm/src/vm/rtda/heap"
+	"github.com/zouzhihao-994/gvm/src/vm/oops"
 	"math"
 )
 
@@ -75,12 +75,12 @@ func (operandStack *OperandStack) PopDouble() float64 {
 	return math.Float64frombits(bits)
 }
 
-func (operandStack *OperandStack) PushRef(ref *heap.Object) {
+func (operandStack *OperandStack) PushRef(ref *oops.Object) {
 	operandStack.slots[operandStack.size].ref = ref
 	operandStack.size++
 }
 
-func (operandStack *OperandStack) PopRef() *heap.Object {
+func (operandStack *OperandStack) PopRef() *oops.Object {
 	operandStack.size--
 	ref := operandStack.slots[operandStack.size].ref
 	operandStack.slots[operandStack.size].ref = nil
@@ -110,7 +110,7 @@ func (operandStack *OperandStack) PopSlot() Slot {
 比如GetRefFromTop(0)获取栈顶的引用
 比如GetRefFromTop(1)获取距离栈顶1个单位长度的引用
 */
-func (operandStack *OperandStack) GetRefFromTop(n uint) *heap.Object {
+func (operandStack *OperandStack) GetRefFromTop(n uint) *oops.Object {
 	targetIndex := operandStack.size - 1 - n
 	//fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", operandStack.size, targetIndex)
 	return operandStack.slots[targetIndex].ref

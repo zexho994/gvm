@@ -3,7 +3,7 @@ package extended
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/loads"
-	"github.com/zouzhihao-994/gvm/src/vm/rtda"
+	"github.com/zouzhihao-994/gvm/src/vm/runtime"
 )
 
 /*
@@ -55,6 +55,6 @@ func (self *WIDE) FetchOperands(reader *base.BytecodeReader) {
 	}
 }
 
-func (self *WIDE) Execute(frame *rtda.Frame) {
+func (self *WIDE) Execute(frame *runtime.Frame) {
 	self.modifiedInstruction.Execute(frame)
 }

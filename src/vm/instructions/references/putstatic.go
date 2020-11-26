@@ -3,8 +3,8 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/src/vm/instructions/base"
 )
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda/heap" // Set static field in class
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
+import "github.com/zouzhihao-994/gvm/src/vm/oops" // Set static field in class
 
 /**
 putstatic要给静态变量赋值
@@ -13,7 +13,7 @@ type PUT_STATIC struct {
 	base.Index16Instruction
 }
 
-func (self PUT_STATIC) Execute(frame *rtda.Frame) {
+func (self PUT_STATIC) Execute(frame *runtime.Frame) {
 	// 根据栈帧获取所处的方法
 	currentMethod := frame.Method()
 	// 根据所处方法获取当前类
@@ -21,7 +21,7 @@ func (self PUT_STATIC) Execute(frame *rtda.Frame) {
 	// 获取类的运行时常量池
 	cp := currentClass.ConstantPool()
 	// 根据索引位置获取字段的符号引用
-	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
+	fieldRef := cp.GetConstant(self.Index).(*oops.FieldRef)
 	// 解析字段的符号引用
 	field := fieldRef.ResolvedField()
 	class := field.Class()

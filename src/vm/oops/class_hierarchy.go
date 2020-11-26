@@ -1,4 +1,4 @@
-package heap
+package oops
 
 // jvms8 6.5.instanceof
 // jvms8 6.5.checkcast

@@ -1,7 +1,7 @@
 package reserved
 
 import "github.com/zouzhihao-994/gvm/src/vm/instructions/base"
-import "github.com/zouzhihao-994/gvm/src/vm/rtda"
+import "github.com/zouzhihao-994/gvm/src/vm/runtime"
 import "github.com/zouzhihao-994/gvm/src/vm/native"
 import _ "github.com/zouzhihao-994/gvm/src/vm/native/java/lang"
 import _ "github.com/zouzhihao-994/gvm/src/vm/native/sun/misc"
@@ -9,7 +9,7 @@ import _ "github.com/zouzhihao-994/gvm/src/vm/native/sun/misc"
 // Invoke native method
 type INVOKE_NATIVE struct{ base.NoOperandsInstruction }
 
-func (self *INVOKE_NATIVE) Execute(frame *rtda.Frame) {
+func (self *INVOKE_NATIVE) Execute(frame *runtime.Frame) {
 	method := frame.Method()
 	className := method.Class().Name()
 	methodName := method.Name()
