@@ -18,7 +18,7 @@ type Loader struct {
 // 将-Xjre 和 class 两个字段进行解析
 // xJre : 启动类和扩展类路径
 // cp/loader : 用户类路径
-func Parse(jreOption, cpOption string) *Loader {
+func New(jreOption, cpOption string) *Loader {
 	// 创建一个新的Classpath类返回其地址
 	loader := &Loader{}
 	// 解析启动类，/lib
@@ -31,12 +31,14 @@ func Parse(jreOption, cpOption string) *Loader {
 }
 
 // 解析启动类
+// 记录jre/lib下的所有jar包
+// 返回jre/lib路径
 func (l *Loader) parseBootLoader(jreOption string) string {
 	// 查找jre目录路径
 	jreDir := getJreDir(jreOption)
 
 	jreLibPath := filepath.Join(jreDir, "lib", "*")
-	// 设置应用类加载器
+	// 设置启动类加载器
 	l.bootLoader = newWildcardEntry(jreLibPath)
 
 	return filepath.Join(jreDir, "lib")
@@ -109,7 +111,7 @@ func (l *Loader) parseUserLoader(cption string) {
 /*
 在classpath 中查找 Class文件
 */
-func (l Loader) ReadClass(classpath string) ([]byte, Entry, error) {
+func (l Loader) LoadClass(classpath string) ([]byte, Entry, error) {
 	// 拼接类名
 	className := classpath + ".class"
 
@@ -120,7 +122,6 @@ func (l Loader) ReadClass(classpath string) ([]byte, Entry, error) {
 
 	// 在应用加载器中加载类
 	if data, entry, err := l.extLoader.readClass(className); err == nil {
-		//fmt.Printf("[gvm][ReadClss] return extLoader <data> : %v\n", data)
 		return data, entry, err
 	}
 

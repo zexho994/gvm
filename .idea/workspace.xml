@@ -26,113 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vm/methodArea/perm.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/cmd/java/java.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/cmd/java/java.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/base/branch_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/branch_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/base/class_init_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/class_init_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/base/instruction.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/instruction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/base/method_invoke_logic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/base/method_invoke_logic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/fcmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/fcmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/icmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/icmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_acmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_acmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_icmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/if_icmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/ifcond.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/ifcond.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/comparisons/lcmp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/comparisons/lcmp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/constants/bipush.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/bipush.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/constants/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/const.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/constants/ipush.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/ipush.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/constants/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/constants/nop.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/constants/nop.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/control/goto.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/goto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/control/lookupswitch.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/lookupswitch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/control/return.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/return.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/control/tableswitch.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/control/tableswitch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/conversions/d2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/d2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/conversions/f2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/f2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/conversions/i2x.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/conversions/i2x.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/extended/goto_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/goto_w.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/extended/ifnull.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/ifnull.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/extended/wide.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/extended/wide.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/aload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/aload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/dload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/fload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/fload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/iload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/iload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/lload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/lload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/loads/xaload.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/loads/xaload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/add.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/add.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/and.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/and.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/div.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/div.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/iinc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/iinc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/mul.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/mul.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/neg.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/neg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/rem.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/rem.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/sh.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/sh.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/math/sub.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/math/sub.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/anewarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/anewarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/arraylength.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/arraylength.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/checkcast.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/checkcast.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/getfield.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/getfield.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/getstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/getstatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/instanceof.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/instanceof.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/invokeinterface.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokeinterface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/invokespecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokespecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/invokestatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokestatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/invokevirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/invokevirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/monitor.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/monitor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/multianewarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/multianewarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/newarray.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/newarray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/putfield.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/putfield.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/references/putstatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/references/putstatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/reserved/invokenative.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/reserved/invokenative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stack/dup.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/dup.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stack/pop.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/pop.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stack/swap.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stack/swap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/astore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/astore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/dstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/dstore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/fstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/fstore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/istore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/istore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/ltores.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/ltores.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/instructions/stores/xastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/instructions/stores/xastore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/Class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/Double.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/Float.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Float.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/Object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/Object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/String.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/String.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/java/lang/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/registry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/native/sun/misc/VM.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/native/sun/misc/VM.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/access_flags.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/access_flags.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/array_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/array_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/array_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/array_object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/classMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/classMember.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class_hierarchy.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/class_hierarchy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/class_name_helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/class_name_helper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/constant_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/constant_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_classref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_classref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_fieldref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_fieldref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_interface_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_interface_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_memberref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_memberref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_methodref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_methodref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/cp_symref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/cp_symref.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/method_descriptor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/method_descriptor_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/method_descriptor_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/slots.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/slots.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/heap/string_pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/string_pool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/jvm_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/jvm_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/local_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/local_vars.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/operand_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/slot.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/slot.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/rtda/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/loader/WildcardEntry.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/loader/WildcardEntry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/loader/classpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/loader/classpath.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/loader/entry_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/loader/entry_dir.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/oops/array_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/array_object.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/oops/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/oops/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/oops/object.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,19 +132,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/vm/loader" />
+      <recent name="$PROJECT_DIR$/src/vm/runtime" />
+      <recent name="$PROJECT_DIR$/src/gvm" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/vm/cmd" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vm/instructions" />
       <recent name="$PROJECT_DIR$/vm/rtda/heap" />
       <recent name="$PROJECT_DIR$/vm" />
       <recent name="$PROJECT_DIR$/vm/instructions/references" />
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/gvm" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/vm/cmd" />
-      <recent name="$PROJECT_DIR$/java/src" />
-      <recent name="$PROJECT_DIR$/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -767,8 +670,8 @@
     <state x="-1820" y="79" width="1720" height="900" key="DiffContextDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603107011480" />
     <state x="142" y="81" width="1720" height="900" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108590113" />
     <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602825117682" />
-    <state width="1878" height="301" key="GridCell.Tab.0.bottom" timestamp="1606353275401">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.0.bottom" timestamp="1606392014093">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1606193027089">
       <screen x="-1920" y="0" width="1920" height="1080" />
@@ -776,12 +679,13 @@
     <state width="1878" height="204" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027089" />
     <state width="1398" height="358" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015804" />
     <state width="1878" height="138" key="GridCell.Tab.0.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817884" />
+    <state width="1878" height="491" key="GridCell.Tab.0.bottom/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014093" />
     <state width="1398" height="523" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606347640575" />
     <state width="1878" height="613" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351570305" />
     <state width="1878" height="301" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275401" />
     <state width="1878" height="296" key="GridCell.Tab.0.bottom/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469362" />
-    <state width="1878" height="301" key="GridCell.Tab.0.center" timestamp="1606353275395">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.0.center" timestamp="1606392014090">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1606193027087">
       <screen x="-1920" y="0" width="1920" height="1080" />
@@ -789,12 +693,13 @@
     <state width="1878" height="204" key="GridCell.Tab.0.center.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027087" />
     <state width="1398" height="358" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015802" />
     <state width="1878" height="138" key="GridCell.Tab.0.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
+    <state width="1878" height="491" key="GridCell.Tab.0.center/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014090" />
     <state width="1398" height="523" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606347640574" />
     <state width="1878" height="613" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351570304" />
     <state width="1878" height="301" key="GridCell.Tab.0.center/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275395" />
     <state width="1878" height="296" key="GridCell.Tab.0.center/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469361" />
-    <state width="1878" height="301" key="GridCell.Tab.0.left" timestamp="1606353275391">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.0.left" timestamp="1606392014088">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1606193027085">
       <screen x="-1920" y="0" width="1920" height="1080" />
@@ -802,12 +707,13 @@
     <state width="1878" height="204" key="GridCell.Tab.0.left.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027085" />
     <state width="1398" height="358" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015801" />
     <state width="1878" height="138" key="GridCell.Tab.0.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817882" />
+    <state width="1878" height="491" key="GridCell.Tab.0.left/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014088" />
     <state width="1398" height="523" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606347640574" />
     <state width="1878" height="613" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351570303" />
     <state width="1878" height="301" key="GridCell.Tab.0.left/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275391" />
     <state width="1878" height="296" key="GridCell.Tab.0.left/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469360" />
-    <state width="1878" height="301" key="GridCell.Tab.0.right" timestamp="1606353275398">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.0.right" timestamp="1606392014092">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1606193027088">
       <screen x="-1920" y="0" width="1920" height="1080" />
@@ -815,54 +721,59 @@
     <state width="1878" height="204" key="GridCell.Tab.0.right.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027088" />
     <state width="1398" height="358" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603068015803" />
     <state width="1878" height="138" key="GridCell.Tab.0.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817883" />
+    <state width="1878" height="491" key="GridCell.Tab.0.right/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014092" />
     <state width="1398" height="523" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606347640575" />
     <state width="1878" height="613" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351570304" />
     <state width="1878" height="301" key="GridCell.Tab.0.right/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275398" />
     <state width="1878" height="296" key="GridCell.Tab.0.right/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469362" />
-    <state width="1878" height="301" key="GridCell.Tab.1.bottom" timestamp="1606353275413">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.1.bottom" timestamp="1606392014097">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.bottom.inPresentationMode" timestamp="1606193027093">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.bottom.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027093" />
     <state width="1878" height="138" key="GridCell.Tab.1.bottom/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817887" />
+    <state width="1878" height="491" key="GridCell.Tab.1.bottom/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014097" />
     <state width="1398" height="523" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606347640577" />
     <state width="1878" height="613" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351572419" />
     <state width="1878" height="301" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275413" />
     <state width="1878" height="296" key="GridCell.Tab.1.bottom/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469365" />
-    <state width="1878" height="301" key="GridCell.Tab.1.center" timestamp="1606353275407">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.1.center" timestamp="1606392014096">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.center.inPresentationMode" timestamp="1606193027091">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.center.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027091" />
     <state width="1878" height="138" key="GridCell.Tab.1.center/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
+    <state width="1878" height="491" key="GridCell.Tab.1.center/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014096" />
     <state width="1398" height="523" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1606347640576" />
     <state width="1878" height="613" key="GridCell.Tab.1.center/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351572417" />
     <state width="1878" height="301" key="GridCell.Tab.1.center/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275407" />
     <state width="1878" height="296" key="GridCell.Tab.1.center/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469363" />
-    <state width="1878" height="301" key="GridCell.Tab.1.left" timestamp="1606353275404">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.1.left" timestamp="1606392014095">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.left.inPresentationMode" timestamp="1606193027090">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.left.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027090" />
     <state width="1878" height="138" key="GridCell.Tab.1.left/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817885" />
+    <state width="1878" height="491" key="GridCell.Tab.1.left/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014095" />
     <state width="1398" height="523" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1606347640576" />
     <state width="1878" height="613" key="GridCell.Tab.1.left/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351572417" />
     <state width="1878" height="301" key="GridCell.Tab.1.left/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275404" />
     <state width="1878" height="296" key="GridCell.Tab.1.left/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606318469363" />
-    <state width="1878" height="301" key="GridCell.Tab.1.right" timestamp="1606353275410">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1878" height="491" key="GridCell.Tab.1.right" timestamp="1606392014096">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.right.inPresentationMode" timestamp="1606193027092">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="204" key="GridCell.Tab.1.right.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193027092" />
     <state width="1878" height="138" key="GridCell.Tab.1.right/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108817886" />
+    <state width="1878" height="491" key="GridCell.Tab.1.right/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606392014096" />
     <state width="1398" height="523" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1606347640577" />
     <state width="1878" height="613" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606351572418" />
     <state width="1878" height="301" key="GridCell.Tab.1.right/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606353275410" />
@@ -872,8 +783,12 @@
     </state>
     <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067788379" />
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
-    <state x="-1095" y="236" width="900" height="722" key="SettingsEditor" timestamp="1606367403958">
+    <state x="-1161" y="166" key="RollbackChangesDialog" timestamp="1606391996582">
       <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1161" y="166" key="RollbackChangesDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606391996582" />
+    <state x="825" y="236" width="900" height="722" key="SettingsEditor" timestamp="1606396990621">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
     <state x="-1204" y="1172" width="900" height="722" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067983703" />
@@ -889,6 +804,7 @@
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1597842490768" />
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
+    <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
     <state width="572" height="446" key="SwitcherDM" timestamp="1606350813919">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>

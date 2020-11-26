@@ -6,7 +6,6 @@ import (
 	"github.com/zouzhihao-994/gvm/src/vm/classfile"
 	"github.com/zouzhihao-994/gvm/src/vm/loader"
 	"github.com/zouzhihao-994/gvm/src/vm/oops"
-	"strings"
 )
 
 type initParam struct {
@@ -47,32 +46,27 @@ func receiveParam() {
 
 // 创建GVM
 func createGVM(param initParam) {
-
 	if param.jre == "" {
 		param.jre = info.DefaultJrePath
 	}
-
 	if param.cn == "" {
 		param.cn = "FibonacciTest"
 	}
 
-	// 对XjreOption和cp两个字段进行解析
-	// 获取loader对象
-	loaders := loader.Parse(param.jre, param.cp)
+	loaders := loader.New(param.jre, param.cp)
+	classLoader := oops.New(loaders, param.verbose == "t")
 
-	// 类加载器加载类
-	classLoader := oops.NewClassLoader(loaders, true)
 	if param.cp == "" {
 		param.cp = info.DefaultCpPath + "." + param.cn
 	} else {
 		param.cp = param.cp + "." + param.cn
 	}
 
-	// 解析类名
-	param.cp = strings.Replace(param.cp, ".", "/", -1)
-
 	// 加载类,通过类的全限定名去加载类
 	class := classLoader.LoadClass(param.cp)
+	// 类加载阶段
+	//classFile := classLoader.Loading(param.cp)
+	// 创建实例对象
 
 	// 获取main方法
 	mainMethod := class.GetMainMethod()

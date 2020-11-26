@@ -7,7 +7,7 @@ import "path/filepath"
 import "strings"
 
 /*
-创建一个通配符类型得Entry
+创建一个通配符类型Entry
 将path下的所有jar包文件的路径作为string创建一个zipEntry
 最后返回一个path路径下所有jar包构成的zipEntry的数组
 后续可以通过readClass直接对数组中的所有zipEntry类型的jar包进行遍历，从而搜索class文件

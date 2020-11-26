@@ -20,15 +20,9 @@ go中没有构造函数的概念
 func newDirEntry(path string) *DirEntry {
 	// 将路径path转化成绝对路径
 	absDir, err := filepath.Abs(path)
-
-	// 如果出现错误
 	if err != nil {
-		//fmt.Printf("[gvm][newDirEntry] create direntry fail , <path> : %v\n", path)
 		println(err)
 	}
-
-	// 转化成功
-	//fmt.Printf("[gvm][newDirEntry] create direntry, <adsDir> : %v\n", absDir)
 	return &DirEntry{absDir}
 }
 

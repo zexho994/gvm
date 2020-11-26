@@ -16,11 +16,11 @@ type Object struct {
 	extra interface{}
 }
 
-func (self *Object) Extra() interface{} {
-	return self.extra
+func (obj *Object) Extra() interface{} {
+	return obj.extra
 }
-func (self *Object) SetExtra(extra interface{}) {
-	self.extra = extra
+func (obj *Object) SetExtra(extra interface{}) {
+	obj.extra = extra
 }
 
 func newObject(class *Class) *Object {
@@ -30,26 +30,26 @@ func newObject(class *Class) *Object {
 	}
 }
 
-func (self *Object) IsInstanceOf(class *Class) bool {
-	return class.isAssignableFrom(self.class)
+func (obj *Object) IsInstanceOf(class *Class) bool {
+	return class.isAssignableFrom(obj.class)
 }
 
-func (self *Object) Fields() Slots {
-	return self.data.(Slots)
+func (obj *Object) Fields() Slots {
+	return obj.data.(Slots)
 }
 
-func (self Object) Class() *Class {
-	return self.class
+func (obj Object) Class() *Class {
+	return obj.class
 }
 
 // reflection
-func (self *Object) GetRefVar(name, descriptor string) *Object {
-	field := self.class.getField(name, descriptor, false)
-	slots := self.data.(Slots)
+func (obj *Object) GetRefVar(name, descriptor string) *Object {
+	field := obj.class.getField(name, descriptor, false)
+	slots := obj.data.(Slots)
 	return slots.GetRef(field.slotId)
 }
-func (self *Object) SetRefVar(name, descriptor string, ref *Object) {
-	field := self.class.getField(name, descriptor, false)
-	slots := self.data.(Slots)
+func (obj *Object) SetRefVar(name, descriptor string, ref *Object) {
+	field := obj.class.getField(name, descriptor, false)
+	slots := obj.data.(Slots)
 	slots.SetRef(field.slotId, ref)
 }
