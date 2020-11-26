@@ -11,7 +11,7 @@ import (
 */
 type ClassLoader struct {
 	// 保存cp指针
-	cp *loader.Loader
+	loader *loader.Loader
 
 	// 已经加载的类，key是类的全限定名
 	classMap map[string]*Class
@@ -25,7 +25,7 @@ type ClassLoader struct {
 */
 func NewClassLoader(loader *loader.Loader, verboseFlag bool) *ClassLoader {
 	classLoader := &ClassLoader{
-		cp:          loader,
+		loader:      loader,
 		verboseFlag: verboseFlag,
 		classMap:    make(map[string]*Class),
 	}
@@ -74,8 +74,8 @@ func (classLoader *ClassLoader) loadPrimitiveClass(className string) {
 }
 
 /*
-在classMap中根据name查询类
-然后将将类数据加载到方法区中
+在 classMap 中根据 classpath 查询类
+然后将类加载到方法区中
 */
 func (classLoader *ClassLoader) LoadClass(classPath string) *Class {
 	if class, ok := classLoader.classMap[classPath]; ok {
@@ -139,7 +139,7 @@ func (classLoader *ClassLoader) loadNonArrayClass(classPath string) *Class {
 在classpath中搜索名称为name的类
 */
 func (classLoader *ClassLoader) readClass(classPath string) ([]byte, loader.Entry) {
-	data, entry, err := classLoader.cp.ReadClass(classPath)
+	data, entry, err := classLoader.loader.ReadClass(classPath)
 	if err != nil {
 		panic("java.lang.ClassNotFoundException:" + classPath)
 	}
