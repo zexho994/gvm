@@ -147,6 +147,7 @@ func (classLoader *ClassLoader) loadNonArrayClass(classPath string) *Class {
 	}
 	// 将二进制数据解析成Class结构体
 	class := classLoader.defineClass(data)
+	link(class)
 	return class
 }
 
