@@ -1,8 +1,17 @@
 package classfile
 
+import "path/filepath"
+
 type BootStrapLoader struct {
 	path string
 	jars []string
+}
+
+func newBootStrapLoader(path string) (*BootStrapLoader, string) {
+	jrePath := getJreDirPath(path)
+	libDir := filepath.Join(jrePath, "lib", "*")
+	jars := jars(libDir)
+	return &BootStrapLoader{path: libDir, jars: jars}, jrePath
 }
 
 func (loader *BootStrapLoader) Loading() {

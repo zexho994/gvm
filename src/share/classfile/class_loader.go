@@ -1,7 +1,5 @@
 package classfile
 
-import "path/filepath"
-
 // 加载字节码文件
 type ClassLoader struct {
 	Bytecode []byte
@@ -10,15 +8,16 @@ type ClassLoader struct {
 	Al       *ApplicationLoader
 }
 
-func InitClassLoader(jre, cp string) (*ClassLoader, error) {
-	// 初始化启动加载器
-	jreDir := getJreDirPath(jre)
-	jreLibPath := filepath.Join(jreDir, "lib", "*")
-	bsl := BootStrapLoader{path: jreLibPath}
-	bsl.jars = jars(bsl.path)
-	// 初始化扩展加载器
+func InitClassLoader(jre, cp string) *ClassLoader {
+	classLoader := ClassLoader{}
 
-	// 初始化应用加载器
+	bl, jrePath := newBootStrapLoader(jre)
+	el := NewExtensionLoader(jrePath)
+	al := NewApplicationLoader(cp)
 
-	return &ClassLoader{}, nil
+	classLoader.Bl = bl
+	classLoader.El = el
+	classLoader.Al = al
+
+	return &classLoader
 }
