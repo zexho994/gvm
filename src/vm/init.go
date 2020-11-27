@@ -74,26 +74,3 @@ func createGVM(param initParam) {
 		fmt.Printf("Main method not found in class %s\n", param.cp)
 	}
 }
-
-/*
-打印字节码信息
-*/
-func printClassInfo(className string, cf *classfile.ClassFile) {
-	fmt.Printf("========%v 字节码信息 ========\n", className)
-	fmt.Printf("[gvm] JDK版本: %v.%v\n", cf.MajorVersion(), cf.MinorVersion())
-	fmt.Printf("[gvm] 常量池大小: %v\n", len(cf.ConstantPool()))
-	fmt.Printf("[gvm] 类访问标志: 0x%x\n", cf.AccessFlags())
-	fmt.Printf("[gvm] 本类名称: %v\n", cf.ClassName())
-	fmt.Printf("[gvm] 父类名称: %v\n", cf.SuperClassName())
-	fmt.Printf("[gvm] 接口信息: %v\n", cf.InterfaceNames())
-	fmt.Printf("[gvm] 字段数量: %v\n", len(cf.Fields().BaseInfo()))
-	for _, f := range cf.Fields().BaseInfo() {
-		fmt.Printf("[gvm] 方法或者字段名称：%s\n", f.Name())
-	}
-	fmt.Printf("[gvm] 类中方法数量: %v\n", len(cf.Methods().BaseInfo()))
-	for _, m := range cf.Methods().BaseInfo() {
-		fmt.Printf("[gvm] %s\n", m.Name())
-	}
-	fmt.Println("========================================")
-
-}
