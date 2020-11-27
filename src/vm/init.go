@@ -63,9 +63,6 @@ func createGVM(param initParam) {
 
 	// 加载类,通过类的全限定名去加载类
 	class := classLoader.LoadClass(param.cp)
-	// 类加载阶段
-	//classFile := classLoader.Loading(param.cp)
-	// 创建实例对象
 
 	// 获取main方法
 	mainMethod := class.GetMainMethod()
