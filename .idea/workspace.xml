@@ -26,15 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/class_loader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/class_parse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/launcher/cmd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/launcher/debug.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/launcher/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/classfile/application_loader.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/classfile/base_loader.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/classfile/bootstrap_loader.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/classfile/extension_loader.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/launcher/default.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/launcher/params.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/cmd/Cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/cmd/Cmd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/loader/loaders.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/loader/loaders.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/classfile/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/classfile/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/launcher/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/debug.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -590,7 +590,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add cpCacheOop.go" />
     <MESSAGE value="add instanceOop.go" />
     <MESSAGE value="add typeArrayOop.go" />
     <MESSAGE value="add klass.go" />
@@ -615,7 +614,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="class对象添加classInfo字段，用来表示类结构，相当于klass，而class相当于oop" />
     <MESSAGE value="拆分 应用加载器和扩展加载器的处理逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="拆分 应用加载器和扩展加载器的处理逻辑" />
+    <MESSAGE value="添加share模块，添加基础类" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加share模块，添加基础类" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -820,17 +820,18 @@
     <state x="256" y="70" key="SettingsEditor/0.0.1920.1080/-1920.23.1920.1057@0.0.1920.1080" timestamp="1597842560854" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1606350813919">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state width="572" height="446" key="SwitcherDM" timestamp="1606488067308">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="540" key="SwitcherDM.inPresentationMode" timestamp="1606193341085">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="540" key="SwitcherDM.inPresentationMode/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606193341085" />
+    <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606476247258" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606350813919" />
     <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
-    <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606140982502" />
+    <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606488067308" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1606465305782">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
@@ -877,14 +878,14 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600349998555" />
-    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1606138861445">
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1606487658917">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599218953320" />
     <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599387299391" />
     <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600592453007" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133583686" />
-    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606138861445" />
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606487658917" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
