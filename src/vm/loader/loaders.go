@@ -18,7 +18,7 @@ type Loader struct {
 // 将-Xjre 和 class 两个字段进行解析
 // xJre : 启动类和扩展类路径
 // cp/loader : 用户类路径
-func New(jreOption, cpOption string) *Loader {
+func InitLoaders(jreOption, cpOption string) *Loader {
 	// 创建一个新的Classpath类返回其地址
 	loader := &Loader{}
 	// 解析启动类，/lib

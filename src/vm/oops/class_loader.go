@@ -24,7 +24,7 @@ type ClassLoader struct {
 /*
 创建一个加载器实例
 */
-func New(loader *loader.Loader, verboseFlag bool) *ClassLoader {
+func CreateClassLoader(loader *loader.Loader, verboseFlag bool) *ClassLoader {
 	classLoader := &ClassLoader{
 		loader:      loader,
 		verboseFlag: verboseFlag,

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/info"
-	"github.com/zouzhihao-994/gvm/src/vm/classfile"
 	"github.com/zouzhihao-994/gvm/src/vm/loader"
 	"github.com/zouzhihao-994/gvm/src/vm/oops"
 )
@@ -53,8 +52,8 @@ func createGVM(param initParam) {
 		param.cn = "FibonacciTest"
 	}
 
-	loaders := loader.New(param.jre, param.cp)
-	classLoader := oops.New(loaders, param.verbose == "t")
+	loaders := loader.InitLoaders(info.DefaultJrePath, param.cp)
+	classLoader := oops.CreateClassLoader(loaders, param.verbose == "t")
 
 	if param.cp == "" {
 		param.cp = info.DefaultCpPath + "." + param.cn
