@@ -1,7 +1,5 @@
 package classfile
 
-import "fmt"
-
 // 加载字节码文件
 type ClassLoader struct {
 	Bytecode []byte
@@ -24,7 +22,9 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 	return &classLoader
 }
 
-func (loader *ClassLoader) Loading(fileName string) {
+// 加载字节码文件到方法区 Perm 中
+// 加载顺序依次为 BootStrapLoader 、 ExtensionLoader 、  ApplicationLoader
+func (loader *ClassLoader) Loading(fileName string) []byte {
 	// 先判断方法区是否已经存在该class
 
 	fileName = fileName + ".class"
@@ -37,7 +37,6 @@ func (loader *ClassLoader) Loading(fileName string) {
 			}
 		}
 	}
-	// 解析bytecode
 
-	fmt.Println(data)
+	return data
 }

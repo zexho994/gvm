@@ -122,7 +122,6 @@ func (classFile *ClassFile) readAndCheckVersion(reader *ClassReader) {
 		return
 	case 46, 47, 48, 49, 50, 51, 52:
 		if classFile.minorVersion == 0 {
-			//fmt.Printf("[gvm][readAndCheckVersion] JDK version is JDK %v.0\n", classFile.majorVersion-44)
 			return
 		} else {
 			panic("[gvm][readAndCheckVersion] class file version error")

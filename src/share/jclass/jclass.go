@@ -29,3 +29,15 @@ type JClass struct {
 	attributesCount uint16
 	attributes      []AttributeInfo
 }
+
+func (c *JClass) SetMagic(magic uint32) {
+	c.magic = magic
+}
+
+func (c *JClass) SetMinorVersion(v uint16) {
+	c.minorVersion = v
+}
+
+func (c *JClass) SetMajorVersion(v uint16) {
+	c.majorVersion = v
+}
