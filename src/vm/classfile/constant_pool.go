@@ -50,7 +50,7 @@ func (constantPool ConstantPool) getConstantInfo(index uint16) ConstantInfo {
 	if cpInfo := constantPool[index]; cpInfo != nil {
 		return cpInfo
 	}
-	panic("Invalid constant pool index!")
+	panic("Invalid constant_pool pool index!")
 }
 
 func (constantPool ConstantPool) getNameAndType(index uint16) (string, string) {
@@ -107,6 +107,6 @@ func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 	case ConstantInvokeDynamic:
 		return &ConstantInvokeDynamicInfo{tag: tag}
 	default:
-		panic("java.lang.ClassFormatError: constant pool tag!")
+		panic("java.lang.ClassFormatError: constant_pool pool tag!")
 	}
 }
