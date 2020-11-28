@@ -7,7 +7,7 @@ import (
 )
 
 type Loader interface {
-	Loading()
+	Loading(fileName string) []byte
 	AddZip(string)
 	Path() string
 }

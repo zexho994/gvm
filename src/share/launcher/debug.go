@@ -10,4 +10,6 @@ func StartGvmByDebug() {
 	if loader == nil {
 	}
 
+	loader.Loading("classFile")
+
 }
