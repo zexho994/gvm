@@ -5,7 +5,7 @@ package jclass
 */
 type FieldInfo struct {
 	// 常量池指针
-	constantPool ConstantPool
+	constantPool Constant
 	// 访问类型
 	accessFlags uint16
 	// 字段名索引 -> 常量池

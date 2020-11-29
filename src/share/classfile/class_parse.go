@@ -8,7 +8,7 @@ func ParseToJClass(bytecode []byte) *jclass.JClass {
 	jClass.SetMagic(parseMagic(reader))
 	jClass.SetMinorVersion(parseMinorVersion(reader))
 	jClass.SetMajorVersion(parseMinorVersion(reader))
-
+	jClass.SetConstantPool(parseConstantPool(reader))
 	return &jClass
 }
 

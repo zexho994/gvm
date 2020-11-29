@@ -9,7 +9,7 @@ type JClass struct {
 	majorVersion uint16
 	// 常量池
 	constantPoolCount uint16
-	constantPool      ConstantPool
+	constantPool      Constant
 	// 类访问标志,表示是类还是接口,public还是private等
 	accessFlags uint16
 	// 本类
@@ -40,4 +40,8 @@ func (c *JClass) SetMinorVersion(v uint16) {
 
 func (c *JClass) SetMajorVersion(v uint16) {
 	c.majorVersion = v
+}
+
+func (c *JClass) SetConstantPool(pool Constant) {
+	c.constantPool = pool
 }
