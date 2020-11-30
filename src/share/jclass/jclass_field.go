@@ -1,11 +1,13 @@
 package jclass
 
+import "github.com/zouzhihao-994/gvm/src/vm/classfile"
+
 /*
 字段表
 */
 type FieldInfo struct {
 	// 常量池指针
-	constantPool Constant
+	constantPool classfile.ConstantPool
 	// 访问类型
 	accessFlags uint16
 	// 字段名索引 -> 常量池

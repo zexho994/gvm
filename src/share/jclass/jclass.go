@@ -1,47 +1,82 @@
 package jclass
 
+import (
+	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
+)
+
 type JClass struct {
 	// 魔术
-	magic uint32
+	Magic uint32
 	// 次版本
-	minorVersion uint16
+	MinorVersion uint16
 	// 主版本
-	majorVersion uint16
+	MajorVersion uint16
 	// 常量池
-	constantPoolCount uint16
-	constantPool      Constant
+	ConstantPoolCount uint16
+	ConstantPool      constant_pool.ConstantPool
 	// 类访问标志,表示是类还是接口,public还是private等
-	accessFlags uint16
+	AccessFlags uint16
 	// 本类
-	thisClass uint16
+	ThisClass uint16
 	// 父类
-	superClass uint16
+	SuperClass uint16
 	// 接口
-	interfacesCount uint16
-	interfaces      []uint16
+	InterfacesCount uint16
+	Interfaces      []uint16
 	// 字段表,用于表示接口或者类中声明的变量
-	fieldsCount uint16
-	fields      FieldInfo
+	FieldsCount uint16
+	Fields      FieldInfo
 	// 方法表
-	methodsCount uint16
-	methods      MethodInfo
+	MethodsCount uint16
+	Methods      MethodInfo
 	// 属性表
-	attributesCount uint16
-	attributes      []AttributeInfo
+	AttributesCount uint16
+	Attributes      []AttributeInfo
 }
 
-func (c *JClass) SetMagic(magic uint32) {
-	c.magic = magic
+func ParseToJClass(bytecode []byte) *JClass {
+	reader := &classfile.ClassReader{Bytecode: bytecode}
+	jClass := JClass{}
+	jClass.Magic = parseMagic(reader)
+	jClass.MinorVersion = parseMinorVersion(reader)
+	jClass.MajorVersion = paresMajorVersion(reader)
+	jClass.ConstantPoolCount = reader.ReadUint16()
+	jClass.ConstantPool = parseConstantPool(jClass.ConstantPoolCount, reader)
+	// 类访问符
+	jClass.AccessFlags = reader.ReadUint16()
+	AccPrint(jClass.AccessFlags)
+	// 本类
+	jClass.ThisClass = reader.ReadUint16()
+	// 父类
+	jClass.SuperClass = reader.ReadUint16()
+	// 接口数量 & 列表
+	jClass.InterfacesCount = reader.ReadUint16()
+	// 字段数量 & 列表
+
+	// 方法数量 & 列表
+
+	// 属性数量 & 列表
+
+	return &jClass
 }
 
-func (c *JClass) SetMinorVersion(v uint16) {
-	c.minorVersion = v
+func parseMagic(reader *classfile.ClassReader) uint32 {
+	magic := reader.ReadUint32()
+	if magic != 0xCAFEBABE {
+		panic("[gvm] this file is not support")
+	}
+	return magic
 }
 
-func (c *JClass) SetMajorVersion(v uint16) {
-	c.majorVersion = v
+func parseMinorVersion(reader *classfile.ClassReader) uint16 {
+	return reader.ReadUint16()
 }
 
-func (c *JClass) SetConstantPool(pool Constant) {
-	c.constantPool = pool
+func paresMajorVersion(reader *classfile.ClassReader) uint16 {
+	return reader.ReadUint16()
+}
+
+func parseConstantPool(cpCount uint16, reader *classfile.ClassReader) constant_pool.ConstantPool {
+	return constant_pool.ReadConstantPool(cpCount, reader)
 }

@@ -29,7 +29,6 @@ func (ConstantMemberRefInfo *ConstantMemberRefInfo) readInfo(reader *ClassReader
 获取类名
 */
 func (ConstantMemberRefInfo *ConstantMemberRefInfo) ClassName() string {
-
 	return ConstantMemberRefInfo.cp.getClassName(ConstantMemberRefInfo.classIndex)
 }
 

@@ -11,7 +11,7 @@ type ConstantFloatInfo struct {
 	val float32
 }
 
-func (constantFloatInfo *ConstantFloatInfo) readInfo(reader *classfile.ClassReader) {
+func (constantFloatInfo *ConstantFloatInfo) ReadInfo(reader *classfile.ClassReader) {
 	bytes := reader.ReadUint32()
 	// 转化成float32
 	constantFloatInfo.val = math.Float32frombits(bytes)

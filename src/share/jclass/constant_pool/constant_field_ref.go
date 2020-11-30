@@ -1,10 +1,24 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/src/share/jclass"
+import (
+	"github.com/zouzhihao-994/gvm/src/share/classfile"
+)
 
 type ConstantFieldRefInfo struct {
-	tag              uint8
-	cp               jclass.ConstantPool
-	classIndex       uint16
-	nameAndTypeIndex uint16
+	Tag              uint8
+	Cp               ConstantPool
+	ClassIndex       uint16
+	NameAndTypeIndex uint16
+}
+
+func (field *ConstantFieldRefInfo) ReadInfo(reader *classfile.ClassReader) {
+	field.ClassIndex = reader.ReadUint16()
+	field.NameAndTypeIndex = reader.ReadUint16()
+}
+
+func (field *ConstantFieldRefInfo) ClassName() string {
+	return field.Cp.GetClassName(field.ClassIndex)
+}
+func (field *ConstantFieldRefInfo) NameAndDescriptor() (string, string) {
+	return field.Cp.GetNameAndType(field.NameAndTypeIndex)
 }

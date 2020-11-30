@@ -8,7 +8,7 @@ type ConstantIntegerInfo struct {
 	val int32
 }
 
-func (constantIntegerInfo *ConstantIntegerInfo) readInfo(reader *classfile.ClassReader) {
+func (constantIntegerInfo *ConstantIntegerInfo) ReadInfo(reader *classfile.ClassReader) {
 	bytes := reader.ReadUint32()
 	constantIntegerInfo.val = int32(bytes)
 }
