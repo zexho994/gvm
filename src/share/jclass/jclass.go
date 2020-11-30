@@ -45,7 +45,6 @@ func ParseToJClass(bytecode []byte) *JClass {
 	jClass.ConstantPool = parseConstantPool(jClass.ConstantPoolCount, reader)
 	// 类访问符
 	jClass.AccessFlags = reader.ReadUint16()
-	AccPrint(jClass.AccessFlags)
 	// 本类
 	jClass.ThisClass = reader.ReadUint16()
 	// 父类
