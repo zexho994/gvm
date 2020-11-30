@@ -17,6 +17,14 @@ func (reader *ClassReader) ReadUint16() uint16 {
 	return val
 }
 
+func (reader *ClassReader) ReadUint16Array(count uint16) []uint16 {
+	data := make([]uint16, count)
+	for i := range data {
+		data[i] = reader.ReadUint16()
+	}
+	return data
+}
+
 func (reader *ClassReader) ReadUint32() uint32 {
 	_ = reader.Bytecode[3]
 	val := uint32(reader.Bytecode[3]) |

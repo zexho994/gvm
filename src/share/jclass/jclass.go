@@ -26,7 +26,7 @@ type JClass struct {
 	Interfaces      []uint16
 	// 字段表,用于表示接口或者类中声明的变量
 	FieldsCount uint16
-	Fields      FieldInfo
+	Fields      Fields
 	// 方法表
 	MethodsCount uint16
 	Methods      MethodInfo
@@ -41,6 +41,7 @@ func ParseToJClass(bytecode []byte) *JClass {
 	jClass.Magic = parseMagic(reader)
 	jClass.MinorVersion = parseMinorVersion(reader)
 	jClass.MajorVersion = paresMajorVersion(reader)
+	// 常量池
 	jClass.ConstantPoolCount = reader.ReadUint16()
 	jClass.ConstantPool = parseConstantPool(jClass.ConstantPoolCount, reader)
 	// 类访问符
@@ -51,8 +52,10 @@ func ParseToJClass(bytecode []byte) *JClass {
 	jClass.SuperClass = reader.ReadUint16()
 	// 接口数量 & 列表
 	jClass.InterfacesCount = reader.ReadUint16()
+	jClass.Interfaces = reader.ReadUint16Array(jClass.InterfacesCount)
 	// 字段数量 & 列表
-
+	jClass.FieldsCount = reader.ReadUint16()
+	jClass.Fields = parseFields(jClass.FieldsCount)
 	// 方法数量 & 列表
 
 	// 属性数量 & 列表
