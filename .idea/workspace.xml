@@ -26,11 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attr_exception.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attr_lineNumberTable.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -596,7 +592,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="set default val for param.cn &quot;FibonacciTest&quot;" />
     <MESSAGE value="rename for constant_info" />
     <MESSAGE value="[unfinished] add monitor entry &amp; exit instructions" />
     <MESSAGE value="classFile add the magic field" />
@@ -621,7 +616,8 @@
     <MESSAGE value="临时提交" />
     <MESSAGE value="解析 字段表 &amp; 属性表" />
     <MESSAGE value="add MethodInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="add MethodInfo" />
+    <MESSAGE value="add attribute_exceptionTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="add attribute_exceptionTable" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
