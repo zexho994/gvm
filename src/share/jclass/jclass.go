@@ -2,6 +2,7 @@ package jclass
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
@@ -32,13 +33,15 @@ type JClass struct {
 	Methods      MethodInfo
 	// 属性表
 	AttributesCount uint16
-	Attributes      []AttributeInfo
+	Attributes      []attribute.AttributeInfo
 }
 
 func ParseToJClass(bytecode []byte) *JClass {
 	reader := &classfile.ClassReader{Bytecode: bytecode}
 	jClass := JClass{}
+	// CAFEBABY
 	jClass.Magic = parseMagic(reader)
+	// jdk version
 	jClass.MinorVersion = parseMinorVersion(reader)
 	jClass.MajorVersion = paresMajorVersion(reader)
 	// 常量池
@@ -55,7 +58,7 @@ func ParseToJClass(bytecode []byte) *JClass {
 	jClass.Interfaces = reader.ReadUint16Array(jClass.InterfacesCount)
 	// 字段数量 & 列表
 	jClass.FieldsCount = reader.ReadUint16()
-	jClass.Fields = parseFields(jClass.FieldsCount)
+	jClass.Fields = parseFields(jClass.FieldsCount, reader, jClass.ConstantPool)
 	// 方法数量 & 列表
 
 	// 属性数量 & 列表

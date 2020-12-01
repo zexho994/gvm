@@ -2,6 +2,7 @@ package jclass
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
@@ -21,24 +22,23 @@ type FieldInfo struct {
 	descriptorIndex uint16
 	// 属性表
 	attributesCount uint16
-	attributes      []AttributeInfo
+	attributes      []attribute.AttributeInfo
 }
 
 // 解析字段表
 // 解析可以分为两部分：1 基本结构的解析 2 属性表的解析
-func parseFields(count uint16, reader classfile.ClassReader) Fields {
+func parseFields(count uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) Fields {
 	fields := make([]FieldInfo, count)
-	for idx := range fields {
+	for i := range fields {
 		field := FieldInfo{}
 		// 解析base
 		field.accessFlags = reader.ReadUint16()
 		field.nameIndex = reader.ReadUint16()
 		field.descriptorIndex = reader.ReadUint16()
 		// 解析属性表
-
+		field.attributesCount = reader.ReadUint16()
+		field.attributes = attribute.ParseAttributes(field.attributesCount, reader, cp)
+		fields[i] = field
 	}
-}
-
-func parseBaseInfo() {
-
+	return fields
 }
