@@ -62,8 +62,9 @@ func ParseToJClass(bytecode []byte) *JClass {
 	// 方法数量 & 列表
 	jClass.MethodsCount = reader.ReadUint16()
 	jClass.Methods = parseMethod(jClass.MethodsCount, reader, jClass.ConstantPool)
-
 	// 属性数量 & 列表
+	jClass.AttributesCount = reader.ReadUint16()
+	jClass.Attributes = attribute.ParseAttributes(jClass.AttributesCount, reader, jClass.ConstantPool)
 
 	return &jClass
 }
