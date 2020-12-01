@@ -35,6 +35,7 @@ func parseFields(count uint16, reader *classfile.ClassReader, cp constant_pool.C
 		field.accessFlags = reader.ReadUint16()
 		field.nameIndex = reader.ReadUint16()
 		field.descriptorIndex = reader.ReadUint16()
+		field.constantPool = cp
 		// 解析属性表
 		field.attributesCount = reader.ReadUint16()
 		field.attributes = attribute.ParseAttributes(field.attributesCount, reader, cp)

@@ -17,6 +17,7 @@ type MethodInfo struct {
 	cp            constant_pool.ConstantPool
 }
 
+// 解析方法表
 func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool.ConstantPool) Methods {
 	methods := make([]MethodInfo, count)
 	for i := range methods {
@@ -26,6 +27,7 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		method.nameIdx = reader.ReadUint16()
 		method.descriptorIdx = reader.ReadUint16()
 		method.attrCount = reader.ReadUint16()
+		// 解析方法表中的属性表字段
 		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 	}

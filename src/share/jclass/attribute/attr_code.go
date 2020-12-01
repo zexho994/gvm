@@ -38,7 +38,7 @@ func (code *Attr_Code) parse(reader *classfile.ClassReader) {
 	code.Code = reader.ReadBytes(code.codeLen)
 	code.ExceptionTable = parseExceptionTable(reader)
 	code.attrCount = reader.ReadUint16()
-	code.attrInfo = ParseAttributes(code.attrCount, reader, nil)
+	code.attrInfo = ParseAttributes(code.attrCount, reader, code.cp)
 }
 
 func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
