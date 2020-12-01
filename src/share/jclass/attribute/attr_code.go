@@ -23,6 +23,7 @@ type Attr_Code struct {
 	attrInfo  []AttributeInfo
 }
 
+// 异常表
 type ExceptionTable struct {
 	startPc   uint16
 	endPc     uint16

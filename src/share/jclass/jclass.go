@@ -30,7 +30,7 @@ type JClass struct {
 	Fields      Fields
 	// 方法表
 	MethodsCount uint16
-	Methods      MethodInfo
+	Methods      Methods
 	// 属性表
 	AttributesCount uint16
 	Attributes      []attribute.AttributeInfo
@@ -60,6 +60,8 @@ func ParseToJClass(bytecode []byte) *JClass {
 	jClass.FieldsCount = reader.ReadUint16()
 	jClass.Fields = parseFields(jClass.FieldsCount, reader, jClass.ConstantPool)
 	// 方法数量 & 列表
+	jClass.MethodsCount = reader.ReadUint16()
+	jClass.Methods = parseMethod(jClass.MethodsCount, reader, jClass.ConstantPool)
 
 	// 属性数量 & 列表
 
