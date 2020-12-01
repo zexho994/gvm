@@ -28,12 +28,12 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		return &Attr_Code{NameIdx: nameIdx, AttrLen: attrLen, cp: cp}
 	case "ConstantValue":
 		return &Attr_ConstantValue{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+	case "Exceptions":
+		return &Attr_Exceptions{nameIdx: nameIdx, name: name, attrlen: attrLen, cp: cp}
+	case "LineNumberTable":
+		return &LineNumberTableAttribute{}
 	//case "Deprecated":
 	//	return &DeprecatedAttribute{}
-	//case "Exceptions":
-	//	return &ExceptionsAttribute{}
-	//case "LineNumberTable":
-	//	return &LineNumberTableAttribute{}
 	//case "LocalVariableTable":
 	//	return &LocalVariableTableAttribute{}
 	//case "SourceFile":
