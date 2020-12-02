@@ -1,6 +1,8 @@
 package classfile
 
-import "sync"
+import (
+	"sync"
+)
 
 // 加载字节码文件
 type ClassLoader struct {
@@ -10,30 +12,29 @@ type ClassLoader struct {
 	Al       *ApplicationLoader
 }
 
-var bootStrapLoader *BootStrapLoader
-var extensionLoader *ExtensionLoader
-var applicationLoader *ApplicationLoader
+var BSCLoader *BootStrapLoader
+var EXCLoader *ExtensionLoader
+var APPLoader *ApplicationLoader
 var once sync.Once
+var ClaLoader *ClassLoader
+
+func newClassLoader() *ClassLoader {
+	return &ClassLoader{}
+}
 
 // 初始化类加载器
 func InitClassLoader(jre, cp string) *ClassLoader {
 	once.Do(func() {
-		bootStrapLoader = newBootStrapLoader(jre)
-		extensionLoader = newExtensionLoader(bootStrapLoader.path)
-		applicationLoader = newApplicationLoader(cp)
+		BSCLoader = newBootStrapLoader(jre)
+		EXCLoader = newExtensionLoader(BSCLoader.path)
+		APPLoader = newApplicationLoader(cp)
+		ClaLoader = newClassLoader()
+		ClaLoader.Bl = BSCLoader
+		ClaLoader.El = EXCLoader
+		ClaLoader.Al = APPLoader
 	})
 
-	classLoader := ClassLoader{}
-
-	bl := newBootStrapLoader(jre)
-	el := newExtensionLoader(bl.path)
-	al := newApplicationLoader(cp)
-
-	classLoader.Bl = bl
-	classLoader.El = el
-	classLoader.Al = al
-
-	return &classLoader
+	return ClaLoader
 }
 
 // 加载字节码文件到方法区 Perm 中
@@ -45,9 +46,9 @@ func (loader *ClassLoader) Loading(fileName string) []byte {
 	fileName = fileName + ".class"
 	var data []byte
 	// 从启动类加载器中获取bytecode
-	if data = bootStrapLoader.Loading(fileName); data == nil {
-		if data = extensionLoader.Loading(fileName); data == nil {
-			if data = applicationLoader.Loading(fileName); data == nil {
+	if data = BSCLoader.Loading(fileName); data == nil {
+		if data = EXCLoader.Loading(fileName); data == nil {
+			if data = APPLoader.Loading(fileName); data == nil {
 				panic("class")
 			}
 		}

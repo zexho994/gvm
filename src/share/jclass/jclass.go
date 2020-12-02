@@ -91,19 +91,3 @@ func paresMajorVersion(reader *classfile.ClassReader) uint16 {
 func parseConstantPool(cpCount uint16, reader *classfile.ClassReader) constant_pool.ConstantPool {
 	return constant_pool.ReadConstantPool(cpCount, reader)
 }
-
-// 将 JClass 转换成 JClass_Instance 对象
-func (jc JClass) convert2Instance() {
-	jci := JClass_Instance{}
-	// 运行时常量池不变
-	jci.ConstantPool = jc.ConstantPool
-	// 类访问符不变
-	jci.AccessFlags = jc.AccessFlags
-	// 获取到全限定名
-	jci.ThisClass = jci.ConstantPool.GetUtf8(jc.ThisClass)
-	// 加载父类
-	jci.SuperClass = jc.parseSuper()
-	// 加载接口
-	jci.Interfaces = jc.parseInterfaces()
-
-}

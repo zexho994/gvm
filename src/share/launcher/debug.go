@@ -9,5 +9,7 @@ import (
 func StartGvmByDebug() {
 	loader := classfile.InitClassLoader(JrePath, UserClassPath)
 	bytecode := loader.Loading("classFile")
-	jclass.ParseToJClass(bytecode)
+	jc := jclass.ParseToJClass(bytecode)
+	jclass.ParseInstance(jc)
+
 }

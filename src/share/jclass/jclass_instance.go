@@ -1,6 +1,7 @@
 package jclass
 
 import (
+	"github.com/zouzhihao-994/gvm/src/share/classfile"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
@@ -26,21 +27,45 @@ type JClass_Instance struct {
 	Attributes []attribute.AttributeInfo
 }
 
-// 递归解析父类
-func (jc JClass) parseSuper() *JClass_Instance {
-	perm := GetPerm()
-	superName := jc.ConstantPool.GetUtf8(jc.SuperClass)
-	var jci *JClass_Instance
-	// 方法区存在该类结构
-	if jci = perm.Space[superName]; jci != nil {
-		return jci
-	}
+func ParseInstance(jclass *JClass) *JClass_Instance {
+	jci := &JClass_Instance{}
+	// 运行时常量池不变
+	jci.ConstantPool = jclass.ConstantPool
+	// 类访问符不变
+	jci.AccessFlags = jclass.AccessFlags
+	// 获取到全限定名
+	jci.ThisClass = jci.ConstantPool.GetClassName(jclass.ThisClass)
+	// 加载父类
+	jci.SuperClass = parseSuper(jclass)
+	// 加载接口
+	jci.Interfaces = parseInterfaces()
 
-	return nil
+	// 保存到方法区
+	GetPerm().Space[jci.ThisClass] = jci
+
+	return jci
+}
+
+// 递归解析父类
+func parseSuper(jclass *JClass) *JClass_Instance {
+	// 判断是否存在父类
+	superName := jclass.ConstantPool.GetClassName(jclass.SuperClass)
+	//if superName == "java/lang/Object"{
+	//	return nil
+	//}
+
+	perm := GetPerm()
+	// 方法区存在该类结构
+	if supre := perm.Space[superName]; supre != nil {
+		return supre
+	}
+	superBytecode := classfile.ClaLoader.Loading(superName)
+	superJClass := ParseToJClass(superBytecode)
+	return ParseInstance(superJClass)
 }
 
 // 递归解析接口
-func (jc JClass) parseInterfaces() []*JClass_Instance {
+func parseInterfaces() []*JClass_Instance {
 
 	return nil
 }
