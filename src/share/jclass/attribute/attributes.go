@@ -34,12 +34,15 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		return &Attr_LineNumberTable{nameIdx: nameIdx, name: name, cp: cp}
 	case "SourceFile":
 		return &Attr_SourceFile{nameIdx: nameIdx, name: name, attrLen: attrLen}
+	case "Signature":
+		return &Attr_Signature{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	//case "Deprecated":
 	//	return &DeprecatedAttribute{}
 	//case "LocalVariableTable":
 	//	return &LocalVariableTableAttribute{}
 	//case "Synthetic":
 	//	return &SyntheticAttribute{}
+
 	default:
 		panic("attribute error")
 		//return &UnparsedAttribute{attrName, attrLen, nil}
