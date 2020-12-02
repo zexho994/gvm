@@ -36,6 +36,7 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		return &Attr_SourceFile{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "Signature":
 		return &Attr_Signature{nameIdx: nameIdx, name: name, attrLen: attrLen}
+	case "StackMapTable":
 	//case "Deprecated":
 	//	return &DeprecatedAttribute{}
 	//case "LocalVariableTable":
