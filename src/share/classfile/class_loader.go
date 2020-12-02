@@ -1,5 +1,7 @@
 package classfile
 
+import "sync"
+
 // 加载字节码文件
 type ClassLoader struct {
 	Bytecode []byte
@@ -8,8 +10,19 @@ type ClassLoader struct {
 	Al       *ApplicationLoader
 }
 
+var bootStrapLoader *BootStrapLoader
+var extensionLoader *ExtensionLoader
+var applicationLoader *ApplicationLoader
+var once sync.Once
+
 // 初始化类加载器
 func InitClassLoader(jre, cp string) *ClassLoader {
+	once.Do(func() {
+		bootStrapLoader = newBootStrapLoader(jre)
+		extensionLoader = newExtensionLoader(bootStrapLoader.path)
+		applicationLoader = newApplicationLoader(cp)
+	})
+
 	classLoader := ClassLoader{}
 
 	bl := newBootStrapLoader(jre)
@@ -32,9 +45,9 @@ func (loader *ClassLoader) Loading(fileName string) []byte {
 	fileName = fileName + ".class"
 	var data []byte
 	// 从启动类加载器中获取bytecode
-	if data = loader.Bl.Loading(fileName); data == nil {
-		if data = loader.El.Loading(fileName); data == nil {
-			if data = loader.Al.Loading(fileName); data == nil {
+	if data = bootStrapLoader.Loading(fileName); data == nil {
+		if data = extensionLoader.Loading(fileName); data == nil {
+			if data = applicationLoader.Loading(fileName); data == nil {
 				panic("class")
 			}
 		}
