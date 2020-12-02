@@ -26,18 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/class_load_linked.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/parse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/preparation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/classfile/verifier.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/classfile/application_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/classfile/application_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/classfile/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/classfile/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/classfile/extension_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/classfile/extension_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_field_ref.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_field_ref.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/launcher/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/debug.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -576,7 +566,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="[unfinished] add monitor entry &amp; exit instructions" />
     <MESSAGE value="classFile add the magic field" />
     <MESSAGE value="add fieldInfo &amp;&amp; methodInfo to replace memberInfo" />
     <MESSAGE value="update: class_file add a new field of constantPoolCount" />
@@ -601,7 +590,8 @@
     <MESSAGE value="add MethodInfo" />
     <MESSAGE value="add attribute_exceptionTable" />
     <MESSAGE value="Parse the bytecode's methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parse the bytecode's methods" />
+    <MESSAGE value="添加类加载阶段汇总链接部分接口，包括验证，准备，解析" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加类加载阶段汇总链接部分接口，包括验证，准备，解析" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

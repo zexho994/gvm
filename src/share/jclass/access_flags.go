@@ -3,14 +3,24 @@ package jclass
 import "fmt"
 
 const (
-	ACC_PUBLIC     = 0x1  // public class ， 可以从包外访问
-	ACC_FINAL      = 0x10 // final class , 不许有子类
-	ACC_SUPER      = 0x20
-	ACC_INTERFACE  = 0x200  // interface class
-	ACC_ABSTRACT   = 0x400  // abstract class
-	ACC_SYNTHETIC  = 0x1000 // synthetic，表示class文件并非由java源代码所生成
-	ACC_ANNOTATION = 0x2000 // 表示注解类型
-	ACC_ENUM       = 0x4000 // 表示枚举类型
+	ACC_PUBLIC       = 0x1    // public class ， 可以从包外访问 ,field method
+	ACC_PRIVATE      = 0x2    // field method
+	ACC_PROTECTED    = 0x4    // field method
+	ACC_STATIC       = 0x8    // field method
+	ACC_FINAL        = 0x10   // class field method
+	ACC_SUPER        = 0x20   // class
+	ACC_SYNCHRONIZED = 0x20   // method
+	ACC_VOLATILE     = 0x40   // field
+	ACC_BRIDGE       = 0x40   // method
+	ACC_TRANSIENT    = 0x80   // field
+	ACC_VARARGS      = 0x80   // method
+	ACC_NATIVE       = 0x100  // method
+	ACC_INTERFACE    = 0x200  // interface class
+	ACC_ABSTRACT     = 0x400  // abstract class
+	ACC_STRICT       = 0x800  // method
+	ACC_SYNTHETIC    = 0x1000 // synthetic，表示class文件并非由java源代码所生成,class field method
+	ACC_ANNOTATION   = 0x2000 // 表示注解类型, class
+	ACC_ENUM         = 0x4000 // 表示枚举类型, class fiedl
 )
 
 func getAccessFlags(acc uint16) {

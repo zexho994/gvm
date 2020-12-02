@@ -6,6 +6,8 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
+// JClass 是将字节码进行翻译后的结构，也就是仅执行加载步骤后的形态
+// 这时候还没有进行链接、初始化等步骤，所以 JClass 中存储的还是符号引用，非直接引用
 type JClass struct {
 	// 魔术
 	Magic uint32
