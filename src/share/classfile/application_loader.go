@@ -9,7 +9,7 @@ type ApplicationLoader struct {
 	path string
 }
 
-func NewApplicationLoader(path string) *ApplicationLoader {
+func newApplicationLoader(path string) *ApplicationLoader {
 	return &ApplicationLoader{path: path}
 }
 

@@ -7,7 +7,7 @@ type ExtensionLoader struct {
 	jars []string
 }
 
-func NewExtensionLoader(path string) *ExtensionLoader {
+func newExtensionLoader(path string) *ExtensionLoader {
 	extDir := filepath.Join(path, "lib", "ext")
 	el := ExtensionLoader{path: extDir}
 	el.jars = jars(filepath.Join(extDir, "*"))

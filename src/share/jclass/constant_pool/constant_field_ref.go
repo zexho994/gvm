@@ -4,11 +4,13 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 )
 
+//
 type ConstantFieldRefInfo struct {
 	Tag              uint8
 	Cp               ConstantPool
 	ClassIndex       uint16
 	NameAndTypeIndex uint16
+	NameAndType      ConstantNameAndType
 }
 
 func (field *ConstantFieldRefInfo) ReadInfo(reader *classfile.ClassReader) {

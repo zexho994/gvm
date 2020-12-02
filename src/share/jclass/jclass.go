@@ -36,6 +36,7 @@ type JClass struct {
 	Attributes      []attribute.AttributeInfo
 }
 
+// 可以理解为类加载阶段中的<加载>步骤
 func ParseToJClass(bytecode []byte) *JClass {
 	reader := &classfile.ClassReader{Bytecode: bytecode}
 	jClass := JClass{}

@@ -8,12 +8,13 @@ type ClassLoader struct {
 	Al       *ApplicationLoader
 }
 
+// 初始化类加载器
 func InitClassLoader(jre, cp string) *ClassLoader {
 	classLoader := ClassLoader{}
 
 	bl := newBootStrapLoader(jre)
-	el := NewExtensionLoader(bl.path)
-	al := NewApplicationLoader(cp)
+	el := newExtensionLoader(bl.path)
+	al := newApplicationLoader(cp)
 
 	classLoader.Bl = bl
 	classLoader.El = el
@@ -24,6 +25,7 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 
 // 加载字节码文件到方法区 Perm 中
 // 加载顺序依次为 BootStrapLoader 、 ExtensionLoader 、  ApplicationLoader
+// 《dynamic class loading in the java virtual machine》 url: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.762&rep=rep1&type=pdf
 func (loader *ClassLoader) Loading(fileName string) []byte {
 	// 先判断方法区是否已经存在该class
 
