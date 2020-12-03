@@ -21,9 +21,9 @@ type JClass struct {
 	// 类访问标志,表示是类还是接口,public还是private等
 	AccessFlags uint16
 	// 本类
-	ThisClass uint16
+	ThisClassIdx uint16
 	// 父类
-	SuperClass uint16
+	SuperClassIdx uint16
 	// 接口
 	InterfacesCount uint16
 	Interfaces      []uint16
@@ -53,9 +53,9 @@ func ParseToJClass(bytecode []byte) *JClass {
 	// 类访问符
 	jClass.AccessFlags = reader.ReadUint16()
 	// 本类
-	jClass.ThisClass = reader.ReadUint16()
+	jClass.ThisClassIdx = reader.ReadUint16()
 	// 父类
-	jClass.SuperClass = reader.ReadUint16()
+	jClass.SuperClassIdx = reader.ReadUint16()
 	// 接口数量 & 列表
 	jClass.InterfacesCount = reader.ReadUint16()
 	jClass.Interfaces = reader.ReadUint16Array(jClass.InterfacesCount)

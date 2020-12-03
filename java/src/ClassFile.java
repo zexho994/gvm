@@ -1,5 +1,5 @@
 
-public class ClassFile {
+public class ClassFile implements MyInterface {
 
     public static final boolean FLAG = true;
     public static final byte BYTE = 123;
@@ -13,6 +13,20 @@ public class ClassFile {
 
     public static void main(String[] args) throws RuntimeException {
         System.out.println("Hello, World!");
+    }
+
+    public void method1(){
+    }
+
+    public void method2(int i){
+    }
+
+    public int method3(Object obj){
+        return 100;
+    }
+
+    public Object method4(MyObject mc){
+        return null;
     }
 
 }

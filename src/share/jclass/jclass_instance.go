@@ -34,12 +34,11 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	// 类访问符不变
 	jci.AccessFlags = jclass.AccessFlags
 	// 获取到全限定名
-	jci.ThisClass = jci.ConstantPool.GetClassName(jclass.ThisClass)
+	jci.ThisClass = jci.ConstantPool.GetClassName(jclass.ThisClassIdx)
 	// 加载父类
 	jci.SuperClass = parseSuper(jclass)
 	// 加载接口
-	jci.Interfaces = parseInterfaces()
-
+	jci.Interfaces = parseInterfaces(jclass)
 	// 保存到方法区
 	GetPerm().Space[jci.ThisClass] = jci
 
@@ -48,12 +47,12 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 
 // 递归解析父类
 func parseSuper(jclass *JClass) *JClass_Instance {
-	thisName := jclass.ConstantPool.GetClassName(jclass.ThisClass)
+	thisName := jclass.ConstantPool.GetClassName(jclass.ThisClassIdx)
 	if thisName == "java/lang/Object" {
 		return nil
 	}
 	// 判断是否存在父类
-	superName := jclass.ConstantPool.GetClassName(jclass.SuperClass)
+	superName := jclass.ConstantPool.GetClassName(jclass.SuperClassIdx)
 	// 方法区存在该类结构
 	perm := GetPerm()
 	if supre := perm.Space[superName]; supre != nil {
@@ -65,7 +64,31 @@ func parseSuper(jclass *JClass) *JClass_Instance {
 }
 
 // 递归解析接口
-func parseInterfaces() []*JClass_Instance {
+// TODO：判断父接口是否是接口类,以及其他一些验证流程
+func parseInterfaces(jclass *JClass) []*JClass_Instance {
+	if jclass.InterfacesCount < 1 {
+		return nil
+	}
 
-	return nil
+	interfaces := make([]*JClass_Instance, jclass.InterfacesCount)
+	for i := range jclass.Interfaces {
+		iIdx := jclass.Interfaces[i]
+		iName := jclass.ConstantPool.GetClassName(iIdx)
+		iInstance := &JClass_Instance{}
+		// 如果方法区中已经有直接引用
+		if iInstance = perm.Space[iName]; iInstance != nil {
+			interfaces[i] = iInstance
+			continue
+		}
+		// 没有的情况，进行接口类的加载
+		ibytecode := classfile.ClaLoader.Loading(iName)
+		iJClass := ParseToJClass(ibytecode)
+		// 接口类型验证
+		if !isInterface(iJClass.AccessFlags) {
+			panic("[gvm] 接口解析错误 :" + iName + "的父接口对象不为 interface 类型")
+		}
+		interfaces[i] = ParseInstance(iJClass)
+	}
+
+	return interfaces
 }
