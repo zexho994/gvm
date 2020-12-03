@@ -48,14 +48,14 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 
 // 递归解析父类
 func parseSuper(jclass *JClass) *JClass_Instance {
+	thisName := jclass.ConstantPool.GetClassName(jclass.ThisClass)
+	if thisName == "java/lang/Object" {
+		return nil
+	}
 	// 判断是否存在父类
 	superName := jclass.ConstantPool.GetClassName(jclass.SuperClass)
-	//if superName == "java/lang/Object"{
-	//	return nil
-	//}
-
-	perm := GetPerm()
 	// 方法区存在该类结构
+	perm := GetPerm()
 	if supre := perm.Space[superName]; supre != nil {
 		return supre
 	}
