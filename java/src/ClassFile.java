@@ -1,5 +1,5 @@
 
-public class ClassFile implements MyInterface {
+public class ClassFile extends FatherFile implements MyInterface {
 
     public static final boolean FLAG = true;
     public static final byte BYTE = 123;
@@ -12,7 +12,18 @@ public class ClassFile implements MyInterface {
     public Object obj = new Object();
 
     public static void main(String[] args) throws RuntimeException {
-        System.out.println("Hello, World!");
+        ClassFile cf = new ClassFile();
+        FatherFile cf2 = new FatherFile();
+        FatherFile cf3 = new ClassFile();
+        cf.method1();
+        cf.method2(111);
+        int res3 = cf.method3(new Object());
+        Object o = cf.method4(new MyObject());
+        int resf2 = cf.father_method2(1);
+        cf2.father_method1();
+        int resfff2 = cf3.father_method2(3);
+        System.out.println("res3 = " + res3);
+        System.out.println("resf2 = " + resf2);
     }
 
     public void method1(){

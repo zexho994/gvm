@@ -27,9 +27,10 @@ type JClass_Instance struct {
 	Attributes []attribute.AttributeInfo
 }
 
+// TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析
 func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci := &JClass_Instance{}
-	// 运行时常量池不变
+	// todo 解析运行时常量池,将 CONSTANT_Class_info,CONSTANT_Fieldref_info,CONSTANT_Methodref_info等类型符号引用的常量转换为直接引用
 	jci.ConstantPool = jclass.ConstantPool
 	// 类访问符不变
 	jci.AccessFlags = jclass.AccessFlags
@@ -39,6 +40,10 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci.SuperClass = parseSuper(jclass)
 	// 加载接口
 	jci.Interfaces = parseInterfaces(jclass)
+	// TODO parse fields
+	jci.Fields = jclass.Fields
+	// TODO parse methods
+	jci.Methods = jclass.Methods
 	// 保存到方法区
 	GetPerm().Space[jci.ThisClass] = jci
 
@@ -46,6 +51,7 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 }
 
 // 递归解析父类
+// todo: parseSuper 和 parseInterfaces 都需要对访问权限进行判断
 func parseSuper(jclass *JClass) *JClass_Instance {
 	thisName := jclass.ConstantPool.GetClassName(jclass.ThisClassIdx)
 	if thisName == "java/lang/Object" {
@@ -64,7 +70,6 @@ func parseSuper(jclass *JClass) *JClass_Instance {
 }
 
 // 递归解析接口
-// TODO：判断父接口是否是接口类,以及其他一些验证流程
 func parseInterfaces(jclass *JClass) []*JClass_Instance {
 	if jclass.InterfacesCount < 1 {
 		return nil
