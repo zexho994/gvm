@@ -97,3 +97,8 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 
 	return interfaces
 }
+
+// 初始化
+func (instance JClass_Instance) initialize() {
+
+}
