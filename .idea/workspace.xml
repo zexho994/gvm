@@ -26,8 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/runtime/thread_program_counter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_stack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -838,7 +841,7 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1161" y="166" key="RollbackChangesDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606455423360" />
-    <state x="651" y="-844" width="900" height="722" key="SettingsEditor" timestamp="1606919458684">
+    <state x="651" y="-844" width="900" height="722" key="SettingsEditor" timestamp="1607353783355">
       <screen x="-174" y="-1080" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
@@ -846,7 +849,7 @@
     <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108816371" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
     <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
-    <state x="651" y="-844" key="SettingsEditor/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606919458684" />
+    <state x="651" y="-844" key="SettingsEditor/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1607353783355" />
     <state x="-1095" y="236" key="SettingsEditor/-1771.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606906392875" />
     <state x="-1095" y="236" key="SettingsEditor/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530964165" />
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />

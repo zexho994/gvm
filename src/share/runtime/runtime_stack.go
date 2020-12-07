@@ -1,5 +1,6 @@
 package runtime
 
+// 栈的主要作用就是存储栈帧
 type Stack struct {
 	// 栈最大大小
 	maxSize uint
