@@ -6,6 +6,7 @@ type ConstantNameAndType struct {
 	Tag             uint8
 	NameIndex       uint16
 	DescriptorIndex uint16
+	cp              ConstantPool
 }
 
 func (constantNameAndTypeInfo *ConstantNameAndType) ReadInfo(reader *classfile.ClassReader) {

@@ -47,9 +47,9 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_InterfaceMethodref:
 		return &ConstantInterfaceMethod{Tag: tag, Cp: pool}
 	case CONSTANT_NameAndType:
-		return &ConstantNameAndType{Tag: tag}
+		return &ConstantNameAndType{Tag: tag, cp: pool}
 	case CONSTANT_MethodType:
-		return &ConstantMethod{Tag: tag}
+		return &ConstantMethod{Tag: tag, Cp: pool}
 	case CONSTANT_MethodHandle:
 		return &ConstantMethodHandle{Tag: tag}
 	case CONSAANT_InvokeDynamic:

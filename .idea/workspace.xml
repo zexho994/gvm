@@ -26,8 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_runtime.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_name_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_runtime.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_runtime.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_instance_ref.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -567,7 +571,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="class对象添加classInfo字段，用来表示类结构，相当于klass，而class相当于oop" />
     <MESSAGE value="拆分 应用加载器和扩展加载器的处理逻辑" />
     <MESSAGE value="添加share模块，添加基础类" />
     <MESSAGE value="bootstrap_loader 获取 jre下所有jar包路径" />
@@ -592,7 +595,8 @@
     <MESSAGE value="解析接口" />
     <MESSAGE value="初步完成 JClass_instance 解析" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="add constant_runtime file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add constant_runtime file" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -853,7 +857,7 @@
     <state x="-1095" y="236" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133149362" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1607130579036">
+    <state width="572" height="446" key="SwitcherDM" timestamp="1607316456260">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="736" key="SwitcherDM.inPresentationMode" timestamp="1606835531524">
@@ -867,7 +871,7 @@
     <state width="881" height="692" key="SwitcherDM.inPresentationMode/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606550689851" />
     <state width="572" height="446" key="SwitcherDM/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606837727958" />
     <state width="572" height="446" key="SwitcherDM/-1771.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606973348591" />
-    <state width="572" height="446" key="SwitcherDM/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607130579036" />
+    <state width="572" height="446" key="SwitcherDM/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607316456260" />
     <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606533176691" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606711971569" />
