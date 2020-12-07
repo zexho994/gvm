@@ -26,12 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_name_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_runtime.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_runtime.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_instance_ref.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,19 +129,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/share/runtime" />
+      <recent name="$PROJECT_DIR$/src/share/jclass/attribute" />
+      <recent name="$PROJECT_DIR$/src/share/jclass/constant_pool" />
+      <recent name="$PROJECT_DIR$/src/share/jclass" />
+      <recent name="$PROJECT_DIR$/src/share" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vm/instructions" />
       <recent name="$PROJECT_DIR$/vm/rtda/heap" />
       <recent name="$PROJECT_DIR$/vm" />
       <recent name="$PROJECT_DIR$/vm/instructions/references" />
       <recent name="$PROJECT_DIR$/vm/instructions/stores" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/share/jclass/attribute" />
-      <recent name="$PROJECT_DIR$/src/share/jclass/constant_pool" />
-      <recent name="$PROJECT_DIR$/src/share/jclass" />
-      <recent name="$PROJECT_DIR$/src/share" />
-      <recent name="$PROJECT_DIR$/src/share/launcher" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -571,10 +567,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="拆分 应用加载器和扩展加载器的处理逻辑" />
-    <MESSAGE value="添加share模块，添加基础类" />
-    <MESSAGE value="bootstrap_loader 获取 jre下所有jar包路径" />
-    <MESSAGE value="抽取 InitClassLoader 的方法" />
     <MESSAGE value="加载器加载bytecode" />
     <MESSAGE value="添加 jclass 相关对象" />
     <MESSAGE value="add reader for bytecode" />
@@ -594,9 +586,13 @@
     <MESSAGE value="解析父类" />
     <MESSAGE value="解析接口" />
     <MESSAGE value="初步完成 JClass_instance 解析" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="add constant_runtime file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add constant_runtime file" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="add frame_localvars.go" />
+    <MESSAGE value="add runtime_slot.go" />
+    <MESSAGE value="add runtime_stack.go" />
+    <MESSAGE value="add runtime_stack_frame.go" />
+    <option name="LAST_COMMIT_MESSAGE" value="add runtime_stack_frame.go" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -938,8 +934,8 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600349998555" />
-    <state x="587" y="-692" width="896" height="609" key="search.everywhere.popup" timestamp="1606919037857">
-      <screen x="-174" y="-1080" width="1920" height="1080" />
+    <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1607342948353">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="178" y="0" width="1563" height="3208" key="search.everywhere.popup.inPresentationMode" timestamp="1606550441533">
       <screen x="214" y="1080" width="1440" height="900" />
@@ -948,6 +944,7 @@
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599218953320" />
     <state x="587" y="-692" width="896" height="609" key="search.everywhere.popup/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606919037857" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-1771.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606906792488" />
+    <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607342948353" />
     <state x="469" y="203" width="672" height="507" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599387299391" />
     <state x="547" y="237" width="784" height="592" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1600592453007" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133583686" />
