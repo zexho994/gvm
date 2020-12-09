@@ -100,16 +100,21 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 }
 
 // 初始化
-func (instance JClass_Instance) initialize() {
+func (j JClass_Instance) initialize() {
 
 }
 
-func (instance JClass_Instance) FindStaticMethod(name string) (*MethodInfo, error) {
-	for i := range instance.Methods {
-		mName := instance.ConstantPool.GetUtf8(instance.Methods[i].nameIdx)
-		if name == mName {
-			return &instance.Methods[i], nil
+func (j JClass_Instance) FindStaticMethod(name string) (*MethodInfo, error) {
+	for i := range j.Methods {
+		methodInfo := j.Methods[i]
+		if !isStatic(methodInfo.accessFlag) {
+			continue
 		}
+		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
+		if name != mName {
+			continue
+		}
+		return &j.Methods[i], nil
 	}
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}
 }

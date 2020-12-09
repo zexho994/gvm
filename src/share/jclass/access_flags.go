@@ -85,3 +85,7 @@ func isSynthetic(acc uint16) bool {
 func isAnnotation(acc uint16) bool {
 	return (acc & ACC_ANNOTATION) != 0
 }
+
+func isStatic(acc uint16) bool {
+	return (acc & ACC_STATIC) != 0
+}
