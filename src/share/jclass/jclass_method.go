@@ -13,7 +13,7 @@ type MethodInfo struct {
 	nameIdx       uint16
 	descriptorIdx uint16
 	attrCount     uint16
-	attribute     []attribute.AttributeInfo
+	attribute     attribute.AttributeInfos
 	cp            constant_pool.ConstantPool
 }
 
@@ -32,4 +32,8 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		methods[i] = method
 	}
 	return methods
+}
+
+func (m MethodInfo) GetCode() {
+	return
 }

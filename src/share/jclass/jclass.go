@@ -35,7 +35,7 @@ type JClass struct {
 	Methods      Methods
 	// 属性表
 	AttributesCount uint16
-	Attributes      []attribute.AttributeInfo
+	Attributes      attribute.AttributeInfos
 }
 
 // 可以理解为类加载阶段中的<加载>步骤

@@ -22,7 +22,7 @@ type FieldInfo struct {
 	descriptorIndex uint16
 	// 属性表
 	attributesCount uint16
-	attributes      []attribute.AttributeInfo
+	attributes      attribute.AttributeInfos
 }
 
 // 解析字段表

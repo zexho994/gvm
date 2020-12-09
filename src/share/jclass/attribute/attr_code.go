@@ -20,7 +20,7 @@ type Attr_Code struct {
 	ExceptionTable []*ExceptionTable
 	// 属性表
 	attrCount uint16
-	attrInfo  []AttributeInfo
+	attrInfo  AttributeInfos
 }
 
 // 异常表

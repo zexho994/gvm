@@ -25,7 +25,7 @@ type JClass_Instance struct {
 	// 方法表
 	Methods Methods
 	// 属性表
-	Attributes []attribute.AttributeInfo
+	Attributes attribute.AttributeInfos
 }
 
 // TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析

@@ -5,12 +5,14 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
+type AttributeInfos []AttributeInfo
+
 type AttributeInfo interface {
 	parse(reader *classfile.ClassReader)
 }
 
-func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) []AttributeInfo {
-	attributes := make([]AttributeInfo, attrCount)
+func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) AttributeInfos {
+	attributes := make(AttributeInfos, attrCount)
 	for i := range attributes {
 		attrNameIdx := reader.ReadUint16()
 		attrLen := reader.ReadUint32()
