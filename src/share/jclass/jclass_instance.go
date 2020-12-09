@@ -2,6 +2,7 @@ package jclass
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
@@ -101,4 +102,14 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 // 初始化
 func (instance JClass_Instance) initialize() {
 
+}
+
+func (instance JClass_Instance) FindStaticMethod(name string) (*MethodInfo, error) {
+	for i := range instance.Methods {
+		mName := instance.ConstantPool.GetUtf8(instance.Methods[i].nameIdx)
+		if name == mName {
+			return &instance.Methods[i], nil
+		}
+	}
+	return nil, exception.GvmError{Msg: "not find static method it name " + name}
 }

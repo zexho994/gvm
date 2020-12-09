@@ -10,7 +10,11 @@ func StartGvmByDebug() {
 	loader := classfile.InitClassLoader(JrePath, UserClassPath)
 	bytecode := loader.Loading("classFile")
 	jc := jclass.ParseToJClass(bytecode)
-	jclass.ParseInstance(jc)
+	instance := jclass.ParseInstance(jc)
 	// 执行main方法
+	method, err := instance.FindStaticMethod("main")
+	if err != nil || method == nil {
+		panic(err)
+	}
 
 }

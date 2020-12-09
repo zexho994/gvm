@@ -17,7 +17,7 @@ const (
 	CONSANT_Methodref           = 0x0a // 接口方法的符号引用
 	CONSTANT_NameAndType        = 0x0c // 接口方法的符号引用
 	CONSTANT_MethodHandle       = 0x0f
-	CONSTANT_MethodType         = 0x10
+	CONSTANT_MethodType         = 0x10 // 表示方法类型
 	CONSAANT_InvokeDynamic      = 0x12
 )
 
@@ -49,7 +49,7 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_NameAndType:
 		return &ConstantNameAndType{Tag: tag, cp: pool}
 	case CONSTANT_MethodType:
-		return &ConstantMethod{Tag: tag, Cp: pool}
+		return &MethodType{Tag: tag, Cp: pool}
 	case CONSTANT_MethodHandle:
 		return &ConstantMethodHandle{Tag: tag}
 	case CONSAANT_InvokeDynamic:

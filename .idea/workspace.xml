@@ -26,11 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/runtime/thread_program_counter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/exception/gvm_error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/instructions/base/branch.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_method_type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_method_instance.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/launcher/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/debug.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +50,7 @@
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -128,7 +132,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -570,9 +574,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="加载器加载bytecode" />
-    <MESSAGE value="添加 jclass 相关对象" />
-    <MESSAGE value="add reader for bytecode" />
     <MESSAGE value="parse magic，minorVersion，majorVersion" />
     <MESSAGE value="添加常量池基本结构" />
     <MESSAGE value="解析 常量池 &amp; 类访问符" />
@@ -595,7 +596,10 @@
     <MESSAGE value="add runtime_slot.go" />
     <MESSAGE value="add runtime_stack.go" />
     <MESSAGE value="add runtime_stack_frame.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="add runtime_stack_frame.go" />
+    <MESSAGE value="add runtime_thread.go" />
+    <MESSAGE value="add code_reader" />
+    <MESSAGE value="add base_instruction" />
+    <option name="LAST_COMMIT_MESSAGE" value="add base_instruction" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -635,9 +639,10 @@
     </state>
     <state x="896" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1599286588445" />
     <state x="1195" y="208" key="#com.intellij.ide.util.MemberChooser/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606648464508" />
-    <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606530338152">
+    <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607405180351">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607405180351" />
     <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530338152" />
     <state x="476" y="225" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1601471203725" />
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599974102377">
@@ -832,31 +837,33 @@
     <state width="1878" height="385" key="GridCell.Tab.1.right/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607090959936" />
     <state width="1878" height="417" key="GridCell.Tab.1.right/214.1103.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1607091744922" />
     <state width="1878" height="366" key="GridCell.Tab.1.right/214.1103.1440.877/0.23.1920.1057@214.1103.1440.877" timestamp="1606549794251" />
-    <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog" timestamp="1603067788379">
-      <screen x="-1582" y="1080" width="1440" height="900" />
+    <state x="-1920" y="16" width="1440" height="886" key="MergeDialog" timestamp="1607428798743">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1582" y="1094" width="1440" height="886" key="MergeDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067788379" />
+    <state x="-1920" y="16" key="MergeDialog/-1589.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607428798743" />
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600435096137" />
     <state x="-1161" y="166" key="RollbackChangesDialog" timestamp="1606455423360">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1161" y="166" key="RollbackChangesDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606455423360" />
-    <state x="651" y="-844" width="900" height="722" key="SettingsEditor" timestamp="1607353783355">
-      <screen x="-174" y="-1080" width="1920" height="1080" />
+    <state x="-1590" y="236" width="1395" height="793" key="SettingsEditor" timestamp="1607428835921">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
     <state x="-1204" y="1172" width="900" height="722" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067983703" />
     <state x="-1095" y="236" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108816371" />
     <state x="793" y="247" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1599784022013" />
     <state x="-1181" y="337" key="SettingsEditor/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599784516849" />
-    <state x="651" y="-844" key="SettingsEditor/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1607353783355" />
+    <state x="-1590" y="236" width="1395" height="793" key="SettingsEditor/-1589.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607428835921" />
+    <state x="651" y="-844" key="SettingsEditor/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606919458684" />
     <state x="-1095" y="236" key="SettingsEditor/-1771.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606906392875" />
     <state x="-1095" y="236" key="SettingsEditor/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530964165" />
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />
     <state x="-1095" y="236" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133149362" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1607316456260">
+    <state width="572" height="446" key="SwitcherDM" timestamp="1607490885877">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="736" key="SwitcherDM.inPresentationMode" timestamp="1606835531524">
@@ -870,6 +877,7 @@
     <state width="881" height="692" key="SwitcherDM.inPresentationMode/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606550689851" />
     <state width="572" height="446" key="SwitcherDM/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606837727958" />
     <state width="572" height="446" key="SwitcherDM/-1771.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606973348591" />
+    <state width="572" height="446" key="SwitcherDM/-3360.392.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607490885877" />
     <state width="572" height="446" key="SwitcherDM/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607316456260" />
     <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606533176691" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
@@ -880,13 +888,15 @@
       <screen x="-174" y="-1080" width="1920" height="1080" />
     </state>
     <state x="542" y="-918" key="VCS.ChangeListViewerDialog/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606836734145" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1606728376198">
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1607428770120">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108737260" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602764571229" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1598874194178" />
     <state x="560" y="322" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602828609350" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1589.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607428770120" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607343788113" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606465305782" />
     <state x="420" y="255" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599385785320" />
     <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600592806926" />
@@ -960,6 +970,16 @@
           <url>file://$PROJECT_DIR$/src/vm/instructions/instrction_factory.go</url>
           <line>222</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/share/launcher/debug.go</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/share/jclass/jclass_instance.go</url>
+          <line>107</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
