@@ -16,3 +16,7 @@ type Attr_Signature struct {
 func (attr Attr_Signature) parse(reader *classfile.ClassReader) {
 	attr.signatureIdx = reader.ReadUint16()
 }
+
+func (attr Attr_Signature) Name() string {
+	return attr.name
+}

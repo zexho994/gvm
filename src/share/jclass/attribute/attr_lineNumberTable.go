@@ -38,3 +38,7 @@ func (attr *Attr_LineNumberTable) parse(reader *classfile.ClassReader) {
 	}
 	attr.lineNumberTable = table
 }
+
+func (attr Attr_LineNumberTable) Name() string {
+	return attr.name
+}

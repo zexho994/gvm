@@ -16,5 +16,12 @@ func StartGvmByDebug() {
 	if err != nil || method == nil {
 		panic(err)
 	}
+	code, err := method.Attributes().Code()
+	if err != nil {
+		panic(err)
+	}
+	if code == nil {
+
+	}
 
 }

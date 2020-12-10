@@ -21,3 +21,7 @@ type Attr_ConstantValue struct {
 func (cv *Attr_ConstantValue) parse(reader *classfile.ClassReader) {
 	cv.ValeIdx = reader.ReadUint16()
 }
+
+func (cv Attr_ConstantValue) Name() string {
+	return cv.name
+}

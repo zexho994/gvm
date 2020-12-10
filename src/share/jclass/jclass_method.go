@@ -34,6 +34,6 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 	return methods
 }
 
-func (m MethodInfo) GetCode() {
-	return
+func (m MethodInfo) Attributes() attribute.AttributeInfos {
+	return m.attribute
 }

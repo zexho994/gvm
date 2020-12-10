@@ -13,3 +13,7 @@ type Attr_SourceFile struct {
 func (attr *Attr_SourceFile) parse(reader *classfile.ClassReader) {
 	attr.sourceIdx = reader.ReadUint16()
 }
+
+func (attr Attr_SourceFile) Name() string {
+	return attr.name
+}

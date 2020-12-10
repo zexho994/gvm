@@ -34,3 +34,7 @@ func (attr *Attr_Exceptions) parse(reader *classfile.ClassReader) {
 		attr.exTable[i] = reader.ReadUint16()
 	}
 }
+
+func (attr Attr_Exceptions) Name() string {
+	return attr.name
+}

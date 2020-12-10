@@ -7,6 +7,7 @@ import (
 
 type Attr_Code struct {
 	NameIdx uint16
+	name    string
 	AttrLen uint32
 	cp      constant_pool.ConstantPool
 	// 方法的操作数栈在任何时间点的最大深度
@@ -53,4 +54,8 @@ func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
 		}
 	}
 	return table
+}
+
+func (code Attr_Code) Name() string {
+	return code.name
 }

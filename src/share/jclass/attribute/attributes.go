@@ -2,12 +2,14 @@ package attribute
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
 type AttributeInfos []AttributeInfo
 
 type AttributeInfo interface {
+	Name() string
 	parse(reader *classfile.ClassReader)
 }
 
@@ -27,7 +29,7 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	name := cp.GetUtf8(nameIdx)
 	switch name {
 	case "Code":
-		return &Attr_Code{NameIdx: nameIdx, AttrLen: attrLen, cp: cp}
+		return &Attr_Code{NameIdx: nameIdx, name: name, AttrLen: attrLen, cp: cp}
 	case "ConstantValue":
 		return &Attr_ConstantValue{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
 	case "Exceptions":
@@ -51,4 +53,15 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		panic("attribute error")
 		//return &UnparsedAttribute{attrName, attrLen, nil}
 	}
+}
+
+func (attr AttributeInfos) Code() (*Attr_Code, error) {
+	for idx := range attr {
+		if attr[idx].Name() == "Code" {
+			a := attr[idx]
+			code := a.(*Attr_Code)
+			return code, nil
+		}
+	}
+	return nil, exception.GvmError{Msg: "method not exist the attribute of code"}
 }
