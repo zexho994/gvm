@@ -15,6 +15,7 @@ type MethodInfo struct {
 	attrCount     uint16
 	attribute     attribute.AttributeInfos
 	cp            constant_pool.ConstantPool
+	argSlotCount  uint
 }
 
 // 解析方法表
@@ -33,6 +34,14 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 	}
 	return methods
 }
+
+//func (m MethodInfo) MaxStack() uint {
+//	return m.maxStack
+//}
+//
+//func (m MethodInfo) MaxLocals() uint {
+//	return m.maxLocals
+//}
 
 func (m MethodInfo) Attributes() attribute.AttributeInfos {
 	return m.attribute

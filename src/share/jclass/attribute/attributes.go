@@ -51,11 +51,10 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 
 	default:
 		panic("attribute error")
-		//return &UnparsedAttribute{attrName, attrLen, nil}
 	}
 }
 
-func (attr AttributeInfos) Code() (*Attr_Code, error) {
+func (attr AttributeInfos) AttrCode() (*Attr_Code, error) {
 	for idx := range attr {
 		if attr[idx].Name() == "Code" {
 			a := attr[idx]

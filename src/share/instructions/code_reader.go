@@ -1,21 +1,17 @@
 package instructions
 
-import (
-	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
-)
-
 type CodeReader struct {
 	pc   int
-	code attribute.Attr_Code
+	code []byte
 }
 
-func (c *CodeReader) Reset(pc int, code attribute.Attr_Code) {
+func (c *CodeReader) Reset(pc int, code []byte) {
 	c.pc = pc
 	c.code = code
 }
 
 func (c *CodeReader) ReadUint8() uint8 {
-	i := c.code.Code[c.pc]
+	i := c.code[c.pc]
 	c.pc++
 	return i
 }

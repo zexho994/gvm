@@ -11,7 +11,7 @@ type OperandStack struct {
 	slots []Slot
 }
 
-func NewOperandStack(maxStack uint) *OperandStack {
+func NewOperandStack(maxStack uint16) *OperandStack {
 	//fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
 	if maxStack > 0 {
 		operandStack := &OperandStack{

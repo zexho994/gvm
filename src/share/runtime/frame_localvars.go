@@ -9,7 +9,7 @@ type LocalVars struct {
 	slots []Slot
 }
 
-func NewLocalVars(maxLocals uint) *LocalVars {
+func NewLocalVars(maxLocals uint16) *LocalVars {
 	if maxLocals > 0 {
 		localvars := &LocalVars{
 			slots: make([]Slot, maxLocals),

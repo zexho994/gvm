@@ -39,7 +39,7 @@ func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo {
 
 func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) AttributeInfo {
 	switch attrName {
-	case "Code":
+	case "AttrCode":
 		return &CodeAttribute{cp: cp}
 	case "ConstantValue":
 		return &ConstantValueAttribute{}

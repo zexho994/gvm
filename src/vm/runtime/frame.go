@@ -17,7 +17,7 @@ type Frame struct {
 
 /*
 The value of maxLocals and maxStack can be calculated at compile time
-can see the classfile.method_info's Code Attribute
+can see the classfile.method_info's AttrCode Attribute
 */
 func newFrame(thread *Thread, method *oops.Method) *Frame {
 	return &Frame{

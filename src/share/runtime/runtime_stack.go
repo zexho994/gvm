@@ -10,6 +10,10 @@ type Stack struct {
 	top *Frame
 }
 
+func (s *Stack) isEmtpy() bool {
+	return s.size == 0
+}
+
 func (s *Stack) Push(newFrame *Frame) {
 	if s.size == s.maxSize {
 		panic("[gvm] system error StackOverflow")

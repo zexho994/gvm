@@ -2,6 +2,7 @@ package launcher
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/interpreter"
 	jclass "github.com/zouzhihao-994/gvm/src/share/jclass"
 )
 
@@ -16,12 +17,6 @@ func StartGvmByDebug() {
 	if err != nil || method == nil {
 		panic(err)
 	}
-	code, err := method.Attributes().Code()
-	if err != nil {
-		panic(err)
-	}
-	if code == nil {
-
-	}
+	interpreter.Interpret(method)
 
 }
