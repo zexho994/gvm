@@ -35,6 +35,10 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 	return methods
 }
 
+func (m *MethodInfo) CP() constant_pool.ConstantPool {
+	return m.cp
+}
+
 //func (m MethodInfo) MaxStack() uint {
 //	return m.maxStack
 //}

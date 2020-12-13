@@ -26,21 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/interpreter/interpreter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/code_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/code_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/launcher/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/debug.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_instance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_jclass.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_mark.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_mark.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_stack_frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/runtime_thread.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/classfile/attribute_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/classfile/attribute_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/runtime/frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/interpreter/code_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/interpreter/code_reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/interpreter/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/interpreter/interpreter.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +127,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -870,8 +858,8 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1161" y="166" key="RollbackChangesDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606455423360" />
-    <state x="-1590" y="236" width="1395" height="793" key="SettingsEditor" timestamp="1607491187496">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="330" y="236" width="1395" height="793" key="SettingsEditor" timestamp="1607854415794">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="382" y="183" key="SettingsEditor/-126.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1602425785013" />
     <state x="-1204" y="1172" width="900" height="722" key="SettingsEditor/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067983703" />
@@ -885,10 +873,11 @@
     <state x="-1095" y="236" key="SettingsEditor/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530964165" />
     <state x="382" y="183" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600354033776" />
     <state x="-1095" y="236" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133149362" />
+    <state x="330" y="236" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1607854415794" />
     <state x="694" y="258" width="980" height="722" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599746225792" />
     <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1607686536659">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state width="572" height="446" key="SwitcherDM" timestamp="1607854351093">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="736" key="SwitcherDM.inPresentationMode" timestamp="1606835531524">
       <screen x="-174" y="-1080" width="1920" height="1080" />
@@ -907,7 +896,7 @@
     <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606533176691" />
     <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606711971569" />
-    <state width="500" height="445" key="SwitcherDM/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599196845632" />
+    <state width="572" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1607854351093" />
     <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606648413528" />
     <state x="542" y="-918" key="VCS.ChangeListViewerDialog" timestamp="1606836734145">
       <screen x="-174" y="-1080" width="1920" height="1080" />
@@ -936,13 +925,14 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-810" y="535" key="com.goide.codeInsight.imports.GoImportConfigurable$AddImportExclusionDialog/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1602655760539" />
-    <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606130686163">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607850877152">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1002" y="1464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1582.1080.1440.900" timestamp="1603067780240" />
     <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602822250442" />
     <state x="676" y="448" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600435088879" />
     <state x="-1147" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606130686163" />
+    <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607850877152" />
     <state x="323" y="-886" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606836315388">
       <screen x="-174" y="-1080" width="1920" height="1080" />
     </state>
@@ -999,8 +989,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/share/interpreter/interpreter.go</url>
-          <line>9</line>
-          <option name="timeStamp" value="5" />
+          <line>28</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

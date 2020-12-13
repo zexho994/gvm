@@ -3,7 +3,7 @@ package launcher
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 	"github.com/zouzhihao-994/gvm/src/share/interpreter"
-	jclass "github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/jclass"
 )
 
 // 通过debug模式启动gvm
