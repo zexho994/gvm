@@ -10,7 +10,7 @@ type Stack struct {
 	top *Frame
 }
 
-func (s *Stack) isEmtpy() bool {
+func (s *Stack) IsEmtpy() bool {
 	return s.size == 0
 }
 

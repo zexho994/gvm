@@ -85,11 +85,9 @@ func loop(thread *runtime.Thread, logInst bool) {
 		opcode := reader.ReadUint8()
 
 		//  根据操作码获取对应的命令
-		//fmt.Printf("[gvm][interpreter.loop] 获取指令 \n")
 		inst := instructions.NewInstruction(opcode)
 
 		// 拉取操作数
-		//fmt.Println("[gvm][interpreter.loop] 指令fetchOperands")
 		inst.FetchOperands(reader)
 
 		// 更新栈桢

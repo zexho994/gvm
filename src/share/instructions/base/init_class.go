@@ -13,8 +13,9 @@ func InitClass(j *jclass.JClass_Instance, thread *runtime.Thread) {
 	if err != nil {
 		panic(err.Error())
 	}
+
 	frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, &clinit, thread)
-	thread.PushFrame(frame)
+	thread.Push(frame)
 
 	// 如果父类也还未初始化，则先初始化父类
 	// 因为栈的原因，所以父类的初始化frame要后push

@@ -9,29 +9,33 @@ import (
 
 // code 解释器
 func Interpret(method *jclass.MethodInfo) {
-	newThread := runtime.NewThread()
+	var newThread = &runtime.Thread{
+		PC:    1,
+		Stack: runtime.NewStack(1024),
+	}
 	code, err := method.Attributes().AttrCode()
 	if err != nil {
 		return
 	}
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, newThread)
-	newThread.PushFrame(newFrame)
+	newThread.Push(newFrame)
 	loop(newThread, code.Code)
 }
 
 func loop(thread *runtime.Thread, code []byte) {
 	reader := &base.MethodCodeReader{}
 	for {
-		curFrame := thread.Frame()
-		pc := curFrame.NextPC()
-		thread.SetPC(pc)
+		// 因为可能在指令的操作中会对线程的栈帧进行修改，所以这个地方每次都需要进行重新赋值
+		curFrame := thread.Peek()
+		pc := curFrame.PC()
+		thread.PC = pc
 		reader.Reset(code, pc)
 		opcode := reader.ReadOpenCdoe()
 		inst := instructions.NewInstruction(opcode)
 		inst.FetchOperands(reader)
-		curFrame.SetNextPC(reader.PC())
+		curFrame.SetPC(reader.PC())
 		inst.Execute(curFrame)
-		if thread.IsStackEmpty() {
+		if thread.IsEmtpy() {
 			break
 		}
 	}
