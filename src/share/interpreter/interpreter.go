@@ -14,7 +14,7 @@ func Interpret(method *jclass.MethodInfo) {
 	if err != nil {
 		return
 	}
-	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method)
+	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, newThread)
 	newThread.PushFrame(newFrame)
 	loop(newThread, code.Code)
 }

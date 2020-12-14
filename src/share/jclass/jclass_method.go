@@ -18,6 +18,25 @@ type MethodInfo struct {
 	argSlotCount  uint
 }
 
+func (ms Methods) Clinit() MethodInfo {
+	for idx := range ms {
+		i := ms[idx].nameIdx
+		nameStr := ms[idx].cp.GetUtf8(i)
+		if nameStr == "<clinit>" {
+			return ms[idx]
+		}
+	}
+	panic("[gvm] the <clinit> is not exist")
+}
+
+func (m *MethodInfo) CP() constant_pool.ConstantPool {
+	return m.cp
+}
+
+func (m MethodInfo) Attributes() attribute.AttributeInfos {
+	return m.attribute
+}
+
 // 解析方法表
 func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool.ConstantPool) Methods {
 	methods := make([]MethodInfo, count)
@@ -33,20 +52,4 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		methods[i] = method
 	}
 	return methods
-}
-
-func (m *MethodInfo) CP() constant_pool.ConstantPool {
-	return m.cp
-}
-
-//func (m MethodInfo) MaxStack() uint {
-//	return m.maxStack
-//}
-//
-//func (m MethodInfo) MaxLocals() uint {
-//	return m.maxLocals
-//}
-
-func (m MethodInfo) Attributes() attribute.AttributeInfos {
-	return m.attribute
 }

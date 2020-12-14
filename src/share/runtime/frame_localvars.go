@@ -19,60 +19,60 @@ func NewLocalVars(maxLocals uint16) *LocalVars {
 	return nil
 }
 
-func (localVars *LocalVars) SetInt(index uint, val int32) {
-	localVars.slots[index].num = val
+func (l *LocalVars) SetInt(index uint, val int32) {
+	l.slots[index].num = val
 }
 
-func (localVars *LocalVars) GetInt(index uint) int32 {
-	return localVars.slots[index].num
+func (l *LocalVars) GetInt(index uint) int32 {
+	return l.slots[index].num
 }
 
-func (localVars *LocalVars) SetFloat(index uint, val float32) {
+func (l *LocalVars) SetFloat(index uint, val float32) {
 	bits := math.Float32bits(val)
-	localVars.slots[index].num = int32(bits)
+	l.slots[index].num = int32(bits)
 }
 
-func (localVars *LocalVars) GetFloat(index uint) float32 {
-	bits := uint32(localVars.slots[index].num)
+func (l *LocalVars) GetFloat(index uint) float32 {
+	bits := uint32(l.slots[index].num)
 
 	return math.Float32frombits(bits)
 }
 
-func (localVars *LocalVars) SetLong(index uint, val int64) {
-	localVars.slots[index].num = int32(val)
-	localVars.slots[index+1].num = int32(val >> 32)
+func (l *LocalVars) SetLong(index uint, val int64) {
+	l.slots[index].num = int32(val)
+	l.slots[index+1].num = int32(val >> 32)
 }
 
-func (localVars *LocalVars) GetLong(index uint) int64 {
-	low := uint32(localVars.slots[index].num)
-	high := uint32(localVars.slots[index+1].num)
+func (l *LocalVars) GetLong(index uint) int64 {
+	low := uint32(l.slots[index].num)
+	high := uint32(l.slots[index+1].num)
 
 	return int64(high)<<32 | int64(low)
 }
 
-func (localVars LocalVars) SetDouble(index uint, val float64) {
+func (l LocalVars) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
-	localVars.SetLong(index, int64(bits))
+	l.SetLong(index, int64(bits))
 }
 
-func (localVars LocalVars) GetDouble(index uint) float64 {
-	bits := uint64(localVars.GetLong(index))
+func (l LocalVars) GetDouble(index uint) float64 {
+	bits := uint64(l.GetLong(index))
 
 	return math.Float64frombits(bits)
 }
 
-func (localVars LocalVars) SetRef(index uint, ref *jclass.JClass_Instance) {
-	localVars.slots[index].ref = ref
+func (l LocalVars) SetRef(index uint, ref *jclass.JClass_Instance) {
+	l.slots[index].ref = ref
 }
 
-func (localVars LocalVars) GetRef(index uint) *jclass.JClass_Instance {
-	return localVars.slots[index].ref
+func (l LocalVars) GetRef(index uint) *jclass.JClass_Instance {
+	return l.slots[index].ref
 }
 
-func (localVars LocalVars) SetSlot(index uint, slot Slot) {
-	localVars.slots[index] = slot
+func (l LocalVars) SetSlot(index uint, slot Slot) {
+	l.slots[index] = slot
 }
 
-func (localVars LocalVars) GetThis() *jclass.JClass_Instance {
-	return localVars.GetRef(0)
+func (l LocalVars) GetThis() *jclass.JClass_Instance {
+	return l.GetRef(0)
 }

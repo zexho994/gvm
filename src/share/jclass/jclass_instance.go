@@ -26,6 +26,8 @@ type JClass_Instance struct {
 	Methods Methods
 	// 属性表
 	Attributes attribute.AttributeInfos
+	// 初始化标识
+	IsInit bool
 }
 
 // TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析
@@ -45,6 +47,8 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci.Fields = jclass.Fields
 	// TODO parse methods
 	jci.Methods = jclass.Methods
+	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
+	jci.IsInit = false
 	// 保存到方法区
 	GetPerm().Space[jci.ThisClass] = jci
 
@@ -97,11 +101,6 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 	}
 
 	return interfaces
-}
-
-// 初始化
-func (j JClass_Instance) initialize() {
-
 }
 
 func (j JClass_Instance) FindStaticMethod(name string) (*MethodInfo, error) {

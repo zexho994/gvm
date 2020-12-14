@@ -13,9 +13,9 @@ type ConstantClass struct {
 	NameIdx uint16
 }
 
-func (ConstantClassInfo *ConstantClass) ReadInfo(reader *classfile.ClassReader) {
-	ConstantClassInfo.NameIdx = reader.ReadUint16()
+func (c *ConstantClass) ReadInfo(reader *classfile.ClassReader) {
+	c.NameIdx = reader.ReadUint16()
 }
-func (ConstantClassInfo *ConstantClass) Name() string {
-	return ConstantClassInfo.Cp.GetUtf8(ConstantClassInfo.NameIdx)
+func (c *ConstantClass) Name() string {
+	return c.Cp.GetUtf8(c.NameIdx)
 }

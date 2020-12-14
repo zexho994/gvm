@@ -10,6 +10,7 @@ type Frame struct {
 	localVars    *LocalVars
 	operandStack *OperandStack
 	method       *jclass.MethodInfo
+	thread       *Thread
 }
 
 func (f *Frame) SetNextPC(pc int) {
@@ -24,10 +25,15 @@ func (f *Frame) Method() *jclass.MethodInfo {
 	return f.method
 }
 
-func NewFrame(maxlocals, maxStack uint16, method *jclass.MethodInfo) *Frame {
+func (f *Frame) Thread() *Thread {
+	return f.thread
+}
+
+func NewFrame(maxlocals, maxStack uint16, method *jclass.MethodInfo, thread *Thread) *Frame {
 	return &Frame{
 		localVars:    NewLocalVars(maxlocals),
 		operandStack: NewOperandStack(maxStack),
 		method:       method,
+		thread:       thread,
 	}
 }
