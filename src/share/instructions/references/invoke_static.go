@@ -25,5 +25,7 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	if class == nil {
 		class = jclass.ParseInstanceByClassName(className)
 	}
+	name, _type := contantMethod.NameAndDescriptor()
+	class.FindStaticMethod(name, _type)
 
 }

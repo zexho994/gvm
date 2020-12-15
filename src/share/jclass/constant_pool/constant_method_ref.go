@@ -10,16 +10,16 @@ type ConstantMethod struct {
 	Cp  ConstantPool
 	// represents a class or interface
 	classIdx       uint16
-	NameAndTypeIdx uint16
+	nameAndTypeIdx uint16
 }
 
 func (c *ConstantMethod) ReadInfo(reader *classfile.ClassReader) {
 	c.classIdx = reader.ReadUint16()
-	c.NameAndTypeIdx = reader.ReadUint16()
+	c.nameAndTypeIdx = reader.ReadUint16()
 }
 
 func (c *ConstantMethod) NameAndDescriptor() (string, string) {
-	return c.Cp.GetNameAndType(c.NameAndTypeIdx)
+	return c.Cp.GetNameAndType(c.nameAndTypeIdx)
 }
 
 func (c *ConstantMethod) ClassName() string {

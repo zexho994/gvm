@@ -11,7 +11,7 @@ func StartGvmByDebug() {
 	classfile.InitClassLoader(JrePath, UserClassPath)
 	instance := jclass.ParseInstanceByClassName("classFile")
 	// 执行main方法
-	method, err := instance.FindStaticMethod("main")
+	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	if err != nil || method == nil {
 		panic(err)
 	}

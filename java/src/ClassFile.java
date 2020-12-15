@@ -40,4 +40,14 @@ public class ClassFile extends FatherFile implements MyInterface {
         return null;
     }
 
+    public static int staticMethod(){
+        int field1 = 1;
+        int field2 = 2;
+        return field1 + field2;
+    }
+
+    public static int staticMethod(int field1,int field2){
+        return field1 + field2;
+    }
+
 }

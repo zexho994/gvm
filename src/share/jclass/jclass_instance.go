@@ -107,14 +107,15 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 	return interfaces
 }
 
-func (j JClass_Instance) FindStaticMethod(name string) (*MethodInfo, error) {
+func (j JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 	for i := range j.Methods {
 		methodInfo := j.Methods[i]
 		if !isStatic(methodInfo.accessFlag) {
 			continue
 		}
 		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
-		if name != mName {
+		mDesc := j.ConstantPool.GetUtf8(methodInfo.descriptorIdx)
+		if name != mName || mDesc != descriptor {
 			continue
 		}
 		return &j.Methods[i], nil
