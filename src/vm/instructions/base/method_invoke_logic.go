@@ -15,12 +15,10 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *oops.Method) {
 	thread := invokerFrame.Thread()
 	// 创建栈帧
 	newFrame := thread.NewFrame(method)
-	//fmt.Println("[gvm][method_invoke_logic.InvokeMethod] 新的栈桢push到线程中")
 	// 栈帧推入到线程中
 	thread.PushFrame(newFrame)
-	//fmt.Println("[gvm][OperandStack.NewOperandStack] 获取参数数量")
 	// 获取参数数量
-	argSlotSlot := int(method.ArgSlotCount())
+	argSlotSlot := method.ArgSlotCount()
 
 	if argSlotSlot > 0 {
 		// 根据参数的数量，从操作数栈中pop对应数量的slot
@@ -28,7 +26,7 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *oops.Method) {
 		// 例如poo依次推出的数位 x1,x2,x3，局部变量表中存储的格式为[x3,x2,x1]
 		for i := argSlotSlot - 1; i >= 0; i-- {
 			slot := invokerFrame.OperandStack().PopSlot()
-			newFrame.LocalVars().SetSlot(uint(i), slot)
+			newFrame.LocalVars().SetSlot(i, slot)
 		}
 	}
 }

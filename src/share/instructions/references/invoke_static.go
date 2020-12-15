@@ -26,6 +26,12 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 		class = jclass.ParseInstanceByClassName(className)
 	}
 	name, _type := contantMethod.NameAndDescriptor()
-	class.FindStaticMethod(name, _type)
-
+	methodInfo, err := class.FindStaticMethod(name, _type)
+	if err != nil {
+		panic("[gvm]" + err.Error())
+	}
+	if !jclass.IsStatic(methodInfo.AccessFlag()) {
+		panic("[gvm] invoke static error")
+	}
+	base.InvokeMethod(frame, methodInfo)
 }

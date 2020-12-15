@@ -13,6 +13,14 @@ type Frame struct {
 	thread       *Thread
 }
 
+func (f *Frame) LocalVars() *LocalVars {
+	return f.localVars
+}
+
+func (f *Frame) OperandStack() *OperandStack {
+	return f.operandStack
+}
+
 func (f *Frame) SetPC(pc int) {
 	f.pc = pc
 }

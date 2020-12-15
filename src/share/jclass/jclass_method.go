@@ -18,6 +18,14 @@ type MethodInfo struct {
 	argSlotCount  uint
 }
 
+func (m MethodInfo) AccessFlag() uint16 {
+	return m.accessFlag
+}
+
+func (m MethodInfo) ArgSlotCount() uint {
+	return m.argSlotCount
+}
+
 func (ms Methods) Clinit() MethodInfo {
 	for idx := range ms {
 		i := ms[idx].nameIdx

@@ -98,7 +98,7 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 		// 没有的情况，进行接口类的加载
 		instance := ParseInstanceByClassName(iName)
 		// 接口类型验证
-		if !isInterface(instance.AccessFlags) {
+		if !IsInterface(instance.AccessFlags) {
 			panic("[gvm] 接口解析错误 :" + iName + "的父接口对象不为 interface 类型")
 		}
 		interfaces[i] = instance
@@ -110,7 +110,7 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 func (j JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 	for i := range j.Methods {
 		methodInfo := j.Methods[i]
-		if !isStatic(methodInfo.accessFlag) {
+		if !IsStatic(methodInfo.accessFlag) {
 			continue
 		}
 		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
