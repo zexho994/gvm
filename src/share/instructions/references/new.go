@@ -33,7 +33,7 @@ func (n NEW) Execute(frame *runtime.Frame) {
 
 	// 判断类是否初始化过
 	if !class.IsInit {
-		frame.RevertPC()
+		//frame.RevertPC()
 		base.InitClass(class, frame.Thread())
 	}
 

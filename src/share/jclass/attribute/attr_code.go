@@ -16,7 +16,7 @@ type Attr_Code struct {
 	// 局部变量表大小，包括方法的参数
 	MaxLocals uint16
 	codeLen   uint32
-	Code      []byte
+	code      []byte
 	// 异常表
 	ExceptionTable []*ExceptionTable
 	// 属性表
@@ -32,14 +32,14 @@ type ExceptionTable struct {
 	catchType uint16
 }
 
-func (code *Attr_Code) parse(reader *classfile.ClassReader) {
-	code.MaxStack = reader.ReadUint16()
-	code.MaxLocals = reader.ReadUint16()
-	code.codeLen = reader.ReadUint32()
-	code.Code = reader.ReadBytes(code.codeLen)
-	code.ExceptionTable = parseExceptionTable(reader)
-	code.attrCount = reader.ReadUint16()
-	code.attrInfo = ParseAttributes(code.attrCount, reader, code.cp)
+func (c *Attr_Code) parse(reader *classfile.ClassReader) {
+	c.MaxStack = reader.ReadUint16()
+	c.MaxLocals = reader.ReadUint16()
+	c.codeLen = reader.ReadUint32()
+	c.code = reader.ReadBytes(c.codeLen)
+	c.ExceptionTable = parseExceptionTable(reader)
+	c.attrCount = reader.ReadUint16()
+	c.attrInfo = ParseAttributes(c.attrCount, reader, c.cp)
 }
 
 func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
@@ -56,6 +56,10 @@ func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
 	return table
 }
 
-func (code Attr_Code) Name() string {
-	return code.name
+func (c Attr_Code) Name() string {
+	return c.name
+}
+
+func (c Attr_Code) Code() []byte {
+	return c.code
 }

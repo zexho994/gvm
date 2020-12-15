@@ -19,17 +19,18 @@ func Interpret(method *jclass.MethodInfo) {
 	}
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, newThread)
 	newThread.Push(newFrame)
-	loop(newThread, code.Code)
+	loop(newThread)
 }
 
-func loop(thread *runtime.Thread, code []byte) {
+func loop(thread *runtime.Thread) {
 	reader := &base.MethodCodeReader{}
 	for {
 		// 因为可能在指令的操作中会对线程的栈帧进行修改，所以这个地方每次都需要进行重新赋值
 		curFrame := thread.Peek()
 		pc := curFrame.PC()
 		thread.PC = pc
-		reader.Reset(code, pc)
+		attrCode, _ := curFrame.Method().Attributes().AttrCode()
+		reader.Reset(attrCode.Code(), pc)
 		opcode := reader.ReadOpenCdoe()
 		inst := instructions.NewInstruction(opcode)
 		inst.FetchOperands(reader)
