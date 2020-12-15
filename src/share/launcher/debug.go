@@ -8,10 +8,8 @@ import (
 
 // 通过debug模式启动gvm
 func StartGvmByDebug() {
-	loader := classfile.InitClassLoader(JrePath, UserClassPath)
-	bytecode := loader.Loading("classFile")
-	jc := jclass.ParseToJClass(bytecode)
-	instance := jclass.ParseInstance(jc)
+	classfile.InitClassLoader(JrePath, UserClassPath)
+	instance := jclass.ParseInstanceByClassName("classFile")
 	// 执行main方法
 	method, err := instance.FindStaticMethod("main")
 	if err != nil || method == nil {

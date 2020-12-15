@@ -55,6 +55,13 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	return jci
 }
 
+func ParseInstanceByClassName(className string) *JClass_Instance {
+	bytecode := classfile.ClaLoader.Loading(className)
+	jclass := ParseToJClass(bytecode)
+	jci := ParseInstance(jclass)
+	return jci
+}
+
 // 递归解析父类
 // todo: parseSuper 和 parseInterfaces 都需要对访问权限进行判断
 func parseSuper(jclass *JClass) *JClass_Instance {
@@ -69,9 +76,7 @@ func parseSuper(jclass *JClass) *JClass_Instance {
 	if supre := perm.Space[superName]; supre != nil {
 		return supre
 	}
-	superBytecode := classfile.ClaLoader.Loading(superName)
-	superJClass := ParseToJClass(superBytecode)
-	return ParseInstance(superJClass)
+	return ParseInstanceByClassName(superName)
 }
 
 // 递归解析接口
@@ -91,13 +96,12 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 			continue
 		}
 		// 没有的情况，进行接口类的加载
-		ibytecode := classfile.ClaLoader.Loading(iName)
-		iJClass := ParseToJClass(ibytecode)
+		instance := ParseInstanceByClassName(iName)
 		// 接口类型验证
-		if !isInterface(iJClass.AccessFlags) {
+		if !isInterface(instance.AccessFlags) {
 			panic("[gvm] 接口解析错误 :" + iName + "的父接口对象不为 interface 类型")
 		}
-		interfaces[i] = ParseInstance(iJClass)
+		interfaces[i] = instance
 	}
 
 	return interfaces

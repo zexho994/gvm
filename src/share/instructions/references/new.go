@@ -1,7 +1,6 @@
 package references
 
 import (
-	"github.com/zouzhihao-994/gvm/src/share/classfile"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
@@ -25,9 +24,7 @@ func (n NEW) Execute(frame *runtime.Frame) {
 
 	// 还未加载过
 	if class == nil {
-		bytecode := classfile.ClaLoader.Loading(className)
-		jc := jclass.ParseToJClass(bytecode)
-		class = jclass.ParseInstance(jc)
+		class = jclass.ParseInstanceByClassName(className)
 		perm.Space[className] = class
 	}
 
