@@ -5,17 +5,23 @@ import (
 )
 
 type ConstantMethod struct {
-	Tag            uint8
-	Cp             ConstantPool
-	ClassIdx       uint16
+	// contant_method's tag is 10
+	Tag uint8
+	Cp  ConstantPool
+	// represents a class or interface
+	classIdx       uint16
 	NameAndTypeIdx uint16
 }
 
-func (ConstantMemberRefInfo *ConstantMethod) ReadInfo(reader *classfile.ClassReader) {
-	ConstantMemberRefInfo.ClassIdx = reader.ReadUint16()
-	ConstantMemberRefInfo.NameAndTypeIdx = reader.ReadUint16()
+func (c *ConstantMethod) ReadInfo(reader *classfile.ClassReader) {
+	c.classIdx = reader.ReadUint16()
+	c.NameAndTypeIdx = reader.ReadUint16()
 }
 
-func (ConstantMemberRefInfo *ConstantMethod) NameAndDescriptor() (string, string) {
-	return ConstantMemberRefInfo.Cp.GetNameAndType(ConstantMemberRefInfo.NameAndTypeIdx)
+func (c *ConstantMethod) NameAndDescriptor() (string, string) {
+	return c.Cp.GetNameAndType(c.NameAndTypeIdx)
+}
+
+func (c *ConstantMethod) ClassName() string {
+	return c.Cp.GetClassName(c.classIdx)
 }

@@ -7,14 +7,17 @@ import (
 )
 
 var (
-	getStatic = &references.GET_STATIC{}
-	new       = &references.NEW{}
+	getStatic    = &references.GET_STATIC{}
+	new          = &references.NEW{}
+	invokeStatic = &references.INVOKE_STATIC{}
 )
 
 func NewInstruction(opcode byte) base.Base_Instruction {
 	switch opcode {
 	case 0xb2:
 		return getStatic
+	case 0xb8:
+		return invokeStatic
 	case 0xbb:
 		return new
 	default:
