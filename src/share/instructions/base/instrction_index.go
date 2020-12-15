@@ -1,5 +1,10 @@
 package base
 
+type InstructionIndex0 struct {
+}
+
+func (i *InstructionIndex0) FetchOperands(reader *MethodCodeReader) {}
+
 type InstructionIndex16 struct {
 	Index uint16
 }

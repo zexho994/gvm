@@ -18,6 +18,10 @@ type MethodInfo struct {
 	argSlotCount  uint
 }
 
+func (m MethodInfo) Name() string {
+	return m.cp.GetUtf8(m.nameIdx)
+}
+
 func (m MethodInfo) AccessFlag() uint16 {
 	return m.accessFlag
 }

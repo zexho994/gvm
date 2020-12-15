@@ -17,6 +17,7 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
 	} else {
 		newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	}
+	//if method.Name != ""
 	invokerThread.Push(newFrame)
 	argSlotCount := method.ArgSlotCount()
 	if argSlotCount == 0 {
