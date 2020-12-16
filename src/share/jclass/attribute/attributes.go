@@ -54,10 +54,10 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	}
 }
 
-func (attr AttributeInfos) AttrCode() (*Attr_Code, error) {
-	for idx := range attr {
-		if attr[idx].Name() == "Code" {
-			a := attr[idx]
+func (attrs AttributeInfos) AttrCode() (*Attr_Code, error) {
+	for idx := range attrs {
+		if attrs[idx].Name() == "Code" {
+			a := attrs[idx]
 			code := a.(*Attr_Code)
 			return code, nil
 		}

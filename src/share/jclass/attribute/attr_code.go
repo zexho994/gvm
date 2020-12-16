@@ -56,6 +56,14 @@ func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
 	return table
 }
 
+func CreateCodeAttr(maxStack, maxLocal uint16, code []byte) *Attr_Code {
+	return &Attr_Code{
+		MaxStack:  maxStack,
+		MaxLocals: maxLocal,
+		code:      code,
+	}
+}
+
 func (c Attr_Code) Name() string {
 	return c.name
 }

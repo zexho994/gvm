@@ -18,6 +18,18 @@ type MethodInfo struct {
 	argSlotCount  uint
 }
 
+// injected a code attribute for method
+func (m MethodInfo) InjectCodeAttr() {
+	attributes := make(attribute.AttributeInfos, 1)
+	m.de
+	switch m {
+
+	}
+	attributes[0] =
+
+		attribute.CreateCodeAttr(1, 1)
+}
+
 func (m MethodInfo) Name() string {
 	return m.cp.GetUtf8(m.nameIdx)
 }

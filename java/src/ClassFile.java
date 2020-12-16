@@ -50,4 +50,6 @@ public class ClassFile extends FatherFile implements MyInterface {
         return field1 + field2;
     }
 
+    public native void MyNative();
+
 }
