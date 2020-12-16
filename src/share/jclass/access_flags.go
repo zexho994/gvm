@@ -53,7 +53,10 @@ func AccPrint(acc uint16) {
 		fmt.Println("[gvm] class access Is interface")
 	}
 	if IsStatic(acc) {
-		fmt.Println("[gvm] class access Is static")
+		fmt.Println("[gvm] access flag Is static")
+	}
+	if IsNatice(acc) {
+		fmt.Println("[gvm] method access Is native")
 	}
 }
 
@@ -91,4 +94,8 @@ func IsAnnotation(acc uint16) bool {
 
 func IsStatic(acc uint16) bool {
 	return (acc & ACC_STATIC) != 0
+}
+
+func IsNatice(acc uint16) bool {
+	return (acc & ACC_NATIVE) != 0
 }
