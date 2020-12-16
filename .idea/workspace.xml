@@ -25,14 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/ClassFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/ClassFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/base/invoke_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/jclass_method.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -572,8 +565,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="解析父类" />
-    <MESSAGE value="解析接口" />
     <MESSAGE value="初步完成 JClass_instance 解析" />
     <MESSAGE value="add constant_runtime file" />
     <MESSAGE value="refactor" />
@@ -597,7 +588,9 @@
     <MESSAGE value="update the comparison rule of  method" />
     <MESSAGE value="add new module native" />
     <MESSAGE value="determine if a method is native" />
-    <option name="LAST_COMMIT_MESSAGE" value="determine if a method is native" />
+    <MESSAGE value="stash" />
+    <MESSAGE value="add java.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add java.class" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -929,14 +922,18 @@
       <screen x="-174" y="-1080" width="1920" height="1080" />
     </state>
     <state x="542" y="-918" key="VCS.ChangeListViewerDialog/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606836734145" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1608009788065">
+    <state x="-1122" y="416" key="VCS.EditChangelistDialog" timestamp="1608120995651">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1122" y="416" key="VCS.EditChangelistDialog/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608120995651" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1608121221521">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108737260" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602764571229" />
     <state x="560" y="322" key="Vcs.Push.Dialog.v2/-1582.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1602828609350" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1589.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607428770120" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608009788065" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608121221521" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1744.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607948626624" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.392.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607509903197" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607343788113" />
