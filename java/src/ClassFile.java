@@ -34,6 +34,7 @@ public class ClassFile extends FatherFile implements MyInterface {
 
     public int method3(Object obj){
         return 100;
+
     }
 
     public Object method4(MyObject mc){
