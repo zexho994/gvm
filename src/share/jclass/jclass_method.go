@@ -19,9 +19,31 @@ type MethodInfo struct {
 }
 
 // injected a code attribute for method
-func (m MethodInfo) InjectCodeAttr() {
-	//attributes := make(attribute.AttributeInfos, 1)
-	ParseMethodDescriptor(m)
+func (m *MethodInfo) InjectCodeAttr() {
+	if !IsNatice(m.accessFlag) {
+		panic("[gvm] Inject CodeAttr error , not is native")
+	}
+	tmpMaxStack := uint16(4)
+	tmpMaxLocal := uint16(4)
+	attributes := make(attribute.AttributeInfos, 1)
+	methodDescriptor := ParseMethodDescriptor(m)
+	var codeAttr *attribute.Attr_Code
+	switch methodDescriptor.returnType {
+	case "V":
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return
+	case "D":
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xaf}, m.cp) // dreturn
+	case "F":
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xae}, m.cp) // freturn
+	case "J":
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xad}, m.cp) // lreturn
+	case "L", "[":
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.cp) // areturn
+	default:
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.cp) // ireturn
+	}
+	attributes[0] = codeAttr
+	m.attribute = attributes
 }
 
 func (m MethodInfo) Name() string {

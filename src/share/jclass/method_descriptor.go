@@ -11,7 +11,7 @@ type MethodDescriptor struct {
 
 // descriptor => (...parameteTypes)...returnType
 // for instance: void fun(int) -> (I)V or ; public int method3(Object obj) -> (Ljava/lang/Object)I
-func ParseMethodDescriptor(method MethodInfo) MethodDescriptor {
+func ParseMethodDescriptor(method *MethodInfo) MethodDescriptor {
 	idx := method.descriptorIdx
 	descStr := method.CP().GetUtf8(idx)
 	splits := strings.Split(descStr, ")")

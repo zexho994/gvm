@@ -2,6 +2,7 @@ package base
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
@@ -11,13 +12,13 @@ import (
 func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
 
 	invokerThread := invokerFrame.Thread()
-	attrCode, _ := method.Attributes().AttrCode()
 	var newFrame *runtime.Frame
+	var attrCode *attribute.Attr_Code
 	if jclass.IsNatice(method.AccessFlag()) {
 		method.InjectCodeAttr()
-	} else {
-		newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	}
+	attrCode, _ = method.Attributes().AttrCode()
+	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	invokerThread.Push(newFrame)
 	argSlotCount := method.ArgSlotCount()
 	if argSlotCount == 0 {
