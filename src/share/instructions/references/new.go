@@ -1,9 +1,11 @@
 package references
 
 import (
+	"github.com/zouzhihao-994/gvm/src/share/heap"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/src/share/oops"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
@@ -33,5 +35,8 @@ func (n NEW) Execute(frame *runtime.Frame) {
 		//frame.RevertPC()
 		base.InitClass(class, frame.Thread())
 	}
+
+	// 初始化一个类
+	heap.GetHeap().Space[] oops.NewOopInstance(class)
 
 }
