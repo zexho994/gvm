@@ -16,6 +16,7 @@ func ParseMethodDescriptor(method *MethodInfo) MethodDescriptor {
 	descStr := method.CP().GetUtf8(idx)
 	splits := strings.Split(descStr, ")")
 	parametes := strings.Split(splits[0], "(")[0]
+
 	return MethodDescriptor{
 		parameteTypes: parametes,
 		returnType:    splits[1],

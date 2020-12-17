@@ -15,7 +15,8 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
 	if jclass.IsNatice(method.AccessFlag()) {
-		method.InjectCodeAttr()
+		//method.InjectCodeAttr()
+		return
 	}
 	attrCode, _ = method.Attributes().AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)

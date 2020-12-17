@@ -13,7 +13,7 @@ public class FatherFile {
         return null;
     }
 
-    public int father_method2(int i){
+    public int father_method2(int i,Object o1,Object o2){
         return i + 1;
     }
 
