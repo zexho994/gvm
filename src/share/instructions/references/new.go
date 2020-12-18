@@ -32,11 +32,11 @@ func (n NEW) Execute(frame *runtime.Frame) {
 
 	// 判断类是否初始化过
 	if !class.IsInit {
-		//frame.RevertPC()
 		base.InitClass(class, frame.Thread())
 	}
 
 	// 初始化一个类
-	heap.GetHeap().Space[] oops.NewOopInstance(class)
+	instance := oops.NewOopInstance(class)
+	heap := heap.GetHeap()
 
 }

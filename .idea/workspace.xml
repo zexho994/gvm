@@ -26,11 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/share/heap/heap.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/heap/heap.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/heap/heap.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/share/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/new.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/share/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_instance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_mark.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_mark.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -591,12 +590,12 @@
     <MESSAGE value="update the comparison rule of  method" />
     <MESSAGE value="add new module native" />
     <MESSAGE value="determine if a method is native" />
-    <MESSAGE value="stash" />
     <MESSAGE value="add java.class" />
     <MESSAGE value="config xml" />
     <MESSAGE value="new func is to inject attr code" />
     <MESSAGE value="Skip the native methods processing step" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skip the native methods processing step" />
+    <MESSAGE value="stash" />
+    <option name="LAST_COMMIT_MESSAGE" value="stash" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -933,8 +932,8 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1122" y="416" key="VCS.EditChangelistDialog/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608120995651" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1608121416309">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="-1360" y="322" key="Vcs.Push.Dialog.v2" timestamp="1608207549646">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108737260" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1602764571229" />
@@ -942,6 +941,7 @@
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1589.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607428770120" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608121416309" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1744.1103.1440.877/0.23.1920.1057/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607948626624" />
+    <state x="-1360" y="322" key="Vcs.Push.Dialog.v2/-1744.1103.1440.877/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608207549646" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.392.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607509903197" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607343788113" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606465305782" />

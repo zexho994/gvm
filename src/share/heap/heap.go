@@ -8,6 +8,7 @@ import (
 // 等同于方法区的概念
 // 专门存储 JClass_Instance 对象
 type Heap struct {
+	size  uint64
 	Space map[string]*oops.Oop_Instance
 }
 
@@ -19,4 +20,8 @@ func GetHeap() *Heap {
 		heap = &Heap{Space: make(map[string]*oops.Oop_Instance)}
 	})
 	return heap
+}
+
+func (h *Heap) Add(instance *oops.Oop_Instance) {
+	heap.Space
 }
