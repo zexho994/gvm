@@ -9,16 +9,17 @@ import (
 )
 
 var (
-	dup          = &stack.Dup{}
-	dup_x1       = &stack.Dup_X1{}
-	dup_x2       = &stack.Dup_X2{}
-	dup2         = &stack.Dup2{}
-	dup2_x1      = &stack.Dup2_X1{}
-	dup2_x2      = &stack.Dup2_X2{}
-	voidReturn   = &control.RETURN{}           //177
-	getStatic    = &references.GET_STATIC{}    // 178
-	invokeStatic = &references.INVOKE_STATIC{} // 184
-	_new         = &references.NEW{}           //187
+	dup           = &stack.Dup{}
+	dup_x1        = &stack.Dup_X1{}
+	dup_x2        = &stack.Dup_X2{}
+	dup2          = &stack.Dup2{}
+	dup2_x1       = &stack.Dup2_X1{}
+	dup2_x2       = &stack.Dup2_X2{}
+	voidReturn    = &control.RETURN{}           //177
+	getStatic     = &references.GET_STATIC{}    // 178
+	invokeStatic  = &references.INVOKE_STATIC{} // 184
+	invokeSpecial = &references.INVOKE_SPECIAL{}
+	_new          = &references.NEW{} //187
 )
 
 func NewInstruction(opcode byte) base.Base_Instruction {
@@ -39,6 +40,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return voidReturn
 	case 0xb2:
 		return getStatic
+	case 0xb7:
+		return invokeSpecial
 	case 0xb8:
 		return invokeStatic
 	case 0xbb:

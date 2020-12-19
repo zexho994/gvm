@@ -122,3 +122,20 @@ func (j JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo,
 	}
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}
 }
+
+// TODO:可以从父类中加载出方法，并检查权限
+func (j JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, error) {
+	for i := range j.Methods {
+		methodInfo := j.Methods[i]
+		if IsStatic(methodInfo.accessFlag) {
+			continue
+		}
+		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
+		mDesc := j.ConstantPool.GetUtf8(methodInfo.descriptorIdx)
+		if name != mName || mDesc != descriptor {
+			continue
+		}
+		return &j.Methods[i], nil
+	}
+	return nil, exception.GvmError{Msg: "not find method it name " + name}
+}

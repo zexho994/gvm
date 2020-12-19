@@ -5,5 +5,5 @@ type GvmError struct {
 }
 
 func (e GvmError) Error() string {
-	return e.Msg
+	return "[gvm]" + e.Msg
 }

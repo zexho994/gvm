@@ -13,13 +13,11 @@ type INVOKE_SPECIAL struct{ base.Index16Instruction }
 
 func (self *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	// 拿到当前类的类，常量池，方法符号引用
-	//fmt.Println("[gvm][invokespecial.Execute] 获取类，常量池，方法引用")
 	currentClass := frame.Method().Class()
 	cp := currentClass.ConstantPool()
 	methodRef := cp.GetConstant(self.Index).(*oops.MethodRef)
 
 	// 解析类和方法
-	//fmt.Println("[gvm][invokespecial.Execute] 解析类和方法")
 	resolvedClass := methodRef.ResolvedClass()
 	resolvedMethod := methodRef.ResolvedMethod()
 
@@ -32,7 +30,6 @@ func (self *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 		panic("java.lang.IncompatibleClassChangeError")
 	}
 
-	// fmt.Printf("[gvm][invokespecial.Execute] 方法参数数量 :  %v \n", resolvedMethod.ArgSlotCount())
 	// 获取this引用
 	ref := frame.OperandStack().GetRefFromTop(resolvedMethod.ArgSlotCount() - 1)
 	if ref == nil {
@@ -40,7 +37,6 @@ func (self *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	}
 
 	// protected方法只能被本类或者子类调用
-	//fmt.Println("[gvm][invokespecial.Execute] 判断")
 	if resolvedMethod.IsProtected() &&
 		resolvedMethod.Class().IsSuperClassOf(currentClass) &&
 		resolvedMethod.Class().GetPackageName() != currentClass.GetPackageName() &&
@@ -55,7 +51,6 @@ func (self *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	if currentClass.IsSuper() &&
 		resolvedClass.IsSuperClassOf(currentClass) &&
 		resolvedMethod.Name() != "<init>" {
-		//fmt.Println("[gvm][invokespecial.Execute] 执行LookupMethodInClass")
 		methodToBeInvoked = oops.LookupMethodInClass(
 			currentClass.SuperClass(),
 			methodRef.Name(),

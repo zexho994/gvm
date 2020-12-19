@@ -10,7 +10,6 @@ import (
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
 func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
-
 	invokerThread := invokerFrame.Thread()
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
