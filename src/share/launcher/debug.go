@@ -7,9 +7,9 @@ import (
 )
 
 // 通过debug模式启动gvm
-func StartGvmByDebug() {
-	classfile.InitClassLoader(JrePath, UserClassPath)
-	instance := jclass.ParseInstanceByClassName("classFile")
+func StartGvmByDebug(className,jrePath,userClassPath string) {
+	classfile.InitClassLoader(jrePath, userClassPath)
+	instance := jclass.ParseInstanceByClassName(className)
 	// 执行main方法
 	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	if err != nil || method == nil {

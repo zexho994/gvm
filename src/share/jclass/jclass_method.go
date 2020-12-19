@@ -58,15 +58,15 @@ func (m MethodInfo) ArgSlotCount() uint {
 	return m.argSlotCount
 }
 
-func (ms Methods) Clinit() MethodInfo {
+func (ms Methods) Clinit() (MethodInfo, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
 		nameStr := ms[idx].cp.GetUtf8(i)
 		if nameStr == "<clinit>" {
-			return ms[idx]
+			return ms[idx], true
 		}
 	}
-	panic("[gvm] the <clinit> is not exist")
+	return MethodInfo{}, false
 }
 
 func (m *MethodInfo) CP() constant_pool.ConstantPool {
