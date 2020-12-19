@@ -1,7 +1,7 @@
 package runtime
 
 import (
-	"github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/oops"
 	"math"
 )
 
@@ -61,11 +61,11 @@ func (l LocalVars) GetDouble(index uint) float64 {
 	return math.Float64frombits(bits)
 }
 
-func (l LocalVars) SetRef(index uint, ref *jclass.JClass_Instance) {
+func (l LocalVars) SetRef(index uint, ref *oops.Oop_Instance) {
 	l.slots[index].ref = ref
 }
 
-func (l LocalVars) GetRef(index uint) *jclass.JClass_Instance {
+func (l LocalVars) GetRef(index uint) *oops.Oop_Instance {
 	return l.slots[index].ref
 }
 
@@ -73,6 +73,6 @@ func (l LocalVars) SetSlot(index uint, slot Slot) {
 	l.slots[index] = slot
 }
 
-func (l LocalVars) GetThis() *jclass.JClass_Instance {
+func (l LocalVars) GetThis() *oops.Oop_Instance {
 	return l.GetRef(0)
 }

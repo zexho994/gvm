@@ -23,5 +23,5 @@ func GetHeap() *Heap {
 }
 
 func (h *Heap) Add(instance *oops.Oop_Instance) {
-	heap.Space
+
 }

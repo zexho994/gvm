@@ -1,7 +1,7 @@
 package references
 
 import (
-	"github.com/zouzhihao-994/gvm/src/share/heap"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
@@ -35,8 +35,11 @@ func (n NEW) Execute(frame *runtime.Frame) {
 		base.InitClass(class, frame.Thread())
 	}
 
-	// 初始化一个类
+	// 初始化一个实例
+	if jclass.IsInterface(class.AccessFlags) || jclass.IsAbstract(class.AccessFlags) {
+		panic(exception.GvmError{Msg: "[gvm] the interface and abstract cannot be instantiated"})
+	}
 	instance := oops.NewOopInstance(class)
-	heap := heap.GetHeap()
+	frame.OperandStack().PushRef(instance)
 
 }

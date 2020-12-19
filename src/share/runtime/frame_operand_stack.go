@@ -1,7 +1,7 @@
 package runtime
 
 import (
-	"github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/oops"
 	"math"
 )
 
@@ -66,12 +66,12 @@ func (operandStack *OperandStack) PopDouble() float64 {
 	return math.Float64frombits(bits)
 }
 
-func (operandStack *OperandStack) PushRef(ref *jclass.JClass_Instance) {
+func (operandStack *OperandStack) PushRef(ref *oops.Oop_Instance) {
 	operandStack.slots[operandStack.size].ref = ref
 	operandStack.size++
 }
 
-func (operandStack *OperandStack) PopRef() *jclass.JClass_Instance {
+func (operandStack *OperandStack) PopRef() *oops.Oop_Instance {
 	operandStack.size--
 	ref := operandStack.slots[operandStack.size].ref
 	operandStack.slots[operandStack.size].ref = nil
@@ -101,7 +101,7 @@ func (operandStack *OperandStack) PopSlot() Slot {
 比如GetRefFromTop(0)获取栈顶的引用
 比如GetRefFromTop(1)获取距离栈顶1个单位长度的引用
 */
-func (operandStack *OperandStack) GetRefFromTop(n uint) *jclass.JClass_Instance {
+func (operandStack *OperandStack) GetRefFromTop(n uint) *oops.Oop_Instance {
 	targetIndex := operandStack.size - 1 - n
 	return operandStack.slots[targetIndex].ref
 }
