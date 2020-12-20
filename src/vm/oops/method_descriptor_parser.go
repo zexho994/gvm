@@ -1,6 +1,8 @@
 package oops
 
-import "strings"
+import (
+	"strings"
+)
 
 type MethodDescriptorParser struct {
 	raw    string

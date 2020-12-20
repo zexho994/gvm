@@ -30,7 +30,6 @@ type ASTORE_3 struct {
 
 func _astore(frame *runtime.Frame, index uint) {
 	val := frame.OperandStack().PopRef()
-	//fmt.Printf("[gvm][PushInt] %v 存储到局部变量表[%v]中\n", val, index)
 	frame.LocalVars().SetRef(index, val)
 }
 
@@ -43,7 +42,6 @@ func (self *ASTORE_0) Execute(frame *runtime.Frame) {
 }
 
 func (self *ASTORE_1) Execute(frame *runtime.Frame) {
-	//fmt.Println("[gvm][astore_1] 操作数栈存储数到局部变量表[1]中")
 	_astore(frame, 1)
 }
 

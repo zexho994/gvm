@@ -12,12 +12,10 @@ type OperandStack struct {
 }
 
 func NewOperandStack(maxStack uint) *OperandStack {
-	//fmt.Printf("[gvm][OperandStack.NewOperandStack] maxStack : %v \n", maxStack)
 	if maxStack > 0 {
 		operandStack := &OperandStack{
 			slots: make([]Slot, maxStack),
 		}
-		//fmt.Printf("[gvm][OperandStack.NewOperandStack] done \n")
 		return operandStack
 	}
 
@@ -25,16 +23,12 @@ func NewOperandStack(maxStack uint) *OperandStack {
 }
 
 func (operandStack *OperandStack) PushInt(val int32) {
-	//fmt.Printf("[gvm][PushInt] 操作数栈push新值: val : %v \n", val)
 	operandStack.slots[operandStack.size].num = val
-	//fmt.Printf("[gvm][PushInt] 操作数栈push新值后的结果: val : %v \n", operandStack.slots[operandStack.size].num)
 	operandStack.size++
 }
 
 func (operandStack *OperandStack) PopInt() int32 {
-	//fmt.Printf("[gvm][PushInt] 操作数栈pop,当前长度size: %v\n", operandStack.size)
 	operandStack.size--
-	//fmt.Printf("[gvm][PushInt] 操作数栈pop值：%v\n", operandStack.slots[operandStack.size].num)
 	return operandStack.slots[operandStack.size].num
 }
 
@@ -112,7 +106,6 @@ func (operandStack *OperandStack) PopSlot() Slot {
 */
 func (operandStack *OperandStack) GetRefFromTop(n uint) *oops.Object {
 	targetIndex := operandStack.size - 1 - n
-	//fmt.Printf("[gvm][operand_stack.GetRefFromTop] stack size : %v , target index : %v \n", operandStack.size, targetIndex)
 	return operandStack.slots[targetIndex].ref
 }
 

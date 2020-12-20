@@ -15,7 +15,7 @@ type NEW struct {
 	base.InstructionIndex16
 }
 
-func (n NEW) Execute(frame *runtime.Frame) {
+func (n *NEW) Execute(frame *runtime.Frame) {
 	// 获取类常量信息
 	cp := frame.Method().CP()
 	constantClass := cp.GetConstantInfo(n.Index).(*constant_pool.ConstantClass)

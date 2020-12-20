@@ -84,13 +84,12 @@ var (
 
 	putstatic = &references.PUT_STATIC{}
 
-	ireturn = &control.IRETURN{}
-	lreturn = &control.LRETURN{}
-	freturn = &control.FRETURN{}
-	dreturn = &control.DRETURN{}
-	areturn = &control.ARETURN{}
-	_return = &control.RETURN{}
-
+	ireturn    = &control.IRETURN{}
+	lreturn    = &control.LRETURN{}
+	freturn    = &control.FRETURN{}
+	dreturn    = &control.DRETURN{}
+	areturn    = &control.ARETURN{}
+	_return    = &control.RETURN{}
 	getstatic  = &references.GET_STATIC{}
 	putfield   = &references.PUT_FIELD{}
 	getfield   = &references.GET_FIELD{}
@@ -101,16 +100,15 @@ var (
 	astore_1   = &stores.ASTORE_1{}
 	astore_2   = &stores.ASTORE_2{}
 	astore_3   = &stores.ASTORE_3{}
-
-	iastore = &stores.IASTORE{}
-	lastore = &stores.LASTORE{}
-	fastore = &stores.FASTORE{}
-	dastore = &stores.DASTORE{}
-	aastore = &stores.AASTORE{}
-	bastore = &stores.BASTORE{}
-	castore = &stores.CASTORE{}
-	sastore = &stores.SASTORE{}
-	pop     = &stack.POP{}
+	iastore    = &stores.IASTORE{}
+	lastore    = &stores.LASTORE{}
+	fastore    = &stores.FASTORE{}
+	dastore    = &stores.DASTORE{}
+	aastore    = &stores.AASTORE{}
+	bastore    = &stores.BASTORE{}
+	castore    = &stores.CASTORE{}
+	sastore    = &stores.SASTORE{}
+	pop        = &stack.POP{}
 
 	lcmp = &comparisons.LCMP{}
 	ifeq = &comparisons.IFEQ{}

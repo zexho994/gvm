@@ -3,6 +3,7 @@ package instructions
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
+	constants "github.com/zouzhihao-994/gvm/src/share/instructions/constant"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/control"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/loads"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/references"
@@ -11,6 +12,8 @@ import (
 )
 
 var (
+	bipush        = &constants.BIPUSH{}
+	sipush        = &constants.SIPUSH{}
 	iload         = &loads.ILOAD{}
 	lload         = &loads.LLOAD{}
 	fload         = &loads.FLOAD{}
@@ -81,6 +84,10 @@ var (
 
 func NewInstruction(opcode byte) base.Base_Instruction {
 	switch opcode {
+	case 0x10:
+		return bipush
+	case 0x11:
+		return sipush
 	case 0x15:
 		return iload
 	case 0x16:

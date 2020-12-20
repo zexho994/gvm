@@ -6,7 +6,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
-type Methods []MethodInfo
+type Methods []*MethodInfo
 
 type MethodInfo struct {
 	accessFlag    uint16
@@ -58,7 +58,7 @@ func (m MethodInfo) ArgSlotCount() uint {
 	return m.argSlotCount
 }
 
-func (ms Methods) Clinit() (MethodInfo, bool) {
+func (ms Methods) Clinit() (*MethodInfo, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
 		nameStr := ms[idx].cp.GetUtf8(i)
@@ -66,7 +66,7 @@ func (ms Methods) Clinit() (MethodInfo, bool) {
 			return ms[idx], true
 		}
 	}
-	return MethodInfo{}, false
+	return nil, false
 }
 
 func (m *MethodInfo) CP() constant_pool.ConstantPool {
@@ -79,9 +79,9 @@ func (m MethodInfo) Attributes() attribute.AttributeInfos {
 
 // 解析方法表
 func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool.ConstantPool) Methods {
-	methods := make([]MethodInfo, count)
+	methods := make([]*MethodInfo, count)
 	for i := range methods {
-		method := MethodInfo{}
+		method := &MethodInfo{}
 		method.cp = pool
 		method.accessFlag = reader.ReadUint16()
 		method.nameIdx = reader.ReadUint16()
@@ -90,6 +90,7 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		// 解析方法表中的属性表字段
 		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
+		method.argSlotCount = ParseMethodDescriptor(method).ParamteCount()
 	}
 	return methods
 }

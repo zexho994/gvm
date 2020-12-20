@@ -13,7 +13,7 @@ type INVOKE_SPECIAL struct {
 	base.InstructionIndex16
 }
 
-func (i INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
+func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
 	perm := jclass.GetPerm()

@@ -10,11 +10,19 @@ func (reader *ClassReader) ReadUint8() uint8 {
 	return data
 }
 
+func (reader *ClassReader) ReadInt8() int8 {
+	return int8(reader.ReadUint8())
+}
+
 func (reader *ClassReader) ReadUint16() uint16 {
 	_ = reader.Bytecode[1]
 	val := uint16(reader.Bytecode[1]) | uint16(reader.Bytecode[0])<<8
 	reader.Bytecode = reader.Bytecode[2:]
 	return val
+}
+
+func (reader *ClassReader) ReadInt16() int16 {
+	return int16(reader.ReadUint16())
 }
 
 func (reader *ClassReader) ReadUint16Array(count uint16) []uint16 {

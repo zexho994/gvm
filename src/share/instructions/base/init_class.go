@@ -16,7 +16,7 @@ func InitClass(j *jclass.JClass_Instance, thread *runtime.Thread) {
 			panic(err.Error())
 		}
 
-		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, &clinit, thread)
+		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, clinit, thread)
 		thread.Push(frame)
 	}
 
