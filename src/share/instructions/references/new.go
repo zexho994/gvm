@@ -2,6 +2,7 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/exception"
+	"github.com/zouzhihao-994/gvm/src/share/heap"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
@@ -40,6 +41,7 @@ func (n NEW) Execute(frame *runtime.Frame) {
 		panic(exception.GvmError{Msg: "[gvm] the interface and abstract cannot be instantiated"})
 	}
 	instance := oops.NewOopInstance(class)
+	heap.GetHeap().Add(instance)
 	frame.OperandStack().PushRef(instance)
 
 }
