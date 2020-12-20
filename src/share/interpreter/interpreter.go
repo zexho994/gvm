@@ -30,6 +30,7 @@ func loop(thread *runtime.Thread) {
 		curFrame := thread.Peek()
 		fmt.Printf("[gvm] execute %v method \n", curFrame.Method().Name())
 		pc := curFrame.PC()
+		fmt.Println(curFrame.Method().Name())
 		thread.PC = pc
 		attrCode, _ := curFrame.Method().Attributes().AttrCode()
 		reader.Reset(attrCode.Code(), pc)
