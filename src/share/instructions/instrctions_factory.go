@@ -7,6 +7,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/instructions/loads"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/references"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/stack"
+	"github.com/zouzhihao-994/gvm/src/share/instructions/stores"
 )
 
 var (
@@ -35,6 +36,31 @@ var (
 	aload_1       = &loads.ALOAD_1{}
 	aload_2       = &loads.ALOAD_2{}
 	aload_3       = &loads.ALOAD_3{}
+	istore        = &stores.ISTORE{}
+	istore_0      = &stores.ISTORE_0{}
+	istore_1      = &stores.ISTORE_1{}
+	istore_2      = &stores.ISTORE_2{}
+	istore_3      = &stores.ISTORE_3{}
+	astore        = &stores.ASTORE{}
+	astore_0      = &stores.ASTORE_0{}
+	astore_1      = &stores.ASTORE_1{}
+	astore_2      = &stores.ASTORE_2{}
+	astore_3      = &stores.ASTORE_3{}
+	fstore        = &stores.FSTORE{}
+	fstore_0      = &stores.FSTORE_0{}
+	fstore_1      = &stores.FSTORE_1{}
+	fstore_2      = &stores.FSTORE_2{}
+	fstore_3      = &stores.FSTORE_3{}
+	dstore        = &stores.DSTORE{}
+	dstore_0      = &stores.DSTORE_0{}
+	dstore_1      = &stores.DSTORE_1{}
+	dstore_2      = &stores.DSTORE_2{}
+	dstore_3      = &stores.DSTORE_3{}
+	lstore        = &stores.LSTORE{}
+	lstore_0      = &stores.LSTORE_0{}
+	lstore_1      = &stores.LSTORE_1{}
+	lstore_2      = &stores.LSTORE_2{}
+	lstore_3      = &stores.LSTORE_3{}
 	_return       = &control.RETURN{}
 	_ireturn      = &control.IRETURN{}
 	_areturn      = &control.ARETURN{}
@@ -105,6 +131,56 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return aload_2
 	case 0x2d:
 		return aload_3
+	case 0x36:
+		return istore
+	case 0x37:
+		return lstore
+	case 0x38:
+		return fstore
+	case 0x39:
+		return dstore
+	case 0x3a:
+		return aload
+	case 0x3b:
+		return istore_0
+	case 0x3c:
+		return istore_1
+	case 0x3d:
+		return istore_2
+	case 0x3e:
+		return istore_3
+	case 0x3f:
+		return lstore_0
+	case 0x40:
+		return lstore_1
+	case 0x41:
+		return lstore_2
+	case 0x42:
+		return lstore_3
+	case 0x43:
+		return fstore_0
+	case 0x44:
+		return fstore_1
+	case 0x45:
+		return fstore_2
+	case 0x46:
+		return fstore_3
+	case 0x47:
+		return dstore_0
+	case 0x48:
+		return dstore_1
+	case 0x49:
+		return dstore_2
+	case 0x4a:
+		return dstore_3
+	case 0x4b:
+		return astore_0
+	case 0x4c:
+		return astore_1
+	case 0x4d:
+		return astore_2
+	case 0x4e:
+		return astore_3
 	case 0x59:
 		return dup
 	case 0x5a:
