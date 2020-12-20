@@ -26,9 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_special.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/interpreter/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/interpreter/interpreter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_virtual.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -579,7 +577,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add RevertPC()" />
     <MESSAGE value="super class init" />
     <MESSAGE value="constant_method add ClassName()" />
     <MESSAGE value="Integration the steps of create jclass instance into one function" />
@@ -604,7 +601,8 @@
     <MESSAGE value="add lstore.go" />
     <MESSAGE value="update instruction factory" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="update invoke_special" />
+    <option name="LAST_COMMIT_MESSAGE" value="update invoke_special" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
