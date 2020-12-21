@@ -79,6 +79,7 @@ var (
 	getStatic     = &references.GET_STATIC{}    // 178
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
+	invokeVirtual = &references.INVOKE_VIRTUAL{}
 	_new          = &references.NEW{} //187
 )
 
@@ -214,6 +215,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return _return
 	case 0xb2:
 		return getStatic
+	case 0xb6:
+		return invokeVirtual
 	case 0xb7:
 		return invokeSpecial
 	case 0xb8:
