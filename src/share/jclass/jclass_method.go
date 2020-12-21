@@ -69,6 +69,17 @@ func (ms Methods) Clinit() (*MethodInfo, bool) {
 	return nil, false
 }
 
+func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
+	for idx := range ms {
+		nameStr := ms[idx].cp.GetUtf8(ms[idx].nameIdx)
+		descStr := ms[idx].cp.GetUtf8(ms[idx].descriptorIdx)
+		if nameStr == name && descStr == desc {
+			return ms[idx], true
+		}
+	}
+	return nil, false
+}
+
 func (m *MethodInfo) CP() constant_pool.ConstantPool {
 	return m.cp
 }

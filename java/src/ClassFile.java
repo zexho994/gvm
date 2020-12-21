@@ -19,15 +19,16 @@ public class ClassFile extends FatherFile implements MyInterface {
         cf.method2(111);
         int res3 = cf.method3(new Object());
         Object o = cf.method4(new MyObject());
-        int resf2 = cf.father_method2(1);
+        int resf2 = cf.father_method2(1,null,null);
         cf2.father_method1();
-        int resfff2 = cf3.father_method2(3);
+        int resfff2 = cf3.father_method2(3,null,null);
         System.out.println("res3 = " + res3);
         System.out.println("resf2 = " + resf2);
     }
 
     public void method1(){
     }
+
 
     public void method2(int i){
     }
@@ -40,6 +41,8 @@ public class ClassFile extends FatherFile implements MyInterface {
     public Object method4(MyObject mc){
         return null;
     }
+
+    void method5(){}
 
     public static int staticMethod(){
         int field1 = 1;
