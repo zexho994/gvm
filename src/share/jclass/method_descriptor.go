@@ -27,68 +27,78 @@ func ParseMethodDescriptor(method *MethodInfo) *MethodDescriptor {
 }
 
 func (md *MethodDescriptor) ParamteCount() uint {
-	if md.parameteArr != nil {
-		return uint(len(md.parameteArr))
-	}
-	md.parameteArr = []string{}
-	for range md.parameteTypes {
-		md.parameteArr = append(md.parameteArr, md.parseFieldType())
+	if md.parameteArr == nil {
+		md.parameteArr = []string{}
+		for range md.parameteTypes {
+			md.parameteArr = append(md.parameteArr, md.parseFieldType())
+		}
 	}
 
 	return uint(len(md.parameteArr))
 }
 
-func (self *MethodDescriptor) parseFieldType() string {
-	switch self.parameteTypes[self.offset] {
+func (md *MethodDescriptor) ParamteTypes() []string {
+	if md.parameteArr == nil {
+		md.parameteArr = []string{}
+		for range md.parameteTypes {
+			md.parameteArr = append(md.parameteArr, md.parseFieldType())
+		}
+	}
+
+	return md.parameteArr
+}
+
+func (md *MethodDescriptor) parseFieldType() string {
+	switch md.parameteTypes[md.offset] {
 	case 'B':
-		self.offset++
+		md.offset++
 		return "B"
 	case 'C':
-		self.offset++
+		md.offset++
 		return "C"
 	case 'D':
-		self.offset++
+		md.offset++
 		return "D"
 	case 'F':
-		self.offset++
+		md.offset++
 		return "F"
 	case 'I':
-		self.offset++
+		md.offset++
 		return "I"
 	case 'J':
-		self.offset++
+		md.offset++
 		return "J"
 	case 'S':
-		self.offset++
+		md.offset++
 		return "S"
 	case 'Z':
-		self.offset++
+		md.offset++
 		return "Z"
 	case 'L':
-		return self.parseObjectType()
+		return md.parseObjectType()
 	case '[':
-		return self.parseArrayType()
+		return md.parseArrayType()
 	default:
 		return ""
 	}
 }
 
-func (self *MethodDescriptor) parseObjectType() string {
-	unread := self.parameteTypes[self.offset:]
+func (md *MethodDescriptor) parseObjectType() string {
+	unread := md.parameteTypes[md.offset:]
 	semicolonIndex := strings.IndexRune(unread, ';')
 	exception.AssertTrue(semicolonIndex == -1, "parsing descriptor error")
 
-	objStart := self.offset
-	objEnd := self.offset + semicolonIndex + 1
-	self.offset = objEnd
-	t := self.parameteTypes[objStart:objEnd]
+	objStart := md.offset
+	objEnd := md.offset + semicolonIndex + 1
+	md.offset = objEnd
+	t := md.parameteTypes[objStart:objEnd]
 	return t
 }
 
-func (self *MethodDescriptor) parseArrayType() string {
-	arrStart := self.offset
-	self.parseFieldType()
-	arrEnd := self.offset
-	t := self.parameteTypes[arrStart:arrEnd]
+func (md *MethodDescriptor) parseArrayType() string {
+	arrStart := md.offset
+	md.parseFieldType()
+	arrEnd := md.offset
+	t := md.parameteTypes[arrStart:arrEnd]
 	return t
 }
