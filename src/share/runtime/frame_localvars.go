@@ -50,29 +50,29 @@ func (l *LocalVars) GetLong(index uint) int64 {
 	return int64(high)<<32 | int64(low)
 }
 
-func (l LocalVars) SetDouble(index uint, val float64) {
+func (l *LocalVars) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
 	l.SetLong(index, int64(bits))
 }
 
-func (l LocalVars) GetDouble(index uint) float64 {
+func (l *LocalVars) GetDouble(index uint) float64 {
 	bits := uint64(l.GetLong(index))
 
 	return math.Float64frombits(bits)
 }
 
-func (l LocalVars) SetRef(index uint, ref *oops.Oop_Instance) {
+func (l *LocalVars) SetRef(index uint, ref *oops.Oop_Instance) {
 	l.slots[index].ref = ref
 }
 
-func (l LocalVars) GetRef(index uint) *oops.Oop_Instance {
+func (l *LocalVars) GetRef(index uint) *oops.Oop_Instance {
 	return l.slots[index].ref
 }
 
-func (l LocalVars) SetSlot(index uint, slot Slot) {
+func (l *LocalVars) SetSlot(index uint, slot Slot) {
 	l.slots[index] = slot
 }
 
-func (l LocalVars) GetThis() *oops.Oop_Instance {
+func (l *LocalVars) GetThis() *oops.Oop_Instance {
 	return l.GetRef(0)
 }
