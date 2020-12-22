@@ -5,25 +5,47 @@ import (
 	"strings"
 )
 
+// 方法描述符
 type MethodDescriptor struct {
-	parameteTypes string
-	parameteArr   []string
-	returnType    string
-	offset        int
+	// 描述符原始字段
+	raw string
+	// 偏移量
+	offset int
+	// 参数数组
+	paramterTypes []string
+	// 返回类型
+	returnTypt string
 }
 
 // descriptor => (...parameteTypes)...returnType
 // for instance: void fun(int) -> (I)V or ; public int method3(Object obj) -> (Ljava/lang/Object)I
-func ParseMethodDescriptor(method *MethodInfo) *MethodDescriptor {
-	idx := method.descriptorIdx
-	descStr := method.CP().GetUtf8(idx)
-	splits := strings.Split(descStr, ")")
-	parametes := strings.Split(splits[0], "(")[0]
+func ParseMethodDescriptor(desc string) *MethodDescriptor {
+	methodDesc := MethodDescriptor{raw: desc}
+	return methodDesc.parse()
+}
 
-	return &MethodDescriptor{
-		parameteTypes: parametes,
-		returnType:    splits[1],
+func (md *MethodDescriptor) parse() *MethodDescriptor {
+	// parse (
+	exception.AssertTrue(md.readUint8() == '(', "parse method descriptor error")
+	// parse params
+	md.parseParamTypes()
+	// parse )
+	exception.AssertTrue(md.readUint8() == ')', "parse method descriptor error")
+	// parse return type
+}
+
+//
+func (md *MethodDescriptor) parseParamTypes() {
+	for {
+		t := md.parseFieldType()
+		if t != "" {
+			md.paramterTypes
+		}
 	}
+}
+
+func (md *MethodDescriptor) addParameterTypes(t string) {
+
 }
 
 func (md *MethodDescriptor) ParamteCount() uint {
@@ -49,7 +71,7 @@ func (md *MethodDescriptor) ParamteTypes() []string {
 }
 
 func (md *MethodDescriptor) parseFieldType() string {
-	switch md.parameteTypes[md.offset] {
+	switch md.readUint8() {
 	case 'B':
 		md.offset++
 		return "B"
@@ -79,6 +101,7 @@ func (md *MethodDescriptor) parseFieldType() string {
 	case '[':
 		return md.parseArrayType()
 	default:
+		md.unreadUint8()
 		return ""
 	}
 }
@@ -86,19 +109,28 @@ func (md *MethodDescriptor) parseFieldType() string {
 func (md *MethodDescriptor) parseObjectType() string {
 	unread := md.parameteTypes[md.offset:]
 	semicolonIndex := strings.IndexRune(unread, ';')
-	exception.AssertTrue(semicolonIndex == -1, "parsing descriptor error")
+	exception.AssertTrue(semicolonIndex != -1, "parsing descriptor error")
 
 	objStart := md.offset
-	objEnd := md.offset + semicolonIndex + 1
+	objEnd := md.offset + semicolonIndex
 	md.offset = objEnd
 	t := md.parameteTypes[objStart:objEnd]
 	return t
 }
 
 func (md *MethodDescriptor) parseArrayType() string {
-	arrStart := md.offset
+	arrStart := md.offset - 1
 	md.parseFieldType()
 	arrEnd := md.offset
 	t := md.parameteTypes[arrStart:arrEnd]
 	return t
+}
+
+func (md *MethodDescriptor) readUint8() uint8 {
+	b := md.paramterTypes[md.offset]
+	md.offset++
+	return b
+}
+func (md *MethodDescriptor) unreadUint8() {
+	md.offset--
 }

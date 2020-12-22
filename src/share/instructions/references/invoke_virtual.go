@@ -3,7 +3,7 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
-	"github.com/zouzhihao-994/gvm/src/share/jclass"
+	jclass "github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
@@ -13,18 +13,22 @@ type INVOKE_VIRTUAL struct {
 }
 
 func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
-	invokeClassInsance := frame.OperandStack().PopRef()
-	exception.AssertTrue(invokeClassInsance != nil, "NullPointerException")
 	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
-	name, desc := constantMethod.NameAndDescriptor()
-	exception.AssertTrue(name != "<init>" && name != "<clinit>", "IncompatibleClassChangeError")
+	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
+	exception.AssertTrue(methodNameStr != "<init>" && methodNameStr != "<clinit>", "IncompatibleClassChangeError")
+	classNameStr := constantMethod.ClassName()
 	permSpace := jclass.GetPerm().Space
-	jc := permSpace[name]
+	jc := permSpace[classNameStr]
 	exception.AssertTrue(jc != nil, "NullPointerException")
-	methodInfo, _ := jc.Methods.FindMethod(name, desc)
+	methodInfo, _ := jc.Methods.FindMethod(methodNameStr, methodDescStr)
 	if methodInfo != nil {
 		exception.AssertFalse(jclass.IsStatic(methodInfo.AccessFlag()), "IncompatibleClassChangeError")
-
+		method_Descriptor := jclass.ParseMethodDescriptor(methodInfo)
+		method_Descriptor.ParamteTypes()
 	}
+
+	// 参数和引用出栈
+	invokeClassInsance := frame.OperandStack().PopRef()
+	exception.AssertTrue(invokeClassInsance != nil, "NullPointerException")
 
 }
