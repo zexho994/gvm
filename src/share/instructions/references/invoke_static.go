@@ -33,5 +33,5 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	if !jclass.IsStatic(methodInfo.AccessFlag()) {
 		panic("[gvm] invoke static error")
 	}
-	base.InvokeMethod(frame, methodInfo)
+	base.InvokeMethod(frame, methodInfo, true)
 }

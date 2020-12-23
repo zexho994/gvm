@@ -9,7 +9,7 @@ import (
 // 执行方法调用
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
-func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
+func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo, isStatic bool) {
 	invokerThread := invokerFrame.Thread()
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
@@ -21,11 +21,18 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo) {
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	invokerThread.Push(newFrame)
 	argSlotCount := method.ArgSlotCount()
-	if argSlotCount == 0 {
-		return
+
+	var n int
+	if isStatic {
+		if argSlotCount == 0 {
+			return
+		}
+		n = 1
 	}
-	for i := argSlotCount - 1; i >= 0; i-- {
+	n = int(argSlotCount) - n
+
+	for i := n; i >= 0; i-- {
 		slot := invokerFrame.OperandStack().PopSlot()
-		newFrame.LocalVars().SetSlot(i, slot)
+		newFrame.LocalVars().SetSlot(uint(i), slot)
 	}
 }

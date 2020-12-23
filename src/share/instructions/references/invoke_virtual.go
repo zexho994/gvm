@@ -26,21 +26,16 @@ func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	exception.AssertTrue(err == nil, "no find the method of "+methodNameStr)
 	exception.AssertFalse(jclass.IsStatic(methodInfo.AccessFlag()), "IncompatibleClassChangeError")
 
-	method_Descriptor := jclass.ParseMethodDescriptor(methodDescStr)
-	paramters := method_Descriptor.Paramters()
+	//jclass.ParseMethodDescriptor(methodDescStr)
 
-	targetMethodAttrCode, _ := methodInfo.Attributes().AttrCode()
-	targetFrame := runtime.NewFrame(targetMethodAttrCode.MaxLocals, targetMethodAttrCode.MaxStack, methodInfo, frame.Thread())
+	//targetMethodAttrCode, _ := methodInfo.Attributes().AttrCode()
+	//targetFrame := runtime.NewFrame(targetMethodAttrCode.MaxLocals, targetMethodAttrCode.MaxStack, methodInfo, frame.Thread())
 	// pop params from operand_stack according the paramsType
-	frame.OperandStack().PopByParamters(paramters, targetFrame.LocalVars(), false)
+	//frame.OperandStack().PopByParamters(paramters, targetFrame.LocalVars(), false)
 
 	if jclass.IsProteced(methodInfo.AccessFlag()) {
 		// todo if is proteced , need to judge the relation between caller and called
 	}
 
-	// 参数和引用出栈
-	invokeClassInsance := frame.OperandStack().PopRef()
-	exception.AssertTrue(invokeClassInsance != nil, "NullPointerException")
-
-	base.InvokeMethod(frame, methodInfo)
+	base.InvokeMethod(frame, methodInfo, false)
 }

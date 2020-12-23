@@ -15,7 +15,6 @@ type INVOKE_SPECIAL struct {
 }
 
 func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PopRef()
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
 	perm := jclass.GetPerm()
@@ -26,5 +25,5 @@ func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	name, Desc := constantMethod.NameAndDescriptor()
 	method, _, _ := jc.FindMethod(name, Desc)
 	// 如果是初始化方法
-	base.InvokeMethod(frame, method)
+	base.InvokeMethod(frame, method, jclass.IsStatic(method.AccessFlag()))
 }

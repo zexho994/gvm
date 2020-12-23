@@ -96,16 +96,6 @@ func (operandStack *OperandStack) PopSlot() Slot {
 	return operandStack.slots[operandStack.size]
 }
 
-/*
-获取距离top n个距离的引用
-比如GetRefFromTop(0)获取栈顶的引用
-比如GetRefFromTop(1)获取距离栈顶1个单位长度的引用
-*/
-func (operandStack *OperandStack) GetRefFromTop(n uint) *oops.Oop_Instance {
-	targetIndex := operandStack.size - 1 - n
-	return operandStack.slots[targetIndex].ref
-}
-
 func (operandStack *OperandStack) PushBoolean(val bool) {
 	if val {
 		operandStack.PushInt(1)
