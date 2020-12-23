@@ -35,7 +35,7 @@ func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PopByParamters(paramters, targetFrame.LocalVars(), false)
 
 	if jclass.IsProteced(methodInfo.AccessFlag()) {
-
+		// todo if is proteced , need to judge the relation between caller and called
 	}
 
 	// 参数和引用出栈
