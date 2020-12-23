@@ -26,9 +26,9 @@ func (m *MethodInfo) InjectCodeAttr() {
 	tmpMaxStack := uint16(4)
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributeInfos, 1)
-	methodDescriptor := ParseMethodDescriptor(m)
+	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
 	var codeAttr *attribute.Attr_Code
-	switch methodDescriptor.returnType {
+	switch methodDescriptor.returnTypt {
 	case "V":
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return
 	case "D":
@@ -44,6 +44,10 @@ func (m *MethodInfo) InjectCodeAttr() {
 	}
 	attributes[0] = codeAttr
 	m.attribute = attributes
+}
+
+func (m MethodInfo) Descriptor() string {
+	return m.cp.GetUtf8(m.descriptorIdx)
 }
 
 func (m MethodInfo) Name() string {
@@ -101,7 +105,7 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		// 解析方法表中的属性表字段
 		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
-		method.argSlotCount = ParseMethodDescriptor(method).ParamteCount()
+		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
 	}
 	return methods
 }

@@ -25,11 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_virtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/method_descriptor.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -585,7 +581,6 @@
     <MESSAGE value="config xml" />
     <MESSAGE value="new func is to inject attr code" />
     <MESSAGE value="Skip the native methods processing step" />
-    <MESSAGE value="stash" />
     <MESSAGE value="new class file" />
     <MESSAGE value="add dup instructions" />
     <MESSAGE value="add assert utils" />
@@ -604,7 +599,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="Update stores method to pointer method" />
     <MESSAGE value="Update method_descriptor.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update method_descriptor.go" />
+    <MESSAGE value="stash" />
+    <option name="LAST_COMMIT_MESSAGE" value="stash" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -625,7 +621,6 @@
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608048575717">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="587" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1599974149594" />
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606134038259" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1608048575717" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606231424263" />
@@ -641,10 +636,6 @@
     <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530338152" />
     <state x="476" y="225" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1601471203725" />
     <state x="544" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608048557075" />
-    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599974102377">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1599974102377" />
     <state x="-509" y="270" key="#xdebugger.evaluate" timestamp="1606971319067">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
@@ -915,7 +906,6 @@
     <state width="572" height="446" key="SwitcherDM/-3360.392.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607579163494" />
     <state width="572" height="446" key="SwitcherDM/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607316456260" />
     <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606533176691" />
-    <state width="500" height="433" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1599988279085" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608550362237" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1608440328496" />
     <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606648413528" />
@@ -927,7 +917,7 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1122" y="416" key="VCS.EditChangelistDialog/-1744.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608120995651" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1608553421889">
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2" timestamp="1608643318695">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-1582.1080.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1603108737260" />
@@ -941,7 +931,7 @@
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607343788113" />
     <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606465305782" />
     <state x="490" y="298" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600592806926" />
-    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608553421889" />
+    <state x="-1360" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608643318695" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608449442189" />
     <state x="560" y="306" key="Vcs.Push.Dialog.v2/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606232963598" />
     <state x="1134" y="398" key="VcsDiffUtil.ChangesDialog" timestamp="1603108648777">
@@ -964,7 +954,7 @@
       <screen x="-174" y="-1080" width="1920" height="1080" />
     </state>
     <state x="323" y="-886" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1606836315388" />
-    <state x="166" y="52" width="1613" height="949" key="dock-window-1" timestamp="1608614466007">
+    <state x="166" y="52" width="1613" height="949" key="dock-window-1" timestamp="1608643413953">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="23" width="1920" height="1057" key="dock-window-1.inPresentationMode" timestamp="1606534734912">
@@ -974,7 +964,7 @@
     <state x="0" y="23" width="1920" height="1057" maximized="true" key="dock-window-1.inPresentationMode/-3360.631.1440.877/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606534255288" />
     <state x="0" y="0" width="1920" height="1080" maximized="true" key="dock-window-1/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606540543722" />
     <state x="0" y="0" width="1920" height="1080" key="dock-window-1/-3360.631.1440.877/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1606535692590" />
-    <state x="166" y="52" width="1613" height="949" key="dock-window-1/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608614466007" />
+    <state x="166" y="52" width="1613" height="949" key="dock-window-1/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608643413953" />
     <state x="0" y="0" width="1920" height="1080" key="dock-window-1/214.1103.1440.877/0.23.1920.1057@214.1103.1440.877" timestamp="1606549767045" />
     <state x="-1192" y="302" width="584" height="580" key="find.popup" timestamp="1606179270920">
       <screen x="-1920" y="0" width="1920" height="1080" />

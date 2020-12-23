@@ -23,8 +23,8 @@ func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	methodInfo, _ := jc.Methods.FindMethod(methodNameStr, methodDescStr)
 	if methodInfo != nil {
 		exception.AssertFalse(jclass.IsStatic(methodInfo.AccessFlag()), "IncompatibleClassChangeError")
-		method_Descriptor := jclass.ParseMethodDescriptor(methodInfo)
-		method_Descriptor.ParamteTypes()
+		method_Descriptor := jclass.ParseMethodDescriptor(methodDescStr)
+		method_Descriptor.ParamsCount()
 	}
 
 	// 参数和引用出栈
