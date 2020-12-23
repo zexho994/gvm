@@ -17,6 +17,10 @@ type MethodDescriptor struct {
 	returnTypt string
 }
 
+func (md *MethodDescriptor) Paramters() []string {
+	return md.paramterTypes
+}
+
 // descriptor => (...parameteTypes)...returnType
 // for instance: void fun(int) -> (I)V or ; public int method3(Object obj) -> (Ljava/lang/Object)I
 func ParseMethodDescriptor(desc string) *MethodDescriptor {

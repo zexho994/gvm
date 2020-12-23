@@ -117,3 +117,50 @@ func (operandStack *OperandStack) PushBoolean(val bool) {
 func (operandStack *OperandStack) PopBoolean() bool {
 	return operandStack.PopInt() == 1
 }
+
+// todo: provide more parmes type
+func (operandStack *OperandStack) PopByParamters(params []string, localVars *LocalVars, isStatic bool) {
+	i := len(params)
+	// method is storages <this.class.ref> on localvars[0]
+	// but the static_method is different,don't storages ref on [0]
+	if isStatic {
+		i--
+	}
+	for idx := range params {
+		switch params[idx] {
+		case "B":
+			break
+		case "C":
+			break
+		case "D":
+			localVars.SetDouble(uint(i-idx), operandStack.PopDouble())
+			break
+		case "F":
+			localVars.SetFloat(uint(i-idx), operandStack.PopFloat())
+			break
+		case "I":
+			localVars.SetInt(uint(i-idx), operandStack.PopInt())
+			break
+		case "J":
+			operandStack.PopLong()
+			localVars.SetLong(uint(i-idx), operandStack.PopLong())
+			break
+		case "S":
+			break
+		case "Z":
+			operandStack.PopBoolean()
+			localVars.SetBoolean(uint(i+idx), operandStack.PopBoolean())
+			break
+		case "L":
+		case "[":
+			operandStack.PopRef()
+			break
+		}
+	}
+
+	// save the invoke class ref to localvars[0]
+	if !isStatic {
+		localVars.SetRef(0, operandStack.PopRef())
+	}
+
+}

@@ -84,6 +84,10 @@ func IsAbstract(acc uint16) bool {
 	return (acc & ACC_ABSTRACT) != 0
 }
 
+func IsProteced(acc uint16) bool {
+	return (acc & ACC_PROTECTED) != 0
+}
+
 func IsSynthetic(acc uint16) bool {
 	return (acc & ACC_SYNTHETIC) != 0
 }

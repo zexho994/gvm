@@ -124,7 +124,9 @@ func (j JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo,
 }
 
 // TODO:可以从父类中加载出方法，并检查权限
-func (j JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, error) {
+// name: method method
+// @return the MethodInfo belong to the JClass_Instance
+func (j *JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, error, *JClass_Instance) {
 	for i := range j.Methods {
 		methodInfo := j.Methods[i]
 		if IsStatic(methodInfo.accessFlag) {
@@ -132,10 +134,21 @@ func (j JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, error
 		}
 		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
 		mDesc := j.ConstantPool.GetUtf8(methodInfo.descriptorIdx)
-		if name != mName || mDesc != descriptor {
-			continue
+		if name == mName || mDesc == descriptor {
+			return j.Methods[i], nil, j
 		}
-		return j.Methods[i], nil
 	}
-	return nil, exception.GvmError{Msg: "not find method it name " + name}
+	// 在父类中遍历查找
+	m, err, jc := j.SuperClass.FindMethod(name, descriptor)
+	if err == nil {
+		return m, nil, jc
+	}
+	// 在接口中遍历查找
+	for i := range j.Interfaces {
+		m, err, jc := j.Interfaces[i].FindMethod(name, descriptor)
+		if err == nil {
+			return m, nil, jc
+		}
+	}
+	return nil, exception.GvmError{Msg: "not find method it name " + name}, nil
 }

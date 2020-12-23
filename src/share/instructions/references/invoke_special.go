@@ -24,7 +24,7 @@ func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 
 	exception.AssertTrue(jc != nil, "Class uninitialized")
 	name, Desc := constantMethod.NameAndDescriptor()
-	method, _ := jc.FindMethod(name, Desc)
+	method, _, _ := jc.FindMethod(name, Desc)
 	// 如果是初始化方法
 	base.InvokeMethod(frame, method)
 }
