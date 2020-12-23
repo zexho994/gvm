@@ -6,64 +6,71 @@ import (
 	constants "github.com/zouzhihao-994/gvm/src/share/instructions/constant"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/control"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/loads"
+	"github.com/zouzhihao-994/gvm/src/share/instructions/math"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/references"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/stack"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/stores"
 )
 
 var (
-	bipush        = &constants.BIPUSH{}
-	sipush        = &constants.SIPUSH{}
-	iload         = &loads.ILOAD{}
-	lload         = &loads.LLOAD{}
-	fload         = &loads.FLOAD{}
-	dload         = &loads.DLOAD{}
-	aload         = &loads.ALOAD{}
-	iload_0       = &loads.ILOAD_0{}
-	iload_1       = &loads.ILOAD_1{}
-	iload_2       = &loads.ILOAD_2{}
-	iload_3       = &loads.ILOAD_3{}
-	lload_0       = &loads.LLOAD_0{}
-	lload_1       = &loads.LLOAD_1{}
-	lload_2       = &loads.LLOAD_2{}
-	lload_3       = &loads.LLOAD_3{}
-	fload_0       = &loads.FLOAD_0{}
-	fload_1       = &loads.FLOAD_1{}
-	fload_2       = &loads.FLOAD_2{}
-	fload_3       = &loads.FLOAD_3{}
-	dload_0       = &loads.DLOAD_0{}
-	dload_1       = &loads.DLOAD_1{}
-	dload_2       = &loads.DLOAD_2{}
-	dload_3       = &loads.DLOAD_3{}
-	aload_0       = &loads.ALOAD_0{}
-	aload_1       = &loads.ALOAD_1{}
-	aload_2       = &loads.ALOAD_2{}
-	aload_3       = &loads.ALOAD_3{}
-	istore        = &stores.ISTORE{}
-	istore_0      = &stores.ISTORE_0{}
-	istore_1      = &stores.ISTORE_1{}
-	istore_2      = &stores.ISTORE_2{}
-	istore_3      = &stores.ISTORE_3{}
-	astore        = &stores.ASTORE{}
-	astore_0      = &stores.ASTORE_0{}
-	astore_1      = &stores.ASTORE_1{}
-	astore_2      = &stores.ASTORE_2{}
-	astore_3      = &stores.ASTORE_3{}
-	fstore        = &stores.FSTORE{}
-	fstore_0      = &stores.FSTORE_0{}
-	fstore_1      = &stores.FSTORE_1{}
-	fstore_2      = &stores.FSTORE_2{}
-	fstore_3      = &stores.FSTORE_3{}
-	dstore        = &stores.DSTORE{}
-	dstore_0      = &stores.DSTORE_0{}
-	dstore_1      = &stores.DSTORE_1{}
-	dstore_2      = &stores.DSTORE_2{}
-	dstore_3      = &stores.DSTORE_3{}
-	lstore        = &stores.LSTORE{}
-	lstore_0      = &stores.LSTORE_0{}
-	lstore_1      = &stores.LSTORE_1{}
-	lstore_2      = &stores.LSTORE_2{}
-	lstore_3      = &stores.LSTORE_3{}
+	bipush   = &constants.BIPUSH{}
+	sipush   = &constants.SIPUSH{}
+	iload    = &loads.ILOAD{}
+	lload    = &loads.LLOAD{}
+	fload    = &loads.FLOAD{}
+	dload    = &loads.DLOAD{}
+	aload    = &loads.ALOAD{}
+	iload_0  = &loads.ILOAD_0{}
+	iload_1  = &loads.ILOAD_1{}
+	iload_2  = &loads.ILOAD_2{}
+	iload_3  = &loads.ILOAD_3{}
+	lload_0  = &loads.LLOAD_0{}
+	lload_1  = &loads.LLOAD_1{}
+	lload_2  = &loads.LLOAD_2{}
+	lload_3  = &loads.LLOAD_3{}
+	fload_0  = &loads.FLOAD_0{}
+	fload_1  = &loads.FLOAD_1{}
+	fload_2  = &loads.FLOAD_2{}
+	fload_3  = &loads.FLOAD_3{}
+	dload_0  = &loads.DLOAD_0{}
+	dload_1  = &loads.DLOAD_1{}
+	dload_2  = &loads.DLOAD_2{}
+	dload_3  = &loads.DLOAD_3{}
+	aload_0  = &loads.ALOAD_0{}
+	aload_1  = &loads.ALOAD_1{}
+	aload_2  = &loads.ALOAD_2{}
+	aload_3  = &loads.ALOAD_3{}
+	istore   = &stores.ISTORE{}
+	istore_0 = &stores.ISTORE_0{}
+	istore_1 = &stores.ISTORE_1{}
+	istore_2 = &stores.ISTORE_2{}
+	istore_3 = &stores.ISTORE_3{}
+	astore   = &stores.ASTORE{}
+	astore_0 = &stores.ASTORE_0{}
+	astore_1 = &stores.ASTORE_1{}
+	astore_2 = &stores.ASTORE_2{}
+	astore_3 = &stores.ASTORE_3{}
+	fstore   = &stores.FSTORE{}
+	fstore_0 = &stores.FSTORE_0{}
+	fstore_1 = &stores.FSTORE_1{}
+	fstore_2 = &stores.FSTORE_2{}
+	fstore_3 = &stores.FSTORE_3{}
+	dstore   = &stores.DSTORE{}
+	dstore_0 = &stores.DSTORE_0{}
+	dstore_1 = &stores.DSTORE_1{}
+	dstore_2 = &stores.DSTORE_2{}
+	dstore_3 = &stores.DSTORE_3{}
+	lstore   = &stores.LSTORE{}
+	lstore_0 = &stores.LSTORE_0{}
+	lstore_1 = &stores.LSTORE_1{}
+	lstore_2 = &stores.LSTORE_2{}
+	lstore_3 = &stores.LSTORE_3{}
+
+	iadd = &math.IADD{}
+	ladd = &math.LADD{}
+	dadd = &math.DADD{}
+	fadd = &math.FADD{}
+
 	_return       = &control.RETURN{}
 	_ireturn      = &control.IRETURN{}
 	_areturn      = &control.ARETURN{}
@@ -201,6 +208,14 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return dup2_x1
 	case 0x5e:
 		return dup2_x2
+	case 0x60:
+		return iadd
+	case 0x61:
+		return ladd
+	case 0x62:
+		return fadd
+	case 0x63:
+		return dadd
 	case 0xac:
 		return _ireturn
 	case 0xad:

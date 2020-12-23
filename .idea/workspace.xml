@@ -26,11 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/base/invoke_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_special.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_virtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/runtime/frame_operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/runtime/frame_operand_stack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/instructions/instrctions_factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/instrctions_factory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/share/instructions/constant" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/share/instructions/math" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -133,19 +129,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
-      <recent name="$PROJECT_DIR$/src/share/instructions" />
-      <recent name="$PROJECT_DIR$/vm/instructions" />
-      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
-      <recent name="$PROJECT_DIR$/vm" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/share/runtime" />
       <recent name="$PROJECT_DIR$/src/share/jclass/attribute" />
       <recent name="$PROJECT_DIR$/src/share/jclass/constant_pool" />
       <recent name="$PROJECT_DIR$/src/share/jclass" />
       <recent name="$PROJECT_DIR$/src/share" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/share/instructions/math" />
+      <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
+      <recent name="$PROJECT_DIR$/src/share/instructions" />
+      <recent name="$PROJECT_DIR$/vm/instructions" />
+      <recent name="$PROJECT_DIR$/vm/rtda/heap" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -581,7 +577,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="config xml" />
     <MESSAGE value="new func is to inject attr code" />
     <MESSAGE value="Skip the native methods processing step" />
     <MESSAGE value="new class file" />
@@ -599,14 +594,15 @@
     <MESSAGE value="update invoke_special" />
     <MESSAGE value="factory add invokeVirtual" />
     <MESSAGE value="add AssertFalse" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="Update stores method to pointer method" />
     <MESSAGE value="Update method_descriptor.go" />
     <MESSAGE value="stash" />
     <MESSAGE value="parse method descriptor" />
     <MESSAGE value="store params and instance_ref to localvars" />
     <MESSAGE value="add todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="add todo" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="add add.go in math package" />
+    <option name="LAST_COMMIT_MESSAGE" value="add add.go in math package" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -630,9 +626,10 @@
     <state x="-1249" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606134038259" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1608048575717" />
     <state x="671" y="368" key="#com.intellij.fileTypes.FileTypeChooser/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606231424263" />
-    <state x="1195" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1608132778832">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-725" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1608724969438">
+      <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="-725" y="208" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608724969438" />
     <state x="1195" y="208" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1608132778832" />
     <state x="1195" y="208" key="#com.intellij.ide.util.MemberChooser/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606648464508" />
     <state x="544" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608048557075">
