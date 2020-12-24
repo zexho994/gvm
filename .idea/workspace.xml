@@ -25,13 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/algorithm/Substraction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/algorithm/Substraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/algorithm/ALU.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/algorithm/ALU.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/algorithm/ALU.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/algorithm/ALU.java" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -581,7 +575,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="Skip the native methods processing step" />
     <MESSAGE value="new class file" />
     <MESSAGE value="add dup instructions" />
     <MESSAGE value="add assert utils" />
@@ -606,7 +599,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="add add.go in math package" />
     <MESSAGE value="add new instrctions of add to factory" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new instrctions of add to factory" />
+    <MESSAGE value="add Substraction.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Substraction.java" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
