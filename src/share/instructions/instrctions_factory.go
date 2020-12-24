@@ -71,6 +71,11 @@ var (
 	dadd = &math.DADD{}
 	fadd = &math.FADD{}
 
+	isub = &math.ISUB{}
+	lsub = &math.LSUB{}
+	fsub = &math.FSUB{}
+	dsub = &math.DSUB{}
+
 	_return       = &control.RETURN{}
 	_ireturn      = &control.IRETURN{}
 	_areturn      = &control.ARETURN{}
@@ -216,6 +221,14 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fadd
 	case 0x63:
 		return dadd
+	case 0x64:
+		return isub
+	case 0x65:
+		return lsub
+	case 0x66:
+		return fsub
+	case 0x67:
+		return dsub
 	case 0xac:
 		return _ireturn
 	case 0xad:
