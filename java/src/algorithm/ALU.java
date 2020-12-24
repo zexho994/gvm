@@ -4,5 +4,7 @@ public class ALU {
         a.add(11,39);
         Substraction s = new Substraction();
         s.sub(100,50);
+        Multiplication m = new Multiplication();
+        m.mul(15,20);
     }
 }

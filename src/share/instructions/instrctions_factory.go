@@ -76,6 +76,11 @@ var (
 	fsub = &math.FSUB{}
 	dsub = &math.DSUB{}
 
+	imul = &math.IMUL{}
+	lmul = &math.LMUL{}
+	fmul = &math.FMUL{}
+	dmul = &math.DMUL{}
+
 	_return       = &control.RETURN{}
 	_ireturn      = &control.IRETURN{}
 	_areturn      = &control.ARETURN{}
@@ -229,6 +234,14 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fsub
 	case 0x67:
 		return dsub
+	case 0x68:
+		return imul
+	case 0x69:
+		return lmul
+	case 0x6a:
+		return fmul
+	case 0x6b:
+		return dmul
 	case 0xac:
 		return _ireturn
 	case 0xad:
