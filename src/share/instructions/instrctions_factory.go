@@ -13,33 +13,35 @@ import (
 )
 
 var (
-	bipush   = &constants.BIPUSH{}
-	sipush   = &constants.SIPUSH{}
-	iload    = &loads.ILOAD{}
-	lload    = &loads.LLOAD{}
-	fload    = &loads.FLOAD{}
-	dload    = &loads.DLOAD{}
-	aload    = &loads.ALOAD{}
-	iload_0  = &loads.ILOAD_0{}
-	iload_1  = &loads.ILOAD_1{}
-	iload_2  = &loads.ILOAD_2{}
-	iload_3  = &loads.ILOAD_3{}
-	lload_0  = &loads.LLOAD_0{}
-	lload_1  = &loads.LLOAD_1{}
-	lload_2  = &loads.LLOAD_2{}
-	lload_3  = &loads.LLOAD_3{}
-	fload_0  = &loads.FLOAD_0{}
-	fload_1  = &loads.FLOAD_1{}
-	fload_2  = &loads.FLOAD_2{}
-	fload_3  = &loads.FLOAD_3{}
-	dload_0  = &loads.DLOAD_0{}
-	dload_1  = &loads.DLOAD_1{}
-	dload_2  = &loads.DLOAD_2{}
-	dload_3  = &loads.DLOAD_3{}
-	aload_0  = &loads.ALOAD_0{}
-	aload_1  = &loads.ALOAD_1{}
-	aload_2  = &loads.ALOAD_2{}
-	aload_3  = &loads.ALOAD_3{}
+	bipush = &constants.BIPUSH{}
+	sipush = &constants.SIPUSH{}
+
+	iload   = &loads.ILOAD{}
+	lload   = &loads.LLOAD{}
+	fload   = &loads.FLOAD{}
+	dload   = &loads.DLOAD{}
+	aload   = &loads.ALOAD{}
+	iload_0 = &loads.ILOAD_0{}
+	iload_1 = &loads.ILOAD_1{}
+	iload_2 = &loads.ILOAD_2{}
+	iload_3 = &loads.ILOAD_3{}
+	lload_0 = &loads.LLOAD_0{}
+	lload_1 = &loads.LLOAD_1{}
+	lload_2 = &loads.LLOAD_2{}
+	lload_3 = &loads.LLOAD_3{}
+	fload_0 = &loads.FLOAD_0{}
+	fload_1 = &loads.FLOAD_1{}
+	fload_2 = &loads.FLOAD_2{}
+	fload_3 = &loads.FLOAD_3{}
+	dload_0 = &loads.DLOAD_0{}
+	dload_1 = &loads.DLOAD_1{}
+	dload_2 = &loads.DLOAD_2{}
+	dload_3 = &loads.DLOAD_3{}
+	aload_0 = &loads.ALOAD_0{}
+	aload_1 = &loads.ALOAD_1{}
+	aload_2 = &loads.ALOAD_2{}
+	aload_3 = &loads.ALOAD_3{}
+
 	istore   = &stores.ISTORE{}
 	istore_0 = &stores.ISTORE_0{}
 	istore_1 = &stores.ISTORE_1{}
@@ -81,18 +83,25 @@ var (
 	fmul = &math.FMUL{}
 	dmul = &math.DMUL{}
 
-	_return       = &control.RETURN{}
-	_ireturn      = &control.IRETURN{}
-	_areturn      = &control.ARETURN{}
-	_dreturn      = &control.DRETURN{}
-	_lreturn      = &control.LRETURN{}
-	_freturn      = &control.FRETURN{}
-	dup           = &stack.Dup{}
-	dup_x1        = &stack.Dup_X1{}
-	dup_x2        = &stack.Dup_X2{}
-	dup2          = &stack.Dup2{}
-	dup2_x1       = &stack.Dup2_X1{}
-	dup2_x2       = &stack.Dup2_X2{}
+	idiv = &math.IDIV{}
+	ldiv = &math.LDIV{}
+	ddiv = &math.DDIV{}
+	fdiv = &math.FDIV{}
+
+	_return  = &control.RETURN{}
+	_ireturn = &control.IRETURN{}
+	_areturn = &control.ARETURN{}
+	_dreturn = &control.DRETURN{}
+	_lreturn = &control.LRETURN{}
+	_freturn = &control.FRETURN{}
+
+	dup     = &stack.Dup{}
+	dup_x1  = &stack.Dup_X1{}
+	dup_x2  = &stack.Dup_X2{}
+	dup2    = &stack.Dup2{}
+	dup2_x1 = &stack.Dup2_X1{}
+	dup2_x2 = &stack.Dup2_X2{}
+
 	getStatic     = &references.GET_STATIC{}    // 178
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
@@ -165,7 +174,7 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	case 0x39:
 		return dstore
 	case 0x3a:
-		return aload
+		return astore
 	case 0x3b:
 		return istore_0
 	case 0x3c:
@@ -242,6 +251,14 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fmul
 	case 0x6b:
 		return dmul
+	case 0x6c:
+		return idiv
+	case 0x6d:
+		return ldiv
+	case 0x6e:
+		return fdiv
+	case 0x6f:
+		return ddiv
 	case 0xac:
 		return _ireturn
 	case 0xad:
