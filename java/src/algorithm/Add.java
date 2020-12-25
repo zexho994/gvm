@@ -10,6 +10,13 @@ public class Add {
 
     public void add2(){
         int i = 0;
-        int k = ++i;
+        int j = ++i;
+    }
+
+    public void add3(){
+        int i = 0;
+        i = i + 1;
+        i++;
+        ++i;
     }
 }
