@@ -1,7 +1,6 @@
 package references
 
 import (
-	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
@@ -18,7 +17,6 @@ func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
 	perm := jclass.GetPerm()
-	fmt.Println(constantMethod.ClassName())
 	jc := perm.Space[constantMethod.ClassName()]
 
 	exception.AssertTrue(jc != nil, "Class uninitialized")

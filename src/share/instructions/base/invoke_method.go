@@ -19,7 +19,6 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo, isStat
 	}
 	attrCode, _ = method.Attributes().AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
-	invokerThread.Push(newFrame)
 	argSlotCount := method.ArgSlotCount()
 
 	var n int
@@ -30,9 +29,10 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo, isStat
 		n = 1
 	}
 	n = int(argSlotCount) - n
-
 	for i := n; i >= 0; i-- {
 		slot := invokerFrame.OperandStack().PopSlot()
 		newFrame.LocalVars().SetSlot(uint(i), slot)
 	}
+
+	invokerThread.Push(newFrame)
 }

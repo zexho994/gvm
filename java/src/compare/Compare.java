@@ -1,18 +1,18 @@
 public class Compare{
 
-    public static void main(){
+    public static void main(String[] args){
         Compare c = new Compare();
-        c.if_inst();
+        c.if_inst(20);
     }
 
-    public void if_inst(){
+    public int if_inst(int i){
         int sun = 0;
-        int i = 5;
         if ( i > 10){
             sun = 100;
         }else{
             sun = 10;
         }
+        return sun;
     }
 
     public void for_inst(){

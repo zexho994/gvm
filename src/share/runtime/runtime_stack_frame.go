@@ -5,7 +5,7 @@ import "github.com/zouzhihao-994/gvm/src/share/jclass"
 // 一个Frame对应着一个已调用而且未结束的方法
 // TODO：栈的大小支持自动 扩/缩 , 如果扩到极限仍然发送内容不足的情况抛出 OutOfMemoryError 异常
 type Frame struct {
-	pc           int
+	pc           uint
 	next         *Frame
 	localVars    *LocalVars
 	operandStack *OperandStack
@@ -21,11 +21,11 @@ func (f *Frame) OperandStack() *OperandStack {
 	return f.operandStack
 }
 
-func (f *Frame) SetPC(pc int) {
+func (f *Frame) SetPC(pc uint) {
 	f.pc = pc
 }
 
-func (f *Frame) PC() int {
+func (f *Frame) PC() uint {
 	return f.pc
 }
 

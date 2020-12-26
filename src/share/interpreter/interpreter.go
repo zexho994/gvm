@@ -1,7 +1,6 @@
 package interpreter
 
 import (
-	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/instructions"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
@@ -11,7 +10,7 @@ import (
 // code 解释器
 func Interpret(method *jclass.MethodInfo) {
 	var newThread = &runtime.Thread{
-		PC:    1,
+		PC:    0,
 		Stack: runtime.NewStack(1024),
 	}
 	code, err := method.Attributes().AttrCode()
@@ -28,9 +27,7 @@ func loop(thread *runtime.Thread) {
 	for {
 		// 因为可能在指令的操作中会对线程的栈帧进行修改，所以这个地方每次都需要进行重新赋值
 		curFrame := thread.Peek()
-		fmt.Printf("[gvm] execute %v method \n", curFrame.Method().Name())
 		pc := curFrame.PC()
-		fmt.Println(curFrame.Method().Name())
 		thread.PC = pc
 		attrCode, _ := curFrame.Method().Attributes().AttrCode()
 		reader.Reset(attrCode.Code(), pc)

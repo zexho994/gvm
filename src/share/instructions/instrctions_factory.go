@@ -111,12 +111,19 @@ var (
 	_lreturn = &control.LRETURN{}
 	_freturn = &control.FRETURN{}
 
+	pop  = &stack.POP{}
+	pop2 = &stack.POP2{}
+
 	dup     = &stack.Dup{}
 	dup_x1  = &stack.Dup_X1{}
 	dup_x2  = &stack.Dup_X2{}
 	dup2    = &stack.Dup2{}
 	dup2_x1 = &stack.Dup2_X1{}
 	dup2_x2 = &stack.Dup2_X2{}
+
+	_goto = &control.GOTO{}
+
+	if_icmple = &comparisons.If_ICMPLE{}
 
 	getStatic     = &references.GET_STATIC{}    // 178
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
@@ -259,6 +266,10 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return astore_2
 	case 0x4e:
 		return astore_3
+	case 0x57:
+		return pop
+	case 0x58:
+		return pop2
 	case 0x59:
 		return dup
 	case 0x5a:
@@ -303,6 +314,10 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fdiv
 	case 0x6f:
 		return ddiv
+	case 0xa4:
+		return if_icmple
+	case 0xa7:
+		return _goto
 	case 0xac:
 		return _ireturn
 	case 0xad:

@@ -2,17 +2,17 @@ package base
 
 type MethodCodeReader struct {
 	code []byte
-	pc   int
+	pc   uint
 }
 
-func (r *MethodCodeReader) PC() int {
+func (r *MethodCodeReader) PC() uint {
 	return r.pc
 }
 
 /*
 重新赋值
 */
-func (r *MethodCodeReader) Reset(code []byte, pc int) {
+func (r *MethodCodeReader) Reset(code []byte, pc uint) {
 	r.code = code
 	r.pc = pc
 }
