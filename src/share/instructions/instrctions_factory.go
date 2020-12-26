@@ -3,6 +3,7 @@ package instructions
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
+	"github.com/zouzhihao-994/gvm/src/share/instructions/comparisons"
 	constants "github.com/zouzhihao-994/gvm/src/share/instructions/constant"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/control"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/loads"
@@ -13,6 +14,21 @@ import (
 )
 
 var (
+	iconst_ml = &constants.ICONST_M1{}
+	iconst_0  = &constants.ICONST_0{}
+	iconst_1  = &constants.ICONST_1{}
+	iconst_2  = &constants.ICONST_2{}
+	iconst_3  = &constants.ICONST_3{}
+	iconst_4  = &constants.ICONST_4{}
+	iconst_5  = &constants.ICONST_5{}
+	lconst_0  = &constants.LCONST_0{}
+	lconst_1  = &constants.LCONST_1{}
+	fconst_0  = &constants.FCONST_0{}
+	fconst_1  = &constants.FCONST_1{}
+	fconst_2  = &constants.FCONST_2{}
+	dconst_0  = &constants.DCONST_0{}
+	dconst_1  = &constants.DCONST_1{}
+
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
 
@@ -111,6 +127,34 @@ var (
 
 func NewInstruction(opcode byte) base.Base_Instruction {
 	switch opcode {
+	case 0x02:
+		return iconst_ml
+	case 0x03:
+		return iconst_0
+	case 0x04:
+		return iconst_1
+	case 0x05:
+		return iconst_2
+	case 0x06:
+		return iconst_3
+	case 0x07:
+		return iconst_4
+	case 0x08:
+		return iconst_5
+	case 0x09:
+		return lconst_0
+	case 0x0a:
+		return lconst_1
+	case 0x0b:
+		return fconst_0
+	case 0x0c:
+		return fconst_1
+	case 0x0d:
+		return fconst_2
+	case 0x0e:
+		return dconst_0
+	case 0x0f:
+		return dconst_1
 	case 0x10:
 		return bipush
 	case 0x11:
