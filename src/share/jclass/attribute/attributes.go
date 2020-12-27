@@ -49,8 +49,9 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	//case "LocalVariableTable":
 	//	return &LocalVariableTableAttribute{}
 	case "Synthetic":
-		return &Attr_Synthetic{}
-
+		return &Attr_Synthetic{nameIdx: nameIdx, name: name, attrLen: attrLen}
+	case "InnerClasses":
+		return &Attr_InnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
 	default:
 		panic("attribute error")
 	}

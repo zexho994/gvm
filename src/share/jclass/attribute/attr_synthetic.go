@@ -5,7 +5,7 @@ import "github.com/zouzhihao-994/gvm/src/share/classfile"
 type Attr_Synthetic struct {
 	nameIdx uint16
 	name    string
-	length  uint32
+	attrLen uint32
 }
 
 func (attr Attr_Synthetic) parse(reader *classfile.ClassReader) {
