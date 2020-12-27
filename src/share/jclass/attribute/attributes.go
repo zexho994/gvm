@@ -42,12 +42,14 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		return &Attr_Signature{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "StackMapTable":
 		return &Attr_StackMapTable{nameIdx: nameIdx, name: name, attrLen: attrLen}
-	//case "Deprecated":
-	//	return &DeprecatedAttribute{}
+	case "Deprecated":
+		return &Attr_Deprecated{nameIdx: nameIdx, name: name, attrLen: attrLen}
+	case "RuntimeVisibleAnnotations":
+		return &Attr_RuntimeVisibleAnnotation{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	//case "LocalVariableTable":
 	//	return &LocalVariableTableAttribute{}
-	//case "Synthetic":
-	//	return &SyntheticAttribute{}
+	case "Synthetic":
+		return &Attr_Synthetic{}
 
 	default:
 		panic("attribute error")

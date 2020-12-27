@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
-	runtime "github.com/zouzhihao-994/gvm/src/share/runtime"
+	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
 type INVOKE_VIRTUAL struct {

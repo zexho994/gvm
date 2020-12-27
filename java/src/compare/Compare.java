@@ -1,29 +1,34 @@
 public class Compare{
-
-    public static void main(String[] args){
-        Compare c = new Compare();
-        c.if_inst(20);
-    }
-
-    public int if_inst(int i){
-        int sun = 0;
-        if ( i > 10){
-            sun = 100;
-        }else{
-            sun = 10;
-        }
-        return sun;
-    }
-
-    public void for_inst(){
+	public static void main(String[] args) {
+		Compare compare = new Compare();
+		compare.if_inst();
+		compare.for_inst();
+		compare.while_inst();
+	}
 
 
-    }
+	public void if_inst(){
+		int sun = 0;
+		int i = 5;
+		if ( i > 10){
+			sun = 100;
+		}else{
+			sun = 10;
+		}
+	}
 
-    public void while_inst(){
+	public void for_inst(){
+		int sun = 0;
+		for(int i = 0;i < 10;i++){
+			++sun;
+		}
+	}
 
-
-    }
-
+	public void while_inst(){
+		int sun = 0;
+		while(sun < 10){
+			++sun;
+		}
+	}
 
 }

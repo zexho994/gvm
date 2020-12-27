@@ -2,5 +2,5 @@ package launcher
 
 // 在这里决定使用那种方法启动gvm
 func InitializeGVM() {
-	StartGvmByDebug("Compare", "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre", "java/src/compare")
+	StartGvmByDebug("Sout", "/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre", "java/src/native")
 }
