@@ -131,6 +131,7 @@ var (
 	invokeVirtual = &references.INVOKE_VIRTUAL{}
 	_new          = &references.NEW{} //187
 	_newArray     = &references.NEW_ARRAY{}
+	arrayLength   = &references.ARRAY_LENGTH{}
 )
 
 func NewInstruction(opcode byte) base.Base_Instruction {
@@ -343,6 +344,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return _new
 	case 0xbc:
 		return _newArray
+	case 0xbe:
+		return arrayLength
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
 	}

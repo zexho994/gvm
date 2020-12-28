@@ -26,12 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new test case">
-      <change afterPath="$PROJECT_DIR$/java/src/array/CreateArray.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/array/CreateArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/instructions/references/new_array.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/share/jclass/jclass_array.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/instructions/references/array_length.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/share/instructions/instrctions_factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/instrctions_factory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/oops/oop_instance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -582,7 +580,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="update invoke_special" />
     <MESSAGE value="factory add invokeVirtual" />
     <MESSAGE value="add AssertFalse" />
     <MESSAGE value="Update stores method to pointer method" />
@@ -607,7 +604,8 @@
     <MESSAGE value="parse RuntimeVisibleAnnotation" />
     <MESSAGE value="parse inner calss" />
     <MESSAGE value="parse inner class" />
-    <option name="LAST_COMMIT_MESSAGE" value="parse inner class" />
+    <MESSAGE value="add new_array.go" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new_array.go" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
