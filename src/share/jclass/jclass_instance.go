@@ -138,7 +138,7 @@ func (j *JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, erro
 		}
 		mName := j.ConstantPool.GetUtf8(methodInfo.nameIdx)
 		mDesc := j.ConstantPool.GetUtf8(methodInfo.descriptorIdx)
-		if name == mName || mDesc == descriptor {
+		if mName == name && mDesc == descriptor {
 			return j.Methods[i], nil, j
 		}
 	}
