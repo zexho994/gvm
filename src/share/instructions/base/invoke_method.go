@@ -13,26 +13,26 @@ func InvokeMethod(invokerFrame *runtime.Frame, method *jclass.MethodInfo, isStat
 	invokerThread := invokerFrame.Thread()
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
-	if jclass.IsNatice(method.AccessFlag()) {
-		//method.InjectCodeAttr()
+	if jclass.IsNative(method.AccessFlag()) {
 		return
 	}
 	attrCode, _ = method.Attributes().AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
-	argSlotCount := method.ArgSlotCount()
+	invokerThread.Push(newFrame)
 
+	argSlotCount := int(method.ArgSlotCount())
 	var n int
 	if isStatic {
 		if argSlotCount == 0 {
+			invokerThread.Push(newFrame)
 			return
 		}
 		n = 1
 	}
-	n = int(argSlotCount) - n
+	n = argSlotCount - n
 	for i := n; i >= 0; i-- {
 		slot := invokerFrame.OperandStack().PopSlot()
 		newFrame.LocalVars().SetSlot(uint(i), slot)
 	}
 
-	invokerThread.Push(newFrame)
 }

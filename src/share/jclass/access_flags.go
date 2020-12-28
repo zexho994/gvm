@@ -55,7 +55,7 @@ func AccPrint(acc uint16) {
 	if IsStatic(acc) {
 		fmt.Println("[gvm] access flag Is static")
 	}
-	if IsNatice(acc) {
+	if IsNative(acc) {
 		fmt.Println("[gvm] method access Is native")
 	}
 }
@@ -100,6 +100,6 @@ func IsStatic(acc uint16) bool {
 	return (acc & ACC_STATIC) != 0
 }
 
-func IsNatice(acc uint16) bool {
+func IsNative(acc uint16) bool {
 	return (acc & ACC_NATIVE) != 0
 }

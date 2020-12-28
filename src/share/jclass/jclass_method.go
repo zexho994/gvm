@@ -20,7 +20,7 @@ type MethodInfo struct {
 
 // injected a code attribute for method
 func (m *MethodInfo) InjectCodeAttr() {
-	if !IsNatice(m.accessFlag) {
+	if !IsNative(m.accessFlag) {
 		panic("[gvm] Inject CodeAttr error , not is native")
 	}
 	tmpMaxStack := uint16(4)
