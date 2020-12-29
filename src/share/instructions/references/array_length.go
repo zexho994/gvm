@@ -7,7 +7,7 @@ import (
 )
 
 type ARRAY_LENGTH struct {
-	base.InstructionIndex8
+	base.InstructionIndex0
 }
 
 func (i *ARRAY_LENGTH) Execute(frame *runtime.Frame) {

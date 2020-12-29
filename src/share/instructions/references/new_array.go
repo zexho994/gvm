@@ -22,5 +22,4 @@ func (i *NEW_ARRAY) Execute(frame *runtime.Frame) {
 	arrayOop := oops.NewArrayOopInstance(arrayData)
 	heap.GetHeap().Add(arrayOop)
 	frame.OperandStack().PushRef(arrayOop)
-
 }

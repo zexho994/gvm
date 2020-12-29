@@ -124,6 +124,7 @@ var (
 
 	_goto = &control.GOTO{}
 
+	if_icmpge = &comparisons.If_ICMPGE{}
 	if_icmple = &comparisons.If_ICMPLE{}
 
 	getStatic     = &references.GET_STATIC{}    // 178
@@ -319,6 +320,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fdiv
 	case 0x6f:
 		return ddiv
+	case 0xa2:
+		return if_icmpge
 	case 0xa4:
 		return if_icmple
 	case 0xa7:

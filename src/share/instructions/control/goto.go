@@ -12,10 +12,10 @@ type GOTO struct {
 /*
 无条件的转移
 */
-func (self *GOTO) Execute(frame *runtime.Frame) {
+func (i *GOTO) Execute(frame *runtime.Frame) {
 	pc := frame.Thread().PC
 
-	nextPC := pc + uint(self.Index)
+	nextPC := pc + uint(i.Index)
 
 	frame.SetPC(nextPC)
 }
