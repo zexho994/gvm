@@ -14,6 +14,7 @@ import (
 )
 
 var (
+	nop       = &base.NOP{}
 	iconst_ml = &constants.ICONST_M1{}
 	iconst_0  = &constants.ICONST_0{}
 	iconst_1  = &constants.ICONST_1{}
@@ -136,6 +137,8 @@ var (
 
 func NewInstruction(opcode byte) base.Base_Instruction {
 	switch opcode {
+	case 0x00:
+		return nop
 	case 0x02:
 		return iconst_ml
 	case 0x03:
