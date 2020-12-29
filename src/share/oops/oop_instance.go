@@ -1,6 +1,9 @@
 package oops
 
-import "github.com/zouzhihao-994/gvm/src/share/jclass"
+import (
+	"github.com/zouzhihao-994/gvm/src/share/exception"
+	"github.com/zouzhihao-994/gvm/src/share/jclass"
+)
 
 type Oop_Instance struct {
 	markWords      *MarkWords
@@ -18,8 +21,9 @@ func (o *Oop_Instance) Jclass() *jclass.JClass_Instance {
 	return o.jclassInstance
 }
 
-func (o *Oop_Instance) ArrayLength() {
-
+func (o *Oop_Instance) ArrayLength() uint32 {
+	exception.AssertTrue(o.isArray, "class is not array")
+	return o.data.length
 }
 
 func (o *Oop_Instance) SetData(d *JArray) {
