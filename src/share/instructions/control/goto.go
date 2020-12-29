@@ -14,8 +14,6 @@ type GOTO struct {
 */
 func (i *GOTO) Execute(frame *runtime.Frame) {
 	pc := frame.Thread().PC
-
-	nextPC := pc + uint(i.Index)
-
-	frame.SetPC(nextPC)
+	nextPC := uint16(pc + uint(i.Index))
+	frame.SetPC(uint(nextPC))
 }
