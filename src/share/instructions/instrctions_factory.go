@@ -123,6 +123,7 @@ var (
 	dup2_x1 = &stack.Dup2_X1{}
 	dup2_x2 = &stack.Dup2_X2{}
 
+	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
 	if_icmpge = &comparisons.If_ICMPGE{}
@@ -323,6 +324,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fdiv
 	case 0x6f:
 		return ddiv
+	case 0x84:
+		return iinc
 	case 0xa2:
 		return if_icmpge
 	case 0xa4:
