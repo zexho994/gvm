@@ -84,6 +84,7 @@ var (
 	lstore_1 = &stores.LSTORE_1{}
 	lstore_2 = &stores.LSTORE_2{}
 	lstore_3 = &stores.LSTORE_3{}
+	iastore  = &stores.IASTORE{}
 
 	iadd = &math.IADD{}
 	ladd = &math.LADD{}
@@ -272,6 +273,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return astore_2
 	case 0x4e:
 		return astore_3
+	case 0x4f:
+		return iastore
 	case 0x57:
 		return pop
 	case 0x58:

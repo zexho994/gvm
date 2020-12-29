@@ -8,7 +8,7 @@ import (
 type Oop_Instance struct {
 	markWords      *MarkWords
 	isArray        bool
-	data           *JArray
+	jArray         *JArray
 	extra          *interface{}
 	jclassInstance *jclass.JClass_Instance
 }
@@ -23,11 +23,11 @@ func (o *Oop_Instance) Jclass() *jclass.JClass_Instance {
 
 func (o *Oop_Instance) ArrayLength() uint32 {
 	exception.AssertTrue(o.isArray, "class is not array")
-	return o.data.length
+	return o.jArray.length
 }
 
-func (o *Oop_Instance) SetData(d *JArray) {
-	o.data = d
+func (o *Oop_Instance) ArrayData() *JArray {
+	return o.jArray
 }
 
 // create non-array oops
@@ -44,6 +44,6 @@ func NewArrayOopInstance(arrayData *JArray) *Oop_Instance {
 	return &Oop_Instance{
 		markWords: NewMarkWords(),
 		isArray:   true,
-		data:      arrayData,
+		jArray:    arrayData,
 	}
 }

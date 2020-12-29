@@ -1,6 +1,8 @@
 package oops
 
-import "github.com/zouzhihao-994/gvm/src/share/exception"
+import (
+	"github.com/zouzhihao-994/gvm/src/share/exception"
+)
 
 const (
 	T_BOOLEAN = 4
@@ -15,7 +17,7 @@ const (
 
 type iArray []int32
 
-func (iarr iArray) newArray(len uint32) interface{} {
+func (iarr iArray) newArray(len uint32) iArray {
 	return make([]int32, len)
 }
 
@@ -23,6 +25,14 @@ type JArray struct {
 	length uint32
 	atype  uint8
 	data   interface{} // array
+}
+
+//
+func (jarray *JArray) SetIVal(idx int32, val int32) {
+	exception.AssertTrue(jarray.atype == T_INT, "ArrayTypeError")
+	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
+	ia := jarray.data.(iArray)
+	ia[idx] = val
 }
 
 func NewJarray(len uint32, atype uint8) *JArray {
