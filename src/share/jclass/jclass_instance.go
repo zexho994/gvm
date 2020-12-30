@@ -5,6 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/src/share/utils"
 )
 
 // 存储在方法区中的对象，也是 JClass 经过链接步骤后得到的对象
@@ -28,7 +29,7 @@ type JClass_Instance struct {
 	Attributes attribute.AttributeInfos
 	// 初始化标识
 	IsInit     bool
-	StaticVars *StaticFields
+	StaticVars *StaticFieldVars
 }
 
 // TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析
@@ -52,6 +53,9 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci.IsInit = false
 	// 保存到方法区
 	GetPerm().Space[jci.ThisClass] = jci
+
+	// 执行链接步骤
+	jci.Linked()
 
 	return jci
 }
@@ -156,4 +160,54 @@ func (j *JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, erro
 		}
 	}
 	return nil, exception.GvmError{Msg: "not find method it name " + name}, nil
+}
+
+// 链接阶段，分为3部分，验证，准备，解析
+func (j *JClass_Instance) Linked() {
+	j.jci_verify()
+	j.jci_prepare()
+	j.jci_parse()
+}
+
+// 验证，目的是确保类或者接口的二进制表示在结构上是正确的
+// 验证过程可能导致某些额外的类或者接口被加载进来，但不一定会导致它们也需要验证或准备
+// 具体的验证范围包括一下几种：
+// 1. 方法的访问控制
+// 2. 参数和静态类型检查
+// 3. 堆栈是否滥用
+// 4. 变量是否初始化
+// 5. 变量是否赋予正确类型
+// 6. 异常表必须引用类合法的指令
+// 7. 验证局部变量表
+// 8. 逐一验证每个字节码的合法性
+func (j *JClass_Instance) jci_verify() {
+
+}
+
+// 准备阶段主要是为准备静态变量
+// 主要负责两件事：
+// 	1. 分配内存
+// 	2. 设置零值
+func (j *JClass_Instance) jci_prepare() {
+	jFields := j.Fields
+	vars := NewStaticFieldVars()
+	for idx := range jFields {
+		// 不处理实例变量
+		if !IsStatic(j.Fields[idx].AccessFlags) {
+			continue
+		}
+		var slot utils.Slot
+		switch jFields[idx].Descriptor() {
+		case "I":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Int}
+		default:
+			exception.GvmError{Msg: "jci prepare error"}.Throw()
+		}
+		vars.AddField(jFields[idx].Name(), &slot)
+	}
+	j.StaticVars = vars
+}
+
+func (j *JClass_Instance) jci_parse() {
+
 }

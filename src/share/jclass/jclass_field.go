@@ -47,3 +47,7 @@ func parseFields(count uint16, reader *classfile.ClassReader, cp constant_pool.C
 func (field FieldInfo) Descriptor() string {
 	return field.ConstantPool.GetUtf8(field.DescriptorIndex)
 }
+
+func (field FieldInfo) Name() string {
+	return field.ConstantPool.GetUtf8(field.NameIndex)
+}
