@@ -38,7 +38,12 @@ func (jarray *JArray) SetIVal(idx int32, val int32) {
 	ia := jarray.data.(iArray)
 	ia[idx] = val
 }
-
+func (jarray *JArray) SetCVal(idx int32, val int8) {
+	exception.AssertTrue(jarray.atype == T_CHAT, "ArrayTypeError")
+	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
+	ia := jarray.data.(cArray)
+	ia[idx] = val
+}
 func NewJarray(len uint32, atype uint8) *JArray {
 	jarray := &JArray{
 		length: len,
