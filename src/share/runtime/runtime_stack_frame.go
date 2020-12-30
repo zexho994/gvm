@@ -41,6 +41,7 @@ func (f *Frame) Thread() *Thread {
 // 在执行 inst.Execute() 方法之前会将 frame 的 pc 指针后移
 // 而在某些 Execute() 方法中，发送类例如 pushFrame() 操作，为了保证新加入frame会在下次执行
 // 就将frame的指针重置为thread的pc，
+// 选择重置为thread.pc的而不是简单的进行pc--，因为除了获取操作码会进行pc++,在读取操作数的时候也会进行不同长度的pc++
 func (f *Frame) RevertPC() {
 	f.pc = f.thread.PC
 }

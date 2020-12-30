@@ -16,7 +16,6 @@ type fields struct {
 }
 
 func (sfv *StaticFieldVars) SetField(name string, s *utils.Slot) {
-	sfv.fields[sfv.size].fieldName = name
 	for idx := range sfv.fields {
 		if sfv.fields[idx].fieldName == name {
 			sfv.fields[idx].field = s

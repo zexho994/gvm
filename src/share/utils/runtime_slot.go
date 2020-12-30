@@ -23,6 +23,7 @@ const (
 func (slots Slots) SetSlot(idx uint32, s Slot) {
 	slots[idx] = s
 }
+
 func (slots Slots) SetInt(idx uint32, val int32) {
 	slots[idx].Num = val
 	slots[idx].Type = Slot_Int

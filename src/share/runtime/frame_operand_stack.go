@@ -8,8 +8,8 @@ import (
 
 type OperandStack struct {
 	// record the top position of the stack
-	size  uint
-	slots []utils.Slot
+	size  uint32
+	slots utils.Slots
 }
 
 func NewOperandStack(maxStack uint16) *OperandStack {
@@ -24,7 +24,7 @@ func NewOperandStack(maxStack uint16) *OperandStack {
 }
 
 func (operandStack *OperandStack) PushInt(val int32) {
-	operandStack.slots[operandStack.size].Num = val
+	operandStack.slots.SetInt(operandStack.size, val)
 	operandStack.size++
 }
 
