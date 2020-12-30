@@ -130,7 +130,8 @@ var (
 	if_icmpge = &comparisons.If_ICMPGE{}
 	if_icmple = &comparisons.If_ICMPLE{}
 
-	getStatic     = &references.GET_STATIC{}    // 178
+	getStatic     = &references.GET_STATIC{} // 178
+	putStatic     = &references.PUT_STATIC{}
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
 	invokeVirtual = &references.INVOKE_VIRTUAL{}
@@ -349,6 +350,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return _return
 	case 0xb2:
 		return getStatic
+	case 0xb3:
+		return putStatic
 	case 0xb6:
 		return invokeVirtual
 	case 0xb7:

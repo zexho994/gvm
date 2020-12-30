@@ -13,16 +13,16 @@ type Fields []FieldInfo
 */
 type FieldInfo struct {
 	// 常量池指针
-	constantPool constant_pool.ConstantPool
+	ConstantPool constant_pool.ConstantPool
 	// 访问类型
-	accessFlags uint16
+	AccessFlags uint16
 	// 字段名索引 -> 常量池
-	nameIndex uint16
+	NameIndex uint16
 	// 描述符索引 -> 常量池
-	descriptorIndex uint16
+	DescriptorIndex uint16
 	// 属性表
-	attributesCount uint16
-	attributes      attribute.AttributeInfos
+	AttributesCount uint16
+	Attributes      attribute.AttributeInfos
 }
 
 // 解析字段表
@@ -32,14 +32,18 @@ func parseFields(count uint16, reader *classfile.ClassReader, cp constant_pool.C
 	for i := range fields {
 		field := FieldInfo{}
 		// 解析base
-		field.accessFlags = reader.ReadUint16()
-		field.nameIndex = reader.ReadUint16()
-		field.descriptorIndex = reader.ReadUint16()
-		field.constantPool = cp
+		field.AccessFlags = reader.ReadUint16()
+		field.NameIndex = reader.ReadUint16()
+		field.DescriptorIndex = reader.ReadUint16()
+		field.ConstantPool = cp
 		// 解析属性表
-		field.attributesCount = reader.ReadUint16()
-		field.attributes = attribute.ParseAttributes(field.attributesCount, reader, cp)
+		field.AttributesCount = reader.ReadUint16()
+		field.Attributes = attribute.ParseAttributes(field.AttributesCount, reader, cp)
 		fields[i] = field
 	}
 	return fields
+}
+
+func (field FieldInfo) Descriptor() string {
+	return field.ConstantPool.GetUtf8(field.DescriptorIndex)
 }

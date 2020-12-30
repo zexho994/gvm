@@ -9,7 +9,6 @@ type Oop_Instance struct {
 	markWords      *MarkWords
 	isArray        bool
 	jArray         *JArray
-	extra          *interface{}
 	jclassInstance *jclass.JClass_Instance
 }
 

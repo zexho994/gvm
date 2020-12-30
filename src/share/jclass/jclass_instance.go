@@ -27,7 +27,8 @@ type JClass_Instance struct {
 	// 属性表
 	Attributes attribute.AttributeInfos
 	// 初始化标识
-	IsInit bool
+	IsInit     bool
+	StaticVars *StaticFields
 }
 
 // TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析

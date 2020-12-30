@@ -2,19 +2,20 @@ package runtime
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/oops"
+	"github.com/zouzhihao-994/gvm/src/share/utils"
 	"math"
 )
 
 type OperandStack struct {
 	// record the top position of the stack
 	size  uint
-	slots []Slot
+	slots []utils.Slot
 }
 
 func NewOperandStack(maxStack uint16) *OperandStack {
 	if maxStack > 0 {
 		operandStack := &OperandStack{
-			slots: make([]Slot, maxStack),
+			slots: make([]utils.Slot, maxStack),
 		}
 		return operandStack
 	}
@@ -23,36 +24,36 @@ func NewOperandStack(maxStack uint16) *OperandStack {
 }
 
 func (operandStack *OperandStack) PushInt(val int32) {
-	operandStack.slots[operandStack.size].num = val
+	operandStack.slots[operandStack.size].Num = val
 	operandStack.size++
 }
 
 func (operandStack *OperandStack) PopInt() int32 {
 	operandStack.size--
-	return operandStack.slots[operandStack.size].num
+	return operandStack.slots[operandStack.size].Num
 }
 
 func (operandStack *OperandStack) PushFloat(val float32) {
 	bits := math.Float32bits(val)
-	operandStack.slots[operandStack.size].num = int32(bits)
+	operandStack.slots[operandStack.size].Num = int32(bits)
 	operandStack.size++
 }
 func (operandStack *OperandStack) PopFloat() float32 {
 	operandStack.size--
-	bits := uint32(operandStack.slots[operandStack.size].num)
+	bits := uint32(operandStack.slots[operandStack.size].Num)
 	return math.Float32frombits(bits)
 }
 
 func (operandStack *OperandStack) PushLong(val int64) {
-	operandStack.slots[operandStack.size].num = int32(val)
-	operandStack.slots[operandStack.size+1].num = int32(val >> 32)
+	operandStack.slots[operandStack.size].Num = int32(val)
+	operandStack.slots[operandStack.size+1].Num = int32(val >> 32)
 	operandStack.size += 2
 }
 
 func (operandStack *OperandStack) PopLong() int64 {
 	operandStack.size -= 2
-	low := uint32(operandStack.slots[operandStack.size].num)
-	high := uint32(operandStack.slots[operandStack.size+1].num)
+	low := uint32(operandStack.slots[operandStack.size].Num)
+	high := uint32(operandStack.slots[operandStack.size+1].Num)
 	return int64(high)<<32 | int64(low)
 }
 
@@ -67,14 +68,14 @@ func (operandStack *OperandStack) PopDouble() float64 {
 }
 
 func (operandStack *OperandStack) PushRef(ref *oops.Oop_Instance) {
-	operandStack.slots[operandStack.size].ref = ref
+	operandStack.slots[operandStack.size].Ref = ref
 	operandStack.size++
 }
 
 func (operandStack *OperandStack) PopRef() *oops.Oop_Instance {
 	operandStack.size--
-	ref := operandStack.slots[operandStack.size].ref
-	operandStack.slots[operandStack.size].ref = nil
+	ref := operandStack.slots[operandStack.size].Ref.(*oops.Oop_Instance)
+	operandStack.slots[operandStack.size].Ref = nil
 	return ref
 }
 
@@ -82,7 +83,7 @@ func (operandStack *OperandStack) PopRef() *oops.Oop_Instance {
 extend OperandStack size
 the operandStack size + 1
 */
-func (operandStack *OperandStack) PushSlot(slot Slot) {
+func (operandStack *OperandStack) PushSlot(slot utils.Slot) {
 	operandStack.slots[operandStack.size] = slot
 	operandStack.size++
 }
@@ -91,7 +92,7 @@ func (operandStack *OperandStack) PushSlot(slot Slot) {
 reduce the OperandStack size
 the operandStack size - 1
 */
-func (operandStack *OperandStack) PopSlot() Slot {
+func (operandStack *OperandStack) PopSlot() utils.Slot {
 	operandStack.size--
 	return operandStack.slots[operandStack.size]
 }
@@ -111,8 +112,8 @@ func (operandStack *OperandStack) PopBoolean() bool {
 // todo: provide more parmes type
 func (operandStack *OperandStack) PopByParamters(params []string, localVars *LocalVars, isStatic bool) {
 	i := len(params)
-	// method is storages <this.class.ref> on localvars[0]
-	// but the static_method is different,don't storages ref on [0]
+	// method is storages <this.class.Ref> on localvars[0]
+	// but the static_method is different,don't storages Ref on [0]
 	if isStatic {
 		i--
 	}
@@ -148,7 +149,7 @@ func (operandStack *OperandStack) PopByParamters(params []string, localVars *Loc
 		}
 	}
 
-	// save the invoke class ref to localvars[0]
+	// save the invoke class Ref to localvars[0]
 	if !isStatic {
 		localVars.SetRef(0, operandStack.PopRef())
 	}

@@ -2,17 +2,18 @@ package runtime
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/oops"
+	"github.com/zouzhihao-994/gvm/src/share/utils"
 	"math"
 )
 
 type LocalVars struct {
-	slots []Slot
+	slots []utils.Slot
 }
 
 func NewLocalVars(maxLocals uint16) *LocalVars {
 	if maxLocals > 0 {
 		localvars := &LocalVars{
-			slots: make([]Slot, maxLocals),
+			slots: make([]utils.Slot, maxLocals),
 		}
 		return localvars
 	}
@@ -20,12 +21,12 @@ func NewLocalVars(maxLocals uint16) *LocalVars {
 }
 
 func (l *LocalVars) SetInt(index uint, val int32) {
-	l.slots[index].num = val
-	l.slots[index]._type = _int
+	l.slots[index].Num = val
+	l.slots[index].Type = utils.Slot_Int
 }
 
 func (l *LocalVars) GetInt(index uint) int32 {
-	return l.slots[index].num
+	return l.slots[index].Num
 }
 
 func (l *LocalVars) SetBoolean(index uint, val bool) {
@@ -35,37 +36,37 @@ func (l *LocalVars) SetBoolean(index uint, val bool) {
 	} else {
 		n = 0
 	}
-	l.slots[index].num = n
-	l.slots[index]._type = _boolean
+	l.slots[index].Num = n
+	l.slots[index].Type = utils.Slot_Boolean
 }
 
 func (l *LocalVars) GetBoolean(index uint) bool {
-	return l.slots[index].num == 1
+	return l.slots[index].Num == 1
 }
 
 func (l *LocalVars) SetFloat(index uint, val float32) {
 	bits := math.Float32bits(val)
-	l.slots[index].num = int32(bits)
-	l.slots[index]._type = _float
+	l.slots[index].Num = int32(bits)
+	l.slots[index].Type = utils.Slot_Float
 
 }
 
 func (l *LocalVars) GetFloat(index uint) float32 {
-	bits := uint32(l.slots[index].num)
+	bits := uint32(l.slots[index].Num)
 
 	return math.Float32frombits(bits)
 }
 
 func (l *LocalVars) SetLong(index uint, val int64) {
-	l.slots[index].num = int32(val)
-	l.slots[index+1].num = int32(val >> 32)
-	l.slots[index]._type = _long
+	l.slots[index].Num = int32(val)
+	l.slots[index+1].Num = int32(val >> 32)
+	l.slots[index].Type = utils.Slot_Long
 
 }
 
 func (l *LocalVars) GetLong(index uint) int64 {
-	low := uint32(l.slots[index].num)
-	high := uint32(l.slots[index+1].num)
+	low := uint32(l.slots[index].Num)
+	high := uint32(l.slots[index+1].Num)
 
 	return int64(high)<<32 | int64(low)
 }
@@ -73,7 +74,7 @@ func (l *LocalVars) GetLong(index uint) int64 {
 func (l *LocalVars) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
 	l.SetLong(index, int64(bits))
-	l.slots[index]._type = _double
+	l.slots[index].Type = utils.Slot_Double
 
 }
 
@@ -84,16 +85,16 @@ func (l *LocalVars) GetDouble(index uint) float64 {
 }
 
 func (l *LocalVars) SetRef(index uint, ref *oops.Oop_Instance) {
-	l.slots[index].ref = ref
-	l.slots[index]._type = _ref
+	l.slots[index].Ref = ref
+	l.slots[index].Type = utils.Slot_Ref
 
 }
 
 func (l *LocalVars) GetRef(index uint) *oops.Oop_Instance {
-	return l.slots[index].ref
+	return l.slots[index].Ref.(*oops.Oop_Instance)
 }
 
-func (l *LocalVars) SetSlot(index uint, slot Slot) {
+func (l *LocalVars) SetSlot(index uint, slot utils.Slot) {
 	l.slots[index] = slot
 }
 
