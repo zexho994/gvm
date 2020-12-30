@@ -16,9 +16,13 @@ const (
 )
 
 type iArray []int32
+type cArray []int8
 
-func (iarr iArray) newArray(len uint32) iArray {
+func (iarr iArray) newiArray(len uint32) iArray {
 	return make([]int32, len)
+}
+func (carr cArray) newcArray(len uint32) cArray {
+	return make([]int8, len)
 }
 
 type JArray struct {
@@ -41,8 +45,10 @@ func NewJarray(len uint32, atype uint8) *JArray {
 		atype:  atype,
 	}
 	switch atype {
+	case 5:
+		jarray.data = cArray{}.newcArray(len)
 	case 10:
-		jarray.data = iArray{}.newArray(len)
+		jarray.data = iArray{}.newiArray(len)
 	default:
 		exception.GvmError{Msg: "NewJarrayError"}.Throw()
 	}

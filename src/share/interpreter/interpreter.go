@@ -4,6 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/instructions"
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/native"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
@@ -19,7 +20,7 @@ func Interpret(method *jclass.MethodInfo) {
 	}
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, newThread)
 	newThread.Push(newFrame)
-	//native.InitSystemClass(newFrame)
+	native.InitSystemClass(newFrame)
 	loop(newThread)
 }
 
