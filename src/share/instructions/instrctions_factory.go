@@ -14,21 +14,22 @@ import (
 )
 
 var (
-	nop       = &base.NOP{}
-	iconst_ml = &constants.ICONST_M1{}
-	iconst_0  = &constants.ICONST_0{}
-	iconst_1  = &constants.ICONST_1{}
-	iconst_2  = &constants.ICONST_2{}
-	iconst_3  = &constants.ICONST_3{}
-	iconst_4  = &constants.ICONST_4{}
-	iconst_5  = &constants.ICONST_5{}
-	lconst_0  = &constants.LCONST_0{}
-	lconst_1  = &constants.LCONST_1{}
-	fconst_0  = &constants.FCONST_0{}
-	fconst_1  = &constants.FCONST_1{}
-	fconst_2  = &constants.FCONST_2{}
-	dconst_0  = &constants.DCONST_0{}
-	dconst_1  = &constants.DCONST_1{}
+	nop         = &base.NOP{}
+	aconst_null = &constants.ACONST_NULL{}
+	iconst_ml   = &constants.ICONST_M1{}
+	iconst_0    = &constants.ICONST_0{}
+	iconst_1    = &constants.ICONST_1{}
+	iconst_2    = &constants.ICONST_2{}
+	iconst_3    = &constants.ICONST_3{}
+	iconst_4    = &constants.ICONST_4{}
+	iconst_5    = &constants.ICONST_5{}
+	lconst_0    = &constants.LCONST_0{}
+	lconst_1    = &constants.LCONST_1{}
+	fconst_0    = &constants.FCONST_0{}
+	fconst_1    = &constants.FCONST_1{}
+	fconst_2    = &constants.FCONST_2{}
+	dconst_0    = &constants.DCONST_0{}
+	dconst_1    = &constants.DCONST_1{}
 
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
@@ -144,6 +145,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	switch opcode {
 	case 0x00:
 		return nop
+	case 0x01:
+		return aconst_null
 	case 0x02:
 		return iconst_ml
 	case 0x03:
@@ -176,6 +179,12 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return bipush
 	case 0x11:
 		return sipush
+	//case 0x12:
+	//	return ldc
+	//case 0x13:
+	//	return ldc_w
+	//case 0x14:
+	//	return ldx2_2
 	case 0x15:
 		return iload
 	case 0x16:
@@ -226,6 +235,22 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return aload_2
 	case 0x2d:
 		return aload_3
+	//case 0x2e:
+	//	return iadload
+	//case 0x2f:
+	//	return laload
+	//case 0x30:
+	//	return faload
+	//case 0x31:
+	//	return daload
+	//case 0x32:
+	//	return aaload
+	//case 0x33:
+	//	return baload
+	//case 0x34:
+	//	return caload
+	//case 0x35:
+	//	return saload
 	case 0x36:
 		return istore
 	case 0x37:
@@ -278,6 +303,16 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return astore_3
 	case 0x4f:
 		return iastore
+	//case 0x50:
+	//	return lastore
+	//case 0x51:
+	//	return fastore
+	//case 0x52:
+	//	return dastore
+	//case 0x53:
+	//	return aastore
+	//case 0x54:
+	//	return bastore
 	case 0x55:
 		return sastore
 	case 0x57:
@@ -328,14 +363,122 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return fdiv
 	case 0x6f:
 		return ddiv
+	//case 0x70:
+	//	return irem
+	//case 0x71:
+	//	return lrem
+	//case 0x72:
+	//	return frem
+	//case 0x73:
+	//	return drem
+	//case 0x74:
+	//	return ineg
+	//case 0x75:
+	//	return lneg
+	//case 0x76:
+	//	return fneg
+	//case 0x77:
+	//	return dneg
+	//case 0x78:
+	//	return ishl
+	//case 0x79:
+	//	return lshl
+	//case 0x7a:
+	//	return ishr
+	//case 0x7b:
+	//	return lshr
+	//case 0x7c:
+	//	return iushr
+	//case 0x7d:
+	//	return lushr
+	//case 0x7e:
+	//	return iand
+	//case 0x7f:
+	//	return land
+	//case 0x80:
+	//	return ior
+	//case 0x81:
+	//	return lor
+	//case 0x82:
+	//	return ixor
+	//case 0x83:
+	//	return lxor
 	case 0x84:
 		return iinc
+	//case 0x85:
+	//	return i2l
+	//case 0x86:
+	//	return i2f
+	//case 0x87:
+	//	return i2d
+	//case 0x88:
+	//	return l2i
+	//case 0x89:
+	//	return l2f
+	//case 0x8a:
+	//	return l2d
+	//case 0x8b:
+	//	return f2i
+	//case 0x8c:
+	//	return fl2
+	//case 0x8d:
+	//	return f2d
+	//case 0x8e:
+	//	return d2i
+	//case 0x8f:
+	//	return d2l
+	//case 0x90:
+	//	return d2f
+	//case 0x91:
+	//	return i2b
+	//case 0x92:
+	//	return i2c
+	//case 0x93:
+	//	return i2s
+	//case 0x94:
+	//	return lcmp
+	//case 0x95:
+	//	return fcmpl
+	//case 0x96:
+	//	return fcmpg
+	//case 0x97:
+	//	return dcmpl
+	//case 0x98:
+	//	return dcmpl
+	//case 0x99:
+	//	return ifeq
+	//case 0x9a:
+	//	return ifne
+	//case 0x9b:
+	//	return iflt
+	//case 0x9c:
+	//	return ifge
+	//case 0x9d:
+	//	return ifgt
+	//case 0x9e:
+	//	return ifle
+	//case 0x9f:
+	//	return if_icmpeq
+	//case 0xa0:
+	//	return if_icmpne
+	//case 0xa1:
+	//	return if_icmplt
 	case 0xa2:
 		return if_icmpge
+	//case 0xa3:
+	//	return if_icmpgt
 	case 0xa4:
 		return if_icmple
 	case 0xa7:
 		return _goto
+	//case 0xa8:
+	//	return jsr
+	//case 0xa9:
+	//	return ret
+	//case 0xaa:
+	//	return tableswitch
+	//case 0xab:
+	//	return lookupswitch
 	case 0xac:
 		return _ireturn
 	case 0xad:
@@ -362,8 +505,38 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return _new
 	case 0xbc:
 		return _newArray
+	//case 0xbd:
+	//	return anewarray
 	case 0xbe:
 		return arrayLength
+	//case 0xbf:
+	//	return athrow
+	//case 0xc0:
+	//	return checkcast
+	//case 0xc1:
+	//	return instanceof
+	//case 0xc2:
+	//	return monitorenter
+	//case 0xc3:
+	//	return monitorexit
+	//case 0xc4:
+	//	return wide
+	//case 0xc5:
+	//	return multianewarray
+	//case 0xc6:
+	//	return ifnull
+	//case 0xc7:
+	//	return ifnonnull
+	//case 0xc8:
+	//	return goto_w
+	//case 0xc9:
+	//	return jsr_w
+	//case 0xca:
+	//	return breakpoint
+	//case 0xfe:
+	//	return impdep1
+	//case 0xff:
+	//	return impdep2
 	default:
 		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
 	}
