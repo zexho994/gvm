@@ -188,6 +188,9 @@ func (j *JClass_Instance) jci_verify() {
 // 主要负责两件事：
 // 	1. 分配内存
 // 	2. 设置零值
+//
+// 注意点：如果静态变量类型为引用类型，则零值为null，且不需要判断引用类是否进行类类加载过程。
+//        这部分的判断逻辑在putstatic,getstatic指令时再执行.
 func (j *JClass_Instance) jci_prepare() {
 	jFields := j.Fields
 	vars := NewStaticFieldVars()
@@ -197,11 +200,20 @@ func (j *JClass_Instance) jci_prepare() {
 			continue
 		}
 		var slot utils.Slot
-		switch jFields[idx].Descriptor() {
+		desc := jFields[idx].Descriptor()
+		switch desc {
 		case "I":
 			slot = utils.Slot{Num: 0, Type: utils.Slot_Int}
-		default:
-			exception.GvmError{Msg: "jci prepare error"}.Throw()
+		case "L":
+		case "B":
+		case "D":
+		case "F":
+		case "J":
+		case "S":
+		case "Z":
+			exception.GvmError{Msg: "prepare error"}.Throw()
+		default: // refrence type
+			slot = utils.Slot{Type: utils.Slot_Ref, Ref: nil}
 		}
 		vars.AddField(jFields[idx].Name(), &slot)
 	}
