@@ -1,13 +1,12 @@
 package classfile
 
 /*
-常量池
-数组类型
+运行时常量池
 */
 type ConstantPool []ConstantInfo
 
 /*
-常量信息
+运行时常量池，每个常量的表示信息
 */
 type ConstantInfo interface {
 	readInfo(reader *ClassReader)

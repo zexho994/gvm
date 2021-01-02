@@ -8,6 +8,8 @@ import (
 type Oop_Instance struct {
 	markWords      *MarkWords
 	isArray        bool
+	isString       bool
+	jString        string
 	jArray         *JArray
 	jclassInstance *jclass.JClass_Instance
 }
@@ -44,5 +46,13 @@ func NewArrayOopInstance(arrayData *JArray) *Oop_Instance {
 		markWords: NewMarkWords(),
 		isArray:   true,
 		jArray:    arrayData,
+	}
+}
+
+func NewStringOopInstance(str string) *Oop_Instance {
+	return &Oop_Instance{
+		markWords: NewMarkWords(),
+		isString:  true,
+		jString:   str,
 	}
 }

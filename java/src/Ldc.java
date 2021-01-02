@@ -6,6 +6,7 @@ public class Ldc{
 		int int1 = 1;
 		String str1 = "static str1";
 		String str2 = "static str2";
+		str2 = str1;
 	}	
 	class ldc {
 		int k;

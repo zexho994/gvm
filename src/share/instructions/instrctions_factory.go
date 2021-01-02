@@ -31,6 +31,7 @@ var (
 	dconst_0    = &constants.DCONST_0{}
 	dconst_1    = &constants.DCONST_1{}
 
+	ldc    = &constants.LDC{}
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
 
@@ -179,8 +180,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return bipush
 	case 0x11:
 		return sipush
-	//case 0x12:
-	//	return ldc
+	case 0x12:
+		return ldc
 	//case 0x13:
 	//	return ldc_w
 	//case 0x14:
