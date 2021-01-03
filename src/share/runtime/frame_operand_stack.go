@@ -24,7 +24,7 @@ func NewOperandStack(maxStack uint16) *OperandStack {
 }
 
 func (operandStack *OperandStack) PushInt(val int32) {
-	operandStack.slots.SetInt(operandStack.size, val)
+	operandStack.slots[operandStack.size].Num = val
 	operandStack.size++
 }
 

@@ -1,5 +1,7 @@
 package utils
 
+import "github.com/zouzhihao-994/gvm/src/share/exception"
+
 type Slots []Slot
 
 type Slot struct {
@@ -20,11 +22,35 @@ const (
 	Slot_Boolean = 9
 )
 
-func (slots Slots) SetSlot(idx uint32, s Slot) {
-	slots[idx] = s
+// 对于一个64长度值
+// d1 = 低32位
+// d2 = 高32位
+func (slots Slots) SetVal64(d1, d2 int32) {
+	slots[0].Num = d1
+	slots[1].Num = d2
 }
 
-func (slots Slots) SetInt(idx uint32, val int32) {
-	slots[idx].Num = val
-	slots[idx].Type = Slot_Int
+func TypeMapping(desc string) uint8 {
+	switch desc {
+	case "I":
+		return Slot_Int
+	case "L":
+		return Slot_Long
+	case "B":
+		return Slot_Byte
+	case "D":
+		return Slot_Double
+	case "F":
+		return Slot_Float
+	case "J":
+		return Slot_Long
+	case "S":
+		return Slot_Char
+	case "Z":
+		return Slot_Boolean
+	default: // refrence type
+		return Slot_Ref
+	}
+	exception.GvmError{Msg: "type mapping error,desc = " + desc}.Throw()
+	return 0
 }

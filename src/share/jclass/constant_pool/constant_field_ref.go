@@ -4,7 +4,6 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 )
 
-//
 type ConstantFieldRefInfo struct {
 	Tag              uint8
 	Cp               ConstantPool

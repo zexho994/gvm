@@ -7,6 +7,7 @@ import (
 
 type Oop_Instance struct {
 	markWords      *MarkWords
+	fields         *OopFields
 	isArray        bool
 	isString       bool
 	jString        string
@@ -31,10 +32,15 @@ func (o *Oop_Instance) ArrayData() *JArray {
 	return o.jArray
 }
 
+func (o *Oop_Instance) Fields() *OopFields {
+	return o.fields
+}
+
 // create non-array oops
 func NewOopInstance(jci *jclass.JClass_Instance) *Oop_Instance {
 	return &Oop_Instance{
 		markWords:      NewMarkWords(),
+		fields:         InitOopFields(jci),
 		isArray:        false,
 		jclassInstance: jci,
 	}
