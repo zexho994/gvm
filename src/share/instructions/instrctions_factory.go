@@ -132,6 +132,7 @@ var (
 
 	if_icmpge = &comparisons.If_ICMPGE{}
 	if_icmple = &comparisons.If_ICMPLE{}
+	ifge      = &comparisons.IF_GE{}
 
 	getStatic     = &references.GET_STATIC{} // 178
 	putStatic     = &references.PUT_STATIC{}
@@ -454,8 +455,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	//	return ifne
 	//case 0x9b:
 	//	return iflt
-	//case 0x9c:
-	//	return ifge
+	case 0x9c:
+		return ifge
 	//case 0x9d:
 	//	return ifgt
 	//case 0x9e:
