@@ -3,6 +3,7 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/src/share/instructions/base"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/src/share/oops"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
@@ -23,16 +24,19 @@ func (i *PUT_FIELD) Execute(frame *runtime.Frame) {
 	case "D":
 		d := stack.PopDouble()
 		objRef := stack.PopRef()
-		slots := objRef.Fields().GetField(name)
+		fields := objRef.Fields()
+		slots := oops.FindField(name, fields, objRef, false)
 		slots.Slots().SetVal64(int32(d), int32(int64(d)>>32))
 	case "J":
 		l := stack.PopLong()
 		objRef := stack.PopRef()
-		slots := objRef.Fields().GetField(name)
+		fields := objRef.Fields()
+		slots := oops.FindField(name, fields, objRef, false)
 		slots.Slots().SetVal64(int32(l), int32(l>>32))
 	default:
 		slot := stack.PopSlot()
 		objRef := stack.PopRef()
-		objRef.Fields().GetField(name).Slots()[0] = slot
+		slots := oops.FindField(name, objRef.Fields(), objRef, false)
+		slots.Slots()[0] = slot
 	}
 }

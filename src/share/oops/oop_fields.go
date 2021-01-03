@@ -16,13 +16,27 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func (fields OopFields) GetField(name string) *OopField {
-	for idx := range fields {
-		if fields[idx].name == name {
-			return &fields[idx]
-		}
+func FindField(name string, fields *OopFields, instance *Oop_Instance, isSuper bool) *OopField {
+	f := fields.GetField(name, isSuper)
+	if f != nil {
+		return f
 	}
-	exception.GvmError{Msg: "field not exit,field name = " + name}.Throw()
+	fields = InitOopFields(instance.jclassInstance.SuperClass)
+	return FindField(name, fields, instance, true)
+}
+
+// 查找实例字段
+// 如果本类中找不到，就在父类中找
+func (fields OopFields) GetField(name string, isSuper bool) *OopField {
+	for idx := range fields {
+		if fields[idx].name != name {
+			continue
+		}
+		if jclass.IsFinal(fields[idx].accessFlag) && isSuper {
+			exception.GvmError{Msg: "final field not be inheritance"}.Throw()
+		}
+		return &fields[idx]
+	}
 	return nil
 }
 
