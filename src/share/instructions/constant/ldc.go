@@ -23,6 +23,8 @@ func (i LDC) Execute(frame *runtime.Frame) {
 	switch c.(type) {
 	case *constant_pool.ConstantIntegerInfo:
 	case *constant_pool.ConstantFloatInfo:
+		float := c.(*constant_pool.ConstantFloatInfo)
+		stack.PushFloat(float.Value())
 	case *constant_pool.ConstantString:
 		str := c.(*constant_pool.ConstantString)
 		stack.PushRef(oops.NewStringOopInstance(str.String()))
