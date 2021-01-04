@@ -53,7 +53,7 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	case "InnerClasses":
 		return &Attr_InnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
 	case "BootstrapMethods":
-		return &BootstrapmethodsAttribute{}
+		return &BootstrapmethodsAttribute{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	default:
 		panic("attribute error")
 	}
