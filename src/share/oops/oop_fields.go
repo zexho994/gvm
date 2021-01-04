@@ -16,7 +16,7 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func FindField(name string, fields *OopFields, instance *Oop_Instance, isSuper bool) *OopField {
+func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bool) *OopField {
 	f := fields.GetField(name, isSuper)
 	if f != nil {
 		return f

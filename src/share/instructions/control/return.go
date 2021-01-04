@@ -20,12 +20,12 @@ type LRETURN struct{ base.InstructionIndex0 } // Return long from method
 /*
 void返回类型的，直接返回顶部栈帧
 */
-func (self *RETURN) Execute(frame *runtime.Frame) { frame.Thread().Pop() }
+func (r *RETURN) Execute(frame *runtime.Frame) { frame.Thread().Pop() }
 
 /*
 int返回类型的，弹出当前栈帧的栈顶元素，push到最新的栈顶栈帧中（即调用方）
 */
-func (self *IRETURN) Execute(frame *runtime.Frame) {
+func (r *IRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
@@ -33,7 +33,7 @@ func (self *IRETURN) Execute(frame *runtime.Frame) {
 	invokerFrame.OperandStack().PushInt(retVal)
 }
 
-func (self *DRETURN) Execute(frame *runtime.Frame) {
+func (r *DRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
@@ -41,7 +41,7 @@ func (self *DRETURN) Execute(frame *runtime.Frame) {
 	invokerFrame.OperandStack().PushDouble(retVal)
 }
 
-func (self *ARETURN) Execute(frame *runtime.Frame) {
+func (r *ARETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
@@ -49,7 +49,7 @@ func (self *ARETURN) Execute(frame *runtime.Frame) {
 	invokerFrame.OperandStack().PushRef(retVal)
 }
 
-func (self *LRETURN) Execute(frame *runtime.Frame) {
+func (r *LRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
@@ -57,7 +57,7 @@ func (self *LRETURN) Execute(frame *runtime.Frame) {
 	invokerFrame.OperandStack().PushLong(retVal)
 }
 
-func (self *FRETURN) Execute(frame *runtime.Frame) {
+func (r *FRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()

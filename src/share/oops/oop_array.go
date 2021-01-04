@@ -2,6 +2,7 @@ package oops
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/exception"
+	"github.com/zouzhihao-994/gvm/src/share/jclass"
 )
 
 const (
@@ -17,45 +18,61 @@ const (
 
 type iArray []int32
 type cArray []int8
+type aArray []jclass.JClass_Instance
 
 func (iarr iArray) newiArray(len uint32) iArray {
 	return make([]int32, len)
 }
+
 func (carr cArray) newcArray(len uint32) cArray {
 	return make([]int8, len)
 }
 
-type JArray struct {
-	length uint32
-	atype  uint8
-	data   interface{} // array
+func (arr aArray) newaArray(len uint32) aArray {
+	return make([]jclass.JClass_Instance, len)
 }
 
-//
+type JArray struct {
+	length  uint32
+	arrtype uint8
+	refType interface{}
+	data    interface{} // array
+}
+
 func (jarray *JArray) SetIVal(idx int32, val int32) {
-	exception.AssertTrue(jarray.atype == T_INT, "ArrayTypeError")
+	exception.AssertTrue(jarray.arrtype == T_INT, "ArrayTypeError")
 	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(iArray)
 	ia[idx] = val
 }
+
 func (jarray *JArray) SetCVal(idx int32, val int8) {
-	exception.AssertTrue(jarray.atype == T_CHAT, "ArrayTypeError")
+	exception.AssertTrue(jarray.arrtype == T_CHAT, "ArrayTypeError")
 	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(cArray)
 	ia[idx] = val
 }
+
+func NewRefJarray(len uint32, instance *jclass.JClass_Instance) JArray {
+	if len < 0 {
+		exception.GvmError{Msg: "NegativeArraySizeException"}.Throw()
+	}
+	return JArray{
+		length:  len,
+		refType: instance,
+	}
+}
+
 func NewJarray(len uint32, atype uint8) *JArray {
 	jarray := &JArray{
-		length: len,
-		atype:  atype,
+		length:  len,
+		arrtype: atype,
 	}
 	switch atype {
 	case 5:
 		jarray.data = cArray{}.newcArray(len)
 	case 10:
 		jarray.data = iArray{}.newiArray(len)
-	default:
-		exception.GvmError{Msg: "NewJarrayError"}.Throw()
 	}
 	return jarray
 }

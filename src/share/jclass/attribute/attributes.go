@@ -52,6 +52,8 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 		return &Attr_Synthetic{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "InnerClasses":
 		return &Attr_InnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+	case "BootstrapMethods":
+		return &BootstrapmethodsAttribute{}
 	default:
 		panic("attribute error")
 	}

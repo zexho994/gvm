@@ -154,6 +154,7 @@ var (
 	invokeSpecial = &references.INVOKE_SPECIAL{}
 	invokeVirtual = &references.INVOKE_VIRTUAL{}
 	_new          = &references.NEW{} //187
+	anewarray     = &references.ANEW_ARRAY{}
 	_newArray     = &references.NEW_ARRAY{}
 	arrayLength   = &references.ARRAY_LENGTH{}
 )
@@ -528,8 +529,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return _new
 	case 0xbc:
 		return _newArray
-	//case 0xbd:
-	//	return anewarray
+	case 0xbd:
+		return anewarray
 	case 0xbe:
 		return arrayLength
 	//case 0xbf:

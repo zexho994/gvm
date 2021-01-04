@@ -67,14 +67,14 @@ func (operandStack *OperandStack) PopDouble() float64 {
 	return math.Float64frombits(bits)
 }
 
-func (operandStack *OperandStack) PushRef(ref *oops.Oop_Instance) {
+func (operandStack *OperandStack) PushRef(ref *oops.OopInstance) {
 	operandStack.slots[operandStack.size].Ref = ref
 	operandStack.size++
 }
 
-func (operandStack *OperandStack) PopRef() *oops.Oop_Instance {
+func (operandStack *OperandStack) PopRef() *oops.OopInstance {
 	operandStack.size--
-	ref := operandStack.slots[operandStack.size].Ref.(*oops.Oop_Instance)
+	ref := operandStack.slots[operandStack.size].Ref.(*oops.OopInstance)
 	operandStack.slots[operandStack.size].Ref = nil
 	return ref
 }

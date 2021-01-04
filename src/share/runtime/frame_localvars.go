@@ -84,20 +84,20 @@ func (l *LocalVars) GetDouble(index uint) float64 {
 	return math.Float64frombits(bits)
 }
 
-func (l *LocalVars) SetRef(index uint, ref *oops.Oop_Instance) {
+func (l *LocalVars) SetRef(index uint, ref *oops.OopInstance) {
 	l.slots[index].Ref = ref
 	l.slots[index].Type = utils.Slot_Ref
 
 }
 
-func (l *LocalVars) GetRef(index uint) *oops.Oop_Instance {
-	return l.slots[index].Ref.(*oops.Oop_Instance)
+func (l *LocalVars) GetRef(index uint) *oops.OopInstance {
+	return l.slots[index].Ref.(*oops.OopInstance)
 }
 
 func (l *LocalVars) SetSlot(index uint, slot utils.Slot) {
 	l.slots[index] = slot
 }
 
-func (l *LocalVars) GetThis() *oops.Oop_Instance {
+func (l *LocalVars) GetThis() *oops.OopInstance {
 	return l.GetRef(0)
 }
