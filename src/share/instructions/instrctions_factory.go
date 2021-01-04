@@ -134,6 +134,12 @@ var (
 	fcmpl     = &comparisons.FCMPL{}
 	if_icmpge = &comparisons.If_ICMPGE{}
 	if_icmple = &comparisons.If_ICMPLE{}
+	if_icmpne = &comparisons.If_ACMPNE{}
+	if_icmpeq = &comparisons.If_ACMPEQ{}
+	if_icmplt = &comparisons.If_ICMPLT{}
+	if_icmpgt = &comparisons.If_ICMPGT{}
+	if_acmpeq = &comparisons.If_ACMPEQ{}
+	if_acmpne = &comparisons.If_ACMPNE{}
 	ifge      = &comparisons.IF_GE{}
 	ifle      = &comparisons.IF_LE{}
 	ifne      = &comparisons.IF_NE{}
@@ -468,18 +474,22 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return ifgt
 	case 0x9e:
 		return ifle
-	//case 0x9f:
-	//	return if_icmpeq
-	//case 0xa0:
-	//	return if_icmpne
-	//case 0xa1:
-	//	return if_icmplt
+	case 0x9f:
+		return if_icmpeq
+	case 0xa0:
+		return if_icmpne
+	case 0xa1:
+		return if_icmplt
 	case 0xa2:
 		return if_icmpge
-	//case 0xa3:
-	//	return if_icmpgt
+	case 0xa3:
+		return if_icmpgt
 	case 0xa4:
 		return if_icmple
+	case 0xa5:
+		return if_acmpeq
+	case 0xa6:
+		return if_acmpne
 	case 0xa7:
 		return _goto
 	//case 0xa8:
