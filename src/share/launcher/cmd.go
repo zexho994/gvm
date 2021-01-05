@@ -38,6 +38,7 @@ func ParseCmd() *Cmd {
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm] path to jre")
 	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] 启用详细输出")
+	flag.StringVar(&cmd.Class, "class", "", "[gvm]class file name")
 	flag.Parse()
 
 	args := flag.Args()
@@ -66,6 +67,19 @@ func StartGvmByCmd() {
 	} else if cmd.HelpFlag {
 		PrintUsage()
 	}
+
+	if cmd.XjreOption == "" {
+		cmd.XjreOption = JrePath
+	}
+
+	if cmd.CpOption == "" {
+		cmd.CpOption = UserClassPath
+	}
+
+	fmt.Println(cmd.XjreOption)
+	fmt.Println(cmd.CpOption)
+
+	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
 
 }
 

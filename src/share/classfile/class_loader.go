@@ -1,6 +1,7 @@
 package classfile
 
 import (
+	"fmt"
 	"sync"
 )
 
@@ -45,6 +46,8 @@ func (loader *ClassLoader) Loading(fileName string) []byte {
 	// 先判断方法区是否已经存在该class
 
 	fileName = fileName + ".class"
+
+	fmt.Println(fileName)
 	var data []byte
 	// 从启动类加载器中获取bytecode
 	if data = BSCLoader.Loading(fileName); data == nil {
