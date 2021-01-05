@@ -3,7 +3,7 @@ package base
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/exception"
-	jclass "github.com/zouzhihao-994/gvm/src/share/jclass"
+	"github.com/zouzhihao-994/gvm/src/share/jclass"
 	"github.com/zouzhihao-994/gvm/src/share/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
@@ -46,19 +46,19 @@ func gvmPrint(method *jclass.MethodInfo, frame *runtime.Frame) {
 		methodDesc := jclass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":
-			fmt.Printf("gvm.out.to => %v \n", frame.OperandStack().PopInt())
+			fmt.Printf("gvm.out.int => %v \n", frame.OperandStack().PopInt())
 			break
 		case "F":
-			fmt.Printf("gvm.out.to => %v \n", frame.OperandStack().PopFloat())
-			break
-		case "L":
-			fmt.Printf("gvm.out.to => %v \n", frame.OperandStack().PopLong())
-			break
-		case "D":
-			fmt.Printf("gvm.out.to => %v \n", frame.OperandStack().PopDouble())
+			fmt.Printf("gvm.out.float => %v \n", frame.OperandStack().PopFloat())
 			break
 		case "J":
-			fmt.Printf("gvm.out.to => %v \n", frame.OperandStack().PopBoolean())
+			fmt.Printf("gvm.out.long => %v \n", frame.OperandStack().PopLong())
+			break
+		case "D":
+			fmt.Printf("gvm.out.double => %v \n", frame.OperandStack().PopDouble())
+			break
+		case "Z":
+			fmt.Printf("gvm.out.boolean => %v \n", frame.OperandStack().PopBoolean())
 			break
 		case "B":
 		case "S":

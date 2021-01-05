@@ -4,6 +4,10 @@ import "github.com/zouzhihao-994/gvm/src/share/exception"
 
 type Slots []Slot
 
+type SlotVars struct {
+	slots []Slot
+}
+
 type Slot struct {
 	Num  int32
 	Ref  interface{}

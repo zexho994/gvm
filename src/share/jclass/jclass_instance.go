@@ -45,7 +45,7 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci.SuperClass = parseSuper(jclass)
 	// 加载接口
 	jci.Interfaces = parseInterfaces(jclass)
-	// TODO parse fields
+	// TODO parse field
 	jci.Fields = jclass.Fields
 	// TODO parse methods
 	jci.Methods = jclass.Methods
@@ -204,18 +204,25 @@ func (j *JClass_Instance) jci_prepare() {
 		switch desc {
 		case "I":
 			slot = utils.Slot{Num: 0, Type: utils.Slot_Int}
-		case "L":
 		case "B":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Byte}
 		case "D":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Double}
 		case "F":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Float}
 		case "J":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Long}
 		case "S":
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Short}
 		case "Z":
-			exception.GvmError{Msg: "prepare error"}.Throw()
+			slot = utils.Slot{Num: 0, Type: utils.Slot_Boolean}
+		case "L":
+			exception.GvmError{Msg: "jclass prepare Error"}.Throw()
 		default: // refrence type
 			slot = utils.Slot{Type: utils.Slot_Ref, Ref: nil}
 		}
-		vars.AddField(jFields[idx].Name(), &slot)
+
+		vars.AddField(jFields[idx].Name(), slot)
 	}
 	j.StaticVars = vars
 }

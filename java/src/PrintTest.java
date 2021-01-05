@@ -3,6 +3,7 @@
  * @created : 2021-01-05
 **/
 public class PrintTest {
+  
   static int i = 994;
   static float f = 994f;
   static double d = 994d;
@@ -17,5 +18,12 @@ public class PrintTest {
     GvmOut.to(l); 
   }
 
+  public static void fun1(){
+
+  }
+
+  public static void fun2(){
+  
+  }
 
 }
