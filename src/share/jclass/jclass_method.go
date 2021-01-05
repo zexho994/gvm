@@ -16,6 +16,7 @@ type MethodInfo struct {
 	attribute     attribute.AttributeInfos
 	cp            constant_pool.ConstantPool
 	argSlotCount  uint
+	jclass        *JClass_Instance
 }
 
 // injected a code attribute for method
@@ -44,6 +45,14 @@ func (m *MethodInfo) InjectCodeAttr() {
 	}
 	attributes[0] = codeAttr
 	m.attribute = attributes
+}
+
+func (m MethodInfo) JClass() *JClass_Instance {
+	return m.jclass
+}
+
+func (m *MethodInfo) SetJClass(jci *JClass_Instance) {
+	m.jclass = jci
 }
 
 func (m MethodInfo) Descriptor() string {

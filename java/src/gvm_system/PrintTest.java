@@ -6,6 +6,7 @@ public class PrintTest{
 
   public static void main(String []args){
     Gvm.out(1);
+    GvmOut.to(1);
   }
 
 }

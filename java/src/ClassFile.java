@@ -12,6 +12,7 @@ public class ClassFile extends FatherFile implements MyInterface {
     public Object obj = new Object();
 
     public static void main(String[] args) throws RuntimeException {
+
         ClassFile cf = new ClassFile();
         FatherFile cf2 = new FatherFile();
         FatherFile cf3 = new ClassFile();

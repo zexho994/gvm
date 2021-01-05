@@ -223,3 +223,7 @@ func (j *JClass_Instance) jci_prepare() {
 func (j *JClass_Instance) jci_parse() {
 
 }
+
+func (j JClass_Instance) Name() string {
+	return j.ThisClass
+}
