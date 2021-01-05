@@ -29,7 +29,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Bootstrapmethods attribute(unfinished)">
-      <change beforePath="$PROJECT_DIR$/src/share/launcher/cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/cmd.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/test/AlgorithmTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/test/AlgorithmTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/test/GvmOut.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/test/GvmOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/PrintTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/PrintTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/launcher/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/launcher/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/share" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/share" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -604,7 +612,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="bugfix: 方法的签名判断 || -&gt; &amp;&amp;" />
     <MESSAGE value="new instruction - new_array" />
     <MESSAGE value="new instruction - NOP" />
     <MESSAGE value="get array length" />
@@ -629,7 +636,8 @@
     <MESSAGE value="Bootstrapmethods attribute(unfinished)" />
     <MESSAGE value="使用gvm native print方法实现输出" />
     <MESSAGE value="完成GvmOut" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成GvmOut" />
+    <MESSAGE value="添加 cmd 启动命令" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 cmd 启动命令" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
