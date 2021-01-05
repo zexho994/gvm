@@ -7,7 +7,7 @@ import (
 )
 
 // 通过debug模式启动gvm
-func StartGvmByDebug(className,jrePath,userClassPath string) {
+func StartGvmByDebug(className, jrePath, userClassPath string) {
 	classfile.InitClassLoader(jrePath, userClassPath)
 	instance := jclass.ParseInstanceByClassName(className)
 	// 执行main方法
@@ -16,5 +16,4 @@ func StartGvmByDebug(className,jrePath,userClassPath string) {
 		panic(err)
 	}
 	interpreter.Interpret(method)
-
 }
