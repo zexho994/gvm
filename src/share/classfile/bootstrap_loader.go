@@ -26,8 +26,3 @@ func (loader *BootStrapLoader) Loading(fileName string) []byte {
 func (loader *BootStrapLoader) AddZip(zip string) {
 	loader.jars = append(loader.jars, zip)
 }
-
-func (loader *BootStrapLoader) Path() string {
-
-	return ""
-}

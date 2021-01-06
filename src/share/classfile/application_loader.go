@@ -17,10 +17,6 @@ func (apploader *ApplicationLoader) AddZip(s string) {
 	panic("implement me")
 }
 
-func (apploader *ApplicationLoader) Path() string {
-	panic("implement me")
-}
-
 func (apploader *ApplicationLoader) Loading(fileName string) []byte {
 	// 拼接目录和类名
 	filename := filepath.Join(apploader.path, fileName)

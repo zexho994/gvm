@@ -1,7 +1,7 @@
 package classfile
 
 import (
-	"fmt"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"sync"
 )
 
@@ -43,20 +43,24 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 // 《dynamic class loading in the java virtual machine》 url: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.762&rep=rep1&type=pdf
 // @param fileName 类名
 func (loader *ClassLoader) Loading(fileName string) []byte {
-	// 先判断方法区是否已经存在该class
-
 	fileName = fileName + ".class"
-
-	fmt.Println(fileName)
 	var data []byte
-	// 从启动类加载器中获取bytecode
-	if data = BSCLoader.Loading(fileName); data == nil {
-		if data = EXCLoader.Loading(fileName); data == nil {
-			if data = APPLoader.Loading(fileName); data == nil {
-				panic("class")
-			}
-		}
+
+	// 从启动类加载器中加载
+	if data = BSCLoader.Loading(fileName); data != nil {
+		return data
 	}
 
-	return data
+	// 从扩展类加载器中加载
+	if data = EXCLoader.Loading(fileName); data != nil {
+		return data
+	}
+
+	// 从用户类加载器中加载
+	if data = APPLoader.Loading(fileName); data != nil {
+		return data
+	}
+
+	exception.GvmError{Msg: "classfiel not found"}.Throw()
+	return nil
 }
