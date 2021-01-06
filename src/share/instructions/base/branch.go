@@ -4,6 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/runtime"
 )
 
+// 指令跳转
 func Branch(frame *runtime.Frame, offset int) {
 	pc := frame.Thread().PC
 	nextPC := int(pc) + offset
