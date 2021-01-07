@@ -9,13 +9,16 @@ public class AlgorithmTest {
   static double d = 994d;
   static boolean b = true;
   static long l = 994l;
+  static String s = "hello world";
 
   public static void main(String[] args){
     GvmOut.to(i); 
     GvmOut.to(f); 
     GvmOut.to(d); 
     GvmOut.to(b); 
-    GvmOut.to(l); 
+    GvmOut.to(l);
+    GvmOut.to(s);
+
     AlgorithmTest.add();
     AlgorithmTest.div();
     AlgorithmTest.mul();

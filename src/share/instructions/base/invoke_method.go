@@ -60,6 +60,8 @@ func gvmPrint(method *jclass.MethodInfo, frame *runtime.Frame) {
 		case "Z":
 			fmt.Printf("gvm.out.boolean => %v \n", frame.OperandStack().PopBoolean())
 			break
+		case "Ljava/lang/String;":
+			fmt.Printf("gvm.out.string => %v \n", frame.OperandStack().PopRef().JString())
 		case "B":
 		case "S":
 			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()

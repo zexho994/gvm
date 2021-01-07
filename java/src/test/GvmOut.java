@@ -8,4 +8,5 @@ public class GvmOut{
   public native static void to(double i);
   public native static void to(boolean i);
   public native static void to(long i);
+  public native static void to(String i);
 }

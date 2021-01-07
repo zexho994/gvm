@@ -36,6 +36,10 @@ func (o *OopInstance) Fields() *OopFields {
 	return o.fields
 }
 
+func (o *OopInstance) JString() string {
+	return o.jString
+}
+
 // create non-array oops
 func NewOopInstance(jci *jclass.JClass_Instance) *OopInstance {
 	return &OopInstance{
