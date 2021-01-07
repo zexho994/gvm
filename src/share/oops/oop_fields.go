@@ -16,9 +16,9 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bool) *OopField {
-	f := fields.GetField(name, isSuper)
-	if f != nil {
+func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bool) OopField {
+	f, r := fields.GetField(name, isSuper)
+	if r {
 		return f
 	}
 	fields = InitOopFields(instance.jclassInstance.SuperClass)
@@ -27,17 +27,19 @@ func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bo
 
 // 查找实例字段
 // 如果本类中找不到，就在父类中找
-func (fields OopFields) GetField(name string, isSuper bool) *OopField {
+// name:字段名称
+// isSuper：是否是从子类中进行调用的
+func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
 	for idx := range fields {
 		if fields[idx].name != name {
 			continue
 		}
 		if jclass.IsFinal(fields[idx].accessFlag) && isSuper {
-			exception.GvmError{Msg: "final field not be inheritance"}.Throw()
+			exception.GvmError{Msg: "final fields not be inheritance"}.Throw()
 		}
-		return &fields[idx]
+		return fields[idx], true
 	}
-	return nil
+	return OopField{}, false
 }
 
 // 初始化实例对象的实例字段表
@@ -65,8 +67,8 @@ func InitOopFields(instance *jclass.JClass_Instance) *OopFields {
 	return &fields
 }
 
-func (filed OopField) Name() string {
-	return filed.name
+func (field OopField) Name() string {
+	return field.name
 }
 
 func (field OopField) Slots() utils.Slots {

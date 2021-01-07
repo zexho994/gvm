@@ -4,10 +4,6 @@ import "github.com/zouzhihao-994/gvm/src/share/exception"
 
 type Slots []Slot
 
-type SlotVars struct {
-	slots []Slot
-}
-
 type Slot struct {
 	Num  int32
 	Ref  interface{}
@@ -15,15 +11,15 @@ type Slot struct {
 }
 
 const (
-	Slot_Byte    = 1
-	Slot_Char    = 2
-	Slot_Double  = 3
-	Slot_Float   = 4
-	Slot_Int     = 5
-	Slot_Long    = 6
-	Slot_Ref     = 7
-	Slot_Short   = 8
-	Slot_Boolean = 9
+	SlotByte    = 1
+	SlotChar    = 2
+	SlotDouble  = 3
+	SlotFloat   = 4
+	SlotInt     = 5
+	SlotLong    = 6
+	SlotRef     = 7
+	SlotShort   = 8
+	SlotBoolean = 9
 )
 
 // 对于一个64长度值
@@ -34,26 +30,32 @@ func (slots Slots) SetVal64(d1, d2 int32) {
 	slots[1].Num = d2
 }
 
+// 对于操作数栈来说，一个64位数拆分成两个32位，并且高位先入栈
+// return 高32，低32
+func (slots Slots) GetVal64() (int32, int32) {
+	return slots[0].Num, slots[1].Num
+}
+
 func TypeMapping(desc string) uint8 {
 	switch desc {
 	case "I":
-		return Slot_Int
+		return SlotInt
 	case "L":
-		return Slot_Long
+		return SlotLong
 	case "B":
-		return Slot_Byte
+		return SlotByte
 	case "D":
-		return Slot_Double
+		return SlotDouble
 	case "F":
-		return Slot_Float
+		return SlotFloat
 	case "J":
-		return Slot_Long
+		return SlotLong
 	case "S":
-		return Slot_Char
+		return SlotChar
 	case "Z":
-		return Slot_Boolean
+		return SlotBoolean
 	default: // refrence type
-		return Slot_Ref
+		return SlotRef
 	}
 	exception.GvmError{Msg: "type mapping error,desc = " + desc}.Throw()
 	return 0

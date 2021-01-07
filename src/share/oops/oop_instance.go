@@ -40,6 +40,18 @@ func (o *OopInstance) JString() string {
 	return o.jString
 }
 
+// find the field of oopInstance by field name
+// n: field name
+func (o *OopInstance) FindField(n string) (OopField, bool) {
+	targetOop := o
+	isSuper := false
+	var f OopField
+	for f, isSuper = targetOop.fields.GetField(n, isSuper); true != isSuper; {
+		// todo: find from super
+	}
+	return f, true
+}
+
 // create non-array oops
 func NewOopInstance(jci *jclass.JClass_Instance) *OopInstance {
 	return &OopInstance{
