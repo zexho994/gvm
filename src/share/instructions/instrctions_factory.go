@@ -149,6 +149,7 @@ var (
 
 	getStatic     = &references.GET_STATIC{} // 178
 	putStatic     = &references.PUT_STATIC{}
+	getField      = &references.GET_FIELD{}
 	putField      = &references.PUT_FIELD{}
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
@@ -517,6 +518,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return getStatic
 	case 0xb3:
 		return putStatic
+	case 0xb4:
+		return getField
 	case 0xb5:
 		return putField
 	case 0xb6:

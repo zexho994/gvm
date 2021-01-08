@@ -25,6 +25,8 @@ func (i *PUT_FIELD) Execute(frame *runtime.Frame) {
 		slots = append(slots, stack.PopSlot())
 	}
 	slots[0] = stack.PopSlot()
+	slots[0].Type = utils.TypeMapping(fieldDesc)
+
 	objRef := stack.PopRef()
 	fields := oops.FindField(fieldName, objRef.Fields(), objRef, false)
 	for idx := range slots {

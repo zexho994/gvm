@@ -22,16 +22,8 @@ const (
 	SlotBoolean = 9
 )
 
-// 对于一个64长度值
-// d1 = 低32位
-// d2 = 高32位
-func (slots Slots) SetVal64(d1, d2 int32) {
-	slots[0].Num = d1
-	slots[1].Num = d2
-}
-
 // 对于操作数栈来说，一个64位数拆分成两个32位，并且高位先入栈
-// return 高32，低32
+// return low，hight
 func (slots Slots) GetVal64() (int32, int32) {
 	return slots[0].Num, slots[1].Num
 }

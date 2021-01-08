@@ -11,7 +11,7 @@ public class PrintFieldsTest{
     public String s = "hello world";
   
     public static void main(String[] args){
-        PrintFields c = new PrintFields();
+        PrintFieldsTest c = new PrintFieldsTest();
         GvmOut.to(c.i);
         GvmOut.to(c.f);
         GvmOut.to(c.d);
