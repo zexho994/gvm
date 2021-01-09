@@ -21,3 +21,11 @@ type InstructionIndex16 struct {
 func (i *InstructionIndex16) FetchOperands(reader *MethodCodeReader) {
 	i.Index = reader.ReadUint16()
 }
+
+type InstructionIndex32 struct {
+	Index uint32
+}
+
+func (i *InstructionIndex32) FetchOperands(reader *MethodCodeReader) {
+	i.Index = reader.ReadUint32()
+}

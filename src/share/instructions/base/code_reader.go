@@ -34,3 +34,9 @@ func (r *MethodCodeReader) ReadUint16() uint16 {
 	byte2 := uint16(r.ReadUint8())
 	return (byte1 << 8) | byte2
 }
+
+func (r *MethodCodeReader) ReadUint32() uint32 {
+	byte1 := uint32(r.ReadUint16())
+	byte2 := uint32(r.ReadUint16())
+	return (byte1 << 16) | byte2
+}
