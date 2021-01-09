@@ -154,6 +154,7 @@ var (
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
 	invokeVirtual = &references.INVOKE_VIRTUAL{}
+	invokeDynamic = &references.INVOKE_DYNAMIC{}
 	_new          = &references.NEW{} //187
 	anewarray     = &references.ANEW_ARRAY{}
 	_newArray     = &references.NEW_ARRAY{}
@@ -528,6 +529,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 		return invokeSpecial
 	case 0xb8:
 		return invokeStatic
+	case 0xba:
+		return invokeDynamic
 	case 0xbb:
 		return _new
 	case 0xbc:

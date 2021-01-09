@@ -25,12 +25,12 @@ func (i LDC) Execute(frame *runtime.Frame) {
 	case *constant_pool.ConstantFloatInfo:
 		float := c.(*constant_pool.ConstantFloatInfo)
 		stack.PushFloat(float.Value())
-	case *constant_pool.ConstantString:
-		str := c.(*constant_pool.ConstantString)
+	case *constant_pool.ConstantStringInfo:
+		str := c.(*constant_pool.ConstantStringInfo)
 		stack.PushRef(oops.NewStringOopInstance(str.String()))
-	case *constant_pool.ConstantClass:
-	case *constant_pool.ConstantMethod:
-	case *constant_pool.ConstantMethodHandle:
+	case *constant_pool.ConstantClassInfo:
+	case *constant_pool.ConstantMethodInfo:
+	case *constant_pool.ConstantMethodHandleInfo:
 	default:
 		exception.GvmError{Msg: "ldc,constant type error"}.Throw()
 	}

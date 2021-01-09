@@ -16,11 +16,11 @@ func (i LDC2_W) Execute(frmae *runtime.Frame) {
 	c := frmae.Method().CP().GetConstantInfo(i.Index)
 	stack := frmae.OperandStack()
 	switch c.(type) {
-	case *constant_pool.ConstantDouble:
-		double := c.(*constant_pool.ConstantDouble)
+	case *constant_pool.ConstantDoubleInfo:
+		double := c.(*constant_pool.ConstantDoubleInfo)
 		stack.PushDouble(double.Value())
-	case *constant_pool.ConstantLong:
-		long := c.(*constant_pool.ConstantLong)
+	case *constant_pool.ConstantLongInfo:
+		long := c.(*constant_pool.ConstantLongInfo)
 		stack.PushLong(long.Value())
 	default:
 		exception.GvmError{Msg: "ldc2_w error,unknow type "}.Throw()

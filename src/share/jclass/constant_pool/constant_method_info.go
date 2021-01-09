@@ -4,7 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 )
 
-type ConstantMethod struct {
+type ConstantMethodInfo struct {
 	// contant_method's tag is 10
 	Tag uint8
 	Cp  ConstantPool
@@ -13,15 +13,15 @@ type ConstantMethod struct {
 	nameAndTypeIdx uint16
 }
 
-func (c *ConstantMethod) ReadInfo(reader *classfile.ClassReader) {
+func (c *ConstantMethodInfo) ReadInfo(reader *classfile.ClassReader) {
 	c.classIdx = reader.ReadUint16()
 	c.nameAndTypeIdx = reader.ReadUint16()
 }
 
-func (c *ConstantMethod) NameAndDescriptor() (string, string) {
+func (c *ConstantMethodInfo) NameAndDescriptor() (string, string) {
 	return c.Cp.GetNameAndType(c.nameAndTypeIdx)
 }
 
-func (c *ConstantMethod) ClassName() string {
+func (c *ConstantMethodInfo) ClassName() string {
 	return c.Cp.GetClassName(c.classIdx)
 }

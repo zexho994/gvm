@@ -19,11 +19,11 @@ type ConstantInvokeDynamic struct {
 	Tag uint8
 	// 对当前class文件中引导方法表 attribute.BootstrapmethodsAttribute 的数组索引
 	BootstrapMethodAttrIndex uint16
-	// 常量池索引， ConstantNameAndType 类型
+	// 常量池索引， ConstantNameAndTypeInfo 类型
 	NameAndTypeIndex uint16
 }
 
-func (invoke ConstantInvokeDynamic) ReadInfo(reader *classfile.ClassReader) {
+func (invoke *ConstantInvokeDynamic) ReadInfo(reader *classfile.ClassReader) {
 	invoke.BootstrapMethodAttrIndex = reader.ReadUint16()
 	invoke.NameAndTypeIndex = reader.ReadUint16()
 }

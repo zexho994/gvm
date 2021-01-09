@@ -11,13 +11,13 @@ CONSTANT_MethodHandle_info {
     u2 reference_index;
 }
 */
-type ConstantMethodHandle struct {
+type ConstantMethodHandleInfo struct {
 	Tag            uint8
 	ReferenceKind  uint8
 	ReferenceIndex uint16
 }
 
-func (self ConstantMethodHandle) ReadInfo(reader *classfile.ClassReader) {
+func (self ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
 	self.ReferenceKind = reader.ReadUint8()
 	self.ReferenceIndex = reader.ReadUint16()
 }

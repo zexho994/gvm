@@ -13,7 +13,7 @@ type INVOKE_VIRTUAL struct {
 }
 
 func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
-	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
+	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	exception.AssertTrue(methodNameStr != "<init>" && methodNameStr != "<clinit>", "IncompatibleClassChangeError")
 

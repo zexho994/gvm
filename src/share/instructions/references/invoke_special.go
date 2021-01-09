@@ -15,7 +15,7 @@ type INVOKE_SPECIAL struct {
 
 func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
-	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
+	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	perm := jclass.GetPerm()
 	jc := perm.Space[constantMethod.ClassName()]
 

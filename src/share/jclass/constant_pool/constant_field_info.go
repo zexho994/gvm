@@ -9,7 +9,7 @@ type ConstantFieldRefInfo struct {
 	Cp               ConstantPool
 	ClassIndex       uint16
 	NameAndTypeIndex uint16
-	NameAndType      ConstantNameAndType
+	NameAndType      ConstantNameAndTypeInfo
 }
 
 func (field *ConstantFieldRefInfo) ReadInfo(reader *classfile.ClassReader) {

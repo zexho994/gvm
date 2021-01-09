@@ -18,7 +18,7 @@ type INVOKE_STATIC struct {
 // -> parse constant method to
 func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
-	contantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethod)
+	contantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	className := contantMethod.ClassName()
 	perm := jclass.GetPerm()
 	class := perm.Space[className]

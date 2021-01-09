@@ -34,27 +34,27 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_Float:
 		return &ConstantFloatInfo{Tag: tag}
 	case CONSTANT_Long:
-		return &ConstantLong{Tag: tag}
+		return &ConstantLongInfo{Tag: tag}
 	case CONSTANT_DOUBLE:
-		return &ConstantDouble{Tag: tag}
+		return &ConstantDoubleInfo{Tag: tag}
 	case CONSTANT_Utf8:
 		return &ConstantUtf8{Tag: tag}
 	case CONSTANT_String:
-		return &ConstantString{Tag: tag, Cp: pool}
+		return &ConstantStringInfo{Tag: tag, Cp: pool}
 	case CONSTANT_CLASS:
-		return &ConstantClass{Tag: tag, Cp: pool}
+		return &ConstantClassInfo{Tag: tag, Cp: pool}
 	case CONSTANT_Fieldref:
 		return &ConstantFieldRefInfo{Tag: tag, Cp: pool}
 	case CONSANT_Methodref:
-		return &ConstantMethod{Tag: tag, Cp: pool}
+		return &ConstantMethodInfo{Tag: tag, Cp: pool}
 	case CONSTANT_InterfaceMethodref:
 		return &ConstantInterfaceMethod{Tag: tag, Cp: pool}
 	case CONSTANT_NameAndType:
-		return &ConstantNameAndType{Tag: tag, cp: pool}
+		return &ConstantNameAndTypeInfo{Tag: tag, cp: pool}
 	case CONSTANT_MethodType:
-		return &MethodType{Tag: tag, Cp: pool}
+		return &ConstantMethodTypeInfo{Tag: tag, Cp: pool}
 	case CONSTANT_MethodHandle:
-		return &ConstantMethodHandle{Tag: tag}
+		return &ConstantMethodHandleInfo{Tag: tag}
 	case CONSAANT_InvokeDynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:
@@ -76,12 +76,12 @@ func (pool ConstantPool) GetUtf8(idx uint16) string {
 }
 
 func (pool ConstantPool) GetClassName(index uint16) string {
-	classInfo := pool.GetConstantInfo(index).(*ConstantClass)
+	classInfo := pool.GetConstantInfo(index).(*ConstantClassInfo)
 	return pool.GetUtf8(classInfo.NameIdx)
 }
 
 func (pool ConstantPool) GetNameAndType(index uint16) (string, string) {
-	ntInfo := pool.GetConstantInfo(index).(*ConstantNameAndType)
+	ntInfo := pool.GetConstantInfo(index).(*ConstantNameAndTypeInfo)
 	name := pool.GetUtf8(ntInfo.NameIndex)
 	_type := pool.GetUtf8(ntInfo.DescriptorIndex)
 	return name, _type
@@ -94,7 +94,7 @@ func ReadConstantPool(cpCount uint16, reader *classfile.ClassReader) ConstantPoo
 	for i := uint16(1); i < cpCount; i++ {
 		cp[i] = readConstantInfo(reader, cp)
 		switch cp[i].(type) {
-		case *ConstantLong, *ConstantDouble:
+		case *ConstantLongInfo, *ConstantDoubleInfo:
 			i++
 		}
 	}

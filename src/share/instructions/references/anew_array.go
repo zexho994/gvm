@@ -17,7 +17,7 @@ type ANEW_ARRAY struct {
 
 func (i *ANEW_ARRAY) Execute(frame *runtime.Frame) {
 	arrayLength := frame.OperandStack().PopInt()
-	c := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantClass)
+	c := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
 	cname := c.Name()
 	jc := jclass.GetPerm().Space[cname]
 	if jc == nil {
