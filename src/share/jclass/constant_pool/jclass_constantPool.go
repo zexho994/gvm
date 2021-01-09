@@ -1,6 +1,9 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/src/share/classfile"
+import (
+	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
+)
 
 type ConstantPool []ConstantType
 
@@ -55,7 +58,8 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSAANT_InvokeDynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:
-		panic("java.lang.ClassFormatError: constant_pool pool tag!")
+		exception.GvmError{Msg: "java.lang.ClassFormatError: constant_pool pool tag!"}.Throw()
+		return nil
 	}
 }
 

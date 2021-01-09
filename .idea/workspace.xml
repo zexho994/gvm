@@ -29,14 +29,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Bootstrapmethods attribute(unfinished)">
-      <change afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_dynamic.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/gvm_system/GvmOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/gvm_system/GvmOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/gvm_system/GvmOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/gvm_system/GvmOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/gvm_system/PrintTest$Gvm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/gvm_system/PrintTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/gvm_system/PrintTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/ThreadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/ThreadTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_invoke_dynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -680,7 +678,6 @@
     <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607405180351" />
     <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.603.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608807055889" />
     <state x="-1376" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606530338152" />
-    <state x="476" y="225" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1601471203725" />
     <state x="544" y="231" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608048557075" />
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609776427796">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -1037,8 +1034,8 @@
     <state x="-1095" y="236" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606133149362" />
     <state x="149" y="200" width="1108" height="786" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1609604222284" />
     <state x="825" y="236" key="SettingsEditor/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606396990621" />
-    <state width="572" height="446" key="SwitcherDM" timestamp="1610020732780">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state width="572" height="446" key="SwitcherDM" timestamp="1610197256621">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="881" height="736" key="SwitcherDM.inPresentationMode" timestamp="1609079891282">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -1063,7 +1060,7 @@
     <state width="572" height="446" key="SwitcherDM/-3360.603.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608944227738" />
     <state width="572" height="446" key="SwitcherDM/-3360.608.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1606533176691" />
     <state width="572" height="446" key="SwitcherDM/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608723748357" />
-    <state width="572" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1609685608232" />
+    <state width="572" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1610197256621" />
     <state width="572" height="446" key="SwitcherDM/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606648413528" />
     <state x="542" y="-918" key="VCS.ChangeListViewerDialog" timestamp="1606836734145">
       <screen x="-174" y="-1080" width="1920" height="1080" />
@@ -1155,8 +1152,8 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="803" y="313" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609601516389" />
-    <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1610081131880">
-      <screen x="-1920" y="0" width="1920" height="1080" />
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1610197139309">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="178" y="0" width="1563" height="3208" key="search.everywhere.popup.inPresentationMode" timestamp="1606550441533">
       <screen x="214" y="1080" width="1440" height="900" />
@@ -1174,7 +1171,7 @@
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607342948353" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-3360.603.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608871822454" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608698719233" />
-    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1609665200414" />
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1610197139309" />
     <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606487658917" />
   </component>
   <component name="XDebuggerManager">
