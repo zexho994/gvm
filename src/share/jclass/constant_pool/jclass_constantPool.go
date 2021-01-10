@@ -38,7 +38,7 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_DOUBLE:
 		return &ConstantDoubleInfo{Tag: tag}
 	case CONSTANT_Utf8:
-		return &ConstantUtf8{Tag: tag}
+		return &ConstantUtf8Info{Tag: tag}
 	case CONSTANT_String:
 		return &ConstantStringInfo{Tag: tag, Cp: pool}
 	case CONSTANT_CLASS:
@@ -71,7 +71,7 @@ func (pool ConstantPool) GetConstantInfo(idx uint16) ConstantType {
 }
 
 func (pool ConstantPool) GetUtf8(idx uint16) string {
-	utf8Info := pool.GetConstantInfo(idx).(*ConstantUtf8)
+	utf8Info := pool.GetConstantInfo(idx).(*ConstantUtf8Info)
 	return utf8Info.Str
 }
 
@@ -83,8 +83,8 @@ func (pool ConstantPool) GetClassName(index uint16) string {
 func (pool ConstantPool) GetNameAndType(index uint16) (string, string) {
 	ntInfo := pool.GetConstantInfo(index).(*ConstantNameAndTypeInfo)
 	name := pool.GetUtf8(ntInfo.NameIndex)
-	_type := pool.GetUtf8(ntInfo.DescriptorIndex)
-	return name, _type
+	desc := pool.GetUtf8(ntInfo.DescriptorIndex)
+	return name, desc
 }
 
 // 读取常量池数据
