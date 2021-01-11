@@ -11,7 +11,7 @@ import (
 
 type NEW_ARRAY struct {
 	count    uint
-	arrayref *jclass.JClass_Instance
+	arrayref *jclass.JClassInstance
 	base.InstructionIndex8
 }
 

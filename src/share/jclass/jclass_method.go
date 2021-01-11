@@ -13,10 +13,10 @@ type MethodInfo struct {
 	nameIdx       uint16
 	descriptorIdx uint16
 	attrCount     uint16
-	attribute     attribute.AttributeInfos
+	attribute     attribute.AttributesInfo
 	cp            constant_pool.ConstantPool
 	argSlotCount  uint
-	jclass        *JClass_Instance
+	jclass        *JClassInstance
 }
 
 // injected a code attribute for method
@@ -26,7 +26,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	}
 	tmpMaxStack := uint16(4)
 	tmpMaxLocal := uint16(4)
-	attributes := make(attribute.AttributeInfos, 1)
+	attributes := make(attribute.AttributesInfo, 1)
 	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
 	var codeAttr *attribute.Attr_Code
 	switch methodDescriptor.returnTypt {
@@ -47,11 +47,11 @@ func (m *MethodInfo) InjectCodeAttr() {
 	m.attribute = attributes
 }
 
-func (m MethodInfo) JClass() *JClass_Instance {
+func (m MethodInfo) JClass() *JClassInstance {
 	return m.jclass
 }
 
-func (m *MethodInfo) SetJClass(jci *JClass_Instance) {
+func (m *MethodInfo) SetJClass(jci *JClassInstance) {
 	m.jclass = jci
 }
 
@@ -97,7 +97,7 @@ func (m *MethodInfo) CP() constant_pool.ConstantPool {
 	return m.cp
 }
 
-func (m MethodInfo) Attributes() attribute.AttributeInfos {
+func (m MethodInfo) Attributes() attribute.AttributesInfo {
 	return m.attribute
 }
 

@@ -154,7 +154,7 @@ var (
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
 	invokeVirtual = &references.INVOKE_VIRTUAL{}
-	invokeDynamic = &references.INVOKE_DYNAMIC{}
+	invokeDynamic = &references.InvokeDynamic{}
 	_new          = &references.NEW{} //187
 	anewarray     = &references.ANEW_ARRAY{}
 	_newArray     = &references.NEW_ARRAY{}

@@ -43,7 +43,7 @@ func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
 }
 
 // 初始化实例对象的实例字段表
-func InitOopFields(instance *jclass.JClass_Instance) *OopFields {
+func InitOopFields(instance *jclass.JClassInstance) *OopFields {
 	fields := OopFields{}
 	jf := instance.Fields
 	for idx := range jf {

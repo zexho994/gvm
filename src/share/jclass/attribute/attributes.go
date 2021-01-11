@@ -6,15 +6,24 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/jclass/constant_pool"
 )
 
-type AttributeInfos []AttributeInfo
+type AttributesInfo []IAttributeInfo
 
-type AttributeInfo interface {
+func (attrs AttributesInfo) FindAttrInfo(name string) (IAttributeInfo, error) {
+	for idx := range attrs {
+		if attrs[idx].Name() == name {
+			return attrs[idx], nil
+		}
+	}
+	return nil, exception.GvmError{Msg: exception.AttributeNotFoundError}
+}
+
+type IAttributeInfo interface {
 	Name() string
 	parse(reader *classfile.ClassReader)
 }
 
-func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) AttributeInfos {
-	attributes := make(AttributeInfos, attrCount)
+func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) AttributesInfo {
+	attributes := make(AttributesInfo, attrCount)
 	for i := range attributes {
 		attrNameIdx := reader.ReadUint16()
 		attrLen := reader.ReadUint32()
@@ -25,7 +34,7 @@ func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constan
 	return attributes
 }
 
-func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantPool) AttributeInfo {
+func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantPool) IAttributeInfo {
 	name := cp.GetUtf8(nameIdx)
 	switch name {
 	case "Code":
@@ -59,7 +68,7 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	}
 }
 
-func (attrs AttributeInfos) AttrCode() (*Attr_Code, error) {
+func (attrs AttributesInfo) AttrCode() (*Attr_Code, error) {
 	for idx := range attrs {
 		if attrs[idx].Name() == "Code" {
 			a := attrs[idx]

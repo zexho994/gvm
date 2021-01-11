@@ -9,8 +9,8 @@ import (
 )
 
 // 存储在方法区中的对象，也是 JClass 经过链接步骤后得到的对象
-// 同一个的类或接口的所有子类/实现类对该部分的依赖都会是同一个对象，即不会存在两个一样的 JClass_Instance 对象
-type JClass_Instance struct {
+// 同一个的类或接口的所有子类/实现类对该部分的依赖都会是同一个对象，即不会存在两个一样的 JClassInstance 对象
+type JClassInstance struct {
 	// 常量池
 	ConstantPool constant_pool.ConstantPool
 	// 类访问标志,表示是类还是接口,public还是private等
@@ -18,23 +18,23 @@ type JClass_Instance struct {
 	// 本类
 	ThisClass string
 	// 父类
-	SuperClass *JClass_Instance
+	SuperClass *JClassInstance
 	// 接口
-	Interfaces []*JClass_Instance
+	Interfaces []*JClassInstance
 	// 字段表,用于表示接口或者类中声明的变量
 	Fields Fields
 	// 方法表
 	Methods Methods
 	// 属性表
-	Attributes attribute.AttributeInfos
+	Attributes attribute.AttributesInfo
 	// 初始化标识
 	IsInit     bool
 	StaticVars *StaticFieldVars
 }
 
-// TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClass_Instance 的解析
-func ParseInstance(jclass *JClass) *JClass_Instance {
-	jci := &JClass_Instance{}
+// TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClassInstance 的解析
+func ParseInstance(jclass *JClass) *JClassInstance {
+	jci := &JClassInstance{}
 	// todo 解析运行时常量池,将 CONSTANT_Class_info,CONSTANT_Fieldref_info,CONSTANT_Methodref_info等类型符号引用的常量转换为直接引用
 	jci.ConstantPool = jclass.ConstantPool
 	// 类访问符不变
@@ -49,18 +49,17 @@ func ParseInstance(jclass *JClass) *JClass_Instance {
 	jci.Fields = jclass.Fields
 	// TODO parse methods
 	jci.Methods = jclass.Methods
+	jci.Attributes = jclass.Attributes
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	jci.IsInit = false
 	// 保存到方法区
 	GetPerm().Space[jci.ThisClass] = jci
-
 	// 执行链接步骤
 	jci.Linked()
-
 	return jci
 }
 
-func ParseInstanceByClassName(className string) *JClass_Instance {
+func ParseInstanceByClassName(className string) *JClassInstance {
 	if perm := GetPerm().Space[className]; perm != nil {
 		return perm
 	}
@@ -73,7 +72,7 @@ func ParseInstanceByClassName(className string) *JClass_Instance {
 
 // 递归解析父类
 // todo: parseSuper 和 parseInterfaces 都需要对访问权限进行判断
-func parseSuper(jclass *JClass) *JClass_Instance {
+func parseSuper(jclass *JClass) *JClassInstance {
 	thisName := jclass.ConstantPool.GetClassName(jclass.ThisClassIdx)
 	if thisName == "java/lang/Object" {
 		return nil
@@ -89,16 +88,16 @@ func parseSuper(jclass *JClass) *JClass_Instance {
 }
 
 // 递归解析接口
-func parseInterfaces(jclass *JClass) []*JClass_Instance {
+func parseInterfaces(jclass *JClass) []*JClassInstance {
 	if jclass.InterfacesCount < 1 {
 		return nil
 	}
 
-	interfaces := make([]*JClass_Instance, jclass.InterfacesCount)
+	interfaces := make([]*JClassInstance, jclass.InterfacesCount)
 	for i := range jclass.Interfaces {
 		iIdx := jclass.Interfaces[i]
 		iName := jclass.ConstantPool.GetClassName(iIdx)
-		iInstance := &JClass_Instance{}
+		iInstance := &JClassInstance{}
 		// 如果方法区中已经有直接引用
 		if iInstance = perm.Space[iName]; iInstance != nil {
 			interfaces[i] = iInstance
@@ -116,7 +115,7 @@ func parseInterfaces(jclass *JClass) []*JClass_Instance {
 	return interfaces
 }
 
-func (j *JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
+func (j *JClassInstance) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 	for i := range j.Methods {
 		methodInfo := j.Methods[i]
 		if !IsStatic(methodInfo.accessFlag) {
@@ -134,8 +133,8 @@ func (j *JClass_Instance) FindStaticMethod(name, descriptor string) (*MethodInfo
 
 // TODO:可以从父类中加载出方法，并检查权限
 // name: method method
-// @return the MethodInfo belong to the JClass_Instance
-func (j *JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, error, *JClass_Instance) {
+// @return the MethodInfo belong to the JClassInstance
+func (j *JClassInstance) FindMethod(name, descriptor string) (*MethodInfo, error, *JClassInstance) {
 	for i := range j.Methods {
 		methodInfo := j.Methods[i]
 		if IsStatic(methodInfo.accessFlag) {
@@ -163,7 +162,7 @@ func (j *JClass_Instance) FindMethod(name, descriptor string) (*MethodInfo, erro
 }
 
 // 链接阶段，分为3部分，验证，准备，解析
-func (j *JClass_Instance) Linked() {
+func (j *JClassInstance) Linked() {
 	j.jci_verify()
 	j.jci_prepare()
 	j.jci_parse()
@@ -180,7 +179,7 @@ func (j *JClass_Instance) Linked() {
 // 6. 异常表必须引用类合法的指令
 // 7. 验证局部变量表
 // 8. 逐一验证每个字节码的合法性
-func (j *JClass_Instance) jci_verify() {
+func (j *JClassInstance) jci_verify() {
 
 }
 
@@ -191,7 +190,7 @@ func (j *JClass_Instance) jci_verify() {
 //
 // 注意点：如果静态变量类型为引用类型，则零值为null，且不需要判断引用类是否进行类类加载过程。
 //        这部分的判断逻辑在putstatic,getstatic指令时再执行.
-func (j *JClass_Instance) jci_prepare() {
+func (j *JClassInstance) jci_prepare() {
 	jFields := j.Fields
 	vars := NewStaticFieldVars()
 	for idx := range jFields {
@@ -227,10 +226,10 @@ func (j *JClass_Instance) jci_prepare() {
 	j.StaticVars = vars
 }
 
-func (j *JClass_Instance) jci_parse() {
+func (j *JClassInstance) jci_parse() {
 
 }
 
-func (j JClass_Instance) Name() string {
+func (j JClassInstance) Name() string {
 	return j.ThisClass
 }

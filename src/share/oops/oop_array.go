@@ -18,7 +18,7 @@ const (
 
 type iArray []int32
 type cArray []int8
-type aArray []jclass.JClass_Instance
+type aArray []jclass.JClassInstance
 
 func (iarr iArray) newiArray(len uint32) iArray {
 	return make([]int32, len)
@@ -29,7 +29,7 @@ func (carr cArray) newcArray(len uint32) cArray {
 }
 
 func (arr aArray) newaArray(len uint32) aArray {
-	return make([]jclass.JClass_Instance, len)
+	return make([]jclass.JClassInstance, len)
 }
 
 type JArray struct {
@@ -53,7 +53,7 @@ func (jarray *JArray) SetCVal(idx int32, val int8) {
 	ia[idx] = val
 }
 
-func NewRefJarray(len uint32, instance *jclass.JClass_Instance) JArray {
+func NewRefJarray(len uint32, instance *jclass.JClassInstance) JArray {
 	if len < 0 {
 		exception.GvmError{Msg: "NegativeArraySizeException"}.Throw()
 	}

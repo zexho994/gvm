@@ -18,13 +18,13 @@ type GET_FIELD struct {
 
 func (i *GET_FIELD) Execute(frame *runtime.Frame) {
 	objRef := frame.OperandStack().PopRef()
-	exception.AssertFalse(objRef == nil, exception.NULL_POINT_EXCEPTION)
+	exception.AssertFalse(objRef == nil, exception.NullPointException)
 
 	constFieldRef := objRef.Jclass().ConstantPool.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldRefInfo)
 	fieldName, _ := constFieldRef.NameAndDescriptor()
 	field, r := objRef.FindField(fieldName)
-	exception.AssertTrue(r, exception.FIELDS_NOT_FOUND_ERROR)
-	exception.AssertFalse(jclass.IsStatic(field.AccessFlag()), exception.INCOMPATIBLE_CLASS_CHANGE_ERROR)
+	exception.AssertTrue(r, exception.FieldsNotFoundError)
+	exception.AssertFalse(jclass.IsStatic(field.AccessFlag()), exception.IncompatibleClassChangeError)
 
 	fieldsSlot := field.Slots()[0]
 	if fieldsSlot.Type == utils.SlotLong {

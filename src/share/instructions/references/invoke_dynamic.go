@@ -8,17 +8,19 @@ import (
 )
 
 // 调用动态方法
-type INVOKE_DYNAMIC struct {
+type InvokeDynamic struct {
 	base.InstructionIndex32
 }
 
 // invokedynamic指令出现的地方称为 "动态调用点"
 //
-func (i *INVOKE_DYNAMIC) Execute(frame *runtime.Frame) {
+func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
 	constantPool := frame.Method().CP()
 	indexByte := uint16(i.Index >> 16)
 	constInvokeDynamic := constantPool.GetConstantInfo(indexByte).(*constant_pool.ConstantInvokeDynamic)
 	name, desc := constantPool.GetNameAndType(constInvokeDynamic.NameAndTypeIndex)
 	fmt.Println(name, desc)
+	btm, _ := frame.Method().JClass().Attributes.FindAttrInfo("BootstrapMethods")
 
+	fmt.Println(btm)
 }

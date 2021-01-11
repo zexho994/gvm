@@ -6,7 +6,7 @@ import (
 )
 
 // 初始化<clinit>方法
-func InitClass(j *jclass.JClass_Instance, thread *runtime.Thread) {
+func InitClass(j *jclass.JClassInstance, thread *runtime.Thread) {
 	// 获取<clinit>方法
 	clinit, exist := j.Methods.Clinit()
 	j.IsInit = true
