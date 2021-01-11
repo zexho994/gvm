@@ -22,6 +22,7 @@ func (attr *BootstrapmethodsAttribute) parse(reader *classfile.ClassReader) {
 	for i := 0; i < int(attr.methodsNum); i++ {
 		bsm := BootstrapMethod{}
 		bsm.parse(reader)
+		attr.methods[i] = bsm
 	}
 }
 
