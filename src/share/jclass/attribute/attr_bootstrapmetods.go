@@ -30,6 +30,10 @@ func (attr *BootstrapmethodsAttribute) Name() string {
 	return attr.name
 }
 
+func (attr *BootstrapmethodsAttribute) Methods() []BootstrapMethod {
+	return attr.methods
+}
+
 // 该结构指明了一个引导方法，并指明了一个由索引组成的序列
 // 序列里的索引指明引导方法的静态参数
 type BootstrapMethod struct {

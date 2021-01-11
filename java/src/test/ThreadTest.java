@@ -16,9 +16,10 @@ public class ThreadTest {
 //         s3.to(new Object());
     }
 
-//     public static Integer soap1(Integer... ints) {
+//     public static Integer soap2(Integer... ints) {
 //         int i1 = 1;
 //         int i2 = 2;
+//         System.out.println(i1 + i2);
 //         return i1 + i2 + ints[0];
 //     }
 //

@@ -29,16 +29,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Bootstrapmethods attribute(unfinished)">
+      <change afterPath="$PROJECT_DIR$/java/src/lambda/LambdaTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/lambda/LambdaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/lambda/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/get_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/get_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/get_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/put_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/put_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/put_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/ThreadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/ThreadTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/ThreadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/instructions/references/invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/instructions/references/invoke_dynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/share/jclass/attribute/attr_bootstrapmetods.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/attribute/attr_bootstrapmetods.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_method_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/constant_method_handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/share/test/thread_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/share/test/thread_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,19 +140,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/java/src/gvm_system" />
-      <recent name="$PROJECT_DIR$/src/share/utils" />
-      <recent name="$PROJECT_DIR$/src/share/oops" />
-      <recent name="$PROJECT_DIR$/src/share/runtime" />
-      <recent name="$PROJECT_DIR$/src/share/jclass/attribute" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/java/src/gvm_system" />
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
       <recent name="$PROJECT_DIR$/src/share/instructions/math" />
       <recent name="$PROJECT_DIR$/src/share/instructions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/src/gvm_system" />
+      <recent name="$PROJECT_DIR$/src/share/utils" />
+      <recent name="$PROJECT_DIR$/src/share/oops" />
+      <recent name="$PROJECT_DIR$/src/share/runtime" />
+      <recent name="$PROJECT_DIR$/src/share/jclass/attribute" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -628,7 +627,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new instruction - sastore" />
     <MESSAGE value="delete useless file" />
     <MESSAGE value="putstatic" />
     <MESSAGE value="类加载准备阶段，为引用静态类型变量分配内存赋null值" />
@@ -653,7 +651,8 @@
     <MESSAGE value="update BootstrapmethodsAttribute" />
     <MESSAGE value="add InstructionIndex32" />
     <MESSAGE value="rename" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename" />
+    <MESSAGE value="补充注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="补充注释" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -1121,6 +1120,10 @@
     <state x="738" y="394" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1610204639873">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="875" y="254" key="com.goide.refactor.move.GoMoveDeclarationDialog.inPresentationMode" timestamp="1610373125655">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="875" y="254" key="com.goide.refactor.move.GoMoveDeclarationDialog.inPresentationMode/0.0.1920.1080@0.0.1920.1080" timestamp="1610373125655" />
     <state x="738" y="394" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1610204639873" />
     <state x="-1412" y="154" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608788993228">
       <screen x="-1920" y="0" width="1920" height="1080" />
@@ -1177,7 +1180,7 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="803" y="313" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609601516389" />
-    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1610371866449">
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup" timestamp="1610373432408">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="2084" height="3850" key="search.everywhere.popup.inPresentationMode" timestamp="1610372224468">
@@ -1197,7 +1200,7 @@
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-3360.476.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607342948353" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/-3360.603.1440.900/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608871822454" />
     <state x="-1159" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1608698719233" />
-    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1610371866449" />
+    <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1610373432408" />
     <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1610202947594" />
     <state x="761" y="388" width="896" height="609" key="search.everywhere.popup/214.1080.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606487658917" />
   </component>
@@ -1211,13 +1214,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/share/instructions/references/invoke_dynamic.go</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/share/jclass/constant_pool/constant_method_handle.go</url>
-          <line>19</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

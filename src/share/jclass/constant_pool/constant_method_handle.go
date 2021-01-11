@@ -17,7 +17,7 @@ CONSTANT_MethodHandle_info {
 // 指向方法时：
 type ConstantMethodHandleInfo struct {
 	Tag uint8
-	// 方法句柄类型,句柄类型决定了字节码行为
+	// 方法句柄类型,句柄类型决定了字节码j行为
 	// 1.ref_getField,2.ref_getStatic,3.ref_putField
 	// 4.ref_putStatic,5.ref_invokeVirtual,6.ref_invokeStatic
 	// 7.ref_invokeSpeical,8.ref_newInvokeSpecial,9.ref_infokeInterface
@@ -36,4 +36,26 @@ type ConstantMethodHandleInfo struct {
 func (handle ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
 	handle.ReferenceKind = reader.ReadUint8()
 	handle.ReferenceIndex = reader.ReadUint16()
+}
+
+// 解析出 ReferenceKind 对应的字节码行为.
+// x，T分别表示字段或方法的名称和描述符，C表示字段或方法所属的类或者接口
+// * ref_getField -> getfield C.f:T
+// * ref_getStatic -> getstatic C.f:T
+// * ref_putField -> putfield C.f:T
+// * ref_putStatic -> putstatic C.f:T
+// * ref_invokeVirtual -> invokevirtual C.m:(A*)T
+// * ref_invokeStatic -> invokestatic C.m:(A*)T
+// * ref_invokeSPecial -> invokespeical C.m:(A*)T
+// * ref_newInvokeSpecial -> new C;dup;invokespecial C.<init>:(A*)void
+// * ref_invokeInterface -> invokeinterface C.m:(A*)T
+func (handle ConstantMethodHandleInfo) ParseKind() {
+	// 1. 解析R，R为handle中字段或者方法的符号引用
+
+	// 2. 按照解析指向类和接口的未解析符号引用的步骤来解析这些符号引用
+	//    类和接口的名称分别对应于A*中每个类型以及类型T
+	//    解析的顺序也是先解析A*的符号引用，再解析指向T的符号引用
+
+	// 3. 像解析指向方法类型的为解析符号引用时那样，来解析并获取指向java.lang.invoke.MethodType实例的引用
+
 }
