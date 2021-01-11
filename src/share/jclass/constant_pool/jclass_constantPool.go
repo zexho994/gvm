@@ -44,11 +44,11 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_CLASS:
 		return &ConstantClassInfo{Tag: tag, Cp: pool}
 	case CONSTANT_Fieldref:
-		return &ConstantFieldRefInfo{Tag: tag, Cp: pool}
+		return &ConstantFieldInfo{Tag: tag, Cp: pool}
 	case CONSANT_Methodref:
 		return &ConstantMethodInfo{Tag: tag, Cp: pool}
 	case CONSTANT_InterfaceMethodref:
-		return &ConstantInterfaceMethod{Tag: tag, Cp: pool}
+		return &ConstantInterfaceMethodInfo{Tag: tag, Cp: pool}
 	case CONSTANT_NameAndType:
 		return &ConstantNameAndTypeInfo{Tag: tag, cp: pool}
 	case CONSTANT_MethodType:

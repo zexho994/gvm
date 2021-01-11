@@ -15,7 +15,7 @@ type PUT_STATIC struct {
 }
 
 func (i PUT_STATIC) Execute(frame *runtime.Frame) {
-	fieldInfo := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldRefInfo)
+	fieldInfo := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 	exception.AssertFalse(fieldInfo == nil, "static field is null")
 	_, fieldDesc := fieldInfo.NameAndDescriptor()
 	// if the class is uninitiallized

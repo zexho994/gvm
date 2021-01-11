@@ -4,7 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 )
 
-type ConstantFieldRefInfo struct {
+type ConstantFieldInfo struct {
 	Tag              uint8
 	Cp               ConstantPool
 	ClassIndex       uint16
@@ -12,14 +12,14 @@ type ConstantFieldRefInfo struct {
 	NameAndType      ConstantNameAndTypeInfo
 }
 
-func (field *ConstantFieldRefInfo) ReadInfo(reader *classfile.ClassReader) {
+func (field *ConstantFieldInfo) ReadInfo(reader *classfile.ClassReader) {
 	field.ClassIndex = reader.ReadUint16()
 	field.NameAndTypeIndex = reader.ReadUint16()
 }
 
-func (field *ConstantFieldRefInfo) ClassName() string {
+func (field *ConstantFieldInfo) ClassName() string {
 	return field.Cp.GetClassName(field.ClassIndex)
 }
-func (field *ConstantFieldRefInfo) NameAndDescriptor() (string, string) {
+func (field *ConstantFieldInfo) NameAndDescriptor() (string, string) {
 	return field.Cp.GetNameAndType(field.NameAndTypeIndex)
 }
