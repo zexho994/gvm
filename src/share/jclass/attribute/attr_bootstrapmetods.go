@@ -39,21 +39,22 @@ func (attr *BootstrapmethodsAttribute) Methods() []BootstrapMethod {
 type BootstrapMethod struct {
 	// 常量池索引  constant_pool.ConstantMethodHandle 结构
 	// 方法的具体形式由 references.INVOKE_DYNAMIC 指令持续解析决定
-	methodRef uint16
-	// 决定 arguments 数组大小
-	argumentsNum uint16
+	MethodRef uint16
+	// 决定 Arguments 数组大小
+	ArgumentsNum uint16
 	// 每一个元素都是运行时的一个索引，结构必须是下列之一：
 	// constant_pool.ConstantStringInfo, constant_pool.ConstantClassInfo, constant_pool.ConstantIntegerInfo
 	// constant_pool.ConstantFloatInfo, constant_pool.ConstantDoubleInfo, constant_pool.ConstantMethodHandleInfo
 	// constant_pool.ConstantLongInfo, constant_pool.ConstantMethodTypeInfo, constant_pool.ConstantMethodInfo
-	arguments []uint16
+	Arguments []uint16
 }
 
+//
 func (attr *BootstrapMethod) parse(reader *classfile.ClassReader) {
-	attr.methodRef = reader.ReadUint16()
-	attr.argumentsNum = reader.ReadUint16()
-	attr.arguments = make([]uint16, attr.argumentsNum)
-	for i := 0; i < int(attr.argumentsNum); i++ {
-		attr.arguments[i] = reader.ReadUint16()
+	attr.MethodRef = reader.ReadUint16()
+	attr.ArgumentsNum = reader.ReadUint16()
+	attr.Arguments = make([]uint16, attr.ArgumentsNum)
+	for i := 0; i < int(attr.ArgumentsNum); i++ {
+		attr.Arguments[i] = reader.ReadUint16()
 	}
 }

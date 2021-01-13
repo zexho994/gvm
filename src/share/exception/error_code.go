@@ -8,5 +8,6 @@ const (
 	// 解析实例字段过程出现静态字段
 	IncompatibleClassChangeError = "IncompatibleClassChangeError"
 	// 空指针异常
-	NullPointException = "NullPointException"
+	NullPointException   = "NullPointException"
+	MethodParseException = "MethodParseException"
 )

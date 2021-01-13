@@ -8,6 +8,14 @@ public class ThreadTest {
         Soap<String, String> s = str -> "hello soap";
         s.to();
 
+        Soap<Integer,Integer> s2 = i -> {
+            return 1;
+
+        };
+        s2.to();
+
+
+
 //         Soap<Integer, Integer> s2 = ThreadTest::soap1;
 //         s2.to(1,2,3);
 //

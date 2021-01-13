@@ -4,6 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
 )
 
+// 对应常量池中的 Methodref
 type ConstantMethodInfo struct {
 	// contant_method's tag is 10
 	Tag uint8

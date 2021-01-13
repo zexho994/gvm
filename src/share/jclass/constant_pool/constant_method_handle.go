@@ -2,6 +2,7 @@ package constant_pool
 
 import (
 	"github.com/zouzhihao-994/gvm/src/share/classfile"
+	"github.com/zouzhihao-994/gvm/src/share/exception"
 )
 
 /*
@@ -31,9 +32,10 @@ type ConstantMethodHandleInfo struct {
 	// - 如果为5，6，7，9，那么必须为 ConstantMethodInfo 或者 ConstantInterfaceMethodInfo,名称不能为<init>,<clinit>
 	// - 如果为8，那么必须为 ConstantMethodInfo 结构表示的方法 ，名称必须是<init>
 	ReferenceIndex uint16
+	cp             ConstantPool
 }
 
-func (handle ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
+func (handle *ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
 	handle.ReferenceKind = reader.ReadUint8()
 	handle.ReferenceIndex = reader.ReadUint16()
 }
@@ -49,8 +51,15 @@ func (handle ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
 // * ref_invokeSPecial -> invokespeical C.m:(A*)T
 // * ref_newInvokeSpecial -> new C;dup;invokespecial C.<init>:(A*)void
 // * ref_invokeInterface -> invokeinterface C.m:(A*)T
-func (handle ConstantMethodHandleInfo) ParseKind() {
+func (handle ConstantMethodHandleInfo) ParseKindRef() {
 	// 1. 解析R，R为handle中字段或者方法的符号引用
+	ref := handle.cp.GetConstantInfo(handle.ReferenceIndex)
+	if handle.ReferenceKind == 6 {
+		methodRef := ref.(*ConstantMethodInfo)
+		if name, _ := methodRef.NameAndDescriptor(); name == "init" || name == "clinit" {
+			exception.GvmError{Msg: exception.MethodParseException}.Throw()
+		}
+	}
 
 	// 2. 按照解析指向类和接口的未解析符号引用的步骤来解析这些符号引用
 	//    类和接口的名称分别对应于A*中每个类型以及类型T

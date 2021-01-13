@@ -54,7 +54,7 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case CONSTANT_MethodType:
 		return &ConstantMethodTypeInfo{Tag: tag, Cp: pool}
 	case CONSTANT_MethodHandle:
-		return &ConstantMethodHandleInfo{Tag: tag}
+		return &ConstantMethodHandleInfo{Tag: tag, cp: pool}
 	case CONSAANT_InvokeDynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:
