@@ -9,9 +9,7 @@ import (
 	"os"
 )
 
-/*
-命令行结构体
-*/
+// 命令行结构体
 type Cmd struct {
 	HelpFlag         bool     // 帮助命令
 	VersionFlag      bool     // 版本命令
@@ -23,10 +21,8 @@ type Cmd struct {
 	VerboseInstFlag  bool
 }
 
-/*
-命令行处理方法
-对于不同的属性,设置了不同的处理方法
-*/
+// 命令行处理方法
+// 对于不同的属性,设置了不同的处理方法
 func ParseCmd() *Cmd {
 	cmd := &Cmd{}
 	flag.Usage = PrintUsage
@@ -50,9 +46,7 @@ func ParseCmd() *Cmd {
 	return cmd
 }
 
-/*
-输出用法说明
-*/
+// 输出用法说明
 func PrintUsage() {
 	fmt.Printf("[gvm][usage] : %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
 	fmt.Printf("[gvm][help] -Xjre : jrePath is the jre folder local \n" +
@@ -76,8 +70,8 @@ func StartGvmByCmd() {
 		cmd.CpOption = UserClassPath
 	}
 
-	fmt.Println(cmd.XjreOption)
-	fmt.Println(cmd.CpOption)
+	fmt.Println("start gvm -Xjre = " + cmd.XjreOption)
+	fmt.Println("start gvm -cp = " + cmd.CpOption)
 
 	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
 

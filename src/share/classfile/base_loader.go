@@ -12,10 +12,10 @@ type Loader interface {
 }
 
 /*
-创建一个通配符类型Entry
-将path下的所有jar包文件的路径作为string创建一个zipEntry
-最后返回一个path路径下所有jar包构成的zipEntry的数组
-后续可以通过readClass直接对数组中的所有zipEntry类型的jar包进行遍历，从而搜索class文件
+创建一个通配符类型Entry.
+将path下的所有jar包文件的路径作为string创建一个zipEntry.
+最后返回一个path路径下所有jar包构成的zipEntry的数组.
+后续可以通过readClass直接对数组中的所有zipEntry类型的jar包进行遍历，从而搜索class文件.
 */
 func jars(path string) []string {
 	// 获取路径(不包含通配符字符),remove *
@@ -43,12 +43,11 @@ func jars(path string) []string {
 }
 
 /*
-查找jre目录的路径
+查找jre目录的路径.
 */
 func getJreDirPath(jreOption string) string {
 	// 如果用户输入了-Xjre 参数
 	if jreOption != "" && exists(jreOption) {
-		//fmt.Printf("[gvm][getJreDir] 获取到/jre的路径 : %v\n", jreOption)
 		return jreOption
 	}
 	/*
@@ -56,7 +55,6 @@ func getJreDirPath(jreOption string) string {
 		在 './jre' 下找
 	*/
 	if exists("./jre") {
-		//fmt.Printf("[gvm][getJreDir] 获取到/jre的路径\n")
 		return "./jre"
 	}
 
@@ -65,7 +63,6 @@ func getJreDirPath(jreOption string) string {
 	在 JAVA_HOME中找
 	*/
 	if jh := os.Getenv("JAVA_HOME"); jh != "" {
-		//fmt.Printf("[gvm][getJreDir] find JAVA_HOME dir")
 		return filepath.Join(jh, "jre")
 	}
 
@@ -74,7 +71,7 @@ func getJreDirPath(jreOption string) string {
 }
 
 /*
-判断path目录是否存在
+判断path目录是否存在.
 */
 func exists(path string) bool {
 	// stat获取项目中path的文件信息

@@ -1,6 +1,7 @@
 package classfile
 
 import (
+	"fmt"
 	"github.com/zouzhihao-994/gvm/src/share/exception"
 	"sync"
 )
@@ -44,6 +45,7 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 // @param fileName 类名
 func (loader *ClassLoader) Loading(fileName string) []byte {
 	fileName = fileName + ".class"
+	fmt.Println("loadding calss file -> " + fileName)
 	var data []byte
 
 	// 从启动类加载器中加载
@@ -61,6 +63,6 @@ func (loader *ClassLoader) Loading(fileName string) []byte {
 		return data
 	}
 
-	exception.GvmError{Msg: "classfiel not found"}.Throw()
+	exception.GvmError{Msg: "classfile not found"}.Throw()
 	return nil
 }

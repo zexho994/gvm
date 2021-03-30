@@ -202,23 +202,23 @@ func (j *JClassInstance) jci_prepare() {
 		desc := jFields[idx].Descriptor()
 		switch desc {
 		case "I":
-			slot = utils.Slot{Num: 0, Type: utils.SlotInt}
+			slot = utils.Slot{Num: 0, Type: utils.SlotInt, Ref: nil}
 		case "B":
-			slot = utils.Slot{Num: 0, Type: utils.SlotByte}
+			slot = utils.Slot{Num: 0, Type: utils.SlotByte, Ref: nil}
 		case "D":
-			slot = utils.Slot{Num: 0, Type: utils.SlotDouble}
+			slot = utils.Slot{Num: 0, Type: utils.SlotDouble, Ref: nil}
 		case "F":
-			slot = utils.Slot{Num: 0, Type: utils.SlotFloat}
+			slot = utils.Slot{Num: 0, Type: utils.SlotFloat, Ref: nil}
 		case "J":
-			slot = utils.Slot{Num: 0, Type: utils.SlotLong}
+			slot = utils.Slot{Num: 0, Type: utils.SlotLong, Ref: nil}
 		case "S":
-			slot = utils.Slot{Num: 0, Type: utils.SlotShort}
+			slot = utils.Slot{Num: 0, Type: utils.SlotShort, Ref: nil}
 		case "Z":
-			slot = utils.Slot{Num: 0, Type: utils.SlotBoolean}
+			slot = utils.Slot{Num: 0, Type: utils.SlotBoolean, Ref: nil}
 		case "L":
 			exception.GvmError{Msg: "jclass prepare Error"}.Throw()
-		default: // refrence type
-			slot = utils.Slot{Type: utils.SlotRef, Ref: nil}
+		default:
+			slot = utils.Slot{Num: 0, Type: utils.SlotRef, Ref: nil}
 		}
 
 		vars.AddField(jFields[idx].Name(), slot)
