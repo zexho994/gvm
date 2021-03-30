@@ -130,6 +130,7 @@ var (
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
+	lcmp      = &comparisons.LCMP{}
 	fcmpg     = &comparisons.FCMPG{}
 	fcmpl     = &comparisons.FCMPL{}
 	if_icmpge = &comparisons.If_ICMPGE{}
@@ -455,8 +456,8 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	//	return i2c
 	//case 0x93:
 	//	return i2s
-	//case 0x94:
-	//	return lcmp
+	case 0x94:
+		return lcmp
 	case 0x95:
 		return fcmpl
 	case 0x96:

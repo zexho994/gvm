@@ -74,7 +74,6 @@ func StartGvmByCmd() {
 	fmt.Println("start gvm -cp = " + cmd.CpOption)
 
 	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
-
 }
 
 func startJVM(className, jrePath, userClassPath string) {

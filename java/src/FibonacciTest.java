@@ -4,8 +4,7 @@
  */
 public class FibonacciTest {
     public static void main(String[] args) {
-        long x = fibonacci(30);
-        System.out.println(x);
+        long x = fibonacci(1);
     }
 
     private static long fibonacci(long n) {
