@@ -21,7 +21,7 @@
 
 **命令行启动：**
 
-1. 进入/src/share/ 路径下，直接执行
+1. 在项目根路径下，直接执行
 
     ```go
     ./share -Xjre <jre path> -cp <class path> <class name>
@@ -33,7 +33,7 @@
 
 **从main()方法启动：**
 
-1. 如果使用main()方法启动，同样需要保证传入启动参数，同样进入到/src/share路径下，然后执行,参数的定义与命令后启动相同。
+1. 如果使用main()方法启动，同样需要保证传入启动参数，同样进入到项目根路径下，然后执行,参数的定义与命令后启动相同。
 
     ```go
     go run main.go -Xjre <jre path> -cp <class path> <class name>
