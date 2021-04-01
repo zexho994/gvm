@@ -45,7 +45,7 @@
 
 ### 静态字段 & 实例字段 打印
 
-```go
+```java
 public class AlgorithmTest {
   static int i = 994;
   static float f = 994f;
@@ -67,7 +67,7 @@ public class AlgorithmTest {
 ```
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6ed8d5d-4ab2-4437-afbd-c67ab7e17c8e/Untitled.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e6ed8d5d-4ab2-4437-afbd-c67ab7e17c8e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210331%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210331T005901Z&X-Amz-Expires=86400&X-Amz-Signature=d33f1a70bb739e620862d07f8231a426182083cf4d3587eb8631bd651863ecaa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
-```go
+```java
 public class PrintFieldsTest{
     public int i = 994;
     public float f = 994f;
@@ -92,7 +92,7 @@ public class PrintFieldsTest{
 
 ### gvm 四则运算
 
-```go
+```java
 public class AlgorithmTest {
   
   static int i = 994;
@@ -149,7 +149,7 @@ public class AlgorithmTest {
 
 `if`  & `while`  & `for`
 
-```go
+```java
 public static void if_test(){
       int n = 10;
       if (n > 9){
