@@ -65,7 +65,7 @@ public class AlgorithmTest {
 
 }
 ```
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6ed8d5d-4ab2-4437-afbd-c67ab7e17c8e/Untitled.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e6ed8d5d-4ab2-4437-afbd-c67ab7e17c8e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210331%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210331T005901Z&X-Amz-Expires=86400&X-Amz-Signature=d33f1a70bb739e620862d07f8231a426182083cf4d3587eb8631bd651863ecaa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![pic1](https://tva1.sinaimg.cn/large/008eGmZEly1gphbp71970j307l03zt8y.jpg)
 
 ```java
 public class PrintFieldsTest{
@@ -88,7 +88,7 @@ public class PrintFieldsTest{
 
 }
 ```
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c6557038-575b-4779-80a8-34f17d4198be/Untitled.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c6557038-575b-4779-80a8-34f17d4198be/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210331%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210331T005940Z&X-Amz-Expires=86400&X-Amz-Signature=be8261c037d6178ed2ab21251516ec8cf7f53678e602f6eb2f9cf8a44361dd4c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![pic1](https://tva1.sinaimg.cn/large/008eGmZEly1gphbr3nuvhj307o046glu.jpg)
 
 ### gvm 四则运算
 
@@ -143,7 +143,7 @@ public class AlgorithmTest {
 
 }
 ```
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/19415ef1-aa26-4038-ac7d-889895987251/Untitled.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/19415ef1-aa26-4038-ac7d-889895987251/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210331%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210331T010003Z&X-Amz-Expires=86400&X-Amz-Signature=223b3737cf29d5ecb26abab12a2ac40b4b4941bba424fb67e51cb15fc6e3d9ea&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![pic3](https://tva1.sinaimg.cn/large/008eGmZEly1gphbrw78bij305402p3yk.jpg)
 
 ### 逻辑判断
 
@@ -180,16 +180,15 @@ public static void if_test(){
   }
 ```
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14d46fc7-5779-45d1-88b2-21efa181820e/Untitled.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/14d46fc7-5779-45d1-88b2-21efa181820e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210331%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210331T010019Z&X-Amz-Expires=86400&X-Amz-Signature=871200d8b94d9bfabcb8c4df8783d225adfd81e7f5edcf219ed85d21ae1063f1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![pic4](https://tva1.sinaimg.cn/large/008eGmZEly1gphbtozlsxj304w0avwf5.jpg)
 
 ## 待实现
 
-- [ ]  本地方法调用
+- [ ]  实现 jni
 - [ ]  异常堆栈
-- [ ]  lambda语句支持
+- [ ]  lambda 语句支持
 - [ ]  ⭐多线程
 - [ ]  ⭐协程
 - [ ]  ⭐锁：synchronized
 - [ ]  ⭐反射
-- [ ]  ⭐垃圾回收
-- [ ]  ⭐gvm调优工具
+- [ ]  ⭐gc
