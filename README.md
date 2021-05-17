@@ -63,6 +63,8 @@ public class AlgorithmTest {
 
 }
 ```
+输出
+
 ![pic1](https://tva1.sinaimg.cn/large/008eGmZEly1gphbp71970j307l03zt8y.jpg)
 
 ```java
@@ -86,6 +88,8 @@ public class PrintFieldsTest{
 
 }
 ```
+输出
+
 ![pic1](https://tva1.sinaimg.cn/large/008eGmZEly1gphbr3nuvhj307o046glu.jpg)
 
 ### gvm 四则运算
@@ -141,6 +145,8 @@ public class AlgorithmTest {
 
 }
 ```
+输出
+
 ![pic3](https://tva1.sinaimg.cn/large/008eGmZEly1gphbrw78bij305402p3yk.jpg)
 
 ### 逻辑判断
@@ -177,6 +183,7 @@ public static void if_test(){
     }
   }
 ```
+输出
 
 ![pic4](https://tva1.sinaimg.cn/large/008eGmZEly1gphbtozlsxj304w0avwf5.jpg)
 
@@ -185,8 +192,8 @@ public static void if_test(){
 - [ ]  实现 jni
 - [ ]  异常堆栈
 - [ ]  lambda 语句支持
-- [ ]  ⭐多线程
-- [ ]  ⭐协程
-- [ ]  ⭐锁：synchronized
-- [ ]  ⭐反射
-- [ ]  ⭐gc
+- [ ]  多线程
+- [ ]  协程
+- [ ]  锁：synchronized
+- [ ]  反射
+- [ ]  gc
