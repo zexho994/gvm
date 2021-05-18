@@ -29,8 +29,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename classfile -&gt; classload &amp; remove heap">
-      <change afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor StartGvmByCmd -&gt; GetParameters">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/congifuration/launch_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/launch_configuration.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,17 +195,6 @@
       <filePath value="$PROJECT_DIR$/cmd/gvm/gvm.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/src/share/test" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/src/share/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^TestPrintStaticFields$" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$/test" />
@@ -237,20 +230,32 @@
       <pattern value="^\QTest_startJVM\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_startJVM\E$/^\Qtest1\E$" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" />
       <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
         <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
-        <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" />
       </list>
     </recent_temporary>
   </component>
@@ -282,21 +287,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="13611000" />
-    </task>
-    <task id="LOCAL-00004" summary="缺失的方法补充，测试">
-      <created>1599906476537</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1599906476537</updated>
-    </task>
-    <task id="LOCAL-00005" summary="添加类的访问标志判断方法 checkClassAccess">
-      <created>1599996114124</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1599996114124</updated>
+      <workItem from="1621301336796" duration="15082000" />
     </task>
     <task id="LOCAL-00006" summary="[bugfix] 修改classMember下 public,protected,private的判断逻辑">
       <created>1599996193051</created>
@@ -627,7 +618,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621317716166</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="add test case for cmd/gvm">
+      <created>1621318189045</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1621318189045</updated>
+    </task>
+    <task id="LOCAL-00054" summary="refactor StartGvmByCmd -&gt; GetParameters">
+      <created>1621319138122</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1621319138122</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,8 +707,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="使用gvm native print方法实现输出" />
-    <MESSAGE value="完成GvmOut" />
     <MESSAGE value="添加 cmd 启动命令" />
     <MESSAGE value="支持标准输出字符串" />
     <MESSAGE value="refactor put_field" />
@@ -727,7 +730,9 @@
     <MESSAGE value="rename Perm -&gt; perm" />
     <MESSAGE value="native -&gt; system" />
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename classfile -&gt; classload &amp; remove heap" />
+    <MESSAGE value="add test case for cmd/gvm" />
+    <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor StartGvmByCmd -&gt; GetParameters" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
