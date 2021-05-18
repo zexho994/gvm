@@ -29,7 +29,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new module launcher &amp; move startVM to launcher" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="move interpreter to launcher">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/base_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/base_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/bootstrap_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/bootstrap_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/extension_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/extension_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exception/gvm_error.go" beforeDir="false" afterPath="$PROJECT_DIR$/exception/gvm_error.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,11 +165,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/launcher" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
       <recent name="$PROJECT_DIR$/java/native" />
       <recent name="$PROJECT_DIR$/java" />
-      <recent name="$PROJECT_DIR$/klass" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -263,27 +273,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00010" summary="Class添加初始化标志">
-      <created>1600439591420</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1600439591420</updated>
-    </task>
-    <task id="LOCAL-00011" summary="类的初始化">
-      <created>1600441280214</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1600441280214</updated>
-    </task>
-    <task id="LOCAL-00012" summary="修改Object，支持数组类型">
-      <created>1600491286409</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491286409</updated>
     </task>
     <task id="LOCAL-00013" summary="添加数组对象array_object">
       <created>1600491531359</created>
@@ -607,7 +596,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621325826062</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="func createMainThread()">
+      <created>1621326203630</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1621326203630</updated>
+    </task>
+    <task id="LOCAL-00060" summary="func assertError()">
+      <created>1621327841099</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1621327841099</updated>
+    </task>
+    <task id="LOCAL-00061" summary="move interpreter to launcher">
+      <created>1621328247176</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1621328247176</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,9 +692,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor put_field" />
-    <MESSAGE value="stash" />
-    <MESSAGE value="支持输出本类的实例字段" />
     <MESSAGE value="add ConstantInvokeDynamic" />
     <MESSAGE value="update BootstrapmethodsAttribute" />
     <MESSAGE value="add InstructionIndex32" />
@@ -707,7 +714,10 @@
     <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
     <MESSAGE value="refactor config" />
     <MESSAGE value="new module launcher &amp; move startVM to launcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="new module launcher &amp; move startVM to launcher" />
+    <MESSAGE value="func createMainThread()" />
+    <MESSAGE value="func assertError()" />
+    <MESSAGE value="move interpreter to launcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="move interpreter to launcher" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

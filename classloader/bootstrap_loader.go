@@ -1,15 +1,20 @@
 package classloader
 
-import "path/filepath"
+import (
+	"github.com/zouzhihao-994/gvm/config"
+	"path/filepath"
+)
 
 type BootStrapLoader struct {
 	path string
 	jars []string
 }
 
-func newBootStrapLoader(path string) *BootStrapLoader {
-	jrePath := getJreDirPath(path)
+func newBootStrapLoader() *BootStrapLoader {
+	jrePath := getJreDirPath()
 	libDir := filepath.Join(jrePath, "lib", "*")
+	config.LibJarDir = jrePath
+
 	jars := jars(libDir)
 	return &BootStrapLoader{path: jrePath, jars: jars}
 }

@@ -64,7 +64,7 @@ func ParseInstanceByClassName(className string) *JClassInstance {
 	if perm := Perm().Space[className]; perm != nil {
 		return perm
 	}
-	bytecode := classloader.ClaLoader.Loading(className)
+	bytecode := classloader.Loading(className)
 	jclass := ParseToJClass(bytecode)
 	jci := ParseInstance(jclass)
 	p.Space[className] = jci

@@ -1,6 +1,8 @@
 package classloader
 
 import (
+	"github.com/zouzhihao-994/gvm/config"
+	"github.com/zouzhihao-994/gvm/exception"
 	"os"
 	"path/filepath"
 	"strings"
@@ -45,9 +47,11 @@ func jars(path string) []string {
 /*
 查找jre目录的路径.
 */
-func getJreDirPath(jreOption string) string {
+func getJreDirPath() string {
+	jreOption := config.JrePath
+
 	// 如果用户输入了-Xjre 参数
-	if jreOption != "" && exists(jreOption) {
+	if exists(jreOption) {
 		return jreOption
 	}
 	/*
@@ -66,8 +70,8 @@ func getJreDirPath(jreOption string) string {
 		return filepath.Join(jh, "jre")
 	}
 
-	// 3种情况都不存在jre目录,输出错误
-	panic("[gvm][getJreDir]Can't find jre folder")
+	exception.GvmError{Msg: "jre folder does't exist"}.Throw()
+	return ""
 }
 
 /*

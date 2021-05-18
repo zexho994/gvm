@@ -1,14 +1,18 @@
 package classloader
 
-import "path/filepath"
+import (
+	"github.com/zouzhihao-994/gvm/config"
+	"path/filepath"
+)
 
 type ExtensionLoader struct {
 	path string
 	jars []string
 }
 
-func newExtensionLoader(path string) *ExtensionLoader {
-	extDir := filepath.Join(path, "lib", "ext")
+func newExtensionLoader() *ExtensionLoader {
+	extDir := filepath.Join(config.LibJarDir, "lib", "ext")
+	config.ExtJarDir = extDir
 	el := ExtensionLoader{path: extDir}
 	el.jars = jars(filepath.Join(extDir, "*"))
 	return &el

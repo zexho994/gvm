@@ -12,8 +12,10 @@ import (
 func Interpret(method *jclass.MethodInfo, t *runtime.Thread) {
 	code, err := method.Attributes().AttrCode()
 	utils.AssertError(err, "get arrtibute code error")
+
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, t)
 	t.Push(newFrame)
+
 	loop(t)
 }
 
