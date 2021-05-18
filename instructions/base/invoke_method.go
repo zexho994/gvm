@@ -43,7 +43,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 
 // hard code to print for gvm
 func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) {
-	if method.Klass().Name() == "GvmOut" && method.Name() == "to" {
+	if method.Klass().ThisClass == "GvmOut" && method.Name() == "to" {
 		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":

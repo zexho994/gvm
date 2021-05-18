@@ -24,32 +24,24 @@ type Klass struct {
 	AccessFlags uint16
 	// 本类
 	ThisClassIdx uint16
+	ThisClass    string
 	// 父类
 	SuperClassIdx uint16
+	SuperClass    *Klass
 	// 接口
 	InterfacesCount uint16
 	InterfaceUints  []uint16
+	Interfaces      []*Klass
 	// 字段表,用于表示接口或者类中声明的变量
 	FieldsCount uint16
+	Fields      Fields
 	// 方法表
 	MethodsCount uint16
-	//Methods      klass.Methods
+	Methods      Methods
 	// 属性表
 	AttributesCount uint16
+	Attributes      attribute.AttributesInfo
 
-	// 常量池
-	// 本类
-	ThisClass string
-	// 父类
-	SuperClass *Klass
-	// 接口
-	Interfaces []*Klass
-	// 字段表,用于表示接口或者类中声明的变量
-	Fields Fields
-	// 方法表
-	Methods Methods
-	// 属性表
-	Attributes attribute.AttributesInfo
 	// 初始化标识
 	IsInit     bool
 	StaticVars *StaticFieldVars
@@ -74,11 +66,11 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.ThisClass = kl.ConstantPool.GetClassName(kl.ThisClassIdx)
 	// 父类
 	kl.SuperClassIdx = reader.ReadUint16()
-	kl.SuperClass = parseSuper(kl)
+	kl.SuperClass = kl.parseSuper()
 	// 接口数量 & 列表
 	kl.InterfacesCount = reader.ReadUint16()
 	kl.InterfaceUints = reader.ReadUint16Array(kl.InterfacesCount)
-	kl.Interfaces = parseInterfaces(kl)
+	kl.Interfaces = kl.parseInterfaces()
 	// 字段数量 & 列表
 	kl.FieldsCount = reader.ReadUint16()
 	kl.Fields = parseFields(kl.FieldsCount, reader, kl.ConstantPool)
@@ -94,6 +86,7 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	Perm().Space[kl.ThisClass] = kl
 	// 执行链接步骤
 	kl.Linked()
+	kl.init()
 	return kl
 }
 
@@ -114,22 +107,22 @@ func paresMajorVersion(reader *loader.ClassReader) uint16 {
 
 }
 
-func ParseInstanceByClassName(className string) *Klass {
+func ParseByClassName(className string) *Klass {
 	if k := Perm().Space[className]; k != nil {
 		return k
 	}
 
 	bytecode := loader.Loading(className)
 	reader := &loader.ClassReader{Bytecode: bytecode}
-	jci := ParseToKlass(reader)
+	klass := ParseToKlass(reader)
 
-	Perm().Space[className] = jci
-	return jci
+	Perm().Space[className] = klass
+	return klass
 }
 
 // 递归解析父类
 // todo: parseSuper 和 parseInterfaces 都需要对访问权限进行判断
-func parseSuper(k *Klass) *Klass {
+func (k *Klass) parseSuper() *Klass {
 	thisName := k.ConstantPool.GetClassName(k.ThisClassIdx)
 	if thisName == "java/lang/Object" {
 		return nil
@@ -141,19 +134,19 @@ func parseSuper(k *Klass) *Klass {
 	if supre := perm.Space[superName]; supre != nil {
 		return supre
 	}
-	return ParseInstanceByClassName(superName)
+	return ParseByClassName(superName)
 }
 
 // 递归解析接口
-func parseInterfaces(jc *Klass) []*Klass {
-	if jc.InterfacesCount < 1 {
+func (k *Klass) parseInterfaces() []*Klass {
+	if k.InterfacesCount < 1 {
 		return nil
 	}
 
-	interfaces := make([]*Klass, jc.InterfacesCount)
-	for i := range jc.Interfaces {
-		iIdx := jc.InterfaceUints[i]
-		iName := jc.ConstantPool.GetClassName(iIdx)
+	interfaces := make([]*Klass, k.InterfacesCount)
+	for i := range k.Interfaces {
+		iIdx := k.InterfaceUints[i]
+		iName := k.ConstantPool.GetClassName(iIdx)
 		iInstance := &Klass{}
 		// 如果方法区中已经有直接引用
 		if iInstance = Perm().Space[iName]; iInstance != nil {
@@ -161,7 +154,7 @@ func parseInterfaces(jc *Klass) []*Klass {
 			continue
 		}
 		// 没有的情况，进行接口类的加载
-		instance := ParseInstanceByClassName(iName)
+		instance := ParseByClassName(iName)
 		// 接口类型验证
 		if !utils.IsInterface(instance.AccessFlags) {
 			panic("[gvm] 接口解析错误 :" + iName + "的父接口对象不为 interface 类型")
@@ -172,17 +165,17 @@ func parseInterfaces(jc *Klass) []*Klass {
 	return interfaces
 }
 
-func (j *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
-	for i := range j.Methods {
-		methodInfo := j.Methods[i]
+func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
+	for i := range k.Methods {
+		methodInfo := k.Methods[i]
 		if !utils.IsStatic(methodInfo.AccessFlag()) {
 			continue
 		}
-		if name != j.ConstantPool.GetUtf8(methodInfo.NameIdx()) ||
-			descriptor != j.ConstantPool.GetUtf8(methodInfo.DescriptorIdx()) {
+		if name != k.ConstantPool.GetUtf8(methodInfo.NameIdx()) ||
+			descriptor != k.ConstantPool.GetUtf8(methodInfo.DescriptorIdx()) {
 			continue
 		}
-		methodInfo.SetKlass(j)
+		methodInfo.SetKlass(k)
 		return methodInfo, nil
 	}
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}
@@ -191,26 +184,26 @@ func (j *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 // FindMethod TODO:可以从父类中加载出方法，并检查权限
 // name: method method
 // @return the MethodInfo belong to the Klass
-func (j *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass) {
-	for i := range j.Methods {
-		methodInfo := j.Methods[i]
+func (k *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass) {
+	for i := range k.Methods {
+		methodInfo := k.Methods[i]
 		if utils.IsStatic(methodInfo.AccessFlag()) {
 			continue
 		}
-		mName := j.ConstantPool.GetUtf8(methodInfo.NameIdx())
-		mDesc := j.ConstantPool.GetUtf8(methodInfo.DescriptorIdx())
+		mName := k.ConstantPool.GetUtf8(methodInfo.NameIdx())
+		mDesc := k.ConstantPool.GetUtf8(methodInfo.DescriptorIdx())
 		if mName == name && mDesc == descriptor {
-			return j.Methods[i], nil, j
+			return k.Methods[i], nil, k
 		}
 	}
 	// 在父类中遍历查找
-	m, err, jc := j.SuperClass.FindMethod(name, descriptor)
+	m, err, jc := k.SuperClass.FindMethod(name, descriptor)
 	if err == nil {
 		return m, nil, jc
 	}
 	// 在接口中遍历查找
-	for i := range j.Interfaces {
-		m, err, jc := j.Interfaces[i].FindMethod(name, descriptor)
+	for i := range k.Interfaces {
+		m, err, jc := k.Interfaces[i].FindMethod(name, descriptor)
 		if err == nil {
 			return m, nil, jc
 		}
@@ -219,10 +212,10 @@ func (j *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass)
 }
 
 // Linked 链接阶段，分为3部分，验证，准备，解析
-func (j *Klass) Linked() {
-	j.jci_verify()
-	j.jci_prepare()
-	j.jci_parse()
+func (k *Klass) Linked() {
+	k.verify()
+	k.prepare()
+	k.parse()
 }
 
 // 验证，目的是确保类或者接口的二进制表示在结构上是正确的
@@ -236,7 +229,7 @@ func (j *Klass) Linked() {
 // 6. 异常表必须引用类合法的指令
 // 7. 验证局部变量表
 // 8. 逐一验证每个字节码的合法性
-func (j *Klass) jci_verify() {
+func (k *Klass) verify() {
 
 }
 
@@ -247,12 +240,12 @@ func (j *Klass) jci_verify() {
 //
 // 注意点：如果静态变量类型为引用类型，则零值为null，且不需要判断引用类是否进行类类加载过程。
 //        这部分的判断逻辑在putstatic,getstatic指令时再执行.
-func (j *Klass) jci_prepare() {
-	jFields := j.Fields
+func (k *Klass) prepare() {
+	jFields := k.Fields
 	vars := NewStaticFieldVars()
 	for idx := range jFields {
 		// 不处理实例变量
-		if !utils.IsStatic(j.Fields[idx].AccessFlags) {
+		if !utils.IsStatic(k.Fields[idx].AccessFlags) {
 			continue
 		}
 		var slot utils.Slot
@@ -280,13 +273,13 @@ func (j *Klass) jci_prepare() {
 
 		vars.AddField(jFields[idx].Name(), slot)
 	}
-	j.StaticVars = vars
+	k.StaticVars = vars
 }
 
-func (j *Klass) jci_parse() {
+func (k *Klass) parse() {
 
 }
 
-func (j Klass) Name() string {
-	return j.ThisClass
+func (k *Klass) init() {
+
 }

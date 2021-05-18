@@ -27,7 +27,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 
 	// 还未加载过
 	if class == nil {
-		class = klass.ParseInstanceByClassName(className)
+		class = klass.ParseByClassName(className)
 		perm.Space[className] = class
 	}
 

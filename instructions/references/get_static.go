@@ -22,7 +22,7 @@ func (i *GET_STATIC) Execute(frame *runtime.Frame) {
 
 	// 判断是否需要进行加载
 	if jci == nil {
-		jci = klass.ParseInstanceByClassName(className)
+		jci = klass.ParseByClassName(className)
 		klass.Perm().Space[className] = jci
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread())

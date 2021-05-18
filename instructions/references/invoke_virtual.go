@@ -21,7 +21,7 @@ func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	permSpace := klass.Perm().Space
 	jc := permSpace[classNameStr]
 	if jc == nil {
-		jc = klass.ParseInstanceByClassName(classNameStr)
+		jc = klass.ParseByClassName(classNameStr)
 	}
 	utils.AssertTrue(jc != nil, "NullPointerException")
 	methodInfo, err, _ := jc.FindMethod(methodNameStr, methodDescStr)

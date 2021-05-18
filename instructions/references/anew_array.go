@@ -21,7 +21,7 @@ func (i *ANEW_ARRAY) Execute(frame *runtime.Frame) {
 	cname := c.Name()
 	jc := klass.Perm().Space[cname]
 	if jc == nil {
-		jc = klass.ParseInstanceByClassName(cname)
+		jc = klass.ParseByClassName(cname)
 	}
 	jarry := oops.NewRefJarray(uint32(arrayLength), jc)
 	arrayInstance := oops.NewArrayOopInstance(&jarry)

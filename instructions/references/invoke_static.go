@@ -23,7 +23,7 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	perm := klass.Perm()
 	class := perm.Space[className]
 	if class == nil {
-		class = klass.ParseInstanceByClassName(className)
+		class = klass.ParseByClassName(className)
 	}
 	name, _type := contantMethod.NameAndDescriptor()
 	methodInfo, err := class.FindStaticMethod(name, _type)

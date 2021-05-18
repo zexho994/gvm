@@ -3,7 +3,7 @@ package launcher
 import (
 	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/klass"
-	loader "github.com/zouzhihao-994/gvm/loader"
+	"github.com/zouzhihao-994/gvm/loader"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -12,8 +12,9 @@ func StartVM() {
 	loader.InitClassLoader()
 	classFile := loader.Loading(config.ClassName)
 	reader := &loader.ClassReader{Bytecode: classFile}
-	ji := klass.ParseToKlass(reader)
-	mainMethod, err := ji.FindStaticMethod("main", "([Ljava/lang/String;)V")
+	k := klass.ParseToKlass(reader)
+
+	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	utils.AssertError(err, "start vm error")
 	utils.AssertTrue(mainMethod != nil, "mainMethod() missing")
 
