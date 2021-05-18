@@ -5,14 +5,13 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/jclass"
 	"github.com/zouzhihao-994/gvm/runtime"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // Interpret code 解释器
 func Interpret(method *jclass.MethodInfo, t *runtime.Thread) {
 	code, err := method.Attributes().AttrCode()
-	if err != nil {
-		return
-	}
+	utils.AssertError(err, "get arrtibute code error")
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, t)
 	t.Push(newFrame)
 	loop(t)

@@ -6,15 +6,17 @@ import (
 	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
 	"github.com/zouzhihao-994/gvm/runtime"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 func StartVM() {
 	classloader.InitClassLoader()
 	instance := jclass.ParseInstanceByClassName(config.ClassName)
+
 	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
-	if err != nil || method == nil {
-		panic(err)
-	}
+	utils.AssertError(err, "start vm error")
+	utils.AssertTrue(method != nil, "main() missing")
+
 	mainThread := createMainThread()
 	interpreter.Interpret(method, mainThread)
 }

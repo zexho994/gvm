@@ -15,3 +15,9 @@ func AssertFalse(flag bool, msg string) {
 		panic(exception.GvmError{Msg: msg})
 	}
 }
+
+func AssertError(err error, msg string) {
+	if err != nil {
+		panic(msg + ", " + err.Error())
+	}
+}
