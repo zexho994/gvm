@@ -11,24 +11,18 @@ type ConstantInterfaceMethodInfo struct {
 	NameAndTypeIdx uint16
 }
 
-/*
-读取数据
-*/
+// ReadInfo /*
 func (im *ConstantInterfaceMethodInfo) ReadInfo(reader *loader.ClassReader) {
 	im.ClassIdx = reader.ReadUint16()
 	im.NameAndTypeIdx = reader.ReadUint16()
 }
 
-/*
-获取类名
-*/
+// ClassName /*
 func (im *ConstantInterfaceMethodInfo) ClassName() string {
 	return im.Cp.GetClassName(im.ClassIdx)
 }
 
-/*
-获取描述符
-*/
+// NameAndDescriptor /*
 func (im *ConstantInterfaceMethodInfo) NameAndDescriptor() (string, string) {
 	return im.Cp.GetNameAndType(im.NameAndTypeIdx)
 }

@@ -2,7 +2,7 @@ package constant_pool
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-// 表示字段或者方法
+// ConstantNameAndTypeInfo 表示字段或者方法
 type ConstantNameAndTypeInfo struct {
 	Tag uint8
 	// 常量池索引，对应 ConstantUtf8Info 结构

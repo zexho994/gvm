@@ -8,54 +8,52 @@ import (
 type ConstantPool []ConstantType
 
 const (
-	CONSTANT_Utf8               = 0x01 // utf8 字符串
-	CONSTANT_Interger           = 0x03 // 整形常量，4 bytes
-	CONSTANT_Float              = 0x04 // 浮点常量，4 bytes
-	CONSTANT_Long               = 0x05 // 长整形常量，8 bytes
-	CONSTANT_DOUBLE             = 0x06 // 双精度浮点常量，8 bytes
-	CONSTANT_CLASS              = 0x07 // 类常量
-	CONSTANT_String             = 0x08 // 字符串常量
-	CONSTANT_Fieldref           = 0x09 // 字段的符号引用
-	CONSTANT_InterfaceMethodref = 0x0b // 类方法的符号引用
-	CONSANT_Methodref           = 0x0a // 接口方法的符号引用
-	CONSTANT_NameAndType        = 0x0c // 接口方法的符号引用
-	CONSTANT_MethodHandle       = 0x0f
-	CONSTANT_MethodType         = 0x10 // 表示方法类型
-	CONSAANT_InvokeDynamic      = 0x12
+	ConstantUtf8               = 0x01 // utf8 字符串
+	ConstantInterger           = 0x03 // 整形常量，4 bytes
+	ConstantFloat              = 0x04 // 浮点常量，4 bytes
+	ConstantLong               = 0x05 // 长整形常量，8 bytes
+	ConstantDouble             = 0x06 // 双精度浮点常量，8 bytes
+	ConstantClass              = 0x07 // 类常量
+	ConstantString             = 0x08 // 字符串常量
+	ConstantFieldref           = 0x09 // 字段的符号引用
+	ConstantInterfacemethodref = 0x0b // 类方法的符号引用
+	ConsantMethodref           = 0x0a // 接口方法的符号引用
+	ConstantNameandtype        = 0x0c // 接口方法的符号引用
+	ConstantMethodhandle       = 0x0f
+	ConstantMethodtype         = 0x10 // 表示方法类型
+	ConsaantInvokedynamic      = 0x12
 )
 
-/*
-根据tag类型创建匹配的结构
-*/
+// NewConstantInfo 根据tag类型创建匹配的结构
 func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	switch tag {
-	case CONSTANT_Interger:
+	case ConstantInterger:
 		return &ConstantIntegerInfo{Tag: tag}
-	case CONSTANT_Float:
+	case ConstantFloat:
 		return &ConstantFloatInfo{Tag: tag}
-	case CONSTANT_Long:
+	case ConstantLong:
 		return &ConstantLongInfo{Tag: tag}
-	case CONSTANT_DOUBLE:
+	case ConstantDouble:
 		return &ConstantDoubleInfo{Tag: tag}
-	case CONSTANT_Utf8:
+	case ConstantUtf8:
 		return &ConstantUtf8Info{Tag: tag}
-	case CONSTANT_String:
+	case ConstantString:
 		return &ConstantStringInfo{Tag: tag, Cp: pool}
-	case CONSTANT_CLASS:
+	case ConstantClass:
 		return &ConstantClassInfo{Tag: tag, Cp: pool}
-	case CONSTANT_Fieldref:
+	case ConstantFieldref:
 		return &ConstantFieldInfo{Tag: tag, Cp: pool}
-	case CONSANT_Methodref:
+	case ConsantMethodref:
 		return &ConstantMethodInfo{Tag: tag, Cp: pool}
-	case CONSTANT_InterfaceMethodref:
+	case ConstantInterfacemethodref:
 		return &ConstantInterfaceMethodInfo{Tag: tag, Cp: pool}
-	case CONSTANT_NameAndType:
+	case ConstantNameandtype:
 		return &ConstantNameAndTypeInfo{Tag: tag, cp: pool}
-	case CONSTANT_MethodType:
+	case ConstantMethodtype:
 		return &ConstantMethodTypeInfo{Tag: tag, Cp: pool}
-	case CONSTANT_MethodHandle:
+	case ConstantMethodhandle:
 		return &ConstantMethodHandleInfo{Tag: tag, cp: pool}
-	case CONSAANT_InvokeDynamic:
+	case ConsaantInvokedynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:
 		exception.GvmError{Msg: "java.lang.ClassFormatError: constant_pool pool tag!"}.Throw()
@@ -87,7 +85,7 @@ func (pool ConstantPool) GetNameAndType(index uint16) (string, string) {
 	return name, desc
 }
 
-// 读取常量池数据
+// ReadConstantPool 读取常量池数据
 // 解析常量池分为两步：分配内存 -> 解析
 func ReadConstantPool(cpCount uint16, reader *loader.ClassReader) ConstantPool {
 	cp := make([]ConstantType, cpCount)

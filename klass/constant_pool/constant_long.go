@@ -2,7 +2,7 @@ package constant_pool
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-// 常量池中的长整形类型
+// ConstantLongInfo 常量池中的长整形类型
 type ConstantLongInfo struct {
 	Tag uint8
 	val int64
