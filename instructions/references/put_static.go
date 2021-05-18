@@ -20,7 +20,7 @@ func (i PUT_STATIC) Execute(frame *runtime.Frame) {
 	_, fieldDesc := fieldInfo.NameAndDescriptor()
 	// if the class is uninitiallized
 	className := fieldInfo.ClassName()
-	jci := jclass.GetPerm().Space[className]
+	jci := jclass.Perm().Space[className]
 	if !jci.IsInit {
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread())

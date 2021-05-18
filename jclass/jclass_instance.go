@@ -54,20 +54,20 @@ func ParseInstance(jclass *JClass) *JClassInstance {
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	jci.IsInit = false
 	// 保存到方法区
-	GetPerm().Space[jci.ThisClass] = jci
+	Perm().Space[jci.ThisClass] = jci
 	// 执行链接步骤
 	jci.Linked()
 	return jci
 }
 
 func ParseInstanceByClassName(className string) *JClassInstance {
-	if perm := GetPerm().Space[className]; perm != nil {
+	if perm := Perm().Space[className]; perm != nil {
 		return perm
 	}
 	bytecode := classfile.ClaLoader.Loading(className)
 	jclass := ParseToJClass(bytecode)
 	jci := ParseInstance(jclass)
-	perm.Space[className] = jci
+	p.Space[className] = jci
 	return jci
 }
 
@@ -81,7 +81,7 @@ func parseSuper(jclass *JClass) *JClassInstance {
 	// 判断是否存在父类
 	superName := jclass.ConstantPool.GetClassName(jclass.SuperClassIdx)
 	// 方法区存在该类结构
-	perm := GetPerm()
+	perm := Perm()
 	if supre := perm.Space[superName]; supre != nil {
 		return supre
 	}
@@ -100,7 +100,7 @@ func parseInterfaces(jclass *JClass) []*JClassInstance {
 		iName := jclass.ConstantPool.GetClassName(iIdx)
 		iInstance := &JClassInstance{}
 		// 如果方法区中已经有直接引用
-		if iInstance = perm.Space[iName]; iInstance != nil {
+		if iInstance = p.Space[iName]; iInstance != nil {
 			interfaces[i] = iInstance
 			continue
 		}

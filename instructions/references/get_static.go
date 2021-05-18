@@ -18,12 +18,12 @@ func (i *GET_STATIC) Execute(frame *runtime.Frame) {
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	jci := jclass.GetPerm().Space[className]
+	jci := jclass.Perm().Space[className]
 
 	// 判断是否需要进行加载
 	if jci == nil {
 		jci = jclass.ParseInstanceByClassName(className)
-		jclass.GetPerm().Space[className] = jci
+		jclass.Perm().Space[className] = jci
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread())
 		return

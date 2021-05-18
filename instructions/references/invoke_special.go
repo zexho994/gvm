@@ -16,7 +16,7 @@ type INVOKE_SPECIAL struct {
 func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
-	perm := jclass.GetPerm()
+	perm := jclass.Perm()
 	jc := perm.Space[constantMethod.ClassName()]
 
 	exception.AssertTrue(jc != nil, "Class uninitialized")

@@ -18,7 +18,7 @@ func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
 	exception.AssertTrue(methodNameStr != "<init>" && methodNameStr != "<clinit>", "IncompatibleClassChangeError")
 
 	classNameStr := constantMethod.ClassName()
-	permSpace := jclass.GetPerm().Space
+	permSpace := jclass.Perm().Space
 	jc := permSpace[classNameStr]
 	if jc == nil {
 		jc = jclass.ParseInstanceByClassName(classNameStr)

@@ -22,7 +22,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过
-	perm := jclass.GetPerm()
+	perm := jclass.Perm()
 	class := perm.Space[className]
 
 	// 还未加载过

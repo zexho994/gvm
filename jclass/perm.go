@@ -4,18 +4,18 @@ import (
 	"sync"
 )
 
-// Perm 等同于方法区的概念
+// perm 等同于方法区的概念
 // 专门存储 JClassInstance 对象
-type Perm struct {
+type perm struct {
 	Space map[string]*JClassInstance
 }
 
-var perm *Perm
+var p *perm
 var once sync.Once
 
-func GetPerm() *Perm {
+func Perm() *perm {
 	once.Do(func() {
-		perm = &Perm{Space: make(map[string]*JClassInstance)}
+		p = &perm{Space: make(map[string]*JClassInstance)}
 	})
-	return perm
+	return p
 }
