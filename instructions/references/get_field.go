@@ -10,7 +10,7 @@ import (
 	"math"
 )
 
-// 获取对象的字段值
+// GET_FIELD 获取对象的字段值
 type GET_FIELD struct {
 	// 指向运行时常量池中字段的符号引用
 	base.InstructionIndex16

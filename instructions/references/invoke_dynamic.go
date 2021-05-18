@@ -8,12 +8,12 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 调用动态方法
+// InvokeDynamic 调用动态方法
 type InvokeDynamic struct {
 	base.InstructionIndex32
 }
 
-// invokedynamic指令出现的地方称为 "动态调用点"
+// Execute invokedynamic指令出现的地方称为 "动态调用点"
 // 解析出引导方法
 func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
 	constantPool := frame.Method().CP()

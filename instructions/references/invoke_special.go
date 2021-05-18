@@ -8,7 +8,7 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 调用父类方法、实例初始化方法（<init>）、私有方法
+// INVOKE_SPECIAL 调用父类方法、实例初始化方法（<init>）、私有方法
 type INVOKE_SPECIAL struct {
 	base.InstructionIndex16
 }

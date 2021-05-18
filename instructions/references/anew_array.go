@@ -8,7 +8,7 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 创建一个reference类型的数组
+// ANEW_ARRAY 创建一个reference类型的数组
 // index指向当前类的的运行时常量池
 // 对应项应该是一个类、接口、数组类型的符号引用，而且应该已经被解析
 type ANEW_ARRAY struct {

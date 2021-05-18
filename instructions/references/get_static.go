@@ -7,7 +7,7 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 获取类的静态字段值
+// GET_STATIC 获取类的静态字段值
 // index指向当前类的运行时常量池，指向对象应该是一个字段类型的符号引用
 type GET_STATIC struct {
 	base.InstructionIndex16

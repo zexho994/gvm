@@ -7,13 +7,12 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 调用静态方法
-//
+// INVOKE_STATIC 调用静态方法
 type INVOKE_STATIC struct {
 	base.InstructionIndex16
 }
 
-// invoke a static method
+// Execute invoke a static method
 // get the static method -> verify the access flag of method equals static
 // -> parse constant method to
 func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {

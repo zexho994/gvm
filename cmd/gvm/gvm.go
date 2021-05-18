@@ -58,7 +58,7 @@ func PrintUsage() {
 	fmt.Println()
 	fmt.Println("[description]:")
 	fmt.Printf("\t-Xjre : jrePath is the jre folder local \n" +
-		"\t-classPath : path of the class file local,is relative path based /vm\n")
+		"\t-classPath : path of the class file local,is relative path \n")
 }
 
 // StartGvmByCmd 通过命令行模式启动gvm
@@ -80,8 +80,8 @@ func StartGvmByCmd() {
 		cmd.CpOption = launcher.UserClassPath
 	}
 
-	fmt.Println("start gvm -Xjre = " + cmd.XjreOption)
-	fmt.Println("start gvm -cp = " + cmd.CpOption)
+	fmt.Println("gvm -Xjre = " + cmd.XjreOption)
+	fmt.Println("gvm -cp = " + cmd.CpOption)
 
 	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
 }
