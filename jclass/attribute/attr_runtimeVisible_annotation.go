@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // located in the classFile, field_info, method_info
 type Attr_RuntimeVisibleAnnotation struct {
@@ -50,7 +50,7 @@ type arrayValue struct {
 	valuesNum uint16
 }
 
-func (attr *Attr_RuntimeVisibleAnnotation) parse(reader *classfile.ClassReader) {
+func (attr *Attr_RuntimeVisibleAnnotation) parse(reader *classloader.ClassReader) {
 	// annotations num
 	reader.ReadInt16()
 	// annotations array

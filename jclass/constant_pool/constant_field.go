@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 )
 
 type ConstantFieldInfo struct {
@@ -12,7 +12,7 @@ type ConstantFieldInfo struct {
 	NameAndType      ConstantNameAndTypeInfo
 }
 
-func (field *ConstantFieldInfo) ReadInfo(reader *classfile.ClassReader) {
+func (field *ConstantFieldInfo) ReadInfo(reader *classloader.ClassReader) {
 	field.ClassIndex = reader.ReadUint16()
 	field.NameAndTypeIndex = reader.ReadUint16()
 }

@@ -29,13 +29,62 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename Perm -&gt; perm">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="native -&gt; system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/application_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/application_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/base_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/base_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/bootstrap_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/bootstrap_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/extension_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/extension_loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/load_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/load_dir.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classfile/load_zip.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/load_zip.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interpreter/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/interpreter/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/PrintStaticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintStaticTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/system_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/system_configuration.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heap/heap.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_bootstrapmetods.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_bootstrapmetods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_constantValue.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_constantValue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_deprecated.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_deprecated.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_exception.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_inner_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_inner_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_lineNumberTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_lineNumberTable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_runtimeVisible_annotation.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_runtimeVisible_annotation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_signature.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_signature.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_sourceFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_sourceFile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_stackmaptable.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_stackmaptable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_synthetic.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_synthetic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attributes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_double.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_double.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_float.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_float.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_integer.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_integer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_invoke_dynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_long.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_long.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_name_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_string.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_utf8.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_utf8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/launch_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/launch_configuration.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/system_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/system_configuration.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/java/lang/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/system_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/system_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/runtime_thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/runtime_thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/packet.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/uml.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,11 +207,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/klass" />
       <recent name="$PROJECT_DIR$/native/java" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/native" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
-      <recent name="$PROJECT_DIR$/java/src" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -283,14 +332,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="12172000" />
-    </task>
-    <task id="LOCAL-00002" summary="添加initStaticFinalvar()方法，给类变量赋值">
-      <created>1599821078061</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1599821078061</updated>
+      <workItem from="1621301336796" duration="13296000" />
     </task>
     <task id="LOCAL-00003" summary="update field.go and member_info.go">
       <created>1599821818551</created>
@@ -629,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621312968812</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="native -&gt; system">
+      <created>1621315741332</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1621315741332</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +753,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="补充完整 if_cmp&lt;cond&gt;指令集" />
     <MESSAGE value="Bootstrapmethods attribute(unfinished)" />
     <MESSAGE value="使用gvm native print方法实现输出" />
     <MESSAGE value="完成GvmOut" />
@@ -729,7 +777,8 @@
     <MESSAGE value="Simplifying the gvm.out method" />
     <MESSAGE value="refactor" />
     <MESSAGE value="rename Perm -&gt; perm" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename Perm -&gt; perm" />
+    <MESSAGE value="native -&gt; system" />
+    <option name="LAST_COMMIT_MESSAGE" value="native -&gt; system" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

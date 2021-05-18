@@ -1,7 +1,7 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 type ConstantType interface {
-	ReadInfo(reader *classfile.ClassReader)
+	ReadInfo(reader *classloader.ClassReader)
 }

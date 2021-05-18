@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 /*
 CONSTANT_InvokeDynamic_info {
@@ -23,7 +23,7 @@ type ConstantInvokeDynamic struct {
 	NameAndTypeIndex uint16
 }
 
-func (invoke *ConstantInvokeDynamic) ReadInfo(reader *classfile.ClassReader) {
+func (invoke *ConstantInvokeDynamic) ReadInfo(reader *classloader.ClassReader) {
 	invoke.BootstrapMethodAttrIndex = reader.ReadUint16()
 	invoke.NameAndTypeIndex = reader.ReadUint16()
 }

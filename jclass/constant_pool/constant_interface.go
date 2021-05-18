@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 )
 
 type ConstantInterfaceMethodInfo struct {
@@ -14,7 +14,7 @@ type ConstantInterfaceMethodInfo struct {
 /*
 读取数据
 */
-func (im *ConstantInterfaceMethodInfo) ReadInfo(reader *classfile.ClassReader) {
+func (im *ConstantInterfaceMethodInfo) ReadInfo(reader *classloader.ClassReader) {
 	im.ClassIdx = reader.ReadUint16()
 	im.NameAndTypeIdx = reader.ReadUint16()
 }

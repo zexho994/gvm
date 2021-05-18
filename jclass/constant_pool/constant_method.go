@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 )
 
 // 对应常量池中的 Methodref
@@ -14,7 +14,7 @@ type ConstantMethodInfo struct {
 	nameAndTypeIdx uint16
 }
 
-func (c *ConstantMethodInfo) ReadInfo(reader *classfile.ClassReader) {
+func (c *ConstantMethodInfo) ReadInfo(reader *classloader.ClassReader) {
 	c.classIdx = reader.ReadUint16()
 	c.nameAndTypeIdx = reader.ReadUint16()
 }

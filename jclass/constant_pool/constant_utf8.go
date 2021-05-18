@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 /*
 符号引用的指针都会指向常量池中的索引
@@ -11,7 +11,7 @@ type ConstantUtf8Info struct {
 	Str string
 }
 
-func (utf8 *ConstantUtf8Info) ReadInfo(reader *classfile.ClassReader) {
+func (utf8 *ConstantUtf8Info) ReadInfo(reader *classloader.ClassReader) {
 	length := uint32(reader.ReadUint16())
 	bytes := reader.ReadBytes(length)
 	utf8.Str = decodeMUTF8(bytes)

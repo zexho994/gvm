@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"math"
 )
 
@@ -11,7 +11,7 @@ type ConstantFloatInfo struct {
 	val float32
 }
 
-func (constantFloatInfo *ConstantFloatInfo) ReadInfo(reader *classfile.ClassReader) {
+func (constantFloatInfo *ConstantFloatInfo) ReadInfo(reader *classloader.ClassReader) {
 	bytes := reader.ReadUint32()
 	// 转化成float32
 	constantFloatInfo.val = math.Float32frombits(bytes)

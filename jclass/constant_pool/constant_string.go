@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 )
 
 // Tag = CONSTANT_String (8)
@@ -15,7 +15,7 @@ type ConstantStringInfo struct {
 /*
 读取字符串的常量池索引
 */
-func (constantStringInfo *ConstantStringInfo) ReadInfo(reader *classfile.ClassReader) {
+func (constantStringInfo *ConstantStringInfo) ReadInfo(reader *classloader.ClassReader) {
 	constantStringInfo.strIdx = reader.ReadUint16()
 }
 

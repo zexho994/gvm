@@ -1,7 +1,7 @@
 package jclass
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
@@ -102,7 +102,7 @@ func (m MethodInfo) Attributes() attribute.AttributesInfo {
 }
 
 // 解析方法表
-func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool.ConstantPool) Methods {
+func parseMethod(count uint16, reader *classloader.ClassReader, pool constant_pool.ConstantPool) Methods {
 	methods := make([]*MethodInfo, count)
 	for i := range methods {
 		method := &MethodInfo{}

@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // 表示字段或者方法
 type ConstantNameAndTypeInfo struct {
@@ -14,7 +14,7 @@ type ConstantNameAndTypeInfo struct {
 	cp              ConstantPool
 }
 
-func (constantNameAndTypeInfo *ConstantNameAndTypeInfo) ReadInfo(reader *classfile.ClassReader) {
+func (constantNameAndTypeInfo *ConstantNameAndTypeInfo) ReadInfo(reader *classloader.ClassReader) {
 	constantNameAndTypeInfo.NameIndex = reader.ReadUint16()
 	constantNameAndTypeInfo.DescriptorIndex = reader.ReadUint16()
 }

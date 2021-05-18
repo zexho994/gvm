@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/exception"
 )
 
@@ -89,7 +89,7 @@ func (pool ConstantPool) GetNameAndType(index uint16) (string, string) {
 
 // 读取常量池数据
 // 解析常量池分为两步：分配内存 -> 解析
-func ReadConstantPool(cpCount uint16, reader *classfile.ClassReader) ConstantPool {
+func ReadConstantPool(cpCount uint16, reader *classloader.ClassReader) ConstantPool {
 	cp := make([]ConstantType, cpCount)
 	for i := uint16(1); i < cpCount; i++ {
 		cp[i] = readConstantInfo(reader, cp)
@@ -106,7 +106,7 @@ func ReadConstantPool(cpCount uint16, reader *classfile.ClassReader) ConstantPoo
 1. 获取tag , 调用newConstantInfo()创建具体的常量
 2. 调用readInfo()方法读取常量信息
 */
-func readConstantInfo(reader *classfile.ClassReader, cp ConstantPool) ConstantType {
+func readConstantInfo(reader *classloader.ClassReader, cp ConstantPool) ConstantType {
 	// tag是第一个标记
 	tag := reader.ReadUint8()
 	// 根据tag创建一个常量对象

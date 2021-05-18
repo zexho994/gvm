@@ -1,4 +1,4 @@
-package classfile
+package classloader
 
 import (
 	"os"

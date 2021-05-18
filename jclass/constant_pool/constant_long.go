@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // 常量池中的长整形类型
 type ConstantLongInfo struct {
@@ -8,7 +8,7 @@ type ConstantLongInfo struct {
 	val int64
 }
 
-func (constantLongInfo *ConstantLongInfo) ReadInfo(reader *classfile.ClassReader) {
+func (constantLongInfo *ConstantLongInfo) ReadInfo(reader *classloader.ClassReader) {
 	bytes := reader.ReadUint64()
 	constantLongInfo.val = int64(bytes)
 }

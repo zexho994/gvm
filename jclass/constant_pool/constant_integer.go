@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // 常量池中的整数类型
 type ConstantIntegerInfo struct {
@@ -8,7 +8,7 @@ type ConstantIntegerInfo struct {
 	val int32
 }
 
-func (constantIntegerInfo *ConstantIntegerInfo) ReadInfo(reader *classfile.ClassReader) {
+func (constantIntegerInfo *ConstantIntegerInfo) ReadInfo(reader *classloader.ClassReader) {
 	bytes := reader.ReadUint32()
 	constantIntegerInfo.val = int32(bytes)
 }

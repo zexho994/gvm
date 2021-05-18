@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
 
@@ -27,7 +27,7 @@ type Attr_Exceptions struct {
 	cp      constant_pool.ConstantPool
 }
 
-func (attr *Attr_Exceptions) parse(reader *classfile.ClassReader) {
+func (attr *Attr_Exceptions) parse(reader *classloader.ClassReader) {
 	exCount := reader.ReadUint16()
 	attr.exTable = make([]uint16, exCount)
 	for i := range attr.exTable {

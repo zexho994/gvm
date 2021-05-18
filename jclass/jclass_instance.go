@@ -1,7 +1,7 @@
 package jclass
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
@@ -64,7 +64,7 @@ func ParseInstanceByClassName(className string) *JClassInstance {
 	if perm := Perm().Space[className]; perm != nil {
 		return perm
 	}
-	bytecode := classfile.ClaLoader.Loading(className)
+	bytecode := classloader.ClaLoader.Loading(className)
 	jclass := ParseToJClass(bytecode)
 	jci := ParseInstance(jclass)
 	p.Space[className] = jci

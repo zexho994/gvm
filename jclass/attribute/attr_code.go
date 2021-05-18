@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
 
@@ -32,7 +32,7 @@ type ExceptionTable struct {
 	catchType uint16
 }
 
-func (c *Attr_Code) parse(reader *classfile.ClassReader) {
+func (c *Attr_Code) parse(reader *classloader.ClassReader) {
 	c.MaxStack = reader.ReadUint16()
 	c.MaxLocals = reader.ReadUint16()
 	c.codeLen = reader.ReadUint32()
@@ -42,7 +42,7 @@ func (c *Attr_Code) parse(reader *classfile.ClassReader) {
 	c.attrInfo = ParseAttributes(c.attrCount, reader, c.cp)
 }
 
-func parseExceptionTable(reader *classfile.ClassReader) []*ExceptionTable {
+func parseExceptionTable(reader *classloader.ClassReader) []*ExceptionTable {
 	tableLen := reader.ReadUint16()
 	table := make([]*ExceptionTable, tableLen)
 	for i := range table {

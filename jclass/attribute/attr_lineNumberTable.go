@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
 
@@ -27,7 +27,7 @@ type lineNumberTable struct {
 	lineNumber uint16
 }
 
-func (attr *Attr_LineNumberTable) parse(reader *classfile.ClassReader) {
+func (attr *Attr_LineNumberTable) parse(reader *classloader.ClassReader) {
 	attr.tableCount = reader.ReadUint16()
 	table := make([]lineNumberTable, attr.tableCount)
 	for i := range table {

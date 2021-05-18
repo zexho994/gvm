@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 )
 
 // 对于非数组类和接口，NameIdx对应的值是类或接口的二进制名称
@@ -13,7 +13,7 @@ type ConstantClassInfo struct {
 	NameIdx uint16
 }
 
-func (c *ConstantClassInfo) ReadInfo(reader *classfile.ClassReader) {
+func (c *ConstantClassInfo) ReadInfo(reader *classloader.ClassReader) {
 	c.NameIdx = reader.ReadUint16()
 }
 func (c *ConstantClassInfo) Name() string {

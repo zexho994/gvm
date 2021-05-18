@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 type Attr_Deprecated struct {
 	nameIdx uint16
@@ -8,7 +8,7 @@ type Attr_Deprecated struct {
 	attrLen uint32
 }
 
-func (attr Attr_Deprecated) parse(reader *classfile.ClassReader) {
+func (attr Attr_Deprecated) parse(reader *classloader.ClassReader) {
 	// nothing
 }
 

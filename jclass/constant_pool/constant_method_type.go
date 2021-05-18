@@ -1,6 +1,6 @@
 package constant_pool
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 type ConstantMethodTypeInfo struct {
 	Tag           uint8
@@ -8,6 +8,6 @@ type ConstantMethodTypeInfo struct {
 	Cp            ConstantPool
 }
 
-func (method *ConstantMethodTypeInfo) ReadInfo(reader *classfile.ClassReader) {
+func (method *ConstantMethodTypeInfo) ReadInfo(reader *classloader.ClassReader) {
 	method.DescriptorIdx = reader.ReadUint16()
 }

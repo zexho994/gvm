@@ -6,7 +6,7 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-func init() {
+func Init() {
 	_system(setOut0, "setOut0", "(Ljava/io/printStream;)V")
 }
 

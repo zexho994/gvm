@@ -1,7 +1,7 @@
 package jclass
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/attribute"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
@@ -40,7 +40,7 @@ type JClass struct {
 
 // ParseToJClass 可以理解为类加载阶段中的<加载>步骤
 func ParseToJClass(bytecode []byte) *JClass {
-	reader := &classfile.ClassReader{Bytecode: bytecode}
+	reader := &classloader.ClassReader{Bytecode: bytecode}
 	jClass := JClass{}
 	// CAFEBABY
 	jClass.Magic = parseMagic(reader)
@@ -72,7 +72,7 @@ func ParseToJClass(bytecode []byte) *JClass {
 	return &jClass
 }
 
-func parseMagic(reader *classfile.ClassReader) uint32 {
+func parseMagic(reader *classloader.ClassReader) uint32 {
 	magic := reader.ReadUint32()
 	if magic != 0xCAFEBABE {
 		panic("[gvm] this file is not support")
@@ -80,14 +80,14 @@ func parseMagic(reader *classfile.ClassReader) uint32 {
 	return magic
 }
 
-func parseMinorVersion(reader *classfile.ClassReader) uint16 {
+func parseMinorVersion(reader *classloader.ClassReader) uint16 {
 	return reader.ReadUint16()
 }
 
-func paresMajorVersion(reader *classfile.ClassReader) uint16 {
+func paresMajorVersion(reader *classloader.ClassReader) uint16 {
 	return reader.ReadUint16()
 }
 
-func parseConstantPool(cpCount uint16, reader *classfile.ClassReader) constant_pool.ConstantPool {
+func parseConstantPool(cpCount uint16, reader *classloader.ClassReader) constant_pool.ConstantPool {
 	return constant_pool.ReadConstantPool(cpCount, reader)
 }

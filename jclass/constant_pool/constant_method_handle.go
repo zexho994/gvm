@@ -1,7 +1,7 @@
 package constant_pool
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/exception"
 )
 
@@ -35,7 +35,7 @@ type ConstantMethodHandleInfo struct {
 	cp             ConstantPool
 }
 
-func (handle *ConstantMethodHandleInfo) ReadInfo(reader *classfile.ClassReader) {
+func (handle *ConstantMethodHandleInfo) ReadInfo(reader *classloader.ClassReader) {
 	handle.ReferenceKind = reader.ReadUint8()
 	handle.ReferenceIndex = reader.ReadUint16()
 }

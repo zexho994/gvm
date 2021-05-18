@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
+	"github.com/zouzhihao-994/gvm/congifuration"
 	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/launcher"
 	"os"
 )
 
@@ -65,7 +65,7 @@ func PrintUsage() {
 func StartGvmByCmd() {
 	cmd := ParseCmd()
 	if cmd.VersionFlag {
-		fmt.Println("gvm version " + launcher.GvmVersion)
+		fmt.Println("gvm version " + congifuration.GvmVersion)
 		return
 	} else if cmd.HelpFlag {
 		PrintUsage()
@@ -73,11 +73,11 @@ func StartGvmByCmd() {
 	}
 
 	if cmd.XjreOption == "" {
-		cmd.XjreOption = launcher.JrePath
+		cmd.XjreOption = congifuration.JrePath
 	}
 
 	if cmd.CpOption == "" {
-		cmd.CpOption = launcher.UserClassPath
+		cmd.CpOption = congifuration.UserClassPath
 	}
 
 	fmt.Println("gvm -Xjre = " + cmd.XjreOption)
@@ -88,7 +88,7 @@ func StartGvmByCmd() {
 
 // 启动
 func startJVM(className, jrePath, userClassPath string) {
-	classfile.InitClassLoader(jrePath, userClassPath)
+	classloader.InitClassLoader(jrePath, userClassPath)
 	instance := jclass.ParseInstanceByClassName(className)
 	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	if err != nil || method == nil {

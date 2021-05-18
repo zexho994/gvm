@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
 
@@ -18,7 +18,7 @@ type Attr_ConstantValue struct {
 	ValeIdx uint16
 }
 
-func (cv *Attr_ConstantValue) parse(reader *classfile.ClassReader) {
+func (cv *Attr_ConstantValue) parse(reader *classloader.ClassReader) {
 	cv.ValeIdx = reader.ReadUint16()
 }
 

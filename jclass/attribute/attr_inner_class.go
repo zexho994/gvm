@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
 
@@ -25,7 +25,7 @@ type innerClass struct {
 	innerClassAccessFlag uint16
 }
 
-func (attr *Attr_InnerClasses) parse(reader *classfile.ClassReader) {
+func (attr *Attr_InnerClasses) parse(reader *classloader.ClassReader) {
 	attr.innerClassesNum = reader.ReadUint16()
 	attr.innerClasses = make([]innerClass, attr.innerClassesNum)
 	for i := 0; i < int(attr.innerClassesNum); i++ {
@@ -33,7 +33,7 @@ func (attr *Attr_InnerClasses) parse(reader *classfile.ClassReader) {
 	}
 }
 
-func (inner *innerClass) parse(reader *classfile.ClassReader, pool constant_pool.ConstantPool) {
+func (inner *innerClass) parse(reader *classloader.ClassReader, pool constant_pool.ConstantPool) {
 	inner.innerClassIdx = reader.ReadUint16()
 	inner.outerClassIdx = reader.ReadUint16()
 	inner.innerNameIdx = reader.ReadUint16()

@@ -1,7 +1,7 @@
 package attribute
 
 import (
-	"github.com/zouzhihao-994/gvm/classfile"
+	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
 )
@@ -19,10 +19,10 @@ func (attrs AttributesInfo) FindAttrInfo(name string) (IAttributeInfo, error) {
 
 type IAttributeInfo interface {
 	Name() string
-	parse(reader *classfile.ClassReader)
+	parse(reader *classloader.ClassReader)
 }
 
-func ParseAttributes(attrCount uint16, reader *classfile.ClassReader, cp constant_pool.ConstantPool) AttributesInfo {
+func ParseAttributes(attrCount uint16, reader *classloader.ClassReader, cp constant_pool.ConstantPool) AttributesInfo {
 	attributes := make(AttributesInfo, attrCount)
 	for i := range attributes {
 		attrNameIdx := reader.ReadUint16()

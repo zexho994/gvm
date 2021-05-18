@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // 保存invokedynamic指令引用的引导方法限定符号
 // classfile 中最多一个 BootstrapmethodsAttribute 属性
@@ -16,7 +16,7 @@ type BootstrapmethodsAttribute struct {
 	methods []BootstrapMethod
 }
 
-func (attr *BootstrapmethodsAttribute) parse(reader *classfile.ClassReader) {
+func (attr *BootstrapmethodsAttribute) parse(reader *classloader.ClassReader) {
 	attr.methodsNum = reader.ReadUint16()
 	attr.methods = make([]BootstrapMethod, attr.methodsNum)
 	for i := 0; i < int(attr.methodsNum); i++ {
@@ -50,7 +50,7 @@ type BootstrapMethod struct {
 }
 
 //
-func (attr *BootstrapMethod) parse(reader *classfile.ClassReader) {
+func (attr *BootstrapMethod) parse(reader *classloader.ClassReader) {
 	attr.MethodRef = reader.ReadUint16()
 	attr.ArgumentsNum = reader.ReadUint16()
 	attr.Arguments = make([]uint16, attr.ArgumentsNum)

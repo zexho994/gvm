@@ -1,9 +1,9 @@
-package classfile
+package classloader
 
 import (
 	"fmt"
+	"github.com/zouzhihao-994/gvm/congifuration"
 	"github.com/zouzhihao-994/gvm/exception"
-	"github.com/zouzhihao-994/gvm/launcher"
 	"sync"
 )
 
@@ -31,7 +31,7 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 	once.Do(func() {
 		BSCLoader = newBootStrapLoader(jre)
 		EXCLoader = newExtensionLoader(BSCLoader.path)
-		GSCLoader = newApplicationLoader(launcher.NativePath)
+		GSCLoader = newApplicationLoader(congifuration.NativePath)
 		APPLoader = newApplicationLoader(cp)
 		ClaLoader = newClassLoader()
 		ClaLoader.Bl = BSCLoader

@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 type Attr_SourceFile struct {
 	nameIdx uint16
@@ -10,7 +10,7 @@ type Attr_SourceFile struct {
 	sourceIdx uint16
 }
 
-func (attr *Attr_SourceFile) parse(reader *classfile.ClassReader) {
+func (attr *Attr_SourceFile) parse(reader *classloader.ClassReader) {
 	attr.sourceIdx = reader.ReadUint16()
 }
 

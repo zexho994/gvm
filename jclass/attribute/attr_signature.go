@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 // 可选的变长属性，位于ClassFile、field_info、method_info的属性表中
 // 包含该字段表示的类，接口，构造器方法或者字段包含类型变量或者参数化类型
@@ -13,7 +13,7 @@ type Attr_Signature struct {
 	signatureIdx uint16
 }
 
-func (attr Attr_Signature) parse(reader *classfile.ClassReader) {
+func (attr Attr_Signature) parse(reader *classloader.ClassReader) {
 	attr.signatureIdx = reader.ReadUint16()
 }
 

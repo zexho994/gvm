@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/zouzhihao-994/gvm/classfile"
+import "github.com/zouzhihao-994/gvm/classloader"
 
 type Attr_StackMapTable struct {
 	nameIdx         uint16
@@ -10,7 +10,7 @@ type Attr_StackMapTable struct {
 	stackMapFrame   []uint16
 }
 
-func (attr Attr_StackMapTable) parse(reader *classfile.ClassReader) {
+func (attr Attr_StackMapTable) parse(reader *classloader.ClassReader) {
 	attr.numberOfEntries = reader.ReadUint16()
 	// 读取剩余长度的数据，暂时不对stackMapFrame数据进行处理
 	reader.ReadBytes(attr.attrLen - 2)
