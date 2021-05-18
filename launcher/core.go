@@ -3,7 +3,6 @@ package launcher
 import (
 	"github.com/zouzhihao-994/gvm/classloader"
 	"github.com/zouzhihao-994/gvm/config"
-	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -13,12 +12,12 @@ func StartVM() {
 	classloader.InitClassLoader()
 	instance := jclass.ParseInstanceByClassName(config.ClassName)
 
-	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
+	mainMethod, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	utils.AssertError(err, "start vm error")
-	utils.AssertTrue(method != nil, "main() missing")
+	utils.AssertTrue(mainMethod != nil, "mainMethod() missing")
 
 	mainThread := createMainThread()
-	interpreter.Interpret(method, mainThread)
+	Interpret(mainMethod, mainThread)
 }
 
 func createMainThread() *runtime.Thread {

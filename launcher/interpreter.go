@@ -1,4 +1,4 @@
-package interpreter
+package launcher
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions"
