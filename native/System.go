@@ -1,7 +1,6 @@
-package lang
+package native
 
 import (
-	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -10,8 +9,8 @@ func Init() {
 	_system(setOut0, "setOut0", "(Ljava/io/printStream;)V")
 }
 
-func _system(method native.Method, name, desc string) {
-	native.Register("java/lang/System", name, desc, method)
+func _system(method Method, name, desc string) {
+	Register("java/lang/System", name, desc, method)
 }
 
 func setOut0(frame *runtime.Frame) {

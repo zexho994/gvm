@@ -130,23 +130,25 @@ var (
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
-	lcmp      = &comparisons.LCMP{}
-	fcmpg     = &comparisons.FCMPG{}
-	fcmpl     = &comparisons.FCMPL{}
-	if_icmpge = &comparisons.If_ICMPGE{}
-	if_icmple = &comparisons.If_ICMPLE{}
-	if_icmpne = &comparisons.If_ACMPNE{}
-	if_icmpeq = &comparisons.If_ACMPEQ{}
-	if_icmplt = &comparisons.If_ICMPLT{}
-	if_icmpgt = &comparisons.If_ICMPGT{}
-	if_acmpeq = &comparisons.If_ACMPEQ{}
-	if_acmpne = &comparisons.If_ACMPNE{}
-	ifge      = &comparisons.IF_GE{}
-	ifle      = &comparisons.IF_LE{}
-	ifne      = &comparisons.IF_NE{}
-	ifgt      = &comparisons.IF_GT{}
-	ifeq      = &comparisons.IF_EQ{}
-	iflt      = &comparisons.IF_LT{}
+	lcmp       = &comparisons.LCMP{}
+	fcmpg      = &comparisons.FCMPG{}
+	fcmpl      = &comparisons.FCMPL{}
+	if_icmpge  = &comparisons.If_ICMPGE{}
+	if_icmple  = &comparisons.If_ICMPLE{}
+	if_icmpne  = &comparisons.If_ACMPNE{}
+	if_icmpeq  = &comparisons.If_ACMPEQ{}
+	if_icmplt  = &comparisons.If_ICMPLT{}
+	if_icmpgt  = &comparisons.If_ICMPGT{}
+	if_acmpeq  = &comparisons.If_ACMPEQ{}
+	if_acmpne  = &comparisons.If_ACMPNE{}
+	if_null    = &comparisons.If_NULL{}
+	if_nonnull = &comparisons.If_NONNULL{}
+	ifge       = &comparisons.IF_GE{}
+	ifle       = &comparisons.IF_LE{}
+	ifne       = &comparisons.IF_NE{}
+	ifgt       = &comparisons.IF_GT{}
+	ifeq       = &comparisons.IF_EQ{}
+	iflt       = &comparisons.IF_LT{}
 
 	getStatic     = &references.GET_STATIC{} // 178
 	putStatic     = &references.PUT_STATIC{}
@@ -554,10 +556,10 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	//	return wide
 	//case 0xc5:
 	//	return multianewarray
-	//case 0xc6:
-	//	return ifnull
-	//case 0xc7:
-	//	return ifnonnull
+	case 0xc6:
+		return if_null
+	case 0xc7:
+		return if_nonnull
 	//case 0xc8:
 	//	return goto_w
 	//case 0xc9:

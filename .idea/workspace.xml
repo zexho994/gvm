@@ -29,7 +29,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor for runtime">
+      <change afterPath="$PROJECT_DIR$/java/PrintOut.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/native/iniinitialize.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invoke_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/comparisons/if.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/comparisons/if.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instrctions_factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/systemInit.go" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +143,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/java/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -148,18 +160,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/test" />
       <recent name="$PROJECT_DIR$/java/src/test" />
       <recent name="$PROJECT_DIR$/java/src/gvm_system" />
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
-      <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/loader" />
       <recent name="$PROJECT_DIR$/klass" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/launcher" />
-      <recent name="$PROJECT_DIR$/cmd/gvm" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -263,20 +275,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00018" summary="添加指令 anewarray，用于创建引用类型数组">
-      <created>1600493582609</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493582609</updated>
-    </task>
-    <task id="LOCAL-00019" summary="添加指令-arraylength，获取数组的长度">
-      <created>1600502018564</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502018564</updated>
     </task>
     <task id="LOCAL-00020" summary="添加指令-xaload，从数组中按索引获取元素到操作数栈中">
       <created>1600502059432</created>
@@ -607,7 +605,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621337895859</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="refactor for oops">
+      <created>1621338122681</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1621338122681</updated>
+    </task>
+    <task id="LOCAL-00068" summary="refactor for runtime">
+      <created>1621338283104</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1621338283104</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,8 +694,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="rename" />
-    <MESSAGE value="补充注释" />
     <MESSAGE value="解析 ReferenceIndex" />
     <MESSAGE value="java class file" />
     <MESSAGE value="refactor: adjust project structure" />
@@ -707,7 +717,9 @@
     <MESSAGE value="refactor: rename" />
     <MESSAGE value="refactor: remove jclass and integrate into klass" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="refactor for oops" />
+    <MESSAGE value="refactor for runtime" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor for runtime" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -729,6 +741,11 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/registry.go</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

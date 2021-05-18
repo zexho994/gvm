@@ -5,11 +5,12 @@ import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
+	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// 执行方法调用
+// InvokeMethod 执行方法调用
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
@@ -18,6 +19,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	var attrCode *attribute.Attr_Code
 	if utils.IsNative(method.AccessFlag()) {
 		gvmPrint(method, frame)
+		native.FindNativeMethod(method)
 		return
 	}
 	attrCode, _ = method.Attributes().AttrCode()

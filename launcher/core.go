@@ -4,6 +4,7 @@ import (
 	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/loader"
+	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -17,6 +18,8 @@ func StartVM() {
 	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	utils.AssertError(err, "start vm error")
 	utils.AssertTrue(mainMethod != nil, "mainMethod() missing")
+
+	native.InitNativeMethod()
 
 	mainThread := createMainThread()
 	Interpret(mainMethod, mainThread)

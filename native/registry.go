@@ -12,6 +12,7 @@ var registry = map[string]Method{}
 func emptyNativeMethod(frame *runtime.Frame) {
 	// do nothing
 }
+
 func Register(className, methodName, methodDescriptor string, method Method) {
 	key := className + "~" + methodName + "~" + methodDescriptor
 	if _, ok := registry[key]; !ok {
@@ -22,7 +23,7 @@ func Register(className, methodName, methodDescriptor string, method Method) {
 }
 
 func FindNativeMethod(method *klass.MethodInfo) Method {
-	key := method.Klass().Name() + "~" + method.Name() + "~" + method.Descriptor()
+	key := method.Klass().ThisClass + "~" + method.Name() + "~" + method.Descriptor()
 	if nativeMethod, ok := registry[key]; ok {
 		return nativeMethod
 	}
