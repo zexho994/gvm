@@ -8,19 +8,14 @@ import (
 )
 
 // Interpret code 解释器
-func Interpret(method *jclass.MethodInfo) {
-	var newThread = &runtime.Thread{
-		PC:    0,
-		Stack: runtime.NewStack(1024),
-	}
+func Interpret(method *jclass.MethodInfo, t *runtime.Thread) {
 	code, err := method.Attributes().AttrCode()
 	if err != nil {
 		return
 	}
-	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, newThread)
-	newThread.Push(newFrame)
-	//native.InitSystemClass(newFrame)
-	loop(newThread)
+	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, t)
+	t.Push(newFrame)
+	loop(t)
 }
 
 func loop(thread *runtime.Thread) {

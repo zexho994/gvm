@@ -5,6 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/runtime"
 )
 
 func StartVM() {
@@ -14,5 +15,13 @@ func StartVM() {
 	if err != nil || method == nil {
 		panic(err)
 	}
-	interpreter.Interpret(method)
+	mainThread := createMainThread()
+	interpreter.Interpret(method, mainThread)
+}
+
+func createMainThread() *runtime.Thread {
+	return &runtime.Thread{
+		PC:    0,
+		Stack: runtime.NewStack(1024),
+	}
 }
