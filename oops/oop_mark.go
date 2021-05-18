@@ -1,6 +1,6 @@
 package oops
 
-// 实例对象标记
+// MarkWords 实例对象标记
 type MarkWords struct {
 }
 

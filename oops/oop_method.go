@@ -1,6 +1,6 @@
 package oops
 
-type Oop_Method struct {
+type OopMethod struct {
 	access       uint16
 	name         string
 	descriptor   string
@@ -10,30 +10,30 @@ type Oop_Method struct {
 	argSlotCount uint
 }
 
-func (m Oop_Method) Access() uint16 {
+func (m OopMethod) Access() uint16 {
 	return m.access
 }
 
-func (m Oop_Method) Name() string {
+func (m OopMethod) Name() string {
 	return m.name
 }
 
-func (m Oop_Method) Descriptor() string {
+func (m OopMethod) Descriptor() string {
 	return m.descriptor
 }
 
-func (m Oop_Method) MaxStack() uint {
+func (m OopMethod) MaxStack() uint {
 	return m.maxStack
 }
 
-func (m Oop_Method) MaxLocals() uint {
+func (m OopMethod) MaxLocals() uint {
 	return m.maxLocals
 }
 
-func (m Oop_Method) Code() []byte {
+func (m OopMethod) Code() []byte {
 	return m.code
 }
 
-func (m Oop_Method) ArgSlotCount() uint {
+func (m OopMethod) ArgSlotCount() uint {
 	return m.argSlotCount
 }

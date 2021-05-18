@@ -7,14 +7,14 @@ import (
 )
 
 const (
-	T_BOOLEAN = 4
-	T_CHAT    = 5
-	T_FLOAT   = 6
-	T_DOUBLE  = 7
-	T_BYTE    = 8
-	T_SHORT   = 9
-	T_INT     = 10
-	T_LONG    = 11
+	TBoolean = 4
+	TChat    = 5
+	TFloat   = 6
+	TDouble  = 7
+	TByte    = 8
+	TShort   = 9
+	TInt     = 10
+	TLong    = 11
 )
 
 type iArray []int32
@@ -41,14 +41,14 @@ type JArray struct {
 }
 
 func (jarray *JArray) SetIVal(idx int32, val int32) {
-	utils.AssertTrue(jarray.arrtype == T_INT, "ArrayTypeError")
+	utils.AssertTrue(jarray.arrtype == TInt, "ArrayTypeError")
 	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(iArray)
 	ia[idx] = val
 }
 
 func (jarray *JArray) SetCVal(idx int32, val int8) {
-	utils.AssertTrue(jarray.arrtype == T_CHAT, "ArrayTypeError")
+	utils.AssertTrue(jarray.arrtype == TChat, "ArrayTypeError")
 	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(cArray)
 	ia[idx] = val

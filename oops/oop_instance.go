@@ -40,7 +40,7 @@ func (o *OopInstance) JString() string {
 	return o.jString
 }
 
-// find the field of oopInstance by field name
+// FindField find the field of oopInstance by field name
 // n: field name
 func (o *OopInstance) FindField(n string) (OopField, bool) {
 	targetOop := o
@@ -52,7 +52,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 	return f, true
 }
 
-// create non-array oops
+// NewOopInstance create non-array oops
 func NewOopInstance(jci *klass.Klass) *OopInstance {
 	return &OopInstance{
 		markWords:      NewMarkWords(),
@@ -62,7 +62,7 @@ func NewOopInstance(jci *klass.Klass) *OopInstance {
 	}
 }
 
-// create array oops
+// NewArrayOopInstance create array oops
 func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 	return &OopInstance{
 		markWords: NewMarkWords(),

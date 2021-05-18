@@ -29,10 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: remove jclass and integrate into klass">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,20 +263,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00016" summary="添加指令 newarray，用于创建数组">
-      <created>1600493060618</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493060619</updated>
-    </task>
-    <task id="LOCAL-00017" summary="添加指令 newarray，用于创建数组">
-      <created>1600493110799</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493110799</updated>
     </task>
     <task id="LOCAL-00018" summary="添加指令 anewarray，用于创建引用类型数组">
       <created>1600493582609</created>
@@ -610,7 +593,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621335998410</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="refactor">
+      <created>1621337317929</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1621337317929</updated>
+    </task>
+    <task id="LOCAL-00066" summary="refactor">
+      <created>1621337895859</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1621337895859</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +634,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="refactor" />
                       </list>
                     </value>
                   </entry>
@@ -696,7 +693,6 @@
     <MESSAGE value="update cmd module" />
     <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
     <MESSAGE value="Simplifying the gvm.out method" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="rename Perm -&gt; perm" />
     <MESSAGE value="native -&gt; system" />
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
@@ -710,7 +706,8 @@
     <MESSAGE value="refactor: remove classloader" />
     <MESSAGE value="refactor: rename" />
     <MESSAGE value="refactor: remove jclass and integrate into klass" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove jclass and integrate into klass" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
