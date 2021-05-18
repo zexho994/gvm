@@ -79,19 +79,13 @@ func (operandStack *OperandStack) PopRef() *oops.OopInstance {
 	return ref
 }
 
-/*
-extend OperandStack size
-the operandStack size + 1
-*/
+// PushSlot /*
 func (operandStack *OperandStack) PushSlot(slot utils.Slot) {
 	operandStack.slots[operandStack.size] = slot
 	operandStack.size++
 }
 
-/*
-reduce the OperandStack size
-the operandStack size - 1
-*/
+// PopSlot /*
 func (operandStack *OperandStack) PopSlot() utils.Slot {
 	operandStack.size--
 	return operandStack.slots[operandStack.size]
@@ -109,7 +103,7 @@ func (operandStack *OperandStack) PopBoolean() bool {
 	return operandStack.PopInt() == 1
 }
 
-// todo: provide more parmes type
+// PopByParamters todo: provide more parmes type
 func (operandStack *OperandStack) PopByParamters(params []string, localVars *LocalVars, isStatic bool) {
 	i := len(params)
 	// method is storages <this.class.Ref> on localvars[0]

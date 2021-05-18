@@ -4,6 +4,7 @@
     <option name="excludedPackages">
       <array>
         <option value="https://github.com/panjf2000/gnet" />
+        <option value="runtime" />
       </array>
     </option>
   </component>

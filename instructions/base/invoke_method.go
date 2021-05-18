@@ -46,22 +46,22 @@ func gvmPrint(method *jclass.MethodInfo, frame *runtime.Frame) {
 		methodDesc := jclass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":
-			fmt.Printf("gvm.out.int => %v \n", frame.OperandStack().PopInt())
+			fmt.Println(frame.OperandStack().PopInt())
 			break
 		case "F":
-			fmt.Printf("gvm.out.float => %v \n", frame.OperandStack().PopFloat())
+			fmt.Println(frame.OperandStack().PopFloat())
 			break
 		case "J":
-			fmt.Printf("gvm.out.long => %v \n", frame.OperandStack().PopLong())
+			fmt.Println(frame.OperandStack().PopLong())
 			break
 		case "D":
-			fmt.Printf("gvm.out.double => %v \n", frame.OperandStack().PopDouble())
+			fmt.Println(frame.OperandStack().PopDouble())
 			break
 		case "Z":
-			fmt.Printf("gvm.out.boolean => %v \n", frame.OperandStack().PopBoolean())
+			fmt.Println(frame.OperandStack().PopBoolean())
 			break
 		case "Ljava/lang/String;":
-			fmt.Printf("gvm.out.string => %v \n", frame.OperandStack().PopRef().JString())
+			fmt.Println(frame.OperandStack().PopRef().JString())
 		case "B":
 		case "S":
 			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()
