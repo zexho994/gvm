@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/zouzhihao-994/gvm/classloader"
-	"github.com/zouzhihao-994/gvm/congifuration"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
 	"os"
@@ -65,7 +65,7 @@ func GetParameters() (xjre, cp, cn string) {
 
 	// 非启动命令
 	if cmd.VersionFlag {
-		fmt.Println("gvm version " + congifuration.GvmVersion)
+		fmt.Println("gvm version " + config.GvmVersion)
 		return
 	} else if cmd.HelpFlag {
 		PrintUsage()
@@ -74,15 +74,19 @@ func GetParameters() (xjre, cp, cn string) {
 
 	// 默认值
 	if cmd.XjreOption == "" {
-		cmd.XjreOption = congifuration.JrePath
+		cmd.XjreOption = config.JrePathDefault
 	}
 	if cmd.CpOption == "" {
-		cmd.CpOption = congifuration.UserClassPath
+		cmd.CpOption = config.UserClassPathDefault
 	}
 
 	cn = cmd.Class
 	xjre = cmd.XjreOption
 	cp = cmd.CpOption
+
+	config.JrePath = xjre
+	config.ClassPath = cp
+	config.ClassName = cn
 
 	fmt.Println("gvm -Xjre = " + xjre)
 	fmt.Println("gvm -cp = " + cp)

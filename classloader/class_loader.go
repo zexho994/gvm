@@ -2,7 +2,7 @@ package classloader
 
 import (
 	"fmt"
-	"github.com/zouzhihao-994/gvm/congifuration"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/exception"
 	"sync"
 )
@@ -31,7 +31,7 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 	once.Do(func() {
 		BSCLoader = newBootStrapLoader(jre)
 		EXCLoader = newExtensionLoader(BSCLoader.path)
-		GSCLoader = newApplicationLoader(congifuration.NativePath)
+		GSCLoader = newApplicationLoader(config.VMNativePathDefault)
 		APPLoader = newApplicationLoader(cp)
 		ClaLoader = newClassLoader()
 		ClaLoader.Bl = BSCLoader
@@ -43,7 +43,7 @@ func InitClassLoader(jre, cp string) *ClassLoader {
 }
 
 // Loading 加载字节码文件到方法区 Perm 中
-// 加载顺序依次为 BootStrapLoader 、 ExtensionLoader 、  ApplicationLoader
+// 加载顺序依次为 BootStrapLoader 、 ExtensionLoader 、 ApplicationLoader
 // 《dynamic class loading in the java virtual machine》 url: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.762&rep=rep1&type=pdf
 // @param fileName 类名
 func (loader *ClassLoader) Loading(fileName string) []byte {

@@ -57,7 +57,7 @@ func (reader *ClassReader) ReadUint64() uint64 {
 	return val
 }
 
-// 读取length长度的数据
+// ReadBytes 读取length长度的数据
 func (reader *ClassReader) ReadBytes(length uint32) []byte {
 	val := reader.Bytecode[:length]
 	reader.Bytecode = reader.Bytecode[length:]
