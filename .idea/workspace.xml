@@ -33,8 +33,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/congifuration/launch_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/launch_configuration.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,10 +159,10 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/native" />
+      <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/klass" />
       <recent name="$PROJECT_DIR$/native/java" />
-      <recent name="$PROJECT_DIR$/java" />
-      <recent name="$PROJECT_DIR$/java/native" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
     </key>
   </component>
@@ -287,14 +285,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="15082000" />
-    </task>
-    <task id="LOCAL-00006" summary="[bugfix] 修改classMember下 public,protected,private的判断逻辑">
-      <created>1599996193051</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1599996193051</updated>
+      <workItem from="1621301336796" duration="15791000" />
     </task>
     <task id="LOCAL-00007" summary="测试">
       <created>1600268536664</created>
@@ -632,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621319138122</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="refactor StartGvmByCmd -&gt; GetParameters">
+      <created>1621319604852</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1621319604852</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

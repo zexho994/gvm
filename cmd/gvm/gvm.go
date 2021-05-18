@@ -37,9 +37,9 @@ func ParseCmd() (cmd *Cmd) {
 	flag.BoolVar(&cmd.HelpFlag, "?", false, "[gvm] print help message")
 	flag.BoolVar(&cmd.VersionFlag, "version", false, "[gvm] pring version and exit")
 	flag.BoolVar(&cmd.VersionFlag, "v", false, "[gvm] pring version and exit")
-	flag.StringVar(&cmd.CpOption, "classfile", "", "[gvm] classfile")
+	flag.StringVar(&cmd.CpOption, "classpath", "", "[gvm] classfile")
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
-	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm] path to jre")
+	flag.StringVar(&cmd.XjreOption, "xjre", "", "[gvm] path to jre")
 	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] print gvm log")
 	flag.StringVar(&cmd.Class, "class", "", "[gvm] class file name")
 	flag.Parse()
@@ -50,11 +50,13 @@ func ParseCmd() (cmd *Cmd) {
 // PrintUsage 输出用法说明
 func PrintUsage() {
 	fmt.Println("[gvm usage]:")
-	fmt.Printf("\t %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
+	fmt.Printf("\t%s -xjre [jrePath] -cp [classPath] -class [class name]\n", os.Args[0])
 	fmt.Println()
 	fmt.Println("[description]:")
-	fmt.Printf("\t-Xjre : jrePath is the jre folder local \n" +
-		"\t-classPath : path of the class file local,is relative path \n")
+	fmt.Println("\t -xjre : jrePath is the jre folder local")
+	fmt.Println("\t -cp : path of the class file local,is relative path")
+	fmt.Println("\t -v : print gvm version")
+	fmt.Println("\t -help : print help ablout gvm")
 }
 
 // GetParameters 通过命令行模式启动gvm
@@ -84,7 +86,7 @@ func GetParameters() (xjre, cp, cn string) {
 
 	fmt.Println("gvm -Xjre = " + xjre)
 	fmt.Println("gvm -cp = " + cp)
-	fmt.Println("gvm -cn = " + cn)
+	fmt.Println("gvm -class = " + cn)
 
 	return
 }
