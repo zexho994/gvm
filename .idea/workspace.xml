@@ -29,16 +29,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor StartGvmByCmd -&gt; GetParameters">
-      <change afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor config">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classloader/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/congifuration/launch_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/congifuration/system_configuration.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exception/assert.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/assert.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/array_length.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/array_length.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/get_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_special.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/put_static.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/stores/iastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/iastore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/stores/sastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/sastore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/method_descriptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_instance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,11 +172,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
       <recent name="$PROJECT_DIR$/java/native" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/klass" />
-      <recent name="$PROJECT_DIR$/native/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -202,39 +209,17 @@
     <configuration name="go build github.com/zouzhihao-994/gvm/cmd/gvm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-Xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java/src PrintStaticTest" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintStaticTest" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/gvm/gvm.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestPrintStaticFields\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestThread in github.com/zouzhihao-994/gvm/src/share/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/src/share/test" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/src/share/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^TestThread$" />
-      <method v="2" />
-    </configuration>
     <configuration name="Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintStaticTest" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
@@ -242,18 +227,6 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTest_startJVM\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest_startJVM\E$/^\Qtest1\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -269,18 +242,12 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
-        <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
       </list>
     </recent_temporary>
   </component>
@@ -313,13 +280,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00007" summary="测试">
-      <created>1600268536664</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1600268536664</updated>
     </task>
     <task id="LOCAL-00008" summary="添加部分注释">
       <created>1600353402186</created>
@@ -657,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621319604852</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="refactor config">
+      <created>1621324002698</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1621324002698</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,7 +699,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="添加 cmd 启动命令" />
     <MESSAGE value="支持标准输出字符串" />
     <MESSAGE value="refactor put_field" />
     <MESSAGE value="stash" />
@@ -757,7 +723,8 @@
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
     <MESSAGE value="add test case for cmd/gvm" />
     <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor StartGvmByCmd -&gt; GetParameters" />
+    <MESSAGE value="refactor config" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor config" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

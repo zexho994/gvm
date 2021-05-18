@@ -1,7 +1,7 @@
 package jclass
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
+	"github.com/zouzhihao-994/gvm/utils"
 	"strings"
 )
 
@@ -30,14 +30,14 @@ func ParseMethodDescriptor(desc string) *MethodDescriptor {
 
 func (md *MethodDescriptor) parse() *MethodDescriptor {
 	// parse (
-	exception.AssertTrue(md.readUint8() == '(', "parse method descriptor error")
+	utils.AssertTrue(md.readUint8() == '(', "parse method descriptor error")
 	// parse params
 	md.parseParamTypes()
 	// parse )
-	exception.AssertTrue(md.readUint8() == ')', "parse method descriptor error")
+	utils.AssertTrue(md.readUint8() == ')', "parse method descriptor error")
 	// parse return type
 	md.parseReturnType()
-	exception.AssertTrue(md.offset == len(md.raw), "parse mthod descriptor error")
+	utils.AssertTrue(md.offset == len(md.raw), "parse mthod descriptor error")
 	return md
 }
 
@@ -103,14 +103,14 @@ func (md *MethodDescriptor) parseReturnType() {
 	}
 	md.unreadUint8()
 	t := md.parseFieldType()
-	exception.AssertTrue(t != "", "parse return type error")
+	utils.AssertTrue(t != "", "parse return type error")
 	md.returnTypt = t
 }
 
 func (md *MethodDescriptor) parseObjectType() string {
 	unread := md.raw[md.offset:]
 	semicolonIndex := strings.IndexRune(unread, ';')
-	exception.AssertFalse(semicolonIndex == -1, "parsing descriptor error")
+	utils.AssertFalse(semicolonIndex == -1, "parsing descriptor error")
 
 	objStart := md.offset - 1
 	objEnd := md.offset + semicolonIndex + 1

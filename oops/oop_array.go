@@ -3,6 +3,7 @@ package oops
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 const (
@@ -40,15 +41,15 @@ type JArray struct {
 }
 
 func (jarray *JArray) SetIVal(idx int32, val int32) {
-	exception.AssertTrue(jarray.arrtype == T_INT, "ArrayTypeError")
-	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
+	utils.AssertTrue(jarray.arrtype == T_INT, "ArrayTypeError")
+	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(iArray)
 	ia[idx] = val
 }
 
 func (jarray *JArray) SetCVal(idx int32, val int8) {
-	exception.AssertTrue(jarray.arrtype == T_CHAT, "ArrayTypeError")
-	exception.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
+	utils.AssertTrue(jarray.arrtype == T_CHAT, "ArrayTypeError")
+	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(cArray)
 	ia[idx] = val
 }

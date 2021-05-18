@@ -15,31 +15,26 @@ type ClassLoader struct {
 	Al       *ApplicationLoader
 }
 
+var once sync.Once
+var ClaLoader *ClassLoader
 var BSCLoader *BootStrapLoader
 var EXCLoader *ExtensionLoader
 var GSCLoader *ApplicationLoader
 var APPLoader *ApplicationLoader
-var once sync.Once
-var ClaLoader *ClassLoader
 
 func newClassLoader() *ClassLoader {
 	return &ClassLoader{}
 }
 
 // InitClassLoader 初始化类加载器
-func InitClassLoader(jre, cp string) *ClassLoader {
+func InitClassLoader() {
 	once.Do(func() {
-		BSCLoader = newBootStrapLoader(jre)
+		BSCLoader = newBootStrapLoader(config.JrePath)
 		EXCLoader = newExtensionLoader(BSCLoader.path)
 		GSCLoader = newApplicationLoader(config.VMNativePathDefault)
-		APPLoader = newApplicationLoader(cp)
+		APPLoader = newApplicationLoader(config.ClassPath)
 		ClaLoader = newClassLoader()
-		ClaLoader.Bl = BSCLoader
-		ClaLoader.El = EXCLoader
-		ClaLoader.Al = APPLoader
 	})
-
-	return ClaLoader
 }
 
 // Loading 加载字节码文件到方法区 Perm 中

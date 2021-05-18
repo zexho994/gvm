@@ -11,8 +11,8 @@ import (
 )
 
 func main() {
-	xjre, cp, cn := GetParameters()
-	startJVM(cn, xjre, cp)
+	GetParameters()
+	startJVM()
 }
 
 // Cmd 命令行结构体
@@ -60,7 +60,7 @@ func PrintUsage() {
 }
 
 // GetParameters 通过命令行模式启动gvm
-func GetParameters() (xjre, cp, cn string) {
+func GetParameters() {
 	cmd := ParseCmd()
 
 	// 非启动命令
@@ -80,25 +80,21 @@ func GetParameters() (xjre, cp, cn string) {
 		cmd.CpOption = config.UserClassPathDefault
 	}
 
-	cn = cmd.Class
-	xjre = cmd.XjreOption
-	cp = cmd.CpOption
+	config.JrePath = cmd.XjreOption
+	config.ClassPath = cmd.CpOption
+	config.ClassName = cmd.Class
 
-	config.JrePath = xjre
-	config.ClassPath = cp
-	config.ClassName = cn
-
-	fmt.Println("gvm -Xjre = " + xjre)
-	fmt.Println("gvm -cp = " + cp)
-	fmt.Println("gvm -class = " + cn)
+	fmt.Println("gvm -Xjre = " + config.JrePath)
+	fmt.Println("gvm -cp = " + config.ClassPath)
+	fmt.Println("gvm -class = " + config.ClassName)
 
 	return
 }
 
 // 启动
-func startJVM(className, jrePath, userClassPath string) {
-	classloader.InitClassLoader(jrePath, userClassPath)
-	instance := jclass.ParseInstanceByClassName(className)
+func startJVM() {
+	classloader.InitClassLoader()
+	instance := jclass.ParseInstanceByClassName(config.ClassName)
 	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	if err != nil || method == nil {
 		panic(err)

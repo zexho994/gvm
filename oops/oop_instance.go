@@ -1,8 +1,8 @@
 package oops
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 type OopInstance struct {
@@ -24,7 +24,7 @@ func (o *OopInstance) Jclass() *jclass.JClassInstance {
 }
 
 func (o *OopInstance) ArrayLength() uint32 {
-	exception.AssertTrue(o.isArray, "class is not array")
+	utils.AssertTrue(o.isArray, "class is not array")
 	return o.jArray.length
 }
 

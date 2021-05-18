@@ -1,9 +1,9 @@
 package references
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/runtime"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 type ARRAY_LENGTH struct {
@@ -12,7 +12,7 @@ type ARRAY_LENGTH struct {
 
 func (i *ARRAY_LENGTH) Execute(frame *runtime.Frame) {
 	arrayRef := frame.OperandStack().PopRef()
-	exception.AssertFalse(arrayRef == nil, "NullPointerException")
+	utils.AssertFalse(arrayRef == nil, "NullPointerException")
 	arrayLength := arrayRef.ArrayLength()
 	frame.OperandStack().PushInt(int32(arrayLength))
 }

@@ -26,7 +26,8 @@ func Test_startJVM(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			startJVM(tt.args.className, tt.args.jrePath, tt.args.userClassPath)
+			//os.Args = []string{"-class="+tt.args.className}
+			main()
 		})
 	}
 }
