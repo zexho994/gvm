@@ -1,4 +1,4 @@
-package launcher
+package main
 
 import (
 	"flag"
@@ -6,8 +6,13 @@ import (
 	"github.com/zouzhihao-994/gvm/classfile"
 	"github.com/zouzhihao-994/gvm/interpreter"
 	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/launcher"
 	"os"
 )
+
+func main() {
+	StartGvmByCmd()
+}
 
 // Cmd 命令行结构体
 type Cmd struct {
@@ -48,9 +53,12 @@ func ParseCmd() *Cmd {
 
 // PrintUsage 输出用法说明
 func PrintUsage() {
-	fmt.Printf("[gvm][usage] : %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
-	fmt.Printf("[gvm][help] -Xjre : jrePath is the jre folder local \n" +
-		"[gvm][help] -classPath : path of the class file local,is relative path based /vm\n")
+	fmt.Println("[gvm usage]:")
+	fmt.Printf("\t %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
+	fmt.Println()
+	fmt.Println("[description]:")
+	fmt.Printf("\t-Xjre : jrePath is the jre folder local \n" +
+		"\t-classPath : path of the class file local,is relative path based /vm\n")
 }
 
 // StartGvmByCmd 通过命令行模式启动gvm
@@ -58,16 +66,18 @@ func StartGvmByCmd() {
 	cmd := ParseCmd()
 	if cmd.VersionFlag {
 		fmt.Println("gvm version 2.0.0")
+		return
 	} else if cmd.HelpFlag {
 		PrintUsage()
+		return
 	}
 
 	if cmd.XjreOption == "" {
-		cmd.XjreOption = JrePath
+		cmd.XjreOption = launcher.JrePath
 	}
 
 	if cmd.CpOption == "" {
-		cmd.CpOption = UserClassPath
+		cmd.CpOption = launcher.UserClassPath
 	}
 
 	fmt.Println("start gvm -Xjre = " + cmd.XjreOption)
