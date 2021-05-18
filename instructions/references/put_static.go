@@ -1,10 +1,9 @@
 package references
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -16,11 +15,11 @@ type PUT_STATIC struct {
 
 func (i PUT_STATIC) Execute(frame *runtime.Frame) {
 	fieldInfo := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
-	exception.AssertFalse(fieldInfo == nil, "static field is null")
+	utils.AssertFalse(fieldInfo == nil, "static field is null")
 	_, fieldDesc := fieldInfo.NameAndDescriptor()
 	// if the class is uninitiallized
 	className := fieldInfo.ClassName()
-	jci := jclass.Perm().Space[className]
+	jci := klass.Perm().Space[className]
 	if !jci.IsInit {
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread())

@@ -2,11 +2,11 @@ package oops
 
 import (
 	"github.com/zouzhihao-994/gvm/exception"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// 实例对象中的实例字段表
+// OopFields 实例对象中的实例字段表
 type OopFields []OopField
 
 type OopField struct {
@@ -25,7 +25,7 @@ func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bo
 	return FindField(name, fields, instance, true)
 }
 
-// 查找实例字段
+// GetField 查找实例字段
 // 如果本类中找不到，就在父类中找
 // name:字段名称
 // isSuper：是否是从子类中进行调用的
@@ -34,7 +34,7 @@ func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
 		if fields[idx].name != name {
 			continue
 		}
-		if jclass.IsFinal(fields[idx].accessFlag) && isSuper {
+		if utils.IsFinal(fields[idx].accessFlag) && isSuper {
 			exception.GvmError{Msg: "final fields not be inheritance"}.Throw()
 		}
 		return fields[idx], true
@@ -42,13 +42,13 @@ func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
 	return OopField{}, false
 }
 
-// 初始化实例对象的实例字段表
-func InitOopFields(instance *jclass.JClassInstance) *OopFields {
+// InitOopFields 初始化实例对象的实例字段表
+func InitOopFields(instance *klass.Klass) *OopFields {
 	fields := OopFields{}
 	jf := instance.Fields
 	for idx := range jf {
 		flag := jf[idx].AccessFlags
-		if jclass.IsStatic(flag) {
+		if utils.IsStatic(flag) {
 			continue
 		}
 		name := jf[idx].Name()

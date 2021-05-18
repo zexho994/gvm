@@ -1,8 +1,8 @@
 package oops
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 type OopInstance struct {
@@ -12,19 +12,19 @@ type OopInstance struct {
 	isString       bool
 	jString        string
 	jArray         *JArray
-	jclassInstance *jclass.JClassInstance
+	jclassInstance *klass.Klass
 }
 
 func (o *OopInstance) MarkWord() *MarkWords {
 	return o.markWords
 }
 
-func (o *OopInstance) Jclass() *jclass.JClassInstance {
+func (o *OopInstance) Jclass() *klass.Klass {
 	return o.jclassInstance
 }
 
 func (o *OopInstance) ArrayLength() uint32 {
-	exception.AssertTrue(o.isArray, "class is not array")
+	utils.AssertTrue(o.isArray, "class is not array")
 	return o.jArray.length
 }
 
@@ -40,7 +40,7 @@ func (o *OopInstance) JString() string {
 	return o.jString
 }
 
-// find the field of oopInstance by field name
+// FindField find the field of oopInstance by field name
 // n: field name
 func (o *OopInstance) FindField(n string) (OopField, bool) {
 	targetOop := o
@@ -52,8 +52,8 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 	return f, true
 }
 
-// create non-array oops
-func NewOopInstance(jci *jclass.JClassInstance) *OopInstance {
+// NewOopInstance create non-array oops
+func NewOopInstance(jci *klass.Klass) *OopInstance {
 	return &OopInstance{
 		markWords:      NewMarkWords(),
 		fields:         InitOopFields(jci),
@@ -62,7 +62,7 @@ func NewOopInstance(jci *jclass.JClassInstance) *OopInstance {
 	}
 }
 
-// create array oops
+// NewArrayOopInstance create array oops
 func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 	return &OopInstance{
 		markWords: NewMarkWords(),

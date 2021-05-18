@@ -2,7 +2,7 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"

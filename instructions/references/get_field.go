@@ -3,8 +3,7 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 	"math"
@@ -18,13 +17,13 @@ type GET_FIELD struct {
 
 func (i *GET_FIELD) Execute(frame *runtime.Frame) {
 	objRef := frame.OperandStack().PopRef()
-	exception.AssertFalse(objRef == nil, exception.NullPointException)
+	utils.AssertFalse(objRef == nil, exception.NullPointException)
 
 	constFieldRef := objRef.Jclass().ConstantPool.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 	fieldName, _ := constFieldRef.NameAndDescriptor()
 	field, r := objRef.FindField(fieldName)
-	exception.AssertTrue(r, exception.FieldsNotFoundError)
-	exception.AssertFalse(jclass.IsStatic(field.AccessFlag()), exception.IncompatibleClassChangeError)
+	utils.AssertTrue(r, exception.FieldsNotFoundError)
+	utils.AssertFalse(utils.IsStatic(field.AccessFlag()), exception.IncompatibleClassChangeError)
 
 	fieldsSlot := field.Slots()[0]
 	if fieldsSlot.Type == utils.SlotLong {

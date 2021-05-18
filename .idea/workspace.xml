@@ -29,62 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="native -&gt; system">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/application_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/application_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/base_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/base_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/bootstrap_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/bootstrap_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/class_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/extension_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/extension_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/load_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/load_dir.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classfile/load_zip.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/load_zip.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc6 &amp; oxc7">
+      <change afterPath="$PROJECT_DIR$/instructions/references/monitor.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heap/heap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new_array.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_bootstrapmetods.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_bootstrapmetods.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_constantValue.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_constantValue.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_deprecated.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_deprecated.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_exception.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_inner_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_inner_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_lineNumberTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_lineNumberTable.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_runtimeVisible_annotation.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_runtimeVisible_annotation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_signature.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_signature.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_sourceFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_sourceFile.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_stackmaptable.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_stackmaptable.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_synthetic.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attr_synthetic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_class.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_double.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_float.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_float.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_integer.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_integer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_invoke_dynamic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_long.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_long.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_method_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_name_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_string.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_utf8.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/constant_utf8.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/constant_pool/jclass_constantPool.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/launch_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/launch_configuration.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/system_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/congifuration/system_configuration.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/java/lang/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/system_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/system_init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/runtime_thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/runtime_thread.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/packet.drawio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/uml.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +58,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="pull" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,6 +80,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="refactor" />
+                    <option name="lastUsedInstant" value="1621317756" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
                     <option name="lastUsedInstant" value="1599144242" />
@@ -183,7 +135,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/java/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -195,23 +147,23 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/test" />
       <recent name="$PROJECT_DIR$/java/src/test" />
       <recent name="$PROJECT_DIR$/java/src/gvm_system" />
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
-      <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/native" />
+      <recent name="$PROJECT_DIR$/loader" />
       <recent name="$PROJECT_DIR$/klass" />
-      <recent name="$PROJECT_DIR$/native/java" />
-      <recent name="$PROJECT_DIR$/java" />
-      <recent name="$PROJECT_DIR$/java/native" />
-      <recent name="$PROJECT_DIR$/cmd/gvm" />
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/launcher" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -231,76 +183,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/zouzhihao-994/gvm/cmd/gvm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-Xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java/src PrintStaticTest" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintOut" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/gvm/gvm.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestPrintFields in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/test" />
+      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintStaticTest" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/test" />
+      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestPrintFields\E$" />
+      <pattern value="^\QTest_startJVM\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/src/share/test" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/src/share/test" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/zouzhihao-994/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^TestPrintStaticFields$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestPrintStaticFields\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestThread in github.com/zouzhihao-994/gvm/src/share/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/src/share/test" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/src/share/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^TestThread$" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <item itemvalue="Go Test.TestPrintFields in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" />
-      <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
+      <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.TestThread in github.com/zouzhihao-994/gvm/src/share/test" />
-        <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/test" />
-        <item itemvalue="Go Test.TestPrintStaticFields in github.com/zouzhihao-994/gvm/src/share/test" />
-        <item itemvalue="Go Test.TestPrintFields in github.com/zouzhihao-994/gvm/test" />
+        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -332,134 +266,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="13296000" />
-    </task>
-    <task id="LOCAL-00003" summary="update field.go and member_info.go">
-      <created>1599821818551</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1599821818551</updated>
-      <workItem from="1599878797353" duration="180000" />
-    </task>
-    <task id="LOCAL-00004" summary="缺失的方法补充，测试">
-      <created>1599906476537</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1599906476537</updated>
-    </task>
-    <task id="LOCAL-00005" summary="添加类的访问标志判断方法 checkClassAccess">
-      <created>1599996114124</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1599996114124</updated>
-    </task>
-    <task id="LOCAL-00006" summary="[bugfix] 修改classMember下 public,protected,private的判断逻辑">
-      <created>1599996193051</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1599996193051</updated>
-    </task>
-    <task id="LOCAL-00007" summary="测试">
-      <created>1600268536664</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1600268536664</updated>
-    </task>
-    <task id="LOCAL-00008" summary="添加部分注释">
-      <created>1600353402186</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1600353402186</updated>
-    </task>
-    <task id="LOCAL-00009" summary="可执行包">
-      <created>1600435661348</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1600435661348</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Class添加初始化标志">
-      <created>1600439591420</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1600439591420</updated>
-    </task>
-    <task id="LOCAL-00011" summary="类的初始化">
-      <created>1600441280214</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1600441280214</updated>
-    </task>
-    <task id="LOCAL-00012" summary="修改Object，支持数组类型">
-      <created>1600491286409</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491286409</updated>
-    </task>
-    <task id="LOCAL-00013" summary="添加数组对象array_object">
-      <created>1600491531359</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491531359</updated>
-    </task>
-    <task id="LOCAL-00014" summary="添加数组类，在Class中添加与数组相关的方法">
-      <created>1600491708153</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491708153</updated>
-    </task>
-    <task id="LOCAL-00015" summary="改造类加载器，支持加载数组">
-      <created>1600492087220</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1600492087220</updated>
-    </task>
-    <task id="LOCAL-00016" summary="添加指令 newarray，用于创建数组">
-      <created>1600493060618</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493060619</updated>
-    </task>
-    <task id="LOCAL-00017" summary="添加指令 newarray，用于创建数组">
-      <created>1600493110799</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493110799</updated>
-    </task>
-    <task id="LOCAL-00018" summary="添加指令 anewarray，用于创建引用类型数组">
-      <created>1600493582609</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1600493582609</updated>
-    </task>
-    <task id="LOCAL-00019" summary="添加指令-arraylength，获取数组的长度">
-      <created>1600502018564</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502018564</updated>
-    </task>
-    <task id="LOCAL-00020" summary="添加指令-xaload，从数组中按索引获取元素到操作数栈中">
-      <created>1600502059432</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502059432</updated>
+      <workItem from="1621301336796" duration="15791000" />
     </task>
     <task id="LOCAL-00021" summary="添加指令 dstore,从操作数栈中获取数据到本地变量表中">
       <created>1600502187926</created>
@@ -678,7 +485,133 @@
       <option name="project" value="LOCAL" />
       <updated>1621315741332</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="rename classfile -&gt; classload &amp; remove heap">
+      <created>1621317716166</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1621317716166</updated>
+    </task>
+    <task id="LOCAL-00053" summary="add test case for cmd/gvm">
+      <created>1621318189045</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1621318189045</updated>
+    </task>
+    <task id="LOCAL-00054" summary="refactor StartGvmByCmd -&gt; GetParameters">
+      <created>1621319138122</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1621319138122</updated>
+    </task>
+    <task id="LOCAL-00055" summary="refactor StartGvmByCmd -&gt; GetParameters">
+      <created>1621319604852</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1621319604852</updated>
+    </task>
+    <task id="LOCAL-00056" summary="refactor config">
+      <created>1621324002698</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1621324002698</updated>
+    </task>
+    <task id="LOCAL-00057" summary="refactor config">
+      <created>1621325170016</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1621325170016</updated>
+    </task>
+    <task id="LOCAL-00058" summary="new module launcher &amp; move startVM to launcher">
+      <created>1621325826062</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1621325826062</updated>
+    </task>
+    <task id="LOCAL-00059" summary="func createMainThread()">
+      <created>1621326203630</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1621326203630</updated>
+    </task>
+    <task id="LOCAL-00060" summary="func assertError()">
+      <created>1621327841099</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1621327841099</updated>
+    </task>
+    <task id="LOCAL-00061" summary="move interpreter to launcher">
+      <created>1621328247176</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1621328247176</updated>
+    </task>
+    <task id="LOCAL-00062" summary="refactor: remove classloader">
+      <created>1621329239863</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1621329239863</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor: rename">
+      <created>1621329596643</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1621329596643</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactor: remove jclass and integrate into klass">
+      <created>1621335998410</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1621335998410</updated>
+    </task>
+    <task id="LOCAL-00065" summary="refactor">
+      <created>1621337317929</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1621337317929</updated>
+    </task>
+    <task id="LOCAL-00066" summary="refactor">
+      <created>1621337895859</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1621337895859</updated>
+    </task>
+    <task id="LOCAL-00067" summary="refactor for oops">
+      <created>1621338122681</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1621338122681</updated>
+    </task>
+    <task id="LOCAL-00068" summary="refactor for runtime">
+      <created>1621338283104</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1621338283104</updated>
+    </task>
+    <task id="LOCAL-00069" summary="new inst 0xc6 &amp; oxc7">
+      <created>1621340274267</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1621340274267</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +638,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="refactor" />
                       </list>
                     </value>
                   </entry>
@@ -753,20 +686,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="Bootstrapmethods attribute(unfinished)" />
-    <MESSAGE value="使用gvm native print方法实现输出" />
-    <MESSAGE value="完成GvmOut" />
-    <MESSAGE value="添加 cmd 启动命令" />
-    <MESSAGE value="支持标准输出字符串" />
-    <MESSAGE value="refactor put_field" />
-    <MESSAGE value="stash" />
-    <MESSAGE value="支持输出本类的实例字段" />
-    <MESSAGE value="add ConstantInvokeDynamic" />
-    <MESSAGE value="update BootstrapmethodsAttribute" />
-    <MESSAGE value="add InstructionIndex32" />
-    <MESSAGE value="rename" />
-    <MESSAGE value="补充注释" />
-    <MESSAGE value="解析 ReferenceIndex" />
     <MESSAGE value="java class file" />
     <MESSAGE value="refactor: adjust project structure" />
     <MESSAGE value="build test" />
@@ -775,10 +694,24 @@
     <MESSAGE value="update cmd module" />
     <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
     <MESSAGE value="Simplifying the gvm.out method" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="rename Perm -&gt; perm" />
     <MESSAGE value="native -&gt; system" />
-    <option name="LAST_COMMIT_MESSAGE" value="native -&gt; system" />
+    <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
+    <MESSAGE value="add test case for cmd/gvm" />
+    <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
+    <MESSAGE value="refactor config" />
+    <MESSAGE value="new module launcher &amp; move startVM to launcher" />
+    <MESSAGE value="func createMainThread()" />
+    <MESSAGE value="func assertError()" />
+    <MESSAGE value="move interpreter to launcher" />
+    <MESSAGE value="refactor: remove classloader" />
+    <MESSAGE value="refactor: rename" />
+    <MESSAGE value="refactor: remove jclass and integrate into klass" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="refactor for oops" />
+    <MESSAGE value="refactor for runtime" />
+    <MESSAGE value="new inst 0xc6 &amp; oxc7" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc6 &amp; oxc7" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -787,12 +720,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go</url>
+          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
           <line>57</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go</url>
+          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
           <line>58</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -800,6 +733,11 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/registry.go</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

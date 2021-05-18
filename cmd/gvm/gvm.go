@@ -3,15 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/zouzhihao-994/gvm/classloader"
-	"github.com/zouzhihao-994/gvm/congifuration"
-	"github.com/zouzhihao-994/gvm/interpreter"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/config"
+	"github.com/zouzhihao-994/gvm/launcher"
 	"os"
 )
 
 func main() {
-	StartGvmByCmd()
+	initParamConfig()
+	launcher.StartVM()
 }
 
 // Cmd 命令行结构体
@@ -30,23 +29,18 @@ type Cmd struct {
 // 对于不同的属性,设置了不同的处理方法
 func ParseCmd() *Cmd {
 	cmd := &Cmd{}
+
 	flag.Usage = PrintUsage
 	flag.BoolVar(&cmd.HelpFlag, "help", false, "[gvm] print help message")
 	flag.BoolVar(&cmd.HelpFlag, "?", false, "[gvm] print help message")
 	flag.BoolVar(&cmd.VersionFlag, "version", false, "[gvm] pring version and exit")
 	flag.BoolVar(&cmd.VersionFlag, "v", false, "[gvm] pring version and exit")
-	flag.StringVar(&cmd.CpOption, "classfile", "", "[gvm] classfile")
+	flag.StringVar(&cmd.CpOption, "classpath", "", "[gvm] classfile")
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
-	flag.StringVar(&cmd.XjreOption, "Xjre", "", "[gvm] path to jre")
-	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] 启用详细输出")
-	flag.StringVar(&cmd.Class, "class", "", "[gvm]class file name")
+	flag.StringVar(&cmd.XjreOption, "xjre", "", "[gvm] path to jre")
+	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] print gvm log")
+	flag.StringVar(&cmd.Class, "class", "", "[gvm] class file name")
 	flag.Parse()
-
-	args := flag.Args()
-	if len(args) > 0 {
-		cmd.Class = args[0]
-		cmd.Args = args[1:]
-	}
 
 	return cmd
 }
@@ -54,45 +48,40 @@ func ParseCmd() *Cmd {
 // PrintUsage 输出用法说明
 func PrintUsage() {
 	fmt.Println("[gvm usage]:")
-	fmt.Printf("\t %s -Xjre [jrePath] [classPath] [args...]\n", os.Args[0])
-	fmt.Println()
+	fmt.Printf("\t%s -xjre [jrePath] -cp [classPath] -class [class name]\n\n", os.Args[0])
 	fmt.Println("[description]:")
-	fmt.Printf("\t-Xjre : jrePath is the jre folder local \n" +
-		"\t-classPath : path of the class file local,is relative path \n")
+	fmt.Println("\t -xjre : jrePath is the jre folder local")
+	fmt.Println("\t -cp : path of the class file local,is relative path")
+	fmt.Println("\t -v : print gvm version")
+	fmt.Println("\t -help : print help ablout gvm")
 }
 
-// StartGvmByCmd 通过命令行模式启动gvm
-func StartGvmByCmd() {
+// initParamConfig 通过命令行模式启动gvm
+func initParamConfig() {
 	cmd := ParseCmd()
+
+	// 非启动命令
 	if cmd.VersionFlag {
-		fmt.Println("gvm version " + congifuration.GvmVersion)
+		fmt.Println("gvm version " + config.GvmVersion)
 		return
 	} else if cmd.HelpFlag {
 		PrintUsage()
 		return
 	}
 
+	// 默认值
 	if cmd.XjreOption == "" {
-		cmd.XjreOption = congifuration.JrePath
+		cmd.XjreOption = config.JrePathDefault
 	}
-
 	if cmd.CpOption == "" {
-		cmd.CpOption = congifuration.UserClassPath
+		cmd.CpOption = config.UserClassPathDefault
 	}
 
-	fmt.Println("gvm -Xjre = " + cmd.XjreOption)
-	fmt.Println("gvm -cp = " + cmd.CpOption)
+	config.JrePath = cmd.XjreOption
+	config.ClassPath = cmd.CpOption
+	config.ClassName = cmd.Class
 
-	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
-}
-
-// 启动
-func startJVM(className, jrePath, userClassPath string) {
-	classloader.InitClassLoader(jrePath, userClassPath)
-	instance := jclass.ParseInstanceByClassName(className)
-	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
-	if err != nil || method == nil {
-		panic(err)
-	}
-	interpreter.Interpret(method)
+	fmt.Println("gvm -Xjre = " + config.JrePath)
+	fmt.Println("gvm -cp = " + config.ClassPath)
+	fmt.Println("gvm -class = " + config.ClassName)
 }

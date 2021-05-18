@@ -3,10 +3,11 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // 创建一个实例
@@ -21,12 +22,12 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过
-	perm := jclass.Perm()
+	perm := klass.Perm()
 	class := perm.Space[className]
 
 	// 还未加载过
 	if class == nil {
-		class = jclass.ParseInstanceByClassName(className)
+		class = klass.ParseByClassName(className)
 		perm.Space[className] = class
 	}
 
@@ -36,7 +37,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	}
 
 	// 初始化一个实例
-	if jclass.IsInterface(class.AccessFlags) || jclass.IsAbstract(class.AccessFlags) {
+	if utils.IsInterface(class.AccessFlags) || utils.IsAbstract(class.AccessFlags) {
 		panic(exception.GvmError{Msg: "[gvm] the interface and abstract cannot be instantiated"})
 	}
 	instance := oops.NewOopInstance(class)

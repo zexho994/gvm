@@ -23,6 +23,12 @@ type IF_LT struct {
 type IF_GT struct {
 	base.InstructionIndex16
 }
+type If_NULL struct {
+	base.InstructionIndex16
+}
+type If_NONNULL struct {
+	base.InstructionIndex16
+}
 
 func (i IF_GE) Execute(frame *runtime.Frame) {
 	val := frame.OperandStack().PopInt()
@@ -57,6 +63,18 @@ func (i IF_GT) Execute(frame *runtime.Frame) {
 func (i IF_LT) Execute(frame *runtime.Frame) {
 	val := frame.OperandStack().PopInt()
 	if val < 0 {
+		base.Branch(frame, int(i.Index))
+	}
+}
+func (i If_NULL) Execute(frame *runtime.Frame) {
+	val := frame.OperandStack().PopRef()
+	if val == nil {
+		base.Branch(frame, int(i.Index))
+	}
+}
+func (i If_NONNULL) Execute(frame *runtime.Frame) {
+	val := frame.OperandStack().PopRef()
+	if val != nil {
 		base.Branch(frame, int(i.Index))
 	}
 }
