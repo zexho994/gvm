@@ -130,6 +130,9 @@ var (
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
+	monitor_enter = &references.MonitorEntry{}
+	monitor_exit  = &references.MonitorExit{}
+
 	lcmp       = &comparisons.LCMP{}
 	fcmpg      = &comparisons.FCMPG{}
 	fcmpl      = &comparisons.FCMPL{}
@@ -548,10 +551,10 @@ func NewInstruction(opcode byte) base.Base_Instruction {
 	//	return checkcast
 	//case 0xc1:
 	//	return instanceof
-	//case 0xc2:
-	//	return monitorenter
-	//case 0xc3:
-	//	return monitorexit
+	case 0xc2:
+		return monitor_enter
+	case 0xc3:
+		return monitor_exit
 	//case 0xc4:
 	//	return wide
 	//case 0xc5:

@@ -29,18 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor for runtime">
-      <change afterPath="$PROJECT_DIR$/java/PrintOut.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/native/iniinitialize.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invoke_method.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/comparisons/if.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/comparisons/if.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instrctions_factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/systemInit.go" beforeDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc6 &amp; oxc7">
+      <change afterPath="$PROJECT_DIR$/instructions/references/monitor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +196,7 @@
     <configuration name="go build github.com/zouzhihao-994/gvm/cmd/gvm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintStaticTest" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintOut" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
@@ -275,13 +267,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00020" summary="添加指令-xaload，从数组中按索引获取元素到操作数栈中">
-      <created>1600502059432</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502059432</updated>
     </task>
     <task id="LOCAL-00021" summary="添加指令 dstore,从操作数栈中获取数据到本地变量表中">
       <created>1600502187926</created>
@@ -619,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621338283104</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="new inst 0xc6 &amp; oxc7">
+      <created>1621340274267</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1621340274267</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +686,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="解析 ReferenceIndex" />
     <MESSAGE value="java class file" />
     <MESSAGE value="refactor: adjust project structure" />
     <MESSAGE value="build test" />
@@ -719,7 +710,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="refactor for oops" />
     <MESSAGE value="refactor for runtime" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor for runtime" />
+    <MESSAGE value="new inst 0xc6 &amp; oxc7" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc6 &amp; oxc7" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
