@@ -19,7 +19,7 @@ type MethodInfo struct {
 	jclass        *JClassInstance
 }
 
-// injected a code attribute for method
+// InjectCodeAttr injected a code attribute for method
 func (m *MethodInfo) InjectCodeAttr() {
 	if !IsNative(m.accessFlag) {
 		panic("[gvm] Inject CodeAttr error , not is native")
@@ -117,4 +117,12 @@ func parseMethod(count uint16, reader *classfile.ClassReader, pool constant_pool
 		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
 	}
 	return methods
+}
+
+func (m *MethodInfo) IsRegisterNatives() bool {
+	return IsStatic(m.accessFlag) && m.Name() == "registerNatives" && m.Descriptor() == "()V"
+}
+
+func (m *MethodInfo) IsInitIDs() bool {
+	return IsStatic(m.accessFlag) && m.Name() == "initIDs" && m.Descriptor() == "()V"
 }

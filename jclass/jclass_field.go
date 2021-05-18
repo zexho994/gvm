@@ -8,9 +8,7 @@ import (
 
 type Fields []FieldInfo
 
-/*
-字段表
-*/
+// FieldInfo /*
 type FieldInfo struct {
 	// 常量池指针
 	ConstantPool constant_pool.ConstantPool

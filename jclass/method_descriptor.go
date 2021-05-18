@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// 方法描述符
+// MethodDescriptor 方法描述符
 type MethodDescriptor struct {
 	// 描述符原始字段
 	raw string
@@ -21,7 +21,7 @@ func (md *MethodDescriptor) Paramters() []string {
 	return md.paramterTypes
 }
 
-// descriptor => (...parameteTypes)...returnType
+// ParseMethodDescriptor descriptor => (...parameteTypes)...returnType
 // for instance: void fun(int) -> (I)V or ; public int method3(Object obj) -> (Ljava/lang/Object)I
 func ParseMethodDescriptor(desc string) *MethodDescriptor {
 	methodDesc := MethodDescriptor{raw: desc}

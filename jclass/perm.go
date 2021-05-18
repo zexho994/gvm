@@ -4,7 +4,7 @@ import (
 	"sync"
 )
 
-// 等同于方法区的概念
+// Perm 等同于方法区的概念
 // 专门存储 JClassInstance 对象
 type Perm struct {
 	Space map[string]*JClassInstance

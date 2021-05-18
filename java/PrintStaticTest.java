@@ -2,6 +2,7 @@
  * @author : zexho
  * @created : 2021-01-07
 **/
+package java
 public class PrintStaticTest{
   static int i = 994;
   static float f = 994f;
@@ -11,6 +12,7 @@ public class PrintStaticTest{
   static String s = "hello world";
 
   public static void main(String[] args){
+    GvmOut.to(i);
     GvmOut.to(i); 
     GvmOut.to(f); 
     GvmOut.to(d); 

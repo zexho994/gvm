@@ -23,10 +23,6 @@ const (
 	ACC_ENUM         = 0x4000 // 表示枚举类型, class fiedl
 )
 
-func getAccessFlags(acc uint16) {
-
-}
-
 func AccPrint(acc uint16) {
 	if IsPublic(acc) {
 		fmt.Println("[gvm] class access Is public")

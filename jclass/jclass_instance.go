@@ -8,7 +8,7 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// 存储在方法区中的对象，也是 JClass 经过链接步骤后得到的对象
+// JClassInstance 存储在方法区中的对象，也是 JClass 经过链接步骤后得到的对象
 // 同一个的类或接口的所有子类/实现类对该部分的依赖都会是同一个对象，即不会存在两个一样的 JClassInstance 对象
 type JClassInstance struct {
 	// 常量池
@@ -32,6 +32,7 @@ type JClassInstance struct {
 	StaticVars *StaticFieldVars
 }
 
+// ParseInstance
 // TODO 如果后面什么时候引入多线程了，这个地方要注意线程安全问题，可能存在多个线程同时执行一个 JClassInstance 的解析
 func ParseInstance(jclass *JClass) *JClassInstance {
 	jci := &JClassInstance{}
@@ -131,7 +132,7 @@ func (j *JClassInstance) FindStaticMethod(name, descriptor string) (*MethodInfo,
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}
 }
 
-// TODO:可以从父类中加载出方法，并检查权限
+// FindMethod TODO:可以从父类中加载出方法，并检查权限
 // name: method method
 // @return the MethodInfo belong to the JClassInstance
 func (j *JClassInstance) FindMethod(name, descriptor string) (*MethodInfo, error, *JClassInstance) {

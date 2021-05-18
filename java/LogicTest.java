@@ -16,7 +16,6 @@ public class LogicTest{
         GvmOut.to(10);
       } else{
         GvmOut.to(9);
-
       }
   }
 
@@ -24,7 +23,6 @@ public class LogicTest{
     for(int i = 0 ; i < 5 ; i++){
       GvmOut.to(i);
     }
-
   }
   
   public static void while_test(){

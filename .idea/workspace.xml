@@ -29,13 +29,32 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add gvm system package to storage files that native and add new class loader GSCLoader">
-      <change beforePath="$PROJECT_DIR$/.idea/go.imports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Simplifying the gvm.out method">
+      <change afterPath="$PROJECT_DIR$/java/PrintFieldsTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/native/java/lang/System.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/system_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/system_init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/frame_operand_stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame_operand_stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/runtime_stack_frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/runtime_stack_frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/AlgorithmTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/AlgorithmTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/AlgorithmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/AlgorithmTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/LogicTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/LogicTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/LogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintFieldsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintFieldsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintFieldsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintStatic.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintStatic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintStaticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintStaticTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PrintStaticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintStaticTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/access_flags.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/access_flags.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/method_descriptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/native_registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +153,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/java/src/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java/test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,7 +161,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -151,18 +170,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/test" />
       <recent name="$PROJECT_DIR$/java/src/test" />
       <recent name="$PROJECT_DIR$/java/src/gvm_system" />
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
-      <recent name="$PROJECT_DIR$/src/share/instructions/math" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/native/java" />
+      <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/native" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
       <recent name="$PROJECT_DIR$/java/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/java/src/gvm_system" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -283,7 +302,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="5944000" />
+      <workItem from="1621301336796" duration="9870000" />
     </task>
     <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
       <created>1599786555590</created>
@@ -615,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621306030132</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Simplifying the gvm.out method">
+      <created>1621307616340</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1621307616340</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,7 +716,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="添加 ifge 指令" />
     <MESSAGE value="添加 fcmpg,fcmpl 指令" />
     <MESSAGE value="补充完整 if_cmp&lt;cond&gt;指令集" />
     <MESSAGE value="Bootstrapmethods attribute(unfinished)" />
@@ -715,7 +740,8 @@
     <MESSAGE value="move GvmOut" />
     <MESSAGE value="update cmd module" />
     <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gvm system package to storage files that native and add new class loader GSCLoader" />
+    <MESSAGE value="Simplifying the gvm.out method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplifying the gvm.out method" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
