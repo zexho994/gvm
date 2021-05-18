@@ -2,7 +2,6 @@
  * @author : zexho
  * @created : 2021-01-07
 **/
-package java
 public class PrintStaticTest{
   static int i = 994;
   static float f = 994f;

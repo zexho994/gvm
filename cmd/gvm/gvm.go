@@ -65,7 +65,7 @@ func PrintUsage() {
 func StartGvmByCmd() {
 	cmd := ParseCmd()
 	if cmd.VersionFlag {
-		fmt.Println("gvm version 2.0.0")
+		fmt.Println("gvm version " + launcher.GvmVersion)
 		return
 	} else if cmd.HelpFlag {
 		PrintUsage()
@@ -86,10 +86,10 @@ func StartGvmByCmd() {
 	startJVM(cmd.Class, cmd.XjreOption, cmd.CpOption)
 }
 
+// 启动
 func startJVM(className, jrePath, userClassPath string) {
 	classfile.InitClassLoader(jrePath, userClassPath)
 	instance := jclass.ParseInstanceByClassName(className)
-	// 执行main方法
 	method, err := instance.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	if err != nil || method == nil {
 		panic(err)

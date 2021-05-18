@@ -7,7 +7,7 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// code 解释器
+// Interpret code 解释器
 func Interpret(method *jclass.MethodInfo) {
 	var newThread = &runtime.Thread{
 		PC:    0,

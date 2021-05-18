@@ -29,16 +29,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/instructions/references/anew_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anew_array.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/get_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/get_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_special.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/put_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/perm.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename Perm -&gt; perm">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interpreter/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/interpreter/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintStaticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintStaticTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/system_configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/system_configuration.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/java/lang/System.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +143,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -286,14 +283,7 @@
       <workItem from="1621241574345" duration="336000" />
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
-      <workItem from="1621301336796" duration="10184000" />
-    </task>
-    <task id="LOCAL-00001" summary="类加载过程准备阶段，计算实例字段与类字段数量。">
-      <created>1599786555590</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1599786555590</updated>
+      <workItem from="1621301336796" duration="12172000" />
     </task>
     <task id="LOCAL-00002" summary="添加initStaticFinalvar()方法，给类变量赋值">
       <created>1599821078061</created>
@@ -632,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621312816023</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="rename Perm -&gt; perm">
+      <created>1621312968811</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1621312968812</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +704,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="添加 fcmpg,fcmpl 指令" />
     <MESSAGE value="补充完整 if_cmp&lt;cond&gt;指令集" />
     <MESSAGE value="Bootstrapmethods attribute(unfinished)" />
     <MESSAGE value="使用gvm native print方法实现输出" />
@@ -732,7 +728,8 @@
     <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
     <MESSAGE value="Simplifying the gvm.out method" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="rename Perm -&gt; perm" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename Perm -&gt; perm" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
