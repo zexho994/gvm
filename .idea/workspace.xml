@@ -30,22 +30,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor config">
+      <change afterPath="$PROJECT_DIR$/laucher/core.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exception/assert.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/assert.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/array_length.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/array_length.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/get_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_special.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new_array.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/put_static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stores/iastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/iastore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stores/sastore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/sastore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/method_descriptor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oop_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_array.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_instance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +171,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm">
+  <component name="RunManager" selected="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -246,8 +233,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -280,13 +267,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00008" summary="添加部分注释">
-      <created>1600353402186</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1600353402186</updated>
     </task>
     <task id="LOCAL-00009" summary="可执行包">
       <created>1600435661348</created>
@@ -624,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621324002698</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="refactor config">
+      <created>1621325170016</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1621325170016</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
