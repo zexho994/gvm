@@ -29,16 +29,76 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="move interpreter to launcher">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: rename">
+      <change afterPath="$PROJECT_DIR$/klass/constant_pool/constant_type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/base_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/base_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/bootstrap_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/bootstrap_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/class_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/class_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classloader/extension_loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/classloader/extension_loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exception/gvm_error.go" beforeDir="false" afterPath="$PROJECT_DIR$/exception/gvm_error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/jclass/jclass_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/apploader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/apploader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/bootloader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/bootloader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/extloader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/extloader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/loading.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/loadways.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/loadways.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classloader/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/init_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/init_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invoke_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/anew_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anew_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/get_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/get_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/get_static.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_dynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_special.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_static.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/put_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/put_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/put_static.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/access_flags.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/access_flags.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_bootstrapmetods.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_bootstrapmetods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_constantValue.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_constantValue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_deprecated.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_deprecated.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_exception.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_inner_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_inner_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_lineNumberTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_lineNumberTable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_runtimeVisible_annotation.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_runtimeVisible_annotation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_signature.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_signature.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_sourceFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_sourceFile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_stackmaptable.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_stackmaptable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attr_synthetic.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_synthetic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_double.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_double.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_float.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_float.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_integer.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_integer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_invoke_dynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_long.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_long.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_method_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_name_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_string.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/constant_utf8.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_utf8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/jclass_constantPool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/jclass_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/jclass_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/jclass_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/method_descriptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/method_descriptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jclass/static_vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/static_vars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/java/lang/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/java/lang/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_fields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_fields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_instance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_instance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/runtime_stack_frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/runtime_stack_frame.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +213,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -165,11 +225,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/launcher" />
+      <recent name="$PROJECT_DIR$/loader" />
+      <recent name="$PROJECT_DIR$/klass" />
       <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/launcher" />
       <recent name="$PROJECT_DIR$/cmd/gvm" />
-      <recent name="$PROJECT_DIR$/java/native" />
-      <recent name="$PROJECT_DIR$/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -273,20 +333,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00013" summary="添加数组对象array_object">
-      <created>1600491531359</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491531359</updated>
-    </task>
-    <task id="LOCAL-00014" summary="添加数组类，在Class中添加与数组相关的方法">
-      <created>1600491708153</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1600491708153</updated>
     </task>
     <task id="LOCAL-00015" summary="改造类加载器，支持加载数组">
       <created>1600492087220</created>
@@ -617,7 +663,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621328247176</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="refactor: remove classloader">
+      <created>1621329239863</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1621329239863</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor: rename">
+      <created>1621329596643</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1621329596643</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,8 +752,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add ConstantInvokeDynamic" />
-    <MESSAGE value="update BootstrapmethodsAttribute" />
     <MESSAGE value="add InstructionIndex32" />
     <MESSAGE value="rename" />
     <MESSAGE value="补充注释" />
@@ -717,7 +775,9 @@
     <MESSAGE value="func createMainThread()" />
     <MESSAGE value="func assertError()" />
     <MESSAGE value="move interpreter to launcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="move interpreter to launcher" />
+    <MESSAGE value="refactor: remove classloader" />
+    <MESSAGE value="refactor: rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: rename" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -726,12 +786,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go</url>
+          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
           <line>57</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/jclass/constant_pool/constant_method_handle.go</url>
+          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
           <line>58</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>

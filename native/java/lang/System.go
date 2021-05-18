@@ -16,7 +16,7 @@ func _system(method native.Method, name, desc string) {
 
 func setOut0(frame *runtime.Frame) {
 	out := frame.LocalVars().GetRef(0)
-	sysClass := frame.Method().JClass()
+	sysClass := frame.Method().Klass()
 	slots := make([]utils.Slot, 2)
 	slots[0].Ref = out
 	sysClass.StaticVars.SetField("in", slots)

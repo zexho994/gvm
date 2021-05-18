@@ -3,13 +3,13 @@ package launcher
 import (
 	"github.com/zouzhihao-994/gvm/instructions"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // Interpret code 解释器
-func Interpret(method *jclass.MethodInfo, t *runtime.Thread) {
+func Interpret(method *klass.MethodInfo, t *runtime.Thread) {
 	code, err := method.Attributes().AttrCode()
 	utils.AssertError(err, "get arrtibute code error")
 

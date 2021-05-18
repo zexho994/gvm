@@ -3,19 +3,20 @@ package base
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/exception"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/attribute"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/runtime"
+	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // 执行方法调用
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
-func InvokeMethod(frame *runtime.Frame, method *jclass.MethodInfo, isStatic bool) {
+func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
 	invokerThread := frame.Thread()
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
-	if jclass.IsNative(method.AccessFlag()) {
+	if utils.IsNative(method.AccessFlag()) {
 		gvmPrint(method, frame)
 		return
 	}
@@ -41,9 +42,9 @@ func InvokeMethod(frame *runtime.Frame, method *jclass.MethodInfo, isStatic bool
 }
 
 // hard code to print for gvm
-func gvmPrint(method *jclass.MethodInfo, frame *runtime.Frame) {
-	if method.JClass().Name() == "GvmOut" && method.Name() == "to" {
-		methodDesc := jclass.ParseMethodDescriptor(method.Descriptor())
+func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) {
+	if method.Klass().Name() == "GvmOut" && method.Name() == "to" {
+		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":
 			fmt.Println(frame.OperandStack().PopInt())

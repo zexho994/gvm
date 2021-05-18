@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -18,12 +18,12 @@ func (i *GET_STATIC) Execute(frame *runtime.Frame) {
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	jci := jclass.Perm().Space[className]
+	jci := klass.Perm().Space[className]
 
 	// 判断是否需要进行加载
 	if jci == nil {
-		jci = jclass.ParseInstanceByClassName(className)
-		jclass.Perm().Space[className] = jci
+		jci = klass.ParseInstanceByClassName(className)
+		klass.Perm().Space[className] = jci
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread())
 		return

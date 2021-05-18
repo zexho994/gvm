@@ -2,7 +2,7 @@ package oops
 
 import (
 	"github.com/zouzhihao-994/gvm/exception"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
@@ -19,7 +19,7 @@ const (
 
 type iArray []int32
 type cArray []int8
-type aArray []jclass.JClassInstance
+type aArray []klass.Klass
 
 func (iarr iArray) newiArray(len uint32) iArray {
 	return make([]int32, len)
@@ -30,7 +30,7 @@ func (carr cArray) newcArray(len uint32) cArray {
 }
 
 func (arr aArray) newaArray(len uint32) aArray {
-	return make([]jclass.JClassInstance, len)
+	return make([]klass.Klass, len)
 }
 
 type JArray struct {
@@ -54,7 +54,7 @@ func (jarray *JArray) SetCVal(idx int32, val int8) {
 	ia[idx] = val
 }
 
-func NewRefJarray(len uint32, instance *jclass.JClassInstance) JArray {
+func NewRefJarray(len uint32, instance *klass.Klass) JArray {
 	if len < 0 {
 		exception.GvmError{Msg: "NegativeArraySizeException"}.Throw()
 	}

@@ -3,8 +3,8 @@ package references
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass/attribute"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass/attribute"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -22,7 +22,7 @@ func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
 	btmIdx := constInvokeDynamic.BootstrapMethodAttrIndex
 	name, desc := constantPool.GetNameAndType(constInvokeDynamic.NameAndTypeIndex)
 	fmt.Println(name, desc)
-	attributeInfo, _ := frame.Method().JClass().Attributes.FindAttrInfo("BootstrapMethods")
+	attributeInfo, _ := frame.Method().Klass().Attributes.FindAttrInfo("BootstrapMethods")
 	bsma := attributeInfo.(*attribute.BootstrapmethodsAttribute)
 	// bootstrap_method
 	bsm := bsma.Methods()[btmIdx]

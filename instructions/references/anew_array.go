@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
@@ -19,9 +19,9 @@ func (i *ANEW_ARRAY) Execute(frame *runtime.Frame) {
 	arrayLength := frame.OperandStack().PopInt()
 	c := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
 	cname := c.Name()
-	jc := jclass.Perm().Space[cname]
+	jc := klass.Perm().Space[cname]
 	if jc == nil {
-		jc = jclass.ParseInstanceByClassName(cname)
+		jc = klass.ParseInstanceByClassName(cname)
 	}
 	jarry := oops.NewRefJarray(uint32(arrayLength), jc)
 	arrayInstance := oops.NewArrayOopInstance(&jarry)

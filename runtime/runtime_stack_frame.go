@@ -1,6 +1,8 @@
 package runtime
 
-import "github.com/zouzhihao-994/gvm/jclass"
+import (
+	"github.com/zouzhihao-994/gvm/klass"
+)
 
 // Frame 一个Frame对应着一个已调用而且未结束的方法
 // TODO：栈的大小支持自动 扩/缩 , 如果扩到极限仍然发送内容不足的情况抛出 OutOfMemoryError 异常
@@ -9,7 +11,7 @@ type Frame struct {
 	next         *Frame
 	localVars    *LocalVars
 	operandStack *OperandStack
-	method       *jclass.MethodInfo
+	method       *klass.MethodInfo
 	thread       *Thread
 }
 
@@ -29,7 +31,7 @@ func (f *Frame) PC() uint {
 	return f.pc
 }
 
-func (f *Frame) Method() *jclass.MethodInfo {
+func (f *Frame) Method() *klass.MethodInfo {
 	return f.method
 }
 
@@ -46,7 +48,7 @@ func (f *Frame) RevertPC() {
 	f.pc = f.thread.PC
 }
 
-func NewFrame(maxlocals, maxStack uint16, method *jclass.MethodInfo, thread *Thread) *Frame {
+func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thread) *Frame {
 	return &Frame{
 		localVars:    NewLocalVars(maxlocals),
 		operandStack: NewOperandStack(maxStack),

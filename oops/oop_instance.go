@@ -1,7 +1,7 @@
 package oops
 
 import (
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
@@ -12,14 +12,14 @@ type OopInstance struct {
 	isString       bool
 	jString        string
 	jArray         *JArray
-	jclassInstance *jclass.JClassInstance
+	jclassInstance *klass.Klass
 }
 
 func (o *OopInstance) MarkWord() *MarkWords {
 	return o.markWords
 }
 
-func (o *OopInstance) Jclass() *jclass.JClassInstance {
+func (o *OopInstance) Jclass() *klass.Klass {
 	return o.jclassInstance
 }
 
@@ -53,7 +53,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 }
 
 // create non-array oops
-func NewOopInstance(jci *jclass.JClassInstance) *OopInstance {
+func NewOopInstance(jci *klass.Klass) *OopInstance {
 	return &OopInstance{
 		markWords:      NewMarkWords(),
 		fields:         InitOopFields(jci),

@@ -1,12 +1,12 @@
 package base
 
 import (
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
 // 初始化<clinit>方法
-func InitClass(j *jclass.JClassInstance, thread *runtime.Thread) {
+func InitClass(j *klass.Klass, thread *runtime.Thread) {
 	// 获取<clinit>方法
 	clinit, exist := j.Methods.Clinit()
 	j.IsInit = true

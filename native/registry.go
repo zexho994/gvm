@@ -1,7 +1,7 @@
 package native
 
 import (
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -21,8 +21,8 @@ func Register(className, methodName, methodDescriptor string, method Method) {
 	}
 }
 
-func FindNativeMethod(method *jclass.MethodInfo) Method {
-	key := method.JClass().Name() + "~" + method.Name() + "~" + method.Descriptor()
+func FindNativeMethod(method *klass.MethodInfo) Method {
+	key := method.Klass().Name() + "~" + method.Name() + "~" + method.Descriptor()
 	if nativeMethod, ok := registry[key]; ok {
 		return nativeMethod
 	}

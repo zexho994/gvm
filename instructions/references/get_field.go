@@ -3,8 +3,7 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
-	"github.com/zouzhihao-994/gvm/jclass/constant_pool"
+	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 	"math"
@@ -24,7 +23,7 @@ func (i *GET_FIELD) Execute(frame *runtime.Frame) {
 	fieldName, _ := constFieldRef.NameAndDescriptor()
 	field, r := objRef.FindField(fieldName)
 	utils.AssertTrue(r, exception.FieldsNotFoundError)
-	utils.AssertFalse(jclass.IsStatic(field.AccessFlag()), exception.IncompatibleClassChangeError)
+	utils.AssertFalse(utils.IsStatic(field.AccessFlag()), exception.IncompatibleClassChangeError)
 
 	fieldsSlot := field.Slots()[0]
 	if fieldsSlot.Type == utils.SlotLong {

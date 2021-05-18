@@ -2,7 +2,7 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/jclass"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -10,7 +10,7 @@ import (
 
 type NEW_ARRAY struct {
 	count    uint
-	arrayref *jclass.JClassInstance
+	arrayref *klass.Klass
 	base.InstructionIndex8
 }
 
