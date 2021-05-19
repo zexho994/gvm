@@ -2,7 +2,7 @@ package attribute
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-// 保存invokedynamic指令引用的引导方法限定符号
+// BootstrapmethodsAttribute 保存invokedynamic指令引用的引导方法限定符号
 // classfile 中最多一个 BootstrapmethodsAttribute 属性
 type BootstrapmethodsAttribute struct {
 	// utf8 格式
@@ -34,7 +34,7 @@ func (attr *BootstrapmethodsAttribute) Methods() []BootstrapMethod {
 	return attr.methods
 }
 
-// 该结构指明了一个引导方法，并指明了一个由索引组成的序列
+// BootstrapMethod 该结构指明了一个引导方法，并指明了一个由索引组成的序列
 // 序列里的索引指明引导方法的静态参数
 type BootstrapMethod struct {
 	// 常量池索引  constant_pool.ConstantMethodHandle 结构
@@ -49,7 +49,6 @@ type BootstrapMethod struct {
 	Arguments []uint16
 }
 
-//
 func (attr *BootstrapMethod) parse(reader *loader.ClassReader) {
 	attr.MethodRef = reader.ReadUint16()
 	attr.ArgumentsNum = reader.ReadUint16()

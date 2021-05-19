@@ -8,12 +8,12 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// index指向当前类的运行时常量池的索引
-type PUT_FIELD struct {
+// PutField index指向当前类的运行时常量池的索引
+type PutField struct {
 	base.InstructionIndex16
 }
 
-func (i *PUT_FIELD) Execute(frame *runtime.Frame) {
+func (i *PutField) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	stack := frame.OperandStack()
 	fieldRef := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)

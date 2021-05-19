@@ -2,16 +2,16 @@ package attribute
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-type Attr_Synthetic struct {
+type AttrSynthetic struct {
 	nameIdx uint16
 	name    string
 	attrLen uint32
 }
 
-func (attr Attr_Synthetic) parse(reader *loader.ClassReader) {
+func (attr AttrSynthetic) parse(reader *loader.ClassReader) {
 	// nothing
 }
 
-func (attr Attr_Synthetic) Name() string {
+func (attr AttrSynthetic) Name() string {
 	return ""
 }

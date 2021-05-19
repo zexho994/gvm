@@ -5,92 +5,92 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-type ACONST_NULL struct{ base.InstructionIndex0 }
+type AconstNull struct{ base.InstructionIndex0 }
 
-type DCONST_0 struct{ base.InstructionIndex0 }
+type Dconst0 struct{ base.InstructionIndex0 }
 
-type DCONST_1 struct{ base.InstructionIndex0 }
+type Dconst1 struct{ base.InstructionIndex0 }
 
-type FCONST_0 struct{ base.InstructionIndex0 }
+type Fconst0 struct{ base.InstructionIndex0 }
 
-type FCONST_1 struct{ base.InstructionIndex0 }
+type Fconst1 struct{ base.InstructionIndex0 }
 
-type FCONST_2 struct{ base.InstructionIndex0 }
+type Fconst2 struct{ base.InstructionIndex0 }
 
-type ICONST_M1 struct{ base.InstructionIndex0 }
+type IconstM1 struct{ base.InstructionIndex0 }
 
-type ICONST_0 struct{ base.InstructionIndex0 }
+type Iconst0 struct{ base.InstructionIndex0 }
 
-type ICONST_1 struct{ base.InstructionIndex0 }
+type Iconst1 struct{ base.InstructionIndex0 }
 
-type ICONST_2 struct{ base.InstructionIndex0 }
+type Iconst2 struct{ base.InstructionIndex0 }
 
-type ICONST_3 struct{ base.InstructionIndex0 }
+type Iconst3 struct{ base.InstructionIndex0 }
 
-type ICONST_4 struct{ base.InstructionIndex0 }
+type Iconst4 struct{ base.InstructionIndex0 }
 
-type ICONST_5 struct{ base.InstructionIndex0 }
+type Iconst5 struct{ base.InstructionIndex0 }
 
-type LCONST_0 struct{ base.InstructionIndex0 }
+type Lconst0 struct{ base.InstructionIndex0 }
 
-type LCONST_1 struct{ base.InstructionIndex0 }
+type Lconst1 struct{ base.InstructionIndex0 }
 
-func (self *ACONST_NULL) Execute(frame *runtime.Frame) {
+func (self *AconstNull) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushRef(nil)
 }
 
-func (self *DCONST_0) Execute(frame *runtime.Frame) {
+func (self *Dconst0) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushDouble(0.0)
 }
 
-func (self *DCONST_1) Execute(frame *runtime.Frame) {
+func (self *Dconst1) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushDouble(1.0)
 }
 
-func (self *FCONST_0) Execute(frame *runtime.Frame) {
+func (self *Fconst0) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushFloat(0.0)
 }
 
-func (self *FCONST_1) Execute(frame *runtime.Frame) {
+func (self *Fconst1) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushFloat(1.0)
 }
 
-func (self *FCONST_2) Execute(frame *runtime.Frame) {
+func (self *Fconst2) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushFloat(2.0)
 }
 
-func (self *ICONST_0) Execute(frame *runtime.Frame) {
+func (self *Iconst0) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(0)
 }
 
-func (self *ICONST_1) Execute(frame *runtime.Frame) {
+func (self *Iconst1) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(1)
 }
 
-func (self *ICONST_2) Execute(frame *runtime.Frame) {
+func (self *Iconst2) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(2)
 }
 
-func (self *ICONST_3) Execute(frame *runtime.Frame) {
+func (self *Iconst3) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(3)
 }
 
-func (self *ICONST_4) Execute(frame *runtime.Frame) {
+func (self *Iconst4) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(4)
 }
 
-func (self *ICONST_5) Execute(frame *runtime.Frame) {
+func (self *Iconst5) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(5)
 }
 
-func (self *ICONST_M1) Execute(frame *runtime.Frame) {
+func (self *IconstM1) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushInt(-1)
 }
 
-func (self *LCONST_0) Execute(frame *runtime.Frame) {
+func (self *Lconst0) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushLong(0.0)
 }
 
-func (self *LCONST_1) Execute(frame *runtime.Frame) {
+func (self *Lconst1) Execute(frame *runtime.Frame) {
 	frame.OperandStack().PushLong(1.0)
 }

@@ -8,23 +8,23 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-type INVOKE_VIRTUAL struct {
+// InvokeVirtual 调用实例方法
+type InvokeVirtual struct {
 	base.InstructionIndex16
 }
 
-func (i *INVOKE_VIRTUAL) Execute(frame *runtime.Frame) {
+func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
 	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	utils.AssertTrue(methodNameStr != "<init>" && methodNameStr != "<clinit>", "IncompatibleClassChangeError")
 
 	classNameStr := constantMethod.ClassName()
-	permSpace := klass.Perm().Space
-	jc := permSpace[classNameStr]
-	if jc == nil {
-		jc = klass.ParseByClassName(classNameStr)
+	k := klass.Perm().Space[classNameStr]
+	if k == nil {
+		k = klass.ParseByClassName(classNameStr)
 	}
-	utils.AssertTrue(jc != nil, "NullPointerException")
-	methodInfo, err, _ := jc.FindMethod(methodNameStr, methodDescStr)
+	utils.AssertTrue(k != nil, "NullPointerException")
+	methodInfo, err, _ := k.FindMethod(methodNameStr, methodDescStr)
 	utils.AssertTrue(err == nil, "no find the method of "+methodNameStr)
 	utils.AssertFalse(utils.IsStatic(methodInfo.AccessFlag()), "IncompatibleClassChangeError")
 

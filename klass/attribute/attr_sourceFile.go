@@ -2,7 +2,7 @@ package attribute
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-type Attr_SourceFile struct {
+type AttrSourcefile struct {
 	nameIdx uint16
 	name    string
 	attrLen uint32
@@ -10,10 +10,10 @@ type Attr_SourceFile struct {
 	sourceIdx uint16
 }
 
-func (attr *Attr_SourceFile) parse(reader *loader.ClassReader) {
+func (attr *AttrSourcefile) parse(reader *loader.ClassReader) {
 	attr.sourceIdx = reader.ReadUint16()
 }
 
-func (attr Attr_SourceFile) Name() string {
+func (attr AttrSourcefile) Name() string {
 	return attr.name
 }

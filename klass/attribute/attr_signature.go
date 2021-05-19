@@ -2,10 +2,10 @@ package attribute
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-// 可选的变长属性，位于ClassFile、field_info、method_info的属性表中
+// AttrSignature 可选的变长属性，位于ClassFile、field_info、method_info的属性表中
 // 包含该字段表示的类，接口，构造器方法或者字段包含类型变量或者参数化类型
 // signature会为它记录泛型签名信息
-type Attr_Signature struct {
+type AttrSignature struct {
 	nameIdx uint16
 	name    string
 	attrLen uint32
@@ -13,10 +13,10 @@ type Attr_Signature struct {
 	signatureIdx uint16
 }
 
-func (attr Attr_Signature) parse(reader *loader.ClassReader) {
+func (attr AttrSignature) parse(reader *loader.ClassReader) {
 	attr.signatureIdx = reader.ReadUint16()
 }
 
-func (attr Attr_Signature) Name() string {
+func (attr AttrSignature) Name() string {
 	return attr.name
 }

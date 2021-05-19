@@ -29,7 +29,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributesInfo, 1)
 	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
-	var codeAttr *attribute.Attr_Code
+	var codeAttr *attribute.AttrCode
 	switch methodDescriptor.returnTypt {
 	case "V":
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return
@@ -111,7 +111,7 @@ func (m MethodInfo) Attributes() attribute.AttributesInfo {
 }
 
 // 解析方法表
-func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool) Methods {
+func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool, k *Klass) Methods {
 	methods := make([]*MethodInfo, count)
 	for i := range methods {
 		method := &MethodInfo{}
@@ -124,6 +124,7 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.Co
 		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
+		method.klass = k
 	}
 	return methods
 }

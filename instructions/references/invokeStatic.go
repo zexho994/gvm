@@ -33,6 +33,5 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 	if !utils.IsStatic(methodInfo.AccessFlag()) {
 		panic("[gvm] invoke static error")
 	}
-	methodInfo.SetKlass(class)
 	base.InvokeMethod(frame, methodInfo, true)
 }

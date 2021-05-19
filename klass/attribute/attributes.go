@@ -38,29 +38,29 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	name := cp.GetUtf8(nameIdx)
 	switch name {
 	case "Code":
-		return &Attr_Code{NameIdx: nameIdx, name: name, AttrLen: attrLen, cp: cp}
+		return &AttrCode{NameIdx: nameIdx, name: name, AttrLen: attrLen, cp: cp}
 	case "ConstantValue":
-		return &Attr_ConstantValue{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+		return &AttrConstantvalue{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
 	case "Exceptions":
-		return &Attr_Exceptions{nameIdx: nameIdx, name: name, attrlen: attrLen, cp: cp}
+		return &AttrExceptions{nameIdx: nameIdx, name: name, attrlen: attrLen, cp: cp}
 	case "LineNumberTable":
-		return &Attr_LineNumberTable{nameIdx: nameIdx, name: name, cp: cp}
+		return &AttrLinenumbertable{nameIdx: nameIdx, name: name, cp: cp}
 	case "SourceFile":
-		return &Attr_SourceFile{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrSourcefile{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "Signature":
-		return &Attr_Signature{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrSignature{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "StackMapTable":
-		return &Attr_StackMapTable{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrStackmaptable{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "Deprecated":
-		return &Attr_Deprecated{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrDeprecated{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "RuntimeVisibleAnnotations":
-		return &Attr_RuntimeVisibleAnnotation{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrRuntimevisibleannotation{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	//case "LocalVariableTable":
 	//	return &LocalVariableTableAttribute{}
 	case "Synthetic":
-		return &Attr_Synthetic{nameIdx: nameIdx, name: name, attrLen: attrLen}
+		return &AttrSynthetic{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "InnerClasses":
-		return &Attr_InnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+		return &AttrInnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
 	case "BootstrapMethods":
 		return &BootstrapmethodsAttribute{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	default:
@@ -68,11 +68,11 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	}
 }
 
-func (attrs AttributesInfo) AttrCode() (*Attr_Code, error) {
+func (attrs AttributesInfo) AttrCode() (*AttrCode, error) {
 	for idx := range attrs {
 		if attrs[idx].Name() == "Code" {
 			a := attrs[idx]
-			code := a.(*Attr_Code)
+			code := a.(*AttrCode)
 			return code, nil
 		}
 	}

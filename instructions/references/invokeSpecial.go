@@ -8,20 +8,19 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// INVOKE_SPECIAL 调用父类方法、实例初始化方法（<init>）、私有方法
-type INVOKE_SPECIAL struct {
+// InvokeSpecial 调用父类方法、实例初始化方法（<init>）、私有方法
+type InvokeSpecial struct {
 	base.InstructionIndex16
 }
 
-func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
+func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
-	perm := klass.Perm()
-	jc := perm.Space[constantMethod.ClassName()]
+	k := klass.Perm().Space[constantMethod.ClassName()]
 
-	utils.AssertTrue(jc != nil, "Class uninitialized")
+	utils.AssertTrue(k != nil, "Class uninitialized")
 	name, Desc := constantMethod.NameAndDescriptor()
-	method, _, _ := jc.FindMethod(name, Desc)
-	// 如果是初始化方法
+	method, _, _ := k.FindMethod(name, Desc)
+
 	base.InvokeMethod(frame, method, utils.IsStatic(method.AccessFlag()))
 }

@@ -2,12 +2,12 @@ package attribute
 
 import "github.com/zouzhihao-994/gvm/loader"
 
-// located in the classFile, field_info, method_info
-type Attr_RuntimeVisibleAnnotation struct {
+// AttrRuntimevisibleannotation located in the classFile, field_info, method_info
+type AttrRuntimevisibleannotation struct {
 	// uft8 type, the name of annotation
 	nameIdx uint16
 	name    string
-	// the attrLen of Attr_RuntimeVisibleAnnotation(Not including the previous six byteso)
+	// the attrLen of AttrRuntimevisibleannotation(Not including the previous six byteso)
 	attrLen uint32
 	// the num of this annotions
 	annotationNum uint16
@@ -50,13 +50,13 @@ type arrayValue struct {
 	valuesNum uint16
 }
 
-func (attr *Attr_RuntimeVisibleAnnotation) parse(reader *loader.ClassReader) {
+func (attr *AttrRuntimevisibleannotation) parse(reader *loader.ClassReader) {
 	// annotations num
 	reader.ReadInt16()
 	// annotations array
 	reader.ReadBytes(attr.attrLen - 2)
 }
 
-func (attr *Attr_RuntimeVisibleAnnotation) Name() string {
+func (attr *AttrRuntimevisibleannotation) Name() string {
 	return ""
 }

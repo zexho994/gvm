@@ -5,8 +5,11 @@
 public class PrintOut {
 
     public static void main(String[] args) {
-        String s1 = "s1111";
-        System.out.print(s1);
+        System.out.println("11_22_33");
+    }
+
+    public void print(String s){
+        System.out.println(s);
     }
 
 }

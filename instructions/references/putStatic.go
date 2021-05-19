@@ -8,12 +8,12 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// indexbyte is index from constanpool
-type PUT_STATIC struct {
+// PutStatic indexbyte is index from constanpool
+type PutStatic struct {
 	base.InstructionIndex16
 }
 
-func (i PUT_STATIC) Execute(frame *runtime.Frame) {
+func (i PutStatic) Execute(frame *runtime.Frame) {
 	fieldInfo := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 	utils.AssertFalse(fieldInfo == nil, "static field is null")
 	_, fieldDesc := fieldInfo.NameAndDescriptor()

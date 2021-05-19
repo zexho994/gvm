@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/loader"
 )
 
-type Attr_InnerClasses struct {
+type AttrInnerClasses struct {
 	nameIdx         uint16
 	name            string
 	attrLen         uint32
@@ -25,7 +25,7 @@ type innerClass struct {
 	innerClassAccessFlag uint16
 }
 
-func (attr *Attr_InnerClasses) parse(reader *loader.ClassReader) {
+func (attr *AttrInnerClasses) parse(reader *loader.ClassReader) {
 	attr.innerClassesNum = reader.ReadUint16()
 	attr.innerClasses = make([]innerClass, attr.innerClassesNum)
 	for i := 0; i < int(attr.innerClassesNum); i++ {
@@ -51,6 +51,6 @@ func (inner *innerClass) innerClasses() *innerClass {
 	return inner
 }
 
-func (attr *Attr_InnerClasses) Name() string {
+func (attr *AttrInnerClasses) Name() string {
 	return attr.name
 }

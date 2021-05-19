@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/loader"
 )
 
-type Attr_Code struct {
+type AttrCode struct {
 	NameIdx uint16
 	name    string
 	AttrLen uint32
@@ -24,7 +24,7 @@ type Attr_Code struct {
 	attrInfo  AttributesInfo
 }
 
-// 异常表
+// ExceptionTable 异常表
 type ExceptionTable struct {
 	startPc   uint16
 	endPc     uint16
@@ -32,7 +32,7 @@ type ExceptionTable struct {
 	catchType uint16
 }
 
-func (c *Attr_Code) parse(reader *loader.ClassReader) {
+func (c *AttrCode) parse(reader *loader.ClassReader) {
 	c.MaxStack = reader.ReadUint16()
 	c.MaxLocals = reader.ReadUint16()
 	c.codeLen = reader.ReadUint32()
@@ -56,8 +56,8 @@ func parseExceptionTable(reader *loader.ClassReader) []*ExceptionTable {
 	return table
 }
 
-func CreateCodeAttr(maxStack, maxLocal uint16, code []byte, pool constant_pool.ConstantPool) *Attr_Code {
-	return &Attr_Code{
+func CreateCodeAttr(maxStack, maxLocal uint16, code []byte, pool constant_pool.ConstantPool) *AttrCode {
+	return &AttrCode{
 		name:      "Code",
 		MaxStack:  maxStack,
 		MaxLocals: maxLocal,
@@ -66,10 +66,10 @@ func CreateCodeAttr(maxStack, maxLocal uint16, code []byte, pool constant_pool.C
 	}
 }
 
-func (c Attr_Code) Name() string {
+func (c AttrCode) Name() string {
 	return c.name
 }
 
-func (c Attr_Code) Code() []byte {
+func (c AttrCode) Code() []byte {
 	return c.code
 }
