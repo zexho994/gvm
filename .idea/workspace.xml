@@ -29,10 +29,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc6 &amp; oxc7">
-      <change afterPath="$PROJECT_DIR$/instructions/references/monitor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
+      <change afterPath="$PROJECT_DIR$/instructions/references/invokeNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/base_instruction.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/baseInstruction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/code_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/codeReader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/init_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/instrction_index.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/instrctionIndex.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/anew_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/array_length.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/arrayLength.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/get_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/newArray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/put_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +73,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feat" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,8 +96,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="refactor" />
-                    <option name="lastUsedInstant" value="1621317756" />
+                    <option name="branchName" value="refactoring" />
+                    <option name="lastUsedInstant" value="1621390168" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feat" />
+                    <option name="lastUsedInstant" value="1621387628" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -147,7 +166,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -159,11 +178,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/runtime" />
       <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/loader" />
       <recent name="$PROJECT_DIR$/klass" />
       <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$/launcher" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -267,13 +286,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00021" summary="添加指令 dstore,从操作数栈中获取数据到本地变量表中">
-      <created>1600502187926</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502187926</updated>
     </task>
     <task id="LOCAL-00022" summary="添加指令 fstore,从操作数栈中获取float值本地变量表中">
       <created>1600502204835</created>
@@ -611,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621340274267</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
+      <created>1621340611496</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1621340611496</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +657,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="refactor" />
+                        <option value="feat" />
                       </list>
                     </value>
                   </entry>
@@ -686,7 +705,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="java class file" />
     <MESSAGE value="refactor: adjust project structure" />
     <MESSAGE value="build test" />
     <MESSAGE value="update some annotations" />
@@ -711,7 +729,8 @@
     <MESSAGE value="refactor for oops" />
     <MESSAGE value="refactor for runtime" />
     <MESSAGE value="new inst 0xc6 &amp; oxc7" />
-    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc6 &amp; oxc7" />
+    <MESSAGE value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -733,11 +752,6 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/native/registry.go</url>
-          <line>33</line>
-          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
