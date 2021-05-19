@@ -7,33 +7,33 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// GET_STATIC 获取类的静态字段值
+// GetStatic 获取类的静态字段值
 // index指向当前类的运行时常量池，指向对象应该是一个字段类型的符号引用
-type GET_STATIC struct {
+type GetStatic struct {
 	base.InstructionIndex16
 }
 
-func (i *GET_STATIC) Execute(frame *runtime.Frame) {
+func (i *GetStatic) Execute(frame *runtime.Frame) {
 	fieldRef := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	jci := klass.Perm().Space[className]
+	k := klass.Perm().Space[className]
 
 	// 判断是否需要进行加载
-	if jci == nil {
-		jci = klass.ParseByClassName(className)
-		klass.Perm().Space[className] = jci
+	if k == nil {
+		k = klass.ParseByClassName(className)
+		klass.Perm().Space[className] = k
 		frame.RevertPC()
-		base.InitClass(jci, frame.Thread())
+		base.InitClass(k, frame.Thread())
 		return
-	} else if !jci.IsInit { //判断是否需要进行初始化
+	} else if !k.IsInit { //判断是否需要进行初始化
 		frame.RevertPC()
-		base.InitClass(jci, frame.Thread())
+		base.InitClass(k, frame.Thread())
 		return
 	}
 
-	field := jci.StaticVars.GetField(fieldName)
+	field := k.StaticVars.GetField(fieldName)
 	_, _, slots := field.Fields()
 	if fieldDesc == "D" || fieldDesc == "J" {
 		frame.OperandStack().PushSlot(slots[0])

@@ -13,15 +13,18 @@ import (
 // InvokeMethod 执行方法调用
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
+// 对于本地方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
 	invokerThread := frame.Thread()
 	var newFrame *runtime.Frame
 	var attrCode *attribute.Attr_Code
+
 	if utils.IsNative(method.AccessFlag()) {
-		gvmPrint(method, frame)
-		native.FindNativeMethod(method)
+		nativeMethod := native.FindNativeMethod(method)
+		nativeMethod(frame)
 		return
 	}
+
 	attrCode, _ = method.Attributes().AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	argSlotCount := int(method.ArgSlotCount())
@@ -33,6 +36,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		}
 		n = 1
 	}
+
 	n = argSlotCount - n
 	for i := n; i >= 0; i-- {
 		slot := frame.OperandStack().PopSlot()

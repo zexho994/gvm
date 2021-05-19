@@ -6,7 +6,7 @@ public class PrintOut {
 
     public static void main(String[] args) {
         String s1 = "s1111";
-        System.out.print(s1);
+        StaticKlass.sk.print(s1);
     }
 
 }

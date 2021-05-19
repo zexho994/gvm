@@ -9,19 +9,19 @@ type ALOAD struct {
 	base.InstructionIndex8
 }
 
-type ALOAD_0 struct {
+type Aload0 struct {
 	base.InstructionIndex0
 }
 
-type ALOAD_1 struct {
+type Aload1 struct {
 	base.InstructionIndex0
 }
 
-type ALOAD_2 struct {
+type Aload2 struct {
 	base.InstructionIndex0
 }
 
-type ALOAD_3 struct {
+type Aload3 struct {
 	base.InstructionIndex0
 }
 
@@ -31,27 +31,27 @@ func _aload(frame *runtime.Frame, index uint) {
 	frame.OperandStack().PushRef(rel)
 }
 
-// execute ALOAD
+// Execute execute ALOAD
 // the index is stored inside the instrution
-func (self *ALOAD) Execute(frame *runtime.Frame) {
-	_aload(frame, uint(self.Index))
+func (a *ALOAD) Execute(frame *runtime.Frame) {
+	_aload(frame, uint(a.Index))
 }
 
-// execute ALOAD_0
+// Execute execute Aload0
 // the index is zero
-func (self *ALOAD_0) Execute(frame *runtime.Frame) {
+func (a *Aload0) Execute(frame *runtime.Frame) {
 	_aload(frame, 0)
 }
 
-// see ALOAD_0's Execute
-func (self *ALOAD_1) Execute(frame *runtime.Frame) {
+// Execute see Aload0's
+func (a *Aload1) Execute(frame *runtime.Frame) {
 	_aload(frame, 1)
 }
 
-func (self *ALOAD_2) Execute(frame *runtime.Frame) {
+func (a *Aload2) Execute(frame *runtime.Frame) {
 	_aload(frame, 2)
 }
 
-func (self *ALOAD_3) Execute(frame *runtime.Frame) {
+func (a *Aload3) Execute(frame *runtime.Frame) {
 	_aload(frame, 3)
 }

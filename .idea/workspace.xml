@@ -30,24 +30,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
-      <change afterPath="$PROJECT_DIR$/instructions/references/invokeNative.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/InvokeArgs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/InvokeArgs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/StaticKlass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/StaticKlass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/base_instruction.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/baseInstruction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/code_reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/codeReader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/init_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/instrction_index.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/instrctionIndex.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invoke_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/anew_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/array_length.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/arrayLength.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/get_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/get_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_dynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_special.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invoke_virtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new_array.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/newArray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/put_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/put_static.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/control/return.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/control/return.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/aload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/aload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/getStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/monitor.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/monitor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -753,6 +753,21 @@
           <line>52</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/System.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/getStatic.go</url>
+          <line>23</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/putStatic.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
@@ -761,6 +776,7 @@
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/utils.Slot&quot;)(824634161152)" />
+        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/utils.Slot&quot;)(824634144864)" />
       </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />

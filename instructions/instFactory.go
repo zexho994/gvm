@@ -57,10 +57,10 @@ var (
 	dload_1 = &loads.DLOAD_1{}
 	dload_2 = &loads.DLOAD_2{}
 	dload_3 = &loads.DLOAD_3{}
-	aload_0 = &loads.ALOAD_0{}
-	aload_1 = &loads.ALOAD_1{}
-	aload_2 = &loads.ALOAD_2{}
-	aload_3 = &loads.ALOAD_3{}
+	aload_0 = &loads.Aload0{}
+	aload_1 = &loads.Aload1{}
+	aload_2 = &loads.Aload2{}
+	aload_3 = &loads.Aload3{}
 
 	istore   = &stores.ISTORE{}
 	istore_0 = &stores.ISTORE_0{}
@@ -153,8 +153,8 @@ var (
 	ifeq       = &comparisons.IF_EQ{}
 	iflt       = &comparisons.IF_LT{}
 
-	getStatic     = &references.GET_STATIC{} // 178
-	putStatic     = &references.PUT_STATIC{}
+	getStatic     = &references.GetStatic{} // 178
+	putStatic     = &references.PutStatic{}
 	getField      = &references.GET_FIELD{}
 	putField      = &references.PUT_FIELD{}
 	invokeStatic  = &references.INVOKE_STATIC{} // 184

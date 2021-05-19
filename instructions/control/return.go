@@ -17,10 +17,10 @@ type IRETURN struct{ base.InstructionIndex0 } // Return int from method
 
 type LRETURN struct{ base.InstructionIndex0 } // Return long from method
 
-// void返回类型的，直接返回顶部栈帧
+// Execute void返回类型的，直接返回顶部栈帧
 func (r *RETURN) Execute(frame *runtime.Frame) { frame.Thread().Pop() }
 
-// int返回类型的，弹出当前栈帧的栈顶元素，push到最新的栈顶栈帧中（即调用方）
+// Execute int返回类型的，弹出当前栈帧的栈顶元素，push到最新的栈顶栈帧中（即调用方）
 func (r *IRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()

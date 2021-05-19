@@ -5,11 +5,10 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 初始化<clinit>方法
-func InitClass(j *klass.Klass, thread *runtime.Thread) {
-	// 获取<clinit>方法
-	clinit, exist := j.Methods.Clinit()
-	j.IsInit = true
+// InitClass 初始化<clinit>方法
+func InitClass(k *klass.Klass, thread *runtime.Thread) {
+	clinit, exist := k.Methods.Clinit()
+	k.IsInit = true
 	if exist {
 		attrCode, err := clinit.Attributes().AttrCode()
 		if err != nil {
@@ -22,8 +21,8 @@ func InitClass(j *klass.Klass, thread *runtime.Thread) {
 
 	// 如果父类也还未初始化，则先初始化父类
 	// 因为栈的原因，所以父类的初始化frame要后push
-	if j.SuperClass != nil && !j.SuperClass.IsInit {
-		super := j.SuperClass
+	if k.SuperClass != nil && !k.SuperClass.IsInit {
+		super := k.SuperClass
 		InitClass(super, thread)
 	}
 }

@@ -16,12 +16,12 @@ type INVOKE_SPECIAL struct {
 func (i *INVOKE_SPECIAL) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
 	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
-	perm := klass.Perm()
-	jc := perm.Space[constantMethod.ClassName()]
+	k := klass.Perm().Space[constantMethod.ClassName()]
 
-	utils.AssertTrue(jc != nil, "Class uninitialized")
+	utils.AssertTrue(k != nil, "Class uninitialized")
 	name, Desc := constantMethod.NameAndDescriptor()
-	method, _, _ := jc.FindMethod(name, Desc)
+	method, _, _ := k.FindMethod(name, Desc)
+	method.SetKlass(k)
 	// 如果是初始化方法
 	base.InvokeMethod(frame, method, utils.IsStatic(method.AccessFlag()))
 }
