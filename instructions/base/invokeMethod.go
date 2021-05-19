@@ -20,10 +20,8 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	var attrCode *attribute.AttrCode
 
 	if utils.IsNative(method.AccessFlag()) {
-		if !gvmPrint(method, frame) {
-			nativeMethod := native.FindNativeMethod(method)
-			nativeMethod(frame)
-		}
+		nativeMethod := native.FindNativeMethod(method)
+		nativeMethod(frame)
 		return
 	}
 

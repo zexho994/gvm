@@ -31,14 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add a *p for methodInfo -&gt; klass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/StaticKlass.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/StaticKlass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/StaticKlass.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/StaticKlass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klassField.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +58,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat" />
+        <entry key="$PROJECT_DIR$" value="refactoring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -640,7 +634,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="refactoring" />
+                        <option value="feat" />
                       </list>
                     </value>
                   </entry>
@@ -735,6 +729,11 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/base/invokeMethod.go</url>
+          <line>23</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
