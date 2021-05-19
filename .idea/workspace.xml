@@ -29,11 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename fo instFactor">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename fo invokeVirtual">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/constant/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/const.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/comparisons/if.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/comparisons/if.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,14 +261,7 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-      <workItem from="1621412578264" duration="379000" />
-    </task>
-    <task id="LOCAL-00025" summary="完成invoke和checkcast指令">
-      <created>1600502815493</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502815493</updated>
+      <workItem from="1621412578264" duration="1238000" />
     </task>
     <task id="LOCAL-00026" summary="添加if_acmpne指令">
       <created>1600503790885</created>
@@ -606,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621411705996</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="rename fo invokeVirtual">
+      <created>1621413271538</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1621413271538</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +681,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="move GvmOut" />
     <MESSAGE value="update cmd module" />
     <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
     <MESSAGE value="Simplifying the gvm.out method" />
@@ -706,7 +705,8 @@
     <MESSAGE value="rename" />
     <MESSAGE value="rename for attr" />
     <MESSAGE value="rename fo instFactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename fo instFactor" />
+    <MESSAGE value="rename fo invokeVirtual" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename fo invokeVirtual" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -730,19 +730,19 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/constant/const.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/instructions/comparisons/if.go</url>
+          <line>75</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
           <line>34</line>
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/base/initClass.go</url>
-          <line>9</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/instructions/references/invokeSpecial.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
