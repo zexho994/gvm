@@ -6,7 +6,7 @@ import (
 )
 
 func Init() {
-	_system(setOut0, "setOut0", "(Ljava/io/printStream;)V")
+	_system(setOut0, "setOut0", "(Ljava/io/PrintStream;)V")
 }
 
 func _system(method Method, name, desc string) {

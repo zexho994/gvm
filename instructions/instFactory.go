@@ -15,21 +15,21 @@ import (
 
 var (
 	nop        = &base.NOP{}
-	aconstNull = &constants.ACONST_NULL{}
-	iconstMl   = &constants.ICONST_M1{}
-	iconst0    = &constants.ICONST_0{}
-	iconst1    = &constants.ICONST_1{}
-	iconst2    = &constants.ICONST_2{}
-	iconst3    = &constants.ICONST_3{}
-	iconst4    = &constants.ICONST_4{}
-	iconst5    = &constants.ICONST_5{}
-	lconst0    = &constants.LCONST_0{}
-	lconst1    = &constants.LCONST_1{}
-	fconst0    = &constants.FCONST_0{}
-	fconst1    = &constants.FCONST_1{}
-	fconst2    = &constants.FCONST_2{}
-	dconst0    = &constants.DCONST_0{}
-	dconst1    = &constants.DCONST_1{}
+	aconstNull = &constants.AconstNull{}
+	iconstMl   = &constants.IconstM1{}
+	iconst0    = &constants.Iconst0{}
+	iconst1    = &constants.Iconst1{}
+	iconst2    = &constants.Iconst2{}
+	iconst3    = &constants.Iconst3{}
+	iconst4    = &constants.Iconst4{}
+	iconst5    = &constants.Iconst5{}
+	lconst0    = &constants.Lconst0{}
+	lconst1    = &constants.Lconst1{}
+	fconst0    = &constants.Fconst0{}
+	fconst1    = &constants.Fconst1{}
+	fconst2    = &constants.Fconst2{}
+	dconst0    = &constants.Dconst0{}
+	dconst1    = &constants.Dconst1{}
 
 	ldc    = &constants.LDC{}
 	ldc2W  = &constants.LDC2_W{}
@@ -159,7 +159,7 @@ var (
 	putField      = &references.PUT_FIELD{}
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
-	invokeVirtual = &references.INVOKE_VIRTUAL{}
+	invokeVirtual = &references.InvokeVirtual{}
 	invokeDynamic = &references.InvokeDynamic{}
 	_new          = &references.NEW{} //187
 	anewarray     = &references.ANEW_ARRAY{}
