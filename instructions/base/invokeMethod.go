@@ -17,7 +17,7 @@ import (
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
 	invokerThread := frame.Thread()
 	var newFrame *runtime.Frame
-	var attrCode *attribute.Attr_Code
+	var attrCode *attribute.AttrCode
 
 	if utils.IsNative(method.AccessFlag()) {
 		nativeMethod := native.FindNativeMethod(method)

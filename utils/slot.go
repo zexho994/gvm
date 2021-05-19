@@ -22,6 +22,7 @@ const (
 	SlotBoolean = 9
 )
 
+// GetVal64 获取64位值
 // 对于操作数栈来说，一个64位数拆分成两个32位，并且高位先入栈
 // return low，hight
 func (slots Slots) GetVal64() (int32, int32) {

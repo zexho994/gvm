@@ -5,12 +5,12 @@ import (
 	"github.com/zouzhihao-994/gvm/loader"
 )
 
-// LineNumberTable属性是可选的变长属性，位于Code结构的属性表中
+// AttrLinenumbertable LineNumberTable属性是可选的变长属性，位于Code结构的属性表中
 // 用于调试器确定源文件中由给定行所表示的内容，对应code[]数组中的哪一个部分
 // LineNumberTable属性可以按照任意顺序出现
 // 可以有不止一个LineNumberTable属性对应于源文件中的同一行.也就是说多个LineNumberTable属性可以合起来表示源文件中的某行代码
 // 属性于源文件的代码之间不必有一一对应关系
-type Attr_LineNumberTable struct {
+type AttrLinenumbertable struct {
 	nameIdx uint16
 	// 常量池中 nameIdx 对应的UTF8字符
 	name            string
@@ -27,7 +27,7 @@ type lineNumberTable struct {
 	lineNumber uint16
 }
 
-func (attr *Attr_LineNumberTable) parse(reader *loader.ClassReader) {
+func (attr *AttrLinenumbertable) parse(reader *loader.ClassReader) {
 	attr.tableCount = reader.ReadUint16()
 	table := make([]lineNumberTable, attr.tableCount)
 	for i := range table {
@@ -39,6 +39,6 @@ func (attr *Attr_LineNumberTable) parse(reader *loader.ClassReader) {
 	attr.lineNumberTable = table
 }
 
-func (attr Attr_LineNumberTable) Name() string {
+func (attr AttrLinenumbertable) Name() string {
 	return attr.name
 }

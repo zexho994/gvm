@@ -155,7 +155,7 @@ var (
 
 	getStatic     = &references.GetStatic{} // 178
 	putStatic     = &references.PutStatic{}
-	getField      = &references.GET_FIELD{}
+	getField      = &references.GetField{}
 	putField      = &references.PUT_FIELD{}
 	invokeStatic  = &references.INVOKE_STATIC{} // 184
 	invokeSpecial = &references.INVOKE_SPECIAL{}
@@ -167,7 +167,7 @@ var (
 	arrayLength   = &references.ARRAY_LENGTH{}
 )
 
-func NewInstruction(opcode byte) base.Base_Instruction {
+func NewInstruction(opcode byte) base.Instruction {
 	switch opcode {
 	case 0x00:
 		return nop

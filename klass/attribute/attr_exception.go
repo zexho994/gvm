@@ -5,14 +5,14 @@ import (
 	"github.com/zouzhihao-994/gvm/loader"
 )
 
-// Exceptions属性是变长属性，位于 MethodInfo 结构中
+// AttrExceptions Exceptions属性是变长属性，位于 MethodInfo 结构中
 // 表示一个方法可能抛出的受检查异常(checked exception)
-// 一个 MethodInfo 结果的属性表中最多一个 Attr_Exceptions 属性
+// 一个 MethodInfo 结果的属性表中最多一个 AttrExceptions 属性
 // 如果一个方法要抛出异常，需要满足3个条件之一
 // 		1. 抛出的是RuntimeException或者子类的实例
 // 		2. 要抛出的是Error或子类的实例
 // 		3. 要抛出的是exTable中声明的异常类或者子类
-type Attr_Exceptions struct {
+type AttrExceptions struct {
 	// 名称索引
 	nameIdx uint16
 	// 不包括在bytecode中，nameIdx解析后的数据
@@ -27,7 +27,7 @@ type Attr_Exceptions struct {
 	cp      constant_pool.ConstantPool
 }
 
-func (attr *Attr_Exceptions) parse(reader *loader.ClassReader) {
+func (attr *AttrExceptions) parse(reader *loader.ClassReader) {
 	exCount := reader.ReadUint16()
 	attr.exTable = make([]uint16, exCount)
 	for i := range attr.exTable {
@@ -35,6 +35,6 @@ func (attr *Attr_Exceptions) parse(reader *loader.ClassReader) {
 	}
 }
 
-func (attr Attr_Exceptions) Name() string {
+func (attr AttrExceptions) Name() string {
 	return attr.name
 }

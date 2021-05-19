@@ -29,7 +29,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributesInfo, 1)
 	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
-	var codeAttr *attribute.Attr_Code
+	var codeAttr *attribute.AttrCode
 	switch methodDescriptor.returnTypt {
 	case "V":
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return

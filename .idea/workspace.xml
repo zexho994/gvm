@@ -29,25 +29,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
-      <change afterPath="$PROJECT_DIR$/java/InvokeArgs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/InvokeArgs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/StaticKlass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/StaticKlass.java" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/control/return.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/control/return.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/baseInstruction.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/baseInstruction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/aload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/aload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/getStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/monitor.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/monitor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/getField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/references/putStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/PrintOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/staticVars.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/staticVars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oop_fields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oop_fields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/localvars.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/localvars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/operandStack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/operandStack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/runtime_slot.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/runtime_slot.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,13 +281,6 @@
       <workItem from="1621242056799" duration="2853000" />
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
-    </task>
-    <task id="LOCAL-00022" summary="添加指令 fstore,从操作数栈中获取float值本地变量表中">
-      <created>1600502204835</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1600502204835</updated>
     </task>
     <task id="LOCAL-00023" summary="添加指令 xastore，存储值到数组中">
       <created>1600502373191</created>
@@ -630,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621340611496</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="rename">
+      <created>1621408034320</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1621408034320</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +700,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: adjust project structure" />
     <MESSAGE value="build test" />
     <MESSAGE value="update some annotations" />
     <MESSAGE value="move GvmOut" />
@@ -730,7 +724,8 @@
     <MESSAGE value="refactor for runtime" />
     <MESSAGE value="new inst 0xc6 &amp; oxc7" />
     <MESSAGE value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
-    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
+    <MESSAGE value="rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -755,7 +750,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/native/System.go</url>
-          <line>16</line>
+          <line>15</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -767,6 +762,11 @@
           <url>file://$PROJECT_DIR$/instructions/references/putStatic.go</url>
           <line>16</line>
           <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/getField.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
