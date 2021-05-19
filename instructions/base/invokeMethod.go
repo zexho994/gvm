@@ -20,8 +20,10 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	var attrCode *attribute.AttrCode
 
 	if utils.IsNative(method.AccessFlag()) {
-		nativeMethod := native.FindNativeMethod(method)
-		nativeMethod(frame)
+		if !gvmPrint(method, frame) {
+			nativeMethod := native.FindNativeMethod(method)
+			nativeMethod(frame)
+		}
 		return
 	}
 
@@ -48,7 +50,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 }
 
 // hard code to print for gvm
-func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) {
+func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) (ok bool) {
 	if method.Klass().ThisClass == "GvmOut" && method.Name() == "to" {
 		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
@@ -72,7 +74,8 @@ func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) {
 		case "B":
 		case "S":
 			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()
-			return
+			return false
 		}
 	}
+	return true
 }

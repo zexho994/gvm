@@ -53,12 +53,12 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 }
 
 // NewOopInstance create non-array oops
-func NewOopInstance(jci *klass.Klass) *OopInstance {
+func NewOopInstance(k *klass.Klass) *OopInstance {
 	return &OopInstance{
 		markWords:      NewMarkWords(),
-		fields:         InitOopFields(jci),
+		fields:         InitOopFields(k),
 		isArray:        false,
-		jclassInstance: jci,
+		jclassInstance: k,
 	}
 }
 

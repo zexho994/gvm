@@ -29,10 +29,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="move invokeNative to package reserve">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add a *p for methodInfo -&gt; klass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stores/astore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/astore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/StaticKlass.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/StaticKlass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/StaticKlass.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/StaticKlass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassField.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,13 +269,6 @@
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
-    </task>
-    <task id="LOCAL-00029" summary="取消一些注释">
-      <created>1600504568288</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1600504568288</updated>
     </task>
     <task id="LOCAL-00030" summary="支持数组的解析">
       <created>1600504578140</created>
@@ -607,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621414582648</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="add a *p for methodInfo -&gt; klass">
+      <created>1621415727362</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1621415727362</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +688,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="rename Perm -&gt; perm" />
     <MESSAGE value="native -&gt; system" />
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
     <MESSAGE value="add test case for cmd/gvm" />
@@ -707,7 +712,8 @@
     <MESSAGE value="refactoring for POP" />
     <MESSAGE value="refactoring for DUP" />
     <MESSAGE value="move invokeNative to package reserve" />
-    <option name="LAST_COMMIT_MESSAGE" value="move invokeNative to package reserve" />
+    <MESSAGE value="add a *p for methodInfo -&gt; klass" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a *p for methodInfo -&gt; klass" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -729,16 +735,6 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/comparisons/if.go</url>
-          <line>75</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
-          <line>34</line>
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -8,4 +8,8 @@ public class PrintOut {
         System.out.println("11_22_33");
     }
 
+    public void print(String s){
+        System.out.println(s);
+    }
+
 }

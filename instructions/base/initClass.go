@@ -22,7 +22,6 @@ func InitClass(k *klass.Klass, thread *runtime.Thread) {
 	// 如果父类也还未初始化，则先初始化父类
 	// 因为栈的原因，所以父类的初始化frame要后push
 	if k.SuperClass != nil && !k.SuperClass.IsInit {
-		super := k.SuperClass
-		InitClass(super, thread)
+		InitClass(k.SuperClass, thread)
 	}
 }
