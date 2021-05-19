@@ -14,81 +14,81 @@ import (
 )
 
 var (
-	nop         = &base.NOP{}
-	aconst_null = &constants.ACONST_NULL{}
-	iconst_ml   = &constants.ICONST_M1{}
-	iconst_0    = &constants.ICONST_0{}
-	iconst_1    = &constants.ICONST_1{}
-	iconst_2    = &constants.ICONST_2{}
-	iconst_3    = &constants.ICONST_3{}
-	iconst_4    = &constants.ICONST_4{}
-	iconst_5    = &constants.ICONST_5{}
-	lconst_0    = &constants.LCONST_0{}
-	lconst_1    = &constants.LCONST_1{}
-	fconst_0    = &constants.FCONST_0{}
-	fconst_1    = &constants.FCONST_1{}
-	fconst_2    = &constants.FCONST_2{}
-	dconst_0    = &constants.DCONST_0{}
-	dconst_1    = &constants.DCONST_1{}
+	nop        = &base.NOP{}
+	aconstNull = &constants.ACONST_NULL{}
+	iconstMl   = &constants.ICONST_M1{}
+	iconst0    = &constants.ICONST_0{}
+	iconst1    = &constants.ICONST_1{}
+	iconst2    = &constants.ICONST_2{}
+	iconst3    = &constants.ICONST_3{}
+	iconst4    = &constants.ICONST_4{}
+	iconst5    = &constants.ICONST_5{}
+	lconst0    = &constants.LCONST_0{}
+	lconst1    = &constants.LCONST_1{}
+	fconst0    = &constants.FCONST_0{}
+	fconst1    = &constants.FCONST_1{}
+	fconst2    = &constants.FCONST_2{}
+	dconst0    = &constants.DCONST_0{}
+	dconst1    = &constants.DCONST_1{}
 
 	ldc    = &constants.LDC{}
-	ldc2_w = &constants.LDC2_W{}
+	ldc2W  = &constants.LDC2_W{}
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
 
-	iload   = &loads.ILOAD{}
-	lload   = &loads.LLOAD{}
-	fload   = &loads.FLOAD{}
-	dload   = &loads.DLOAD{}
-	aload   = &loads.ALOAD{}
-	iload_0 = &loads.ILOAD_0{}
-	iload_1 = &loads.ILOAD_1{}
-	iload_2 = &loads.ILOAD_2{}
-	iload_3 = &loads.ILOAD_3{}
-	lload_0 = &loads.LLOAD_0{}
-	lload_1 = &loads.LLOAD_1{}
-	lload_2 = &loads.LLOAD_2{}
-	lload_3 = &loads.LLOAD_3{}
-	fload_0 = &loads.FLOAD_0{}
-	fload_1 = &loads.FLOAD_1{}
-	fload_2 = &loads.FLOAD_2{}
-	fload_3 = &loads.FLOAD_3{}
-	dload_0 = &loads.DLOAD_0{}
-	dload_1 = &loads.DLOAD_1{}
-	dload_2 = &loads.DLOAD_2{}
-	dload_3 = &loads.DLOAD_3{}
-	aload_0 = &loads.Aload0{}
-	aload_1 = &loads.Aload1{}
-	aload_2 = &loads.Aload2{}
-	aload_3 = &loads.Aload3{}
+	iload  = &loads.ILOAD{}
+	lload  = &loads.LLOAD{}
+	fload  = &loads.FLOAD{}
+	dload  = &loads.DLOAD{}
+	aload  = &loads.ALOAD{}
+	iload0 = &loads.ILOAD_0{}
+	iload1 = &loads.ILOAD_1{}
+	iload2 = &loads.ILOAD_2{}
+	iload3 = &loads.ILOAD_3{}
+	lload0 = &loads.LLOAD_0{}
+	lload1 = &loads.LLOAD_1{}
+	lload2 = &loads.LLOAD_2{}
+	lload3 = &loads.LLOAD_3{}
+	fload0 = &loads.FLOAD_0{}
+	fload1 = &loads.FLOAD_1{}
+	fload2 = &loads.FLOAD_2{}
+	fload3 = &loads.FLOAD_3{}
+	dload0 = &loads.DLOAD_0{}
+	dload1 = &loads.DLOAD_1{}
+	dload2 = &loads.DLOAD_2{}
+	dload3 = &loads.DLOAD_3{}
+	aload0 = &loads.Aload0{}
+	aload1 = &loads.Aload1{}
+	aload2 = &loads.Aload2{}
+	aload3 = &loads.Aload3{}
 
-	istore   = &stores.ISTORE{}
-	istore_0 = &stores.ISTORE_0{}
-	istore_1 = &stores.ISTORE_1{}
-	istore_2 = &stores.ISTORE_2{}
-	istore_3 = &stores.ISTORE_3{}
-	astore   = &stores.ASTORE{}
-	astore_0 = &stores.ASTORE_0{}
-	astore_1 = &stores.ASTORE_1{}
-	astore_2 = &stores.ASTORE_2{}
-	astore_3 = &stores.ASTORE_3{}
-	fstore   = &stores.FSTORE{}
-	fstore_0 = &stores.FSTORE_0{}
-	fstore_1 = &stores.FSTORE_1{}
-	fstore_2 = &stores.FSTORE_2{}
-	fstore_3 = &stores.FSTORE_3{}
-	dstore   = &stores.DSTORE{}
-	dstore_0 = &stores.DSTORE_0{}
-	dstore_1 = &stores.DSTORE_1{}
-	dstore_2 = &stores.DSTORE_2{}
-	dstore_3 = &stores.DSTORE_3{}
-	lstore   = &stores.LSTORE{}
-	lstore_0 = &stores.LSTORE_0{}
-	lstore_1 = &stores.LSTORE_1{}
-	lstore_2 = &stores.LSTORE_2{}
-	lstore_3 = &stores.LSTORE_3{}
-	iastore  = &stores.IASTORE{}
-	sastore  = &stores.SASTORE{}
+	istore  = &stores.ISTORE{}
+	istore0 = &stores.ISTORE_0{}
+	istore1 = &stores.ISTORE_1{}
+	istore2 = &stores.ISTORE_2{}
+	istore3 = &stores.ISTORE_3{}
+	astore  = &stores.ASTORE{}
+	astore0 = &stores.ASTORE_0{}
+	astore1 = &stores.ASTORE_1{}
+	astore2 = &stores.ASTORE_2{}
+	astore3 = &stores.ASTORE_3{}
+	fstore  = &stores.FSTORE{}
+	fstore0 = &stores.FSTORE_0{}
+	fstore1 = &stores.FSTORE_1{}
+	fstore2 = &stores.FSTORE_2{}
+	fstore3 = &stores.FSTORE_3{}
+	dstore  = &stores.DSTORE{}
+	dstore0 = &stores.DSTORE_0{}
+	dstore1 = &stores.DSTORE_1{}
+	dstore2 = &stores.DSTORE_2{}
+	dstore3 = &stores.DSTORE_3{}
+	lstore  = &stores.LSTORE{}
+	lstore0 = &stores.LSTORE_0{}
+	lstore1 = &stores.LSTORE_1{}
+	lstore2 = &stores.LSTORE_2{}
+	lstore3 = &stores.LSTORE_3{}
+	iastore = &stores.IASTORE{}
+	sastore = &stores.SASTORE{}
 
 	iadd = &math.IADD{}
 	ladd = &math.LADD{}
@@ -120,38 +120,38 @@ var (
 	pop  = &stack.POP{}
 	pop2 = &stack.POP2{}
 
-	dup     = &stack.Dup{}
-	dup_x1  = &stack.Dup_X1{}
-	dup_x2  = &stack.Dup_X2{}
-	dup2    = &stack.Dup2{}
-	dup2_x1 = &stack.Dup2_X1{}
-	dup2_x2 = &stack.Dup2_X2{}
+	dup    = &stack.Dup{}
+	dupX1  = &stack.Dup_X1{}
+	dupX2  = &stack.Dup_X2{}
+	dup2   = &stack.Dup2{}
+	dup2X1 = &stack.Dup2_X1{}
+	dup2X2 = &stack.Dup2_X2{}
 
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
-	monitor_enter = &references.MonitorEntry{}
-	monitor_exit  = &references.MonitorExit{}
+	monitorEnter = &references.MonitorEntry{}
+	monitorExit  = &references.MonitorExit{}
 
-	lcmp       = &comparisons.LCMP{}
-	fcmpg      = &comparisons.FCMPG{}
-	fcmpl      = &comparisons.FCMPL{}
-	if_icmpge  = &comparisons.If_ICMPGE{}
-	if_icmple  = &comparisons.If_ICMPLE{}
-	if_icmpne  = &comparisons.If_ACMPNE{}
-	if_icmpeq  = &comparisons.If_ACMPEQ{}
-	if_icmplt  = &comparisons.If_ICMPLT{}
-	if_icmpgt  = &comparisons.If_ICMPGT{}
-	if_acmpeq  = &comparisons.If_ACMPEQ{}
-	if_acmpne  = &comparisons.If_ACMPNE{}
-	if_null    = &comparisons.If_NULL{}
-	if_nonnull = &comparisons.If_NONNULL{}
-	ifge       = &comparisons.IF_GE{}
-	ifle       = &comparisons.IF_LE{}
-	ifne       = &comparisons.IF_NE{}
-	ifgt       = &comparisons.IF_GT{}
-	ifeq       = &comparisons.IF_EQ{}
-	iflt       = &comparisons.IF_LT{}
+	lcmp      = &comparisons.LCMP{}
+	fcmpg     = &comparisons.FCMPG{}
+	fcmpl     = &comparisons.FCMPL{}
+	ifIcmpge  = &comparisons.If_ICMPGE{}
+	ifIcmple  = &comparisons.If_ICMPLE{}
+	ifIcmpne  = &comparisons.If_ACMPNE{}
+	ifIcmpeq  = &comparisons.If_ACMPEQ{}
+	ifIcmplt  = &comparisons.If_ICMPLT{}
+	ifIcmpgt  = &comparisons.If_ICMPGT{}
+	ifAcmpeq  = &comparisons.If_ACMPEQ{}
+	ifAcmpne  = &comparisons.If_ACMPNE{}
+	ifNull    = &comparisons.If_NULL{}
+	ifNonnull = &comparisons.If_NONNULL{}
+	ifge      = &comparisons.IF_GE{}
+	ifle      = &comparisons.IF_LE{}
+	ifne      = &comparisons.IF_NE{}
+	ifgt      = &comparisons.IF_GT{}
+	ifeq      = &comparisons.IF_EQ{}
+	iflt      = &comparisons.IF_LT{}
 
 	getStatic     = &references.GetStatic{} // 178
 	putStatic     = &references.PutStatic{}
@@ -172,35 +172,35 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x00:
 		return nop
 	case 0x01:
-		return aconst_null
+		return aconstNull
 	case 0x02:
-		return iconst_ml
+		return iconstMl
 	case 0x03:
-		return iconst_0
+		return iconst0
 	case 0x04:
-		return iconst_1
+		return iconst1
 	case 0x05:
-		return iconst_2
+		return iconst2
 	case 0x06:
-		return iconst_3
+		return iconst3
 	case 0x07:
-		return iconst_4
+		return iconst4
 	case 0x08:
-		return iconst_5
+		return iconst5
 	case 0x09:
-		return lconst_0
+		return lconst0
 	case 0x0a:
-		return lconst_1
+		return lconst1
 	case 0x0b:
-		return fconst_0
+		return fconst0
 	case 0x0c:
-		return fconst_1
+		return fconst1
 	case 0x0d:
-		return fconst_2
+		return fconst2
 	case 0x0e:
-		return dconst_0
+		return dconst0
 	case 0x0f:
-		return dconst_1
+		return dconst1
 	case 0x10:
 		return bipush
 	case 0x11:
@@ -210,7 +210,7 @@ func NewInstruction(opcode byte) base.Instruction {
 	//case 0x13:
 	//	return ldc_w
 	case 0x14:
-		return ldc2_w
+		return ldc2W
 	case 0x15:
 		return iload
 	case 0x16:
@@ -222,45 +222,45 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x19:
 		return aload
 	case 0x1a:
-		return iload_0
+		return iload0
 	case 0x1b:
-		return iload_1
+		return iload1
 	case 0x1c:
-		return iload_2
+		return iload2
 	case 0x1d:
-		return iload_3
+		return iload3
 	case 0x1e:
-		return lload_0
+		return lload0
 	case 0x1f:
-		return lload_1
+		return lload1
 	case 0x20:
-		return lload_2
+		return lload2
 	case 0x21:
-		return lload_3
+		return lload3
 	case 0x22:
-		return fload_0
+		return fload0
 	case 0x23:
-		return fload_1
+		return fload1
 	case 0x24:
-		return fload_2
+		return fload2
 	case 0x25:
-		return fload_3
+		return fload3
 	case 0x26:
-		return dload_0
+		return dload0
 	case 0x27:
-		return dload_1
+		return dload1
 	case 0x28:
-		return dload_2
+		return dload2
 	case 0x29:
-		return dload_3
+		return dload3
 	case 0x2a:
-		return aload_0
+		return aload0
 	case 0x2b:
-		return aload_1
+		return aload1
 	case 0x2c:
-		return aload_2
+		return aload2
 	case 0x2d:
-		return aload_3
+		return aload3
 	//case 0x2e:
 	//	return iadload
 	//case 0x2f:
@@ -288,45 +288,45 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x3a:
 		return astore
 	case 0x3b:
-		return istore_0
+		return istore0
 	case 0x3c:
-		return istore_1
+		return istore1
 	case 0x3d:
-		return istore_2
+		return istore2
 	case 0x3e:
-		return istore_3
+		return istore3
 	case 0x3f:
-		return lstore_0
+		return lstore0
 	case 0x40:
-		return lstore_1
+		return lstore1
 	case 0x41:
-		return lstore_2
+		return lstore2
 	case 0x42:
-		return lstore_3
+		return lstore3
 	case 0x43:
-		return fstore_0
+		return fstore0
 	case 0x44:
-		return fstore_1
+		return fstore1
 	case 0x45:
-		return fstore_2
+		return fstore2
 	case 0x46:
-		return fstore_3
+		return fstore3
 	case 0x47:
-		return dstore_0
+		return dstore0
 	case 0x48:
-		return dstore_1
+		return dstore1
 	case 0x49:
-		return dstore_2
+		return dstore2
 	case 0x4a:
-		return dstore_3
+		return dstore3
 	case 0x4b:
-		return astore_0
+		return astore0
 	case 0x4c:
-		return astore_1
+		return astore1
 	case 0x4d:
-		return astore_2
+		return astore2
 	case 0x4e:
-		return astore_3
+		return astore3
 	case 0x4f:
 		return iastore
 	//case 0x50:
@@ -348,15 +348,15 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x59:
 		return dup
 	case 0x5a:
-		return dup_x1
+		return dupX1
 	case 0x5b:
-		return dup_x2
+		return dupX2
 	case 0x5c:
 		return dup2
 	case 0x5d:
-		return dup2_x1
+		return dup2X1
 	case 0x5e:
-		return dup2_x2
+		return dup2X2
 	case 0x60:
 		return iadd
 	case 0x61:
@@ -484,21 +484,21 @@ func NewInstruction(opcode byte) base.Instruction {
 	case 0x9e:
 		return ifle
 	case 0x9f:
-		return if_icmpeq
+		return ifIcmpeq
 	case 0xa0:
-		return if_icmpne
+		return ifIcmpne
 	case 0xa1:
-		return if_icmplt
+		return ifIcmplt
 	case 0xa2:
-		return if_icmpge
+		return ifIcmpge
 	case 0xa3:
-		return if_icmpgt
+		return ifIcmpgt
 	case 0xa4:
-		return if_icmple
+		return ifIcmple
 	case 0xa5:
-		return if_acmpeq
+		return ifAcmpeq
 	case 0xa6:
-		return if_acmpne
+		return ifAcmpne
 	case 0xa7:
 		return _goto
 	//case 0xa8:
@@ -552,17 +552,17 @@ func NewInstruction(opcode byte) base.Instruction {
 	//case 0xc1:
 	//	return instanceof
 	case 0xc2:
-		return monitor_enter
+		return monitorEnter
 	case 0xc3:
-		return monitor_exit
+		return monitorExit
 	//case 0xc4:
 	//	return wide
 	//case 0xc5:
 	//	return multianewarray
 	case 0xc6:
-		return if_null
+		return ifNull
 	case 0xc7:
-		return if_nonnull
+		return ifNonnull
 	//case 0xc8:
 	//	return goto_w
 	//case 0xc9:

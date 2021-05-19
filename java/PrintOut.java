@@ -5,8 +5,7 @@
 public class PrintOut {
 
     public static void main(String[] args) {
-        String s1 = "s1111";
-        StaticKlass.sk.print(s1);
+        System.out.println("11_22_33");
     }
 
 }
