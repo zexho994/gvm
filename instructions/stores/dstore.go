@@ -5,42 +5,42 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// Store double into local variable
+// DSTORE Store double into local variable
 type DSTORE struct{ base.InstructionIndex16 }
 
 func (self *DSTORE) Execute(frame *runtime.Frame) {
 	_dstore(frame, uint(self.Index))
 }
 
-type DSTORE_0 struct {
+type Dstore0 struct {
 	base.InstructionIndex0
 }
 
-func (self *DSTORE_0) Execute(frame *runtime.Frame) {
+func (self *Dstore0) Execute(frame *runtime.Frame) {
 	_dstore(frame, 0)
 }
 
-type DSTORE_1 struct {
+type Dstore1 struct {
 	base.InstructionIndex0
 }
 
-func (self *DSTORE_1) Execute(frame *runtime.Frame) {
+func (self *Dstore1) Execute(frame *runtime.Frame) {
 	_dstore(frame, 1)
 }
 
-type DSTORE_2 struct {
+type Dstore2 struct {
 	base.InstructionIndex0
 }
 
-func (self *DSTORE_2) Execute(frame *runtime.Frame) {
+func (self *Dstore2) Execute(frame *runtime.Frame) {
 	_dstore(frame, 2)
 }
 
-type DSTORE_3 struct {
+type Dstore3 struct {
 	base.InstructionIndex0
 }
 
-func (self *DSTORE_3) Execute(frame *runtime.Frame) {
+func (self *Dstore3) Execute(frame *runtime.Frame) {
 	_dstore(frame, 3)
 }
 

@@ -68,20 +68,20 @@ var (
 	istore2 = &stores.ISTORE_2{}
 	istore3 = &stores.ISTORE_3{}
 	astore  = &stores.ASTORE{}
-	astore0 = &stores.ASTORE_0{}
-	astore1 = &stores.ASTORE_1{}
-	astore2 = &stores.ASTORE_2{}
-	astore3 = &stores.ASTORE_3{}
+	astore0 = &stores.Astore0{}
+	astore1 = &stores.Astore1{}
+	astore2 = &stores.Astore2{}
+	astore3 = &stores.Astore3{}
 	fstore  = &stores.FSTORE{}
 	fstore0 = &stores.FSTORE_0{}
 	fstore1 = &stores.FSTORE_1{}
 	fstore2 = &stores.FSTORE_2{}
 	fstore3 = &stores.FSTORE_3{}
 	dstore  = &stores.DSTORE{}
-	dstore0 = &stores.DSTORE_0{}
-	dstore1 = &stores.DSTORE_1{}
-	dstore2 = &stores.DSTORE_2{}
-	dstore3 = &stores.DSTORE_3{}
+	dstore0 = &stores.Dstore0{}
+	dstore1 = &stores.Dstore1{}
+	dstore2 = &stores.Dstore2{}
+	dstore3 = &stores.Dstore3{}
 	lstore  = &stores.LSTORE{}
 	lstore0 = &stores.LSTORE_0{}
 	lstore1 = &stores.LSTORE_1{}
@@ -574,6 +574,6 @@ func NewInstruction(opcode byte) base.Instruction {
 	//case 0xff:
 	//	return impdep2
 	default:
-		panic(fmt.Errorf("Unsupported opcode : 0x%x!", opcode))
+		panic(fmt.Errorf("Unsupported opcode : 0x %x!", opcode))
 	}
 }

@@ -111,7 +111,7 @@ func (m MethodInfo) Attributes() attribute.AttributesInfo {
 }
 
 // 解析方法表
-func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool) Methods {
+func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool, k *Klass) Methods {
 	methods := make([]*MethodInfo, count)
 	for i := range methods {
 		method := &MethodInfo{}
@@ -124,6 +124,7 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.Co
 		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
+		method.klass = k
 	}
 	return methods
 }

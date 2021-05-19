@@ -29,7 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename fo invokeVirtual" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="move invokeNative to package reserve">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/stores/astore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/astore.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +58,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactoring" />
+        <entry key="$PROJECT_DIR$" value="feat" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,11 +82,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="refactoring" />
-                    <option name="lastUsedInstant" value="1621390168" />
+                    <option name="lastUsedInstant" value="1621414344" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feat" />
-                    <option name="lastUsedInstant" value="1621387628" />
+                    <option name="lastUsedInstant" value="1621414245" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -159,11 +163,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/instructions/reserved" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/runtime" />
       <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/loader" />
-      <recent name="$PROJECT_DIR$/klass" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -224,6 +228,8 @@
       <list>
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -257,27 +263,6 @@
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
-    </task>
-    <task id="LOCAL-00026" summary="添加if_acmpne指令">
-      <created>1600503790885</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1600503790885</updated>
-    </task>
-    <task id="LOCAL-00027" summary="补充一些指令">
-      <created>1600503953420</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1600503953420</updated>
-    </task>
-    <task id="LOCAL-00028" summary="代码重构">
-      <created>1600503974233</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1600503974233</updated>
     </task>
     <task id="LOCAL-00029" summary="取消一些注释">
       <created>1600504568288</created>
@@ -601,7 +586,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621413271538</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="refactoring for POP">
+      <created>1621414456441</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1621414456441</updated>
+    </task>
+    <task id="LOCAL-00076" summary="refactoring for DUP">
+      <created>1621414523342</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1621414523342</updated>
+    </task>
+    <task id="LOCAL-00077" summary="move invokeNative to package reserve">
+      <created>1621414582648</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1621414582648</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +634,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feat" />
+                        <option value="refactoring" />
                       </list>
                     </value>
                   </entry>
@@ -676,9 +682,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="update cmd module" />
-    <MESSAGE value="add gvm system package to storage files that native and add new class loader GSCLoader" />
-    <MESSAGE value="Simplifying the gvm.out method" />
     <MESSAGE value="rename Perm -&gt; perm" />
     <MESSAGE value="native -&gt; system" />
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
@@ -701,7 +704,10 @@
     <MESSAGE value="rename for attr" />
     <MESSAGE value="rename fo instFactor" />
     <MESSAGE value="rename fo invokeVirtual" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename fo invokeVirtual" />
+    <MESSAGE value="refactoring for POP" />
+    <MESSAGE value="refactoring for DUP" />
+    <MESSAGE value="move invokeNative to package reserve" />
+    <option name="LAST_COMMIT_MESSAGE" value="move invokeNative to package reserve" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -733,11 +739,6 @@
           <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
           <line>34</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/invokeSpecial.go</url>
-          <line>16</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

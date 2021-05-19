@@ -76,7 +76,7 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.Fields = parseFields(kl.FieldsCount, reader, kl.ConstantPool)
 	// 方法数量 & 列表
 	kl.MethodsCount = reader.ReadUint16()
-	kl.Methods = parseMethod(kl.MethodsCount, reader, kl.ConstantPool)
+	kl.Methods = parseMethod(kl.MethodsCount, reader, kl.ConstantPool, kl)
 	// 属性数量 & 列表
 	kl.AttributesCount = reader.ReadUint16()
 	kl.Attributes = attribute.ParseAttributes(kl.AttributesCount, reader, kl.ConstantPool)
