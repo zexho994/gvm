@@ -121,11 +121,11 @@ var (
 	pop2 = &stack.POP2{}
 
 	dup    = &stack.Dup{}
-	dupX1  = &stack.Dup_X1{}
-	dupX2  = &stack.Dup_X2{}
+	dupX1  = &stack.DupX1{}
+	dupX2  = &stack.DupX2{}
 	dup2   = &stack.Dup2{}
-	dup2X1 = &stack.Dup2_X1{}
-	dup2X2 = &stack.Dup2_X2{}
+	dup2X1 = &stack.Dup2X1{}
+	dup2X2 = &stack.Dup2X2{}
 
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
