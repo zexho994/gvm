@@ -22,6 +22,5 @@ func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
 	name, Desc := constantMethod.NameAndDescriptor()
 	method, _, _ := k.FindMethod(name, Desc)
 
-	// 如果是初始化方法
 	base.InvokeMethod(frame, method, utils.IsStatic(method.AccessFlag()))
 }
