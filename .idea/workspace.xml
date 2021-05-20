@@ -29,10 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add a *p for methodInfo -&gt; klass">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add native method initializeSystemClass()">
+      <change afterPath="$PROJECT_DIR$/instructions/conversions/v2v.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,13 +263,6 @@
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
-    </task>
-    <task id="LOCAL-00030" summary="支持数组的解析">
-      <created>1600504578140</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1600504578140</updated>
     </task>
     <task id="LOCAL-00031" summary="添加字符串解析类">
       <created>1600521385191</created>
@@ -607,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621415727362</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="add native method initializeSystemClass()">
+      <created>1621426902386</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1621426902386</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +634,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feat" />
+                        <option value="origin/feat" />
                       </list>
                     </value>
                   </entry>
@@ -682,7 +682,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="native -&gt; system" />
     <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
     <MESSAGE value="add test case for cmd/gvm" />
     <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
@@ -707,7 +706,8 @@
     <MESSAGE value="refactoring for DUP" />
     <MESSAGE value="move invokeNative to package reserve" />
     <MESSAGE value="add a *p for methodInfo -&gt; klass" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a *p for methodInfo -&gt; klass" />
+    <MESSAGE value="add native method initializeSystemClass()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add native method initializeSystemClass()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -732,8 +732,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/base/invokeMethod.go</url>
-          <line>23</line>
+          <line>22</line>
           <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/registry.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
