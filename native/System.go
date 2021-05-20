@@ -7,7 +7,7 @@ import (
 	"sort"
 )
 
-func Init() {
+func InitSystem() {
 	_system(setOut0, "setOut0", "(Ljava/io/PrintStream;)V")
 	_system(initProperties, "initProperties", "(Ljava/util/Properties;)Ljava/util/Properties;")
 }
