@@ -29,10 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add native method initializeSystemClass()">
-      <change afterPath="$PROJECT_DIR$/instructions/conversions/v2v.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst -&gt; 0x8b f2i">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/getField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,20 +267,7 @@
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
-    </task>
-    <task id="LOCAL-00031" summary="添加字符串解析类">
-      <created>1600521385191</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1600521385191</updated>
-    </task>
-    <task id="LOCAL-00032" summary="支持打印字符串">
-      <created>1600521400688</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1600521400688</updated>
+      <workItem from="1621484004487" duration="1916000" />
     </task>
     <task id="LOCAL-00033" summary="本地方法注册表">
       <created>1600587237331</created>
@@ -607,7 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621426902386</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="new inst -&gt; 0x86 i2f">
+      <created>1621471565865</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1621471565865</updated>
+    </task>
+    <task id="LOCAL-00081" summary="new inst -&gt; 0x8b f2i">
+      <created>1621471701639</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1621471701640</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,8 +687,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="rename classfile -&gt; classload &amp; remove heap" />
-    <MESSAGE value="add test case for cmd/gvm" />
     <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
     <MESSAGE value="refactor config" />
     <MESSAGE value="new module launcher &amp; move startVM to launcher" />
@@ -707,7 +710,9 @@
     <MESSAGE value="move invokeNative to package reserve" />
     <MESSAGE value="add a *p for methodInfo -&gt; klass" />
     <MESSAGE value="add native method initializeSystemClass()" />
-    <option name="LAST_COMMIT_MESSAGE" value="add native method initializeSystemClass()" />
+    <MESSAGE value="new inst -&gt; 0x86 i2f" />
+    <MESSAGE value="new inst -&gt; 0x8b f2i" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst -&gt; 0x8b f2i" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -731,14 +736,9 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/base/invokeMethod.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/native/registry.go</url>
-          <line>19</line>
-          <option name="timeStamp" value="77" />
+          <url>file://$PROJECT_DIR$/native/System.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
