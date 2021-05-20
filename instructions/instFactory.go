@@ -129,6 +129,7 @@ var (
 	dup2X2 = &stack.Dup2X2{}
 
 	i2f = &conversions.I2f{}
+	f2i = &conversions.F2i{}
 
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
@@ -446,8 +447,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return l2f
 	//case 0x8a:
 	//	return l2d
-	//case 0x8b:
-	//	return f2i
+	case 0x8b:
+		return f2i
 	//case 0x8c:
 	//	return fl2
 	//case 0x8d:
