@@ -3,6 +3,7 @@ package constants
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
@@ -21,6 +22,7 @@ func (i LDC) Execute(frame *runtime.Frame) {
 	c := frame.Method().CP().GetConstantInfo(uint16(i.Index))
 	switch c.(type) {
 	case *constant_pool.ConstantIntegerInfo:
+		panic("ldc integer error")
 	case *constant_pool.ConstantFloatInfo:
 		float := c.(*constant_pool.ConstantFloatInfo)
 		frame.OperandStack().PushFloat(float.Value())
@@ -28,8 +30,21 @@ func (i LDC) Execute(frame *runtime.Frame) {
 		str := c.(*constant_pool.ConstantStringInfo)
 		frame.OperandStack().PushRef(oops.NewStringOopInstance(str.String()))
 	case *constant_pool.ConstantClassInfo:
+		constClass := c.(*constant_pool.ConstantClassInfo)
+		k := klass.PermSpace()[constClass.Name()]
+		if k == nil {
+			k = klass.ParseByClassName(constClass.Name())
+		}
+		if !k.IsInit {
+			frame.RevertPC()
+			base.InitClass(k, frame.Thread())
+			return
+		}
+		frame.OperandStack().PushRef(oops.NewOopInstance(k))
 	case *constant_pool.ConstantMethodInfo:
+		panic("ldc method error")
 	case *constant_pool.ConstantMethodHandleInfo:
+		panic("ldc methodHandle error")
 	default:
 		exception.GvmError{Msg: "ldc,constant type error"}.Throw()
 	}

@@ -1,6 +1,7 @@
 package launcher
 
 import (
+	"fmt"
 	"github.com/zouzhihao-994/gvm/instructions"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
@@ -32,6 +33,8 @@ func loop(thread *runtime.Thread) {
 		inst := instructions.NewInstruction(opcode)
 		inst.FetchOperands(reader)
 		curFrame.SetPC(reader.PC())
+		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
+			curFrame.Method().Klass().ThisClass, curFrame.Method().Name(), curFrame.Method().Descriptor(), opcode)
 		inst.Execute(curFrame)
 		if thread.IsEmtpy() {
 			break

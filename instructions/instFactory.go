@@ -6,6 +6,7 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/comparisons"
 	constants "github.com/zouzhihao-994/gvm/instructions/constant"
 	"github.com/zouzhihao-994/gvm/instructions/control"
+	"github.com/zouzhihao-994/gvm/instructions/conversions"
 	"github.com/zouzhihao-994/gvm/instructions/loads"
 	"github.com/zouzhihao-994/gvm/instructions/math"
 	"github.com/zouzhihao-994/gvm/instructions/references"
@@ -127,6 +128,9 @@ var (
 	dup2X1 = &stack.Dup2X1{}
 	dup2X2 = &stack.Dup2X2{}
 
+	i2f = &conversions.I2f{}
+	f2i = &conversions.F2i{}
+
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
@@ -153,18 +157,19 @@ var (
 	ifeq      = &comparisons.IfEq{}
 	iflt      = &comparisons.IfLt{}
 
-	getStatic     = &references.GetStatic{} // 178
-	putStatic     = &references.PutStatic{}
-	getField      = &references.GetField{}
-	putField      = &references.PutField{}
-	invokeStatic  = &references.INVOKE_STATIC{} // 184
-	invokeSpecial = &references.InvokeSpecial{}
-	invokeVirtual = &references.InvokeVirtual{}
-	invokeDynamic = &references.InvokeDynamic{}
-	_new          = &references.NEW{} //187
-	anewarray     = &references.ANEW_ARRAY{}
-	_newArray     = &references.NEW_ARRAY{}
-	arrayLength   = &references.ARRAY_LENGTH{}
+	getStatic       = &references.GetStatic{} // 178
+	putStatic       = &references.PutStatic{}
+	getField        = &references.GetField{}
+	putField        = &references.PutField{}
+	invokeStatic    = &references.INVOKE_STATIC{} // 184
+	invokeSpecial   = &references.InvokeSpecial{}
+	invokeVirtual   = &references.InvokeVirtual{}
+	invokeDynamic   = &references.InvokeDynamic{}
+	invokeInterface = &references.InvokeInterface{}
+	_new            = &references.NEW{} //187
+	anewarray       = &references.AnewArray{}
+	_newArray       = &references.NEW_ARRAY{}
+	arrayLength     = &references.ARRAY_LENGTH{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -433,8 +438,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return iinc
 	//case 0x85:
 	//	return i2l
-	//case 0x86:
-	//	return i2f
+	case 0x86:
+		return i2f
 	//case 0x87:
 	//	return i2d
 	//case 0x88:
@@ -443,8 +448,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return l2f
 	//case 0x8a:
 	//	return l2d
-	//case 0x8b:
-	//	return f2i
+	case 0x8b:
+		return f2i
 	//case 0x8c:
 	//	return fl2
 	//case 0x8d:
@@ -535,6 +540,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return invokeSpecial
 	case 0xb8:
 		return invokeStatic
+	case 0xb9:
+		return invokeInterface
 	case 0xba:
 		return invokeDynamic
 	case 0xbb:

@@ -23,88 +23,96 @@ func NewOperandStack(maxStack uint16) *OperandStack {
 	return nil
 }
 
-func (operandStack *OperandStack) PushInt(val int32) {
-	operandStack.slots[operandStack.size].Num = val
-	operandStack.size++
+func (stack *OperandStack) GetByIdx(i int) utils.Slot {
+	return stack.slots[i]
 }
 
-func (operandStack *OperandStack) PopInt() int32 {
-	operandStack.size--
-	return operandStack.slots[operandStack.size].Num
+func (stack *OperandStack) SetByIdx(i int, s utils.Slot) {
+	stack.slots[i] = s
 }
 
-func (operandStack *OperandStack) PushFloat(val float32) {
+func (stack *OperandStack) PushInt(val int32) {
+	stack.slots[stack.size].Num = val
+	stack.size++
+}
+
+func (stack *OperandStack) PopInt() int32 {
+	stack.size--
+	return stack.slots[stack.size].Num
+}
+
+func (stack *OperandStack) PushFloat(val float32) {
 	bits := math.Float32bits(val)
-	operandStack.slots[operandStack.size].Num = int32(bits)
-	operandStack.size++
+	stack.slots[stack.size].Num = int32(bits)
+	stack.size++
 }
-func (operandStack *OperandStack) PopFloat() float32 {
-	operandStack.size--
-	bits := uint32(operandStack.slots[operandStack.size].Num)
+func (stack *OperandStack) PopFloat() float32 {
+	stack.size--
+	bits := uint32(stack.slots[stack.size].Num)
 	return math.Float32frombits(bits)
 }
 
-func (operandStack *OperandStack) PushLong(val int64) {
-	operandStack.slots[operandStack.size].Num = int32(val)
-	operandStack.slots[operandStack.size+1].Num = int32(val >> 32)
-	operandStack.size += 2
+func (stack *OperandStack) PushLong(val int64) {
+	stack.slots[stack.size].Num = int32(val)
+	stack.slots[stack.size+1].Num = int32(val >> 32)
+	stack.size += 2
 }
 
-func (operandStack *OperandStack) PopLong() int64 {
-	operandStack.size -= 2
-	low := uint32(operandStack.slots[operandStack.size].Num)
-	high := uint32(operandStack.slots[operandStack.size+1].Num)
+func (stack *OperandStack) PopLong() int64 {
+	stack.size -= 2
+	low := uint32(stack.slots[stack.size].Num)
+	high := uint32(stack.slots[stack.size+1].Num)
 	return int64(high)<<32 | int64(low)
 }
 
-func (operandStack *OperandStack) PushDouble(val float64) {
+func (stack *OperandStack) PushDouble(val float64) {
 	bits := math.Float64bits(val)
-	operandStack.PushLong(int64(bits))
+	stack.PushLong(int64(bits))
 }
 
-func (operandStack *OperandStack) PopDouble() float64 {
-	bits := uint64(operandStack.PopLong())
+func (stack *OperandStack) PopDouble() float64 {
+	bits := uint64(stack.PopLong())
 	return math.Float64frombits(bits)
 }
 
-func (operandStack *OperandStack) PushRef(ref *oops.OopInstance) {
-	operandStack.slots[operandStack.size].Ref = ref
-	operandStack.size++
+func (stack *OperandStack) PushRef(ref *oops.OopInstance) {
+	stack.slots[stack.size].Ref = ref
+	stack.size++
 }
 
-func (operandStack *OperandStack) PopRef() *oops.OopInstance {
-	operandStack.size--
-	ref := operandStack.slots[operandStack.size].Ref.(*oops.OopInstance)
-	operandStack.slots[operandStack.size].Ref = nil
+func (stack *OperandStack) PopRef() *oops.OopInstance {
+	stack.size--
+	ref := stack.slots[stack.size].Ref.(*oops.OopInstance)
+	stack.slots[stack.size].Ref = nil
 	return ref
 }
 
 // PushSlot /*
-func (operandStack *OperandStack) PushSlot(slot utils.Slot) {
-	operandStack.slots[operandStack.size] = slot
-	operandStack.size++
+func (stack *OperandStack) PushSlot(slot utils.Slot) {
+	stack.slots[stack.size] = slot
+	stack.size++
 }
 
 // PopSlot /*
-func (operandStack *OperandStack) PopSlot() utils.Slot {
-	operandStack.size--
-	return operandStack.slots[operandStack.size]
+func (stack *OperandStack) PopSlot() utils.Slot {
+	stack.size--
+	return stack.slots[stack.size]
 }
 
-func (operandStack *OperandStack) PushBoolean(val bool) {
+func (stack *OperandStack) PushBoolean(val bool) {
 	if val {
-		operandStack.PushInt(1)
+		stack.PushInt(1)
 	} else {
-		operandStack.PushInt(0)
+		stack.PushInt(0)
 	}
 }
 
-func (operandStack *OperandStack) PopBoolean() bool {
-	return operandStack.PopInt() == 1
+func (stack *OperandStack) PopBoolean() bool {
+	return stack.PopInt() == 1
 }
 
 // PopByParamters todo: provide more parmes type
-func (operandStack *OperandStack) PopByParamters(params []string, localVars *LocalVars, isStatic bool) {
+func (stack *OperandStack) PopByParamters(params []string, localVars *LocalVars, isStatic bool) {
 	i := len(params)
 	// method is storages <this.class.Ref> on localvars[0]
 	// but the static_method is different,don't storages Ref on [0]
@@ -118,34 +126,34 @@ func (operandStack *OperandStack) PopByParamters(params []string, localVars *Loc
 		case "C":
 			break
 		case "D":
-			localVars.SetDouble(uint(i-idx), operandStack.PopDouble())
+			localVars.SetDouble(uint(i-idx), stack.PopDouble())
 			break
 		case "F":
-			localVars.SetFloat(uint(i-idx), operandStack.PopFloat())
+			localVars.SetFloat(uint(i-idx), stack.PopFloat())
 			break
 		case "I":
-			localVars.SetInt(uint(i-idx), operandStack.PopInt())
+			localVars.SetInt(uint(i-idx), stack.PopInt())
 			break
 		case "J":
-			operandStack.PopLong()
-			localVars.SetLong(uint(i-idx), operandStack.PopLong())
+			stack.PopLong()
+			localVars.SetLong(uint(i-idx), stack.PopLong())
 			break
 		case "S":
 			break
 		case "Z":
-			operandStack.PopBoolean()
-			localVars.SetBoolean(uint(i+idx), operandStack.PopBoolean())
+			stack.PopBoolean()
+			localVars.SetBoolean(uint(i+idx), stack.PopBoolean())
 			break
 		case "L":
 		case "[":
-			operandStack.PopRef()
+			stack.PopRef()
 			break
 		}
 	}
 
 	// save the invoke class Ref to localvars[0]
 	if !isStatic {
-		localVars.SetRef(0, operandStack.PopRef())
+		localVars.SetRef(0, stack.PopRef())
 	}
 
 }

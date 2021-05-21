@@ -2,8 +2,8 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
+	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -16,21 +16,10 @@ type InvokeVirtual struct {
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
 	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
-	utils.AssertTrue(methodNameStr != "<init>" && methodNameStr != "<clinit>", "IncompatibleClassChangeError")
+	objectRef := frame.OperandStack().GetByIdx(0)
+	k := objectRef.Ref.(*oops.OopInstance).Klass()
+	method, err, _ := k.FindMethod(methodNameStr, methodDescStr)
+	utils.AssertError(err, "klass to find method err")
 
-	classNameStr := constantMethod.ClassName()
-	k := klass.Perm().Space[classNameStr]
-	if k == nil {
-		k = klass.ParseByClassName(classNameStr)
-	}
-	utils.AssertTrue(k != nil, "NullPointerException")
-	methodInfo, err, _ := k.FindMethod(methodNameStr, methodDescStr)
-	utils.AssertTrue(err == nil, "no find the method of "+methodNameStr)
-	utils.AssertFalse(utils.IsStatic(methodInfo.AccessFlag()), "IncompatibleClassChangeError")
-
-	if utils.IsProteced(methodInfo.AccessFlag()) {
-		// todo if is proteced , need to judge the relation between caller and called
-	}
-
-	base.InvokeMethod(frame, methodInfo, false)
+	base.InvokeMethod(frame, method, false)
 }

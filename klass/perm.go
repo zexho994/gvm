@@ -19,3 +19,7 @@ func Perm() *perm {
 	})
 	return p
 }
+
+func PermSpace() map[string]*Klass {
+	return Perm().Space
+}

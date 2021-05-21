@@ -9,6 +9,7 @@ var once sync.Once
 // InitNativeMethod when invoke StartVM()
 func InitNativeMethod() {
 	once.Do(func() {
-		Init()
+		InitVM()
+		InitSystem()
 	})
 }
