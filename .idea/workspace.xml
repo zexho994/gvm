@@ -29,14 +29,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst -&gt; 0x8b f2i">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new native method -&gt; initialize()">
+      <change afterPath="$PROJECT_DIR$/instructions/references/invokeInterface.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/getField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/anewArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/operandStack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/operandStack.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +186,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -267,21 +284,8 @@
       <workItem from="1621301159035" duration="153000" />
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
-      <workItem from="1621484004487" duration="1916000" />
-    </task>
-    <task id="LOCAL-00033" summary="本地方法注册表">
-      <created>1600587237331</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1600587237331</updated>
-    </task>
-    <task id="LOCAL-00034" summary="add new instruction of invokenative">
-      <created>1600588116390</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1600588116390</updated>
+      <workItem from="1621484004487" duration="3393000" />
+      <workItem from="1621500952491" duration="27978000" />
     </task>
     <task id="LOCAL-00035" summary="update class_loader">
       <created>1600589543214</created>
@@ -612,7 +616,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621471701640</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="new native method -&gt; initProperties()">
+      <created>1621487369301</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1621487369301</updated>
+    </task>
+    <task id="LOCAL-00083" summary="new native method -&gt; initialize()">
+      <created>1621487692820</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1621487692820</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,8 +705,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor StartGvmByCmd -&gt; GetParameters" />
-    <MESSAGE value="refactor config" />
     <MESSAGE value="new module launcher &amp; move startVM to launcher" />
     <MESSAGE value="func createMainThread()" />
     <MESSAGE value="func assertError()" />
@@ -712,7 +728,9 @@
     <MESSAGE value="add native method initializeSystemClass()" />
     <MESSAGE value="new inst -&gt; 0x86 i2f" />
     <MESSAGE value="new inst -&gt; 0x8b f2i" />
-    <option name="LAST_COMMIT_MESSAGE" value="new inst -&gt; 0x8b f2i" />
+    <MESSAGE value="new native method -&gt; initProperties()" />
+    <MESSAGE value="new native method -&gt; initialize()" />
+    <option name="LAST_COMMIT_MESSAGE" value="new native method -&gt; initialize()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -736,9 +754,24 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/native/System.go</url>
-          <line>27</line>
-          <option name="timeStamp" value="78" />
+          <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
+          <line>38</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
+          <line>34</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
+          <line>37</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -749,6 +782,7 @@
       <configuration name="GoApplicationRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/utils.Slot&quot;)(824634161152)" />
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/utils.Slot&quot;)(824634144864)" />
+        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/oops.JArray&quot;)(0)" />
       </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />

@@ -185,22 +185,26 @@ func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 // name: method method
 // @return the MethodInfo belong to the Klass
 func (k *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass) {
-	for i := range k.Methods {
-		methodInfo := k.Methods[i]
+	if k == nil {
+		return nil, nil, nil
+	}
+	for _, methodInfo := range k.Methods {
 		if utils.IsStatic(methodInfo.AccessFlag()) {
 			continue
 		}
 		mName := k.ConstantPool.GetUtf8(methodInfo.NameIdx())
 		mDesc := k.ConstantPool.GetUtf8(methodInfo.DescriptorIdx())
 		if mName == name && mDesc == descriptor {
-			return k.Methods[i], nil, k
+			return methodInfo, nil, k
 		}
 	}
+
 	// 在父类中遍历查找
 	m, err, jc := k.SuperClass.FindMethod(name, descriptor)
 	if err == nil {
 		return m, nil, jc
 	}
+
 	// 在接口中遍历查找
 	for i := range k.Interfaces {
 		m, err, jc := k.Interfaces[i].FindMethod(name, descriptor)
@@ -208,6 +212,7 @@ func (k *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass)
 			return m, nil, jc
 		}
 	}
+
 	return nil, exception.GvmError{Msg: "not find method it name " + name}, nil
 }
 

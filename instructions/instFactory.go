@@ -157,18 +157,19 @@ var (
 	ifeq      = &comparisons.IfEq{}
 	iflt      = &comparisons.IfLt{}
 
-	getStatic     = &references.GetStatic{} // 178
-	putStatic     = &references.PutStatic{}
-	getField      = &references.GetField{}
-	putField      = &references.PutField{}
-	invokeStatic  = &references.INVOKE_STATIC{} // 184
-	invokeSpecial = &references.InvokeSpecial{}
-	invokeVirtual = &references.InvokeVirtual{}
-	invokeDynamic = &references.InvokeDynamic{}
-	_new          = &references.NEW{} //187
-	anewarray     = &references.ANEW_ARRAY{}
-	_newArray     = &references.NEW_ARRAY{}
-	arrayLength   = &references.ARRAY_LENGTH{}
+	getStatic       = &references.GetStatic{} // 178
+	putStatic       = &references.PutStatic{}
+	getField        = &references.GetField{}
+	putField        = &references.PutField{}
+	invokeStatic    = &references.INVOKE_STATIC{} // 184
+	invokeSpecial   = &references.InvokeSpecial{}
+	invokeVirtual   = &references.InvokeVirtual{}
+	invokeDynamic   = &references.InvokeDynamic{}
+	invokeInterface = &references.InvokeInterface{}
+	_new            = &references.NEW{} //187
+	anewarray       = &references.AnewArray{}
+	_newArray       = &references.NEW_ARRAY{}
+	arrayLength     = &references.ARRAY_LENGTH{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -539,6 +540,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return invokeSpecial
 	case 0xb8:
 		return invokeStatic
+	case 0xb9:
+		return invokeInterface
 	case 0xba:
 		return invokeDynamic
 	case 0xbb:

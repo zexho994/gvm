@@ -14,6 +14,7 @@ import (
 // 对于静态方法，方法参数就是声明的几个参数
 // 对于实例方法，参数要加上编译器添加的this
 // 对于本地方法，
+// 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
 	invokerThread := frame.Thread()
 	var newFrame *runtime.Frame
@@ -43,8 +44,8 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		newFrame.LocalVars().SetSlot(uint(i), slot)
 	}
 
+	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().Klass().ThisClass, method.Klass().ThisClass, method.Name(), method.Descriptor())
 	invokerThread.Push(newFrame)
-
 }
 
 // hard code to print for gvm

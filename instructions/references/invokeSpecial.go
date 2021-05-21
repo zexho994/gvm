@@ -15,12 +15,18 @@ type InvokeSpecial struct {
 
 func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
 	cp := frame.Method().CP()
-	constantMethod := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
-	k := klass.Perm().Space[constantMethod.ClassName()]
+	k := cp.GetConstantInfo(i.Index)
+	var kl *klass.Klass
+	var method *klass.MethodInfo
 
-	utils.AssertTrue(k != nil, "Class uninitialized")
-	name, Desc := constantMethod.NameAndDescriptor()
-	method, _, _ := k.FindMethod(name, Desc)
+	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {
+		kl = klass.Perm().Space[kMethodRef.ClassName()]
+		method, _, _ = kl.FindMethod(kMethodRef.NameAndDescriptor())
+	} else {
+		kMethodRef := k.(*constant_pool.ConstantInterfaceMethodInfo)
+		kl = klass.Perm().Space[kMethodRef.ClassName()]
+		method, _, _ = kl.FindMethod(kMethodRef.NameAndDescriptor())
+	}
 
 	base.InvokeMethod(frame, method, utils.IsStatic(method.AccessFlag()))
 }
