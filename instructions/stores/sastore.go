@@ -16,5 +16,5 @@ func (i *SASTORE) Execute(frame *runtime.Frame) {
 	idx := frame.PopInt()
 	array := frame.PopRef()
 	utils.AssertFalse(array == nil, "NullPointerException")
-	array.ArrayData().SetCVal(idx, int8(val))
+	array.SetArrCVal(idx, int8(val))
 }

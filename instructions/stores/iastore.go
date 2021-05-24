@@ -6,7 +6,7 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-// pop ref from stack and store the ref to localvars
+// IASTORE pop ref from stack and store the ref to localvars
 type IASTORE struct {
 	base.InstructionIndex0
 }
@@ -16,5 +16,5 @@ func (i *IASTORE) Execute(frame *runtime.Frame) {
 	idx := frame.PopInt()
 	array := frame.PopRef()
 	utils.AssertFalse(array == nil, "NullPointerException")
-	array.ArrayData().SetIVal(idx, val)
+	array.SetArrIVal(idx, val)
 }

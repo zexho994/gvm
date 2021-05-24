@@ -8,10 +8,10 @@ import (
 type OopInstance struct {
 	markWords *MarkWords
 	*OopFields
-	isArray       bool
-	isString      bool
-	jString       string
-	jArray        *JArray
+	isArray  bool
+	isString bool
+	jString  string
+	*JArray
 	klassInstance *klass.Klass
 }
 
@@ -25,11 +25,7 @@ func (o *OopInstance) Klass() *klass.Klass {
 
 func (o *OopInstance) ArrayLength() uint32 {
 	utils.AssertTrue(o.isArray, "class is not array")
-	return o.jArray.length
-}
-
-func (o *OopInstance) ArrayData() *JArray {
-	return o.jArray
+	return o.JArray.length
 }
 
 func (o *OopInstance) JString() string {
@@ -63,7 +59,7 @@ func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 	return &OopInstance{
 		markWords: NewMarkWords(),
 		isArray:   true,
-		jArray:    arrayData,
+		JArray:    arrayData,
 	}
 }
 
