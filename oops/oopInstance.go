@@ -12,15 +12,11 @@ type OopInstance struct {
 	isString bool
 	jString  string
 	*JArray
-	klassInstance *klass.Klass
+	*klass.Klass
 }
 
 func (o *OopInstance) MarkWord() *MarkWords {
 	return o.markWords
-}
-
-func (o *OopInstance) Klass() *klass.Klass {
-	return o.klassInstance
 }
 
 func (o *OopInstance) ArrayLength() uint32 {
@@ -47,10 +43,10 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 // NewOopInstance create non-array oops
 func NewOopInstance(k *klass.Klass) *OopInstance {
 	return &OopInstance{
-		markWords:     NewMarkWords(),
-		OopFields:     InitOopFields(k),
-		isArray:       false,
-		klassInstance: k,
+		markWords: NewMarkWords(),
+		OopFields: InitOopFields(k),
+		isArray:   false,
+		Klass:     k,
 	}
 }
 

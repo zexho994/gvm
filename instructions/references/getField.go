@@ -19,7 +19,7 @@ func (i *GetField) Execute(frame *runtime.Frame) {
 	objRef := frame.PopRef()
 	utils.AssertFalse(objRef == nil, exception.NullPointException)
 
-	constFieldRef := objRef.Klass().ConstantPool.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	constFieldRef := objRef.ConstantPool.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 	fieldName, _ := constFieldRef.NameAndDescriptor()
 	field, r := objRef.FindField(fieldName)
 	utils.AssertTrue(r, exception.FieldsNotFoundError)

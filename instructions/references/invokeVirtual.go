@@ -17,7 +17,7 @@ func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
 	constantMethod := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	objectRef := frame.GetByIdx(0)
-	k := objectRef.Ref.(*oops.OopInstance).Klass()
+	k := objectRef.Ref.(*oops.OopInstance).Klass
 	method, err, _ := k.FindMethod(methodNameStr, methodDescStr)
 	utils.AssertError(err, "klass to find method err")
 
