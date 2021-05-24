@@ -34,7 +34,7 @@ type Klass struct {
 	Interfaces      []*Klass
 	// 字段表,用于表示接口或者类中声明的变量
 	FieldsCount uint16
-	Fields      Fields
+	Fields
 	// 方法表
 	MethodsCount uint16
 	Methods      Methods
