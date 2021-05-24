@@ -42,10 +42,7 @@ func FindNativeMethod(method *klass.MethodInfo) Method {
 		return nativeMethod
 	}
 
-	if method.IsRegisterNatives() {
-		return initializeSystemClass
-	}
-	if method.IsInitIDs() {
+	if method.IsRegisterNatives() || method.IsInitIDs() {
 		return EmptyNative
 	}
 	panic("native method not found: " + key)

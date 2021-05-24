@@ -20,16 +20,18 @@ type MethodInfo struct {
 	*Klass
 }
 
-// InjectCodeAttr injected a code attribute for method
-func (m *MethodInfo) InjectCodeAttr() {
+// InjectCodeAttrIfNative injected a code attribute for method
+func (m *MethodInfo) InjectCodeAttrIfNative() {
 	if !utils.IsNative(m.accessFlag) {
-		panic("[gvm] Inject CodeAttr error , not is native")
+		return
 	}
+
 	tmpMaxStack := uint16(4)
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributesInfo, 1)
 	methodDescriptor := ParseMethodDescriptor(m.MethodDescriptor())
 	var codeAttr *attribute.AttrCode
+
 	switch methodDescriptor.returnTypt {
 	case "V":
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.ConstantPool) // return
@@ -44,6 +46,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	default:
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.ConstantPool) // ireturn
 	}
+
 	attributes[0] = codeAttr
 	m.AttributesInfo = attributes
 }
@@ -109,6 +112,8 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.C
 		methods[i] = method
 		method.argSlotCount = ParseMethodDescriptor(method.MethodDescriptor()).ParamsCount()
 		method.Klass = k
+		// 本地方法注入字节码
+		method.InjectCodeAttrIfNative()
 	}
 	return methods
 }

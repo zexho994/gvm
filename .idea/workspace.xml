@@ -29,16 +29,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor StartVM()">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Add some func to get constant info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/branch.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/branch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/codeReader.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/codeReader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/control/goto.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/control/goto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/stack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +191,7 @@
     <configuration name="go build github.com/zouzhihao-994/gvm/cmd/gvm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class AlgorithmTest" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintOut" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
@@ -288,49 +284,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="3382000" />
-    </task>
-    <task id="LOCAL-00067" summary="refactor for oops">
-      <created>1621338122681</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1621338122681</updated>
-    </task>
-    <task id="LOCAL-00068" summary="refactor for runtime">
-      <created>1621338283104</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1621338283104</updated>
-    </task>
-    <task id="LOCAL-00069" summary="new inst 0xc6 &amp; oxc7">
-      <created>1621340274267</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1621340274267</updated>
-    </task>
-    <task id="LOCAL-00070" summary="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
-      <created>1621340611496</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1621340611496</updated>
-    </task>
-    <task id="LOCAL-00071" summary="rename">
-      <created>1621408034320</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1621408034320</updated>
-    </task>
-    <task id="LOCAL-00072" summary="rename for attr">
-      <created>1621411054463</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1621411054463</updated>
+      <workItem from="1621844374586" duration="7247000" />
     </task>
     <task id="LOCAL-00073" summary="rename fo instFactor">
       <created>1621411705996</created>
@@ -633,7 +587,49 @@
       <option name="project" value="LOCAL" />
       <updated>1621847087003</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="refactor loop()">
+      <created>1621847879921</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1621847879921</updated>
+    </task>
+    <task id="LOCAL-00117" summary="OopInstance files -&gt; *OopFields">
+      <created>1621848170151</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848170151</updated>
+    </task>
+    <task id="LOCAL-00118" summary="OopInstance jArray -&gt; *JArray">
+      <created>1621848282777</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848282777</updated>
+    </task>
+    <task id="LOCAL-00119" summary="OopInstance klassInstance -&gt; *Klass">
+      <created>1621848364002</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848364002</updated>
+    </task>
+    <task id="LOCAL-00120" summary="OopInstance markWords -&gt; *MarkWords">
+      <created>1621848410988</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848410988</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Add some func to get constant info">
+      <created>1621849485724</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1621849485724</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,12 +704,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: add Thread.IsFinished() method" />
-    <MESSAGE value="refactoring MethodInfo fields klass -&gt; *Klass" />
-    <MESSAGE value="refactoring MethodInfo fields cp -&gt; *ConstantPool" />
-    <MESSAGE value="refactoring MethodInfo fields Fields" />
-    <MESSAGE value="refactoring MethodInfo fields Methods" />
-    <MESSAGE value="refactoring MethodInfo field AttributesInfo" />
     <MESSAGE value="refactoring MethodInfo field StaticFieldVars" />
     <MESSAGE value="refactor: rename StaticFieldVars -&gt; StaticFields" />
     <MESSAGE value="new func -&gt; Perm.Save()" />
@@ -733,7 +723,13 @@
     <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
     <MESSAGE value="add GvmEnvInit()" />
     <MESSAGE value="refactor StartVM()" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor StartVM()" />
+    <MESSAGE value="refactor loop()" />
+    <MESSAGE value="OopInstance files -&gt; *OopFields" />
+    <MESSAGE value="OopInstance jArray -&gt; *JArray" />
+    <MESSAGE value="OopInstance klassInstance -&gt; *Klass" />
+    <MESSAGE value="OopInstance markWords -&gt; *MarkWords" />
+    <MESSAGE value="Add some func to get constant info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some func to get constant info" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -745,6 +741,11 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>48</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/reserved/invokeNative.go</url>
+          <line>14</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

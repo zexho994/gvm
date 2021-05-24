@@ -10,6 +10,7 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/loads"
 	"github.com/zouzhihao-994/gvm/instructions/math"
 	"github.com/zouzhihao-994/gvm/instructions/references"
+	"github.com/zouzhihao-994/gvm/instructions/reserved"
 	"github.com/zouzhihao-994/gvm/instructions/stack"
 	"github.com/zouzhihao-994/gvm/instructions/stores"
 )
@@ -166,6 +167,7 @@ var (
 	invokeVirtual   = &references.InvokeVirtual{}
 	invokeDynamic   = &references.InvokeDynamic{}
 	invokeInterface = &references.InvokeInterface{}
+	invokeNative    = &reserved.InvokeNative{}
 	_new            = &references.NEW{} //187
 	anewarray       = &references.AnewArray{}
 	_newArray       = &references.NewArray{}
@@ -576,8 +578,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return jsr_w
 	//case 0xca:
 	//	return breakpoint
-	//case 0xfe:
-	//	return impdep1
+	case 0xfe:
+		return invokeNative
 	//case 0xff:
 	//	return impdep2
 	default:
