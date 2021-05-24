@@ -5,41 +5,41 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// less than or equals
-type If_ICMPLE struct {
+// IfIcmple less than or equals
+type IfIcmple struct {
 	base.InstructionIndex16
 }
 
-type If_ICMPGE struct {
+type IfIcmpge struct {
 	base.InstructionIndex16
 }
 
-type If_ICMPEQ struct {
+type IfIcmpeq struct {
 	base.InstructionIndex16
 }
 
-type If_ICMPNE struct {
+type IfIcmpne struct {
 	base.InstructionIndex16
 }
 
-type If_ICMPLT struct {
+type IfIcmplt struct {
 	base.InstructionIndex16
 }
 
-type If_ICMPGT struct {
+type IfIcmpgt struct {
 	base.InstructionIndex16
 }
 
-type If_ACMPEQ struct {
+type IfAcmpeq struct {
 	base.InstructionIndex16
 }
 
-type If_ACMPNE struct {
+type IfAcmpne struct {
 	base.InstructionIndex16
 }
 
-// to branch if and only if val1 less or equals val2
-func (icmp *If_ICMPLE) Execute(frame *runtime.Frame) {
+// Execute to branch if and only if val1 less or equals val2
+func (icmp *IfIcmple) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	goNext := icmp.Index
@@ -48,8 +48,8 @@ func (icmp *If_ICMPLE) Execute(frame *runtime.Frame) {
 	}
 }
 
-// to branch if and only if val1 great or equals val2
-func (icmp *If_ICMPGE) Execute(frame *runtime.Frame) {
+// Execute to branch if and only if val1 great or equals val2
+func (icmp *IfIcmpge) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	goNext := icmp.Index
@@ -58,7 +58,7 @@ func (icmp *If_ICMPGE) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (icmp *If_ICMPEQ) Execute(frame *runtime.Frame) {
+func (icmp *IfIcmpeq) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	if val1 == val2 {
@@ -66,7 +66,7 @@ func (icmp *If_ICMPEQ) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (icmp *If_ICMPGT) Execute(frame *runtime.Frame) {
+func (icmp *IfIcmpgt) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	if val1 > val2 {
@@ -74,7 +74,7 @@ func (icmp *If_ICMPGT) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (acmp *If_ACMPNE) Execute(frame *runtime.Frame) {
+func (acmp *IfAcmpne) Execute(frame *runtime.Frame) {
 	val2 := frame.PopRef()
 	val1 := frame.PopRef()
 	if val1 != val2 {
@@ -82,7 +82,7 @@ func (acmp *If_ACMPNE) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (icmp *If_ICMPNE) Execute(frame *runtime.Frame) {
+func (icmp *IfIcmpne) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	if val1 != val2 {
@@ -90,7 +90,7 @@ func (icmp *If_ICMPNE) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (icmp If_ICMPLT) Execute(frame *runtime.Frame) {
+func (icmp IfIcmplt) Execute(frame *runtime.Frame) {
 	val2 := frame.PopInt()
 	val1 := frame.PopInt()
 	if val1 < val2 {
@@ -98,7 +98,7 @@ func (icmp If_ICMPLT) Execute(frame *runtime.Frame) {
 	}
 }
 
-func (acmp *If_ACMPEQ) Execute(frame *runtime.Frame) {
+func (acmp *IfAcmpeq) Execute(frame *runtime.Frame) {
 	val2 := frame.PopRef()
 	val1 := frame.PopRef()
 	if val1 == val2 {
