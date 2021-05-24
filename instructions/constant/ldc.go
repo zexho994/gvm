@@ -19,7 +19,7 @@ type LDC struct {
 // 如果指向的是类的符号引用，解析符号引用，将Class对象的ref入栈
 // 如果是方法类型或者方法句柄的符号引用，解析，然后将MethodType或者MethodHandle入栈
 func (i LDC) Execute(frame *runtime.Frame) {
-	c := frame.Method().CP().GetConstantInfo(uint16(i.Index))
+	c := frame.Method().GetConstantInfo(uint16(i.Index))
 	switch c.(type) {
 	case *constant_pool.ConstantIntegerInfo:
 		panic("ldc integer error")

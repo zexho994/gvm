@@ -14,7 +14,7 @@ type InvokeSpecial struct {
 }
 
 func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
-	cp := frame.Method().CP()
+	cp := frame.Method().ConstantPool
 	k := cp.GetConstantInfo(i.Index)
 	var kl *klass.Klass
 	var method *klass.MethodInfo

@@ -19,7 +19,7 @@ type Klass struct {
 	MajorVersion uint16
 	// 常量池
 	ConstantPoolCount uint16
-	ConstantPool      constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	// 类访问标志,表示是类还是接口,public还是private等
 	AccessFlags uint16
 	// 本类
@@ -58,7 +58,8 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.MajorVersion = paresMajorVersion(reader)
 	// 常量池
 	kl.ConstantPoolCount = reader.ReadUint16()
-	kl.ConstantPool = constant_pool.ReadConstantPool(kl.ConstantPoolCount, reader)
+	cp := constant_pool.ReadConstantPool(kl.ConstantPoolCount, reader)
+	kl.ConstantPool = &cp
 	// 类访问符
 	kl.AccessFlags = reader.ReadUint16()
 	// 本类

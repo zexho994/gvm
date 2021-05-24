@@ -21,7 +21,7 @@ func (i InvokeInterface) Execute(frame *runtime.Frame) {
 	poolIndex := i.Index >> 16
 	count := (i.Index << 16) >> 16
 	fmt.Println(count)
-	constantMethod := frame.Method().CP().GetConstantInfo(uint16(poolIndex)).(*constant_pool.ConstantInterfaceMethodInfo)
+	constantMethod := frame.Method().GetConstantInfo(uint16(poolIndex)).(*constant_pool.ConstantInterfaceMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	k := frame.OperandStack().GetByIdx(0)
 	methodInfo, err, _ := k.Ref.(*oops.OopInstance).Klass().FindMethod(methodNameStr, methodDescStr)

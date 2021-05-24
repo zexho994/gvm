@@ -14,9 +14,8 @@ type PutField struct {
 }
 
 func (i *PutField) Execute(frame *runtime.Frame) {
-	cp := frame.Method().CP()
 	stack := frame.OperandStack()
-	fieldRef := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.Method().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
 
 	var slots utils.Slots

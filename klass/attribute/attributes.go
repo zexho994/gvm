@@ -22,7 +22,7 @@ type IAttributeInfo interface {
 	parse(reader *loader.ClassReader)
 }
 
-func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp constant_pool.ConstantPool) AttributesInfo {
+func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp *constant_pool.ConstantPool) AttributesInfo {
 	attributes := make(AttributesInfo, attrCount)
 	for i := range attributes {
 		attrNameIdx := reader.ReadUint16()
@@ -34,17 +34,17 @@ func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp constant_p
 	return attributes
 }
 
-func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantPool) IAttributeInfo {
+func newAttributeInfo(nameIdx uint16, attrLen uint32, cp *constant_pool.ConstantPool) IAttributeInfo {
 	name := cp.GetUtf8(nameIdx)
 	switch name {
 	case "Code":
-		return &AttrCode{NameIdx: nameIdx, name: name, AttrLen: attrLen, cp: cp}
+		return &AttrCode{NameIdx: nameIdx, name: name, AttrLen: attrLen, ConstantPool: cp}
 	case "ConstantValue":
-		return &AttrConstantvalue{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+		return &AttrConstantvalue{nameIdx: nameIdx, name: name, attrLen: attrLen, ConstantPool: cp}
 	case "Exceptions":
-		return &AttrExceptions{nameIdx: nameIdx, name: name, attrlen: attrLen, cp: cp}
+		return &AttrExceptions{nameIdx: nameIdx, name: name, attrlen: attrLen, ConstantPool: cp}
 	case "LineNumberTable":
-		return &AttrLinenumbertable{nameIdx: nameIdx, name: name, cp: cp}
+		return &AttrLinenumbertable{nameIdx: nameIdx, name: name, ConstantPool: cp}
 	case "SourceFile":
 		return &AttrSourcefile{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "Signature":
@@ -60,7 +60,7 @@ func newAttributeInfo(nameIdx uint16, attrLen uint32, cp constant_pool.ConstantP
 	case "Synthetic":
 		return &AttrSynthetic{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	case "InnerClasses":
-		return &AttrInnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, cp: cp}
+		return &AttrInnerClasses{nameIdx: nameIdx, name: name, attrLen: attrLen, ConstantPool: cp}
 	case "BootstrapMethods":
 		return &BootstrapmethodsAttribute{nameIdx: nameIdx, name: name, attrLen: attrLen}
 	default:

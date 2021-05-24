@@ -14,7 +14,7 @@ type InvokeVirtual struct {
 }
 
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
-	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
+	constantMethod := frame.Method().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	objectRef := frame.OperandStack().GetByIdx(0)
 	k := objectRef.Ref.(*oops.OopInstance).Klass()

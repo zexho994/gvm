@@ -17,7 +17,7 @@ type AttrLinenumbertable struct {
 	attrLen         uint32
 	tableCount      uint16
 	lineNumberTable []lineNumberTable
-	cp              constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 }
 
 type lineNumberTable struct {

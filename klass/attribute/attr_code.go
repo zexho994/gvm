@@ -9,7 +9,7 @@ type AttrCode struct {
 	NameIdx uint16
 	name    string
 	AttrLen uint32
-	cp      constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	// 方法的操作数栈在任何时间点的最大深度
 	// 最大深度值在编译期就可以确定
 	MaxStack uint16
@@ -39,7 +39,7 @@ func (c *AttrCode) parse(reader *loader.ClassReader) {
 	c.code = reader.ReadBytes(c.codeLen)
 	c.ExceptionTable = parseExceptionTable(reader)
 	c.attrCount = reader.ReadUint16()
-	c.attrInfo = ParseAttributes(c.attrCount, reader, c.cp)
+	c.attrInfo = ParseAttributes(c.attrCount, reader, c.ConstantPool)
 }
 
 func parseExceptionTable(reader *loader.ClassReader) []*ExceptionTable {
@@ -56,13 +56,13 @@ func parseExceptionTable(reader *loader.ClassReader) []*ExceptionTable {
 	return table
 }
 
-func CreateCodeAttr(maxStack, maxLocal uint16, code []byte, pool constant_pool.ConstantPool) *AttrCode {
+func CreateCodeAttr(maxStack, maxLocal uint16, code []byte, pool *constant_pool.ConstantPool) *AttrCode {
 	return &AttrCode{
-		name:      "Code",
-		MaxStack:  maxStack,
-		MaxLocals: maxLocal,
-		code:      code,
-		cp:        pool,
+		name:         "Code",
+		MaxStack:     maxStack,
+		MaxLocals:    maxLocal,
+		code:         code,
+		ConstantPool: pool,
 	}
 }
 

@@ -29,13 +29,31 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: add Thread.IsFinished() method">
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactoring MethodInfo fields klass -&gt; *Klass">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/codeReader.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/codeReader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/anewArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/getStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeInterface.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeInterface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_constantValue.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_constantValue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_exception.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_inner_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_inner_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_lineNumberTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_lineNumberTable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassField.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassField.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,14 +312,7 @@
       <workItem from="1621484004487" duration="3393000" />
       <workItem from="1621500952491" duration="28315000" />
       <workItem from="1621589960855" duration="18000" />
-      <workItem from="1621830686880" duration="2008000" />
-    </task>
-    <task id="LOCAL-00042" summary="新增字符串操作">
-      <created>1600592764110</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1600592764110</updated>
+      <workItem from="1621830686880" duration="3440000" />
     </task>
     <task id="LOCAL-00043" summary="支持调用部分本地方法">
       <created>1600592777989</created>
@@ -639,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621832446361</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="refactoring MethodInfo fields klass -&gt; *Klass">
+      <created>1621832789049</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1621832789049</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +732,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: remove jclass and integrate into klass" />
     <MESSAGE value="refactor for oops" />
     <MESSAGE value="refactor for runtime" />
     <MESSAGE value="new inst 0xc6 &amp; oxc7" />
@@ -739,7 +756,8 @@
     <MESSAGE value="refactor: add isHelpOrVersion()" />
     <MESSAGE value="refactoring MethodInfo" />
     <MESSAGE value="refactor: add Thread.IsFinished() method" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: add Thread.IsFinished() method" />
+    <MESSAGE value="refactoring MethodInfo fields klass -&gt; *Klass" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring MethodInfo fields klass -&gt; *Klass" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -15,7 +15,7 @@ type MethodInfo struct {
 	descriptorIdx uint16
 	attrCount     uint16
 	attribute.AttributesInfo
-	cp           constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	argSlotCount uint
 	*Klass
 }
@@ -32,17 +32,17 @@ func (m *MethodInfo) InjectCodeAttr() {
 	var codeAttr *attribute.AttrCode
 	switch methodDescriptor.returnTypt {
 	case "V":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.ConstantPool) // return
 	case "D":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xaf}, m.cp) // dreturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xaf}, m.ConstantPool) // dreturn
 	case "F":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xae}, m.cp) // freturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xae}, m.ConstantPool) // freturn
 	case "J":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xad}, m.cp) // lreturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xad}, m.ConstantPool) // lreturn
 	case "L", "[":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.cp) // areturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.ConstantPool) // areturn
 	default:
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.cp) // ireturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.ConstantPool) // ireturn
 	}
 	attributes[0] = codeAttr
 	m.AttributesInfo = attributes
@@ -53,7 +53,7 @@ func (m *MethodInfo) SetKlass(jci *Klass) {
 }
 
 func (m MethodInfo) Descriptor() string {
-	return m.cp.GetUtf8(m.descriptorIdx)
+	return m.GetUtf8(m.descriptorIdx)
 }
 
 func (m MethodInfo) DescriptorIdx() uint16 {
@@ -61,7 +61,7 @@ func (m MethodInfo) DescriptorIdx() uint16 {
 }
 
 func (m MethodInfo) Name() string {
-	return m.cp.GetUtf8(m.nameIdx)
+	return m.GetUtf8(m.nameIdx)
 }
 
 func (m MethodInfo) NameIdx() uint16 {
@@ -79,7 +79,7 @@ func (m MethodInfo) ArgSlotCount() uint {
 func (ms Methods) Clinit() (*MethodInfo, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
-		nameStr := ms[idx].cp.GetUtf8(i)
+		nameStr := ms[idx].GetUtf8(i)
 		if nameStr == "<clinit>" {
 			return ms[idx], true
 		}
@@ -89,8 +89,8 @@ func (ms Methods) Clinit() (*MethodInfo, bool) {
 
 func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 	for idx := range ms {
-		nameStr := ms[idx].cp.GetUtf8(ms[idx].nameIdx)
-		descStr := ms[idx].cp.GetUtf8(ms[idx].descriptorIdx)
+		nameStr := ms[idx].GetUtf8(ms[idx].nameIdx)
+		descStr := ms[idx].GetUtf8(ms[idx].descriptorIdx)
 		if nameStr == name && descStr == desc {
 			return ms[idx], true
 		}
@@ -98,20 +98,16 @@ func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 	return nil, false
 }
 
-func (m *MethodInfo) CP() constant_pool.ConstantPool {
-	return m.cp
-}
-
 func (m MethodInfo) Attributes() attribute.AttributesInfo {
 	return m.AttributesInfo
 }
 
 // 解析方法表
-func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool, k *Klass) Methods {
+func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.ConstantPool, k *Klass) Methods {
 	methods := make([]*MethodInfo, count)
 	for i := range methods {
 		method := &MethodInfo{}
-		method.cp = pool
+		method.ConstantPool = pool
 		method.accessFlag = reader.ReadUint16()
 		method.nameIdx = reader.ReadUint16()
 		method.descriptorIdx = reader.ReadUint16()

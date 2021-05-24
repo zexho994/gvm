@@ -16,8 +16,7 @@ type INVOKE_STATIC struct {
 // get the static method -> verify the access flag of method equals static
 // -> parse constant method to
 func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
-	cp := frame.Method().CP()
-	k := cp.GetConstantInfo(i.Index)
+	k := frame.Method().GetConstantInfo(i.Index)
 
 	var method *klass.MethodInfo
 	var kl *klass.Klass
