@@ -3,7 +3,6 @@ package references
 import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -21,7 +20,7 @@ func (i InvokeInterface) Execute(frame *runtime.Frame) {
 	poolIndex := i.Index >> 16
 	count := (i.Index << 16) >> 16
 	fmt.Println(count)
-	constantMethod := frame.GetConstantInfo(uint16(poolIndex)).(*constant_pool.ConstantInterfaceMethodInfo)
+	constantMethod := frame.GetConstantInterfaceMethodInfo(uint16(poolIndex))
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	k := frame.GetByIdx(0)
 	methodInfo, err, _ := k.Ref.(*oops.OopInstance).FindMethod(methodNameStr, methodDescStr)

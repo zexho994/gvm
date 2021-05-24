@@ -68,6 +68,29 @@ func (pool ConstantPool) GetConstantInfo(idx uint16) ConstantType {
 	panic("[gvm] Invalid constant_pool index!")
 }
 
+func (pool ConstantPool) GetConstantClassInfo(idx uint16) *ConstantClassInfo {
+	return pool.GetConstantInfo(idx).(*ConstantClassInfo)
+}
+
+func (pool ConstantPool) GetConstantFieldsInfo(idx uint16) *ConstantFieldInfo {
+	return pool.GetConstantInfo(idx).(*ConstantFieldInfo)
+}
+
+func (pool ConstantPool) GetConstantDynamicInfo(idx uint16) *ConstantInvokeDynamic {
+	return pool.GetConstantInfo(idx).(*ConstantInvokeDynamic)
+}
+
+func (pool ConstantPool) GetConstantMethodHandleInfo(idx uint16) *ConstantMethodHandleInfo {
+	return pool.GetConstantInfo(idx).(*ConstantMethodHandleInfo)
+}
+
+func (pool ConstantPool) GetConstantInterfaceMethodInfo(idx uint16) *ConstantInterfaceMethodInfo {
+	return pool.GetConstantInfo(idx).(*ConstantInterfaceMethodInfo)
+}
+func (pool ConstantPool) GetConstantMethodInfo(idx uint16) *ConstantMethodInfo {
+	return pool.GetConstantInfo(idx).(*ConstantMethodInfo)
+}
+
 func (pool ConstantPool) GetUtf8(idx uint16) string {
 	utf8Info := pool.GetConstantInfo(idx).(*ConstantUtf8Info)
 	return utf8Info.Str

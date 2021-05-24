@@ -2,7 +2,6 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -14,7 +13,7 @@ type InvokeVirtual struct {
 }
 
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
-	constantMethod := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
+	constantMethod := frame.GetConstantMethodInfo(i.Index)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	objectRef := frame.GetByIdx(0)
 	k := objectRef.Ref.(*oops.OopInstance).Klass

@@ -4,7 +4,6 @@ import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -15,9 +14,9 @@ type NEW struct {
 	base.InstructionIndex16
 }
 
-func (n *NEW) Execute(frame *runtime.Frame) {
+func (i *NEW) Execute(frame *runtime.Frame) {
 	// 获取类常量信息
-	constantClass := frame.GetConstantInfo(n.Index).(*constant_pool.ConstantClassInfo)
+	constantClass := frame.GetConstantClassInfo(i.Index)
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过

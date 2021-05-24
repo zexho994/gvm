@@ -3,7 +3,6 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -14,7 +13,7 @@ type GetStatic struct {
 }
 
 func (i *GetStatic) Execute(frame *runtime.Frame) {
-	fieldRef := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()

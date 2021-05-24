@@ -3,7 +3,6 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
@@ -16,7 +15,7 @@ type AnewArray struct {
 }
 
 func (i *AnewArray) Execute(frame *runtime.Frame) {
-	constantClassInfo := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
+	constantClassInfo := frame.GetConstantClassInfo(i.Index)
 	cname := constantClassInfo.Name()
 	k := klass.Perm.Get(cname)
 	if k == nil {

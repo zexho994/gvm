@@ -3,7 +3,6 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 	"math"
@@ -19,7 +18,7 @@ func (i *GetField) Execute(frame *runtime.Frame) {
 	objRef := frame.PopRef()
 	utils.AssertFalse(objRef == nil, exception.NullPointException)
 
-	constFieldRef := objRef.ConstantPool.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	constFieldRef := objRef.ConstantPool.GetConstantFieldsInfo(i.Index)
 	fieldName, _ := constFieldRef.NameAndDescriptor()
 	field, r := objRef.FindField(fieldName)
 	utils.AssertTrue(r, exception.FieldsNotFoundError)

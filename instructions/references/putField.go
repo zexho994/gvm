@@ -2,7 +2,6 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -14,7 +13,7 @@ type PutField struct {
 }
 
 func (i *PutField) Execute(frame *runtime.Frame) {
-	fieldRef := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
 
 	var slots utils.Slots
