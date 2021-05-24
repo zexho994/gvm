@@ -25,10 +25,10 @@ func (i LDC) Execute(frame *runtime.Frame) {
 		panic("ldc integer error")
 	case *constant_pool.ConstantFloatInfo:
 		float := c.(*constant_pool.ConstantFloatInfo)
-		frame.OperandStack().PushFloat(float.Value())
+		frame.PushFloat(float.Value())
 	case *constant_pool.ConstantStringInfo:
 		str := c.(*constant_pool.ConstantStringInfo)
-		frame.OperandStack().PushRef(oops.NewStringOopInstance(str.String()))
+		frame.PushRef(oops.NewStringOopInstance(str.String()))
 	case *constant_pool.ConstantClassInfo:
 		constClass := c.(*constant_pool.ConstantClassInfo)
 		k := klass.PermSpace()[constClass.Name()]
@@ -40,7 +40,7 @@ func (i LDC) Execute(frame *runtime.Frame) {
 			base.InitClass(k, frame.Thread())
 			return
 		}
-		frame.OperandStack().PushRef(oops.NewOopInstance(k))
+		frame.PushRef(oops.NewOopInstance(k))
 	case *constant_pool.ConstantMethodInfo:
 		panic("ldc method error")
 	case *constant_pool.ConstantMethodHandleInfo:

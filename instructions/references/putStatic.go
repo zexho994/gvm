@@ -28,10 +28,10 @@ func (i PutStatic) Execute(frame *runtime.Frame) {
 	var slots []utils.Slot
 	slots = append(slots, utils.Slot{})
 	if fieldDesc == "J" || fieldDesc == "D" {
-		slots = append(slots, frame.OperandStack().PopSlot())
+		slots = append(slots, frame.PopSlot())
 	}
 	// new static val
-	slots[0] = frame.OperandStack().PopSlot()
+	slots[0] = frame.PopSlot()
 	name, _ := fieldInfo.NameAndDescriptor()
 
 	jci.StaticFields.SetField(name, slots)

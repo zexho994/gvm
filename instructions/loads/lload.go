@@ -30,7 +30,7 @@ according index to load a var from frame.localVars
 */
 func _lload(frame *runtime.Frame, index uint) {
 	val := frame.GetLong(index)
-	frame.OperandStack().PushLong(val)
+	frame.PushLong(val)
 }
 
 /*

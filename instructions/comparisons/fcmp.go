@@ -15,7 +15,7 @@ type FCMPL struct {
 }
 
 func (i FCMPG) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	val2 := stack.PopFloat()
 	val1 := stack.PopFloat()
 	if math.IsNaN(float64(val1)) || math.IsNaN(float64(val2)) {
@@ -32,7 +32,7 @@ func (i FCMPG) Execute(frame *runtime.Frame) {
 }
 
 func (i FCMPL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	val2 := stack.PopFloat()
 	val1 := stack.PopFloat()
 	if math.IsNaN(float64(val1)) || math.IsNaN(float64(val2)) {

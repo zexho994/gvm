@@ -10,7 +10,7 @@ type MonitorEntry struct {
 }
 
 func (m *MonitorEntry) Execute(frame *runtime.Frame) {
-	if frame.OperandStack().PopRef() == nil {
+	if frame.PopRef() == nil {
 		//exception.GvmError{Msg: exception.NullPointException}.Throw()
 	}
 	// donothing
@@ -21,7 +21,7 @@ type MonitorExit struct {
 }
 
 func (m *MonitorExit) Execute(frame *runtime.Frame) {
-	if frame.OperandStack().PopRef() == nil {
+	if frame.PopRef() == nil {
 		//exception.GvmError{Msg: exception.NullPointException}.Throw()
 	}
 	// donothing

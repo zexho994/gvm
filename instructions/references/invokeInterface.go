@@ -23,7 +23,7 @@ func (i InvokeInterface) Execute(frame *runtime.Frame) {
 	fmt.Println(count)
 	constantMethod := frame.Method().GetConstantInfo(uint16(poolIndex)).(*constant_pool.ConstantInterfaceMethodInfo)
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
-	k := frame.OperandStack().GetByIdx(0)
+	k := frame.GetByIdx(0)
 	methodInfo, err, _ := k.Ref.(*oops.OopInstance).Klass().FindMethod(methodNameStr, methodDescStr)
 	utils.AssertError(err, "no find the method of "+methodNameStr)
 

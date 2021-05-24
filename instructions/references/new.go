@@ -34,6 +34,6 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	}
 
 	instance := oops.NewOopInstance(class)
-	frame.OperandStack().PushRef(instance)
+	frame.PushRef(instance)
 
 }

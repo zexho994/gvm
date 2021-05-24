@@ -13,9 +13,9 @@ type F2i struct {
 }
 
 func (i I2f) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushFloat(float32(frame.OperandStack().PopInt()))
+	frame.PushFloat(float32(frame.PopInt()))
 }
 
 func (i F2i) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(int32(frame.OperandStack().PopFloat()))
+	frame.PushInt(int32(frame.PopFloat()))
 }

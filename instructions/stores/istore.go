@@ -29,7 +29,7 @@ type ISTORE_3 struct {
 }
 
 func _istore(frame *runtime.Frame, index uint) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	//fmt.Printf("[gvm][PushInt] %v 存储到局部变量表[%v]中\n", val, index)
 	frame.SetInt(index, val)
 }

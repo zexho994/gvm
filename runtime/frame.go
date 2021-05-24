@@ -10,13 +10,9 @@ type Frame struct {
 	pc   uint
 	next *Frame
 	*LocalVars
-	operandStack *OperandStack
-	method       *klass.MethodInfo
-	thread       *Thread
-}
-
-func (f *Frame) OperandStack() *OperandStack {
-	return f.operandStack
+	*OperandStack
+	method *klass.MethodInfo
+	thread *Thread
 }
 
 func (f *Frame) SetPC(pc uint) {
@@ -47,7 +43,7 @@ func (f *Frame) RevertPC() {
 func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thread) *Frame {
 	return &Frame{
 		LocalVars:    NewLocalVars(maxlocals),
-		operandStack: NewOperandStack(maxStack),
+		OperandStack: NewOperandStack(maxStack),
 		method:       method,
 		thread:       thread,
 	}

@@ -25,38 +25,38 @@ func (r *IRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
-	retVal := currentFrame.OperandStack().PopInt()
-	invokerFrame.OperandStack().PushInt(retVal)
+	retVal := currentFrame.PopInt()
+	invokerFrame.PushInt(retVal)
 }
 
 func (r *DRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
-	retVal := currentFrame.OperandStack().PopDouble()
-	invokerFrame.OperandStack().PushDouble(retVal)
+	retVal := currentFrame.PopDouble()
+	invokerFrame.PushDouble(retVal)
 }
 
 func (r *ARETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
-	retVal := currentFrame.OperandStack().PopRef()
-	invokerFrame.OperandStack().PushRef(retVal)
+	retVal := currentFrame.PopRef()
+	invokerFrame.PushRef(retVal)
 }
 
 func (r *LRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
-	retVal := currentFrame.OperandStack().PopLong()
-	invokerFrame.OperandStack().PushLong(retVal)
+	retVal := currentFrame.PopLong()
+	invokerFrame.PushLong(retVal)
 }
 
 func (r *FRETURN) Execute(frame *runtime.Frame) {
 	thread := frame.Thread()
 	currentFrame := thread.Pop()
 	invokerFrame := thread.Peek()
-	retVal := currentFrame.OperandStack().PopFloat()
-	invokerFrame.OperandStack().PushFloat(retVal)
+	retVal := currentFrame.PopFloat()
+	invokerFrame.PushFloat(retVal)
 }

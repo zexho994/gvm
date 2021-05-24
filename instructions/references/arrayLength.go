@@ -11,8 +11,8 @@ type ARRAY_LENGTH struct {
 }
 
 func (i *ARRAY_LENGTH) Execute(frame *runtime.Frame) {
-	arrayRef := frame.OperandStack().PopRef()
+	arrayRef := frame.PopRef()
 	utils.AssertFalse(arrayRef == nil, "NullPointerException")
 	arrayLength := arrayRef.ArrayLength()
-	frame.OperandStack().PushInt(int32(arrayLength))
+	frame.PushInt(int32(arrayLength))
 }

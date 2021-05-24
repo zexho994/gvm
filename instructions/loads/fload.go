@@ -30,7 +30,7 @@ according index to load a var from frame.localVars
 */
 func _fload(frame *runtime.Frame, index uint) {
 	val := frame.GetFloat(index)
-	frame.OperandStack().PushFloat(val)
+	frame.PushFloat(val)
 }
 
 /*

@@ -36,8 +36,8 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 	field := k.StaticFields.GetField(fieldName)
 	_, _, slots := field.Fields()
 	if fieldDesc == "D" || fieldDesc == "J" {
-		frame.OperandStack().PushSlot(slots[0])
+		frame.PushSlot(slots[0])
 		slots = slots[1:]
 	}
-	frame.OperandStack().PushSlot(slots[0])
+	frame.PushSlot(slots[0])
 }

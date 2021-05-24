@@ -28,9 +28,9 @@ func (i *AnewArray) Execute(frame *runtime.Frame) {
 		return
 	}
 
-	arrayLength := frame.OperandStack().PopInt()
+	arrayLength := frame.PopInt()
 	jarry := oops.NewRefJarray(uint32(arrayLength), k)
 	arrayInstance := oops.NewArrayOopInstance(&jarry)
-	frame.OperandStack().PushRef(arrayInstance)
+	frame.PushRef(arrayInstance)
 
 }

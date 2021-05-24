@@ -14,7 +14,7 @@ type SIPUSH struct{ base.InstructionIndex16 } // Push short
 */
 func (self BIPUSH) Execute(frame *runtime.Frame) {
 	i := int32(self.Index)
-	frame.OperandStack().PushInt(i)
+	frame.PushInt(i)
 }
 
 /*
@@ -22,5 +22,5 @@ func (self BIPUSH) Execute(frame *runtime.Frame) {
 */
 func (self SIPUSH) Execute(frame *runtime.Frame) {
 	i := int32(self.Index)
-	frame.OperandStack().PushInt(i)
+	frame.PushInt(i)
 }

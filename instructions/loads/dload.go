@@ -30,7 +30,7 @@ according index to load a var from frame.localVars
 */
 func _dload(frame *runtime.Frame, index uint) {
 	val := frame.GetDouble(index)
-	frame.OperandStack().PushDouble(val)
+	frame.PushDouble(val)
 }
 
 /*

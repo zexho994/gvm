@@ -26,7 +26,7 @@ type Astore3 struct {
 }
 
 func _astore(frame *runtime.Frame, index uint) {
-	val := frame.OperandStack().PopRef()
+	val := frame.PopRef()
 	frame.SetRef(index, val)
 }
 

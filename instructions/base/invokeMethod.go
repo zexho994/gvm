@@ -40,7 +40,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 
 	n = argSlotCount - n
 	for i := n; i >= 0; i-- {
-		slot := frame.OperandStack().PopSlot()
+		slot := frame.PopSlot()
 		newFrame.SetSlot(uint(i), slot)
 	}
 
@@ -54,22 +54,22 @@ func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) (ok bool) {
 		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":
-			fmt.Println(frame.OperandStack().PopInt())
+			fmt.Println(frame.PopInt())
 			break
 		case "F":
-			fmt.Println(frame.OperandStack().PopFloat())
+			fmt.Println(frame.PopFloat())
 			break
 		case "J":
-			fmt.Println(frame.OperandStack().PopLong())
+			fmt.Println(frame.PopLong())
 			break
 		case "D":
-			fmt.Println(frame.OperandStack().PopDouble())
+			fmt.Println(frame.PopDouble())
 			break
 		case "Z":
-			fmt.Println(frame.OperandStack().PopBoolean())
+			fmt.Println(frame.PopBoolean())
 			break
 		case "Ljava/lang/String;":
-			fmt.Println(frame.OperandStack().PopRef().JString())
+			fmt.Println(frame.PopRef().JString())
 		case "B":
 		case "S":
 			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()

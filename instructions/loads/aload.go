@@ -28,7 +28,7 @@ type Aload3 struct {
 // according index to load a var from frame.localVars
 func _aload(frame *runtime.Frame, index uint) {
 	rel := frame.GetRef(index)
-	frame.OperandStack().PushRef(rel)
+	frame.PushRef(rel)
 }
 
 // Execute execute ALOAD
