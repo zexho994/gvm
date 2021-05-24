@@ -20,29 +20,36 @@ func Interpret(method *klass.MethodInfo, t *runtime.Thread) {
 	loop(t)
 }
 
+// loop 循环执行code指令
 func loop(thread *runtime.Thread) {
-	reader := &base.MethodCodeReader{}
+	methodReader := &base.MethodCodeReader{}
 	for {
-		// 因为可能在指令的操作中会对线程的栈帧进行修改，所以这个地方每次都需要进行重新赋值
 		curFrame := thread.Peek()
 		framePC := curFrame.FramePC()
-		curFrame.SetThradPC(framePC)
+		curFrame.SetThreadPC(framePC)
 
-		attrCode, _ := curFrame.AttrCode()
-		reader.Reset(attrCode.Code(), framePC)
+		methodCode, _ := curFrame.AttrCode()
+		methodReader.Reset(methodCode.Code(), framePC)
 
-		opcode := reader.ReadOpenCdoe()
+		opcode := methodReader.ReadOpenCdoe()
 		inst := instructions.NewInstruction(opcode)
-		inst.FetchOperands(reader)
-		curFrame.SetPC(reader.PC())
+		inst.FetchOperands(methodReader)
+		curFrame.SetFramePC(methodReader.MethodReaderPC())
 
 		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
 			curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
-
 		inst.Execute(curFrame)
 
-		if thread.IsFinished() {
+		if finished(thread) {
 			return
 		}
 	}
+}
+
+// finished 线程任务是否执行完成
+func finished(thread *runtime.Thread) bool {
+	if thread.IsEmtpy() {
+		return true
+	}
+	return false
 }

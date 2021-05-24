@@ -24,7 +24,7 @@ func createMainThread() *runtime.Thread {
 	mainThrad := &runtime.Thread{
 		Stack: runtime.NewStack(1024),
 	}
-	mainThrad.SetThradPC(0)
+	mainThrad.SetThreadPC(0)
 	return mainThrad
 }
 

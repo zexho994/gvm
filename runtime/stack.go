@@ -20,7 +20,7 @@ func (s *Stack) Push(newFrame *Frame) {
 	}
 
 	if s.top != nil {
-		newFrame.next = s.top
+		newFrame.nextFrame = s.top
 	}
 
 	s.top = newFrame
@@ -32,8 +32,8 @@ func (s *Stack) Pop() *Frame {
 		panic("[gvm] stack is empty")
 	}
 	p := s.top
-	s.top = s.top.next
-	p.next = nil
+	s.top = s.top.nextFrame
+	p.nextFrame = nil
 	s.size--
 	return p
 }

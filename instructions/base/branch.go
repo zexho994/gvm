@@ -8,5 +8,5 @@ import (
 func Branch(frame *runtime.Frame, offset int) {
 	pc := frame.ThreadPC()
 	nextPC := int(pc) + offset
-	frame.SetPC(uint(nextPC))
+	frame.SetFramePC(uint(nextPC))
 }

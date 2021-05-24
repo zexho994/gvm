@@ -5,7 +5,7 @@ type MethodCodeReader struct {
 	pc   uint
 }
 
-func (r *MethodCodeReader) PC() uint {
+func (r *MethodCodeReader) MethodReaderPC() uint {
 	return r.pc
 }
 

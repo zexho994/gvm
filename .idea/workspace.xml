@@ -29,10 +29,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor all structs under package frame that turn the methodInfo field into pointers">
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/arrayLength.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/arrayLength.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/newArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/newArray.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor StartVM()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/branch.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/branch.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/codeReader.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/codeReader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/control/goto.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/control/goto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/stack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,28 +288,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="1678000" />
-    </task>
-    <task id="LOCAL-00064" summary="refactor: remove jclass and integrate into klass">
-      <created>1621335998410</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1621335998410</updated>
-    </task>
-    <task id="LOCAL-00065" summary="refactor">
-      <created>1621337317929</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1621337317929</updated>
-    </task>
-    <task id="LOCAL-00066" summary="refactor">
-      <created>1621337895859</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1621337895859</updated>
+      <workItem from="1621844374586" duration="3382000" />
     </task>
     <task id="LOCAL-00067" summary="refactor for oops">
       <created>1621338122681</created>
@@ -627,7 +612,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621845942373</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Update perm  -&gt; Perm &amp; add func InitPerm()">
+      <created>1621846342059</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1621846342059</updated>
+    </task>
+    <task id="LOCAL-00114" summary="add GvmEnvInit()">
+      <created>1621846708339</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1621846708340</updated>
+    </task>
+    <task id="LOCAL-00115" summary="refactor StartVM()">
+      <created>1621847087003</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1621847087003</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,9 +708,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: add updateConfig()" />
-    <MESSAGE value="refactor: add isHelpOrVersion()" />
-    <MESSAGE value="refactoring MethodInfo" />
     <MESSAGE value="refactor: add Thread.IsFinished() method" />
     <MESSAGE value="refactoring MethodInfo fields klass -&gt; *Klass" />
     <MESSAGE value="refactoring MethodInfo fields cp -&gt; *ConstantPool" />
@@ -727,7 +730,10 @@
     <MESSAGE value="refactor thread.go" />
     <MESSAGE value="refactor all under package of load" />
     <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor all structs under package frame that turn the methodInfo field into pointers" />
+    <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
+    <MESSAGE value="add GvmEnvInit()" />
+    <MESSAGE value="refactor StartVM()" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor StartVM()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
