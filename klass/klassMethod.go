@@ -48,10 +48,6 @@ func (m *MethodInfo) InjectCodeAttr() {
 	m.AttributesInfo = attributes
 }
 
-func (m *MethodInfo) SetKlass(jci *Klass) {
-	m.Klass = jci
-}
-
 func (m MethodInfo) Descriptor() string {
 	return m.GetUtf8(m.descriptorIdx)
 }
@@ -76,7 +72,7 @@ func (m MethodInfo) ArgSlotCount() uint {
 	return m.argSlotCount
 }
 
-func (ms Methods) Clinit() (*MethodInfo, bool) {
+func (ms Methods) GetClinitMethod() (*MethodInfo, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
 		nameStr := ms[idx].GetUtf8(i)

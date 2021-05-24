@@ -176,7 +176,7 @@ func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 			descriptor != k.ConstantPool.GetUtf8(methodInfo.DescriptorIdx()) {
 			continue
 		}
-		methodInfo.SetKlass(k)
+		methodInfo.Klass = k
 		return methodInfo, nil
 	}
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}

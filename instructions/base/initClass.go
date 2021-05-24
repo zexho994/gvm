@@ -7,7 +7,7 @@ import (
 
 // InitClass 初始化<clinit>方法
 func InitClass(k *klass.Klass, thread *runtime.Thread) {
-	clinit, exist := k.Methods.Clinit()
+	clinit, exist := k.Methods.GetClinitMethod()
 	k.IsInit = true
 	if exist {
 		attrCode, err := clinit.AttrCode()
