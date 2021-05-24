@@ -40,7 +40,7 @@ type Klass struct {
 	Methods
 	// 属性表
 	AttributesCount uint16
-	Attributes      attribute.AttributesInfo
+	attribute.AttributesInfo
 
 	// 初始化标识
 	IsInit     bool
@@ -80,7 +80,7 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.Methods = parseMethod(kl.MethodsCount, reader, kl.ConstantPool, kl)
 	// 属性数量 & 列表
 	kl.AttributesCount = reader.ReadUint16()
-	kl.Attributes = attribute.ParseAttributes(kl.AttributesCount, reader, kl.ConstantPool)
+	kl.AttributesInfo = attribute.ParseAttributes(kl.AttributesCount, reader, kl.ConstantPool)
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	kl.IsInit = false
 	// 保存到方法区
