@@ -29,20 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new native method -&gt; initialize()">
-      <change afterPath="$PROJECT_DIR$/instructions/references/invokeInterface.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/anewArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/operandStack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/operandStack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +200,7 @@
     <configuration name="go build github.com/zouzhihao-994/gvm/cmd/gvm" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintOut" />
+      <parameters value="-xjre /Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre -cp $PROJECT_DIR$/java -class PrintStaticTest" />
       <kind value="PACKAGE" />
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
@@ -230,6 +220,18 @@
       <pattern value="^\QTest_startJVM\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_startJVM\E$/^\Qtest1\E$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -244,11 +246,13 @@
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
@@ -285,14 +289,9 @@
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
       <workItem from="1621484004487" duration="3393000" />
-      <workItem from="1621500952491" duration="27978000" />
-    </task>
-    <task id="LOCAL-00035" summary="update class_loader">
-      <created>1600589543214</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1600589543214</updated>
+      <workItem from="1621500952491" duration="28315000" />
+      <workItem from="1621589960855" duration="18000" />
+      <workItem from="1621830686880" duration="246000" />
     </task>
     <task id="LOCAL-00036" summary="update the ldc instruction">
       <created>1600589969336</created>
@@ -630,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621487692820</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="refactor">
+      <created>1621587359883</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1621587359883</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +718,6 @@
     <MESSAGE value="refactor: remove classloader" />
     <MESSAGE value="refactor: rename" />
     <MESSAGE value="refactor: remove jclass and integrate into klass" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="refactor for oops" />
     <MESSAGE value="refactor for runtime" />
     <MESSAGE value="new inst 0xc6 &amp; oxc7" />
@@ -730,7 +735,8 @@
     <MESSAGE value="new inst -&gt; 0x8b f2i" />
     <MESSAGE value="new native method -&gt; initProperties()" />
     <MESSAGE value="new native method -&gt; initialize()" />
-    <option name="LAST_COMMIT_MESSAGE" value="new native method -&gt; initialize()" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -754,24 +760,19 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
           <line>29</line>
-          <option name="timeStamp" value="97" />
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
-          <line>34</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
+          <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
           <line>37</line>
-          <option name="timeStamp" value="99" />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/anewArray.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

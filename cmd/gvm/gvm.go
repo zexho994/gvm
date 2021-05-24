@@ -15,14 +15,12 @@ func main() {
 
 // Cmd 命令行结构体
 type Cmd struct {
-	HelpFlag         bool     // 帮助命令
-	VersionFlag      bool     // 版本命令
-	CpOption         string   // 指定路径
-	Class            string   // 文件名
-	Args             []string // 命令行的全部参数
-	XjreOption       string   // 指定jre目录的位置
-	verboseClassFlag bool
-	VerboseInstFlag  bool
+	HelpFlag    bool     // 帮助命令
+	VersionFlag bool     // 版本命令
+	CpOption    string   // 指定路径
+	Class       string   // 文件名
+	Args        []string // 命令行的全部参数
+	XjreOption  string   // 指定jre目录的位置
 }
 
 // ParseCmd 命令行处理方法
@@ -38,7 +36,6 @@ func ParseCmd() *Cmd {
 	flag.StringVar(&cmd.CpOption, "classpath", "", "[gvm] classfile")
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "xjre", "", "[gvm] path to jre")
-	flag.BoolVar(&cmd.verboseClassFlag, "verbose", false, "[gvm] print gvm log")
 	flag.StringVar(&cmd.Class, "class", "", "[gvm] class file name")
 	flag.Parse()
 
@@ -69,13 +66,7 @@ func initParamConfig() {
 		return
 	}
 
-	// 默认值
-	if cmd.XjreOption == "" {
-		cmd.XjreOption = config.JrePathDefault
-	}
-	if cmd.CpOption == "" {
-		cmd.CpOption = config.UserClassPathDefault
-	}
+	cmd.checkDefault()
 
 	config.JrePath = cmd.XjreOption
 	config.ClassPath = cmd.CpOption
@@ -84,4 +75,13 @@ func initParamConfig() {
 	fmt.Println("gvm -Xjre = " + config.JrePath)
 	fmt.Println("gvm -cp = " + config.ClassPath)
 	fmt.Println("gvm -class = " + config.ClassName)
+}
+
+func (cmd *Cmd) checkDefault() {
+	if cmd.XjreOption == "" {
+		cmd.XjreOption = config.JrePathDefault
+	}
+	if cmd.CpOption == "" {
+		cmd.CpOption = config.UserClassPathDefault
+	}
 }
