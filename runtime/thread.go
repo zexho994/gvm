@@ -1,6 +1,6 @@
 package runtime
 
-// Thread 映射到java中的一个thread todo
+// Thread 映射到java中的一个thread
 type Thread struct {
 	pc uint
 	*Stack

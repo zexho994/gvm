@@ -6,8 +6,8 @@ import (
 )
 
 type OopInstance struct {
-	markWords     *MarkWords
-	fields        *OopFields
+	markWords *MarkWords
+	*OopFields
 	isArray       bool
 	isString      bool
 	jString       string
@@ -32,10 +32,6 @@ func (o *OopInstance) ArrayData() *JArray {
 	return o.jArray
 }
 
-func (o *OopInstance) Fields() *OopFields {
-	return o.fields
-}
-
 func (o *OopInstance) JString() string {
 	return o.jString
 }
@@ -46,7 +42,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 	targetOop := o
 	isSuper := false
 	var f OopField
-	for f, isSuper = targetOop.fields.GetField(n, isSuper); true != isSuper; {
+	for f, isSuper = targetOop.GetField(n, isSuper); true != isSuper; {
 		// todo: find from super
 	}
 	return f, true
@@ -56,7 +52,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 func NewOopInstance(k *klass.Klass) *OopInstance {
 	return &OopInstance{
 		markWords:     NewMarkWords(),
-		fields:        InitOopFields(k),
+		OopFields:     InitOopFields(k),
 		isArray:       false,
 		klassInstance: k,
 	}
