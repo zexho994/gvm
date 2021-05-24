@@ -7,16 +7,12 @@ import (
 // Frame 一个Frame对应着一个已调用而且未结束的方法
 // TODO：栈的大小支持自动 扩/缩 , 如果扩到极限仍然发送内容不足的情况抛出 OutOfMemoryError 异常
 type Frame struct {
-	pc           uint
-	next         *Frame
-	localVars    *LocalVars
+	pc   uint
+	next *Frame
+	*LocalVars
 	operandStack *OperandStack
 	method       *klass.MethodInfo
 	thread       *Thread
-}
-
-func (f *Frame) LocalVars() *LocalVars {
-	return f.localVars
 }
 
 func (f *Frame) OperandStack() *OperandStack {
@@ -50,7 +46,7 @@ func (f *Frame) RevertPC() {
 
 func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thread) *Frame {
 	return &Frame{
-		localVars:    NewLocalVars(maxlocals),
+		LocalVars:    NewLocalVars(maxlocals),
 		operandStack: NewOperandStack(maxStack),
 		method:       method,
 		thread:       thread,

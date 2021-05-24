@@ -41,7 +41,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	n = argSlotCount - n
 	for i := n; i >= 0; i-- {
 		slot := frame.OperandStack().PopSlot()
-		newFrame.LocalVars().SetSlot(uint(i), slot)
+		newFrame.SetSlot(uint(i), slot)
 	}
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().ThisClass, method.ThisClass, method.Name(), method.Descriptor())

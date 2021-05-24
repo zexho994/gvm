@@ -29,7 +29,7 @@ type DLOAD_3 struct {
 according index to load a var from frame.localVars
 */
 func _dload(frame *runtime.Frame, index uint) {
-	val := frame.LocalVars().GetDouble(index)
+	val := frame.GetDouble(index)
 	frame.OperandStack().PushDouble(val)
 }
 

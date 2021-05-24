@@ -17,7 +17,7 @@ func _system(method Method, name, desc string) {
 }
 
 func setOut0(frame *runtime.Frame) {
-	out := frame.LocalVars().GetRef(0)
+	out := frame.GetRef(0)
 	sysClass := frame.Method().Klass
 	slots := make([]utils.Slot, 2)
 	slots[0].Ref = out

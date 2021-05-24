@@ -29,8 +29,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactoring MethodInfo fields Fields">
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="rename Clinit() -&gt; GetClinitMethod">
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_class.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_class.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_method.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_method_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_method_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_name_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_name_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/constant_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/constant_string.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/constant_pool/jclass_constantPool.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/constant_pool/jclass_constantPool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,56 +298,7 @@
       <workItem from="1621484004487" duration="3393000" />
       <workItem from="1621500952491" duration="28315000" />
       <workItem from="1621589960855" duration="18000" />
-      <workItem from="1621830686880" duration="3613000" />
-    </task>
-    <task id="LOCAL-00045" summary="move GvmOut">
-      <created>1621254253416</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1621254253416</updated>
-    </task>
-    <task id="LOCAL-00046" summary="update cmd module">
-      <created>1621303092124</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1621303092124</updated>
-    </task>
-    <task id="LOCAL-00047" summary="add gvm system package to storage files that native and add new class loader GSCLoader">
-      <created>1621306030132</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1621306030132</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Simplifying the gvm.out method">
-      <created>1621307616340</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1621307616340</updated>
-    </task>
-    <task id="LOCAL-00049" summary="refactor">
-      <created>1621312816023</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1621312816023</updated>
-    </task>
-    <task id="LOCAL-00050" summary="rename Perm -&gt; perm">
-      <created>1621312968811</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1621312968812</updated>
-    </task>
-    <task id="LOCAL-00051" summary="native -&gt; system">
-      <created>1621315741332</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1621315741332</updated>
+      <workItem from="1621830686880" duration="5112000" />
     </task>
     <task id="LOCAL-00052" summary="rename classfile -&gt; classload &amp; remove heap">
       <created>1621317716166</created>
@@ -634,7 +594,56 @@
       <option name="project" value="LOCAL" />
       <updated>1621834268540</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="refactoring MethodInfo fields Methods">
+      <created>1621834320787</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834320787</updated>
+    </task>
+    <task id="LOCAL-00095" summary="refactoring MethodInfo field AttributesInfo">
+      <created>1621834376605</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834376605</updated>
+    </task>
+    <task id="LOCAL-00096" summary="refactoring MethodInfo field StaticFieldVars">
+      <created>1621834515382</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834515382</updated>
+    </task>
+    <task id="LOCAL-00097" summary="refactor: rename StaticFieldVars -&gt; StaticFields">
+      <created>1621834575688</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834575688</updated>
+    </task>
+    <task id="LOCAL-00098" summary="new func -&gt; Perm.Save()">
+      <created>1621834914081</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834914081</updated>
+    </task>
+    <task id="LOCAL-00099" summary="refactoring Perm">
+      <created>1621835373740</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1621835373740</updated>
+    </task>
+    <task id="LOCAL-00100" summary="rename Clinit() -&gt; GetClinitMethod">
+      <created>1621835484719</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1621835484719</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,13 +718,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new inst 0xc6 &amp; oxc7" />
-    <MESSAGE value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
-    <MESSAGE value="rename" />
-    <MESSAGE value="rename for attr" />
-    <MESSAGE value="rename fo instFactor" />
-    <MESSAGE value="rename fo invokeVirtual" />
-    <MESSAGE value="refactoring for POP" />
     <MESSAGE value="refactoring for DUP" />
     <MESSAGE value="move invokeNative to package reserve" />
     <MESSAGE value="add a *p for methodInfo -&gt; klass" />
@@ -734,7 +736,14 @@
     <MESSAGE value="refactoring MethodInfo fields klass -&gt; *Klass" />
     <MESSAGE value="refactoring MethodInfo fields cp -&gt; *ConstantPool" />
     <MESSAGE value="refactoring MethodInfo fields Fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring MethodInfo fields Fields" />
+    <MESSAGE value="refactoring MethodInfo fields Methods" />
+    <MESSAGE value="refactoring MethodInfo field AttributesInfo" />
+    <MESSAGE value="refactoring MethodInfo field StaticFieldVars" />
+    <MESSAGE value="refactor: rename StaticFieldVars -&gt; StaticFields" />
+    <MESSAGE value="new func -&gt; Perm.Save()" />
+    <MESSAGE value="refactoring Perm" />
+    <MESSAGE value="rename Clinit() -&gt; GetClinitMethod" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename Clinit() -&gt; GetClinitMethod" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -742,16 +751,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
-          <line>57</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
-          <line>58</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
@@ -761,11 +760,6 @@
           <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
           <line>37</line>
           <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/anewArray.go</url>
-          <line>19</line>
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

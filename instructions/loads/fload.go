@@ -29,7 +29,7 @@ type FLOAD_3 struct {
 according index to load a var from frame.localVars
 */
 func _fload(frame *runtime.Frame, index uint) {
-	val := frame.LocalVars().GetFloat(index)
+	val := frame.GetFloat(index)
 	frame.OperandStack().PushFloat(val)
 }
 
