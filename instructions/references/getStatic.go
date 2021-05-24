@@ -14,7 +14,7 @@ type GetStatic struct {
 }
 
 func (i *GetStatic) Execute(frame *runtime.Frame) {
-	fieldRef := frame.Method().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()

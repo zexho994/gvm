@@ -43,6 +43,6 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		newFrame.SetSlot(uint(i), slot)
 	}
 
-	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().ThisClass, method.ThisClass, method.Name(), method.Descriptor())
+	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
 	invokerThread.Push(newFrame)
 }

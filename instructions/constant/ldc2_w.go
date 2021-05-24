@@ -13,7 +13,7 @@ type Ldc2W struct {
 }
 
 func (i Ldc2W) Execute(frmae *runtime.Frame) {
-	c := frmae.Method().GetConstantInfo(i.Index)
+	c := frmae.GetConstantInfo(i.Index)
 	stack := frmae
 	switch c.(type) {
 	case *constant_pool.ConstantDoubleInfo:

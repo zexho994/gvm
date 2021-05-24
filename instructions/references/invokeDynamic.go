@@ -16,13 +16,13 @@ type InvokeDynamic struct {
 // Execute invokedynamic指令出现的地方称为 "动态调用点"
 // 解析出引导方法
 func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
-	constantPool := frame.Method().ConstantPool
+	constantPool := frame.ConstantPool
 	indexByte := uint16(i.Index >> 16)
 	constInvokeDynamic := constantPool.GetConstantInfo(indexByte).(*constant_pool.ConstantInvokeDynamic)
 	btmIdx := constInvokeDynamic.BootstrapMethodAttrIndex
 	name, desc := constantPool.GetNameAndType(constInvokeDynamic.NameAndTypeIndex)
 	fmt.Println(name, desc)
-	attributeInfo, _ := frame.Method().Klass.AttributesInfo.FindAttrInfo("BootstrapMethods")
+	attributeInfo, _ := frame.Klass.AttributesInfo.FindAttrInfo("BootstrapMethods")
 	bsma := attributeInfo.(*attribute.BootstrapmethodsAttribute)
 	// bootstrap_method
 	bsm := bsma.Methods()[btmIdx]

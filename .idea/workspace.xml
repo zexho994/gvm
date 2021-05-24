@@ -29,7 +29,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor config" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor thread.go">
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/dload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/fload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/fload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/iload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/iload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/lload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/lload.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,41 +284,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-    </task>
-    <task id="LOCAL-00057" summary="refactor config">
-      <created>1621325170016</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1621325170016</updated>
-    </task>
-    <task id="LOCAL-00058" summary="new module launcher &amp; move startVM to launcher">
-      <created>1621325826062</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1621325826062</updated>
-    </task>
-    <task id="LOCAL-00059" summary="func createMainThread()">
-      <created>1621326203630</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1621326203630</updated>
-    </task>
-    <task id="LOCAL-00060" summary="func assertError()">
-      <created>1621327841099</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1621327841099</updated>
-    </task>
-    <task id="LOCAL-00061" summary="move interpreter to launcher">
-      <created>1621328247176</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1621328247176</updated>
+      <workItem from="1621844374586" duration="1273000" />
     </task>
     <task id="LOCAL-00062" summary="refactor: remove classloader">
       <created>1621329239863</created>
@@ -622,7 +594,42 @@
       <option name="project" value="LOCAL" />
       <updated>1621838187740</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="refactor fcmp.go">
+      <created>1621844642272</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844642272</updated>
+    </task>
+    <task id="LOCAL-00107" summary="refactor if_icmp.go">
+      <created>1621844706377</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844706377</updated>
+    </task>
+    <task id="LOCAL-00108" summary="refactor lcmp.go">
+      <created>1621844761706</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844761706</updated>
+    </task>
+    <task id="LOCAL-00109" summary="refactor const.go">
+      <created>1621844812907</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844812907</updated>
+    </task>
+    <task id="LOCAL-00110" summary="refactor thread.go">
+      <created>1621845444747</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845444747</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,11 +704,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new inst -&gt; 0x86 i2f" />
-    <MESSAGE value="new inst -&gt; 0x8b f2i" />
-    <MESSAGE value="new native method -&gt; initProperties()" />
-    <MESSAGE value="new native method -&gt; initialize()" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="refactor: add checkDefault()" />
     <MESSAGE value="refactor: add printArguments()" />
     <MESSAGE value="refactor: add updateConfig()" />
@@ -722,7 +724,12 @@
     <MESSAGE value="trun Frame localvars fiels into LocalVars pointer" />
     <MESSAGE value="trun Frame operandstack fiels into OperandStack pointer" />
     <MESSAGE value="refactor config" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor config" />
+    <MESSAGE value="refactor fcmp.go" />
+    <MESSAGE value="refactor if_icmp.go" />
+    <MESSAGE value="refactor lcmp.go" />
+    <MESSAGE value="refactor const.go" />
+    <MESSAGE value="refactor thread.go" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor thread.go" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -732,13 +739,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
-          <line>52</line>
+          <line>48</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
-          <line>37</line>
-          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

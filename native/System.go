@@ -18,7 +18,7 @@ func _system(method Method, name, desc string) {
 
 func setOut0(frame *runtime.Frame) {
 	out := frame.GetRef(0)
-	sysClass := frame.Method().Klass
+	sysClass := frame.Klass
 	slots := make([]utils.Slot, 2)
 	slots[0].Ref = out
 	sysClass.StaticFields.SetField("in", slots)

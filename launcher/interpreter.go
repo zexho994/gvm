@@ -28,7 +28,7 @@ func loop(thread *runtime.Thread) {
 		framePC := curFrame.FramePC()
 		curFrame.SetThradPC(framePC)
 
-		attrCode, _ := curFrame.Method().AttrCode()
+		attrCode, _ := curFrame.AttrCode()
 		reader.Reset(attrCode.Code(), framePC)
 
 		opcode := reader.ReadOpenCdoe()
@@ -37,7 +37,7 @@ func loop(thread *runtime.Thread) {
 		curFrame.SetPC(reader.PC())
 
 		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
-			curFrame.Method().ThisClass, curFrame.Method().Name(), curFrame.Method().Descriptor(), opcode)
+			curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
 
 		inst.Execute(curFrame)
 

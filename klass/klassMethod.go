@@ -28,7 +28,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	tmpMaxStack := uint16(4)
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributesInfo, 1)
-	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
+	methodDescriptor := ParseMethodDescriptor(m.MethodDescriptor())
 	var codeAttr *attribute.AttrCode
 	switch methodDescriptor.returnTypt {
 	case "V":
@@ -48,7 +48,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 	m.AttributesInfo = attributes
 }
 
-func (m MethodInfo) Descriptor() string {
+func (m MethodInfo) MethodDescriptor() string {
 	return m.GetUtf8(m.descriptorIdx)
 }
 
@@ -56,7 +56,7 @@ func (m MethodInfo) DescriptorIdx() uint16 {
 	return m.descriptorIdx
 }
 
-func (m MethodInfo) Name() string {
+func (m MethodInfo) MethodName() string {
 	return m.GetUtf8(m.nameIdx)
 }
 
@@ -107,16 +107,16 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.C
 		// 解析方法表中的属性表字段
 		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
-		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
+		method.argSlotCount = ParseMethodDescriptor(method.MethodDescriptor()).ParamsCount()
 		method.Klass = k
 	}
 	return methods
 }
 
 func (m *MethodInfo) IsRegisterNatives() bool {
-	return utils.IsStatic(m.accessFlag) && m.Name() == "registerNatives" && m.Descriptor() == "()V"
+	return utils.IsStatic(m.accessFlag) && m.MethodName() == "registerNatives" && m.MethodDescriptor() == "()V"
 }
 
 func (m *MethodInfo) IsInitIDs() bool {
-	return utils.IsStatic(m.accessFlag) && m.Name() == "initIDs" && m.Descriptor() == "()V"
+	return utils.IsStatic(m.accessFlag) && m.MethodName() == "initIDs" && m.MethodDescriptor() == "()V"
 }

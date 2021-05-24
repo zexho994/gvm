@@ -16,7 +16,7 @@ type AnewArray struct {
 }
 
 func (i *AnewArray) Execute(frame *runtime.Frame) {
-	constantClassInfo := frame.Method().GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
+	constantClassInfo := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
 	cname := constantClassInfo.Name()
 	k := klass.Perm().Get(cname)
 	if k == nil {
@@ -32,5 +32,4 @@ func (i *AnewArray) Execute(frame *runtime.Frame) {
 	jarry := oops.NewRefJarray(uint32(arrayLength), k)
 	arrayInstance := oops.NewArrayOopInstance(&jarry)
 	frame.PushRef(arrayInstance)
-
 }

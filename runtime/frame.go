@@ -11,7 +11,7 @@ type Frame struct {
 	next *Frame
 	*LocalVars
 	*OperandStack
-	method *klass.MethodInfo
+	*klass.MethodInfo
 	*Thread
 }
 
@@ -21,10 +21,6 @@ func (f *Frame) SetPC(pc uint) {
 
 func (f *Frame) FramePC() uint {
 	return f.pc
-}
-
-func (f *Frame) Method() *klass.MethodInfo {
-	return f.method
 }
 
 // RevertPC 重置帧指针
@@ -40,7 +36,7 @@ func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thre
 	return &Frame{
 		LocalVars:    NewLocalVars(maxlocals),
 		OperandStack: NewOperandStack(maxStack),
-		method:       method,
+		MethodInfo:   method,
 		Thread:       thread,
 	}
 }

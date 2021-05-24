@@ -161,7 +161,7 @@ var (
 	putStatic       = &references.PutStatic{}
 	getField        = &references.GetField{}
 	putField        = &references.PutField{}
-	invokeStatic    = &references.INVOKE_STATIC{} // 184
+	invokeStatic    = &references.InvokeStatic{} // 184
 	invokeSpecial   = &references.InvokeSpecial{}
 	invokeVirtual   = &references.InvokeVirtual{}
 	invokeDynamic   = &references.InvokeDynamic{}

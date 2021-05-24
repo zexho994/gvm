@@ -17,7 +17,7 @@ type NEW struct {
 
 func (n *NEW) Execute(frame *runtime.Frame) {
 	// 获取类常量信息
-	constantClass := frame.Method().GetConstantInfo(n.Index).(*constant_pool.ConstantClassInfo)
+	constantClass := frame.GetConstantInfo(n.Index).(*constant_pool.ConstantClassInfo)
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过
