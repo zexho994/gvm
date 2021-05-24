@@ -9,19 +9,19 @@ type FLOAD struct {
 	base.InstructionIndex8
 }
 
-type FLOAD_0 struct {
+type Fload0 struct {
 	base.InstructionIndex0
 }
 
-type FLOAD_1 struct {
+type Fload1 struct {
 	base.InstructionIndex0
 }
 
-type FLOAD_2 struct {
+type Fload2 struct {
 	base.InstructionIndex0
 }
 
-type FLOAD_3 struct {
+type Fload3 struct {
 	base.InstructionIndex0
 }
 
@@ -33,33 +33,27 @@ func _fload(frame *runtime.Frame, index uint) {
 	frame.PushFloat(val)
 }
 
-/*
-execute FLOAD
-the index is stored inside the instrution
-*/
+// Execute execute FLOAD
+// the index is stored inside the instrution
 func (self *FLOAD) Execute(frame *runtime.Frame) {
 	_fload(frame, uint(self.Index))
 }
 
-/*
-execute FLOAD_0
-the index is zero
-*/
-func (self *FLOAD_0) Execute(frame *runtime.Frame) {
+// Execute execute Fload0
+// the index is zero
+func (self *Fload0) Execute(frame *runtime.Frame) {
 	_fload(frame, 0)
 }
 
-/*
-see FLOAD_0's Execute
-*/
-func (self *FLOAD_1) Execute(frame *runtime.Frame) {
+// Execute see Fload0's Execute
+func (self *Fload1) Execute(frame *runtime.Frame) {
 	_fload(frame, 1)
 }
 
-func (self *FLOAD_2) Execute(frame *runtime.Frame) {
+func (self *Fload2) Execute(frame *runtime.Frame) {
 	_fload(frame, 2)
 }
 
-func (self *FLOAD_3) Execute(frame *runtime.Frame) {
+func (self *Fload3) Execute(frame *runtime.Frame) {
 	_fload(frame, 3)
 }

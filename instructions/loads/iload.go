@@ -9,19 +9,19 @@ type ILOAD struct {
 	base.InstructionIndex8
 }
 
-type ILOAD_0 struct {
+type Iload0 struct {
 	base.InstructionIndex0
 }
 
-type ILOAD_1 struct {
+type Iload1 struct {
 	base.InstructionIndex0
 }
 
-type ILOAD_2 struct {
+type Iload2 struct {
 	base.InstructionIndex0
 }
 
-type ILOAD_3 struct {
+type Iload3 struct {
 	base.InstructionIndex0
 }
 
@@ -33,33 +33,27 @@ func _iload(frame *runtime.Frame, index uint) {
 	frame.PushInt(val)
 }
 
-/*
-execute ILOAD
-the index is stored inside the instrution
-*/
+// Execute execute ILOAD
+// the index is stored inside the instrution
 func (self *ILOAD) Execute(frame *runtime.Frame) {
 	_iload(frame, uint(self.Index))
 }
 
-/*
-execute ILOAD_0
-the index is zero
-*/
-func (self *ILOAD_0) Execute(frame *runtime.Frame) {
+// Execute execute Iload0
+// the index is zero
+func (self *Iload0) Execute(frame *runtime.Frame) {
 	_iload(frame, 0)
 }
 
-/*
-see ILOAD_0's Execute
-*/
-func (self *ILOAD_1) Execute(frame *runtime.Frame) {
+// Execute see Iload0's Execute
+func (self *Iload1) Execute(frame *runtime.Frame) {
 	_iload(frame, 1)
 }
 
-func (self *ILOAD_2) Execute(frame *runtime.Frame) {
+func (self *Iload2) Execute(frame *runtime.Frame) {
 	_iload(frame, 2)
 }
 
-func (self *ILOAD_3) Execute(frame *runtime.Frame) {
+func (self *Iload3) Execute(frame *runtime.Frame) {
 	_iload(frame, 3)
 }
