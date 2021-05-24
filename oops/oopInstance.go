@@ -6,17 +6,13 @@ import (
 )
 
 type OopInstance struct {
-	markWords *MarkWords
+	*MarkWords
 	*OopFields
 	isArray  bool
 	isString bool
 	jString  string
 	*JArray
 	*klass.Klass
-}
-
-func (o *OopInstance) MarkWord() *MarkWords {
-	return o.markWords
 }
 
 func (o *OopInstance) ArrayLength() uint32 {
@@ -43,7 +39,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 // NewOopInstance create non-array oops
 func NewOopInstance(k *klass.Klass) *OopInstance {
 	return &OopInstance{
-		markWords: NewMarkWords(),
+		MarkWords: NewMarkWords(),
 		OopFields: InitOopFields(k),
 		isArray:   false,
 		Klass:     k,
@@ -53,7 +49,7 @@ func NewOopInstance(k *klass.Klass) *OopInstance {
 // NewArrayOopInstance create array oops
 func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 	return &OopInstance{
-		markWords: NewMarkWords(),
+		MarkWords: NewMarkWords(),
 		isArray:   true,
 		JArray:    arrayData,
 	}
@@ -61,7 +57,7 @@ func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 
 func NewStringOopInstance(str string) *OopInstance {
 	return &OopInstance{
-		markWords: NewMarkWords(),
+		MarkWords: NewMarkWords(),
 		isString:  true,
 		jString:   str,
 	}
