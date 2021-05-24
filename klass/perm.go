@@ -23,3 +23,7 @@ func Perm() *perm {
 func PermSpace() map[string]*Klass {
 	return Perm().Space
 }
+
+func (p *perm) Save(name string, klass *Klass) {
+	p.Space[name] = klass
+}

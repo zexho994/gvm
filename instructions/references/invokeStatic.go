@@ -37,7 +37,7 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 		kl = klass.Perm().Space[kMethodRef.ClassName()]
 		if kl == nil {
 			kl = klass.ParseByClassName(kMethodRef.ClassName())
-			klass.Perm().Space[kMethodRef.ClassName()] = kl
+			klass.Perm().Save(kMethodRef.ClassName(), kl)
 		}
 		if !kl.IsInit {
 			frame.RevertPC()

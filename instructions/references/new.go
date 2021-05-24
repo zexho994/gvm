@@ -24,7 +24,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	class := klass.Perm().Space[className]
 	if class == nil {
 		class = klass.ParseByClassName(className)
-		klass.Perm().Space[className] = class
+		klass.Perm().Save(className, class)
 	}
 	if !class.IsInit {
 		base.InitClass(class, frame.Thread())

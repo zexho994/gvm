@@ -84,7 +84,7 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	kl.IsInit = false
 	// 保存到方法区
-	Perm().Space[kl.ThisClass] = kl
+	Perm().Save(kl.ThisClass, kl)
 	// 执行链接步骤
 	kl.Linked()
 	kl.init()
@@ -117,7 +117,7 @@ func ParseByClassName(className string) *Klass {
 	reader := &loader.ClassReader{Bytecode: bytecode}
 	klass := ParseToKlass(reader)
 
-	Perm().Space[className] = klass
+	Perm().Save(className, klass)
 	return klass
 }
 
