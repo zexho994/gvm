@@ -6,7 +6,7 @@ type Thread struct {
 	*Stack
 }
 
-// 线程任务是否执行完成
+// IsFinished 线程任务是否执行完成
 func (t Thread) IsFinished() bool {
 	if t.IsEmtpy() {
 		return true

@@ -1,6 +1,9 @@
 package utils
 
-import "github.com/zouzhihao-994/gvm/exception"
+import (
+	"github.com/zouzhihao-994/gvm/config"
+	"github.com/zouzhihao-994/gvm/exception"
+)
 
 type Slots []Slot
 
@@ -31,21 +34,19 @@ func (slots Slots) GetVal64() (int32, int32) {
 
 func TypeMapping(desc string) uint8 {
 	switch desc {
-	case "I":
+	case config.Int:
 		return SlotInt
-	case "L":
+	case config.Long:
 		return SlotLong
-	case "B":
+	case config.Byte:
 		return SlotByte
-	case "D":
+	case config.Double:
 		return SlotDouble
-	case "F":
+	case config.Float:
 		return SlotFloat
-	case "J":
-		return SlotLong
-	case "S":
+	case config.Char:
 		return SlotChar
-	case "Z":
+	case config.Boolean:
 		return SlotBoolean
 	default: // refrence type
 		return SlotRef
