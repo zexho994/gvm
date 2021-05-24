@@ -25,11 +25,11 @@ func loop(thread *runtime.Thread) {
 	for {
 		// 因为可能在指令的操作中会对线程的栈帧进行修改，所以这个地方每次都需要进行重新赋值
 		curFrame := thread.Peek()
-		pc := curFrame.PC()
-		thread.PC = pc
+		framePC := curFrame.FramePC()
+		curFrame.SetThradPC(framePC)
 
 		attrCode, _ := curFrame.Method().AttrCode()
-		reader.Reset(attrCode.Code(), pc)
+		reader.Reset(attrCode.Code(), framePC)
 
 		opcode := reader.ReadOpenCdoe()
 		inst := instructions.NewInstruction(opcode)

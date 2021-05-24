@@ -9,11 +9,9 @@ type GOTO struct {
 	base.InstructionIndex16
 }
 
-/*
-无条件的转移
-*/
+// Execute 无条件的转移
 func (i *GOTO) Execute(frame *runtime.Frame) {
-	pc := frame.Thread().PC
+	pc := frame.ThreadPC()
 	nextPC := uint16(pc + uint(i.Index))
 	frame.SetPC(uint(nextPC))
 }

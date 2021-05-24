@@ -28,7 +28,7 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 		}
 		if !kl.IsInit {
 			frame.RevertPC()
-			base.InitClass(kl, frame.Thread())
+			base.InitClass(kl, frame.Thread)
 			return
 		}
 		method, _ = kl.FindStaticMethod(kMethodRef.NameAndDescriptor())
@@ -41,7 +41,7 @@ func (i *INVOKE_STATIC) Execute(frame *runtime.Frame) {
 		}
 		if !kl.IsInit {
 			frame.RevertPC()
-			base.InitClass(kl, frame.Thread())
+			base.InitClass(kl, frame.Thread)
 			return
 		}
 		method, _ = kl.FindStaticMethod(kMethodRef.NameAndDescriptor())

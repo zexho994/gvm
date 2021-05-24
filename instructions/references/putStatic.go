@@ -22,7 +22,7 @@ func (i PutStatic) Execute(frame *runtime.Frame) {
 	jci := klass.Perm().Get(className)
 	if !jci.IsInit {
 		frame.RevertPC()
-		base.InitClass(jci, frame.Thread())
+		base.InitClass(jci, frame.Thread)
 		return
 	}
 	var slots []utils.Slot

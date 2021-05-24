@@ -37,7 +37,7 @@ func (i LDC) Execute(frame *runtime.Frame) {
 		}
 		if !k.IsInit {
 			frame.RevertPC()
-			base.InitClass(k, frame.Thread())
+			base.InitClass(k, frame.Thread)
 			return
 		}
 		frame.PushRef(oops.NewOopInstance(k))

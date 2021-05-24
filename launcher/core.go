@@ -26,8 +26,9 @@ func StartVM() {
 }
 
 func createMainThread() *runtime.Thread {
-	return &runtime.Thread{
-		PC:    0,
+	mainThrad := &runtime.Thread{
 		Stack: runtime.NewStack(1024),
 	}
+	mainThrad.SetThradPC(0)
+	return mainThrad
 }

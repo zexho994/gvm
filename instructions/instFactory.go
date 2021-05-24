@@ -33,7 +33,7 @@ var (
 	dconst1    = &constants.Dconst1{}
 
 	ldc    = &constants.LDC{}
-	ldc2W  = &constants.LDC2_W{}
+	ldc2W  = &constants.Ldc2W{}
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
 

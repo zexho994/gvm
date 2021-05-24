@@ -12,23 +12,19 @@ type Frame struct {
 	*LocalVars
 	*OperandStack
 	method *klass.MethodInfo
-	thread *Thread
+	*Thread
 }
 
 func (f *Frame) SetPC(pc uint) {
 	f.pc = pc
 }
 
-func (f *Frame) PC() uint {
+func (f *Frame) FramePC() uint {
 	return f.pc
 }
 
 func (f *Frame) Method() *klass.MethodInfo {
 	return f.method
-}
-
-func (f *Frame) Thread() *Thread {
-	return f.thread
 }
 
 // RevertPC 重置帧指针
@@ -37,7 +33,7 @@ func (f *Frame) Thread() *Thread {
 // 就将frame的指针重置为thread的pc，
 // 选择重置为thread.pc的而不是简单的进行pc--，因为除了获取操作码会进行pc++,在读取操作数的时候也会进行不同长度的pc++
 func (f *Frame) RevertPC() {
-	f.pc = f.thread.PC
+	f.pc = f.Thread.pc
 }
 
 func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thread) *Frame {
@@ -45,6 +41,6 @@ func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thre
 		LocalVars:    NewLocalVars(maxlocals),
 		OperandStack: NewOperandStack(maxStack),
 		method:       method,
-		thread:       thread,
+		Thread:       thread,
 	}
 }

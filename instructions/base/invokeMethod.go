@@ -15,7 +15,7 @@ import (
 // 对于本地方法，
 // 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
-	invokerThread := frame.Thread()
+	invokerThread := frame.Thread
 	var newFrame *runtime.Frame
 	var attrCode *attribute.AttrCode
 

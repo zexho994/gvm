@@ -27,7 +27,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 		klass.Perm().Save(className, class)
 	}
 	if !class.IsInit {
-		base.InitClass(class, frame.Thread())
+		base.InitClass(class, frame.Thread)
 	}
 	if utils.IsInterface(class.AccessFlags) || utils.IsAbstract(class.AccessFlags) {
 		panic(exception.GvmError{Msg: "[gvm] the interface and abstract cannot be instantiated"})

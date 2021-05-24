@@ -24,7 +24,7 @@ func (i *AnewArray) Execute(frame *runtime.Frame) {
 	}
 	if !k.IsInit {
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	}
 

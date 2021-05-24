@@ -6,7 +6,7 @@ import (
 
 // Branch 指令跳转
 func Branch(frame *runtime.Frame, offset int) {
-	pc := frame.Thread().PC
+	pc := frame.ThreadPC()
 	nextPC := int(pc) + offset
 	frame.SetPC(uint(nextPC))
 }

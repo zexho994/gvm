@@ -25,11 +25,11 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 		k = klass.ParseByClassName(className)
 		klass.Perm().Save(className, k)
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	} else if !k.IsInit { //判断是否需要进行初始化
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	}
 

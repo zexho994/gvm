@@ -7,12 +7,12 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-// 从运行时常量池中提取double或者long数据压入操作数栈
-type LDC2_W struct {
+// Ldc2W 从运行时常量池中提取double或者long数据压入操作数栈
+type Ldc2W struct {
 	base.InstructionIndex16
 }
 
-func (i LDC2_W) Execute(frmae *runtime.Frame) {
+func (i Ldc2W) Execute(frmae *runtime.Frame) {
 	c := frmae.Method().GetConstantInfo(i.Index)
 	stack := frmae
 	switch c.(type) {

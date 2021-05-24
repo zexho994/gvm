@@ -18,8 +18,8 @@ func initializeSystemClass(frame *runtime.Frame) {
 	}
 	initSysClass, err := sys.FindStaticMethod("initializeSystemClass", "()V")
 	utils.AssertError(err, "")
-	newFrame := runtime.NewFrame(4, 3, initSysClass, frame.Thread())
-	frame.Thread().Push(newFrame)
+	newFrame := runtime.NewFrame(4, 3, initSysClass, frame.Thread)
+	frame.Push(newFrame)
 }
 
 func EmptyNative(frame *runtime.Frame) {
