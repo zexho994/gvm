@@ -58,17 +58,23 @@ func initParamConfig() {
 	cmd := ParseCmd()
 
 	// 非启动命令
-	if cmd.VersionFlag {
-		fmt.Println("gvm version " + config.GvmVersion)
-		return
-	} else if cmd.HelpFlag {
-		PrintUsage()
+	if cmd.isHelpOrVersion() {
 		return
 	}
-
 	cmd.checkDefault()
 	cmd.updateConfig()
 	cmd.printArguments()
+}
+
+func (cmd *Cmd) isHelpOrVersion() bool {
+	if cmd.VersionFlag {
+		fmt.Println("gvm version " + config.GvmVersion)
+		return true
+	} else if cmd.HelpFlag {
+		PrintUsage()
+		return true
+	}
+	return false
 }
 
 func (cmd *Cmd) checkDefault() {
