@@ -67,11 +67,7 @@ func initParamConfig() {
 	}
 
 	cmd.checkDefault()
-
-	config.JrePath = cmd.XjreOption
-	config.ClassPath = cmd.CpOption
-	config.ClassName = cmd.Class
-
+	cmd.updateConfig()
 	cmd.printArguments()
 }
 
@@ -88,4 +84,10 @@ func (cmd *Cmd) printArguments() {
 	fmt.Println("gvm -Xjre = " + config.JrePath)
 	fmt.Println("gvm -cp = " + config.ClassPath)
 	fmt.Println("gvm -class = " + config.ClassName)
+}
+
+func (cmd *Cmd) updateConfig() {
+	config.JrePath = cmd.XjreOption
+	config.ClassPath = cmd.CpOption
+	config.ClassName = cmd.Class
 }
