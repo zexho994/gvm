@@ -22,7 +22,7 @@ func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
 	btmIdx := constInvokeDynamic.BootstrapMethodAttrIndex
 	name, desc := constantPool.GetNameAndType(constInvokeDynamic.NameAndTypeIndex)
 	fmt.Println(name, desc)
-	attributeInfo, _ := frame.Method().Klass().Attributes.FindAttrInfo("BootstrapMethods")
+	attributeInfo, _ := frame.Method().Klass.Attributes.FindAttrInfo("BootstrapMethods")
 	bsma := attributeInfo.(*attribute.BootstrapmethodsAttribute)
 	// bootstrap_method
 	bsm := bsma.Methods()[btmIdx]

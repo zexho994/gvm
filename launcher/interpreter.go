@@ -37,7 +37,7 @@ func loop(thread *runtime.Thread) {
 		curFrame.SetPC(reader.PC())
 
 		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
-			curFrame.Method().Klass().ThisClass, curFrame.Method().Name(), curFrame.Method().Descriptor(), opcode)
+			curFrame.Method().ThisClass, curFrame.Method().Name(), curFrame.Method().Descriptor(), opcode)
 
 		inst.Execute(curFrame)
 

@@ -29,9 +29,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactoring MethodInfo">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: add Thread.IsFinished() method">
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeDynamic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,14 +294,7 @@
       <workItem from="1621484004487" duration="3393000" />
       <workItem from="1621500952491" duration="28315000" />
       <workItem from="1621589960855" duration="18000" />
-      <workItem from="1621830686880" duration="1683000" />
-    </task>
-    <task id="LOCAL-00041" summary="factory 添加新指令">
-      <created>1600592733147</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1600592733147</updated>
+      <workItem from="1621830686880" duration="2008000" />
     </task>
     <task id="LOCAL-00042" summary="新增字符串操作">
       <created>1600592764110</created>
@@ -635,7 +632,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621831987468</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="refactor: add Thread.IsFinished() method">
+      <created>1621832446361</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1621832446361</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +714,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: rename" />
     <MESSAGE value="refactor: remove jclass and integrate into klass" />
     <MESSAGE value="refactor for oops" />
     <MESSAGE value="refactor for runtime" />
@@ -735,7 +738,8 @@
     <MESSAGE value="refactor: add updateConfig()" />
     <MESSAGE value="refactor: add isHelpOrVersion()" />
     <MESSAGE value="refactoring MethodInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring MethodInfo" />
+    <MESSAGE value="refactor: add Thread.IsFinished() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: add Thread.IsFinished() method" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

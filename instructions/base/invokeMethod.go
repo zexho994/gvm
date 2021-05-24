@@ -44,13 +44,13 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		newFrame.LocalVars().SetSlot(uint(i), slot)
 	}
 
-	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().Klass().ThisClass, method.Klass().ThisClass, method.Name(), method.Descriptor())
+	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().ThisClass, method.ThisClass, method.Name(), method.Descriptor())
 	invokerThread.Push(newFrame)
 }
 
 // hard code to print for gvm
 func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) (ok bool) {
-	if method.Klass().ThisClass == "GvmOut" && method.Name() == "to" {
+	if method.ThisClass == "GvmOut" && method.Name() == "to" {
 		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
 		switch methodDesc.Paramters()[0] {
 		case "I":

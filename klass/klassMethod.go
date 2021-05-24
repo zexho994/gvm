@@ -17,7 +17,7 @@ type MethodInfo struct {
 	attribute.AttributesInfo
 	cp           constant_pool.ConstantPool
 	argSlotCount uint
-	klass        *Klass
+	*Klass
 }
 
 // InjectCodeAttr injected a code attribute for method
@@ -48,12 +48,8 @@ func (m *MethodInfo) InjectCodeAttr() {
 	m.AttributesInfo = attributes
 }
 
-func (m MethodInfo) Klass() *Klass {
-	return m.klass
-}
-
 func (m *MethodInfo) SetKlass(jci *Klass) {
-	m.klass = jci
+	m.Klass = jci
 }
 
 func (m MethodInfo) Descriptor() string {
@@ -124,7 +120,7 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.Co
 		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
-		method.klass = k
+		method.Klass = k
 	}
 	return methods
 }
