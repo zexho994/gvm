@@ -10,8 +10,7 @@ import (
 )
 
 func StartVM() {
-	loader.InitClassLoader()
-	klass.InitPerm()
+	GvmEnvInit()
 
 	classFile := loader.Loading(config.ClassName)
 	reader := &loader.ClassReader{Bytecode: classFile}
@@ -33,4 +32,10 @@ func createMainThread() *runtime.Thread {
 	}
 	mainThrad.SetThradPC(0)
 	return mainThrad
+}
+
+// GvmEnvInit Perform the initialization of gvm
+func GvmEnvInit() {
+	loader.InitClassLoader()
+	klass.InitPerm()
 }
