@@ -10,14 +10,13 @@ type LCMP struct {
 }
 
 func (i LCMP) Execute(frame *runtime.Frame) {
-	stack := frame
-	val2 := stack.PopLong()
-	val1 := stack.PopLong()
+	val2 := frame.PopLong()
+	val1 := frame.PopLong()
 	if val1 > val2 {
-		stack.PushInt(1)
+		frame.PushInt(1)
 	} else if val1 < val2 {
-		stack.PushInt(-1)
+		frame.PushInt(-1)
 	} else {
-		stack.PushInt(0)
+		frame.PushInt(0)
 	}
 }
