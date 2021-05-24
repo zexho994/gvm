@@ -27,17 +27,22 @@ func loop(thread *runtime.Thread) {
 		curFrame := thread.Peek()
 		pc := curFrame.PC()
 		thread.PC = pc
-		attrCode, _ := curFrame.Method().Attributes().AttrCode()
+
+		attrCode, _ := curFrame.Method().AttrCode()
 		reader.Reset(attrCode.Code(), pc)
+
 		opcode := reader.ReadOpenCdoe()
 		inst := instructions.NewInstruction(opcode)
 		inst.FetchOperands(reader)
 		curFrame.SetPC(reader.PC())
+
 		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
 			curFrame.Method().Klass().ThisClass, curFrame.Method().Name(), curFrame.Method().Descriptor(), opcode)
+
 		inst.Execute(curFrame)
-		if thread.IsEmtpy() {
-			break
+
+		if thread.IsFinished() {
+			return
 		}
 	}
 }

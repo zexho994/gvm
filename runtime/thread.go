@@ -5,3 +5,11 @@ type Thread struct {
 	PC uint
 	*Stack
 }
+
+// 线程任务是否执行完成
+func (t Thread) IsFinished() bool {
+	if t.IsEmtpy() {
+		return true
+	}
+	return false
+}
