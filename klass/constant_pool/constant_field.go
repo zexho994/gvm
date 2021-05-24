@@ -5,8 +5,8 @@ import (
 )
 
 type ConstantFieldInfo struct {
-	Tag              uint8
-	Cp               ConstantPool
+	Tag uint8
+	*ConstantPool
 	ClassIndex       uint16
 	NameAndTypeIndex uint16
 	NameAndType      ConstantNameAndTypeInfo
@@ -18,8 +18,8 @@ func (field *ConstantFieldInfo) ReadInfo(reader *loader.ClassReader) {
 }
 
 func (field *ConstantFieldInfo) ClassName() string {
-	return field.Cp.GetClassName(field.ClassIndex)
+	return field.GetClassName(field.ClassIndex)
 }
 func (field *ConstantFieldInfo) NameAndDescriptor() (string, string) {
-	return field.Cp.GetNameAndType(field.NameAndTypeIndex)
+	return field.GetNameAndType(field.NameAndTypeIndex)
 }

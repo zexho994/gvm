@@ -25,7 +25,7 @@ const (
 )
 
 // NewConstantInfo 根据tag类型创建匹配的结构
-func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
+func (pool *ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	switch tag {
 	case ConstantInterger:
 		return &ConstantIntegerInfo{Tag: tag}
@@ -38,21 +38,21 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case ConstantUtf8:
 		return &ConstantUtf8Info{Tag: tag}
 	case ConstantString:
-		return &ConstantStringInfo{Tag: tag, Cp: pool}
+		return &ConstantStringInfo{Tag: tag, ConstantPool: pool}
 	case ConstantClass:
-		return &ConstantClassInfo{Tag: tag, Cp: pool}
+		return &ConstantClassInfo{Tag: tag, ConstantPool: pool}
 	case ConstantFieldref:
-		return &ConstantFieldInfo{Tag: tag, Cp: pool}
+		return &ConstantFieldInfo{Tag: tag, ConstantPool: pool}
 	case ConsantMethodref:
-		return &ConstantMethodInfo{Tag: tag, Cp: pool}
+		return &ConstantMethodInfo{Tag: tag, ConstantPool: pool}
 	case ConstantInterfacemethodref:
-		return &ConstantInterfaceMethodInfo{Tag: tag, Cp: pool}
+		return &ConstantInterfaceMethodInfo{Tag: tag, ConstantPool: pool}
 	case ConstantNameandtype:
-		return &ConstantNameAndTypeInfo{Tag: tag, cp: pool}
+		return &ConstantNameAndTypeInfo{Tag: tag, ConstantPool: pool}
 	case ConstantMethodtype:
-		return &ConstantMethodTypeInfo{Tag: tag, Cp: pool}
+		return &ConstantMethodTypeInfo{Tag: tag, ConstantPool: pool}
 	case ConstantMethodhandle:
-		return &ConstantMethodHandleInfo{Tag: tag, cp: pool}
+		return &ConstantMethodHandleInfo{Tag: tag, ConstantPool: pool}
 	case ConsaantInvokedynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:

@@ -94,10 +94,6 @@ func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 	return nil, false
 }
 
-func (m MethodInfo) Attributes() attribute.AttributesInfo {
-	return m.AttributesInfo
-}
-
 // 解析方法表
 func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.ConstantPool, k *Klass) Methods {
 	methods := make([]*MethodInfo, count)

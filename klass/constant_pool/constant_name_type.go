@@ -11,7 +11,7 @@ type ConstantNameAndTypeInfo struct {
 	// 常量池索引，对应 ConstantUtf8Info 结构
 	// 表示一个字段描述符或者方法描述符
 	DescriptorIndex uint16
-	cp              ConstantPool
+	*ConstantPool
 }
 
 func (constantNameAndTypeInfo *ConstantNameAndTypeInfo) ReadInfo(reader *loader.ClassReader) {

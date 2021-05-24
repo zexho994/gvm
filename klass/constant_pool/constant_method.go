@@ -8,7 +8,7 @@ import (
 type ConstantMethodInfo struct {
 	// contant_method's tag is 10
 	Tag uint8
-	Cp  ConstantPool
+	*ConstantPool
 	// represents a class or interface
 	classIdx       uint16
 	nameAndTypeIdx uint16
@@ -20,9 +20,9 @@ func (c *ConstantMethodInfo) ReadInfo(reader *loader.ClassReader) {
 }
 
 func (c *ConstantMethodInfo) NameAndDescriptor() (string, string) {
-	return c.Cp.GetNameAndType(c.nameAndTypeIdx)
+	return c.GetNameAndType(c.nameAndTypeIdx)
 }
 
 func (c *ConstantMethodInfo) ClassName() string {
-	return c.Cp.GetClassName(c.classIdx)
+	return c.GetClassName(c.classIdx)
 }
