@@ -2,7 +2,6 @@ package base
 
 import (
 	"fmt"
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/native"
@@ -46,35 +45,4 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().ThisClass, method.ThisClass, method.Name(), method.Descriptor())
 	invokerThread.Push(newFrame)
-}
-
-// hard code to print for gvm
-func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) (ok bool) {
-	if method.ThisClass == "GvmOut" && method.Name() == "to" {
-		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
-		switch methodDesc.Paramters()[0] {
-		case "I":
-			fmt.Println(frame.PopInt())
-			break
-		case "F":
-			fmt.Println(frame.PopFloat())
-			break
-		case "J":
-			fmt.Println(frame.PopLong())
-			break
-		case "D":
-			fmt.Println(frame.PopDouble())
-			break
-		case "Z":
-			fmt.Println(frame.PopBoolean())
-			break
-		case "Ljava/lang/String;":
-			fmt.Println(frame.PopRef().JString())
-		case "B":
-		case "S":
-			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()
-			return false
-		}
-	}
-	return true
 }

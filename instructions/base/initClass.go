@@ -7,15 +7,15 @@ import (
 
 // InitClass 初始化<clinit>方法
 func InitClass(k *klass.Klass, thread *runtime.Thread) {
-	clinit, exist := k.Methods.GetClinitMethod()
+	clinitMethod, exist := k.Methods.GetClinitMethod()
 	k.IsInit = true
 	if exist {
-		attrCode, err := clinit.AttrCode()
+		attrCode, err := clinitMethod.AttrCode()
 		if err != nil {
 			panic(err.Error())
 		}
 
-		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, clinit, thread)
+		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, clinitMethod, thread)
 		thread.Push(frame)
 	}
 
