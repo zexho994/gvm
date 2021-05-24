@@ -11,6 +11,8 @@ import (
 
 func StartVM() {
 	loader.InitClassLoader()
+	klass.InitPerm()
+
 	classFile := loader.Loading(config.ClassName)
 	reader := &loader.ClassReader{Bytecode: classFile}
 	k := klass.ParseToKlass(reader)

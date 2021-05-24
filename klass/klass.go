@@ -84,7 +84,7 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	kl.IsInit = false
 	// 保存到方法区
-	Perm().Save(kl.ThisClass, kl)
+	Perm.Save(kl.ThisClass, kl)
 	// 执行链接步骤
 	kl.Linked()
 	kl.init()
@@ -109,7 +109,7 @@ func paresMajorVersion(reader *loader.ClassReader) uint16 {
 }
 
 func ParseByClassName(className string) *Klass {
-	if k := Perm().Get(className); k != nil {
+	if k := Perm.Get(className); k != nil {
 		return k
 	}
 
@@ -117,7 +117,7 @@ func ParseByClassName(className string) *Klass {
 	reader := &loader.ClassReader{Bytecode: bytecode}
 	klass := ParseToKlass(reader)
 
-	Perm().Save(className, klass)
+	Perm.Save(className, klass)
 	return klass
 }
 
@@ -131,7 +131,7 @@ func (k *Klass) parseSuper() *Klass {
 	// 判断是否存在父类
 	superName := k.ConstantPool.GetClassName(k.SuperClassIdx)
 	// 方法区存在该类结构
-	perm := Perm()
+	perm := Perm
 	if supre := perm.Get(superName); supre != nil {
 		return supre
 	}
@@ -150,7 +150,7 @@ func (k *Klass) parseInterfaces() []*Klass {
 		iName := k.ConstantPool.GetClassName(iIdx)
 		iInstance := &Klass{}
 		// 如果方法区中已经有直接引用
-		if iInstance = Perm().Get(iName); iInstance != nil {
+		if iInstance = Perm.Get(iName); iInstance != nil {
 			interfaces[i] = iInstance
 			continue
 		}

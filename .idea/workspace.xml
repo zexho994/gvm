@@ -29,12 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor thread.go">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor all structs under package frame that turn the methodInfo field into pointers">
       <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/dload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/fload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/fload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/iload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/iload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/lload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/lload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/arrayLength.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/arrayLength.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/newArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/newArray.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,21 +282,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="1273000" />
-    </task>
-    <task id="LOCAL-00062" summary="refactor: remove classloader">
-      <created>1621329239863</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1621329239863</updated>
-    </task>
-    <task id="LOCAL-00063" summary="refactor: rename">
-      <created>1621329596643</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1621329596643</updated>
+      <workItem from="1621844374586" duration="1678000" />
     </task>
     <task id="LOCAL-00064" summary="refactor: remove jclass and integrate into klass">
       <created>1621335998410</created>
@@ -629,7 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621845444747</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="refactor all under package of load">
+      <created>1621845667141</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845667142</updated>
+    </task>
+    <task id="LOCAL-00112" summary="refactor all structs under package frame that turn the methodInfo field into pointers">
+      <created>1621845942373</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845942373</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +654,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/feat" />
+                        <option value="feat" />
                       </list>
                     </value>
                   </entry>
@@ -704,8 +702,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor: add checkDefault()" />
-    <MESSAGE value="refactor: add printArguments()" />
     <MESSAGE value="refactor: add updateConfig()" />
     <MESSAGE value="refactor: add isHelpOrVersion()" />
     <MESSAGE value="refactoring MethodInfo" />
@@ -729,7 +725,9 @@
     <MESSAGE value="refactor lcmp.go" />
     <MESSAGE value="refactor const.go" />
     <MESSAGE value="refactor thread.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor thread.go" />
+    <MESSAGE value="refactor all under package of load" />
+    <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor all structs under package frame that turn the methodInfo field into pointers" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

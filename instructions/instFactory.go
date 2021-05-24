@@ -168,8 +168,8 @@ var (
 	invokeInterface = &references.InvokeInterface{}
 	_new            = &references.NEW{} //187
 	anewarray       = &references.AnewArray{}
-	_newArray       = &references.NEW_ARRAY{}
-	arrayLength     = &references.ARRAY_LENGTH{}
+	_newArray       = &references.NewArray{}
+	arrayLength     = &references.ArrayLength{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {

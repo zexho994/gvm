@@ -22,7 +22,7 @@ func (i *InvokeStatic) Execute(frame *runtime.Frame) {
 	var kl *klass.Klass
 	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {
 		kMethodRef = k.(*constant_pool.ConstantMethodInfo)
-		kl = klass.Perm().Get(kMethodRef.ClassName())
+		kl = klass.Perm.Get(kMethodRef.ClassName())
 		if kl == nil {
 			kl = klass.ParseByClassName(kMethodRef.ClassName())
 		}
@@ -34,10 +34,10 @@ func (i *InvokeStatic) Execute(frame *runtime.Frame) {
 		method, _ = kl.FindStaticMethod(kMethodRef.NameAndDescriptor())
 	} else {
 		kMethodRef := k.(*constant_pool.ConstantInterfaceMethodInfo)
-		kl = klass.Perm().Get(kMethodRef.ClassName())
+		kl = klass.Perm.Get(kMethodRef.ClassName())
 		if kl == nil {
 			kl = klass.ParseByClassName(kMethodRef.ClassName())
-			klass.Perm().Save(kMethodRef.ClassName(), kl)
+			klass.Perm.Save(kMethodRef.ClassName(), kl)
 		}
 		if !kl.IsInit {
 			frame.RevertPC()

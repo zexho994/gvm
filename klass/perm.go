@@ -12,18 +12,17 @@ type perm struct {
 	space
 }
 
-var p *perm
+var Perm *perm
 var once sync.Once
 
-func Perm() *perm {
+func InitPerm() {
 	once.Do(func() {
-		p = &perm{make(map[string]*Klass)}
+		Perm = &perm{make(map[string]*Klass)}
 	})
-	return p
 }
 
 func PermSpace() map[string]*Klass {
-	return Perm().space
+	return Perm.space
 }
 
 func (p *perm) Save(name string, klass *Klass) {

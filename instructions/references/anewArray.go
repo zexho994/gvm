@@ -18,7 +18,7 @@ type AnewArray struct {
 func (i *AnewArray) Execute(frame *runtime.Frame) {
 	constantClassInfo := frame.GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
 	cname := constantClassInfo.Name()
-	k := klass.Perm().Get(cname)
+	k := klass.Perm.Get(cname)
 	if k == nil {
 		k = klass.ParseByClassName(cname)
 	}

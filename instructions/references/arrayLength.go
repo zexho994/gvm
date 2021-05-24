@@ -6,11 +6,11 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-type ARRAY_LENGTH struct {
+type ArrayLength struct {
 	base.InstructionIndex0
 }
 
-func (i *ARRAY_LENGTH) Execute(frame *runtime.Frame) {
+func (i *ArrayLength) Execute(frame *runtime.Frame) {
 	arrayRef := frame.PopRef()
 	utils.AssertFalse(arrayRef == nil, "NullPointerException")
 	arrayLength := arrayRef.ArrayLength()

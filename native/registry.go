@@ -12,7 +12,7 @@ type Method func(frame *runtime.Frame)
 var registry = map[string]Method{}
 
 func initializeSystemClass(frame *runtime.Frame) {
-	sys := klass.Perm().Get("java/lang/System")
+	sys := klass.Perm.Get("java/lang/System")
 	if sys == nil {
 		return
 	}

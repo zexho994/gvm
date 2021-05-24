@@ -19,7 +19,7 @@ func (i PutStatic) Execute(frame *runtime.Frame) {
 	_, fieldDesc := fieldInfo.NameAndDescriptor()
 	// if the class is uninitiallized
 	className := fieldInfo.ClassName()
-	jci := klass.Perm().Get(className)
+	jci := klass.Perm.Get(className)
 	if !jci.IsInit {
 		frame.RevertPC()
 		base.InitClass(jci, frame.Thread)

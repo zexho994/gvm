@@ -18,12 +18,12 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	k := klass.Perm().Get(className)
+	k := klass.Perm.Get(className)
 
 	// 判断是否需要进行加载
 	if k == nil {
 		k = klass.ParseByClassName(className)
-		klass.Perm().Save(className, k)
+		klass.Perm.Save(className, k)
 		frame.RevertPC()
 		base.InitClass(k, frame.Thread)
 		return
