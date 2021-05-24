@@ -14,7 +14,7 @@ func (s *Stack) IsEmtpy() bool {
 	return s.size == 0
 }
 
-func (s *Stack) Push(newFrame *Frame) {
+func (s *Stack) PushFrame(newFrame *Frame) {
 	if s.size == s.maxSize {
 		panic("[gvm] system error StackOverflow")
 	}
@@ -27,7 +27,7 @@ func (s *Stack) Push(newFrame *Frame) {
 	s.size++
 }
 
-func (s *Stack) Pop() *Frame {
+func (s *Stack) PopFrame() *Frame {
 	if s.top == nil || s.size == 0 {
 		panic("[gvm] stack is empty")
 	}
@@ -38,7 +38,7 @@ func (s *Stack) Pop() *Frame {
 	return p
 }
 
-func (s *Stack) Peek() *Frame {
+func (s *Stack) PeekFrame() *Frame {
 	return s.top
 }
 

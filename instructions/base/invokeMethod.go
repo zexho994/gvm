@@ -31,7 +31,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	var n int
 	if isStatic {
 		if argSlotCount == 0 {
-			invokerThread.Push(newFrame)
+			invokerThread.PushFrame(newFrame)
 			return
 		}
 		n = 1
@@ -44,5 +44,5 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	}
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
-	invokerThread.Push(newFrame)
+	invokerThread.PushFrame(newFrame)
 }

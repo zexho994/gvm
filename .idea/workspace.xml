@@ -29,12 +29,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Add some func to get constant info">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xfe-invokeNative">
+      <change afterPath="$PROJECT_DIR$/native/java/lang/String.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/push.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/push.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/control/return.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/control/return.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader/apploader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/apploader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader/loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/loader.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/stack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/stack.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,14 +292,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="7247000" />
-    </task>
-    <task id="LOCAL-00073" summary="rename fo instFactor">
-      <created>1621411705996</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1621411705996</updated>
+      <workItem from="1621844374586" duration="10398000" />
     </task>
     <task id="LOCAL-00074" summary="rename fo invokeVirtual">
       <created>1621413271538</created>
@@ -629,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621849485724</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="new inst 0xfe-invokeNative">
+      <created>1621854023266</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1621854023266</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +712,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactoring MethodInfo field StaticFieldVars" />
     <MESSAGE value="refactor: rename StaticFieldVars -&gt; StaticFields" />
     <MESSAGE value="new func -&gt; Perm.Save()" />
     <MESSAGE value="refactoring Perm" />
@@ -729,25 +736,14 @@
     <MESSAGE value="OopInstance klassInstance -&gt; *Klass" />
     <MESSAGE value="OopInstance markWords -&gt; *MarkWords" />
     <MESSAGE value="Add some func to get constant info" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add some func to get constant info" />
+    <MESSAGE value="new inst 0xfe-invokeNative" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xfe-invokeNative" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
-          <line>48</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/reserved/invokeNative.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

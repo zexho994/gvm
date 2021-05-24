@@ -5,9 +5,9 @@ import (
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
-type BIPUSH struct{ base.InstructionIndex8 } // Push byte
+type BIPUSH struct{ base.InstructionIndex8 } // PushFrame byte
 
-type SIPUSH struct{ base.InstructionIndex16 } // Push short
+type SIPUSH struct{ base.InstructionIndex16 } // PushFrame short
 
 // Execute 将读取到的byte转化成int后推入到栈顶
 func (self BIPUSH) Execute(frame *runtime.Frame) {

@@ -16,7 +16,7 @@ func InitClass(k *klass.Klass, thread *runtime.Thread) {
 		}
 
 		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, clinitMethod, thread)
-		thread.Push(frame)
+		thread.PushFrame(frame)
 	}
 
 	// 如果父类也还未初始化，则先初始化父类

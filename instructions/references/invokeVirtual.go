@@ -14,10 +14,9 @@ type InvokeVirtual struct {
 
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
 	constantMethod := frame.GetConstantMethodInfo(i.Index)
-	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	objectRef := frame.GetByIdx(0)
 	k := objectRef.Ref.(*oops.OopInstance).Klass
-	method, err, _ := k.FindMethod(methodNameStr, methodDescStr)
+	method, err, _ := k.FindMethod(constantMethod.NameAndDescriptor())
 	utils.AssertError(err, "klass to find method err")
 
 	base.InvokeMethod(frame, method, false)
