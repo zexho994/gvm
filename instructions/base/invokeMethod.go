@@ -26,7 +26,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		return
 	}
 
-	attrCode, _ = method.Attributes().AttrCode()
+	attrCode, _ = method.AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	argSlotCount := int(method.ArgSlotCount())
 	var n int

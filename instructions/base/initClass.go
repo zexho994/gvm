@@ -10,7 +10,7 @@ func InitClass(k *klass.Klass, thread *runtime.Thread) {
 	clinit, exist := k.Methods.Clinit()
 	k.IsInit = true
 	if exist {
-		attrCode, err := clinit.Attributes().AttrCode()
+		attrCode, err := clinit.AttrCode()
 		if err != nil {
 			panic(err.Error())
 		}

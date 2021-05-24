@@ -11,7 +11,7 @@ import (
 
 // Interpret code 解释器
 func Interpret(method *klass.MethodInfo, t *runtime.Thread) {
-	code, err := method.Attributes().AttrCode()
+	code, err := method.AttrCode()
 	utils.AssertError(err, "get arrtibute code error")
 
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, method, t)

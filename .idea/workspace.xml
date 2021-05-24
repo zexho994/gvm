@@ -29,10 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: add isHelpOrVersion()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/AlgorithmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/AlgorithmTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,9 +254,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
@@ -291,35 +295,7 @@
       <workItem from="1621484004487" duration="3393000" />
       <workItem from="1621500952491" duration="28315000" />
       <workItem from="1621589960855" duration="18000" />
-      <workItem from="1621830686880" duration="246000" />
-    </task>
-    <task id="LOCAL-00036" summary="update the ldc instruction">
-      <created>1600589969336</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1600589969336</updated>
-    </task>
-    <task id="LOCAL-00037" summary="instruct-factory add some new instructions">
-      <created>1600591692754</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591692754</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Changed maxLocvars and maxStack type">
-      <created>1600591773349</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591773349</updated>
-    </task>
-    <task id="LOCAL-00039" summary="remove file">
-      <created>1600591793903</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591793903</updated>
+      <workItem from="1621830686880" duration="1209000" />
     </task>
     <task id="LOCAL-00040" summary="add some files">
       <created>1600591826279</created>
@@ -636,7 +612,35 @@
       <option name="project" value="LOCAL" />
       <updated>1621587359883</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="refactor: add checkDefault()">
+      <created>1621830981753</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1621830981754</updated>
+    </task>
+    <task id="LOCAL-00086" summary="refactor: add printArguments()">
+      <created>1621831073861</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831073861</updated>
+    </task>
+    <task id="LOCAL-00087" summary="refactor: add updateConfig()">
+      <created>1621831132659</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831132659</updated>
+    </task>
+    <task id="LOCAL-00088" summary="refactor: add isHelpOrVersion()">
+      <created>1621831310006</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831310006</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,10 +715,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new module launcher &amp; move startVM to launcher" />
-    <MESSAGE value="func createMainThread()" />
-    <MESSAGE value="func assertError()" />
-    <MESSAGE value="move interpreter to launcher" />
     <MESSAGE value="refactor: remove classloader" />
     <MESSAGE value="refactor: rename" />
     <MESSAGE value="refactor: remove jclass and integrate into klass" />
@@ -736,7 +736,11 @@
     <MESSAGE value="new native method -&gt; initProperties()" />
     <MESSAGE value="new native method -&gt; initialize()" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="refactor: add checkDefault()" />
+    <MESSAGE value="refactor: add printArguments()" />
+    <MESSAGE value="refactor: add updateConfig()" />
+    <MESSAGE value="refactor: add isHelpOrVersion()" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: add isHelpOrVersion()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -758,11 +762,6 @@
           <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
           <line>52</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
-          <line>29</line>
-          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>

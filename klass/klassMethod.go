@@ -14,10 +14,10 @@ type MethodInfo struct {
 	nameIdx       uint16
 	descriptorIdx uint16
 	attrCount     uint16
-	attribute     attribute.AttributesInfo
-	cp            constant_pool.ConstantPool
-	argSlotCount  uint
-	klass         *Klass
+	attribute.AttributesInfo
+	cp           constant_pool.ConstantPool
+	argSlotCount uint
+	klass        *Klass
 }
 
 // InjectCodeAttr injected a code attribute for method
@@ -45,7 +45,7 @@ func (m *MethodInfo) InjectCodeAttr() {
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.cp) // ireturn
 	}
 	attributes[0] = codeAttr
-	m.attribute = attributes
+	m.AttributesInfo = attributes
 }
 
 func (m MethodInfo) Klass() *Klass {
@@ -107,7 +107,7 @@ func (m *MethodInfo) CP() constant_pool.ConstantPool {
 }
 
 func (m MethodInfo) Attributes() attribute.AttributesInfo {
-	return m.attribute
+	return m.AttributesInfo
 }
 
 // 解析方法表
@@ -121,7 +121,7 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.Co
 		method.descriptorIdx = reader.ReadUint16()
 		method.attrCount = reader.ReadUint16()
 		// 解析方法表中的属性表字段
-		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
+		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
 		method.klass = k
