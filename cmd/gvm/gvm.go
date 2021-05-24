@@ -72,9 +72,7 @@ func initParamConfig() {
 	config.ClassPath = cmd.CpOption
 	config.ClassName = cmd.Class
 
-	fmt.Println("gvm -Xjre = " + config.JrePath)
-	fmt.Println("gvm -cp = " + config.ClassPath)
-	fmt.Println("gvm -class = " + config.ClassName)
+	cmd.printArguments()
 }
 
 func (cmd *Cmd) checkDefault() {
@@ -84,4 +82,10 @@ func (cmd *Cmd) checkDefault() {
 	if cmd.CpOption == "" {
 		cmd.CpOption = config.UserClassPathDefault
 	}
+}
+
+func (cmd *Cmd) printArguments() {
+	fmt.Println("gvm -Xjre = " + config.JrePath)
+	fmt.Println("gvm -cp = " + config.ClassPath)
+	fmt.Println("gvm -class = " + config.ClassName)
 }
