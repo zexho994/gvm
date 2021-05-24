@@ -33,7 +33,7 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 		return
 	}
 
-	field := k.StaticVars.GetField(fieldName)
+	field := k.StaticFieldVars.GetField(fieldName)
 	_, _, slots := field.Fields()
 	if fieldDesc == "D" || fieldDesc == "J" {
 		frame.OperandStack().PushSlot(slots[0])

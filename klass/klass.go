@@ -43,8 +43,8 @@ type Klass struct {
 	attribute.AttributesInfo
 
 	// 初始化标识
-	IsInit     bool
-	StaticVars *StaticFieldVars
+	IsInit bool
+	*StaticFieldVars
 }
 
 // ParseToKlass
@@ -279,7 +279,7 @@ func (k *Klass) prepare() {
 
 		vars.AddField(jFields[idx].Name(), slot)
 	}
-	k.StaticVars = vars
+	k.StaticFieldVars = vars
 }
 
 func (k *Klass) parse() {
