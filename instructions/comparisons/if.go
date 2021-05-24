@@ -31,49 +31,49 @@ type IfNonnull struct {
 }
 
 func (i IfGe) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val >= 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfLe) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val <= 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfEq) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val == 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfNe) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val != 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfGt) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val > 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfLt) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopInt()
+	val := frame.PopInt()
 	if val < 0 {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfNull) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopRef()
+	val := frame.PopRef()
 	if val == nil {
 		base.Branch(frame, int(i.Index))
 	}
 }
 func (i IfNonnull) Execute(frame *runtime.Frame) {
-	val := frame.OperandStack().PopRef()
+	val := frame.PopRef()
 	if val != nil {
 		base.Branch(frame, int(i.Index))
 	}

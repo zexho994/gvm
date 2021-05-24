@@ -2,7 +2,6 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -14,11 +13,10 @@ type InvokeVirtual struct {
 }
 
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
-	constantMethod := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantMethodInfo)
-	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
-	objectRef := frame.OperandStack().GetByIdx(0)
-	k := objectRef.Ref.(*oops.OopInstance).Klass()
-	method, err, _ := k.FindMethod(methodNameStr, methodDescStr)
+	constantMethod := frame.GetConstantMethodInfo(i.Index)
+	objectRef := frame.GetByIdx(0)
+	k := objectRef.Ref.(*oops.OopInstance).Klass
+	method, err, _ := k.FindMethod(constantMethod.NameAndDescriptor())
 	utils.AssertError(err, "klass to find method err")
 
 	base.InvokeMethod(frame, method, false)

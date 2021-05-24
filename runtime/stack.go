@@ -14,31 +14,31 @@ func (s *Stack) IsEmtpy() bool {
 	return s.size == 0
 }
 
-func (s *Stack) Push(newFrame *Frame) {
+func (s *Stack) PushFrame(newFrame *Frame) {
 	if s.size == s.maxSize {
 		panic("[gvm] system error StackOverflow")
 	}
 
 	if s.top != nil {
-		newFrame.next = s.top
+		newFrame.nextFrame = s.top
 	}
 
 	s.top = newFrame
 	s.size++
 }
 
-func (s *Stack) Pop() *Frame {
+func (s *Stack) PopFrame() *Frame {
 	if s.top == nil || s.size == 0 {
 		panic("[gvm] stack is empty")
 	}
 	p := s.top
-	s.top = s.top.next
-	p.next = nil
+	s.top = s.top.nextFrame
+	p.nextFrame = nil
 	s.size--
 	return p
 }
 
-func (s *Stack) Peek() *Frame {
+func (s *Stack) PeekFrame() *Frame {
 	return s.top
 }
 

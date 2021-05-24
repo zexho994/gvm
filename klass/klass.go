@@ -19,7 +19,7 @@ type Klass struct {
 	MajorVersion uint16
 	// 常量池
 	ConstantPoolCount uint16
-	ConstantPool      constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	// 类访问标志,表示是类还是接口,public还是private等
 	AccessFlags uint16
 	// 本类
@@ -34,17 +34,17 @@ type Klass struct {
 	Interfaces      []*Klass
 	// 字段表,用于表示接口或者类中声明的变量
 	FieldsCount uint16
-	Fields      Fields
+	Fields
 	// 方法表
 	MethodsCount uint16
-	Methods      Methods
+	Methods
 	// 属性表
 	AttributesCount uint16
-	Attributes      attribute.AttributesInfo
+	attribute.AttributesInfo
 
 	// 初始化标识
-	IsInit     bool
-	StaticVars *StaticFieldVars
+	IsInit bool
+	*StaticFields
 }
 
 // ParseToKlass
@@ -58,7 +58,8 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.MajorVersion = paresMajorVersion(reader)
 	// 常量池
 	kl.ConstantPoolCount = reader.ReadUint16()
-	kl.ConstantPool = constant_pool.ReadConstantPool(kl.ConstantPoolCount, reader)
+	cp := constant_pool.ReadConstantPool(kl.ConstantPoolCount, reader)
+	kl.ConstantPool = &cp
 	// 类访问符
 	kl.AccessFlags = reader.ReadUint16()
 	// 本类
@@ -79,11 +80,11 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	kl.Methods = parseMethod(kl.MethodsCount, reader, kl.ConstantPool, kl)
 	// 属性数量 & 列表
 	kl.AttributesCount = reader.ReadUint16()
-	kl.Attributes = attribute.ParseAttributes(kl.AttributesCount, reader, kl.ConstantPool)
+	kl.AttributesInfo = attribute.ParseAttributes(kl.AttributesCount, reader, kl.ConstantPool)
 	// 默认未初始化，只有在进行实际调用该类的时候才进行初始化
 	kl.IsInit = false
 	// 保存到方法区
-	Perm().Space[kl.ThisClass] = kl
+	Perm.Save(kl.ThisClass, kl)
 	// 执行链接步骤
 	kl.Linked()
 	kl.init()
@@ -108,7 +109,7 @@ func paresMajorVersion(reader *loader.ClassReader) uint16 {
 }
 
 func ParseByClassName(className string) *Klass {
-	if k := Perm().Space[className]; k != nil {
+	if k := Perm.Get(className); k != nil {
 		return k
 	}
 
@@ -116,7 +117,7 @@ func ParseByClassName(className string) *Klass {
 	reader := &loader.ClassReader{Bytecode: bytecode}
 	klass := ParseToKlass(reader)
 
-	Perm().Space[className] = klass
+	Perm.Save(className, klass)
 	return klass
 }
 
@@ -130,8 +131,8 @@ func (k *Klass) parseSuper() *Klass {
 	// 判断是否存在父类
 	superName := k.ConstantPool.GetClassName(k.SuperClassIdx)
 	// 方法区存在该类结构
-	perm := Perm()
-	if supre := perm.Space[superName]; supre != nil {
+	perm := Perm
+	if supre := perm.Get(superName); supre != nil {
 		return supre
 	}
 	return ParseByClassName(superName)
@@ -149,7 +150,7 @@ func (k *Klass) parseInterfaces() []*Klass {
 		iName := k.ConstantPool.GetClassName(iIdx)
 		iInstance := &Klass{}
 		// 如果方法区中已经有直接引用
-		if iInstance = Perm().Space[iName]; iInstance != nil {
+		if iInstance = Perm.Get(iName); iInstance != nil {
 			interfaces[i] = iInstance
 			continue
 		}
@@ -175,7 +176,7 @@ func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 			descriptor != k.ConstantPool.GetUtf8(methodInfo.DescriptorIdx()) {
 			continue
 		}
-		methodInfo.SetKlass(k)
+		methodInfo.Klass = k
 		return methodInfo, nil
 	}
 	return nil, exception.GvmError{Msg: "not find static method it name " + name}
@@ -278,7 +279,7 @@ func (k *Klass) prepare() {
 
 		vars.AddField(jFields[idx].Name(), slot)
 	}
-	k.StaticVars = vars
+	k.StaticFields = vars
 }
 
 func (k *Klass) parse() {

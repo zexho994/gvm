@@ -22,33 +22,29 @@ type LMUL struct {
 }
 
 func (self *IMUL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopInt()
-	v2 := stack.PopInt()
+	v1 := frame.PopInt()
+	v2 := frame.PopInt()
 	result := v1 * v2
-	stack.PushInt(result)
+	frame.PushInt(result)
 }
 
 func (self *LMUL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopLong()
-	v2 := stack.PopLong()
+	v1 := frame.PopLong()
+	v2 := frame.PopLong()
 	result := v1 * v2
-	stack.PushLong(result)
+	frame.PushLong(result)
 }
 
 func (self *DMUL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopDouble()
-	v2 := stack.PopDouble()
+	v1 := frame.PopDouble()
+	v2 := frame.PopDouble()
 	result := v1 * v2
-	stack.PushDouble(result)
+	frame.PushDouble(result)
 }
 
 func (self *FMUL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopFloat()
-	v2 := stack.PopFloat()
+	v1 := frame.PopFloat()
+	v2 := frame.PopFloat()
 	result := v1 * v2
-	stack.PushFloat(result)
+	frame.PushFloat(result)
 }

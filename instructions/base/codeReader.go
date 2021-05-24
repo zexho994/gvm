@@ -5,13 +5,11 @@ type MethodCodeReader struct {
 	pc   uint
 }
 
-func (r *MethodCodeReader) PC() uint {
+func (r *MethodCodeReader) MethodReaderPC() uint {
 	return r.pc
 }
 
-/*
-重新赋值
-*/
+// Reset 重新赋值
 func (r *MethodCodeReader) Reset(code []byte, pc uint) {
 	r.code = code
 	r.pc = pc

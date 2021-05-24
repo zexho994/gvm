@@ -45,6 +45,6 @@ func (self *Dstore3) Execute(frame *runtime.Frame) {
 }
 
 func _dstore(frame *runtime.Frame, index uint) {
-	val := frame.OperandStack().PopDouble()
-	frame.LocalVars().SetDouble(index, val)
+	val := frame.PopDouble()
+	frame.SetDouble(index, val)
 }

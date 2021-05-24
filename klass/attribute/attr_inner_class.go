@@ -6,10 +6,10 @@ import (
 )
 
 type AttrInnerClasses struct {
-	nameIdx         uint16
-	name            string
-	attrLen         uint32
-	cp              constant_pool.ConstantPool
+	nameIdx uint16
+	name    string
+	attrLen uint32
+	*constant_pool.ConstantPool
 	innerClassesNum uint16
 	innerClasses    []innerClass
 }
@@ -29,11 +29,11 @@ func (attr *AttrInnerClasses) parse(reader *loader.ClassReader) {
 	attr.innerClassesNum = reader.ReadUint16()
 	attr.innerClasses = make([]innerClass, attr.innerClassesNum)
 	for i := 0; i < int(attr.innerClassesNum); i++ {
-		attr.innerClasses[i].parse(reader, attr.cp)
+		attr.innerClasses[i].parse(reader, attr.ConstantPool)
 	}
 }
 
-func (inner *innerClass) parse(reader *loader.ClassReader, pool constant_pool.ConstantPool) {
+func (inner *innerClass) parse(reader *loader.ClassReader, pool *constant_pool.ConstantPool) {
 	inner.innerClassIdx = reader.ReadUint16()
 	inner.outerClassIdx = reader.ReadUint16()
 	inner.innerNameIdx = reader.ReadUint16()

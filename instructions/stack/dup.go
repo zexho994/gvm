@@ -31,7 +31,7 @@ type Dup2X2 struct {
 
 // Execute Duplicate the top operandStack value
 func (d *Dup) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	slot := stack.PopSlot()
 	stack.PushSlot(slot)
 	stack.PushSlot(slot)
@@ -41,7 +41,7 @@ func (d *Dup) Execute(frame *runtime.Frame) {
 // before : top ->down 1,2,3,4
 // after : 1,2,1,3,4 . top value 1 duplicate and then insert two values down
 func (d *DupX1) Execute(frame *runtime.Frame) {
-	f := frame.OperandStack()
+	f := frame
 	slot1 := f.PopSlot()
 	slot2 := f.PopSlot()
 	f.PushSlot(slot1)
@@ -53,7 +53,7 @@ func (d *DupX1) Execute(frame *runtime.Frame) {
 // before : top ->down 1,2,3,4
 // after : 1,2,3,1,4 . top value 1 duplicate and then insert three values down
 func (d *DupX2) Execute(frame *runtime.Frame) {
-	f := frame.OperandStack()
+	f := frame
 	slot1 := f.PopSlot()
 	slot2 := f.PopSlot()
 	slot3 := f.PopSlot()
@@ -64,7 +64,7 @@ func (d *DupX2) Execute(frame *runtime.Frame) {
 }
 
 func (d *Dup2) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
 	stack.PushSlot(slot2)
@@ -74,7 +74,7 @@ func (d *Dup2) Execute(frame *runtime.Frame) {
 }
 
 func (d *Dup2X1) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
 	slot3 := stack.PopSlot()
@@ -87,7 +87,7 @@ func (d *Dup2X1) Execute(frame *runtime.Frame) {
 }
 
 func (d *Dup2X2) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
 	slot3 := stack.PopSlot()

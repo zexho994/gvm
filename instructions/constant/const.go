@@ -35,62 +35,62 @@ type Lconst0 struct{ base.InstructionIndex0 }
 
 type Lconst1 struct{ base.InstructionIndex0 }
 
-func (self *AconstNull) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushRef(nil)
+func (*AconstNull) Execute(frame *runtime.Frame) {
+	frame.PushRef(nil)
 }
 
-func (self *Dconst0) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushDouble(0.0)
+func (*Dconst0) Execute(frame *runtime.Frame) {
+	frame.PushDouble(0.0)
 }
 
-func (self *Dconst1) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushDouble(1.0)
+func (*Dconst1) Execute(frame *runtime.Frame) {
+	frame.PushDouble(1.0)
 }
 
-func (self *Fconst0) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushFloat(0.0)
+func (*Fconst0) Execute(frame *runtime.Frame) {
+	frame.PushFloat(0.0)
 }
 
-func (self *Fconst1) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushFloat(1.0)
+func (*Fconst1) Execute(frame *runtime.Frame) {
+	frame.PushFloat(1.0)
 }
 
-func (self *Fconst2) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushFloat(2.0)
+func (*Fconst2) Execute(frame *runtime.Frame) {
+	frame.PushFloat(2.0)
 }
 
-func (self *Iconst0) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(0)
+func (*Iconst0) Execute(frame *runtime.Frame) {
+	frame.PushInt(0)
 }
 
-func (self *Iconst1) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(1)
+func (*Iconst1) Execute(frame *runtime.Frame) {
+	frame.PushInt(1)
 }
 
-func (self *Iconst2) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(2)
+func (*Iconst2) Execute(frame *runtime.Frame) {
+	frame.PushInt(2)
 }
 
-func (self *Iconst3) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(3)
+func (*Iconst3) Execute(frame *runtime.Frame) {
+	frame.PushInt(3)
 }
 
-func (self *Iconst4) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(4)
+func (*Iconst4) Execute(frame *runtime.Frame) {
+	frame.PushInt(4)
 }
 
-func (self *Iconst5) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(5)
+func (*Iconst5) Execute(frame *runtime.Frame) {
+	frame.PushInt(5)
 }
 
-func (self *IconstM1) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushInt(-1)
+func (*IconstM1) Execute(frame *runtime.Frame) {
+	frame.PushInt(-1)
 }
 
-func (self *Lconst0) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushLong(0.0)
+func (*Lconst0) Execute(frame *runtime.Frame) {
+	frame.PushLong(0.0)
 }
 
-func (self *Lconst1) Execute(frame *runtime.Frame) {
-	frame.OperandStack().PushLong(1.0)
+func (*Lconst1) Execute(frame *runtime.Frame) {
+	frame.PushLong(1.0)
 }

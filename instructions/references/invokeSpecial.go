@@ -14,17 +14,17 @@ type InvokeSpecial struct {
 }
 
 func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
-	cp := frame.Method().CP()
+	cp := frame.ConstantPool
 	k := cp.GetConstantInfo(i.Index)
 	var kl *klass.Klass
 	var method *klass.MethodInfo
 
 	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {
-		kl = klass.Perm().Space[kMethodRef.ClassName()]
+		kl = klass.Perm.Get(kMethodRef.ClassName())
 		method, _, _ = kl.FindMethod(kMethodRef.NameAndDescriptor())
 	} else {
 		kMethodRef := k.(*constant_pool.ConstantInterfaceMethodInfo)
-		kl = klass.Perm().Space[kMethodRef.ClassName()]
+		kl = klass.Perm.Get(kMethodRef.ClassName())
 		method, _, _ = kl.FindMethod(kMethodRef.NameAndDescriptor())
 	}
 

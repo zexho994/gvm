@@ -13,7 +13,7 @@ type AttrConstantvalue struct {
 	nameIdx uint16
 	name    string
 	attrLen uint32
-	cp      constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	// 常量值的索引
 	ValeIdx uint16
 }

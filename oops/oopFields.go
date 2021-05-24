@@ -21,7 +21,7 @@ func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bo
 	if r {
 		return f
 	}
-	fields = InitOopFields(instance.klassInstance.SuperClass)
+	fields = InitOopFields(instance.SuperClass)
 	return FindField(name, fields, instance, true)
 }
 

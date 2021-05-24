@@ -1,6 +1,7 @@
 package runtime
 
 import (
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/utils"
 	"math"
@@ -121,31 +122,28 @@ func (stack *OperandStack) PopByParamters(params []string, localVars *LocalVars,
 	}
 	for idx := range params {
 		switch params[idx] {
-		case "B":
-			break
-		case "C":
-			break
-		case "D":
+		case config.Char:
+			panic("Does not support")
+		case config.Double:
 			localVars.SetDouble(uint(i-idx), stack.PopDouble())
 			break
-		case "F":
+		case config.Float:
 			localVars.SetFloat(uint(i-idx), stack.PopFloat())
 			break
-		case "I":
+		case config.Int:
 			localVars.SetInt(uint(i-idx), stack.PopInt())
 			break
-		case "J":
+		case config.Long:
 			stack.PopLong()
 			localVars.SetLong(uint(i-idx), stack.PopLong())
 			break
-		case "S":
-			break
-		case "Z":
+		case config.Boolean:
 			stack.PopBoolean()
 			localVars.SetBoolean(uint(i+idx), stack.PopBoolean())
 			break
 		case "L":
-		case "[":
+			panic("Does not support")
+		case config.Ref:
 			stack.PopRef()
 			break
 		}

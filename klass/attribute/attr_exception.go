@@ -24,7 +24,7 @@ type AttrExceptions struct {
 	// 每个成员都是常量池中一个有效的索引
 	// 而且类型是 Constant_Class_info，表示要抛出的类的类型
 	exTable []uint16
-	cp      constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 }
 
 func (attr *AttrExceptions) parse(reader *loader.ClassReader) {

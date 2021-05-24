@@ -10,24 +10,33 @@ import (
 )
 
 func StartVM() {
-	loader.InitClassLoader()
+	GvmEnvInit()
+
 	classFile := loader.Loading(config.ClassName)
-	reader := &loader.ClassReader{Bytecode: classFile}
-	k := klass.ParseToKlass(reader)
-
-	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
-	utils.AssertError(err, "start vm error")
-	utils.AssertTrue(mainMethod != nil, "mainMethod() missing")
-
-	native.InitNativeMethod()
-
+	k := klass.ParseToKlass(&loader.ClassReader{Bytecode: classFile})
+	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
+
 	Interpret(mainMethod, mainThread)
 }
 
 func createMainThread() *runtime.Thread {
-	return &runtime.Thread{
-		PC:    0,
+	mainThrad := &runtime.Thread{
 		Stack: runtime.NewStack(1024),
 	}
+	mainThrad.SetThreadPC(0)
+	return mainThrad
+}
+
+// GvmEnvInit Perform the initialization of gvm
+func GvmEnvInit() {
+	loader.InitClassLoader()
+	klass.InitPerm()
+	native.InitNativeMethod()
+}
+
+func mainMethod(k *klass.Klass) *klass.MethodInfo {
+	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
+	utils.AssertError(err, "find main method error")
+	return mainMethod
 }

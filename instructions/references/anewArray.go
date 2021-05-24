@@ -3,7 +3,6 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
@@ -16,21 +15,20 @@ type AnewArray struct {
 }
 
 func (i *AnewArray) Execute(frame *runtime.Frame) {
-	constantClassInfo := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantClassInfo)
+	constantClassInfo := frame.GetConstantClassInfo(i.Index)
 	cname := constantClassInfo.Name()
-	k := klass.Perm().Space[cname]
+	k := klass.Perm.Get(cname)
 	if k == nil {
 		k = klass.ParseByClassName(cname)
 	}
 	if !k.IsInit {
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	}
 
-	arrayLength := frame.OperandStack().PopInt()
+	arrayLength := frame.PopInt()
 	jarry := oops.NewRefJarray(uint32(arrayLength), k)
 	arrayInstance := oops.NewArrayOopInstance(&jarry)
-	frame.OperandStack().PushRef(arrayInstance)
-
+	frame.PushRef(arrayInstance)
 }

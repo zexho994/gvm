@@ -9,19 +9,19 @@ type DLOAD struct {
 	base.InstructionIndex16
 }
 
-type DLOAD_0 struct {
+type Dload0 struct {
 	base.InstructionIndex0
 }
 
-type DLOAD_1 struct {
+type Dload1 struct {
 	base.InstructionIndex0
 }
 
-type DLOAD_2 struct {
+type Dload2 struct {
 	base.InstructionIndex0
 }
 
-type DLOAD_3 struct {
+type Dload3 struct {
 	base.InstructionIndex0
 }
 
@@ -29,37 +29,31 @@ type DLOAD_3 struct {
 according index to load a var from frame.localVars
 */
 func _dload(frame *runtime.Frame, index uint) {
-	val := frame.LocalVars().GetDouble(index)
-	frame.OperandStack().PushDouble(val)
+	val := frame.GetDouble(index)
+	frame.PushDouble(val)
 }
 
-/*
-execute DLOAD
-the index is stored inside the instrution
-*/
+// Execute execute DLOAD
+// the index is stored inside the instrution
 func (self *DLOAD) Execute(frame *runtime.Frame) {
 	_dload(frame, uint(self.Index))
 }
 
-/*
-execute DLOAD_0
-the index is zero
-*/
-func (self *DLOAD_0) Execute(frame *runtime.Frame) {
+// Execute execute Dload0
+// the index is zero
+func (self *Dload0) Execute(frame *runtime.Frame) {
 	_dload(frame, 0)
 }
 
-/*
-see DLOAD_0's Execute
-*/
-func (self *DLOAD_1) Execute(frame *runtime.Frame) {
+// Execute see Dload0's Execute
+func (self *Dload1) Execute(frame *runtime.Frame) {
 	_dload(frame, 1)
 }
 
-func (self *DLOAD_2) Execute(frame *runtime.Frame) {
+func (self *Dload2) Execute(frame *runtime.Frame) {
 	_dload(frame, 2)
 }
 
-func (self *DLOAD_3) Execute(frame *runtime.Frame) {
+func (self *Dload3) Execute(frame *runtime.Frame) {
 	_dload(frame, 3)
 }

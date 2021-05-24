@@ -11,7 +11,7 @@ type Fields []FieldInfo
 // FieldInfo /*
 type FieldInfo struct {
 	// 常量池指针
-	ConstantPool constant_pool.ConstantPool
+	*constant_pool.ConstantPool
 	// 访问类型
 	AccessFlags uint16
 	// 字段名索引 -> 常量池
@@ -25,7 +25,7 @@ type FieldInfo struct {
 
 // 解析字段表
 // 解析可以分为两部分：1 基本结构的解析 2 属性表的解析
-func parseFields(count uint16, reader *loader.ClassReader, cp constant_pool.ConstantPool) Fields {
+func parseFields(count uint16, reader *loader.ClassReader, cp *constant_pool.ConstantPool) Fields {
 	fields := make([]FieldInfo, count)
 	for i := range fields {
 		field := FieldInfo{}

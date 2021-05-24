@@ -22,33 +22,29 @@ type FSUB struct {
 }
 
 func (sub *ISUB) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopInt()
-	v2 := stack.PopInt()
+	v1 := frame.PopInt()
+	v2 := frame.PopInt()
 	subResult := v2 - v1
-	stack.PushInt(subResult)
+	frame.PushInt(subResult)
 }
 
 func (sub *LSUB) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopLong()
-	v2 := stack.PopLong()
+	v1 := frame.PopLong()
+	v2 := frame.PopLong()
 	subResule := v2 - v1
-	stack.PushLong(subResule)
+	frame.PushLong(subResule)
 }
 
 func (sub *DSUB) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopDouble()
-	v2 := stack.PopDouble()
+	v1 := frame.PopDouble()
+	v2 := frame.PopDouble()
 	subResult := v2 - v1
-	stack.PushDouble(subResult)
+	frame.PushDouble(subResult)
 }
 
 func (sub *FSUB) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	v1 := stack.PopFloat()
-	v2 := stack.PopFloat()
+	v1 := frame.PopFloat()
+	v2 := frame.PopFloat()
 	subResult := v2 - v1
-	stack.PushFloat(subResult)
+	frame.PushFloat(subResult)
 }

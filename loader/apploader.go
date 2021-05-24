@@ -1,7 +1,6 @@
 package loader
 
 import (
-	"fmt"
 	"io/ioutil"
 	"path/filepath"
 )
@@ -21,7 +20,7 @@ func (apploader *ApplicationLoader) AddZip(s string) {
 func (apploader *ApplicationLoader) Loading(fileName string) []byte {
 	// 拼接目录和类名
 	filename := filepath.Join(apploader.path, fileName)
-	fmt.Printf("find class file %v from %v \n", fileName, apploader.path)
+	//fmt.Printf("find class file %v from %v \n", fileName, apploader.path)
 
 	// 读取目标位置下对应的class文件数据
 	data, _ := ioutil.ReadFile(filename)

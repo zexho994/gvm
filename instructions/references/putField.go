@@ -2,7 +2,6 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -14,21 +13,19 @@ type PutField struct {
 }
 
 func (i *PutField) Execute(frame *runtime.Frame) {
-	cp := frame.Method().CP()
-	stack := frame.OperandStack()
-	fieldRef := cp.GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
 
 	var slots utils.Slots
 	slots = append(slots, utils.Slot{})
 	if fieldDesc == "D" || fieldDesc == "J" {
-		slots = append(slots, stack.PopSlot())
+		slots = append(slots, frame.PopSlot())
 	}
-	slots[0] = stack.PopSlot()
+	slots[0] = frame.PopSlot()
 	slots[0].Type = utils.TypeMapping(fieldDesc)
 
-	objRef := stack.PopRef()
-	fields := oops.FindField(fieldName, objRef.Fields(), objRef, false)
+	objRef := frame.PopRef()
+	fields := oops.FindField(fieldName, objRef.OopFields, objRef, false)
 	for idx := range slots {
 		fields.Slots()[idx] = slots[idx]
 	}

@@ -18,12 +18,12 @@ type POP2 struct {
 }
 
 func (p *POP) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	stack.PopSlot()
 }
 
 func (p *POP2) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
+	stack := frame
 	stack.PopSlot()
 	stack.PopSlot()
 }

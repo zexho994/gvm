@@ -45,6 +45,6 @@ func (self *FSTORE_3) Execute(frame *runtime.Frame) {
 }
 
 func _fstore(frame *runtime.Frame, index uint) {
-	val := frame.OperandStack().PopFloat()
-	frame.LocalVars().SetFloat(index, val)
+	val := frame.PopFloat()
+	frame.SetFloat(index, val)
 }

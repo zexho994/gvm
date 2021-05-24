@@ -40,14 +40,14 @@ type JArray struct {
 	data    interface{} // array
 }
 
-func (jarray *JArray) SetIVal(idx int32, val int32) {
+func (jarray *JArray) SetArrIVal(idx int32, val int32) {
 	utils.AssertTrue(jarray.arrtype == TInt, "ArrayTypeError")
 	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(iArray)
 	ia[idx] = val
 }
 
-func (jarray *JArray) SetCVal(idx int32, val int8) {
+func (jarray *JArray) SetArrCVal(idx int32, val int8) {
 	utils.AssertTrue(jarray.arrtype == TChat, "ArrayTypeError")
 	utils.AssertTrue(idx >= 0 && idx < int32(jarray.length), "ArrayIndexOutBoundsException")
 	ia := jarray.data.(cArray)

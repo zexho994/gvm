@@ -6,34 +6,18 @@ import (
 )
 
 type OopInstance struct {
-	markWords     *MarkWords
-	fields        *OopFields
-	isArray       bool
-	isString      bool
-	jString       string
-	jArray        *JArray
-	klassInstance *klass.Klass
-}
-
-func (o *OopInstance) MarkWord() *MarkWords {
-	return o.markWords
-}
-
-func (o *OopInstance) Klass() *klass.Klass {
-	return o.klassInstance
+	*MarkWords
+	*OopFields
+	isArray  bool
+	isString bool
+	jString  string
+	*JArray
+	*klass.Klass
 }
 
 func (o *OopInstance) ArrayLength() uint32 {
 	utils.AssertTrue(o.isArray, "class is not array")
-	return o.jArray.length
-}
-
-func (o *OopInstance) ArrayData() *JArray {
-	return o.jArray
-}
-
-func (o *OopInstance) Fields() *OopFields {
-	return o.fields
+	return o.JArray.length
 }
 
 func (o *OopInstance) JString() string {
@@ -46,7 +30,7 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 	targetOop := o
 	isSuper := false
 	var f OopField
-	for f, isSuper = targetOop.fields.GetField(n, isSuper); true != isSuper; {
+	for f, isSuper = targetOop.GetField(n, isSuper); true != isSuper; {
 		// todo: find from super
 	}
 	return f, true
@@ -55,25 +39,25 @@ func (o *OopInstance) FindField(n string) (OopField, bool) {
 // NewOopInstance create non-array oops
 func NewOopInstance(k *klass.Klass) *OopInstance {
 	return &OopInstance{
-		markWords:     NewMarkWords(),
-		fields:        InitOopFields(k),
-		isArray:       false,
-		klassInstance: k,
+		MarkWords: NewMarkWords(),
+		OopFields: InitOopFields(k),
+		isArray:   false,
+		Klass:     k,
 	}
 }
 
 // NewArrayOopInstance create array oops
 func NewArrayOopInstance(arrayData *JArray) *OopInstance {
 	return &OopInstance{
-		markWords: NewMarkWords(),
+		MarkWords: NewMarkWords(),
 		isArray:   true,
-		jArray:    arrayData,
+		JArray:    arrayData,
 	}
 }
 
 func NewStringOopInstance(str string) *OopInstance {
 	return &OopInstance{
-		markWords: NewMarkWords(),
+		MarkWords: NewMarkWords(),
 		isString:  true,
 		jString:   str,
 	}

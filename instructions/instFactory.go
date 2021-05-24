@@ -10,6 +10,7 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/loads"
 	"github.com/zouzhihao-994/gvm/instructions/math"
 	"github.com/zouzhihao-994/gvm/instructions/references"
+	"github.com/zouzhihao-994/gvm/instructions/reserved"
 	"github.com/zouzhihao-994/gvm/instructions/stack"
 	"github.com/zouzhihao-994/gvm/instructions/stores"
 )
@@ -33,7 +34,7 @@ var (
 	dconst1    = &constants.Dconst1{}
 
 	ldc    = &constants.LDC{}
-	ldc2W  = &constants.LDC2_W{}
+	ldc2W  = &constants.Ldc2W{}
 	bipush = &constants.BIPUSH{}
 	sipush = &constants.SIPUSH{}
 
@@ -42,22 +43,22 @@ var (
 	fload  = &loads.FLOAD{}
 	dload  = &loads.DLOAD{}
 	aload  = &loads.ALOAD{}
-	iload0 = &loads.ILOAD_0{}
-	iload1 = &loads.ILOAD_1{}
-	iload2 = &loads.ILOAD_2{}
-	iload3 = &loads.ILOAD_3{}
-	lload0 = &loads.LLOAD_0{}
-	lload1 = &loads.LLOAD_1{}
-	lload2 = &loads.LLOAD_2{}
-	lload3 = &loads.LLOAD_3{}
-	fload0 = &loads.FLOAD_0{}
-	fload1 = &loads.FLOAD_1{}
-	fload2 = &loads.FLOAD_2{}
-	fload3 = &loads.FLOAD_3{}
-	dload0 = &loads.DLOAD_0{}
-	dload1 = &loads.DLOAD_1{}
-	dload2 = &loads.DLOAD_2{}
-	dload3 = &loads.DLOAD_3{}
+	iload0 = &loads.Iload0{}
+	iload1 = &loads.Iload1{}
+	iload2 = &loads.Iload2{}
+	iload3 = &loads.Iload3{}
+	lload0 = &loads.Lload0{}
+	lload1 = &loads.Lload1{}
+	lload2 = &loads.Lload2{}
+	lload3 = &loads.Lload3{}
+	fload0 = &loads.Fload0{}
+	fload1 = &loads.Fload1{}
+	fload2 = &loads.Fload2{}
+	fload3 = &loads.Fload3{}
+	dload0 = &loads.Dload0{}
+	dload1 = &loads.Dload1{}
+	dload2 = &loads.Dload2{}
+	dload3 = &loads.Dload3{}
 	aload0 = &loads.Aload0{}
 	aload1 = &loads.Aload1{}
 	aload2 = &loads.Aload2{}
@@ -140,14 +141,14 @@ var (
 	lcmp      = &comparisons.LCMP{}
 	fcmpg     = &comparisons.FCMPG{}
 	fcmpl     = &comparisons.FCMPL{}
-	ifIcmpge  = &comparisons.If_ICMPGE{}
-	ifIcmple  = &comparisons.If_ICMPLE{}
-	ifIcmpne  = &comparisons.If_ACMPNE{}
-	ifIcmpeq  = &comparisons.If_ACMPEQ{}
-	ifIcmplt  = &comparisons.If_ICMPLT{}
-	ifIcmpgt  = &comparisons.If_ICMPGT{}
-	ifAcmpeq  = &comparisons.If_ACMPEQ{}
-	ifAcmpne  = &comparisons.If_ACMPNE{}
+	ifIcmpge  = &comparisons.IfIcmpge{}
+	ifIcmple  = &comparisons.IfIcmple{}
+	ifIcmpne  = &comparisons.IfAcmpne{}
+	ifIcmpeq  = &comparisons.IfAcmpeq{}
+	ifIcmplt  = &comparisons.IfIcmplt{}
+	ifIcmpgt  = &comparisons.IfIcmpgt{}
+	ifAcmpeq  = &comparisons.IfAcmpeq{}
+	ifAcmpne  = &comparisons.IfAcmpne{}
 	ifNull    = &comparisons.IfNull{}
 	ifNonnull = &comparisons.IfNonnull{}
 	ifge      = &comparisons.IfGe{}
@@ -161,15 +162,16 @@ var (
 	putStatic       = &references.PutStatic{}
 	getField        = &references.GetField{}
 	putField        = &references.PutField{}
-	invokeStatic    = &references.INVOKE_STATIC{} // 184
+	invokeStatic    = &references.InvokeStatic{} // 184
 	invokeSpecial   = &references.InvokeSpecial{}
 	invokeVirtual   = &references.InvokeVirtual{}
 	invokeDynamic   = &references.InvokeDynamic{}
 	invokeInterface = &references.InvokeInterface{}
+	invokeNative    = &reserved.InvokeNative{}
 	_new            = &references.NEW{} //187
 	anewarray       = &references.AnewArray{}
-	_newArray       = &references.NEW_ARRAY{}
-	arrayLength     = &references.ARRAY_LENGTH{}
+	_newArray       = &references.NewArray{}
+	arrayLength     = &references.ArrayLength{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -576,8 +578,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return jsr_w
 	//case 0xca:
 	//	return breakpoint
-	//case 0xfe:
-	//	return impdep1
+	case 0xfe:
+		return invokeNative
 	//case 0xff:
 	//	return impdep2
 	default:

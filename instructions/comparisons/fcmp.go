@@ -15,35 +15,33 @@ type FCMPL struct {
 }
 
 func (i FCMPG) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	val2 := stack.PopFloat()
-	val1 := stack.PopFloat()
+	val2 := frame.PopFloat()
+	val1 := frame.PopFloat()
 	if math.IsNaN(float64(val1)) || math.IsNaN(float64(val2)) {
-		stack.PushInt(1)
+		frame.PushInt(1)
 		return
 	}
 	if val1 > val2 {
-		stack.PushInt(1)
+		frame.PushInt(1)
 	} else if val1 < val2 {
-		stack.PushInt(-1)
+		frame.PushInt(-1)
 	} else {
-		stack.PushInt(0)
+		frame.PushInt(0)
 	}
 }
 
 func (i FCMPL) Execute(frame *runtime.Frame) {
-	stack := frame.OperandStack()
-	val2 := stack.PopFloat()
-	val1 := stack.PopFloat()
+	val2 := frame.PopFloat()
+	val1 := frame.PopFloat()
 	if math.IsNaN(float64(val1)) || math.IsNaN(float64(val2)) {
-		stack.PushInt(-1)
+		frame.PushInt(-1)
 		return
 	}
 	if val1 > val2 {
-		stack.PushInt(1)
+		frame.PushInt(1)
 	} else if val1 < val2 {
-		stack.PushInt(-1)
+		frame.PushInt(-1)
 	} else {
-		stack.PushInt(0)
+		frame.PushInt(0)
 	}
 }

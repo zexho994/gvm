@@ -2,7 +2,6 @@ package base
 
 import (
 	"fmt"
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/native"
@@ -16,7 +15,7 @@ import (
 // 对于本地方法，
 // 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
-	invokerThread := frame.Thread()
+	invokerThread := frame.Thread
 	var newFrame *runtime.Frame
 	var attrCode *attribute.AttrCode
 
@@ -26,13 +25,13 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 		return
 	}
 
-	attrCode, _ = method.Attributes().AttrCode()
+	attrCode, _ = method.AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 	argSlotCount := int(method.ArgSlotCount())
 	var n int
 	if isStatic {
 		if argSlotCount == 0 {
-			invokerThread.Push(newFrame)
+			invokerThread.PushFrame(newFrame)
 			return
 		}
 		n = 1
@@ -40,41 +39,10 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 
 	n = argSlotCount - n
 	for i := n; i >= 0; i-- {
-		slot := frame.OperandStack().PopSlot()
-		newFrame.LocalVars().SetSlot(uint(i), slot)
+		slot := frame.PopSlot()
+		newFrame.SetSlot(uint(i), slot)
 	}
 
-	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.Method().Klass().ThisClass, method.Klass().ThisClass, method.Name(), method.Descriptor())
-	invokerThread.Push(newFrame)
-}
-
-// hard code to print for gvm
-func gvmPrint(method *klass.MethodInfo, frame *runtime.Frame) (ok bool) {
-	if method.Klass().ThisClass == "GvmOut" && method.Name() == "to" {
-		methodDesc := klass.ParseMethodDescriptor(method.Descriptor())
-		switch methodDesc.Paramters()[0] {
-		case "I":
-			fmt.Println(frame.OperandStack().PopInt())
-			break
-		case "F":
-			fmt.Println(frame.OperandStack().PopFloat())
-			break
-		case "J":
-			fmt.Println(frame.OperandStack().PopLong())
-			break
-		case "D":
-			fmt.Println(frame.OperandStack().PopDouble())
-			break
-		case "Z":
-			fmt.Println(frame.OperandStack().PopBoolean())
-			break
-		case "Ljava/lang/String;":
-			fmt.Println(frame.OperandStack().PopRef().JString())
-		case "B":
-		case "S":
-			exception.GvmError{Msg: "GvmOut Error , not support byte and short types"}.Throw()
-			return false
-		}
-	}
-	return true
+	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
+	invokerThread.PushFrame(newFrame)
 }

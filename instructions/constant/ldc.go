@@ -19,16 +19,16 @@ type LDC struct {
 // 如果指向的是类的符号引用，解析符号引用，将Class对象的ref入栈
 // 如果是方法类型或者方法句柄的符号引用，解析，然后将MethodType或者MethodHandle入栈
 func (i LDC) Execute(frame *runtime.Frame) {
-	c := frame.Method().CP().GetConstantInfo(uint16(i.Index))
+	c := frame.GetConstantInfo(uint16(i.Index))
 	switch c.(type) {
 	case *constant_pool.ConstantIntegerInfo:
 		panic("ldc integer error")
 	case *constant_pool.ConstantFloatInfo:
 		float := c.(*constant_pool.ConstantFloatInfo)
-		frame.OperandStack().PushFloat(float.Value())
+		frame.PushFloat(float.Value())
 	case *constant_pool.ConstantStringInfo:
 		str := c.(*constant_pool.ConstantStringInfo)
-		frame.OperandStack().PushRef(oops.NewStringOopInstance(str.String()))
+		frame.PushRef(oops.NewStringOopInstance(str.String()))
 	case *constant_pool.ConstantClassInfo:
 		constClass := c.(*constant_pool.ConstantClassInfo)
 		k := klass.PermSpace()[constClass.Name()]
@@ -37,10 +37,10 @@ func (i LDC) Execute(frame *runtime.Frame) {
 		}
 		if !k.IsInit {
 			frame.RevertPC()
-			base.InitClass(k, frame.Thread())
+			base.InitClass(k, frame.Thread)
 			return
 		}
-		frame.OperandStack().PushRef(oops.NewOopInstance(k))
+		frame.PushRef(oops.NewOopInstance(k))
 	case *constant_pool.ConstantMethodInfo:
 		panic("ldc method error")
 	case *constant_pool.ConstantMethodHandleInfo:

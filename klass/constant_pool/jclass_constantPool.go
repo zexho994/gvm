@@ -25,7 +25,7 @@ const (
 )
 
 // NewConstantInfo 根据tag类型创建匹配的结构
-func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
+func (pool *ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	switch tag {
 	case ConstantInterger:
 		return &ConstantIntegerInfo{Tag: tag}
@@ -38,21 +38,21 @@ func (pool ConstantPool) NewConstantInfo(tag uint8) ConstantType {
 	case ConstantUtf8:
 		return &ConstantUtf8Info{Tag: tag}
 	case ConstantString:
-		return &ConstantStringInfo{Tag: tag, Cp: pool}
+		return &ConstantStringInfo{Tag: tag, ConstantPool: pool}
 	case ConstantClass:
-		return &ConstantClassInfo{Tag: tag, Cp: pool}
+		return &ConstantClassInfo{Tag: tag, ConstantPool: pool}
 	case ConstantFieldref:
-		return &ConstantFieldInfo{Tag: tag, Cp: pool}
+		return &ConstantFieldInfo{Tag: tag, ConstantPool: pool}
 	case ConsantMethodref:
-		return &ConstantMethodInfo{Tag: tag, Cp: pool}
+		return &ConstantMethodInfo{Tag: tag, ConstantPool: pool}
 	case ConstantInterfacemethodref:
-		return &ConstantInterfaceMethodInfo{Tag: tag, Cp: pool}
+		return &ConstantInterfaceMethodInfo{Tag: tag, ConstantPool: pool}
 	case ConstantNameandtype:
-		return &ConstantNameAndTypeInfo{Tag: tag, cp: pool}
+		return &ConstantNameAndTypeInfo{Tag: tag, ConstantPool: pool}
 	case ConstantMethodtype:
-		return &ConstantMethodTypeInfo{Tag: tag, Cp: pool}
+		return &ConstantMethodTypeInfo{Tag: tag, ConstantPool: pool}
 	case ConstantMethodhandle:
-		return &ConstantMethodHandleInfo{Tag: tag, cp: pool}
+		return &ConstantMethodHandleInfo{Tag: tag, ConstantPool: pool}
 	case ConsaantInvokedynamic:
 		return &ConstantInvokeDynamic{Tag: tag}
 	default:
@@ -66,6 +66,29 @@ func (pool ConstantPool) GetConstantInfo(idx uint16) ConstantType {
 		return info
 	}
 	panic("[gvm] Invalid constant_pool index!")
+}
+
+func (pool ConstantPool) GetConstantClassInfo(idx uint16) *ConstantClassInfo {
+	return pool.GetConstantInfo(idx).(*ConstantClassInfo)
+}
+
+func (pool ConstantPool) GetConstantFieldsInfo(idx uint16) *ConstantFieldInfo {
+	return pool.GetConstantInfo(idx).(*ConstantFieldInfo)
+}
+
+func (pool ConstantPool) GetConstantDynamicInfo(idx uint16) *ConstantInvokeDynamic {
+	return pool.GetConstantInfo(idx).(*ConstantInvokeDynamic)
+}
+
+func (pool ConstantPool) GetConstantMethodHandleInfo(idx uint16) *ConstantMethodHandleInfo {
+	return pool.GetConstantInfo(idx).(*ConstantMethodHandleInfo)
+}
+
+func (pool ConstantPool) GetConstantInterfaceMethodInfo(idx uint16) *ConstantInterfaceMethodInfo {
+	return pool.GetConstantInfo(idx).(*ConstantInterfaceMethodInfo)
+}
+func (pool ConstantPool) GetConstantMethodInfo(idx uint16) *ConstantMethodInfo {
+	return pool.GetConstantInfo(idx).(*ConstantMethodInfo)
 }
 
 func (pool ConstantPool) GetUtf8(idx uint16) string {

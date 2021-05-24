@@ -1,7 +1,6 @@
 package loader
 
 import (
-	"fmt"
 	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/exception"
 	"os"
@@ -18,7 +17,6 @@ type Loader interface {
 var once sync.Once
 var BSCLoader *BootStrapLoader
 var EXCLoader *ExtensionLoader
-var GSCLoader *ApplicationLoader
 var APPLoader *ApplicationLoader
 
 // InitClassLoader 初始化类加载器
@@ -26,7 +24,6 @@ func InitClassLoader() {
 	once.Do(func() {
 		BSCLoader = newBootStrapLoader()
 		EXCLoader = newExtensionLoader()
-		GSCLoader = newApplicationLoader(config.VMNativePathDefault)
 		APPLoader = newApplicationLoader(config.ClassPath)
 	})
 }
@@ -37,7 +34,7 @@ func InitClassLoader() {
 // @param fileName 类名
 func Loading(fileName string) []byte {
 	fileName = fileName + ".class"
-	fmt.Println("loadding calss file -> " + fileName)
+	//fmt.Println("loadding calss file -> " + fileName)
 	var data []byte
 
 	// 从启动类加载器中加载
@@ -47,11 +44,6 @@ func Loading(fileName string) []byte {
 
 	// 从扩展类加载器中加载
 	if data = EXCLoader.Loading(fileName); data != nil {
-		return data
-	}
-
-	// 从Gvm系统库中加载
-	if data = GSCLoader.Loading(fileName); data != nil {
 		return data
 	}
 

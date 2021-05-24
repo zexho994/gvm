@@ -4,7 +4,6 @@ import (
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -15,26 +14,25 @@ type NEW struct {
 	base.InstructionIndex16
 }
 
-func (n *NEW) Execute(frame *runtime.Frame) {
+func (i *NEW) Execute(frame *runtime.Frame) {
 	// 获取类常量信息
-	pool := frame.Method().CP()
-	constantClass := pool.GetConstantInfo(n.Index).(*constant_pool.ConstantClassInfo)
+	constantClass := frame.GetConstantClassInfo(i.Index)
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过
-	class := klass.Perm().Space[className]
+	class := klass.Perm.Get(className)
 	if class == nil {
 		class = klass.ParseByClassName(className)
-		klass.Perm().Space[className] = class
+		klass.Perm.Save(className, class)
 	}
 	if !class.IsInit {
-		base.InitClass(class, frame.Thread())
+		base.InitClass(class, frame.Thread)
 	}
 	if utils.IsInterface(class.AccessFlags) || utils.IsAbstract(class.AccessFlags) {
 		panic(exception.GvmError{Msg: "[gvm] the interface and abstract cannot be instantiated"})
 	}
 
 	instance := oops.NewOopInstance(class)
-	frame.OperandStack().PushRef(instance)
+	frame.PushRef(instance)
 
 }

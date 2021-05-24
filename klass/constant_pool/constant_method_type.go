@@ -5,7 +5,7 @@ import "github.com/zouzhihao-994/gvm/loader"
 type ConstantMethodTypeInfo struct {
 	Tag           uint8
 	DescriptorIdx uint16
-	Cp            ConstantPool
+	*ConstantPool
 }
 
 func (method *ConstantMethodTypeInfo) ReadInfo(reader *loader.ClassReader) {

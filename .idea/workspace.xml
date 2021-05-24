@@ -29,20 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new native method -&gt; initialize()">
-      <change afterPath="$PROJECT_DIR$/instructions/references/invokeInterface.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="simply">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/anewArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/anewArray.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeVirtual.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/operandStack.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/operandStack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,17 +176,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -230,6 +209,18 @@
       <pattern value="^\QTest_startJVM\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_startJVM\E$/^\Qtest1\E$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -244,11 +235,13 @@
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
@@ -285,287 +278,11 @@
       <workItem from="1621301336796" duration="15791000" />
       <workItem from="1621412578264" duration="1238000" />
       <workItem from="1621484004487" duration="3393000" />
-      <workItem from="1621500952491" duration="27978000" />
-    </task>
-    <task id="LOCAL-00035" summary="update class_loader">
-      <created>1600589543214</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1600589543214</updated>
-    </task>
-    <task id="LOCAL-00036" summary="update the ldc instruction">
-      <created>1600589969336</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1600589969336</updated>
-    </task>
-    <task id="LOCAL-00037" summary="instruct-factory add some new instructions">
-      <created>1600591692754</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591692754</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Changed maxLocvars and maxStack type">
-      <created>1600591773349</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591773349</updated>
-    </task>
-    <task id="LOCAL-00039" summary="remove file">
-      <created>1600591793903</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591793903</updated>
-    </task>
-    <task id="LOCAL-00040" summary="add some files">
-      <created>1600591826279</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1600591826279</updated>
-    </task>
-    <task id="LOCAL-00041" summary="factory 添加新指令">
-      <created>1600592733147</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1600592733147</updated>
-    </task>
-    <task id="LOCAL-00042" summary="新增字符串操作">
-      <created>1600592764110</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1600592764110</updated>
-    </task>
-    <task id="LOCAL-00043" summary="支持调用部分本地方法">
-      <created>1600592777989</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1600592777989</updated>
-    </task>
-    <task id="LOCAL-00044" summary="update some annotations">
-      <created>1621254059714</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1621254059714</updated>
-    </task>
-    <task id="LOCAL-00045" summary="move GvmOut">
-      <created>1621254253416</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1621254253416</updated>
-    </task>
-    <task id="LOCAL-00046" summary="update cmd module">
-      <created>1621303092124</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1621303092124</updated>
-    </task>
-    <task id="LOCAL-00047" summary="add gvm system package to storage files that native and add new class loader GSCLoader">
-      <created>1621306030132</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1621306030132</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Simplifying the gvm.out method">
-      <created>1621307616340</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1621307616340</updated>
-    </task>
-    <task id="LOCAL-00049" summary="refactor">
-      <created>1621312816023</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1621312816023</updated>
-    </task>
-    <task id="LOCAL-00050" summary="rename Perm -&gt; perm">
-      <created>1621312968811</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1621312968812</updated>
-    </task>
-    <task id="LOCAL-00051" summary="native -&gt; system">
-      <created>1621315741332</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1621315741332</updated>
-    </task>
-    <task id="LOCAL-00052" summary="rename classfile -&gt; classload &amp; remove heap">
-      <created>1621317716166</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1621317716166</updated>
-    </task>
-    <task id="LOCAL-00053" summary="add test case for cmd/gvm">
-      <created>1621318189045</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1621318189045</updated>
-    </task>
-    <task id="LOCAL-00054" summary="refactor StartGvmByCmd -&gt; GetParameters">
-      <created>1621319138122</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1621319138122</updated>
-    </task>
-    <task id="LOCAL-00055" summary="refactor StartGvmByCmd -&gt; GetParameters">
-      <created>1621319604852</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1621319604852</updated>
-    </task>
-    <task id="LOCAL-00056" summary="refactor config">
-      <created>1621324002698</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1621324002698</updated>
-    </task>
-    <task id="LOCAL-00057" summary="refactor config">
-      <created>1621325170016</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1621325170016</updated>
-    </task>
-    <task id="LOCAL-00058" summary="new module launcher &amp; move startVM to launcher">
-      <created>1621325826062</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1621325826062</updated>
-    </task>
-    <task id="LOCAL-00059" summary="func createMainThread()">
-      <created>1621326203630</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1621326203630</updated>
-    </task>
-    <task id="LOCAL-00060" summary="func assertError()">
-      <created>1621327841099</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1621327841099</updated>
-    </task>
-    <task id="LOCAL-00061" summary="move interpreter to launcher">
-      <created>1621328247176</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1621328247176</updated>
-    </task>
-    <task id="LOCAL-00062" summary="refactor: remove classloader">
-      <created>1621329239863</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1621329239863</updated>
-    </task>
-    <task id="LOCAL-00063" summary="refactor: rename">
-      <created>1621329596643</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1621329596643</updated>
-    </task>
-    <task id="LOCAL-00064" summary="refactor: remove jclass and integrate into klass">
-      <created>1621335998410</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1621335998410</updated>
-    </task>
-    <task id="LOCAL-00065" summary="refactor">
-      <created>1621337317929</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1621337317929</updated>
-    </task>
-    <task id="LOCAL-00066" summary="refactor">
-      <created>1621337895859</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1621337895859</updated>
-    </task>
-    <task id="LOCAL-00067" summary="refactor for oops">
-      <created>1621338122681</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1621338122681</updated>
-    </task>
-    <task id="LOCAL-00068" summary="refactor for runtime">
-      <created>1621338283104</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1621338283104</updated>
-    </task>
-    <task id="LOCAL-00069" summary="new inst 0xc6 &amp; oxc7">
-      <created>1621340274267</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1621340274267</updated>
-    </task>
-    <task id="LOCAL-00070" summary="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit">
-      <created>1621340611496</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1621340611496</updated>
-    </task>
-    <task id="LOCAL-00071" summary="rename">
-      <created>1621408034320</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1621408034320</updated>
-    </task>
-    <task id="LOCAL-00072" summary="rename for attr">
-      <created>1621411054463</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1621411054463</updated>
-    </task>
-    <task id="LOCAL-00073" summary="rename fo instFactor">
-      <created>1621411705996</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1621411705996</updated>
-    </task>
-    <task id="LOCAL-00074" summary="rename fo invokeVirtual">
-      <created>1621413271538</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1621413271538</updated>
+      <workItem from="1621500952491" duration="28315000" />
+      <workItem from="1621589960855" duration="18000" />
+      <workItem from="1621830686880" duration="6068000" />
+      <workItem from="1621836798563" duration="1416000" />
+      <workItem from="1621844374586" duration="11626000" />
     </task>
     <task id="LOCAL-00075" summary="refactoring for POP">
       <created>1621414456441</created>
@@ -630,7 +347,287 @@
       <option name="project" value="LOCAL" />
       <updated>1621487692820</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="refactor">
+      <created>1621587359883</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1621587359883</updated>
+    </task>
+    <task id="LOCAL-00085" summary="refactor: add checkDefault()">
+      <created>1621830981753</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1621830981754</updated>
+    </task>
+    <task id="LOCAL-00086" summary="refactor: add printArguments()">
+      <created>1621831073861</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831073861</updated>
+    </task>
+    <task id="LOCAL-00087" summary="refactor: add updateConfig()">
+      <created>1621831132659</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831132659</updated>
+    </task>
+    <task id="LOCAL-00088" summary="refactor: add isHelpOrVersion()">
+      <created>1621831310006</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831310006</updated>
+    </task>
+    <task id="LOCAL-00089" summary="refactoring MethodInfo">
+      <created>1621831987468</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1621831987468</updated>
+    </task>
+    <task id="LOCAL-00090" summary="refactor: add Thread.IsFinished() method">
+      <created>1621832446361</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1621832446361</updated>
+    </task>
+    <task id="LOCAL-00091" summary="refactoring MethodInfo fields klass -&gt; *Klass">
+      <created>1621832789049</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1621832789049</updated>
+    </task>
+    <task id="LOCAL-00092" summary="refactoring MethodInfo fields cp -&gt; *ConstantPool">
+      <created>1621834178069</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834178069</updated>
+    </task>
+    <task id="LOCAL-00093" summary="refactoring MethodInfo fields Fields">
+      <created>1621834268540</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834268540</updated>
+    </task>
+    <task id="LOCAL-00094" summary="refactoring MethodInfo fields Methods">
+      <created>1621834320787</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834320787</updated>
+    </task>
+    <task id="LOCAL-00095" summary="refactoring MethodInfo field AttributesInfo">
+      <created>1621834376605</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834376605</updated>
+    </task>
+    <task id="LOCAL-00096" summary="refactoring MethodInfo field StaticFieldVars">
+      <created>1621834515382</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834515382</updated>
+    </task>
+    <task id="LOCAL-00097" summary="refactor: rename StaticFieldVars -&gt; StaticFields">
+      <created>1621834575688</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834575688</updated>
+    </task>
+    <task id="LOCAL-00098" summary="new func -&gt; Perm.Save()">
+      <created>1621834914081</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1621834914081</updated>
+    </task>
+    <task id="LOCAL-00099" summary="refactoring Perm">
+      <created>1621835373740</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1621835373740</updated>
+    </task>
+    <task id="LOCAL-00100" summary="rename Clinit() -&gt; GetClinitMethod">
+      <created>1621835484719</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1621835484719</updated>
+    </task>
+    <task id="LOCAL-00101" summary="refactor all structs under package constant_pool that turn the cp field into pointers">
+      <created>1621835920482</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1621835920482</updated>
+    </task>
+    <task id="LOCAL-00102" summary="trun Frame localvars fiels into LocalVars pointer">
+      <created>1621836199860</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1621836199860</updated>
+    </task>
+    <task id="LOCAL-00103" summary="trun Frame operandstack fiels into OperandStack pointer">
+      <created>1621836752177</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1621836752177</updated>
+    </task>
+    <task id="LOCAL-00104" summary="trun Frame operandstack fiels into OperandStack pointer">
+      <created>1621836762952</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1621836762953</updated>
+    </task>
+    <task id="LOCAL-00105" summary="refactor config">
+      <created>1621838187740</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1621838187740</updated>
+    </task>
+    <task id="LOCAL-00106" summary="refactor fcmp.go">
+      <created>1621844642272</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844642272</updated>
+    </task>
+    <task id="LOCAL-00107" summary="refactor if_icmp.go">
+      <created>1621844706377</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844706377</updated>
+    </task>
+    <task id="LOCAL-00108" summary="refactor lcmp.go">
+      <created>1621844761706</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844761706</updated>
+    </task>
+    <task id="LOCAL-00109" summary="refactor const.go">
+      <created>1621844812907</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1621844812907</updated>
+    </task>
+    <task id="LOCAL-00110" summary="refactor thread.go">
+      <created>1621845444747</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845444747</updated>
+    </task>
+    <task id="LOCAL-00111" summary="refactor all under package of load">
+      <created>1621845667141</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845667142</updated>
+    </task>
+    <task id="LOCAL-00112" summary="refactor all structs under package frame that turn the methodInfo field into pointers">
+      <created>1621845942373</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1621845942373</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Update perm  -&gt; Perm &amp; add func InitPerm()">
+      <created>1621846342059</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1621846342059</updated>
+    </task>
+    <task id="LOCAL-00114" summary="add GvmEnvInit()">
+      <created>1621846708339</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1621846708340</updated>
+    </task>
+    <task id="LOCAL-00115" summary="refactor StartVM()">
+      <created>1621847087003</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1621847087003</updated>
+    </task>
+    <task id="LOCAL-00116" summary="refactor loop()">
+      <created>1621847879921</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1621847879921</updated>
+    </task>
+    <task id="LOCAL-00117" summary="OopInstance files -&gt; *OopFields">
+      <created>1621848170151</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848170151</updated>
+    </task>
+    <task id="LOCAL-00118" summary="OopInstance jArray -&gt; *JArray">
+      <created>1621848282777</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848282777</updated>
+    </task>
+    <task id="LOCAL-00119" summary="OopInstance klassInstance -&gt; *Klass">
+      <created>1621848364002</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848364002</updated>
+    </task>
+    <task id="LOCAL-00120" summary="OopInstance markWords -&gt; *MarkWords">
+      <created>1621848410988</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1621848410988</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Add some func to get constant info">
+      <created>1621849485724</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1621849485724</updated>
+    </task>
+    <task id="LOCAL-00122" summary="new inst 0xfe-invokeNative">
+      <created>1621854023266</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1621854023266</updated>
+    </task>
+    <task id="LOCAL-00123" summary="simply">
+      <created>1621857275705</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1621857275705</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +654,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/feat" />
+                        <option value="feat" />
                       </list>
                     </value>
                   </entry>
@@ -705,85 +702,43 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new module launcher &amp; move startVM to launcher" />
-    <MESSAGE value="func createMainThread()" />
-    <MESSAGE value="func assertError()" />
-    <MESSAGE value="move interpreter to launcher" />
-    <MESSAGE value="refactor: remove classloader" />
-    <MESSAGE value="refactor: rename" />
-    <MESSAGE value="refactor: remove jclass and integrate into klass" />
-    <MESSAGE value="refactor" />
-    <MESSAGE value="refactor for oops" />
-    <MESSAGE value="refactor for runtime" />
-    <MESSAGE value="new inst 0xc6 &amp; oxc7" />
-    <MESSAGE value="new inst 0xc2 monitorenter &amp; 0xc3 monitorexit" />
-    <MESSAGE value="rename" />
-    <MESSAGE value="rename for attr" />
-    <MESSAGE value="rename fo instFactor" />
-    <MESSAGE value="rename fo invokeVirtual" />
-    <MESSAGE value="refactoring for POP" />
-    <MESSAGE value="refactoring for DUP" />
-    <MESSAGE value="move invokeNative to package reserve" />
-    <MESSAGE value="add a *p for methodInfo -&gt; klass" />
-    <MESSAGE value="add native method initializeSystemClass()" />
-    <MESSAGE value="new inst -&gt; 0x86 i2f" />
-    <MESSAGE value="new inst -&gt; 0x8b f2i" />
-    <MESSAGE value="new native method -&gt; initProperties()" />
-    <MESSAGE value="new native method -&gt; initialize()" />
-    <option name="LAST_COMMIT_MESSAGE" value="new native method -&gt; initialize()" />
+    <MESSAGE value="new func -&gt; Perm.Save()" />
+    <MESSAGE value="refactoring Perm" />
+    <MESSAGE value="rename Clinit() -&gt; GetClinitMethod" />
+    <MESSAGE value="refactor all structs under package constant_pool that turn the cp field into pointers" />
+    <MESSAGE value="trun Frame localvars fiels into LocalVars pointer" />
+    <MESSAGE value="trun Frame operandstack fiels into OperandStack pointer" />
+    <MESSAGE value="refactor config" />
+    <MESSAGE value="refactor fcmp.go" />
+    <MESSAGE value="refactor if_icmp.go" />
+    <MESSAGE value="refactor lcmp.go" />
+    <MESSAGE value="refactor const.go" />
+    <MESSAGE value="refactor thread.go" />
+    <MESSAGE value="refactor all under package of load" />
+    <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
+    <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
+    <MESSAGE value="add GvmEnvInit()" />
+    <MESSAGE value="refactor StartVM()" />
+    <MESSAGE value="refactor loop()" />
+    <MESSAGE value="OopInstance files -&gt; *OopFields" />
+    <MESSAGE value="OopInstance jArray -&gt; *JArray" />
+    <MESSAGE value="OopInstance klassInstance -&gt; *Klass" />
+    <MESSAGE value="OopInstance markWords -&gt; *MarkWords" />
+    <MESSAGE value="Add some func to get constant info" />
+    <MESSAGE value="new inst 0xfe-invokeNative" />
+    <MESSAGE value="simply" />
+    <option name="LAST_COMMIT_MESSAGE" value="simply" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
-          <line>57</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/klass/constant_pool/constant_method_handle.go</url>
-          <line>58</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/control/return.go</url>
-          <line>52</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/constant/ldc.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
-          <line>29</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
-          <line>34</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
-          <line>37</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <configuration name="GoApplicationRunConfiguration">
-        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/utils.Slot&quot;)(824634161152)" />
-        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/utils.Slot&quot;)(824634144864)" />
-        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/oops.JArray&quot;)(0)" />
-      </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />
       </configuration>

@@ -8,8 +8,8 @@ import (
 // 对于数组类，名称会以n个ASCII字符'['开头，随后是数组元素类型的表示
 // 如果数组的元素类型是Java原生类型之一，那就以相应的字段描述符来表示
 type ConstantClassInfo struct {
-	Tag     uint8
-	Cp      ConstantPool
+	Tag uint8
+	*ConstantPool
 	NameIdx uint16
 }
 
@@ -17,5 +17,5 @@ func (c *ConstantClassInfo) ReadInfo(reader *loader.ClassReader) {
 	c.NameIdx = reader.ReadUint16()
 }
 func (c *ConstantClassInfo) Name() string {
-	return c.Cp.GetUtf8(c.NameIdx)
+	return c.GetUtf8(c.NameIdx)
 }

@@ -12,6 +12,6 @@ type IINC struct {
 func (i *IINC) Execute(frame *runtime.Frame) {
 	idx := i.Index >> 8
 	toAdd := i.Index & 0x0011
-	old := frame.LocalVars().GetInt(uint(idx))
-	frame.LocalVars().SetInt(uint(idx), int32(toAdd)+old)
+	old := frame.GetInt(uint(idx))
+	frame.SetInt(uint(idx), int32(toAdd)+old)
 }

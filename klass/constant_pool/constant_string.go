@@ -6,8 +6,8 @@ import (
 
 // ConstantStringInfo Tag = ConstantString (8)
 type ConstantStringInfo struct {
-	Tag    uint8
-	Cp     ConstantPool
+	Tag uint8
+	*ConstantPool
 	strIdx uint16
 }
 
@@ -18,5 +18,5 @@ func (constantStringInfo *ConstantStringInfo) ReadInfo(reader *loader.ClassReade
 
 // 输出常量池中字符串的值
 func (constantStringInfo *ConstantStringInfo) String() string {
-	return constantStringInfo.Cp.GetUtf8(constantStringInfo.strIdx)
+	return constantStringInfo.GetUtf8(constantStringInfo.strIdx)
 }

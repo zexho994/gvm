@@ -14,58 +14,53 @@ type MethodInfo struct {
 	nameIdx       uint16
 	descriptorIdx uint16
 	attrCount     uint16
-	attribute     attribute.AttributesInfo
-	cp            constant_pool.ConstantPool
-	argSlotCount  uint
-	klass         *Klass
+	attribute.AttributesInfo
+	*constant_pool.ConstantPool
+	argSlotCount uint
+	*Klass
 }
 
-// InjectCodeAttr injected a code attribute for method
-func (m *MethodInfo) InjectCodeAttr() {
+// InjectCodeAttrIfNative injected a code attribute for method
+func (m *MethodInfo) InjectCodeAttrIfNative() {
 	if !utils.IsNative(m.accessFlag) {
-		panic("[gvm] Inject CodeAttr error , not is native")
+		return
 	}
+
 	tmpMaxStack := uint16(4)
 	tmpMaxLocal := uint16(4)
 	attributes := make(attribute.AttributesInfo, 1)
-	methodDescriptor := ParseMethodDescriptor(m.Descriptor())
+	methodDescriptor := ParseMethodDescriptor(m.MethodDescriptor())
 	var codeAttr *attribute.AttrCode
+
 	switch methodDescriptor.returnTypt {
 	case "V":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.cp) // return
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb1}, m.ConstantPool) // return
 	case "D":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xaf}, m.cp) // dreturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xaf}, m.ConstantPool) // dreturn
 	case "F":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xae}, m.cp) // freturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xae}, m.ConstantPool) // freturn
 	case "J":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xad}, m.cp) // lreturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xad}, m.ConstantPool) // lreturn
 	case "L", "[":
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.cp) // areturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.ConstantPool) // areturn
 	default:
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.cp) // ireturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.ConstantPool) // ireturn
 	}
+
 	attributes[0] = codeAttr
-	m.attribute = attributes
+	m.AttributesInfo = attributes
 }
 
-func (m MethodInfo) Klass() *Klass {
-	return m.klass
-}
-
-func (m *MethodInfo) SetKlass(jci *Klass) {
-	m.klass = jci
-}
-
-func (m MethodInfo) Descriptor() string {
-	return m.cp.GetUtf8(m.descriptorIdx)
+func (m MethodInfo) MethodDescriptor() string {
+	return m.GetUtf8(m.descriptorIdx)
 }
 
 func (m MethodInfo) DescriptorIdx() uint16 {
 	return m.descriptorIdx
 }
 
-func (m MethodInfo) Name() string {
-	return m.cp.GetUtf8(m.nameIdx)
+func (m MethodInfo) MethodName() string {
+	return m.GetUtf8(m.nameIdx)
 }
 
 func (m MethodInfo) NameIdx() uint16 {
@@ -80,10 +75,10 @@ func (m MethodInfo) ArgSlotCount() uint {
 	return m.argSlotCount
 }
 
-func (ms Methods) Clinit() (*MethodInfo, bool) {
+func (ms Methods) GetClinitMethod() (*MethodInfo, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
-		nameStr := ms[idx].cp.GetUtf8(i)
+		nameStr := ms[idx].GetUtf8(i)
 		if nameStr == "<clinit>" {
 			return ms[idx], true
 		}
@@ -93,8 +88,8 @@ func (ms Methods) Clinit() (*MethodInfo, bool) {
 
 func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 	for idx := range ms {
-		nameStr := ms[idx].cp.GetUtf8(ms[idx].nameIdx)
-		descStr := ms[idx].cp.GetUtf8(ms[idx].descriptorIdx)
+		nameStr := ms[idx].GetUtf8(ms[idx].nameIdx)
+		descStr := ms[idx].GetUtf8(ms[idx].descriptorIdx)
 		if nameStr == name && descStr == desc {
 			return ms[idx], true
 		}
@@ -102,37 +97,31 @@ func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 	return nil, false
 }
 
-func (m *MethodInfo) CP() constant_pool.ConstantPool {
-	return m.cp
-}
-
-func (m MethodInfo) Attributes() attribute.AttributesInfo {
-	return m.attribute
-}
-
 // 解析方法表
-func parseMethod(count uint16, reader *loader.ClassReader, pool constant_pool.ConstantPool, k *Klass) Methods {
+func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.ConstantPool, k *Klass) Methods {
 	methods := make([]*MethodInfo, count)
 	for i := range methods {
 		method := &MethodInfo{}
-		method.cp = pool
+		method.ConstantPool = pool
 		method.accessFlag = reader.ReadUint16()
 		method.nameIdx = reader.ReadUint16()
 		method.descriptorIdx = reader.ReadUint16()
 		method.attrCount = reader.ReadUint16()
 		// 解析方法表中的属性表字段
-		method.attribute = attribute.ParseAttributes(method.attrCount, reader, pool)
+		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
-		method.argSlotCount = ParseMethodDescriptor(method.Descriptor()).ParamsCount()
-		method.klass = k
+		method.argSlotCount = ParseMethodDescriptor(method.MethodDescriptor()).ParamsCount()
+		method.Klass = k
+		// 本地方法注入字节码
+		method.InjectCodeAttrIfNative()
 	}
 	return methods
 }
 
 func (m *MethodInfo) IsRegisterNatives() bool {
-	return utils.IsStatic(m.accessFlag) && m.Name() == "registerNatives" && m.Descriptor() == "()V"
+	return utils.IsStatic(m.accessFlag) && m.MethodName() == "registerNatives" && m.MethodDescriptor() == "()V"
 }
 
 func (m *MethodInfo) IsInitIDs() bool {
-	return utils.IsStatic(m.accessFlag) && m.Name() == "initIDs" && m.Descriptor() == "()V"
+	return utils.IsStatic(m.accessFlag) && m.MethodName() == "initIDs" && m.MethodDescriptor() == "()V"
 }

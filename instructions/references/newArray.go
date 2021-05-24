@@ -8,17 +8,16 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-type NEW_ARRAY struct {
+type NewArray struct {
 	count    uint
 	arrayref *klass.Klass
 	base.InstructionIndex8
 }
 
-func (i *NEW_ARRAY) Execute(frame *runtime.Frame) {
-	arrayCount := frame.OperandStack().PopInt()
+func (i *NewArray) Execute(frame *runtime.Frame) {
+	arrayCount := frame.PopInt()
 	utils.AssertFalse(arrayCount < 0, "NegativeArraySizeException")
 	arrayData := oops.NewJarray(uint32(arrayCount), i.Index)
 	arrayOop := oops.NewArrayOopInstance(arrayData)
-	//heap.GetHeap().Add(arrayOop)
-	frame.OperandStack().PushRef(arrayOop)
+	frame.PushRef(arrayOop)
 }

@@ -29,8 +29,8 @@ type LSTORE_3 struct {
 }
 
 func _lstore(frame *runtime.Frame, index uint) {
-	val := frame.OperandStack().PopLong()
-	frame.LocalVars().SetLong(index, val)
+	val := frame.PopLong()
+	frame.SetLong(index, val)
 }
 
 func (self *LSTORE) Execute(frame *runtime.Frame) {

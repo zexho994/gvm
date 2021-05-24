@@ -32,7 +32,7 @@ type ConstantMethodHandleInfo struct {
 	// - 如果为5，6，7，9，那么必须为 ConstantMethodInfo 或者 ConstantInterfaceMethodInfo,名称不能为<init>,<clinit>
 	// - 如果为8，那么必须为 ConstantMethodInfo 结构表示的方法 ，名称必须是<init>
 	ReferenceIndex uint16
-	cp             ConstantPool
+	*ConstantPool
 }
 
 func (handle *ConstantMethodHandleInfo) ReadInfo(reader *loader.ClassReader) {
@@ -40,20 +40,20 @@ func (handle *ConstantMethodHandleInfo) ReadInfo(reader *loader.ClassReader) {
 	handle.ReferenceIndex = reader.ReadUint16()
 }
 
-// 解析出 ReferenceKind 对应的字节码行为.
+// ParseKindRef 解析出 ReferenceKind 对应的字节码行为.
 // x，T分别表示字段或方法的名称和描述符，C表示字段或方法所属的类或者接口
-// * ref_getField -> getfield C.f:T
-// * ref_getStatic -> getstatic C.f:T
-// * ref_putField -> putfield C.f:T
-// * ref_putStatic -> putstatic C.f:T
-// * ref_invokeVirtual -> invokevirtual C.m:(A*)T
-// * ref_invokeStatic -> invokestatic C.m:(A*)T
-// * ref_invokeSPecial -> invokespeical C.m:(A*)T
-// * ref_newInvokeSpecial -> new C;dup;invokespecial C.<init>:(A*)void
-// * ref_invokeInterface -> invokeinterface C.m:(A*)T
+//  ref_getField -> getfield C.f:T
+//  ref_getStatic -> getstatic C.f:T
+//  ref_putField -> putfield C.f:T
+//  ref_putStatic -> putstatic C.f:T
+//  ref_invokeVirtual -> invokevirtual C.m:(A*)T
+//  ref_invokeStatic -> invokestatic C.m:(A*)T
+//  ref_invokeSPecial -> invokespeical C.m:(A*)T
+//  ref_newInvokeSpecial -> new C;dup;invokespecial C.<init>:(A*)void
+//  ref_invokeInterface -> invokeinterface C.m:(A*)T
 func (handle ConstantMethodHandleInfo) ParseKindRef() {
 	// 1. 解析R，R为handle中字段或者方法的符号引用
-	ref := handle.cp.GetConstantInfo(handle.ReferenceIndex)
+	ref := handle.GetConstantInfo(handle.ReferenceIndex)
 	if handle.ReferenceKind == 6 {
 		methodRef := ref.(*ConstantMethodInfo)
 		if name, _ := methodRef.NameAndDescriptor(); name == "init" || name == "clinit" {

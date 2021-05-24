@@ -3,7 +3,6 @@ package references
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -14,30 +13,30 @@ type GetStatic struct {
 }
 
 func (i *GetStatic) Execute(frame *runtime.Frame) {
-	fieldRef := frame.Method().CP().GetConstantInfo(i.Index).(*constant_pool.ConstantFieldInfo)
+	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	k := klass.Perm().Space[className]
+	k := klass.Perm.Get(className)
 
 	// 判断是否需要进行加载
 	if k == nil {
 		k = klass.ParseByClassName(className)
-		klass.Perm().Space[className] = k
+		klass.Perm.Save(className, k)
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	} else if !k.IsInit { //判断是否需要进行初始化
 		frame.RevertPC()
-		base.InitClass(k, frame.Thread())
+		base.InitClass(k, frame.Thread)
 		return
 	}
 
-	field := k.StaticVars.GetField(fieldName)
+	field := k.StaticFields.GetField(fieldName)
 	_, _, slots := field.Fields()
 	if fieldDesc == "D" || fieldDesc == "J" {
-		frame.OperandStack().PushSlot(slots[0])
+		frame.PushSlot(slots[0])
 		slots = slots[1:]
 	}
-	frame.OperandStack().PushSlot(slots[0])
+	frame.PushSlot(slots[0])
 }
