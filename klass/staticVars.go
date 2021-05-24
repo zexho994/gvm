@@ -5,7 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-type StaticFieldVars struct {
+type StaticFields struct {
 	fields []fields
 }
 
@@ -19,7 +19,7 @@ func (f fields) Fields() (string, uint8, []utils.Slot) {
 	return f.fieldName, f.fieldType, f.field
 }
 
-func (sfv *StaticFieldVars) SetField(name string, s []utils.Slot) {
+func (sfv *StaticFields) SetField(name string, s []utils.Slot) {
 	for idx := range sfv.fields {
 		if sfv.fields[idx].fieldName == name {
 			sfv.fields[idx].field = s
@@ -29,12 +29,12 @@ func (sfv *StaticFieldVars) SetField(name string, s []utils.Slot) {
 	exception.GvmError{Msg: "not found static field"}.Throw()
 }
 
-func (sfv *StaticFieldVars) AddField(name string, s utils.Slot) {
+func (sfv *StaticFields) AddField(name string, s utils.Slot) {
 	newField := fields{field: []utils.Slot{}, fieldName: name, fieldType: s.Type}
 	sfv.fields = append(sfv.fields, newField)
 }
 
-func (sfv *StaticFieldVars) GetField(name string) *fields {
+func (sfv *StaticFields) GetField(name string) *fields {
 	for idx := range sfv.fields {
 		if sfv.fields[idx].fieldName == name {
 			return &sfv.fields[idx]
@@ -44,9 +44,9 @@ func (sfv *StaticFieldVars) GetField(name string) *fields {
 	return nil
 }
 
-func NewStaticFieldVars() *StaticFieldVars {
+func NewStaticFieldVars() *StaticFields {
 	var fields []fields
-	return &StaticFieldVars{
+	return &StaticFields{
 		fields: fields,
 	}
 }
