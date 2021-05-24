@@ -37,7 +37,7 @@ type Klass struct {
 	Fields
 	// 方法表
 	MethodsCount uint16
-	Methods      Methods
+	Methods
 	// 属性表
 	AttributesCount uint16
 	Attributes      attribute.AttributesInfo
