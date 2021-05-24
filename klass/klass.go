@@ -109,7 +109,7 @@ func paresMajorVersion(reader *loader.ClassReader) uint16 {
 }
 
 func ParseByClassName(className string) *Klass {
-	if k := Perm().Space[className]; k != nil {
+	if k := Perm().Get(className); k != nil {
 		return k
 	}
 
@@ -132,7 +132,7 @@ func (k *Klass) parseSuper() *Klass {
 	superName := k.ConstantPool.GetClassName(k.SuperClassIdx)
 	// 方法区存在该类结构
 	perm := Perm()
-	if supre := perm.Space[superName]; supre != nil {
+	if supre := perm.Get(superName); supre != nil {
 		return supre
 	}
 	return ParseByClassName(superName)
@@ -150,7 +150,7 @@ func (k *Klass) parseInterfaces() []*Klass {
 		iName := k.ConstantPool.GetClassName(iIdx)
 		iInstance := &Klass{}
 		// 如果方法区中已经有直接引用
-		if iInstance = Perm().Space[iName]; iInstance != nil {
+		if iInstance = Perm().Get(iName); iInstance != nil {
 			interfaces[i] = iInstance
 			continue
 		}

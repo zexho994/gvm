@@ -18,7 +18,7 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 
 	className := fieldRef.ClassName()
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
-	k := klass.Perm().Space[className]
+	k := klass.Perm().Get(className)
 
 	// 判断是否需要进行加载
 	if k == nil {

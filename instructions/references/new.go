@@ -21,7 +21,7 @@ func (n *NEW) Execute(frame *runtime.Frame) {
 	className := constantClass.Name()
 
 	// 判断类是否已经加载过
-	class := klass.Perm().Space[className]
+	class := klass.Perm().Get(className)
 	if class == nil {
 		class = klass.ParseByClassName(className)
 		klass.Perm().Save(className, class)
