@@ -8,6 +8,15 @@ const VMNativePathDefault = "/Users/zexho/Github/gvm/java/native"
 const GvmVersion = "v2.0.1"
 
 const (
+	JObjectClassName         = "java/lang/Object"
+	JClassClassName          = "java/lang/Class"
+	JStringClassName         = "java/lang/String"
+	JThreadClassName         = "java/lang/Thread"
+	JCloneableClassName      = "java/lang/Cloneable"
+	JIoSerializableClassName = "java/io/Serializable"
+)
+
+const (
 	Byte    = "B"
 	Char    = "S"
 	Boolean = "Z"
