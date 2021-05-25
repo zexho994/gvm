@@ -29,7 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add initBootStrapClass()">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add initPrimitiveClasses()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/primitveType.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/primitveKlass.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -280,14 +284,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="16329000" />
-    </task>
-    <task id="LOCAL-00078" summary="add a *p for methodInfo -&gt; klass">
-      <created>1621415727362</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1621415727362</updated>
+      <workItem from="1621844374586" duration="18083000" />
     </task>
     <task id="LOCAL-00079" summary="add native method initializeSystemClass()">
       <created>1621426902386</created>
@@ -625,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621916816652</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="add initPrimitiveClasses()">
+      <created>1621918356788</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1621918356788</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +704,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor all structs under package constant_pool that turn the cp field into pointers" />
     <MESSAGE value="trun Frame localvars fiels into LocalVars pointer" />
     <MESSAGE value="trun Frame operandstack fiels into OperandStack pointer" />
     <MESSAGE value="refactor config" />
@@ -725,13 +728,21 @@
     <MESSAGE value="stash" />
     <MESSAGE value="default config add bootstrap class" />
     <MESSAGE value="add initBootStrapClass()" />
-    <option name="LAST_COMMIT_MESSAGE" value="add initBootStrapClass()" />
+    <MESSAGE value="add initPrimitiveClasses()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initPrimitiveClasses()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/launcher/core.go</url>
+          <line>21</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

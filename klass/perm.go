@@ -32,3 +32,7 @@ func (p *perm) Save(name string, klass *Klass) {
 func (p *perm) Get(name string) *Klass {
 	return p.space[name]
 }
+
+func (p *perm) Space() map[string]*Klass {
+	return p.space
+}

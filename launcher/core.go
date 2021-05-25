@@ -2,6 +2,7 @@ package launcher
 
 import (
 	"github.com/zouzhihao-994/gvm/config"
+	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/loader"
 	"github.com/zouzhihao-994/gvm/native"
@@ -16,6 +17,7 @@ func StartVM() {
 	k := klass.ParseToKlass(&loader.ClassReader{Bytecode: classFile})
 	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
+	initClasses(mainThread)
 
 	Interpret(mainMethod, mainThread)
 }
@@ -33,8 +35,6 @@ func GvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
 	native.InitNativeMethod()
-	initBootStrapClass()
-	initPrimitiveClasses()
 }
 
 func mainMethod(k *klass.Klass) *klass.MethodInfo {
@@ -43,7 +43,13 @@ func mainMethod(k *klass.Klass) *klass.MethodInfo {
 	return mainMethod
 }
 
-func initBootStrapClass() {
+func initClasses(thread *runtime.Thread) {
+	loadBootStrapClass()
+	loadPrimitiveClasses()
+	execInit(thread)
+}
+
+func loadBootStrapClass() {
 	klass.ParseByClassName(config.JObjectClassName)
 	klass.ParseByClassName(config.JCloneableClassName)
 	klass.ParseByClassName(config.JClassClassName)
@@ -52,8 +58,16 @@ func initBootStrapClass() {
 	klass.ParseByClassName(config.JIoSerializableClassName)
 }
 
-func initPrimitiveClasses() {
+func loadPrimitiveClasses() {
 	for _, k := range klass.PrimitiveKlasses {
 		klass.ParseByClassName(k.WrapperClassName)
+	}
+}
+
+func execInit(thread *runtime.Thread) {
+	for _, k := range klass.Perm.Space() {
+		if !k.IsInit {
+			base.InitClass(k, thread)
+		}
 	}
 }
