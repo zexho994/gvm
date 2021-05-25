@@ -135,6 +135,7 @@ var (
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
+	instanceOf   = &references.InstanceOf{}
 	monitorEnter = &references.MonitorEntry{}
 	monitorExit  = &references.MonitorExit{}
 
@@ -558,8 +559,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return athrow
 	//case 0xc0:
 	//	return checkcast
-	//case 0xc1:
-	//	return instanceof
+	case 0xc1:
+		return instanceOf
 	case 0xc2:
 		return monitorEnter
 	case 0xc3:

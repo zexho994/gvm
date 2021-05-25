@@ -62,3 +62,45 @@ func NewStringOopInstance(str string) *OopInstance {
 		jString:   str,
 	}
 }
+
+func (i *OopInstance) IsInstanceOf(t *klass.Klass) bool {
+	return _checkcast(i.Klass, t)
+}
+
+func _checkcast(s, t *klass.Klass) bool {
+
+	if s == t {
+		return true
+	}
+
+	if !s.IsArray() {
+		if !utils.IsInterface(s.AccessFlags) {
+			if !utils.IsInterface(t.AccessFlags) {
+				return s.IsSubClassOf(t)
+			} else {
+				return s.IsImplements(t)
+			}
+		} else {
+			if !utils.IsInterface(s.AccessFlags) {
+				return t.IsObject()
+			} else {
+				return t.IsSuperInterfaceOf(s)
+			}
+		}
+	} else { // s is array
+		if !t.IsArray() {
+			if !utils.IsInterface(t.AccessFlags) {
+				return t.IsObject()
+			} else {
+				return t.IsJlCloneable() || t.IsJioSerializable()
+			}
+		} else { // t is array
+			//sc := s.GetComponentClass()
+			//tc := t.GetComponentClass()
+			//return sc == tc || _checkcast(sc, tc)
+			panic("_checkcast todo")
+		}
+	}
+
+	return false
+}

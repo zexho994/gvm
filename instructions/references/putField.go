@@ -17,7 +17,6 @@ func (i *PutField) Execute(frame *runtime.Frame) {
 	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
 	k := klass.Perm.Get(frame.ThisClass)
-	//fields := k.Fields.Find(fieldName, fieldDesc)
 
 	var slots utils.Slots
 	slots = append(slots, utils.Slot{})

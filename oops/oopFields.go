@@ -16,10 +16,10 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func FindField(name string, fields *OopFields, instance *OopInstance, k *klass.Klass) OopField {
+func FindField(name string, fields *OopFields, instance *OopInstance, k *klass.Klass) *OopField {
 	f, r := fields.GetField(name)
 	if r {
-		return f
+		return &f
 	}
 	fields = InitOopFields(k)
 	return FindField(name, fields, instance, k.SuperClass)

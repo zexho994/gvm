@@ -15,6 +15,11 @@ import (
 // 对于本地方法，
 // 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
+	//utils.AssertTrue(method != nil, exception.NullPointException)
+	if method == nil {
+		return
+	}
+
 	invokerThread := frame.Thread
 	var newFrame *runtime.Frame
 	var attrCode *attribute.AttrCode

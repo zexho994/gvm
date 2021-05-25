@@ -1,6 +1,7 @@
 package klass
 
 import (
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
@@ -290,4 +291,50 @@ func (k *Klass) parse() {
 
 func (k *Klass) init() {
 
+}
+
+func (k *Klass) IsArray() bool {
+	return k.ThisClass[0] == '['
+}
+
+func (k *Klass) IsObject() bool {
+	return k == Perm.Get(config.JObjectClassName)
+}
+func (k *Klass) IsJlCloneable() bool {
+	return k == Perm.Get(config.JObjectClassName)
+}
+func (k *Klass) IsJioSerializable() bool {
+	return k == Perm.Get(config.JIoSerializableClassName)
+}
+func (k *Klass) IsSubClassOf(t *Klass) bool {
+	for super := k.SuperClass; super != nil; super = super.SuperClass {
+		if super == t {
+			return true
+		}
+	}
+	return false
+}
+func (k *Klass) IsImplements(t *Klass) bool {
+	for s := k; s != nil; s = s.SuperClass {
+		for idx, i := range s.Interfaces {
+			if i == nil {
+				i = ParseByClassName(s.GetConstantClassInfo(s.InterfaceUints[idx]).Name())
+			}
+			if i == t || i.IsSubClassOf(t) {
+				return true
+			}
+		}
+	}
+	return false
+}
+func (k *Klass) IsSuperInterfaceOf(iface *Klass) bool {
+	return iface.IsSubInterfaceOf(k)
+}
+func (k *Klass) IsSubInterfaceOf(iface *Klass) bool {
+	for _, superInterface := range k.Interfaces {
+		if superInterface == iface || superInterface.IsSubInterfaceOf(iface) {
+			return true
+		}
+	}
+	return false
 }
