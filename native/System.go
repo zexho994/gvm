@@ -21,7 +21,7 @@ func setOut0(frame *runtime.Frame) {
 	sysClass := frame.Klass
 	slots := make([]utils.Slot, 2)
 	slots[0].Ref = out
-	sysClass.StaticFields.SetField("in", slots)
+	sysClass.StaticFields.SetStaticField("in", slots)
 }
 
 func initProperties(frame *runtime.Frame) {

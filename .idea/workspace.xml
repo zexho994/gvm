@@ -29,9 +29,24 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="init ThreadGroup.class">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="init java.lang.System class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/getStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassField.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/staticVars.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/staticVars.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,14 +296,8 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="19209000" />
-    </task>
-    <task id="LOCAL-00081" summary="new inst -&gt; 0x8b f2i">
-      <created>1621471701639</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1621471701640</updated>
+      <workItem from="1621844374586" duration="21026000" />
+      <workItem from="1621935099844" duration="3313000" />
     </task>
     <task id="LOCAL-00082" summary="new native method -&gt; initProperties()">
       <created>1621487369301</created>
@@ -626,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621920160439</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="init java.lang.System class">
+      <created>1621920590504</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1621920590504</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +717,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor config" />
     <MESSAGE value="refactor fcmp.go" />
     <MESSAGE value="refactor if_icmp.go" />
     <MESSAGE value="refactor lcmp.go" />
@@ -726,7 +741,8 @@
     <MESSAGE value="add initPrimitiveClasses()" />
     <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
     <MESSAGE value="init ThreadGroup.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="init ThreadGroup.class" />
+    <MESSAGE value="init java.lang.System class" />
+    <option name="LAST_COMMIT_MESSAGE" value="init java.lang.System class" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

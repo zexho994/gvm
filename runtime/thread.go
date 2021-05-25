@@ -13,3 +13,7 @@ func (t Thread) ThreadPC() uint {
 func (t *Thread) SetThreadPC(pc uint) {
 	t.pc = pc
 }
+
+func (t *Thread) RevertFramePC() {
+	t.PeekFrame().RevertPC()
+}

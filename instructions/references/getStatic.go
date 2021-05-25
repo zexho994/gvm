@@ -22,7 +22,6 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 	// 判断是否需要进行加载
 	if k == nil {
 		k = klass.ParseByClassName(className)
-		klass.Perm.Save(className, k)
 		frame.RevertPC()
 		base.InitClass(k, frame.Thread)
 		return
@@ -32,8 +31,7 @@ func (i *GetStatic) Execute(frame *runtime.Frame) {
 		return
 	}
 
-	field := k.StaticFields.GetField(fieldName)
-	_, _, slots := field.Fields()
+	_, _, _, slots := k.GetStaticField(fieldName, fieldDesc).Fields()
 	if fieldDesc == "D" || fieldDesc == "J" {
 		frame.PushSlot(slots[0])
 		slots = slots[1:]

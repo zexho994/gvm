@@ -4,6 +4,10 @@ type ClassReader struct {
 	Bytecode []byte
 }
 
+func NewClassReader(b []byte) *ClassReader {
+	return &ClassReader{Bytecode: b}
+}
+
 func (reader *ClassReader) ReadUint8() uint8 {
 	data := reader.Bytecode[0]
 	reader.Bytecode = reader.Bytecode[1:]

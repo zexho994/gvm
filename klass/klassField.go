@@ -20,7 +20,7 @@ type FieldInfo struct {
 	DescriptorIndex uint16
 	// 属性表
 	AttributesCount uint16
-	Attributes      attribute.AttributesInfo
+	*attribute.AttributesInfo
 }
 
 // 解析字段表
@@ -36,7 +36,7 @@ func parseFields(count uint16, reader *loader.ClassReader, cp *constant_pool.Con
 		field.ConstantPool = cp
 		// 解析属性表
 		field.AttributesCount = reader.ReadUint16()
-		field.Attributes = attribute.ParseAttributes(field.AttributesCount, reader, cp)
+		field.AttributesInfo = attribute.ParseAttributes(field.AttributesCount, reader, cp)
 		fields[i] = field
 	}
 	return fields

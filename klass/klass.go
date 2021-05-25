@@ -40,7 +40,7 @@ type Klass struct {
 	Methods
 	// 属性表
 	AttributesCount uint16
-	attribute.AttributesInfo
+	*attribute.AttributesInfo
 
 	// 初始化标识
 	IsInit bool
@@ -87,7 +87,9 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	Perm.Save(kl.ThisClass, kl)
 	// 执行链接步骤
 	kl.Linked()
+	// 执行初始化步骤
 	kl.init()
+
 	return kl
 }
 
@@ -248,14 +250,14 @@ func (k *Klass) verify() {
 //        这部分的判断逻辑在putstatic,getstatic指令时再执行.
 func (k *Klass) prepare() {
 	jFields := k.Fields
-	vars := NewStaticFieldVars()
-	for idx := range jFields {
+	staticFields := NewStaticFieldVars()
+	for _, f := range jFields {
 		// 不处理实例变量
-		if !utils.IsStatic(k.Fields[idx].AccessFlags) {
+		if !utils.IsStatic(f.AccessFlags) {
 			continue
 		}
 		var slot utils.Slot
-		desc := jFields[idx].Descriptor()
+		desc := f.Descriptor()
 		switch desc {
 		case "I":
 			slot = utils.Slot{Num: 0, Type: utils.SlotInt, Ref: nil}
@@ -277,9 +279,9 @@ func (k *Klass) prepare() {
 			slot = utils.Slot{Num: 0, Type: utils.SlotRef, Ref: nil}
 		}
 
-		vars.AddField(jFields[idx].Name(), slot)
+		staticFields.AddStaticField(f.Name(), desc, slot)
 	}
-	k.StaticFields = vars
+	k.StaticFields = staticFields
 }
 
 func (k *Klass) parse() {

@@ -14,7 +14,7 @@ type MethodInfo struct {
 	nameIdx       uint16
 	descriptorIdx uint16
 	attrCount     uint16
-	attribute.AttributesInfo
+	*attribute.AttributesInfo
 	*constant_pool.ConstantPool
 	argSlotCount uint
 	*Klass
@@ -48,7 +48,7 @@ func (m *MethodInfo) InjectCodeAttrIfNative() {
 	}
 
 	attributes[0] = codeAttr
-	m.AttributesInfo = attributes
+	m.AttributesInfo = &attributes
 }
 
 func (m MethodInfo) MethodDescriptor() string {

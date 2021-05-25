@@ -12,14 +12,15 @@ type StaticFields struct {
 type fields struct {
 	fieldName string
 	fieldType uint8
+	fieldDesc string
 	field     []utils.Slot
 }
 
-func (f fields) Fields() (string, uint8, []utils.Slot) {
-	return f.fieldName, f.fieldType, f.field
+func (f fields) Fields() (string, string, uint8, []utils.Slot) {
+	return f.fieldName, f.fieldDesc, f.fieldType, f.field
 }
 
-func (sfv *StaticFields) SetField(name string, s []utils.Slot) {
+func (sfv *StaticFields) SetStaticField(name string, s []utils.Slot) {
 	for idx := range sfv.fields {
 		if sfv.fields[idx].fieldName == name {
 			sfv.fields[idx].field = s
@@ -29,15 +30,16 @@ func (sfv *StaticFields) SetField(name string, s []utils.Slot) {
 	exception.GvmError{Msg: "not found static field"}.Throw()
 }
 
-func (sfv *StaticFields) AddField(name string, s utils.Slot) {
-	newField := fields{field: []utils.Slot{}, fieldName: name, fieldType: s.Type}
+func (sfv *StaticFields) AddStaticField(name, desc string, s utils.Slot) {
+	newField := fields{field: []utils.Slot{}, fieldName: name, fieldDesc: desc, fieldType: s.Type}
 	sfv.fields = append(sfv.fields, newField)
 }
 
-func (sfv *StaticFields) GetField(name string) *fields {
-	for idx := range sfv.fields {
-		if sfv.fields[idx].fieldName == name {
-			return &sfv.fields[idx]
+func (sfv *StaticFields) GetStaticField(name, desc string) *fields {
+	for _, f := range sfv.fields {
+		if f.fieldName == name &&
+			f.fieldDesc == desc {
+			return &f
 		}
 	}
 	exception.GvmError{Msg: "not found static field"}.Throw()

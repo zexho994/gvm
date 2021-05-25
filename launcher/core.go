@@ -14,12 +14,31 @@ func StartVM() {
 	GvmEnvInit()
 
 	classFile := loader.Loading(config.ClassName)
-	k := klass.ParseToKlass(&loader.ClassReader{Bytecode: classFile})
+	k := klass.ParseToKlass(loader.NewClassReader(classFile))
+
 	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
-	initClasses(mainThread)
 
-	Interpret(mainMethod, mainThread)
+	code, _ := mainMethod.AttrCode()
+	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
+	mainThread.PushFrame(newFrame)
+
+	initClasses(mainThread)
+	initSystemProperties(mainThread)
+
+	loop(mainThread)
+}
+
+func initSystemProperties(thread *runtime.Thread) {
+	sysClass := klass.Perm.Get(config.JSystemClassName)
+	propsField := sysClass.GetStaticField("props", "Ljava/util/Properties;")
+	_, _, _, solt := propsField.Fields()
+	if len(solt) == 0 || solt[0].Ref == nil {
+		thread.RevertFramePC()
+		initSys, _ := sysClass.FindStaticMethod("initializeSystemClass", "()V")
+		initSysFrame := runtime.NewFrame(4, 3, initSys, thread)
+		thread.PushFrame(initSysFrame)
+	}
 }
 
 func createMainThread() *runtime.Thread {
@@ -56,8 +75,9 @@ func loadBootStrapClass() {
 	klass.ParseByClassName(config.JStringClassName)
 	klass.ParseByClassName(config.JThreadClassName)
 	klass.ParseByClassName(config.JIoSerializableClassName)
-	klass.ParseByClassName(config.JThreadGroup)
-	klass.ParseByClassName(config.JSystem)
+	klass.ParseByClassName(config.JThreadGroupClassName)
+	klass.ParseByClassName(config.JSystemClassName)
+	klass.ParseByClassName(config.JPrintStreamClassName)
 }
 
 func loadPrimitiveClasses() {
