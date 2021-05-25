@@ -28,9 +28,9 @@ func (o *OopInstance) JString() string {
 // n: field name
 func (o *OopInstance) FindField(n string) (OopField, bool) {
 	targetOop := o
-	isSuper := false
 	var f OopField
-	for f, isSuper = targetOop.GetField(n, isSuper); true != isSuper; {
+	var isSuper bool
+	for f, isSuper = targetOop.GetField(n); isSuper == false; {
 		// todo: find from super
 	}
 	return f, true

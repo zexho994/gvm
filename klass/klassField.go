@@ -1,6 +1,7 @@
 package klass
 
 import (
+	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
 	"github.com/zouzhihao-994/gvm/loader"
@@ -48,4 +49,14 @@ func (field FieldInfo) Descriptor() string {
 
 func (field FieldInfo) Name() string {
 	return field.ConstantPool.GetUtf8(field.NameIndex)
+}
+
+func (field Fields) Find(name, desc string) *FieldInfo {
+	for _, f := range field {
+		if f.Name() == name && f.Descriptor() == desc {
+			return &f
+		}
+	}
+	exception.GvmError{Msg: exception.FieldsNotFoundError}.Throw()
+	return nil
 }

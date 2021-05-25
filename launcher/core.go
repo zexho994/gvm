@@ -24,7 +24,7 @@ func StartVM() {
 	mainThread.PushFrame(newFrame)
 
 	initClasses(mainThread)
-	initSystemProperties(mainThread)
+	//initSystemProperties(mainThread)
 
 	loop(mainThread)
 }
@@ -65,7 +65,11 @@ func mainMethod(k *klass.Klass) *klass.MethodInfo {
 func initClasses(thread *runtime.Thread) {
 	loadBootStrapClass()
 	loadPrimitiveClasses()
-	execInit(thread)
+
+	for _, name := range BootClassNames {
+		execInit(name, thread)
+	}
+
 }
 
 func loadBootStrapClass() {
@@ -86,10 +90,11 @@ func loadPrimitiveClasses() {
 	}
 }
 
-func execInit(thread *runtime.Thread) {
-	for _, k := range klass.Perm.Space() {
-		if !k.IsInit {
-			base.InitClass(k, thread)
-		}
-	}
+func execInit(name string, thread *runtime.Thread) {
+	//for _, k := range klass.Perm.Space() {
+	//	if !k.IsInit {
+	//		base.InitClass(k, thread)
+	//	}
+	//}
+	base.InitClass(klass.Perm.Get(name), thread)
 }

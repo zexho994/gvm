@@ -16,25 +16,25 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func FindField(name string, fields *OopFields, instance *OopInstance, isSuper bool) OopField {
-	f, r := fields.GetField(name, isSuper)
+func FindField(name string, fields *OopFields, instance *OopInstance, k *klass.Klass) OopField {
+	f, r := fields.GetField(name)
 	if r {
 		return f
 	}
-	fields = InitOopFields(instance.SuperClass)
-	return FindField(name, fields, instance, true)
+	fields = InitOopFields(k)
+	return FindField(name, fields, instance, k.SuperClass)
 }
 
 // GetField 查找实例字段
 // 如果本类中找不到，就在父类中找
 // name:字段名称
 // isSuper：是否是从子类中进行调用的
-func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
+func (fields OopFields) GetField(name string) (OopField, bool) {
 	for idx := range fields {
 		if fields[idx].name != name {
 			continue
 		}
-		if utils.IsFinal(fields[idx].accessFlag) && isSuper {
+		if utils.IsFinal(fields[idx].accessFlag) {
 			exception.GvmError{Msg: "final fields not be inheritance"}.Throw()
 		}
 		return fields[idx], true
@@ -44,14 +44,13 @@ func (fields OopFields) GetField(name string, isSuper bool) (OopField, bool) {
 
 // InitOopFields 初始化实例对象的实例字段表
 func InitOopFields(instance *klass.Klass) *OopFields {
-	fields := OopFields{}
+	fields := &OopFields{}
 	jf := instance.Fields
-	for idx := range jf {
+	for idx := 0; idx < len(jf); idx++ {
 		flag := jf[idx].AccessFlags
 		if utils.IsStatic(flag) {
 			continue
 		}
-		name := jf[idx].Name()
 		desc := jf[idx].Descriptor()
 		slots := utils.Slots{}
 		slot := utils.Slot{Type: utils.TypeMapping(desc)}
@@ -60,11 +59,11 @@ func InitOopFields(instance *klass.Klass) *OopFields {
 			slots = append(slots, slot)
 		}
 		slots = append(slots, slot)
-		newField := OopField{name: name, accessFlag: flag, slots: slots}
-		fields = append(fields, newField)
+		newField := OopField{name: jf[idx].Name(), accessFlag: flag, slots: slots}
+		*fields = append(*fields, newField)
 	}
 
-	return &fields
+	return fields
 }
 
 func (field OopField) Name() string {

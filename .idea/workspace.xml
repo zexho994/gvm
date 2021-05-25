@@ -29,24 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="init java.lang.System class">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/launcher/boot.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/getStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/getStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/putStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/putField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/klass/klassField.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/staticVars.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/staticVars.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loader/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/reader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,14 +287,7 @@
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
-      <workItem from="1621935099844" duration="3313000" />
-    </task>
-    <task id="LOCAL-00082" summary="new native method -&gt; initProperties()">
-      <created>1621487369301</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1621487369301</updated>
+      <workItem from="1621935099844" duration="8591000" />
     </task>
     <task id="LOCAL-00083" summary="new native method -&gt; initialize()">
       <created>1621487692820</created>
@@ -642,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621920590504</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="refactor">
+      <created>1621940302248</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1621940302248</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +707,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor fcmp.go" />
     <MESSAGE value="refactor if_icmp.go" />
     <MESSAGE value="refactor lcmp.go" />
     <MESSAGE value="refactor const.go" />
@@ -742,18 +731,39 @@
     <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
     <MESSAGE value="init ThreadGroup.class" />
     <MESSAGE value="init java.lang.System class" />
-    <option name="LAST_COMMIT_MESSAGE" value="init java.lang.System class" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/getField.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/putField.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oops/oopFields.go</url>
+          <line>65</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/klass.FieldInfo&quot;)(824634065808)" />
+      </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />
       </configuration>
