@@ -29,11 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="stash">
-      <change afterPath="$PROJECT_DIR$/klass/bootstrap_klass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add initBootStrapClass()">
       <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -284,21 +280,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="15307000" />
-    </task>
-    <task id="LOCAL-00076" summary="refactoring for DUP">
-      <created>1621414523342</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1621414523342</updated>
-    </task>
-    <task id="LOCAL-00077" summary="move invokeNative to package reserve">
-      <created>1621414582648</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1621414582648</updated>
+      <workItem from="1621844374586" duration="16329000" />
     </task>
     <task id="LOCAL-00078" summary="add a *p for methodInfo -&gt; klass">
       <created>1621415727362</created>
@@ -629,7 +611,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621858661567</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="default config add bootstrap class">
+      <created>1621916802073</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1621916802073</updated>
+    </task>
+    <task id="LOCAL-00126" summary="add initBootStrapClass()">
+      <created>1621916816652</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1621916816652</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,8 +700,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactoring Perm" />
-    <MESSAGE value="rename Clinit() -&gt; GetClinitMethod" />
     <MESSAGE value="refactor all structs under package constant_pool that turn the cp field into pointers" />
     <MESSAGE value="trun Frame localvars fiels into LocalVars pointer" />
     <MESSAGE value="trun Frame operandstack fiels into OperandStack pointer" />
@@ -729,7 +723,9 @@
     <MESSAGE value="new inst 0xfe-invokeNative" />
     <MESSAGE value="simply" />
     <MESSAGE value="stash" />
-    <option name="LAST_COMMIT_MESSAGE" value="stash" />
+    <MESSAGE value="default config add bootstrap class" />
+    <MESSAGE value="add initBootStrapClass()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initBootStrapClass()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
