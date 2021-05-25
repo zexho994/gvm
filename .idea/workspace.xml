@@ -29,9 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="bugfix nop">
-      <change afterPath="$PROJECT_DIR$/instructions/references/athrow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xbf athrow">
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,21 +281,7 @@
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
-      <workItem from="1621935099844" duration="15646000" />
-    </task>
-    <task id="LOCAL-00087" summary="refactor: add updateConfig()">
-      <created>1621831132659</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1621831132659</updated>
-    </task>
-    <task id="LOCAL-00088" summary="refactor: add isHelpOrVersion()">
-      <created>1621831310006</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1621831310006</updated>
+      <workItem from="1621935099844" duration="16142000" />
     </task>
     <task id="LOCAL-00089" summary="refactoring MethodInfo">
       <created>1621831987468</created>
@@ -627,7 +612,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621952308886</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="new inst 0xbf athrow">
+      <created>1621952851684</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1621952851684</updated>
+    </task>
+    <task id="LOCAL-00137" summary="new inst 0xbf athrow">
+      <created>1621952860206</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1621952860207</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +701,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor all under package of load" />
     <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
     <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
     <MESSAGE value="add GvmEnvInit()" />
@@ -727,7 +725,8 @@
     <MESSAGE value="new inst 0xc7 instanceOf" />
     <MESSAGE value="refactor getField" />
     <MESSAGE value="bugfix nop" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix nop" />
+    <MESSAGE value="new inst 0xbf athrow" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xbf athrow" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

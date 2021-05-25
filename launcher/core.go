@@ -23,13 +23,14 @@ func StartVM() {
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
 	mainThread.PushFrame(newFrame)
 
+	initSystemProperties(mainThread)
 	initClasses(mainThread)
-	//initSystemProperties(mainThread)
 
 	loop(mainThread)
 }
 
 func initSystemProperties(thread *runtime.Thread) {
+	klass.ParseByClassName(config.JSystemClassName)
 	sysClass := klass.Perm.Get(config.JSystemClassName)
 	propsField := sysClass.GetStaticField("props", "Ljava/util/Properties;")
 	_, _, _, solt := propsField.Fields()
