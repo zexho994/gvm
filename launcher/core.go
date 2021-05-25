@@ -57,6 +57,7 @@ func loadBootStrapClass() {
 	klass.ParseByClassName(config.JThreadClassName)
 	klass.ParseByClassName(config.JIoSerializableClassName)
 	klass.ParseByClassName(config.JThreadGroup)
+	klass.ParseByClassName(config.JSystem)
 }
 
 func loadPrimitiveClasses() {
