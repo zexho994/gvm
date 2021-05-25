@@ -173,6 +173,7 @@ var (
 	anewarray       = &references.AnewArray{}
 	_newArray       = &references.NewArray{}
 	arrayLength     = &references.ArrayLength{}
+	athrow          = &references.AThrow{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -555,8 +556,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return anewarray
 	case 0xbe:
 		return arrayLength
-	//case 0xbf:
-	//	return athrow
+	case 0xbf:
+		return athrow
 	//case 0xc0:
 	//	return checkcast
 	case 0xc1:

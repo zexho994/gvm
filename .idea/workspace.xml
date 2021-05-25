@@ -29,8 +29,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor getField">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="bugfix nop">
+      <change afterPath="$PROJECT_DIR$/instructions/references/athrow.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,14 +282,7 @@
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
-      <workItem from="1621935099844" duration="14917000" />
-    </task>
-    <task id="LOCAL-00086" summary="refactor: add printArguments()">
-      <created>1621831073861</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1621831073861</updated>
+      <workItem from="1621935099844" duration="15646000" />
     </task>
     <task id="LOCAL-00087" summary="refactor: add updateConfig()">
       <created>1621831132659</created>
@@ -626,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621951099606</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="bugfix nop">
+      <created>1621952308886</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1621952308886</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +702,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor thread.go" />
     <MESSAGE value="refactor all under package of load" />
     <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
     <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
@@ -726,30 +726,14 @@
     <MESSAGE value="bugfix endless loop for findFields()" />
     <MESSAGE value="new inst 0xc7 instanceOf" />
     <MESSAGE value="refactor getField" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor getField" />
+    <MESSAGE value="bugfix nop" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix nop" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/getField.go</url>
-          <line>26</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/getField.go</url>
-          <line>24</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/oops/oopFields.go</url>
-          <line>51</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
@@ -757,6 +741,7 @@
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/klass.FieldInfo&quot;)(824634065808)" />
+        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/klass.Klass&quot;)(824637152032)" />
       </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />
