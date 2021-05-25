@@ -33,10 +33,27 @@ func GvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
 	native.InitNativeMethod()
+	initBootStrapClass()
 }
 
 func mainMethod(k *klass.Klass) *klass.MethodInfo {
 	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	utils.AssertError(err, "find main method error")
 	return mainMethod
+}
+
+func initBootStrapClass() {
+	object := klass.ParseByClassName(config.JObjectClassName)
+	clone := klass.ParseByClassName(config.JCloneableClassName)
+	class := klass.ParseByClassName(config.JClassClassName)
+	strings := klass.ParseByClassName(config.JStringClassName)
+	thread := klass.ParseByClassName(config.JThreadClassName)
+	serializeble := klass.ParseByClassName(config.JIoSerializableClassName)
+
+	klass.Perm.Save(config.JObjectClassName, object)
+	klass.Perm.Save(config.JCloneableClassName, clone)
+	klass.Perm.Save(config.JCloneableClassName, class)
+	klass.Perm.Save(config.JCloneableClassName, strings)
+	klass.Perm.Save(config.JCloneableClassName, thread)
+	klass.Perm.Save(config.JCloneableClassName, serializeble)
 }

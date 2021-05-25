@@ -29,10 +29,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="simply">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="stash">
+      <change afterPath="$PROJECT_DIR$/klass/bootstrap_klass.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/PrintOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +284,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="11626000" />
-    </task>
-    <task id="LOCAL-00075" summary="refactoring for POP">
-      <created>1621414456441</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1621414456441</updated>
+      <workItem from="1621844374586" duration="15307000" />
     </task>
     <task id="LOCAL-00076" summary="refactoring for DUP">
       <created>1621414523342</created>
@@ -627,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621857275705</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="stash">
+      <created>1621858661567</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1621858661567</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +704,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new func -&gt; Perm.Save()" />
     <MESSAGE value="refactoring Perm" />
     <MESSAGE value="rename Clinit() -&gt; GetClinitMethod" />
     <MESSAGE value="refactor all structs under package constant_pool that turn the cp field into pointers" />
@@ -727,7 +728,8 @@
     <MESSAGE value="Add some func to get constant info" />
     <MESSAGE value="new inst 0xfe-invokeNative" />
     <MESSAGE value="simply" />
-    <option name="LAST_COMMIT_MESSAGE" value="simply" />
+    <MESSAGE value="stash" />
+    <option name="LAST_COMMIT_MESSAGE" value="stash" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
