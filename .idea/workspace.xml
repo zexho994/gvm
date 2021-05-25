@@ -29,13 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add initPrimitiveClasses()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/primitveType.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/primitveKlass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="add initClasses() to inInitialize the bootstrap class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -284,14 +278,7 @@
       <workItem from="1621589960855" duration="18000" />
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
-      <workItem from="1621844374586" duration="18083000" />
-    </task>
-    <task id="LOCAL-00079" summary="add native method initializeSystemClass()">
-      <created>1621426902386</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1621426902386</updated>
+      <workItem from="1621844374586" duration="18385000" />
     </task>
     <task id="LOCAL-00080" summary="new inst -&gt; 0x86 i2f">
       <created>1621471565865</created>
@@ -629,7 +616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621918356788</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="add initClasses() to inInitialize the bootstrap class">
+      <created>1621919557132</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1621919557132</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +698,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="trun Frame localvars fiels into LocalVars pointer" />
     <MESSAGE value="trun Frame operandstack fiels into OperandStack pointer" />
     <MESSAGE value="refactor config" />
     <MESSAGE value="refactor fcmp.go" />
@@ -729,20 +722,14 @@
     <MESSAGE value="default config add bootstrap class" />
     <MESSAGE value="add initBootStrapClass()" />
     <MESSAGE value="add initPrimitiveClasses()" />
-    <option name="LAST_COMMIT_MESSAGE" value="add initPrimitiveClasses()" />
+    <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initClasses() to inInitialize the bootstrap class" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/launcher/core.go</url>
-          <line>21</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

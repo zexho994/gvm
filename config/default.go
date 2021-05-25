@@ -14,6 +14,7 @@ const (
 	JThreadClassName         = "java/lang/Thread"
 	JCloneableClassName      = "java/lang/Cloneable"
 	JIoSerializableClassName = "java/io/Serializable"
+	JThreadGroup             = "java/lang/ThreadGroup"
 )
 
 const (
