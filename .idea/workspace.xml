@@ -29,15 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="bugfix endless loop for findFields()">
-      <change afterPath="$PROJECT_DIR$/instructions/references/instanceOf.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xc7 instanceOf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructions/references/putField.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/putField.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,14 +283,7 @@
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
-      <workItem from="1621935099844" duration="12053000" />
-    </task>
-    <task id="LOCAL-00084" summary="refactor">
-      <created>1621587359883</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1621587359883</updated>
+      <workItem from="1621935099844" duration="13472000" />
     </task>
     <task id="LOCAL-00085" summary="refactor: add checkDefault()">
       <created>1621830981753</created>
@@ -633,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621945806021</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="new inst 0xc7 instanceOf">
+      <created>1621949548144</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1621949548144</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +703,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor lcmp.go" />
     <MESSAGE value="refactor const.go" />
     <MESSAGE value="refactor thread.go" />
     <MESSAGE value="refactor all under package of load" />
@@ -733,7 +727,8 @@
     <MESSAGE value="init java.lang.System class" />
     <MESSAGE value="refactor" />
     <MESSAGE value="bugfix endless loop for findFields()" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix endless loop for findFields()" />
+    <MESSAGE value="new inst 0xc7 instanceOf" />
+    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xc7 instanceOf" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -743,13 +738,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/instructions/references/getField.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/references/instanceOf.go</url>
           <line>20</line>
-          <option name="timeStamp" value="48" />
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

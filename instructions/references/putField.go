@@ -27,7 +27,7 @@ func (i *PutField) Execute(frame *runtime.Frame) {
 	slots[0].Type = utils.TypeMapping(fieldDesc)
 
 	objRef := frame.PopRef()
-	fields := oops.FindField(fieldName, objRef.OopFields, objRef, k)
+	fields := oops.FindField(fieldName, objRef.OopFields, k)
 	for idx := range slots {
 		fields.Slots()[idx] = slots[idx]
 	}

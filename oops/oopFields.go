@@ -1,7 +1,6 @@
 package oops
 
 import (
-	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -16,13 +15,16 @@ type OopField struct {
 	slots      utils.Slots
 }
 
-func FindField(name string, fields *OopFields, instance *OopInstance, k *klass.Klass) *OopField {
+func FindField(name string, fields *OopFields, k *klass.Klass) *OopField {
+	if k == nil {
+		return nil
+	}
 	f, r := fields.GetField(name)
 	if r {
 		return &f
 	}
 	fields = InitOopFields(k)
-	return FindField(name, fields, instance, k.SuperClass)
+	return FindField(name, fields, k.SuperClass)
 }
 
 // GetField 查找实例字段
@@ -35,7 +37,8 @@ func (fields OopFields) GetField(name string) (OopField, bool) {
 			continue
 		}
 		if utils.IsFinal(fields[idx].accessFlag) {
-			exception.GvmError{Msg: "final fields not be inheritance"}.Throw()
+			// todo
+			//exception.GvmError{Msg: "final fields not be inheritance"}.Throw()
 		}
 		return fields[idx], true
 	}
