@@ -169,7 +169,7 @@ func (k *Klass) parseInterfaces() []*Klass {
 	return interfaces
 }
 
-func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
+func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodKlass, error) {
 	for i := range k.Methods {
 		methodInfo := k.Methods[i]
 		if !utils.IsStatic(methodInfo.AccessFlag()) {
@@ -187,8 +187,8 @@ func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 
 // FindMethod TODO:可以从父类中加载出方法，并检查权限
 // name: method method
-// @return the MethodInfo belong to the Klass
-func (k *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass) {
+// @return the MethodKlass belong to the Klass
+func (k *Klass) FindMethod(name, descriptor string) (*MethodKlass, error, *Klass) {
 	if k == nil {
 		return nil, nil, nil
 	}

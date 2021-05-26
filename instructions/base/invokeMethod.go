@@ -12,7 +12,7 @@ import (
 // 对于实例方法，参数要加上编译器添加的this
 // 对于本地方法，
 // 对于接口方法，
-func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
+func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool) {
 	//utils.AssertTrue(method != nil, exception.NullPointException)
 	if method == nil {
 		return

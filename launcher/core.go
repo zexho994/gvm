@@ -57,7 +57,7 @@ func GvmEnvInit() {
 	native.InitNativeMethod()
 }
 
-func mainMethod(k *klass.Klass) *klass.MethodInfo {
+func mainMethod(k *klass.Klass) *klass.MethodKlass {
 	mainMethod, err := k.FindStaticMethod("main", "([Ljava/lang/String;)V")
 	utils.AssertError(err, "find main method error")
 	return mainMethod

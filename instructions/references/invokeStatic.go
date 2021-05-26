@@ -18,7 +18,7 @@ type InvokeStatic struct {
 func (i *InvokeStatic) Execute(frame *runtime.Frame) {
 	k := frame.GetConstantInfo(i.Index)
 
-	var method *klass.MethodInfo
+	var method *klass.MethodKlass
 	var kl *klass.Klass
 	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {
 		kMethodRef = k.(*constant_pool.ConstantMethodInfo)

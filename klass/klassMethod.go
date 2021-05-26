@@ -7,9 +7,9 @@ import (
 	"github.com/zouzhihao-994/gvm/utils"
 )
 
-type Methods []*MethodInfo
+type Methods []*MethodKlass
 
-type MethodInfo struct {
+type MethodKlass struct {
 	accessFlag    uint16
 	nameIdx       uint16
 	descriptorIdx uint16
@@ -20,8 +20,18 @@ type MethodInfo struct {
 	*Klass
 }
 
+func NewMethodKlass(acc, n, d, attr uint16, k *Klass) *MethodKlass {
+	return &MethodKlass{
+		accessFlag:    acc,
+		nameIdx:       n,
+		descriptorIdx: d,
+		attrCount:     attr,
+		Klass:         k,
+	}
+}
+
 // InjectCodeAttrIfNative injected a code attribute for method
-func (m *MethodInfo) InjectCodeAttrIfNative() {
+func (m *MethodKlass) InjectCodeAttrIfNative() {
 	if !utils.IsNative(m.accessFlag) {
 		return
 	}
@@ -51,31 +61,31 @@ func (m *MethodInfo) InjectCodeAttrIfNative() {
 	m.AttributesInfo = &attributes
 }
 
-func (m MethodInfo) MethodDescriptor() string {
+func (m MethodKlass) MethodDescriptor() string {
 	return m.GetUtf8(m.descriptorIdx)
 }
 
-func (m MethodInfo) DescriptorIdx() uint16 {
+func (m MethodKlass) DescriptorIdx() uint16 {
 	return m.descriptorIdx
 }
 
-func (m MethodInfo) MethodName() string {
+func (m MethodKlass) MethodName() string {
 	return m.GetUtf8(m.nameIdx)
 }
 
-func (m MethodInfo) NameIdx() uint16 {
+func (m MethodKlass) NameIdx() uint16 {
 	return m.nameIdx
 }
 
-func (m MethodInfo) AccessFlag() uint16 {
+func (m MethodKlass) AccessFlag() uint16 {
 	return m.accessFlag
 }
 
-func (m MethodInfo) ArgSlotCount() uint {
+func (m MethodKlass) ArgSlotCount() uint {
 	return m.argSlotCount
 }
 
-func (ms Methods) GetClinitMethod() (*MethodInfo, bool) {
+func (ms Methods) GetClinitMethod() (*MethodKlass, bool) {
 	for idx := range ms {
 		i := ms[idx].nameIdx
 		nameStr := ms[idx].GetUtf8(i)
@@ -86,7 +96,7 @@ func (ms Methods) GetClinitMethod() (*MethodInfo, bool) {
 	return nil, false
 }
 
-func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
+func (ms Methods) FindMethod(name, desc string) (*MethodKlass, bool) {
 	for idx := range ms {
 		nameStr := ms[idx].GetUtf8(ms[idx].nameIdx)
 		descStr := ms[idx].GetUtf8(ms[idx].descriptorIdx)
@@ -99,9 +109,9 @@ func (ms Methods) FindMethod(name, desc string) (*MethodInfo, bool) {
 
 // 解析方法表
 func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.ConstantPool, k *Klass) Methods {
-	methods := make([]*MethodInfo, count)
+	methods := make([]*MethodKlass, count)
 	for i := range methods {
-		method := &MethodInfo{}
+		method := &MethodKlass{}
 		method.ConstantPool = pool
 		method.accessFlag = reader.ReadUint16()
 		method.nameIdx = reader.ReadUint16()
@@ -118,10 +128,10 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.C
 	return methods
 }
 
-func (m *MethodInfo) IsRegisterNatives() bool {
+func (m *MethodKlass) IsRegisterNatives() bool {
 	return utils.IsStatic(m.accessFlag) && m.MethodName() == "registerNatives" && m.MethodDescriptor() == "()V"
 }
 
-func (m *MethodInfo) IsInitIDs() bool {
+func (m *MethodKlass) IsInitIDs() bool {
 	return utils.IsStatic(m.accessFlag) && m.MethodName() == "initIDs" && m.MethodDescriptor() == "()V"
 }
