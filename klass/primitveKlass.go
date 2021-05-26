@@ -1,5 +1,7 @@
 package klass
 
+import "github.com/zouzhihao-994/gvm/config"
+
 type PrimitiveKlass struct {
 	Descriptor       string
 	ArrayClassName   string
@@ -8,13 +10,13 @@ type PrimitiveKlass struct {
 }
 
 var PrimitiveKlasses = []PrimitiveKlass{
-	{"V", "[V", "void", "java/lang/Void"},
-	{"Z", "[Z", "boolean", "java/lang/Boolean"},
-	{"B", "[B", "byte", "java/lang/Byte"},
-	{"C", "[C", "char", "java/lang/Character"},
-	{"S", "[S", "short", "java/lang/Short"},
-	{"I", "[I", "int", "java/lang/Integer"},
-	{"J", "[J", "long", "java/lang/Long"},
-	{"F", "[F", "float", "java/lang/Float"},
-	{"D", "[D", "double", "java/lang/Double"},
+	{"V", "[V", "void", config.JPrimitiveVoid},
+	{"Z", "[Z", "boolean", config.JPrimitiveBoolean},
+	{"B", "[B", "byte", config.JPrimitiveByte},
+	{"C", "[C", "char", config.JPrimitiveChar},
+	{"S", "[S", "short", config.JPrimitiveShort},
+	{"I", "[I", "int", config.JPrimitiveInteger},
+	{"J", "[J", "long", config.JPrimitiveLong},
+	{"F", "[F", "float", config.JPrimitiveFloat},
+	{"D", "[D", "double", config.JPrimitiveDouble},
 }

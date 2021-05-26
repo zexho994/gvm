@@ -17,6 +17,16 @@ const (
 	JThreadGroupClassName    = "java/lang/ThreadGroup"
 	JSystemClassName         = "java/lang/System"
 	JPrintStreamClassName    = "java/io/PrintStream"
+
+	JPrimitiveVoid    = "java/lang/Void"
+	JPrimitiveBoolean = "java/lang/Boolean"
+	JPrimitiveByte    = "java/lang/Byte"
+	JPrimitiveChar    = "java/lang/Character"
+	JPrimitiveShort   = "java/lang/Short"
+	JPrimitiveInteger = "java/lang/Integer"
+	JPrimitiveLong    = "java/lang/Long"
+	JPrimitiveDouble  = "java/lang/Double"
+	JPrimitiveFloat   = "java/lang/Float"
 )
 
 const (
