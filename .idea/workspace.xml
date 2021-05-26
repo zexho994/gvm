@@ -29,14 +29,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update GetPrimitive(),suppose to get 'double'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/Double.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/Double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="Use fixed size values instead of maxlocal,maxstack">
+      <change afterPath="$PROJECT_DIR$/instructions/math/sh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/instFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/instFactory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,13 +284,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00096" summary="refactoring MethodInfo field StaticFieldVars">
-      <created>1621834515382</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1621834515382</updated>
     </task>
     <task id="LOCAL-00097" summary="refactor: rename StaticFieldVars -&gt; StaticFields">
       <created>1621834575688</created>
@@ -633,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622010119148</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Use fixed size values instead of maxlocal,maxstack">
+      <created>1622030803479</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1622030803480</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +703,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="OopInstance jArray -&gt; *JArray" />
     <MESSAGE value="OopInstance klassInstance -&gt; *Klass" />
     <MESSAGE value="OopInstance markWords -&gt; *MarkWords" />
     <MESSAGE value="Add some func to get constant info" />
@@ -733,7 +727,8 @@
     <MESSAGE value="add native method floatToRawIntBits()" />
     <MESSAGE value="new inst 0x85 I2l" />
     <MESSAGE value="update GetPrimitive(),suppose to get 'double'" />
-    <option name="LAST_COMMIT_MESSAGE" value="update GetPrimitive(),suppose to get 'double'" />
+    <MESSAGE value="Use fixed size values instead of maxlocal,maxstack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use fixed size values instead of maxlocal,maxstack" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

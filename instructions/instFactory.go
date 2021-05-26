@@ -175,6 +175,8 @@ var (
 	_newArray       = &references.NewArray{}
 	arrayLength     = &references.ArrayLength{}
 	athrow          = &references.AThrow{}
+
+	lshl = &math.Lshl{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -417,8 +419,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return dneg
 	//case 0x78:
 	//	return ishl
-	//case 0x79:
-	//	return lshl
+	case 0x79:
+		return lshl
 	//case 0x7a:
 	//	return ishr
 	//case 0x7b:
