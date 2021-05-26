@@ -129,6 +129,7 @@ var (
 	dup2X1 = &stack.Dup2X1{}
 	dup2X2 = &stack.Dup2X2{}
 
+	i2l = &conversions.I2l{}
 	i2f = &conversions.I2f{}
 	f2i = &conversions.F2i{}
 
@@ -440,8 +441,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return lxor
 	case 0x84:
 		return iinc
-	//case 0x85:
-	//	return i2l
+	case 0x85:
+		return i2l
 	case 0x86:
 		return i2f
 	//case 0x87:
