@@ -44,7 +44,7 @@ func (m *MethodInfo) InjectCodeAttrIfNative() {
 	case "L", "[":
 		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xb0}, m.ConstantPool) // areturn
 	default:
-		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xbc}, m.ConstantPool) // ireturn
+		codeAttr = attribute.CreateCodeAttr(tmpMaxStack, tmpMaxLocal, []byte{0xfe, 0xac}, m.ConstantPool) // ireturn
 	}
 
 	attributes[0] = codeAttr
