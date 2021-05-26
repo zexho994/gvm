@@ -8,6 +8,15 @@ import (
 
 type Method func(frame *runtime.Frame)
 
+// InitNativeMethod when invoke StartVM()
+func InitNativeMethod() {
+	InitVM()
+	InitSystem()
+	InitClassStatic()
+	InitFloat()
+	InitDouble()
+}
+
 var registry = map[string]Method{}
 
 func EmptyNative(frame *runtime.Frame) {

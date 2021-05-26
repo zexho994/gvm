@@ -29,9 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/native/Float.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/iniinitialize.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/iniinitialize.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update GetPrimitive(),suppose to get 'double'">
+      <change afterPath="$PROJECT_DIR$/native/Double.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/iniinitialize.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/java/lang/String.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,28 +285,7 @@
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
-      <workItem from="1622003548315" duration="3666000" />
-    </task>
-    <task id="LOCAL-00093" summary="refactoring MethodInfo fields Fields">
-      <created>1621834268540</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1621834268540</updated>
-    </task>
-    <task id="LOCAL-00094" summary="refactoring MethodInfo fields Methods">
-      <created>1621834320787</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1621834320787</updated>
-    </task>
-    <task id="LOCAL-00095" summary="refactoring MethodInfo field AttributesInfo">
-      <created>1621834376605</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1621834376605</updated>
+      <workItem from="1622003548315" duration="5126000" />
     </task>
     <task id="LOCAL-00096" summary="refactoring MethodInfo field StaticFieldVars">
       <created>1621834515382</created>
@@ -628,7 +609,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622007792987</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="add native method floatToRawIntBits()">
+      <created>1622009648992</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1622009648992</updated>
+    </task>
+    <task id="LOCAL-00143" summary="new inst 0x85 I2l">
+      <created>1622010074308</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1622010074308</updated>
+    </task>
+    <task id="LOCAL-00144" summary="update GetPrimitive(),suppose to get 'double'">
+      <created>1622010119148</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1622010119148</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,9 +705,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor StartVM()" />
-    <MESSAGE value="refactor loop()" />
-    <MESSAGE value="OopInstance files -&gt; *OopFields" />
     <MESSAGE value="OopInstance jArray -&gt; *JArray" />
     <MESSAGE value="OopInstance klassInstance -&gt; *Klass" />
     <MESSAGE value="OopInstance markWords -&gt; *MarkWords" />
@@ -728,13 +727,23 @@
     <MESSAGE value="config add Primitive" />
     <MESSAGE value="bugfix: native method attrCode , 0xbc -&gt; 0xac" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="add native method floatToRawIntBits()" />
+    <MESSAGE value="new inst 0x85 I2l" />
+    <MESSAGE value="update GetPrimitive(),suppose to get 'double'" />
+    <option name="LAST_COMMIT_MESSAGE" value="update GetPrimitive(),suppose to get 'double'" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/runtime/operandStack.go</url>
+          <line>57</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
