@@ -177,6 +177,7 @@ var (
 	athrow          = &references.AThrow{}
 
 	lshl = &math.Lshl{}
+	land = &math.Land{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -431,8 +432,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return lushr
 	//case 0x7e:
 	//	return iand
-	//case 0x7f:
-	//	return land
+	case 0x7f:
+		return land
 	//case 0x80:
 	//	return ior
 	//case 0x81:
