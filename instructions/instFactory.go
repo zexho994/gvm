@@ -136,6 +136,7 @@ var (
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
+	checkcast    = &references.Checkcast{}
 	instanceOf   = &references.InstanceOf{}
 	monitorEnter = &references.MonitorEntry{}
 	monitorExit  = &references.MonitorExit{}
