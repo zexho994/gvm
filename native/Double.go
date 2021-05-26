@@ -16,5 +16,5 @@ func _double(method Method, name, desc string) {
 // (D)J
 func doubleToRawLongBits(frame *runtime.Frame) {
 	// todo
-	frame.PushLong(0)
+	frame.PushLong(int64(frame.GetDouble(0)))
 }

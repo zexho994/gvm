@@ -14,14 +14,13 @@ type Ldc2W struct {
 
 func (i Ldc2W) Execute(frmae *runtime.Frame) {
 	c := frmae.GetConstantInfo(i.Index)
-	stack := frmae
 	switch c.(type) {
 	case *constant_pool.ConstantDoubleInfo:
 		double := c.(*constant_pool.ConstantDoubleInfo)
-		stack.PushDouble(double.Value())
+		frmae.PushDouble(double.Value())
 	case *constant_pool.ConstantLongInfo:
 		long := c.(*constant_pool.ConstantLongInfo)
-		stack.PushLong(long.Value())
+		frmae.PushLong(long.Value())
 	default:
 		exception.GvmError{Msg: "ldc2_w error,unknow type "}.Throw()
 	}

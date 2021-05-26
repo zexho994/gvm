@@ -37,7 +37,7 @@ func initSystemProperties(thread *runtime.Thread) {
 	if len(solt) == 0 || solt[0].Ref == nil {
 		thread.RevertFramePC()
 		initSys, _ := sysClass.FindStaticMethod("initializeSystemClass", "()V")
-		initSysFrame := runtime.NewFrame(4, 3, initSys, thread)
+		initSysFrame := runtime.NewFrame(4, 4, initSys, thread)
 		thread.PushFrame(initSysFrame)
 	}
 }

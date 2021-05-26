@@ -30,10 +30,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update GetPrimitive(),suppose to get 'double'">
-      <change afterPath="$PROJECT_DIR$/native/Double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/iniinitialize.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/java/lang/String.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/constant/ldc2_w.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/Double.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/Double.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopFields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -737,13 +740,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/runtime/operandStack.go</url>
-          <line>57</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

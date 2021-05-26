@@ -57,7 +57,6 @@ func InitOopFields(instance *klass.Klass) *OopFields {
 		desc := jf[idx].Descriptor()
 		slots := utils.Slots{}
 		slot := utils.Slot{Type: utils.TypeMapping(desc)}
-		// double & long 需要两个slot
 		if desc == "D" || desc == "J" {
 			slots = append(slots, slot)
 		}

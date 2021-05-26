@@ -41,10 +41,6 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	}
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
-	//if utils.IsNative(method.AccessFlag()) {
-	//	nativeMethod := native.FindNativeMethod(method)
-	//	nativeMethod(newFrame)
-	//	return
-	//}
+
 	invokerThread.PushFrame(newFrame)
 }
