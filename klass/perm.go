@@ -38,6 +38,9 @@ func (p *perm) GetPrimitive(name string) *Klass {
 	if name == "float" {
 		return p.Get(config.JPrimitiveFloat)
 	}
+	if name == "double" {
+		return p.Get(config.JPrimitiveDouble)
+	}
 	panic("todo more")
 }
 
