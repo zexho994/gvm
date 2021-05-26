@@ -12,5 +12,6 @@ func InitNativeMethod() {
 		InitVM()
 		InitSystem()
 		InitClassStatic()
+		InitFloat()
 	})
 }
