@@ -29,8 +29,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0xbf athrow">
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="config add Primitive">
+      <change afterPath="$PROJECT_DIR$/native/ClassStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/iniinitialize.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/iniinitialize.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,10 +168,10 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/instructions/reserved" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/runtime" />
-      <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/loader" />
     </key>
   </component>
@@ -281,21 +288,8 @@
       <workItem from="1621830686880" duration="6068000" />
       <workItem from="1621836798563" duration="1416000" />
       <workItem from="1621844374586" duration="21026000" />
-      <workItem from="1621935099844" duration="16142000" />
-    </task>
-    <task id="LOCAL-00089" summary="refactoring MethodInfo">
-      <created>1621831987468</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1621831987468</updated>
-    </task>
-    <task id="LOCAL-00090" summary="refactor: add Thread.IsFinished() method">
-      <created>1621832446361</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1621832446361</updated>
+      <workItem from="1621935099844" duration="20380000" />
+      <workItem from="1622003548315" duration="3078000" />
     </task>
     <task id="LOCAL-00091" summary="refactoring MethodInfo fields klass -&gt; *Klass">
       <created>1621832789049</created>
@@ -626,7 +620,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621952860207</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="add initSystemProperties()">
+      <created>1621953112299</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1621953112299</updated>
+    </task>
+    <task id="LOCAL-00139" summary="config add Primitive">
+      <created>1622004585236</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1622004585236</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,8 +709,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor all structs under package frame that turn the methodInfo field into pointers" />
-    <MESSAGE value="Update perm  -&gt; Perm &amp; add func InitPerm()" />
     <MESSAGE value="add GvmEnvInit()" />
     <MESSAGE value="refactor StartVM()" />
     <MESSAGE value="refactor loop()" />
@@ -726,13 +732,22 @@
     <MESSAGE value="refactor getField" />
     <MESSAGE value="bugfix nop" />
     <MESSAGE value="new inst 0xbf athrow" />
-    <option name="LAST_COMMIT_MESSAGE" value="new inst 0xbf athrow" />
+    <MESSAGE value="add initSystemProperties()" />
+    <MESSAGE value="config add Primitive" />
+    <option name="LAST_COMMIT_MESSAGE" value="config add Primitive" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/ClassStatic.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

@@ -4,14 +4,8 @@ import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/instructions"
 	"github.com/zouzhihao-994/gvm/instructions/base"
-	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
-
-// Interpret code 解释器
-func Interpret(method *klass.MethodInfo, t *runtime.Thread) {
-	loop(t)
-}
 
 // loop 循环执行code指令
 func loop(thread *runtime.Thread) {

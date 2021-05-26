@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
-	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
-	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // InvokeMethod 执行方法调用
@@ -23,12 +21,6 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	invokerThread := frame.Thread
 	var newFrame *runtime.Frame
 	var attrCode *attribute.AttrCode
-
-	if utils.IsNative(method.AccessFlag()) {
-		nativeMethod := native.FindNativeMethod(method)
-		nativeMethod(frame)
-		return
-	}
 
 	attrCode, _ = method.AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
@@ -49,5 +41,10 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	}
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
+	//if utils.IsNative(method.AccessFlag()) {
+	//	nativeMethod := native.FindNativeMethod(method)
+	//	nativeMethod(newFrame)
+	//	return
+	//}
 	invokerThread.PushFrame(newFrame)
 }

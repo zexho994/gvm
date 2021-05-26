@@ -11,5 +11,6 @@ func InitNativeMethod() {
 	once.Do(func() {
 		InitVM()
 		InitSystem()
+		InitClassStatic()
 	})
 }
