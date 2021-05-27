@@ -11,7 +11,7 @@ type Frame struct {
 	nextFrame *Frame
 	*LocalVars
 	*OperandStack
-	*klass.MethodInfo
+	*klass.MethodKlass
 	*Thread
 }
 
@@ -32,11 +32,17 @@ func (f *Frame) RevertPC() {
 	f.framePC = f.Thread.pc
 }
 
-func NewFrame(maxlocals, maxStack uint16, method *klass.MethodInfo, thread *Thread) *Frame {
+func NewFrame(maxlocals, maxStack uint16, method *klass.MethodKlass, thread *Thread) *Frame {
+	//return &Frame{
+	//	LocalVars:    NewLocalVars(maxlocals),
+	//	OperandStack: NewOperandStack(maxStack),
+	//	MethodKlass:   method,
+	//	Thread:       thread,
+	//}
 	return &Frame{
-		LocalVars:    NewLocalVars(maxlocals),
-		OperandStack: NewOperandStack(maxStack),
-		MethodInfo:   method,
+		LocalVars:    NewLocalVars(10),
+		OperandStack: NewOperandStack(10),
+		MethodKlass:  method,
 		Thread:       thread,
 	}
 }

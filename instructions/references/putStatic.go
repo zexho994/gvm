@@ -33,6 +33,6 @@ func (i PutStatic) Execute(frame *runtime.Frame) {
 	slots[0] = frame.PopSlot()
 	name, _ := fieldInfo.NameAndDescriptor()
 
-	jci.StaticFields.SetField(name, slots)
+	jci.StaticFields.SetStaticField(name, slots)
 
 }

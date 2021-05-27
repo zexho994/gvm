@@ -22,7 +22,7 @@ type IAttributeInfo interface {
 	parse(reader *loader.ClassReader)
 }
 
-func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp *constant_pool.ConstantPool) AttributesInfo {
+func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp *constant_pool.ConstantPool) *AttributesInfo {
 	attributes := make(AttributesInfo, attrCount)
 	for i := range attributes {
 		attrNameIdx := reader.ReadUint16()
@@ -31,7 +31,7 @@ func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp *constant_
 		attrInfo.parse(reader)
 		attributes[i] = attrInfo
 	}
-	return attributes
+	return &attributes
 }
 
 func newAttributeInfo(nameIdx uint16, attrLen uint32, cp *constant_pool.ConstantPool) IAttributeInfo {

@@ -17,7 +17,7 @@ func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
 	cp := frame.ConstantPool
 	k := cp.GetConstantInfo(i.Index)
 	var kl *klass.Klass
-	var method *klass.MethodInfo
+	var method *klass.MethodKlass
 
 	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {
 		kl = klass.Perm.Get(kMethodRef.ClassName())

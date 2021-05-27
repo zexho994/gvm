@@ -83,8 +83,11 @@ func (stack *OperandStack) PushRef(ref *oops.OopInstance) {
 
 func (stack *OperandStack) PopRef() *oops.OopInstance {
 	stack.size--
-	ref := stack.slots[stack.size].Ref.(*oops.OopInstance)
-	stack.slots[stack.size].Ref = nil
+	var ref *oops.OopInstance
+	if stack.slots[stack.size].Ref != nil {
+		ref = stack.slots[stack.size].Ref.(*oops.OopInstance)
+		stack.slots[stack.size].Ref = nil
+	}
 	return ref
 }
 

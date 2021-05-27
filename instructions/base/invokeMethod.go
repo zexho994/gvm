@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
-	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
-	"github.com/zouzhihao-994/gvm/utils"
 )
 
 // InvokeMethod 执行方法调用
@@ -14,16 +12,15 @@ import (
 // 对于实例方法，参数要加上编译器添加的this
 // 对于本地方法，
 // 对于接口方法，
-func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool) {
+func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool) {
+	//utils.AssertTrue(method != nil, exception.NullPointException)
+	if method == nil {
+		return
+	}
+
 	invokerThread := frame.Thread
 	var newFrame *runtime.Frame
 	var attrCode *attribute.AttrCode
-
-	if utils.IsNative(method.AccessFlag()) {
-		nativeMethod := native.FindNativeMethod(method)
-		nativeMethod(frame)
-		return
-	}
 
 	attrCode, _ = method.AttrCode()
 	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
@@ -44,5 +41,6 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodInfo, isStatic bool)
 	}
 
 	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
+
 	invokerThread.PushFrame(newFrame)
 }

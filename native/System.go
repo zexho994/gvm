@@ -21,22 +21,27 @@ func setOut0(frame *runtime.Frame) {
 	sysClass := frame.Klass
 	slots := make([]utils.Slot, 2)
 	slots[0].Ref = out
-	sysClass.StaticFields.SetField("in", slots)
+	sysClass.StaticFields.SetStaticField("in", slots)
 }
 
 func initProperties(frame *runtime.Frame) {
-	//props := frame.LocalVars().GetRef(0)
-	//frame.OperandStack().PushRef(props)
-	//setPropMethod, _, _ := props.Klass().FindMethod("setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;")
+	props := frame.GetRef(0)
+	frame.PushRef(props)
 
+	//method, err, _ := props.Klass.FindMethod("setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;")
+	//if err != nil {
+	//	return
+	//}
+	//
 	//sysPropMap := _getSysProps()
 	//sysPropKeys := _getSysPropKeys(sysPropMap)
 
 	//for _, key := range sysPropKeys {
-	//val := sysPropMap[key]
-	//jKey := frame.
-
+	//	val := sysPropMap[key]
+	//	args := []utils.Slot{{Ref: props}, {Ref: key}, {Ref: val}}
+	//	frame.InvokeMethodWithShim(method, args)
 	//}
+
 }
 
 func _getSysProps() map[string]string {

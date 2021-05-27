@@ -34,5 +34,4 @@ func (i *NEW) Execute(frame *runtime.Frame) {
 
 	instance := oops.NewOopInstance(class)
 	frame.PushRef(instance)
-
 }

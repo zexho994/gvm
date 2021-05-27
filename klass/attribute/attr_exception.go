@@ -5,9 +5,9 @@ import (
 	"github.com/zouzhihao-994/gvm/loader"
 )
 
-// AttrExceptions Exceptions属性是变长属性，位于 MethodInfo 结构中
+// AttrExceptions Exceptions属性是变长属性，位于 MethodKlass 结构中
 // 表示一个方法可能抛出的受检查异常(checked exception)
-// 一个 MethodInfo 结果的属性表中最多一个 AttrExceptions 属性
+// 一个 MethodKlass 结果的属性表中最多一个 AttrExceptions 属性
 // 如果一个方法要抛出异常，需要满足3个条件之一
 // 		1. 抛出的是RuntimeException或者子类的实例
 // 		2. 要抛出的是Error或子类的实例

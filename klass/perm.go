@@ -1,6 +1,7 @@
 package klass
 
 import (
+	"github.com/zouzhihao-994/gvm/config"
 	"sync"
 )
 
@@ -31,4 +32,18 @@ func (p *perm) Save(name string, klass *Klass) {
 
 func (p *perm) Get(name string) *Klass {
 	return p.space[name]
+}
+
+func (p *perm) GetPrimitive(name string) *Klass {
+	if name == "float" {
+		return p.Get(config.JPrimitiveFloat)
+	}
+	if name == "double" {
+		return p.Get(config.JPrimitiveDouble)
+	}
+	panic("todo more")
+}
+
+func (p *perm) Space() map[string]*Klass {
+	return p.space
 }

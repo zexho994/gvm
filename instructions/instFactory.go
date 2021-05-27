@@ -129,12 +129,15 @@ var (
 	dup2X1 = &stack.Dup2X1{}
 	dup2X2 = &stack.Dup2X2{}
 
+	i2l = &conversions.I2l{}
 	i2f = &conversions.I2f{}
 	f2i = &conversions.F2i{}
 
 	iinc  = &math.IINC{}
 	_goto = &control.GOTO{}
 
+	checkcast    = &references.Checkcast{}
+	instanceOf   = &references.InstanceOf{}
 	monitorEnter = &references.MonitorEntry{}
 	monitorExit  = &references.MonitorExit{}
 
@@ -172,6 +175,10 @@ var (
 	anewarray       = &references.AnewArray{}
 	_newArray       = &references.NewArray{}
 	arrayLength     = &references.ArrayLength{}
+	athrow          = &references.AThrow{}
+
+	lshl = &math.Lshl{}
+	land = &math.Land{}
 )
 
 func NewInstruction(opcode byte) base.Instruction {
@@ -414,8 +421,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return dneg
 	//case 0x78:
 	//	return ishl
-	//case 0x79:
-	//	return lshl
+	case 0x79:
+		return lshl
 	//case 0x7a:
 	//	return ishr
 	//case 0x7b:
@@ -426,8 +433,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return lushr
 	//case 0x7e:
 	//	return iand
-	//case 0x7f:
-	//	return land
+	case 0x7f:
+		return land
 	//case 0x80:
 	//	return ior
 	//case 0x81:
@@ -438,8 +445,8 @@ func NewInstruction(opcode byte) base.Instruction {
 	//	return lxor
 	case 0x84:
 		return iinc
-	//case 0x85:
-	//	return i2l
+	case 0x85:
+		return i2l
 	case 0x86:
 		return i2f
 	//case 0x87:
@@ -554,12 +561,12 @@ func NewInstruction(opcode byte) base.Instruction {
 		return anewarray
 	case 0xbe:
 		return arrayLength
-	//case 0xbf:
-	//	return athrow
+	case 0xbf:
+		return athrow
 	//case 0xc0:
 	//	return checkcast
-	//case 0xc1:
-	//	return instanceof
+	case 0xc1:
+		return instanceOf
 	case 0xc2:
 		return monitorEnter
 	case 0xc3:

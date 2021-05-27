@@ -21,7 +21,7 @@ type AttrCode struct {
 	ExceptionTable []*ExceptionTable
 	// 属性表
 	attrCount uint16
-	attrInfo  AttributesInfo
+	*AttributesInfo
 }
 
 // ExceptionTable 异常表
@@ -39,7 +39,7 @@ func (c *AttrCode) parse(reader *loader.ClassReader) {
 	c.code = reader.ReadBytes(c.codeLen)
 	c.ExceptionTable = parseExceptionTable(reader)
 	c.attrCount = reader.ReadUint16()
-	c.attrInfo = ParseAttributes(c.attrCount, reader, c.ConstantPool)
+	c.AttributesInfo = ParseAttributes(c.attrCount, reader, c.ConstantPool)
 }
 
 func parseExceptionTable(reader *loader.ClassReader) []*ExceptionTable {

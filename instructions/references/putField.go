@@ -2,6 +2,7 @@ package references
 
 import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
+	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
@@ -15,6 +16,7 @@ type PutField struct {
 func (i *PutField) Execute(frame *runtime.Frame) {
 	fieldRef := frame.GetConstantFieldsInfo(i.Index)
 	fieldName, fieldDesc := fieldRef.NameAndDescriptor()
+	k := klass.Perm.Get(frame.ThisClass)
 
 	var slots utils.Slots
 	slots = append(slots, utils.Slot{})
@@ -25,7 +27,7 @@ func (i *PutField) Execute(frame *runtime.Frame) {
 	slots[0].Type = utils.TypeMapping(fieldDesc)
 
 	objRef := frame.PopRef()
-	fields := oops.FindField(fieldName, objRef.OopFields, objRef, false)
+	fields := oops.FindField(fieldName, objRef.OopFields, k)
 	for idx := range slots {
 		fields.Slots()[idx] = slots[idx]
 	}

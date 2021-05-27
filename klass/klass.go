@@ -1,6 +1,7 @@
 package klass
 
 import (
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/exception"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
@@ -40,7 +41,7 @@ type Klass struct {
 	Methods
 	// 属性表
 	AttributesCount uint16
-	attribute.AttributesInfo
+	*attribute.AttributesInfo
 
 	// 初始化标识
 	IsInit bool
@@ -87,7 +88,9 @@ func ParseToKlass(reader *loader.ClassReader) *Klass {
 	Perm.Save(kl.ThisClass, kl)
 	// 执行链接步骤
 	kl.Linked()
+	// 执行初始化步骤
 	kl.init()
+
 	return kl
 }
 
@@ -166,7 +169,7 @@ func (k *Klass) parseInterfaces() []*Klass {
 	return interfaces
 }
 
-func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
+func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodKlass, error) {
 	for i := range k.Methods {
 		methodInfo := k.Methods[i]
 		if !utils.IsStatic(methodInfo.AccessFlag()) {
@@ -184,8 +187,8 @@ func (k *Klass) FindStaticMethod(name, descriptor string) (*MethodInfo, error) {
 
 // FindMethod TODO:可以从父类中加载出方法，并检查权限
 // name: method method
-// @return the MethodInfo belong to the Klass
-func (k *Klass) FindMethod(name, descriptor string) (*MethodInfo, error, *Klass) {
+// @return the MethodKlass belong to the Klass
+func (k *Klass) FindMethod(name, descriptor string) (*MethodKlass, error, *Klass) {
 	if k == nil {
 		return nil, nil, nil
 	}
@@ -248,14 +251,14 @@ func (k *Klass) verify() {
 //        这部分的判断逻辑在putstatic,getstatic指令时再执行.
 func (k *Klass) prepare() {
 	jFields := k.Fields
-	vars := NewStaticFieldVars()
-	for idx := range jFields {
+	staticFields := NewStaticFieldVars()
+	for _, f := range jFields {
 		// 不处理实例变量
-		if !utils.IsStatic(k.Fields[idx].AccessFlags) {
+		if !utils.IsStatic(f.AccessFlags) {
 			continue
 		}
 		var slot utils.Slot
-		desc := jFields[idx].Descriptor()
+		desc := f.Descriptor()
 		switch desc {
 		case "I":
 			slot = utils.Slot{Num: 0, Type: utils.SlotInt, Ref: nil}
@@ -277,9 +280,9 @@ func (k *Klass) prepare() {
 			slot = utils.Slot{Num: 0, Type: utils.SlotRef, Ref: nil}
 		}
 
-		vars.AddField(jFields[idx].Name(), slot)
+		staticFields.AddStaticField(f.Name(), desc, slot)
 	}
-	k.StaticFields = vars
+	k.StaticFields = staticFields
 }
 
 func (k *Klass) parse() {
@@ -288,4 +291,50 @@ func (k *Klass) parse() {
 
 func (k *Klass) init() {
 
+}
+
+func (k *Klass) IsArray() bool {
+	return k.ThisClass[0] == '['
+}
+
+func (k *Klass) IsObject() bool {
+	return k == Perm.Get(config.JObjectClassName)
+}
+func (k *Klass) IsJlCloneable() bool {
+	return k == Perm.Get(config.JObjectClassName)
+}
+func (k *Klass) IsJioSerializable() bool {
+	return k == Perm.Get(config.JIoSerializableClassName)
+}
+func (k *Klass) IsSubClassOf(t *Klass) bool {
+	for super := k.SuperClass; super != nil; super = super.SuperClass {
+		if super == t {
+			return true
+		}
+	}
+	return false
+}
+func (k *Klass) IsImplements(t *Klass) bool {
+	for s := k; s != nil; s = s.SuperClass {
+		for idx, i := range s.Interfaces {
+			if i == nil {
+				i = ParseByClassName(s.GetConstantClassInfo(s.InterfaceUints[idx]).Name())
+			}
+			if i == t || i.IsSubClassOf(t) {
+				return true
+			}
+		}
+	}
+	return false
+}
+func (k *Klass) IsSuperInterfaceOf(iface *Klass) bool {
+	return iface.IsSubInterfaceOf(k)
+}
+func (k *Klass) IsSubInterfaceOf(iface *Klass) bool {
+	for _, superInterface := range k.Interfaces {
+		if superInterface == iface || superInterface.IsSubInterfaceOf(iface) {
+			return true
+		}
+	}
+	return false
 }

@@ -1,7 +1,6 @@
 package references
 
 import (
-	"fmt"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
@@ -18,8 +17,6 @@ type InvokeInterface struct {
 // 该方法不能是实例初始化方法<init>、类或接口初始化方法<clinit>
 func (i InvokeInterface) Execute(frame *runtime.Frame) {
 	poolIndex := i.Index >> 16
-	count := (i.Index << 16) >> 16
-	fmt.Println(count)
 	constantMethod := frame.GetConstantInterfaceMethodInfo(uint16(poolIndex))
 	methodNameStr, methodDescStr := constantMethod.NameAndDescriptor()
 	k := frame.GetByIdx(0)
