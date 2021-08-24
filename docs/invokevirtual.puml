@@ -1,0 +1,20 @@
+@startuml
+autonumber
+thread -> main ++: 执行
+main -> main : 创建一个Invokevirual对象实例
+main -> main : 复制一份引用
+main -> main : 执行实例初始化
+main -> main : 保存栈顶引用到局部变量表1
+main -> main : 局部变量表1的对象引用push到操作数栈
+main -> main : 常量1 push 到操作变量表
+main -> main : 常量2 push 到操作变量表
+main -> main : 创建栈帧frame
+main -> thread --: frame push 到thread的栈顶
+thread -> invokevirual ++: 执行
+invokevirual -> invokevirual : 从frame中获取参数
+invokevirual -> invokevirual : 执行方法逻辑(省略)
+invokevirual -> thread --: 返回结果
+thread -> main ++: 结果在操作数栈中传递给main
+main -> main : 执行GvmOut.to()
+return
+@enduml
