@@ -8,6 +8,7 @@ public class PrintOut {
         int x = 1;
         int y = 2;
         int c = x + y;
+        GvmOut.to(c);
     }
 
 }

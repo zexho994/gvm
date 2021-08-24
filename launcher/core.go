@@ -5,7 +5,6 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/loader"
-	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -23,7 +22,7 @@ func StartVM() {
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
 	mainThread.PushFrame(newFrame)
 
-	initSystemProperties(mainThread)
+	//initSystemProperties(mainThread)
 	initClasses(mainThread)
 
 	loop(mainThread)
@@ -54,7 +53,7 @@ func createMainThread() *runtime.Thread {
 func GvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
-	native.InitNativeMethod()
+	//native.InitNativeMethod()
 }
 
 func mainMethod(k *klass.Klass) *klass.MethodKlass {
