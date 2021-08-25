@@ -8,6 +8,7 @@ var LibJarDir string
 var ExtJarDir string
 
 var LogInvoke bool
+var LogInterpreter bool
 
 type Options struct {
 	MainModule      string

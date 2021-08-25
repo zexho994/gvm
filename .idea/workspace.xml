@@ -29,10 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: 补充文档">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: invoke方法配置日志打印">
       <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,27 +322,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00106" summary="refactor fcmp.go">
-      <created>1621844642272</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1621844642272</updated>
-    </task>
-    <task id="LOCAL-00107" summary="refactor if_icmp.go">
-      <created>1621844706377</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1621844706377</updated>
-    </task>
-    <task id="LOCAL-00108" summary="refactor lcmp.go">
-      <created>1621844761706</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1621844761706</updated>
     </task>
     <task id="LOCAL-00109" summary="refactor const.go">
       <created>1621844812907</created>
@@ -668,7 +645,28 @@
       <option name="project" value="LOCAL" />
       <updated>1629861423929</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="update: cmd添加LogInvoke参数">
+      <created>1629862053471</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1629862053471</updated>
+    </task>
+    <task id="LOCAL-00156" summary="docs: version.md">
+      <created>1629862062834</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1629862062834</updated>
+    </task>
+    <task id="LOCAL-00157" summary="update: invoke方法配置日志打印">
+      <created>1629862619737</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1629862619737</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -743,8 +741,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
-    <MESSAGE value="init ThreadGroup.class" />
     <MESSAGE value="init java.lang.System class" />
     <MESSAGE value="bugfix endless loop for findFields()" />
     <MESSAGE value="new inst 0xc7 instanceOf" />
@@ -765,10 +761,12 @@
     <MESSAGE value="update: gitignore add *.class" />
     <MESSAGE value="update: add gvm native interface hook" />
     <MESSAGE value="update: registry GvmOut.to(I)V" />
-    <MESSAGE value="docs: version.md" />
     <MESSAGE value="feat: 成功执行 GvmOut.to(int) native 方法" />
     <MESSAGE value="docs: 补充文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 补充文档" />
+    <MESSAGE value="update: cmd添加LogInvoke参数" />
+    <MESSAGE value="docs: version.md" />
+    <MESSAGE value="update: invoke方法配置日志打印" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: invoke方法配置日志打印" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
