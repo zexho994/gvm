@@ -75,12 +75,10 @@ func (l *LocalVars) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
 	l.SetLong(index, int64(bits))
 	l.slots[index].Type = utils.SlotDouble
-
 }
 
 func (l *LocalVars) GetDouble(index uint) float64 {
 	bits := uint64(l.GetLong(index))
-
 	return math.Float64frombits(bits)
 }
 

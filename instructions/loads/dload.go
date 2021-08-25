@@ -33,7 +33,7 @@ func _dload(frame *runtime.Frame, index uint) {
 	frame.PushDouble(val)
 }
 
-// Execute execute DLOAD
+// Execute DLOAD
 // the index is stored inside the instrution
 func (self *DLOAD) Execute(frame *runtime.Frame) {
 	_dload(frame, uint(self.Index))

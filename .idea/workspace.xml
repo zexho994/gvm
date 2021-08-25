@@ -29,9 +29,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: class初始化配置打印日志">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: 补充version.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/dload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/print/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/print/PrintOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/GvmNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/GvmNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/localvars.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/localvars.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,28 +315,7 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-      <workItem from="1629865503903" duration="494000" />
-    </task>
-    <task id="LOCAL-00112" summary="refactor all structs under package frame that turn the methodInfo field into pointers">
-      <created>1621845942373</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1621845942373</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Update perm  -&gt; Perm &amp; add func InitPerm()">
-      <created>1621846342059</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1621846342059</updated>
-    </task>
-    <task id="LOCAL-00114" summary="add GvmEnvInit()">
-      <created>1621846708339</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1621846708340</updated>
+      <workItem from="1629865503903" duration="2594000" />
     </task>
     <task id="LOCAL-00115" summary="refactor StartVM()">
       <created>1621847087003</created>
@@ -657,19 +639,40 @@
       <option name="project" value="LOCAL" />
       <updated>1629863332846</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="update: invoke method 添加日志打印">
+      <created>1629866409286</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1629866409287</updated>
+    </task>
+    <task id="LOCAL-00162" summary="update: invoke method 添加日志打印">
+      <created>1629866475452</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1629866475452</updated>
+    </task>
+    <task id="LOCAL-00163" summary="docs: 补充version.md">
+      <created>1629866622913</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1629866622913</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
+    <option name="COLUMN_ID_ORDER">
       <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
       </list>
     </option>
   </component>
@@ -732,8 +735,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor getField" />
-    <MESSAGE value="bugfix nop" />
     <MESSAGE value="new inst 0xbf athrow" />
     <MESSAGE value="add initSystemProperties()" />
     <MESSAGE value="config add Primitive" />
@@ -757,13 +758,22 @@
     <MESSAGE value="update: 配置指令日志打印" />
     <MESSAGE value="update: cmd添加LogInitClass参数" />
     <MESSAGE value="update: class初始化配置打印日志" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: class初始化配置打印日志" />
+    <MESSAGE value="update: invoke method 添加日志打印" />
+    <MESSAGE value="docs: 补充version.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 补充version.md" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/GvmNative.go</url>
+          <line>48</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
