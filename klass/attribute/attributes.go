@@ -24,11 +24,17 @@ type IAttributeInfo interface {
 
 func ParseAttributes(attrCount uint16, reader *loader.ClassReader, cp *constant_pool.ConstantPool) *AttributesInfo {
 	attributes := make(AttributesInfo, attrCount)
+	//遍历属性表
 	for i := range attributes {
+		//属性表常量池索引
 		attrNameIdx := reader.ReadUint16()
+		//属性表长度
 		attrLen := reader.ReadUint32()
+		//属性表数据
 		attrInfo := newAttributeInfo(attrNameIdx, attrLen, cp)
+		//解析数据
 		attrInfo.parse(reader)
+		//设置
 		attributes[i] = attrInfo
 	}
 	return &attributes

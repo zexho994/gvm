@@ -29,21 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: 补充version.md">
-      <change afterPath="$PROJECT_DIR$/java/print/PrintLong.java" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="fix: lload、lstore、dload、dstore index error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/dload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/lload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/lload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stores/dstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/dstore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stores/ltores.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stores/ltores.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/print/PrintFieldsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/print/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/print/PrintOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/slot.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/slot存储规则.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loader/apploader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/apploader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loader/loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/loader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/GvmNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/GvmNative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,13 +330,6 @@
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
       <workItem from="1629865503903" duration="2594000" />
-    </task>
-    <task id="LOCAL-00115" summary="refactor StartVM()">
-      <created>1621847087003</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1621847087003</updated>
     </task>
     <task id="LOCAL-00116" summary="refactor loop()">
       <created>1621847879921</created>
@@ -681,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629866622913</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="fix: lload、lstore、dload、dstore index error">
+      <created>1629881876239</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1629881876239</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +749,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new inst 0xbf athrow" />
     <MESSAGE value="add initSystemProperties()" />
     <MESSAGE value="config add Primitive" />
     <MESSAGE value="bugfix: native method attrCode , 0xbc -&gt; 0xac" />
@@ -781,7 +773,8 @@
     <MESSAGE value="update: class初始化配置打印日志" />
     <MESSAGE value="update: invoke method 添加日志打印" />
     <MESSAGE value="docs: 补充version.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 补充version.md" />
+    <MESSAGE value="fix: lload、lstore、dload、dstore index error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: lload、lstore、dload、dstore index error" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -790,9 +783,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/native/GvmNative.go</url>
-          <line>36</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/instructions/loads/lload.go</url>
+          <line>38</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

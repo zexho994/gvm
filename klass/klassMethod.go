@@ -112,16 +112,22 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.C
 	methods := make([]*MethodKlass, count)
 	for i := range methods {
 		method := &MethodKlass{}
+		//设置常量池
 		method.ConstantPool = pool
+		//设置访问标记
 		method.accessFlag = reader.ReadUint16()
+		//name常量池索引
 		method.nameIdx = reader.ReadUint16()
+		//描述符常量池索引
 		method.descriptorIdx = reader.ReadUint16()
+		//属性表数量
 		method.attrCount = reader.ReadUint16()
 		// 解析方法表中的属性表字段
 		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
 		method.descriptor = ParseMethodDescriptor(method.MethodDescriptor())
 		method.argSlotCount = method.descriptor.ParamsCount()
+		// 绑定klass&method
 		method.Klass = k
 		// 本地方法注入字节码
 		method.InjectCodeAttrIfNative()

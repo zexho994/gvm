@@ -22,5 +22,3 @@ slots[index+1].Num = int32(val >> 32) //索引n+1存储高32位
 l.slots[index].Type = utils.SlotDouble
 l.slots[index+1].Type = utils.SlotDouble
 ```
-
-10 -> 0,1076101120
