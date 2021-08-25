@@ -5,6 +5,7 @@ import (
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/loader"
+	"github.com/zouzhihao-994/gvm/native"
 	"github.com/zouzhihao-994/gvm/runtime"
 	"github.com/zouzhihao-994/gvm/utils"
 )
@@ -53,7 +54,7 @@ func createMainThread() *runtime.Thread {
 func GvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
-	//native.InitNativeMethod()
+	native.InitNativeMethod()
 }
 
 func mainMethod(k *klass.Klass) *klass.MethodKlass {

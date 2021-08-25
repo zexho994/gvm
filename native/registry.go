@@ -15,6 +15,7 @@ func InitNativeMethod() {
 	InitClassStatic()
 	InitFloat()
 	InitDouble()
+	InitGvmNative()
 }
 
 var registry = map[string]Method{}

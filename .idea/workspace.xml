@@ -29,24 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="new inst 0x7f land">
-      <change afterPath="$PROJECT_DIR$/runtime/shimMethod.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime/shipFrame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeSpecial.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_exception.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_exception.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klass.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/Double.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/Double.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/System.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/System.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/thread.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/thread.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: add gvm native interface hook" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +54,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactoring" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,16 +77,20 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="refactoring" />
-                    <option name="lastUsedInstant" value="1621414344" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feat" />
-                    <option name="lastUsedInstant" value="1621414245" />
+                    <option name="branchName" value="feat_v3.0" />
+                    <option name="lastUsedInstant" value="1629806476" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1599144242" />
+                    <option name="lastUsedInstant" value="1629806450" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feat" />
+                    <option name="lastUsedInstant" value="1629806447" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="refactoring" />
+                    <option name="lastUsedInstant" value="1621414344" />
                   </RecentBranch>
                 </list>
               </option>
@@ -125,6 +112,12 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
     <option name="useGoPathFromSystemEnvironment" value="false" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/local/go/src/runtime/panic.go" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="vepmdpx9" />
   </component>
   <component name="ProjectId" id="1fgj1nRn7gPxFJ3xf0fiwPoTpc4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -176,11 +169,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java" />
+      <recent name="$PROJECT_DIR$/java/src" />
       <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/instructions/reserved" />
       <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$/runtime" />
-      <recent name="$PROJECT_DIR$/loader" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -253,8 +246,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
+        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
@@ -298,27 +291,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00099" summary="refactoring Perm">
-      <created>1621835373740</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1621835373740</updated>
-    </task>
-    <task id="LOCAL-00100" summary="rename Clinit() -&gt; GetClinitMethod">
-      <created>1621835484719</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1621835484719</updated>
-    </task>
-    <task id="LOCAL-00101" summary="refactor all structs under package constant_pool that turn the cp field into pointers">
-      <created>1621835920482</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1621835920482</updated>
     </task>
     <task id="LOCAL-00102" summary="trun Frame localvars fiels into LocalVars pointer">
       <created>1621836199860</created>
@@ -642,7 +614,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622031643973</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="update: add inst 0xc0 checkcase">
+      <created>1629806806713</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1629806806713</updated>
+    </task>
+    <task id="LOCAL-00149" summary="update: gitignore add *.class">
+      <created>1629806838889</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1629806838889</updated>
+    </task>
+    <task id="LOCAL-00150" summary="update: add gvm native interface hook">
+      <created>1629807697239</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1629807697239</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +662,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feat" />
+                        <option value="feat_v3.0" />
                       </list>
                     </value>
                   </entry>
@@ -717,9 +710,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="Add some func to get constant info" />
-    <MESSAGE value="new inst 0xfe-invokeNative" />
-    <MESSAGE value="simply" />
     <MESSAGE value="stash" />
     <MESSAGE value="default config add bootstrap class" />
     <MESSAGE value="add initBootStrapClass()" />
@@ -742,7 +732,10 @@
     <MESSAGE value="Use fixed size values instead of maxlocal,maxstack" />
     <MESSAGE value="new inst 0x79 lshl" />
     <MESSAGE value="new inst 0x7f land" />
-    <option name="LAST_COMMIT_MESSAGE" value="new inst 0x7f land" />
+    <MESSAGE value="update: add inst 0xc0 checkcase" />
+    <MESSAGE value="update: gitignore add *.class" />
+    <MESSAGE value="update: add gvm native interface hook" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: add gvm native interface hook" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
