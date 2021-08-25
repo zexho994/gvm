@@ -22,11 +22,8 @@ func loop(thread *runtime.Thread) {
 		inst := instructions.NewInstruction(opcode)
 		inst.FetchOperands(methodReader)
 		curFrame.SetFramePC(methodReader.MethodReaderPC())
-
-		fmt.Printf("----%s.%s%s class exec -> %d inst----\n",
-			curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
+		fmt.Printf("----%s.%s%s class exec -> %d inst----\n", curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
 		inst.Execute(curFrame)
-
 		if finished(thread) {
 			return
 		}

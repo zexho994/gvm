@@ -1,6 +1,8 @@
 package references
 
 import (
+	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	klass "github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
@@ -15,6 +17,10 @@ type InvokeStatic struct {
 // Execute invoke a static method
 // get the static method -> verify the access flag of method equals static -> parse constant method to
 func (i *InvokeStatic) Execute(frame *runtime.Frame) {
+	if config.LogInvoke {
+		fmt.Printf("----%s.%s%s class exec -> invokeStatic ----\n",
+			frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
+	}
 	k := frame.GetConstantInfo(i.Index)
 	var method *klass.MethodKlass
 	var kl *klass.Klass
