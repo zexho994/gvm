@@ -1,7 +1,6 @@
 package native
 
 import (
-	"fmt"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
@@ -37,7 +36,6 @@ func FindNativeMethod(method *klass.MethodKlass) Method {
 	key := method.Klass.ThisClass + "~" + method.MethodName() + "~" + method.MethodDescriptor()
 
 	if nativeMethod, ok := registry[key]; ok {
-		fmt.Printf("----find native method -> %s----\n", key)
 		return nativeMethod
 	}
 

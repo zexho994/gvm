@@ -34,7 +34,6 @@ func InitClassLoader() {
 // @param fileName 类名
 func Loading(fileName string) []byte {
 	fileName = fileName + ".class"
-	//fmt.Println("loadding calss file -> " + fileName)
 	var data []byte
 
 	// 从启动类加载器中加载

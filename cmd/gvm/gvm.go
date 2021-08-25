@@ -59,6 +59,8 @@ func PrintUsage() {
 	fmt.Println("\t -v : print gvm version")
 	fmt.Println("\t -help : print help ablout gvm")
 	fmt.Println("\t -log_invoke : prints the method call log")
+	fmt.Println("\t -log_it : prints the instructions log")
+	fmt.Println("\t -log_init_class : prints the class initialization log")
 }
 
 // initParamConfig 通过命令行模式启动gvm

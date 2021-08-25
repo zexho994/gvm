@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -29,8 +29,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: 配置指令日志打印">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: class初始化配置打印日志">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +148,9 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
@@ -255,19 +258,6 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="gvm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gvm" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
@@ -322,20 +312,7 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00110" summary="refactor thread.go">
-      <created>1621845444747</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1621845444747</updated>
-    </task>
-    <task id="LOCAL-00111" summary="refactor all under package of load">
-      <created>1621845667141</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1621845667142</updated>
+      <workItem from="1629865503903" duration="494000" />
     </task>
     <task id="LOCAL-00112" summary="refactor all structs under package frame that turn the methodInfo field into pointers">
       <created>1621845942373</created>
@@ -666,7 +643,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629862914173</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="update: cmd添加LogInitClass参数">
+      <created>1629863278008</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1629863278008</updated>
+    </task>
+    <task id="LOCAL-00160" summary="update: class初始化配置打印日志">
+      <created>1629863332846</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1629863332846</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,8 +732,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="bugfix endless loop for findFields()" />
-    <MESSAGE value="new inst 0xc7 instanceOf" />
     <MESSAGE value="refactor getField" />
     <MESSAGE value="bugfix nop" />
     <MESSAGE value="new inst 0xbf athrow" />
@@ -766,7 +755,9 @@
     <MESSAGE value="docs: version.md" />
     <MESSAGE value="update: invoke方法配置日志打印" />
     <MESSAGE value="update: 配置指令日志打印" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 配置指令日志打印" />
+    <MESSAGE value="update: cmd添加LogInitClass参数" />
+    <MESSAGE value="update: class初始化配置打印日志" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: class初始化配置打印日志" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

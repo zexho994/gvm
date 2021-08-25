@@ -2,6 +2,7 @@ package base
 
 import (
 	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/runtime"
@@ -38,7 +39,9 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool
 		newFrame.SetSlot(uint(i), slot)
 	}
 
-	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
+	if config.LogInvoke {
+		fmt.Printf("---- %s invoke method ->  %s.%s%s ---- \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
+	}
 
 	invokerThread.PushFrame(newFrame)
 }
