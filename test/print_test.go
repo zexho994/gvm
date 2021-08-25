@@ -6,8 +6,15 @@ import (
 	"testing"
 )
 
-func TestIntPrintOut(t *testing.T) {
+func TestAllPrintOut(t *testing.T) {
 	config.ClassName = "PrintOut"
+	config.JrePath = config.JrePathDefault
+	config.ClassPath = config.UserClassPathDefault + "/print"
+	launcher.StartVM()
+}
+
+func TestDoublePrint(t *testing.T) {
+	config.ClassName = "PrintLong"
 	config.JrePath = config.JrePathDefault
 	config.ClassPath = config.UserClassPathDefault + "/print"
 	launcher.StartVM()

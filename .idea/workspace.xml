@@ -30,11 +30,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: 补充version.md">
+      <change afterPath="$PROJECT_DIR$/java/print/PrintLong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/loads/dload.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/loads/dload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/print/PrintOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/print/PrintOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/GvmNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/GvmNative.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/localvars.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/localvars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/print/PrintFieldsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader/apploader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/apploader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader/loader.go" beforeDir="false" afterPath="$PROJECT_DIR$/loader/loader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +147,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/java/src/MyInterface.java" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/java/src/MyInterface.java&#10;/Users/zexho/Github/gvm/java/print/PrintFieldsTest.class" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="true" />
@@ -192,7 +195,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test">
+  <component name="RunManager" selected="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -211,6 +214,18 @@
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/gvm/gvm.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDoublePrint in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestDoublePrint\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestIntPrintOut in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -266,14 +281,15 @@
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -767,13 +783,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/native/GvmNative.go</url>
-          <line>48</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

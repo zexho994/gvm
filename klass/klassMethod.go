@@ -17,17 +17,8 @@ type MethodKlass struct {
 	*attribute.AttributesInfo
 	*constant_pool.ConstantPool
 	argSlotCount uint
+	descriptor   *MethodDescriptor
 	*Klass
-}
-
-func NewMethodKlass(acc, n, d, attr uint16, k *Klass) *MethodKlass {
-	return &MethodKlass{
-		accessFlag:    acc,
-		nameIdx:       n,
-		descriptorIdx: d,
-		attrCount:     attr,
-		Klass:         k,
-	}
 }
 
 // InjectCodeAttrIfNative injected a code attribute for method
@@ -64,6 +55,15 @@ func (m *MethodKlass) InjectCodeAttrIfNative() {
 func (m MethodKlass) MethodDescriptor() string {
 	return m.GetUtf8(m.descriptorIdx)
 }
+
+func (m MethodKlass) Descriptor() *MethodDescriptor {
+	return m.descriptor
+}
+
+// MethodDescriptorArray 将方法描述符由字符串转换成数组
+// (Ljava/lang/String;IDJLPrintLong;) -> [1,1,2,2,1,1] : 对应参数的类型需要几个slot槽
+//func (m MethodKlass) MethodDescriptorArray() []string {
+//}
 
 func (m MethodKlass) DescriptorIdx() uint16 {
 	return m.descriptorIdx
@@ -120,7 +120,8 @@ func parseMethod(count uint16, reader *loader.ClassReader, pool *constant_pool.C
 		// 解析方法表中的属性表字段
 		method.AttributesInfo = attribute.ParseAttributes(method.attrCount, reader, pool)
 		methods[i] = method
-		method.argSlotCount = ParseMethodDescriptor(method.MethodDescriptor()).ParamsCount()
+		method.descriptor = ParseMethodDescriptor(method.MethodDescriptor())
+		method.argSlotCount = method.descriptor.ParamsCount()
 		method.Klass = k
 		// 本地方法注入字节码
 		method.InjectCodeAttrIfNative()

@@ -44,7 +44,5 @@ func toBool(frame *runtime.Frame) {
 
 func toDouble(frame *runtime.Frame) {
 	v := frame.GetDouble(0)
-
-	//v := (val1 >> 16) + val2
 	println(v)
 }
