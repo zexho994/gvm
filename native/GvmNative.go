@@ -1,6 +1,7 @@
 package native
 
 import (
+	"fmt"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -19,30 +20,30 @@ func to(method Method, name, desc string) {
 
 func toInt(frame *runtime.Frame) {
 	val := frame.LocalVars.GetInt(0)
-	println(val)
+	fmt.Printf("%v\n", val)
 }
 
 func toString(frame *runtime.Frame) {
 	val := frame.LocalVars.GetRef(0)
-	println(val.JString())
+	fmt.Printf("%v\n", val.JString())
 }
 
 func toFloat(frame *runtime.Frame) {
 	val := frame.LocalVars.GetFloat(0)
-	println(val)
+	fmt.Printf("%f\n", val)
 }
 
 func toLong(frame *runtime.Frame) {
 	val := frame.LocalVars.GetLong(0)
-	println(val)
+	fmt.Printf("%v\n", val)
 }
 
 func toBool(frame *runtime.Frame) {
 	val := frame.LocalVars.GetBoolean(0)
-	println(val)
+	fmt.Println(val)
 }
 
 func toDouble(frame *runtime.Frame) {
 	v := frame.GetDouble(0)
-	println(v)
+	fmt.Printf("%f\n", v)
 }

@@ -20,7 +20,7 @@ public class PrintOut {
         boolean z = true;
         GvmOut.to(z);
 
-        long l = 5;
+        long l = 5l;
         GvmOut.to(l);
     }
 

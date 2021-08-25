@@ -13,7 +13,6 @@ import (
 // 对于本地方法，
 // 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool) {
-	//utils.AssertTrue(method != nil, exception.NullPointException)
 	if method == nil {
 		return
 	}
@@ -39,7 +38,6 @@ func setVirtualArguments(frame *runtime.Frame, newFrame *runtime.Frame, method *
 	argSlotCount := int(method.ArgSlotCount())
 	n := argSlotCount
 	methodParamters := method.Descriptor().Paramters()
-	fmt.Println(methodParamters)
 	for i := n; i >= 0; i-- {
 		if i > 0 && methodParamters[i-1] == "D" {
 			val := frame.PopDouble()
@@ -60,13 +58,12 @@ func setStaticArguments(frame *runtime.Frame, newFrame *runtime.Frame, method *k
 	argSlotCount := int(method.ArgSlotCount())
 	n := argSlotCount - 1
 	methodParamters := method.Descriptor().Paramters()
-	fmt.Println(methodParamters)
 	for i := n; i >= 0; i-- {
 		if methodParamters[i] == "D" {
 			val := frame.PopDouble()
 			newFrame.SetDouble(uint(i), val)
 			i--
-		} else if methodParamters[i] == "L" {
+		} else if methodParamters[i] == "J" {
 			val := frame.PopLong()
 			newFrame.SetLong(uint(i), val)
 			i--
