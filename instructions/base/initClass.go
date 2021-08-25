@@ -2,13 +2,16 @@ package base
 
 import (
 	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
 // InitClass 初始化<clinit>方法
 func InitClass(k *klass.Klass, thread *runtime.Thread) {
-	fmt.Printf("----[InitClass] 类初始化 %s ----\n", k.ThisClass)
+	if config.LogInitClass {
+		fmt.Printf("----[InitClass] 类初始化 %s ----\n", k.ThisClass)
+	}
 	clinitMethod, exist := k.Methods.GetClinitMethod()
 	k.IsInit = true
 	if exist {
