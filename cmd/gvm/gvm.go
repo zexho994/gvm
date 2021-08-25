@@ -23,6 +23,7 @@ type Cmd struct {
 	XjreOption     string   // 指定jre目录的位置
 	LogInvoke      bool     // 打印调用日志
 	LogInterpreter bool     // 打印指令解释日志
+	LogInitClass   bool     //打印类初始化日志
 }
 
 // ParseCmd 命令行处理方法
@@ -42,6 +43,7 @@ func ParseCmd() *Cmd {
 
 	flag.BoolVar(&cmd.LogInvoke, "log_invoke", false, "[gvm] prints the method call log")
 	flag.BoolVar(&cmd.LogInterpreter, "log_it", false, "[gvm] prints the instructions log")
+	flag.BoolVar(&cmd.LogInitClass, "log_init_class", false, "[gvm] prints the class initialization log")
 
 	flag.Parse()
 	return cmd
@@ -71,6 +73,7 @@ func initParamConfig() {
 	cmd.printArguments()
 }
 
+// 判断是否是-h -v指令
 func (cmd *Cmd) isHelpOrVersion() bool {
 	if cmd.VersionFlag {
 		fmt.Println("gvm version " + config.GvmVersion)
@@ -82,13 +85,16 @@ func (cmd *Cmd) isHelpOrVersion() bool {
 	return false
 }
 
-// 进行日志参数的配置
+// LogParameterConfiguration 进行日志参数的配置
 func (cmd *Cmd) LogParameterConfiguration() {
 	if cmd.LogInvoke {
 		config.LogInvoke = true
 	}
 	if cmd.LogInterpreter {
 		config.LogInterpreter = true
+	}
+	if cmd.LogInitClass {
+		config.LogInitClass = true
 	}
 }
 

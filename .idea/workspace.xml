@@ -29,8 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: invoke方法配置日志打印">
-      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: 配置指令日志打印">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +162,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16551724" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -322,13 +322,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00109" summary="refactor const.go">
-      <created>1621844812907</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1621844812907</updated>
     </task>
     <task id="LOCAL-00110" summary="refactor thread.go">
       <created>1621845444747</created>
@@ -666,7 +659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629862619737</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="update: 配置指令日志打印">
+      <created>1629862914173</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1629862914173</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,7 +741,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="init java.lang.System class" />
     <MESSAGE value="bugfix endless loop for findFields()" />
     <MESSAGE value="new inst 0xc7 instanceOf" />
     <MESSAGE value="refactor getField" />
@@ -766,7 +765,8 @@
     <MESSAGE value="update: cmd添加LogInvoke参数" />
     <MESSAGE value="docs: version.md" />
     <MESSAGE value="update: invoke方法配置日志打印" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: invoke方法配置日志打印" />
+    <MESSAGE value="update: 配置指令日志打印" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 配置指令日志打印" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
