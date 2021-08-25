@@ -27,11 +27,9 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool
 	argSlotCount := int(method.ArgSlotCount())
 	var n int
 	if isStatic {
-		if argSlotCount == 0 {
-			invokerThread.PushFrame(newFrame)
-			return
-		}
 		n = 1
+	} else {
+		n = 0
 	}
 
 	n = argSlotCount - n

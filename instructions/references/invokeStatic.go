@@ -13,11 +13,9 @@ type InvokeStatic struct {
 }
 
 // Execute invoke a static method
-// get the static method -> verify the access flag of method equals static
-// -> parse constant method to
+// get the static method -> verify the access flag of method equals static -> parse constant method to
 func (i *InvokeStatic) Execute(frame *runtime.Frame) {
 	k := frame.GetConstantInfo(i.Index)
-
 	var method *klass.MethodKlass
 	var kl *klass.Klass
 	if kMethodRef, ok := k.(*constant_pool.ConstantMethodInfo); ok {

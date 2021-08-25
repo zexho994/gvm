@@ -29,7 +29,32 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: add gvm native interface hook" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: version.md">
+      <change afterPath="$PROJECT_DIR$/docs/PrintOut逻辑.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/invoke static.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/native方法调用.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/print/PrintFieldsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/print/PrintOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/print/PrintStaticTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/references/invokeStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/references/invokeStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/reserved/invokeNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/GvmOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/print/GvmOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintFieldsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintFieldsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintOut.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintStaticTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/PrintStaticTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/GvmNative.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/GvmNative.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native/registry.go" beforeDir="false" afterPath="$PROJECT_DIR$/native/registry.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +65,7 @@
       <list>
         <option value="Class" />
         <option value="Go File" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -115,6 +141,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file:///usr/local/go/src/runtime/panic.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/native/ClassStatic.go" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="vepmdpx9" />
@@ -131,6 +158,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -169,11 +197,11 @@
       <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/print" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/src" />
       <recent name="$PROJECT_DIR$/native" />
       <recent name="$PROJECT_DIR$/instructions/reserved" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -181,7 +209,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm">
+  <component name="RunManager" selected="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -200,6 +228,18 @@
       <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/gvm/gvm.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestIntPrintOut in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestIntPrintOut\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -238,18 +278,32 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="gvm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="gvm" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.Test_startJVM in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -291,20 +345,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00102" summary="trun Frame localvars fiels into LocalVars pointer">
-      <created>1621836199860</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1621836199860</updated>
-    </task>
-    <task id="LOCAL-00103" summary="trun Frame operandstack fiels into OperandStack pointer">
-      <created>1621836752177</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1621836752177</updated>
     </task>
     <task id="LOCAL-00104" summary="trun Frame operandstack fiels into OperandStack pointer">
       <created>1621836762952</created>
@@ -635,7 +675,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629807697239</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="update: registry GvmOut.to(I)V">
+      <created>1629855308111</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1629855308111</updated>
+    </task>
+    <task id="LOCAL-00152" summary="docs: version.md">
+      <created>1629855821757</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1629855821757</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,8 +764,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="stash" />
-    <MESSAGE value="default config add bootstrap class" />
     <MESSAGE value="add initBootStrapClass()" />
     <MESSAGE value="add initPrimitiveClasses()" />
     <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
@@ -735,13 +787,32 @@
     <MESSAGE value="update: add inst 0xc0 checkcase" />
     <MESSAGE value="update: gitignore add *.class" />
     <MESSAGE value="update: add gvm native interface hook" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: add gvm native interface hook" />
+    <MESSAGE value="update: registry GvmOut.to(I)V" />
+    <MESSAGE value="docs: version.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: version.md" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/native/GvmNative.go</url>
+          <line>15</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/instructions/references/invokeStatic.go</url>
+          <line>17</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/launcher/interpreter.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
@@ -753,6 +824,7 @@
       </configuration>
       <configuration name="GoTestRunConfiguration">
         <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/src/share/runtime.Frame&quot;)(824634116832)" />
+        <watch expression="*(*&quot;github.com/zouzhihao-994/gvm/utils.Slot&quot;)(824642765120)" />
       </configuration>
     </watches-manager>
   </component>

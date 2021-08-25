@@ -12,7 +12,8 @@ type InvokeNative struct {
 }
 
 func (*InvokeNative) Execute(frame *runtime.Frame) {
-	fmt.Printf("-> invokenative: %s.%s%s\n", frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
+	fmt.Printf("----invoke native;%s.%s%s class exec ----\n",
+		frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
 	nativeMethod := native.FindNativeMethod(frame.MethodKlass)
 	nativeMethod(frame)
 }

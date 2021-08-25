@@ -11,7 +11,7 @@ import (
 )
 
 func StartVM() {
-	GvmEnvInit()
+	gvmEnvInit()
 
 	classFile := loader.Loading(config.ClassName)
 	k := klass.ParseToKlass(loader.NewClassReader(classFile))
@@ -50,8 +50,8 @@ func createMainThread() *runtime.Thread {
 	return mainThrad
 }
 
-// GvmEnvInit Perform the initialization of gvm
-func GvmEnvInit() {
+// gvmEnvInit Perform the initialization of gvm
+func gvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
 	native.InitNativeMethod()

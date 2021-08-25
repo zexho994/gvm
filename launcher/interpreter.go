@@ -23,7 +23,7 @@ func loop(thread *runtime.Thread) {
 		inst.FetchOperands(methodReader)
 		curFrame.SetFramePC(methodReader.MethodReaderPC())
 
-		fmt.Printf("----%s.%s%s class exec-> %d inst----\n",
+		fmt.Printf("----%s.%s%s class exec -> %d inst----\n",
 			curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
 		inst.Execute(curFrame)
 
