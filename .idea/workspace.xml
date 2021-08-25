@@ -29,10 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="feat: 成功执行 GvmOut.to(int) native 方法">
-      <change afterPath="$PROJECT_DIR$/docs/PrintOut逻辑.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/invoke static.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/native方法调用.puml" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="docs: 补充文档">
+      <change beforePath="$PROJECT_DIR$/cmd/gvm/gvm.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gvm/gvm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/version.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,13 +324,6 @@
       <workItem from="1621844374586" duration="21026000" />
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
-    </task>
-    <task id="LOCAL-00105" summary="refactor config">
-      <created>1621838187740</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1621838187740</updated>
     </task>
     <task id="LOCAL-00106" summary="refactor fcmp.go">
       <created>1621844642272</created>
@@ -668,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629861276752</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="docs: 补充文档">
+      <created>1629861423929</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1629861423929</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -743,7 +743,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add initPrimitiveClasses()" />
     <MESSAGE value="add initClasses() to inInitialize the bootstrap class" />
     <MESSAGE value="init ThreadGroup.class" />
     <MESSAGE value="init java.lang.System class" />
@@ -768,7 +767,8 @@
     <MESSAGE value="update: registry GvmOut.to(I)V" />
     <MESSAGE value="docs: version.md" />
     <MESSAGE value="feat: 成功执行 GvmOut.to(int) native 方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 成功执行 GvmOut.to(int) native 方法" />
+    <MESSAGE value="docs: 补充文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 补充文档" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

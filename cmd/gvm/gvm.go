@@ -21,6 +21,7 @@ type Cmd struct {
 	Class       string   // 文件名
 	Args        []string // 命令行的全部参数
 	XjreOption  string   // 指定jre目录的位置
+	LogInvoke   bool     //
 }
 
 // ParseCmd 命令行处理方法
@@ -37,8 +38,10 @@ func ParseCmd() *Cmd {
 	flag.StringVar(&cmd.CpOption, "cp", "", "[gvm] class")
 	flag.StringVar(&cmd.XjreOption, "xjre", "", "[gvm] path to jre")
 	flag.StringVar(&cmd.Class, "class", "", "[gvm] class file name")
-	flag.Parse()
 
+	flag.BoolVar(&cmd.LogInvoke, "log_invoke", false, "[gvm] prints the method call log")
+
+	flag.Parse()
 	return cmd
 }
 
@@ -51,16 +54,16 @@ func PrintUsage() {
 	fmt.Println("\t -cp : path of the class file local,is relative path")
 	fmt.Println("\t -v : print gvm version")
 	fmt.Println("\t -help : print help ablout gvm")
+	fmt.Println("\t -log_invoke : prints the method call log")
 }
 
 // initParamConfig 通过命令行模式启动gvm
 func initParamConfig() {
 	cmd := ParseCmd()
-
-	// 非启动命令
 	if cmd.isHelpOrVersion() {
 		return
 	}
+	cmd.LogParameterConfiguration()
 	cmd.checkDefault()
 	cmd.updateConfig()
 	cmd.printArguments()
@@ -75,6 +78,13 @@ func (cmd *Cmd) isHelpOrVersion() bool {
 		return true
 	}
 	return false
+}
+
+// 进行日志参数的配置
+func (cmd *Cmd) LogParameterConfiguration() {
+	if cmd.LogInvoke {
+		config.LogInvoke = true
+	}
 }
 
 func (cmd *Cmd) checkDefault() {
