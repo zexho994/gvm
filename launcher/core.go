@@ -15,10 +15,8 @@ func StartVM() {
 
 	classFile := loader.Loading(config.ClassName)
 	k := klass.ParseToKlass(loader.NewClassReader(classFile))
-
 	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
-
 	code, _ := mainMethod.AttrCode()
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
 	mainThread.PushFrame(newFrame)

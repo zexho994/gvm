@@ -29,14 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="fix: lload、lstore、dload、dstore index error">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: interpreter loop()">
+      <change afterPath="$PROJECT_DIR$/java/genericity/GvmOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/genericity/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/slot.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/slot存储规则.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/attribute/attr_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attr_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/attribute/attributes.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/attribute/attributes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/klass/klassMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/klass/klassMethod.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/interpreter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oops/oopInstance.go" beforeDir="false" afterPath="$PROJECT_DIR$/oops/oopInstance.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -158,7 +159,7 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java/genericity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -175,11 +176,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/genericity" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/test" />
       <recent name="$PROJECT_DIR$/java/src/test" />
       <recent name="$PROJECT_DIR$/java/src/gvm_system" />
-      <recent name="$PROJECT_DIR$/src/share/instructions/control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/java/print" />
@@ -194,7 +195,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test">
+  <component name="RunManager" selected="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -251,16 +252,16 @@
       <pattern value="^\QTestIntPrintOut\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestPersonGenericity in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/cmd/gvm" />
+      <working_directory value="$PROJECT_DIR$/test" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/cmd/gvm" />
+      <package value="github.com/zouzhihao-994/gvm/test" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_startJVM\E$/^\Qtest1\E$" />
+      <pattern value="^\QTestPersonGenericity\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -276,18 +277,18 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-      <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
       <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestIntPrintOut in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Build.go build github.com/zouzhihao-994/gvm/cmd/gvm" />
-        <item itemvalue="Go Test.Test_startJVM/test1 in github.com/zouzhihao-994/gvm/cmd/gvm" />
       </list>
     </recent_temporary>
   </component>
@@ -330,13 +331,6 @@
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
       <workItem from="1629865503903" duration="2594000" />
-    </task>
-    <task id="LOCAL-00116" summary="refactor loop()">
-      <created>1621847879921</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1621847879921</updated>
     </task>
     <task id="LOCAL-00117" summary="OopInstance files -&gt; *OopFields">
       <created>1621848170151</created>
@@ -674,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629881876239</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="refactor: interpreter loop()">
+      <created>1629890953803</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1629890953803</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,7 +750,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="add initSystemProperties()" />
     <MESSAGE value="config add Primitive" />
     <MESSAGE value="bugfix: native method attrCode , 0xbc -&gt; 0xac" />
     <MESSAGE value="refactor" />
@@ -774,20 +774,14 @@
     <MESSAGE value="update: invoke method 添加日志打印" />
     <MESSAGE value="docs: 补充version.md" />
     <MESSAGE value="fix: lload、lstore、dload、dstore index error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: lload、lstore、dload、dstore index error" />
+    <MESSAGE value="refactor: interpreter loop()" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: interpreter loop()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/instructions/loads/lload.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>

@@ -48,6 +48,7 @@ func execInst(thread *runtime.Thread, reader *base.MethodCodeReader) {
 	if config.LogInterpreter {
 		fmt.Printf("----[interpreter] %s.%s%s class exec -> %d inst----\n", curFrame.ThisClass, curFrame.MethodName(), curFrame.MethodDescriptor(), opcode)
 	}
+	//执行指令
 	inst.Execute(curFrame)
 }
 

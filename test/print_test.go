@@ -19,3 +19,10 @@ func TestDoublePrint(t *testing.T) {
 	config.ClassPath = config.UserClassPathDefault + "/print"
 	launcher.StartVM()
 }
+
+func TestPersonGenericity(t *testing.T) {
+	config.ClassName = "Person"
+	config.JrePath = config.JrePathDefault
+	config.ClassPath = config.UserClassPathDefault + "/genericity"
+	launcher.StartVM()
+}
