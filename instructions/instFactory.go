@@ -563,8 +563,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return arrayLength
 	case 0xbf:
 		return athrow
-	//case 0xc0:
-	//	return checkcast
+	case 0xc0:
+		return checkcast
 	case 0xc1:
 		return instanceOf
 	case 0xc2:

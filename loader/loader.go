@@ -34,24 +34,19 @@ func InitClassLoader() {
 // @param fileName 类名
 func Loading(fileName string) []byte {
 	fileName = fileName + ".class"
-	//fmt.Println("loadding calss file -> " + fileName)
 	var data []byte
-
 	// 从启动类加载器中加载
 	if data = BSCLoader.Loading(fileName); data != nil {
 		return data
 	}
-
 	// 从扩展类加载器中加载
 	if data = EXCLoader.Loading(fileName); data != nil {
 		return data
 	}
-
 	// 从用户类加载器中加载
 	if data = APPLoader.Loading(fileName); data != nil {
 		return data
 	}
-
 	exception.GvmError{Msg: "classfile not found"}.Throw()
 	return nil
 }
@@ -80,7 +75,6 @@ func jars(path string) []string {
 			jars = append(jars, path)
 		}
 		return nil
-
 	}
 	// 遍历每一个
 	filepath.Walk(baseDir, walkFn)
@@ -92,7 +86,6 @@ func jars(path string) []string {
 */
 func getJreDirPath() string {
 	jreOption := config.JrePath
-
 	// 如果用户输入了-Xjre 参数
 	if exists(jreOption) {
 		return jreOption
@@ -104,7 +97,6 @@ func getJreDirPath() string {
 	if exists("./jre") {
 		return "./jre"
 	}
-
 	/**
 	没有输入 -Xjre参数,而且当前目录下也没有找到
 	在 JAVA_HOME中找
@@ -112,7 +104,6 @@ func getJreDirPath() string {
 	if jh := os.Getenv("JAVA_HOME"); jh != "" {
 		return filepath.Join(jh, "jre")
 	}
-
 	exception.GvmError{Msg: "jre folder does't exist"}.Throw()
 	return ""
 }

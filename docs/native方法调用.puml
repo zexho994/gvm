@@ -1,0 +1,19 @@
+@startuml
+autonumber
+
+startVM -> native ++: 注册所有本地方法
+return ok
+
+startVM -> interpreter ++: 执行方法
+    loop code
+        interpreter -> instFactory ++: 获取指令
+        return
+        interpreter -> invokeNative ++: 假设是0xfe invokenative指令
+        invokeNative -> native ++: find native method
+        return method
+        invokeNative -> invokeNative : exec method(frame)
+        return ok
+    end
+return ok
+
+@enduml

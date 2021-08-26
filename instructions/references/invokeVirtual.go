@@ -1,6 +1,8 @@
 package references
 
 import (
+	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/oops"
 	"github.com/zouzhihao-994/gvm/runtime"
@@ -13,6 +15,10 @@ type InvokeVirtual struct {
 }
 
 func (i *InvokeVirtual) Execute(frame *runtime.Frame) {
+	if config.LogInvoke {
+		fmt.Printf("----%s.%s%s class exec -> invokevirtual ----\n",
+			frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
+	}
 	constantMethod := frame.GetConstantMethodInfo(i.Index)
 	objectRef := frame.GetByIdx(0)
 	k := objectRef.Ref.(*oops.OopInstance).Klass

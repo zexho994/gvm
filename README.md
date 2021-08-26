@@ -12,6 +12,7 @@
     - 支持 new,newArray 等对象创建指令
 - 多态，支持类重载以及方法重写
 - 方法区缓存，可以获取已加载的类实例
+- JNI，支持自定义native方法
 
 ## 开始使用
 
@@ -173,9 +174,29 @@ public static void if_test(){
 
 ![pic4](https://tva1.sinaimg.cn/large/008eGmZEly1gphbtozlsxj304w0avwf5.jpg)
 
+### 泛型
+```java
+public class Son<T extends Person<String>>{
+
+    T father;
+
+    public static void main(String[] args) {
+        Son<Person<String>> son = new Son<>();
+        son.father = new Person();
+        son.father.name = "李四";
+        GvmOut.to(son.father.name);
+    }
+
+    public T name(T t){
+        return t;
+    }
+}
+```
+
+![pic5](https://tva1.sinaimg.cn/large/008i3skNgy1gtuab3005aj607e02kq2s02.jpg)
+
 ## 待实现
 
-- [ ]  实现 jni
 - [ ]  异常堆栈
 - [ ]  lambda 语句支持
 - [ ]  多线程

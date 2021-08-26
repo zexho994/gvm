@@ -6,7 +6,7 @@ import (
 )
 
 // DSTORE Store double into local variable
-type DSTORE struct{ base.InstructionIndex16 }
+type DSTORE struct{ base.InstructionIndex8 }
 
 func (self *DSTORE) Execute(frame *runtime.Frame) {
 	_dstore(frame, uint(self.Index))

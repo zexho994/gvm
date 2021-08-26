@@ -1,6 +1,7 @@
 /pkg/
 /.idea/*
 
+*.class
 .DS_Store
 *.class
 java/src/.idea/

@@ -6,7 +6,7 @@ import (
 )
 
 type LLOAD struct {
-	base.InstructionIndex16
+	base.InstructionIndex8
 }
 
 type Lload0 struct {

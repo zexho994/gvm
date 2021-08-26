@@ -64,7 +64,12 @@ func NewStringOopInstance(str string) *OopInstance {
 }
 
 func (i *OopInstance) IsInstanceOf(t *klass.Klass) bool {
-	return _checkcast(i.Klass, t)
+	if i.isString {
+		s := klass.Perm.Get("java/lang/String")
+		return _checkcast(s, t)
+	} else {
+		return _checkcast(i.Klass, t)
+	}
 }
 
 func _checkcast(s, t *klass.Klass) bool {

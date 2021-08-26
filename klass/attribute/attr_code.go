@@ -35,7 +35,9 @@ type ExceptionTable struct {
 func (c *AttrCode) parse(reader *loader.ClassReader) {
 	c.MaxStack = reader.ReadUint16()
 	c.MaxLocals = reader.ReadUint16()
+	//code字段长度
 	c.codeLen = reader.ReadUint32()
+	//读取len长度的字节
 	c.code = reader.ReadBytes(c.codeLen)
 	c.ExceptionTable = parseExceptionTable(reader)
 	c.attrCount = reader.ReadUint16()
