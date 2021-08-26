@@ -7,4 +7,7 @@ public class Person<T>{
         p.name = "张三";
         GvmOut.to(p.name);
     }
+
+    public void foo(T t){}
+
 }
