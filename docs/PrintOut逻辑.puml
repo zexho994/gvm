@@ -1,0 +1,30 @@
+// 代码
+public static void main(String[] args) {
+        int x = 1;
+        int y = 2;
+        int c = x + y;
+        GvmOut.to(c);
+}
+
+// gvm 执行顺序
+----PrintOut.main([Ljava/lang/String;)V class exec-> 4 inst----  = iconst_1
+----PrintOut.main([Ljava/lang/String;)V class exec-> 60 inst---- = istore_1
+----PrintOut.main([Ljava/lang/String;)V class exec-> 5 inst----  = iconst_2
+----PrintOut.main([Ljava/lang/String;)V class exec-> 61 inst---- = istore_2
+----PrintOut.main([Ljava/lang/String;)V class exec-> 27 inst---- = iload_1
+----PrintOut.main([Ljava/lang/String;)V class exec-> 28 inst---- = iload_2
+----PrintOut.main([Ljava/lang/String;)V class exec-> 96 inst---- = iadd
+----PrintOut.main([Ljava/lang/String;)V class exec-> 62 inst---- = istore_3
+----PrintOut.main([Ljava/lang/String;)V class exec-> 29 inst---- = iload_3
+----PrintOut.main([Ljava/lang/String;)V class exec-> 184 inst---- = invokestatic gvmout.to,要初始化
+----PrintOut.main([Ljava/lang/String;)V class exec-> 184 inst----  = invokestatic 再次执行
+
+// 指令解释
+iconst_1 : push const 1 to opstack
+istore_1 :  pop a val from opstack and save into lv_1
+iconst_2 : push const 2 to opstack
+istore_2 :  pop a val from opstack and save into lv_2
+
+@startuml
+
+@enduml

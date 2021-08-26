@@ -7,6 +7,10 @@ var ClassName string
 var LibJarDir string
 var ExtJarDir string
 
+var LogInvoke bool
+var LogInterpreter bool
+var LogInitClass bool
+
 type Options struct {
 	MainModule      string
 	MainClass       string

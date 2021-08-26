@@ -61,7 +61,7 @@ func (l *LocalVars) SetLong(index uint, val int64) {
 	l.slots[index].Num = int32(val)
 	l.slots[index+1].Num = int32(val >> 32)
 	l.slots[index].Type = utils.SlotLong
-
+	l.slots[index+1].Type = utils.SlotLong
 }
 
 func (l *LocalVars) GetLong(index uint) int64 {
@@ -75,12 +75,11 @@ func (l *LocalVars) SetDouble(index uint, val float64) {
 	bits := math.Float64bits(val)
 	l.SetLong(index, int64(bits))
 	l.slots[index].Type = utils.SlotDouble
-
+	l.slots[index+1].Type = utils.SlotDouble
 }
 
 func (l *LocalVars) GetDouble(index uint) float64 {
 	bits := uint64(l.GetLong(index))
-
 	return math.Float64frombits(bits)
 }
 

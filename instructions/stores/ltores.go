@@ -9,7 +9,7 @@ import (
 加载指令，将操作数栈的指保存到局部变了表中
 */
 type LSTORE struct {
-	base.InstructionIndex16
+	base.InstructionIndex8
 }
 
 type LSTORE_0 struct {

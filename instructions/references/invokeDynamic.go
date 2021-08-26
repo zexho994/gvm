@@ -2,6 +2,7 @@ package references
 
 import (
 	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/runtime"
@@ -15,6 +16,10 @@ type InvokeDynamic struct {
 // Execute invokedynamic指令出现的地方称为 "动态调用点"
 // 解析出引导方法
 func (i *InvokeDynamic) Execute(frame *runtime.Frame) {
+	if config.LogInvoke {
+		fmt.Printf("----%s.%s%s class exec -> invokeDynamic ----\n",
+			frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
+	}
 	constantPool := frame.ConstantPool
 	indexByte := uint16(i.Index >> 16)
 	constInvokeDynamic := constantPool.GetConstantDynamicInfo(indexByte)
