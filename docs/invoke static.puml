@@ -1,0 +1,29 @@
+@startuml
+|解释器|
+start
+|指令工厂|
+:获取指令;
+|解释器|
+:假设是0xb8 invokestatic指令;
+|invokestatick方法|
+:获取常量池信息;
+switch (常量类型)
+case (常量方法)
+    :强转成常量方法对象;
+    :获取方法名;
+    :是否类加载?;
+    :是否有初始化?;
+    :在类中查找目标常量方法;
+case (常量接口)
+  :Text 5;
+endswitch
+|invoke method方法|
+:获取当前线程;
+:获取方法attribute.code;
+:创建新的栈帧;
+:获取方法参数数量;
+:将参数push到新的栈帧中;
+:新的栈帧push到thread中;
+|解释器|
+end
+@enduml

@@ -11,19 +11,17 @@ import (
 )
 
 func StartVM() {
-	GvmEnvInit()
+	gvmEnvInit()
 
 	classFile := loader.Loading(config.ClassName)
 	k := klass.ParseToKlass(loader.NewClassReader(classFile))
-
 	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
-
 	code, _ := mainMethod.AttrCode()
 	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
 	mainThread.PushFrame(newFrame)
 
-	initSystemProperties(mainThread)
+	//initSystemProperties(mainThread)
 	initClasses(mainThread)
 
 	loop(mainThread)
@@ -50,8 +48,8 @@ func createMainThread() *runtime.Thread {
 	return mainThrad
 }
 
-// GvmEnvInit Perform the initialization of gvm
-func GvmEnvInit() {
+// gvmEnvInit Perform the initialization of gvm
+func gvmEnvInit() {
 	loader.InitClassLoader()
 	klass.InitPerm()
 	native.InitNativeMethod()

@@ -2,8 +2,8 @@ package base
 
 import (
 	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/klass"
-	"github.com/zouzhihao-994/gvm/klass/attribute"
 	"github.com/zouzhihao-994/gvm/runtime"
 )
 
@@ -13,34 +13,63 @@ import (
 // 对于本地方法，
 // 对于接口方法，
 func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool) {
-	//utils.AssertTrue(method != nil, exception.NullPointException)
 	if method == nil {
 		return
 	}
 
 	invokerThread := frame.Thread
-	var newFrame *runtime.Frame
-	var attrCode *attribute.AttrCode
+	attrCode, _ := method.AttrCode()
+	newFrame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
 
-	attrCode, _ = method.AttrCode()
-	newFrame = runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
-	argSlotCount := int(method.ArgSlotCount())
-	var n int
 	if isStatic {
-		if argSlotCount == 0 {
-			invokerThread.PushFrame(newFrame)
-			return
-		}
-		n = 1
+		setStaticArguments(frame, newFrame, method)
+	} else {
+		setVirtualArguments(frame, newFrame, method)
 	}
 
-	n = argSlotCount - n
-	for i := n; i >= 0; i-- {
-		slot := frame.PopSlot()
-		newFrame.SetSlot(uint(i), slot)
+	if config.LogInvoke {
+		fmt.Printf("---- %s invoke method ->  %s.%s%s ---- \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
 	}
-
-	fmt.Printf("=== %s invoke->  %s.%s%s === \n", frame.ThisClass, method.ThisClass, method.MethodName(), method.MethodDescriptor())
 
 	invokerThread.PushFrame(newFrame)
+}
+
+func setVirtualArguments(frame *runtime.Frame, newFrame *runtime.Frame, method *klass.MethodKlass) {
+	argSlotCount := int(method.ArgSlotCount())
+	n := argSlotCount
+	methodParamters := method.Descriptor().Paramters()
+	for i := n; i >= 0; i-- {
+		if i > 0 && methodParamters[i-1] == "D" {
+			val := frame.PopDouble()
+			newFrame.SetDouble(uint(i), val)
+			i--
+		} else if i > 0 && methodParamters[i-1] == "L" {
+			val := frame.PopLong()
+			newFrame.SetLong(uint(i), val)
+			i--
+		} else {
+			slot := frame.PopSlot()
+			newFrame.SetSlot(uint(i), slot)
+		}
+	}
+}
+
+func setStaticArguments(frame *runtime.Frame, newFrame *runtime.Frame, method *klass.MethodKlass) {
+	argSlotCount := int(method.ArgSlotCount())
+	n := argSlotCount - 1
+	methodParamters := method.Descriptor().Paramters()
+	for i := n; i >= 0; i-- {
+		if methodParamters[i] == "D" {
+			val := frame.PopDouble()
+			newFrame.SetDouble(uint(i), val)
+			i--
+		} else if methodParamters[i] == "J" {
+			val := frame.PopLong()
+			newFrame.SetLong(uint(i), val)
+			i--
+		} else {
+			slot := frame.PopSlot()
+			newFrame.SetSlot(uint(i), slot)
+		}
+	}
 }

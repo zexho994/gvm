@@ -1,6 +1,8 @@
 package references
 
 import (
+	"fmt"
+	"github.com/zouzhihao-994/gvm/config"
 	"github.com/zouzhihao-994/gvm/instructions/base"
 	"github.com/zouzhihao-994/gvm/klass"
 	"github.com/zouzhihao-994/gvm/klass/constant_pool"
@@ -14,6 +16,10 @@ type InvokeSpecial struct {
 }
 
 func (i *InvokeSpecial) Execute(frame *runtime.Frame) {
+	if config.LogInvoke {
+		fmt.Printf("----%s.%s%s class exec -> invokeSpecial ----\n",
+			frame.ThisClass, frame.MethodName(), frame.MethodDescriptor())
+	}
 	cp := frame.ConstantPool
 	k := cp.GetConstantInfo(i.Index)
 	var kl *klass.Klass
