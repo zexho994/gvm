@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+|调用方|
+start
+:获取目标类;
+:获取目标方法;
+:准备需要参数;
+|被调用方法|
+:执行方法;
+:return;
+|调用方|
+:接受返回参数;
+stop
+
+@enduml
