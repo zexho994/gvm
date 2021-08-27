@@ -29,16 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: checkcast 添加String类型判断">
-      <change afterPath="$PROJECT_DIR$/java/compare/Foreach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/compare/GvmOut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/genericity/Father.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/genericity/Son.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/print/AutoInnc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/genericity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/genericity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
-    </list>
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: 补充java示例" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +55,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="share" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,19 +80,15 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="feat_v3.0" />
-                    <option name="lastUsedInstant" value="1629806476" />
+                    <option name="lastUsedInstant" value="1629978965" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="share" />
+                    <option name="lastUsedInstant" value="1629978947" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
                     <option name="lastUsedInstant" value="1629806450" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feat" />
-                    <option name="lastUsedInstant" value="1629806447" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="refactoring" />
-                    <option name="lastUsedInstant" value="1621414344" />
                   </RecentBranch>
                 </list>
               </option>
