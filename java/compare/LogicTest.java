@@ -12,28 +12,26 @@ public class LogicTest{
 
   public static void if_test(){
       int n = 10;
+      GvmOut.to("10 > 9?");
       if (n > 9){
-        GvmOut.to(10);
+        GvmOut.to("yes");
       } else{
-        GvmOut.to(9);
+        GvmOut.to("no");
       }
   }
 
   public static void for_test(){
+    GvmOut.to("for : ");
     for(int i = 0 ; i < 5 ; i++){
       GvmOut.to(i);
     }
   }
   
   public static void while_test(){
+    GvmOut.to("while: ");
     int x = 100;
     while(x < 105){
       GvmOut.to(x++);
-    }
-
-    x = 100;
-    while(x < 105){
-      GvmOut.to(++x);
     }
   }
 

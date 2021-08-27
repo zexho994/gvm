@@ -14,6 +14,14 @@ func TestAutoInnc(t *testing.T) {
 	launcher.StartVM()
 }
 
+// test if...else..., while, for
+func TestCompare(t *testing.T) {
+	config.ClassName = "LogicTest"
+	config.JrePath = config.JrePathDefault
+	config.ClassPath = config.UserClassPathDefault + "/compare"
+	launcher.StartVM()
+}
+
 // test print
 func TestAllPrintOut(t *testing.T) {
 	config.ClassName = "PrintOut"

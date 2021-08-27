@@ -29,13 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor:">
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: to simplify the dup">
+      <change afterPath="$PROJECT_DIR$/java/compare/LogicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructions/stack/dup.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stack/dup.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/LogicTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/LogicTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +147,7 @@
     <property name="configurable.Module.GOPATH.is.expanded" value="true" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
@@ -179,11 +177,11 @@
       <recent name="$PROJECT_DIR$/java/src/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/compare" />
       <recent name="$PROJECT_DIR$/java/print" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/src" />
       <recent name="$PROJECT_DIR$/native" />
-      <recent name="$PROJECT_DIR$/instructions/reserved" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -191,7 +189,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test">
+  <component name="RunManager" selected="Go Test.TestCompare in github.com/zouzhihao-994/gvm/test">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -202,7 +200,7 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestAllPrintOut in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCompare in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$/test" />
       <root_directory value="$PROJECT_DIR$" />
@@ -211,19 +209,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestAllPrintOut\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAutoInnc in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gvm" />
-      <working_directory value="$PROJECT_DIR$/test" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/zouzhihao-994/gvm/test" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAutoInnc\E$" />
+      <pattern value="^\QTestCompare\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestDoublePrint in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -236,6 +222,18 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTestDoublePrint\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestIf in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gvm" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/zouzhihao-994/gvm/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestIf\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestPersonGenericity in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -274,19 +272,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestIf in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestCompare in github.com/zouzhihao-994/gvm/test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestCompare in github.com/zouzhihao-994/gvm/test" />
+        <item itemvalue="Go Test.TestIf in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
-        <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
-        <item itemvalue="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test" />
       </list>
     </recent_temporary>
   </component>
@@ -329,21 +327,7 @@
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
       <workItem from="1629865503903" duration="2594000" />
-      <workItem from="1630028450045" duration="2327000" />
-    </task>
-    <task id="LOCAL-00119" summary="OopInstance klassInstance -&gt; *Klass">
-      <created>1621848364002</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1621848364002</updated>
-    </task>
-    <task id="LOCAL-00120" summary="OopInstance markWords -&gt; *MarkWords">
-      <created>1621848410988</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1621848410988</updated>
+      <workItem from="1630028450045" duration="3455000" />
     </task>
     <task id="LOCAL-00121" summary="Add some func to get constant info">
       <created>1621849485724</created>
@@ -674,7 +658,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630028649959</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="refactor: to simplify the newFrame()">
+      <created>1630030991482</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1630030991482</updated>
+    </task>
+    <task id="LOCAL-00169" summary="refactor: to simplify the dup">
+      <created>1630031000870</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1630031000870</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,8 +747,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="refactor" />
-    <MESSAGE value="add native method floatToRawIntBits()" />
     <MESSAGE value="new inst 0x85 I2l" />
     <MESSAGE value="update GetPrimitive(),suppose to get 'double'" />
     <MESSAGE value="Use fixed size values instead of maxlocal,maxstack" />
@@ -774,7 +770,9 @@
     <MESSAGE value="refactor: interpreter loop()" />
     <MESSAGE value="update: checkcast 添加String类型判断" />
     <MESSAGE value="refactor: InvokeMethod add setArguments()" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: InvokeMethod add setArguments()" />
+    <MESSAGE value="refactor: to simplify the newFrame()" />
+    <MESSAGE value="refactor: to simplify the dup" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: to simplify the dup" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
