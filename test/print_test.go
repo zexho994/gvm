@@ -53,3 +53,11 @@ func TestSonGenericity(t *testing.T) {
 	config.ClassPath = config.UserClassPathDefault + "/genericity"
 	launcher.StartVM()
 }
+
+// test invokevirtual
+func TestInvoke(t *testing.T) {
+	config.ClassName = "InvokeVirtual"
+	config.JrePath = config.JrePathDefault
+	config.ClassPath = config.UserClassPathDefault + "/invoke"
+	launcher.StartVM()
+}

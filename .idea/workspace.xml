@@ -29,11 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor: to simplify the dup">
-      <change afterPath="$PROJECT_DIR$/java/compare/LogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: java.class">
+      <change afterPath="$PROJECT_DIR$/java/invoke/InvokeVirtual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/LogicTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/LogicTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/StaticKlass.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -327,14 +326,7 @@
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
       <workItem from="1629865503903" duration="2594000" />
-      <workItem from="1630028450045" duration="3455000" />
-    </task>
-    <task id="LOCAL-00121" summary="Add some func to get constant info">
-      <created>1621849485724</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1621849485724</updated>
+      <workItem from="1630028450045" duration="4133000" />
     </task>
     <task id="LOCAL-00122" summary="new inst 0xfe-invokeNative">
       <created>1621854023266</created>
@@ -672,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630031000870</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="update: java.class">
+      <created>1630033465769</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1630033465769</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -747,7 +746,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="new inst 0x85 I2l" />
     <MESSAGE value="update GetPrimitive(),suppose to get 'double'" />
     <MESSAGE value="Use fixed size values instead of maxlocal,maxstack" />
     <MESSAGE value="new inst 0x79 lshl" />
@@ -772,7 +770,8 @@
     <MESSAGE value="refactor: InvokeMethod add setArguments()" />
     <MESSAGE value="refactor: to simplify the newFrame()" />
     <MESSAGE value="refactor: to simplify the dup" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: to simplify the dup" />
+    <MESSAGE value="update: java.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: java.class" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
