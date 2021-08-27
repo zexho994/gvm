@@ -29,7 +29,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="update: 补充java示例" />
+    <list default="true" id="04b0423a-550d-446c-ba87-c06ffae951af" name="Default Changelist" comment="refactor:">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/initClass.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/initClass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/base/invokeMethod.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/base/invokeMethod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/stack/dup.go" beforeDir="false" afterPath="$PROJECT_DIR$/instructions/stack/dup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/frame.go" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/frame.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/print_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/print_test.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +191,7 @@
       <command value="ass" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test">
+  <component name="RunManager" selected="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -218,7 +226,7 @@
       <pattern value="^\QTestAutoInnc\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestForeach in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDoublePrint in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gvm" />
       <working_directory value="$PROJECT_DIR$/test" />
       <root_directory value="$PROJECT_DIR$" />
@@ -227,7 +235,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestForeach\E$" />
+      <pattern value="^\QTestDoublePrint\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestPersonGenericity in github.com/zouzhihao-994/gvm/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -267,18 +275,18 @@
     </configuration>
     <list>
       <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestForeach in github.com/zouzhihao-994/gvm/test" />
-      <item itemvalue="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test" />
       <item itemvalue="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
+      <item itemvalue="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestSonGenericity in github.com/zouzhihao-994/gvm/test" />
-        <item itemvalue="Go Test.TestForeach in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestPersonGenericity in github.com/zouzhihao-994/gvm/test" />
+        <item itemvalue="Go Test.TestDoublePrint in github.com/zouzhihao-994/gvm/test" />
         <item itemvalue="Go Test.TestAllPrintOut in github.com/zouzhihao-994/gvm/test" />
+        <item itemvalue="Go Test.TestAutoInnc in github.com/zouzhihao-994/gvm/test" />
       </list>
     </recent_temporary>
   </component>
@@ -321,13 +329,7 @@
       <workItem from="1621935099844" duration="20380000" />
       <workItem from="1622003548315" duration="5126000" />
       <workItem from="1629865503903" duration="2594000" />
-    </task>
-    <task id="LOCAL-00118" summary="OopInstance jArray -&gt; *JArray">
-      <created>1621848282777</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1621848282777</updated>
+      <workItem from="1630028450045" duration="2327000" />
     </task>
     <task id="LOCAL-00119" summary="OopInstance klassInstance -&gt; *Klass">
       <created>1621848364002</created>
@@ -665,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629940555524</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="refactor: InvokeMethod add setArguments()">
+      <created>1630028649959</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1630028649959</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -740,7 +749,6 @@
       <path value="$PROJECT_DIR$/src/go.uber.org/zap" />
       <path value="$PROJECT_DIR$/src/golang.org/x/sys" />
     </ignored-roots>
-    <MESSAGE value="bugfix: native method attrCode , 0xbc -&gt; 0xac" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add native method floatToRawIntBits()" />
     <MESSAGE value="new inst 0x85 I2l" />
@@ -765,7 +773,8 @@
     <MESSAGE value="fix: lload、lstore、dload、dstore index error" />
     <MESSAGE value="refactor: interpreter loop()" />
     <MESSAGE value="update: checkcast 添加String类型判断" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: checkcast 添加String类型判断" />
+    <MESSAGE value="refactor: InvokeMethod add setArguments()" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: InvokeMethod add setArguments()" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
