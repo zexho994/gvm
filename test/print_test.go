@@ -14,6 +14,14 @@ func TestAutoInnc(t *testing.T) {
 	launcher.StartVM()
 }
 
+// test if...else..., while, for
+func TestCompare(t *testing.T) {
+	config.ClassName = "LogicTest"
+	config.JrePath = config.JrePathDefault
+	config.ClassPath = config.UserClassPathDefault + "/compare"
+	launcher.StartVM()
+}
+
 // test print
 func TestAllPrintOut(t *testing.T) {
 	config.ClassName = "PrintOut"
@@ -38,7 +46,7 @@ func TestPersonGenericity(t *testing.T) {
 	launcher.StartVM()
 }
 
-// 测试
+// 测试泛型上界
 func TestSonGenericity(t *testing.T) {
 	config.ClassName = "Son"
 	config.JrePath = config.JrePathDefault
@@ -46,10 +54,10 @@ func TestSonGenericity(t *testing.T) {
 	launcher.StartVM()
 }
 
-// test foreach
-func TestForeach(t *testing.T) {
-	config.ClassName = "Foreach"
+// test invokevirtual
+func TestInvoke(t *testing.T) {
+	config.ClassName = "InvokeVirtual"
 	config.JrePath = config.JrePathDefault
-	config.ClassPath = config.UserClassPathDefault + "/compare"
+	config.ClassPath = config.UserClassPathDefault + "/invoke"
 	launcher.StartVM()
 }

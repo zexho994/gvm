@@ -17,8 +17,7 @@ func StartVM() {
 	k := klass.ParseToKlass(loader.NewClassReader(classFile))
 	mainMethod := mainMethod(k)
 	mainThread := createMainThread()
-	code, _ := mainMethod.AttrCode()
-	newFrame := runtime.NewFrame(code.MaxLocals, code.MaxStack, mainMethod, mainThread)
+	newFrame := runtime.NewFrame(mainMethod, mainThread)
 	mainThread.PushFrame(newFrame)
 
 	//initSystemProperties(mainThread)
@@ -35,7 +34,7 @@ func initSystemProperties(thread *runtime.Thread) {
 	if len(solt) == 0 || solt[0].Ref == nil {
 		thread.RevertFramePC()
 		initSys, _ := sysClass.FindStaticMethod("initializeSystemClass", "()V")
-		initSysFrame := runtime.NewFrame(4, 4, initSys, thread)
+		initSysFrame := runtime.NewFrame(initSys, thread)
 		thread.PushFrame(initSysFrame)
 	}
 }
