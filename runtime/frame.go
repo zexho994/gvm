@@ -32,16 +32,13 @@ func (f *Frame) RevertPC() {
 	f.framePC = f.Thread.pc
 }
 
-func NewFrame(maxlocals, maxStack uint16, method *klass.MethodKlass, thread *Thread) *Frame {
-	//return &Frame{
-	//	LocalVars:    NewLocalVars(maxlocals),
-	//	OperandStack: NewOperandStack(maxStack),
-	//	MethodKlass:   method,
-	//	Thread:       thread,
-	//}
+func NewFrame(method *klass.MethodKlass, thread *Thread) *Frame {
+	attrCode, _ := method.AttrCode()
+	maxlocals := attrCode.MaxLocals
+	maxStack := attrCode.MaxStack
 	return &Frame{
-		LocalVars:    NewLocalVars(10),
-		OperandStack: NewOperandStack(10),
+		LocalVars:    NewLocalVars(maxlocals),
+		OperandStack: NewOperandStack(maxStack),
 		MethodKlass:  method,
 		Thread:       thread,
 	}

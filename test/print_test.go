@@ -38,18 +38,10 @@ func TestPersonGenericity(t *testing.T) {
 	launcher.StartVM()
 }
 
-// 测试
+// 测试泛型上界
 func TestSonGenericity(t *testing.T) {
 	config.ClassName = "Son"
 	config.JrePath = config.JrePathDefault
 	config.ClassPath = config.UserClassPathDefault + "/genericity"
-	launcher.StartVM()
-}
-
-// test foreach
-func TestForeach(t *testing.T) {
-	config.ClassName = "Foreach"
-	config.JrePath = config.JrePathDefault
-	config.ClassPath = config.UserClassPathDefault + "/compare"
 	launcher.StartVM()
 }

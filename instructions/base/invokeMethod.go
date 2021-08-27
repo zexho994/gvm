@@ -18,8 +18,7 @@ func InvokeMethod(frame *runtime.Frame, method *klass.MethodKlass, isStatic bool
 	}
 
 	invokerThread := frame.Thread
-	attrCode, _ := method.AttrCode()
-	newFrame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, method, invokerThread)
+	newFrame := runtime.NewFrame(method, invokerThread)
 
 	setArguments(frame, newFrame, method, isStatic)
 

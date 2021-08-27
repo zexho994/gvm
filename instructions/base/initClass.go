@@ -15,12 +15,7 @@ func InitClass(k *klass.Klass, thread *runtime.Thread) {
 	clinitMethod, exist := k.Methods.GetClinitMethod()
 	k.IsInit = true
 	if exist {
-		attrCode, err := clinitMethod.AttrCode()
-		if err != nil {
-			panic(err.Error())
-		}
-
-		frame := runtime.NewFrame(attrCode.MaxLocals, attrCode.MaxStack, clinitMethod, thread)
+		frame := runtime.NewFrame(clinitMethod, thread)
 		thread.PushFrame(frame)
 	}
 
